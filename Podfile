@@ -16,5 +16,10 @@ target 'lingzhi' do
     inherit! :search_paths
     # Pods for testing
   end
-
+pod 'Masonry'
+pod 'MJRefresh'
+pod 'IQKeyboardManager', '~> 3.3.1'
+pod 'YYWebImage'
+pod 'AFNetworking', '~> 3.0.4'
+pod 'MBProgressHUD', '~> 1.0.0’
 end
