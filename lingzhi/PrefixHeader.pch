@@ -11,5 +11,18 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
-
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "Constants.h"
+#import "CAToast.h"
+#import "WTFont.h"
+#import "AppDelegate.h"
+#import "YXUniversal.h"
 #endif /* PrefixHeader_pch */
+
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define NSLog(...)
+#define debugMethod()
+#endif

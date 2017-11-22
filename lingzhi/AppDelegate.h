@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WXApi.h"//微信SDK
+#import <TencentOpenAPI/TencentApiInterface.h>//qqSDK
+#import "WeiboSDK.h"//weibo
+#import "MTShareModule.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property(strong, nonatomic) MTShareModule *shareModuleDelegate;
 
 @end
 
