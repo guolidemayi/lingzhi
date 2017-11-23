@@ -2,7 +2,7 @@
 //  GLD_BaseViewController.m
 //  lingzhi
 //
-//  Created by yiyangkeji on 2017/11/20.
+//  Created by yiyangkeji on 2017/11/23.
 //  Copyright © 2017年 com.lingzhi. All rights reserved.
 //
 
@@ -23,7 +23,25 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)outLayoutSelfSubviews
+{
+    for (UIView *views in self.view.subviews) {
+        views.frame = WTCGRectMake(views.frame);
+        
+        if ([views isKindOfClass:[UIWebView class]]) {
+            continue;
+        }
+        if ([views isKindOfClass:[UIButton class]]) {
+            continue;
+        }
+        if ([views isKindOfClass:[UISearchBar class]]){
+            continue;
+        }
+        for (UIView *subViews in views.subviews) {
+            subViews.frame = WTCGRectMake(subViews.frame);
+        }
+    }
+}
 /*
 #pragma mark - Navigation
 

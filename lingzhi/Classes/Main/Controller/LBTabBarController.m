@@ -7,14 +7,14 @@
 //
 
 #import "LBTabBarController.h"
-#import "LBNavigationController.h"
+#import "GLD_BaseNavController.h"
 
 #import "LBFishViewController.h"
 #import "LBHomeViewController.h"
 #import "LBMineViewController.h"
 #import "LBpostViewController.h"
 #import "LBMessageViewController.h"
-
+#import <AVFoundation/AVFoundation.h>
 #import "LBTabBar.h"
 #import "UIImage+Image.h"
 
@@ -94,7 +94,7 @@
  */
 - (void)setUpOneChildVcWithVc:(UIViewController *)Vc Image:(NSString *)image selectedImage:(NSString *)selectedImage title:(NSString *)title
 {
-    LBNavigationController *nav = [[LBNavigationController alloc] initWithRootViewController:Vc];
+    GLD_BaseNavController *nav = [[GLD_BaseNavController alloc] initWithRootViewController:Vc];
 
 
     Vc.view.backgroundColor = [self randomColor];
@@ -125,19 +125,63 @@
 //点击中间按钮的代理方法
 - (void)tabBarPlusBtnClick:(LBTabBar *)tabBar
 {
-
-
-    LBpostViewController *plusVC = [[LBpostViewController alloc] init];
-    plusVC.view.backgroundColor = [self randomColor];
-
-    LBNavigationController *navVc = [[LBNavigationController alloc] initWithRootViewController:plusVC];
-
-    [self presentViewController:navVc animated:YES completion:nil];
-
-
-
+    [self scanningQRCode];
 }
-
+/** 扫描二维码方法 */
+- (void)scanningQRCode {
+    // 1、 获取摄像设备
+    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    if (device) {
+        AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+        if (status == AVAuthorizationStatusNotDetermined) {
+            [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
+                if (granted) {
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        LBpostViewController *plusVC = [[LBpostViewController alloc] init];
+                        plusVC.view.backgroundColor = [self randomColor];
+                        
+                        GLD_BaseNavController *navVc = [[GLD_BaseNavController alloc] initWithRootViewController:plusVC];
+                        
+                        [self presentViewController:navVc animated:YES completion:nil];
+                    });
+                    // 用户第一次同意了访问相机权限
+                    NSLog(@"用户第一次同意了访问相机权限 - - %@", [NSThread currentThread]);
+                    
+                } else {
+                    // 用户第一次拒绝了访问相机权限
+                    NSLog(@"用户第一次拒绝了访问相机权限 - - %@", [NSThread currentThread]);
+                }
+            }];
+        } else if (status == AVAuthorizationStatusAuthorized) { // 用户允许当前应用访问相机
+            LBpostViewController *plusVC = [[LBpostViewController alloc] init];
+            plusVC.view.backgroundColor = [self randomColor];
+            
+            GLD_BaseNavController *navVc = [[GLD_BaseNavController alloc] initWithRootViewController:plusVC];
+            
+            [self presentViewController:navVc animated:YES completion:nil];
+        } else if (status == AVAuthorizationStatusDenied) { // 用户拒绝当前应用访问相机
+            UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"请去-> [设置 - 隐私 - 相机 - SGQRCodeExample] 打开访问开关" preferredStyle:(UIAlertControllerStyleAlert)];
+            UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+                
+            }];
+            
+            [alertC addAction:alertA];
+            [self presentViewController:alertC animated:YES completion:nil];
+            
+        } else if (status == AVAuthorizationStatusRestricted) {
+            NSLog(@"因为系统原因, 无法访问相册");
+        }
+    } else {
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"未检测到您的摄像头" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+            
+        }];
+        
+        [alertC addAction:alertA];
+        [self presentViewController:alertC animated:YES completion:nil];
+    }
+    
+}
 
 - (UIColor *)randomColor
 {

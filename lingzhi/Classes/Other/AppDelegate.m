@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
-
+#import "AFNetworkReachabilityManager.h"
 #import "LBTabBarController.h"
+#import "YXFlashAdViewController.h"
+#import "WTBootPageStartViewController.h"
 
 #define LBKeyWindow [UIApplication sharedApplication].keyWindow
 @interface AppDelegate ()
@@ -17,32 +19,103 @@
 
 @implementation AppDelegate
 
++ (AppDelegate *)shareDelegate {
+    return (AppDelegate *) [[UIApplication sharedApplication] delegate];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
 
-    LBTabBarController *tabBarVc = [[LBTabBarController alloc] init];
-
-
-//    CATransition *anim = [[CATransition alloc] init];
-//    anim.type = @"rippleEffect";
-//    anim.duration = 1.0;
-//
-//
-//    [self.window.layer addAnimation:anim forKey:nil];
-
-
-    self.window.rootViewController = tabBarVc;
-
-
-
-    
-    [self.window makeKeyAndVisible];
+    [self initMainPageBody];
 
     return YES;
 }
 
+#pragma mark -- initView
+/**
+ * 欢迎页面
+ */
+- (void)initSplashView {
+    NSString *isfirstLogin = [[NSUserDefaults standardUserDefaults] objectForKey:isFirstLogin];
+    
+    if (isfirstLogin == nil || isfirstLogin.length == 0) {
+        //首次启动进入欢迎页
+        [self gotoBootPageStartVCtrl];
+        
+        return;
+    } else {
+        //非首次启动，执行自动登录
+        [self initFlashAdViewController];
+    }
+    
+}
+/**
+ * 进入欢迎引导页
+ */
+- (void)gotoBootPageStartVCtrl {
+    //进入欢迎页
+    UIStoryboard *bootPageStroyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    WTBootPageStartViewController *bootPageStartVCtrl = (WTBootPageStartViewController *) [bootPageStroyboard instantiateViewControllerWithIdentifier:@"WTBootPageStartViewController"];
+
+    [AppDelegate shareDelegate].window.rootViewController = bootPageStartVCtrl;
+}/**
+ * 进入广告页
+ */
+- (void)initFlashAdViewController {
+    
+    
+    UIStoryboard *bootPageStroyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    YXFlashAdViewController *flashAdVCtrl = (YXFlashAdViewController *) [bootPageStroyboard instantiateViewControllerWithIdentifier:@"YXFlashAdViewController"];
+GLD_BaseNavController *rootViewController = [[GLD_BaseNavController alloc] initWithRootViewController:flashAdVCtrl background:[YXUniversal createImageWithColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE]] font:[UIFont systemFontOfSize:18.0] textColor:[YXUniversal colorWithHexString:@"fafdff"] shadowColor:[UIColor clearColor]];
+    
+    self.window.rootViewController = rootViewController;
+}
+
+- (void)initMainPageBody{
+    LBTabBarController *tabBarVc = [[LBTabBarController alloc] init];
+    
+    
+    //    CATransition *anim = [[CATransition alloc] init];
+    //    anim.type = @"rippleEffect";
+    //    anim.duration = 1.0;
+    //
+    //
+    //    [self.window.layer addAnimation:anim forKey:nil];
+    
+    self.window.rootViewController = tabBarVc;
+    
+    [self.window makeKeyAndVisible];
+}
+// 检测网络状态
+- (void)detectionReachabilityStatus {
+    
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (status == AFNetworkReachabilityStatusNotReachable) {
+            // 无网络
+//            [AppDelegate shareDelegate].reachabilityStatus = 3;
+            
+        } else if (status == AFNetworkReachabilityStatusReachableViaWiFi) {
+            // wifi
+//            [AppDelegate shareDelegate].reachabilityStatus = 2;
+            
+            
+        } else if (status == AFNetworkReachabilityStatusReachableViaWWAN) {
+            // 移动网络
+//            [AppDelegate shareDelegate].reachabilityStatus = 1;
+
+            //            [[NSNotificationCenter defaultCenter]postNotificationName:@"ReachabilityStatusReachableViaWWAN" object:nil];
+            //停止下载
+        } else {
+            // 未知网络
+//            [AppDelegate shareDelegate].reachabilityStatus = -1;
+        }
+        
+        
+    }];
+    
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
