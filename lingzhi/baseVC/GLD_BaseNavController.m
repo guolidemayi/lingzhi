@@ -21,7 +21,7 @@
 {
     
     
-    UIBarButtonItem *item=[UIBarButtonItem appearanceWhenContainedIn:self, nil ];
+    UIBarButtonItem *item=[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[self]];
     NSMutableDictionary *dic=[NSMutableDictionary dictionary];
     dic[NSFontAttributeName]=[UIFont systemFontOfSize:15];
     dic[NSForegroundColorAttributeName]=[UIColor blackColor];

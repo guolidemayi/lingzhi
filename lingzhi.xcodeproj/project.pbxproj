@@ -77,6 +77,7 @@
 		0FB5373A1FC6D22A00B0EDA6 /* SGQRCodeScanManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5372E1FC6D22900B0EDA6 /* SGQRCodeScanManager.m */; };
 		0FB5373B1FC6D22A00B0EDA6 /* SGQRCodeGenerateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5372F1FC6D22900B0EDA6 /* SGQRCodeGenerateManager.m */; };
 		0FB5373C1FC6D22A00B0EDA6 /* SGQRCodeAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB537341FC6D22900B0EDA6 /* SGQRCodeAlbumManager.m */; };
+		0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */; };
 		5B3789A9B5E4EF8A0BE2141F /* libPods-lingzhiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */; };
 		64BFBA665871E50399A6E013 /* libPods-lingzhi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C3E6708F716104D709C04A /* libPods-lingzhi.a */; };
 		F0A7198DA2A1E213B7CC7C9C /* libPods-lingzhiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E906A1C335114CAF15749D10 /* libPods-lingzhiUITests.a */; };
@@ -231,6 +232,8 @@
 		0FB537331FC6D22900B0EDA6 /* SGQRCodeScanManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQRCodeScanManager.h; sourceTree = "<group>"; };
 		0FB537341FC6D22900B0EDA6 /* SGQRCodeAlbumManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGQRCodeAlbumManager.m; sourceTree = "<group>"; };
 		0FB537351FC6D22900B0EDA6 /* SGQRCodeGenerateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQRCodeGenerateManager.h; sourceTree = "<group>"; };
+		0FB5373E1FC7C99B00B0EDA6 /* GLD_CustomBut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CustomBut.h; sourceTree = "<group>"; };
+		0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CustomBut.m; sourceTree = "<group>"; };
 		2AFF7DFDC2A100A721211A54 /* Pods-lingzhiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiUITests/Pods-lingzhiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		98830999E513C9AF0ABA2FD1 /* Pods-lingzhiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiTests/Pods-lingzhiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B71A964312F2EC99F300DABB /* Pods-lingzhi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhi/Pods-lingzhi.debug.xcconfig"; sourceTree = "<group>"; };
@@ -350,6 +353,8 @@
 				0F298E751FC2CFC200EDBA9A /* WTFont */,
 				0F298E781FC2CFC200EDBA9A /* YXUniversal.h */,
 				0F298E791FC2CFC200EDBA9A /* YXUniversal.m */,
+				0FB5373E1FC7C99B00B0EDA6 /* GLD_CustomBut.h */,
+				0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1051,6 +1056,7 @@
 				0FB537001FC5887C00B0EDA6 /* main.m in Sources */,
 				0FB5373C1FC6D22A00B0EDA6 /* SGQRCodeAlbumManager.m in Sources */,
 				0FB537021FC5887C00B0EDA6 /* LBMessageViewController.m in Sources */,
+				0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */,
 				0F298E7B1FC2CFC200EDBA9A /* GLD_CarouselCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1232,7 +1238,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lingzhi.li;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1258,7 +1264,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lingzhi.li;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

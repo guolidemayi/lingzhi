@@ -10,4 +10,6 @@
 
 @interface GLD_CustomBut : UIButton
 
+- (void)title:(NSString *)title;
+- (void)image:(NSString *)image;
 @end

@@ -10,15 +10,17 @@
 #import "GLD_LocationHelp.h"
 #import <MapKit/MapKit.h>
 #import "MapNavigationManager.h"
+#import "GLD_CustomBut.h"
 
 @interface LBHomeViewController ()
 {
     
     NSString * currentCity; //当前城市
 }
-@property (nonatomic,assign) CLLocationCoordinate2D coordinate;  //!< 要导航的坐标
+@property (nonatomic, weak)GLD_CustomBut *locationBut;
 @end
-#define IS_SystemVersionGreaterThanEight  ([UIDevice currentDevice].systemVersion.doubleValue >= 8.0)
+
+
 @implementation LBHomeViewController
 
 - (void)viewDidLoad {
@@ -30,12 +32,39 @@
     [but addTarget:self action:@selector(mapNav) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:but];
     //导航到深圳火车站
-    self.coordinate = CLLocationCoordinate2DMake(22.53183, 114.117206);
+    [self setNavUi];
+}
+
+- (void)setNavUi{
+    GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
+    self.locationBut = locationBut;
+    locationBut.frame = CGRectMake(0, 0, 50, 44);
+    [locationBut image:@"header_back_icon"];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:locationBut];
+    self.navigationItem.leftBarButtonItem = item;
+    
+    UIButton *titleBut = [UIButton buttonWithType:UIButtonTypeCustom];
+    [titleBut setTitle:@"搜索" forState:UIControlStateNormal];
+    [titleBut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [titleBut setImage:WTImage(@"搜索-搜索") forState:UIControlStateNormal];
+    titleBut.frame = CGRectMake(0, 0, 150, 40);
+    titleBut.layer.cornerRadius = 20;
+    titleBut.layer.masksToBounds = YES;
+    titleBut.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.titleView = titleBut;
+    
+    GLD_CustomBut *rightBut = [[GLD_CustomBut alloc]init];;
+    
+    rightBut.frame = CGRectMake(0, 0, 50, 44);
+    [rightBut image:@"header_back_icon"];
+    
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
+    self.navigationItem.rightBarButtonItem = item1;
+    
 }
 
 - (void)mapNav{
-    
-    
     [MapNavigationManager showSheetWithCity:self.title start:@"北京" end:@"上海"];
 }
 
@@ -50,7 +79,8 @@
         
 //            cityLocationView.cityButton.enabled = YES;
 //            cityLocationView.locationCity = placemark.locality;
-            self.title = placemark.locality;
+//            self.title = placemark.locality;
+            [self.locationBut title:placemark.locality];
 //            if (weakSelf.Id == 0) {
 //                BOOL flag = NO;
 //                for (SLCity *city in weakSelf.cityModel.hotCity) {
@@ -76,7 +106,8 @@
             
         } else {
 //            cityLocationView.cityButton.enabled = NO;
-            self.title = @"定位失败";
+            
+            [self.locationBut title:@"定位失败"];
         }
         
     } status:^(CLAuthorizationStatus status) {
@@ -94,13 +125,14 @@
             [weakSelf presentViewController:alertController animated:YES completion:nil];
         } else {
             
-            self.title = @"定位中...";
+//            self.title = @"定位中...";
 //            cityLocationView.cityButton.enabled = NO;
+            [self.locationBut title:@"定位中..."];
         }
         
         
     } didFailWithError:^(NSError *error) {
-        self.title = @"定位失败";
+        [self.locationBut title:@"定位失败"];
 //        cityLocationView.cityButton.enabled = NO;
         
     }];
