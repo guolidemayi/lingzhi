@@ -22,4 +22,5 @@ pod 'IQKeyboardManager', '~> 3.3.1'
 pod 'YYWebImage'
 pod 'AFNetworking', '~> 3.0.4'
 pod 'MBProgressHUD', '~> 1.0.0’
+pod 'ReactiveObjC'
 end
