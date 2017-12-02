@@ -21,7 +21,9 @@
 #import <Masonry.h>
 #import "ReactiveObjC.h"
 #import "AppDelegate.h"
-
+#import "MJRefresh.h"
+#import "GLD_RefreshHeader.h"
+#import "YXFooterRefresh.h"
 #endif /* PrefixHeader_pch */
 
 #ifdef DEBUG

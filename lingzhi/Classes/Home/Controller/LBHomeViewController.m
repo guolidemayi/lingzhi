@@ -11,6 +11,7 @@
 #import <MapKit/MapKit.h>
 #import "MapNavigationManager.h"
 #import "GLD_CustomBut.h"
+#import "GLD_HomeViewManager.h"
 
 @interface LBHomeViewController ()
 {
@@ -18,6 +19,9 @@
     NSString * currentCity; //当前城市
 }
 @property (nonatomic, weak)GLD_CustomBut *locationBut;
+
+@property (nonatomic, copy)UITableView *home_table;
+@property (nonatomic, strong)GLD_HomeViewManager *homeManager;
 @end
 
 
@@ -26,11 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.homeManager = [[GLD_HomeViewManager alloc]initWithTableView:self.home_table];
+    [self.homeManager fetchMainData];
     [self startLocation];
-    UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(100, 200, 50, 50)];
-    [but setTitle:@"ditu" forState:UIControlStateNormal];
-    [but addTarget:self action:@selector(mapNav) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:but];
     //导航到深圳火车站
     [self setNavUi];
 }
@@ -69,6 +72,18 @@
 }
 
 
+- (UITableView *)home_table{
+    if (!_home_table) {
+        UITableView *table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        [self.view addSubview:table];
+        [table mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view);
+        }];
+        _home_table = table;
+    }
+    return _home_table;
+}
+//定位
 - (void)startLocation
 {
     
@@ -76,37 +91,12 @@
     [[GLD_LocationHelp sharedInstance] getLocationPlacemark:^(CLPlacemark *placemark) {
         
         if (placemark.locality) {
-        
-//            cityLocationView.cityButton.enabled = YES;
-//            cityLocationView.locationCity = placemark.locality;
-//            self.title = placemark.locality;
+
             [self.locationBut title:placemark.locality];
-//            if (weakSelf.Id == 0) {
-//                BOOL flag = NO;
-//                for (SLCity *city in weakSelf.cityModel.hotCity) {
-//                    if ([placemark.locality containsString:city.name]) {
-//                        weakSelf.Id = city.Id;
-//                        flag = YES;
-//                        break;
-//                    }
-//                }
-//                if (!flag) {
-//                    for (SLCityList *cityList in weakSelf.cityModel.list) {
-//                        for (SLCity *city in cityList.citys) {
-//                            if ([placemark.locality containsString:city.name]) {
-//                                weakSelf.Id = city.Id;
-//                                break;
-//                            }
-//
-//                        }
-//                    }
-//                }
-//            }
-        
+ 
             
         } else {
-//            cityLocationView.cityButton.enabled = NO;
-            
+
             [self.locationBut title:@"定位失败"];
         }
         
@@ -124,16 +114,13 @@
             [alertController addAction:okAction];
             [weakSelf presentViewController:alertController animated:YES completion:nil];
         } else {
-            
-//            self.title = @"定位中...";
-//            cityLocationView.cityButton.enabled = NO;
             [self.locationBut title:@"定位中..."];
         }
         
         
     } didFailWithError:^(NSError *error) {
         [self.locationBut title:@"定位失败"];
-//        cityLocationView.cityButton.enabled = NO;
+
         
     }];
 }

@@ -52,6 +52,14 @@
 		0F60E9C81FC2754300C5E113 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F60E9C61FC2754300C5E113 /* LaunchScreen.storyboard */; };
 		0F60E9D51FC2754300C5E113 /* lingzhiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F60E9D41FC2754300C5E113 /* lingzhiTests.m */; };
 		0F60E9E01FC2754300C5E113 /* lingzhiUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F60E9DF1FC2754300C5E113 /* lingzhiUITests.m */; };
+		0F9920061FCEDDE800305DF3 /* GLD_HomeViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920051FCEDDE800305DF3 /* GLD_HomeViewManager.m */; };
+		0F99200C1FCEDEE800305DF3 /* YXFooterRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920081FCEDEE800305DF3 /* YXFooterRefresh.m */; };
+		0F99200D1FCEDEE900305DF3 /* GLD_RefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920091FCEDEE800305DF3 /* GLD_RefreshHeader.m */; };
+		0F9920101FCEE1AA00305DF3 /* GLD_BaseTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F99200F1FCEE1AA00305DF3 /* GLD_BaseTableManager.m */; };
+		0F9920151FCEEA5900305DF3 /* GLD_BannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920141FCEEA5900305DF3 /* GLD_BannerCell.m */; };
+		0F9920181FCEEFED00305DF3 /* GLD_HomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920171FCEEFED00305DF3 /* GLD_HomeListCell.m */; };
+		0F99201B1FCEF04500305DF3 /* GLD_BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F99201A1FCEF04500305DF3 /* GLD_BaseCell.m */; };
+		0F99201E1FCEF81E00305DF3 /* GLD_BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F99201D1FCEF81E00305DF3 /* GLD_BusinessCell.m */; };
 		0FB536FE1FC5887C00B0EDA6 /* LBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB536DA1FC5887C00B0EDA6 /* LBHomeViewController.m */; };
 		0FB536FF1FC5887C00B0EDA6 /* LBpostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB536DE1FC5887C00B0EDA6 /* LBpostViewController.m */; };
 		0FB537001FC5887C00B0EDA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB536E21FC5887C00B0EDA6 /* main.m */; };
@@ -183,6 +191,23 @@
 		0F60E9DB1FC2754300C5E113 /* lingzhiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lingzhiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F60E9DF1FC2754300C5E113 /* lingzhiUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lingzhiUITests.m; sourceTree = "<group>"; };
 		0F60E9E11FC2754300C5E113 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F9920041FCEDDE800305DF3 /* GLD_HomeViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_HomeViewManager.h; sourceTree = "<group>"; };
+		0F9920051FCEDDE800305DF3 /* GLD_HomeViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_HomeViewManager.m; sourceTree = "<group>"; };
+		0F9920081FCEDEE800305DF3 /* YXFooterRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXFooterRefresh.m; sourceTree = "<group>"; };
+		0F9920091FCEDEE800305DF3 /* GLD_RefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLD_RefreshHeader.m; sourceTree = "<group>"; };
+		0F99200A1FCEDEE800305DF3 /* YXFooterRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXFooterRefresh.h; sourceTree = "<group>"; };
+		0F99200B1FCEDEE800305DF3 /* GLD_RefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLD_RefreshHeader.h; sourceTree = "<group>"; };
+		0F99200E1FCEE1AA00305DF3 /* GLD_BaseTableManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BaseTableManager.h; sourceTree = "<group>"; };
+		0F99200F1FCEE1AA00305DF3 /* GLD_BaseTableManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BaseTableManager.m; sourceTree = "<group>"; };
+		0F9920111FCEE24100305DF3 /* GLD_BaseTableManager+table_extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GLD_BaseTableManager+table_extension.h"; sourceTree = "<group>"; };
+		0F9920131FCEEA5900305DF3 /* GLD_BannerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BannerCell.h; sourceTree = "<group>"; };
+		0F9920141FCEEA5900305DF3 /* GLD_BannerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BannerCell.m; sourceTree = "<group>"; };
+		0F9920161FCEEFED00305DF3 /* GLD_HomeListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_HomeListCell.h; sourceTree = "<group>"; };
+		0F9920171FCEEFED00305DF3 /* GLD_HomeListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_HomeListCell.m; sourceTree = "<group>"; };
+		0F9920191FCEF04500305DF3 /* GLD_BaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BaseCell.h; sourceTree = "<group>"; };
+		0F99201A1FCEF04500305DF3 /* GLD_BaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BaseCell.m; sourceTree = "<group>"; };
+		0F99201C1FCEF81E00305DF3 /* GLD_BusinessCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BusinessCell.h; sourceTree = "<group>"; };
+		0F99201D1FCEF81E00305DF3 /* GLD_BusinessCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BusinessCell.m; sourceTree = "<group>"; };
 		0FB536DA1FC5887C00B0EDA6 /* LBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBHomeViewController.m; sourceTree = "<group>"; };
 		0FB536DB1FC5887C00B0EDA6 /* LBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBHomeViewController.h; sourceTree = "<group>"; };
 		0FB536DE1FC5887C00B0EDA6 /* LBpostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBpostViewController.m; sourceTree = "<group>"; };
@@ -330,6 +355,11 @@
 				0FB537171FC6A1F100B0EDA6 /* GLD_BaseViewController.m */,
 				0F298E8A1FC2CFD000EDBA9A /* UINavigationController+FDFullscreenPopGesture.h */,
 				0F298E891FC2CFD000EDBA9A /* UINavigationController+FDFullscreenPopGesture.m */,
+				0F99200E1FCEE1AA00305DF3 /* GLD_BaseTableManager.h */,
+				0F99200F1FCEE1AA00305DF3 /* GLD_BaseTableManager.m */,
+				0F9920191FCEF04500305DF3 /* GLD_BaseCell.h */,
+				0F99201A1FCEF04500305DF3 /* GLD_BaseCell.m */,
+				0F9920111FCEE24100305DF3 /* GLD_BaseTableManager+table_extension.h */,
 			);
 			path = baseVC;
 			sourceTree = "<group>";
@@ -337,6 +367,7 @@
 		0F298E571FC2CFC200EDBA9A /* common */ = {
 			isa = PBXGroup;
 			children = (
+				0F9920071FCEDEE800305DF3 /* refresh */,
 				0F298E581FC2CFC200EDBA9A /* CAToast.h */,
 				0F298E591FC2CFC200EDBA9A /* CAToast.m */,
 				0F298E5A1FC2CFC200EDBA9A /* Constants.h */,
@@ -504,6 +535,31 @@
 			path = lingzhiUITests;
 			sourceTree = "<group>";
 		};
+		0F9920071FCEDEE800305DF3 /* refresh */ = {
+			isa = PBXGroup;
+			children = (
+				0F99200A1FCEDEE800305DF3 /* YXFooterRefresh.h */,
+				0F9920081FCEDEE800305DF3 /* YXFooterRefresh.m */,
+				0F99200B1FCEDEE800305DF3 /* GLD_RefreshHeader.h */,
+				0F9920091FCEDEE800305DF3 /* GLD_RefreshHeader.m */,
+			);
+			name = refresh;
+			path = lingzhi/refresh;
+			sourceTree = SOURCE_ROOT;
+		};
+		0F9920121FCEEA0C00305DF3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F9920131FCEEA5900305DF3 /* GLD_BannerCell.h */,
+				0F9920141FCEEA5900305DF3 /* GLD_BannerCell.m */,
+				0F9920161FCEEFED00305DF3 /* GLD_HomeListCell.h */,
+				0F9920171FCEEFED00305DF3 /* GLD_HomeListCell.m */,
+				0F99201C1FCEF81E00305DF3 /* GLD_BusinessCell.h */,
+				0F99201D1FCEF81E00305DF3 /* GLD_BusinessCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		0FB536D71FC5887C00B0EDA6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -521,6 +577,7 @@
 		0FB536D81FC5887C00B0EDA6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0F9920121FCEEA0C00305DF3 /* View */,
 				0FB536D91FC5887C00B0EDA6 /* Controller */,
 			);
 			path = Home;
@@ -531,6 +588,8 @@
 			children = (
 				0FB536DB1FC5887C00B0EDA6 /* LBHomeViewController.h */,
 				0FB536DA1FC5887C00B0EDA6 /* LBHomeViewController.m */,
+				0F9920041FCEDDE800305DF3 /* GLD_HomeViewManager.h */,
+				0F9920051FCEDDE800305DF3 /* GLD_HomeViewManager.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1024,16 +1083,19 @@
 				0FB5371E1FC6AA7A00B0EDA6 /* WTBootPageStartViewController.m in Sources */,
 				0F298E821FC2CFC200EDBA9A /* MTShareModule.m in Sources */,
 				0F298E521FC2CA7200EDBA9A /* GLD_BaseNavController.m in Sources */,
+				0F9920061FCEDDE800305DF3 /* GLD_HomeViewManager.m in Sources */,
 				0FB537241FC6C47000B0EDA6 /* MapNavigationManager.m in Sources */,
 				0FB537211FC6B9C100B0EDA6 /* GLD_LocationHelp.m in Sources */,
 				0F298E831FC2CFC200EDBA9A /* MTShareView.m in Sources */,
 				0F298E7D1FC2CFC200EDBA9A /* GLD_ImageCarouselView.m in Sources */,
 				0FB537141FC6A16500B0EDA6 /* GLD_LoginController.m in Sources */,
 				0F60E9C01FC2754300C5E113 /* ViewController.m in Sources */,
+				0F9920101FCEE1AA00305DF3 /* GLD_BaseTableManager.m in Sources */,
 				0F298E871FC2CFC200EDBA9A /* WTFont.m in Sources */,
 				0FB537391FC6D22A00B0EDA6 /* SGQRCodeScanningView.m in Sources */,
 				0FB5373A1FC6D22A00B0EDA6 /* SGQRCodeScanManager.m in Sources */,
 				0FB537051FC5887C00B0EDA6 /* UIImage+Image.m in Sources */,
+				0F9920181FCEEFED00305DF3 /* GLD_HomeListCell.m in Sources */,
 				0FB537031FC5887C00B0EDA6 /* LBMineViewController.m in Sources */,
 				0F298E7F1FC2CFC200EDBA9A /* OCPublicEngine.m in Sources */,
 				0FB536FE1FC5887C00B0EDA6 /* LBHomeViewController.m in Sources */,
@@ -1046,18 +1108,23 @@
 				0FB537151FC6A16500B0EDA6 /* YXFlashAdViewController.m in Sources */,
 				0FB537371FC6D22A00B0EDA6 /* UIImage+ImageSize.m in Sources */,
 				0F298E7A1FC2CFC200EDBA9A /* CAToast.m in Sources */,
+				0F99201E1FCEF81E00305DF3 /* GLD_BusinessCell.m in Sources */,
 				0F298E881FC2CFC200EDBA9A /* YXUniversal.m in Sources */,
 				0FB537091FC5887C00B0EDA6 /* LBFishViewController.m in Sources */,
 				0FB536FF1FC5887C00B0EDA6 /* LBpostViewController.m in Sources */,
 				0FB537081FC5887C00B0EDA6 /* LBTabBar.m in Sources */,
+				0F99201B1FCEF04500305DF3 /* GLD_BaseCell.m in Sources */,
 				0FB537041FC5887C00B0EDA6 /* UIView+LBExtension.m in Sources */,
 				0FB537181FC6A1F100B0EDA6 /* GLD_BaseViewController.m in Sources */,
+				0F9920151FCEEA5900305DF3 /* GLD_BannerCell.m in Sources */,
 				0F298E851FC2CFC200EDBA9A /* UIDevice+DeviceMode.m in Sources */,
 				0FB537001FC5887C00B0EDA6 /* main.m in Sources */,
+				0F99200D1FCEDEE900305DF3 /* GLD_RefreshHeader.m in Sources */,
 				0FB5373C1FC6D22A00B0EDA6 /* SGQRCodeAlbumManager.m in Sources */,
 				0FB537021FC5887C00B0EDA6 /* LBMessageViewController.m in Sources */,
 				0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */,
 				0F298E7B1FC2CFC200EDBA9A /* GLD_CarouselCell.m in Sources */,
+				0F99200C1FCEDEE800305DF3 /* YXFooterRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

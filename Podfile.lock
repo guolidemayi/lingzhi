@@ -19,6 +19,11 @@ PODS:
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.15.1)
   - ReactiveObjC (3.0.0)
+  - SDCycleScrollView (1.74):
+    - SDWebImage (>= 4.0.0)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
   - YYCache (1.0.4)
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
@@ -34,6 +39,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 1.0.0)
   - MJRefresh
   - ReactiveObjC
+  - SDCycleScrollView (~> 1.73)
   - YYWebImage
 
 SPEC CHECKSUMS:
@@ -43,10 +49,12 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
+  SDCycleScrollView: f821215226f6146a35470721a9d6e83ec5cfb04b
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: a00f2a1920c5072b3db34c1397471c95be68068c
+PODFILE CHECKSUM: 3e83d0769b4cc5b3afc5a3281e069eb420065106
 
 COCOAPODS: 1.3.1

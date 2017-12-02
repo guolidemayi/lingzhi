@@ -23,4 +23,5 @@ pod 'YYWebImage'
 pod 'AFNetworking', '~> 3.0.4'
 pod 'MBProgressHUD', '~> 1.0.0’
 pod 'ReactiveObjC'
+pod 'SDCycleScrollView','~> 1.73'
 end
