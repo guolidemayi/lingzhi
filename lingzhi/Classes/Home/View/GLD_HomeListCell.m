@@ -7,7 +7,10 @@
 //
 
 #import "GLD_HomeListCell.h"
+#import "GLD_IndustryCollecCell.h"
+#import "GLD_IndustryModel.h"
 
+NSString *const GLD_HomeListCellIdentifier = @"GLD_HomeListCellIdentifier";
 @interface GLD_HomeListCell ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong)UICollectionView *collectionView;
@@ -24,13 +27,13 @@
         make.edges.equalTo(self.collectionView);
     }];
 }
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.listData.count;
+}
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     return [UICollectionViewCell new];
 }
 
-- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.listData.count;
-}
 
 - (UICollectionView *)collectionView{
     if (!_collectionView) {
@@ -50,7 +53,7 @@
         
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"YXNewspeakListCell"];
+        [_collectionView registerClass:[GLD_IndustryCollecCell class] forCellWithReuseIdentifier:GLD_IndustryCollecCellIdentifier];
 
         
     }

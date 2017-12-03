@@ -8,6 +8,8 @@
 
 #import "GLD_BaseCell.h"
 
+extern NSString *const GLD_BusinessCellIdentifier;
+
 @interface GLD_BusinessCell : GLD_BaseCell
 
 @end

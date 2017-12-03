@@ -8,7 +8,9 @@
 
 #import "GLD_BannerCell.h"
 #import "SDCycleScrollView.h"
+#import "GLD_BannerModel.h"
 
+NSString *const GLD_BannerCellIdentifier = @"GLD_BannerCellIdentifier";
 @interface GLD_BannerCell ()<SDCycleScrollViewDelegate>
 
 @property (nonatomic, strong)SDCycleScrollView *cycleView;
@@ -27,7 +29,11 @@
 
 - (void)setBannerData:(NSMutableArray *)bannerData{
     _bannerData = bannerData;
-    self.cycleView.imageURLStringsGroup = bannerData.copy;
+    NSMutableArray *arrM = [NSMutableArray array];
+    for (GLD_BannerModel *model in bannerData) {
+        [arrM addObject:model.iconUrl];
+    }
+    self.cycleView.imageURLStringsGroup = arrM.copy;
 }
 /** 图片滚动回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index{

@@ -24,6 +24,7 @@
 #import "MJRefresh.h"
 #import "GLD_RefreshHeader.h"
 #import "YXFooterRefresh.h"
+#import "YYWebImage.h"
 #endif /* PrefixHeader_pch */
 
 #ifdef DEBUG

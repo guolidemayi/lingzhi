@@ -8,6 +8,7 @@
 
 #import "GLD_BaseCell.h"
 
+extern NSString *const GLD_HomeListCellIdentifier;
 @interface GLD_HomeListCell : GLD_BaseCell
 
 @property (nonatomic, copy)NSMutableArray *listData;
