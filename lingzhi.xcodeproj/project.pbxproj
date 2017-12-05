@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F28D2881FD66CED00138A8B /* GLD_MineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2871FD66CED00138A8B /* GLD_MineManager.m */; };
+		0F28D28C1FD671F000138A8B /* GLD_MineSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D28B1FD671F000138A8B /* GLD_MineSettingCell.m */; };
+		0F28D28F1FD6751A00138A8B /* GLD_MinePersonalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D28E1FD6751A00138A8B /* GLD_MinePersonalCell.m */; };
+		0F28D2991FD6799100138A8B /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2941FD6799100138A8B /* UIView+SDAutoLayout.m */; };
+		0F28D29A1FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2971FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.m */; };
+		0F28D29D1FD67D9500138A8B /* GLD_MineWalletCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D29C1FD67D9500138A8B /* GLD_MineWalletCell.m */; };
 		0F298E4F1FC28AF600EDBA9A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298E4E1FC28AF600EDBA9A /* CoreLocation.framework */; };
 		0F298E521FC2CA7200EDBA9A /* GLD_BaseNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F298E511FC2CA7200EDBA9A /* GLD_BaseNavController.m */; };
 		0F298E7A1FC2CFC200EDBA9A /* CAToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F298E591FC2CFC200EDBA9A /* CAToast.m */; };
@@ -46,7 +52,6 @@
 		0F298EC91FC2DB9700EDBA9A /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EC81FC2DB9700EDBA9A /* libresolv.9.tbd */; };
 		0F298ECB1FC2DBD800EDBA9A /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298ECA1FC2DBD800EDBA9A /* libiconv.tbd */; };
 		0F298ECD1FC2DC3000EDBA9A /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298ECC1FC2DC3000EDBA9A /* libxml2.2.tbd */; };
-		0F42A1341FD553F50072A167 /* SLCityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F42A1331FD553F50072A167 /* SLCityListViewController.m */; };
 		0F42A13A1FD554560072A167 /* GLD_CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F42A1391FD554560072A167 /* GLD_CityModel.m */; };
 		0F42A13D1FD5585A0072A167 /* GLD_CityListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F42A13C1FD5585A0072A167 /* GLD_CityListController.m */; };
 		0F60E9C01FC2754300C5E113 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F60E9BF1FC2754300C5E113 /* ViewController.m */; };
@@ -135,6 +140,19 @@
 
 /* Begin PBXFileReference section */
 		075C245191CB367AE2029273 /* Pods-lingzhi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhi.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhi/Pods-lingzhi.release.xcconfig"; sourceTree = "<group>"; };
+		0F28D2861FD66CED00138A8B /* GLD_MineManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MineManager.h; sourceTree = "<group>"; };
+		0F28D2871FD66CED00138A8B /* GLD_MineManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MineManager.m; sourceTree = "<group>"; };
+		0F28D28A1FD671F000138A8B /* GLD_MineSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MineSettingCell.h; sourceTree = "<group>"; };
+		0F28D28B1FD671F000138A8B /* GLD_MineSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MineSettingCell.m; sourceTree = "<group>"; };
+		0F28D28D1FD6751A00138A8B /* GLD_MinePersonalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MinePersonalCell.h; sourceTree = "<group>"; };
+		0F28D28E1FD6751A00138A8B /* GLD_MinePersonalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MinePersonalCell.m; sourceTree = "<group>"; };
+		0F28D2941FD6799100138A8B /* UIView+SDAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDAutoLayout.m"; sourceTree = "<group>"; };
+		0F28D2951FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+SDAutoTableViewCellHeight.h"; sourceTree = "<group>"; };
+		0F28D2961FD6799100138A8B /* SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAutoLayout.h; sourceTree = "<group>"; };
+		0F28D2971FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+SDAutoTableViewCellHeight.m"; sourceTree = "<group>"; };
+		0F28D2981FD6799100138A8B /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
+		0F28D29B1FD67D9500138A8B /* GLD_MineWalletCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MineWalletCell.h; sourceTree = "<group>"; };
+		0F28D29C1FD67D9500138A8B /* GLD_MineWalletCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MineWalletCell.m; sourceTree = "<group>"; };
 		0F298E4E1FC28AF600EDBA9A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0F298E501FC2CA7200EDBA9A /* GLD_BaseNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BaseNavController.h; sourceTree = "<group>"; };
 		0F298E511FC2CA7200EDBA9A /* GLD_BaseNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BaseNavController.m; sourceTree = "<group>"; };
@@ -203,8 +221,6 @@
 		0F298EC81FC2DB9700EDBA9A /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		0F298ECA1FC2DBD800EDBA9A /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		0F298ECC1FC2DC3000EDBA9A /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
-		0F42A1321FD553F50072A167 /* SLCityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLCityListViewController.h; sourceTree = "<group>"; };
-		0F42A1331FD553F50072A167 /* SLCityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLCityListViewController.m; sourceTree = "<group>"; };
 		0F42A1381FD554560072A167 /* GLD_CityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CityModel.h; sourceTree = "<group>"; };
 		0F42A1391FD554560072A167 /* GLD_CityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CityModel.m; sourceTree = "<group>"; };
 		0F42A13B1FD5585A0072A167 /* GLD_CityListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CityListController.h; sourceTree = "<group>"; };
@@ -395,6 +411,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F28D2891FD671B100138A8B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F28D28A1FD671F000138A8B /* GLD_MineSettingCell.h */,
+				0F28D28B1FD671F000138A8B /* GLD_MineSettingCell.m */,
+				0F28D28D1FD6751A00138A8B /* GLD_MinePersonalCell.h */,
+				0F28D28E1FD6751A00138A8B /* GLD_MinePersonalCell.m */,
+				0F28D29B1FD67D9500138A8B /* GLD_MineWalletCell.h */,
+				0F28D29C1FD67D9500138A8B /* GLD_MineWalletCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F28D2931FD6799100138A8B /* SDAutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				0F28D2961FD6799100138A8B /* SDAutoLayout.h */,
+				0F28D2951FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.h */,
+				0F28D2971FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.m */,
+				0F28D2981FD6799100138A8B /* UIView+SDAutoLayout.h */,
+				0F28D2941FD6799100138A8B /* UIView+SDAutoLayout.m */,
+			);
+			path = SDAutoLayout;
+			sourceTree = "<group>";
+		};
 		0F298E4D1FC28AF500EDBA9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -578,6 +619,7 @@
 		0F60E9BA1FC2754300C5E113 /* lingzhi */ = {
 			isa = PBXGroup;
 			children = (
+				0F28D2931FD6799100138A8B /* SDAutoLayout */,
 				0F6411731FD4EAB40069FDB1 /* GLD_Networking */,
 				0FB536D71FC5887C00B0EDA6 /* Classes */,
 				0F60E9BE1FC2754300C5E113 /* ViewController.h */,
@@ -742,8 +784,6 @@
 				0F64119E1FD524190069FDB1 /* GLD_BusinessDetailManager.m */,
 				0F42A13B1FD5585A0072A167 /* GLD_CityListController.h */,
 				0F42A13C1FD5585A0072A167 /* GLD_CityListController.m */,
-				0F42A1321FD553F50072A167 /* SLCityListViewController.h */,
-				0F42A1331FD553F50072A167 /* SLCityListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -795,6 +835,7 @@
 		0FB536E81FC5887C00B0EDA6 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				0F28D2891FD671B100138A8B /* View */,
 				0FB536E91FC5887C00B0EDA6 /* Controller */,
 			);
 			path = Mine;
@@ -805,6 +846,8 @@
 			children = (
 				0FB536EA1FC5887C00B0EDA6 /* LBMineViewController.h */,
 				0FB536EB1FC5887C00B0EDA6 /* LBMineViewController.m */,
+				0F28D2861FD66CED00138A8B /* GLD_MineManager.h */,
+				0F28D2871FD66CED00138A8B /* GLD_MineManager.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1246,6 +1289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F28D29A1FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				0F6411991FD5213D0069FDB1 /* GLD_BusinessViewManager.m in Sources */,
 				0FB537011FC5887C00B0EDA6 /* AppDelegate.m in Sources */,
 				0FB537071FC5887C00B0EDA6 /* LBTabBarController.m in Sources */,
@@ -1259,6 +1303,7 @@
 				3CA74E4A1FD27E2800A7F137 /* GLD_IndustryCollecCell.m in Sources */,
 				0FB537211FC6B9C100B0EDA6 /* GLD_LocationHelp.m in Sources */,
 				0F298E831FC2CFC200EDBA9A /* MTShareView.m in Sources */,
+				0F28D28F1FD6751A00138A8B /* GLD_MinePersonalCell.m in Sources */,
 				0F6411A51FD526E50069FDB1 /* GLD_DetaileBusiCell.m in Sources */,
 				0F6411911FD512B00069FDB1 /* PTLMenuButton.m in Sources */,
 				0F6411851FD4EAB50069FDB1 /* GLD_NetworkClient.m in Sources */,
@@ -1269,7 +1314,9 @@
 				0F6411A81FD527080069FDB1 /* GLD_DetaileCell.m in Sources */,
 				0F9920101FCEE1AA00305DF3 /* GLD_BaseTableManager.m in Sources */,
 				3CA74E4E1FD2808300A7F137 /* GLD_IndustryModel.m in Sources */,
+				0F28D28C1FD671F000138A8B /* GLD_MineSettingCell.m in Sources */,
 				0F6411AE1FD528B80069FDB1 /* GLD_ButtonLikeView.m in Sources */,
+				0F28D2991FD6799100138A8B /* UIView+SDAutoLayout.m in Sources */,
 				0F298E871FC2CFC200EDBA9A /* WTFont.m in Sources */,
 				0FB537391FC6D22A00B0EDA6 /* SGQRCodeScanningView.m in Sources */,
 				0FB5373A1FC6D22A00B0EDA6 /* SGQRCodeScanManager.m in Sources */,
@@ -1279,6 +1326,7 @@
 				0F6411AB1FD5271C0069FDB1 /* GLD_DetailRankCell.m in Sources */,
 				0FB537031FC5887C00B0EDA6 /* LBMineViewController.m in Sources */,
 				0F6411841FD4EAB50069FDB1 /* GLD_CacheManager.m in Sources */,
+				0F28D2881FD66CED00138A8B /* GLD_MineManager.m in Sources */,
 				0F298E7F1FC2CFC200EDBA9A /* OCPublicEngine.m in Sources */,
 				0F6411821FD4EAB50069FDB1 /* GLD_Service.m in Sources */,
 				0FB536FE1FC5887C00B0EDA6 /* LBHomeViewController.m in Sources */,
@@ -1294,6 +1342,7 @@
 				0F298E7A1FC2CFC200EDBA9A /* CAToast.m in Sources */,
 				0F6411B11FD53B950069FDB1 /* GLD_BusnessModel.m in Sources */,
 				0F99201E1FCEF81E00305DF3 /* GLD_BusinessCell.m in Sources */,
+				0F28D29D1FD67D9500138A8B /* GLD_MineWalletCell.m in Sources */,
 				0F298E881FC2CFC200EDBA9A /* YXUniversal.m in Sources */,
 				0FB537091FC5887C00B0EDA6 /* LBFishViewController.m in Sources */,
 				0FB536FF1FC5887C00B0EDA6 /* LBpostViewController.m in Sources */,
@@ -1315,7 +1364,6 @@
 				0FB5373C1FC6D22A00B0EDA6 /* SGQRCodeAlbumManager.m in Sources */,
 				0F6411831FD4EAB50069FDB1 /* GLD_NetworkReachability.m in Sources */,
 				0FB537021FC5887C00B0EDA6 /* LBMessageViewController.m in Sources */,
-				0F42A1341FD553F50072A167 /* SLCityListViewController.m in Sources */,
 				0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */,
 				0F298E7B1FC2CFC200EDBA9A /* GLD_CarouselCell.m in Sources */,
 				0F99200C1FCEDEE800305DF3 /* YXFooterRefresh.m in Sources */,

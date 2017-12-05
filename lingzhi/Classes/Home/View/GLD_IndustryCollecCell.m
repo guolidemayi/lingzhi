@@ -8,6 +8,7 @@
 
 #import "GLD_IndustryCollecCell.h"
 #import "GLD_IndustryModel.h"
+#import "GLD_IndustryCollecCell.h"
 
 NSString *const GLD_IndustryCollecCellIdentifier = @"GLD_IndustryCollecCellIdentifier";
 @interface GLD_IndustryCollecCell ()
@@ -30,7 +31,11 @@ NSString *const GLD_IndustryCollecCellIdentifier = @"GLD_IndustryCollecCellIdent
 
 - (void)setModel:(GLD_IndustryModel *)model{
     _model = model;
+    if([model.iconUrl hasPrefix:@"http://"]){
     [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:model.iconUrl] placeholder:nil];
+    }else{
+        self.iconImgV.image = WTImage(model.iconUrl);
+    }
     self.titleLabel.text = model.title;
 }
 - (void)setupUI{
@@ -44,7 +49,7 @@ NSString *const GLD_IndustryCollecCellIdentifier = @"GLD_IndustryCollecCellIdent
     }];
     [self.iconImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.contentView);
-        make.bottom.equalTo(self.titleLabel).offset(W(-15));
+        make.bottom.equalTo(self.titleLabel.mas_top).offset(W(-10));
     }];
 }
 - (UIImageView *)iconImgV{

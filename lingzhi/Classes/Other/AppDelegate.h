@@ -17,6 +17,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property(strong, nonatomic) MTShareModule *shareModuleDelegate;
 @property (nonatomic, copy)NSString *token;//用户token
+@property (nonatomic, assign)BOOL *hasLogin;//是否登陆
 - (void)initMainPageBody;
 + (AppDelegate *)shareDelegate;
 @end

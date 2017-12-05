@@ -21,5 +21,5 @@
 
 @interface GLD_IndustryListModel : JSONModel
 
-@property (nonatomic, strong) NSMutableArray<GLD_BannerModel> *data;
+@property (nonatomic, strong) NSMutableArray<GLD_BannerModel> *category;
 @end

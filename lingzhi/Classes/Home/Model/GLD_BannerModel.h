@@ -22,6 +22,6 @@
 @end
 
 @interface GLD_BannerLisModel : JSONModel
-@property (nonatomic, strong) NSMutableArray<GLD_BannerModel> *data;
+@property (nonatomic, strong) NSMutableArray<GLD_BannerModel> *banner;
 
 @end

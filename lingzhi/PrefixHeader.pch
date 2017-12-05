@@ -26,6 +26,7 @@
 #import "YXFooterRefresh.h"
 #import "YYWebImage.h"
 #import "GLD_NetworkAPIManager.h"
+#import "SDAutoLayout.h"
 #endif /* PrefixHeader_pch */
 
 #ifdef DEBUG

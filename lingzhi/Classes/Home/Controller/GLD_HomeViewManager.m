@@ -33,6 +33,8 @@
     NSLog(@"请求首页方法了");
     
     [self getBannerData];
+    [self getListData];
+    [self getbusnessList:2];
     
 }
 - (void)getBannerData{
@@ -55,7 +57,7 @@
     config.requestParameters = @{};
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
-        weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];
+        weakSelf.industryListModel = [[GLD_IndustryListModel alloc] initWithDictionary:result error:nil];
         
     }];
 }
@@ -68,11 +70,11 @@
                                  @"lat:":[NSString stringWithFormat:@"%@",@""],
                                  @"lng:" : [NSString stringWithFormat:@"%@",@""]
                                  };
-    config.urlPath = @"main/category";
+    config.urlPath = @"main/shopList";
     config.requestParameters = @{};
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
-        weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];
+        weakSelf.busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
         
     }];
 }

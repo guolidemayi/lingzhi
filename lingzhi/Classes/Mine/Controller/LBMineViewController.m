@@ -7,31 +7,38 @@
 //
 
 #import "LBMineViewController.h"
+#import "GLD_MineManager.h"
+#import "GLD_CustomBut.h"
 
 @interface LBMineViewController ()
 
+@property (nonatomic, strong)UITableView *table_mine;
+@property (nonatomic, strong)GLD_MineManager *mineManager;
 @end
 
 @implementation LBMineViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.table_mine = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    [self.view addSubview:self.table_mine];
+    self.mineManager = [[GLD_MineManager alloc]initWithTableView:self.table_mine];
+    //请求数据
+    [self.mineManager fetchMainData];
+    
+    GLD_CustomBut *rightBut = [[GLD_CustomBut alloc]init];;
+    
+    rightBut.frame = CGRectMake(0, 0, 50, 44);
+    [rightBut image:@"编辑资料"];
+    [rightBut addTarget:self action:@selector(rightButClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
+    self.navigationItem.rightBarButtonItem = item1;
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)rightButClick {
+    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
