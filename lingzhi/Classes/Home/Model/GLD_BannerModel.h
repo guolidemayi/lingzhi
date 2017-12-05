@@ -6,13 +6,22 @@
 //  Copyright © 2017年 com.lingzhi. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <JSONModel/JSONModel.h>
 
-@interface GLD_BannerModel : NSObject
+@protocol GLD_BannerModel
+
+@end
+@interface GLD_BannerModel : JSONModel
 
 
 @property (nonatomic, copy)NSString *iconUrl;
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign)NSInteger type;
+@property (nonatomic, copy)NSString *bannerID;
+
+@end
+
+@interface GLD_BannerLisModel : JSONModel
+@property (nonatomic, strong) NSMutableArray<GLD_BannerModel> *data;
 
 @end

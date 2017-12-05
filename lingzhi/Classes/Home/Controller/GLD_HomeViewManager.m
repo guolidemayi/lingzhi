@@ -10,11 +10,17 @@
 #import "GLD_BannerCell.h"
 #import "GLD_HomeListCell.h"
 #import "GLD_BusinessCell.h"
+#import "GLD_BannerModel.h"
+#import "GLD_IndustryModel.h"
+#import "GLD_BusnessModel.h"
 
 @interface GLD_HomeViewManager ()
 
 @property (nonatomic, strong)UIView *blueLineView;//选择列表蓝条
 @property (nonatomic, strong) UIView *headView;
+@property (nonatomic, strong)GLD_BannerLisModel *bannerListModel;
+@property (nonatomic, strong)GLD_IndustryListModel *industryListModel;
+@property (nonatomic, strong)GLD_BusnessLisModel *busnessListModel;
 @end
 @implementation GLD_HomeViewManager
 
@@ -25,6 +31,50 @@
 }
 - (void)fetchMainData{
     NSLog(@"请求首页方法了");
+    
+    [self getBannerData];
+    
+}
+- (void)getBannerData{
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"main/banner";
+    config.requestParameters = @{};
+    [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];
+        
+    }];
+}
+-  (void)getListData{
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"main/category";
+    config.requestParameters = @{};
+    [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];
+        
+    }];
+}
+-  (void)getbusnessList :(NSInteger)type{//0(推荐门店)、1(最新开通)、2(附近门店)
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.requestParameters = @{
+                                 @"type" : @(type),
+                                 @"lat:":[NSString stringWithFormat:@"%@",@""],
+                                 @"lng:" : [NSString stringWithFormat:@"%@",@""]
+                                 };
+    config.urlPath = @"main/category";
+    config.requestParameters = @{};
+    [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];
+        
+    }];
 }
 - (void)reloadOrLoadMoreData{
     [self.tableView.mj_header endRefreshing];

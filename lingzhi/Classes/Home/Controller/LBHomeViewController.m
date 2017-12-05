@@ -43,7 +43,7 @@
     self.locationBut = locationBut;
     locationBut.frame = CGRectMake(0, 0, 50, 44);
     [locationBut image:@"header_back_icon"];
-    
+    [locationBut addTarget:self action:@selector(mapNav) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:locationBut];
     self.navigationItem.leftBarButtonItem = item;
     
@@ -68,7 +68,11 @@
 }
 
 - (void)mapNav{
-    [MapNavigationManager showSheetWithCity:self.title start:@"北京" end:@"上海"];
+    [MapNavigationManager showSheetWithCity:self.title start:nil end:@"上海"];
+//    CLLocationCoordinate2D coordinate;
+//    coordinate.latitude = +39.86628556;
+//    coordinate.longitude = +116.46206778;
+//    [MapNavigationManager showSheetWithCoordinate2D:coordinate];
 }
 
 
@@ -94,7 +98,7 @@
 
             [self.locationBut title:placemark.locality];
  
-            
+//            CLLocationCoordinate2D
         } else {
 
             [self.locationBut title:@"定位失败"];

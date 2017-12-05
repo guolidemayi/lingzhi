@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GLD_BaseTableManager : NSObject <UITableViewDelegate,UITableViewDataSource>
+@interface GLD_BaseTableManager : GLD_NetworkAPIManager <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, weak)UITableView *tableView;
 @property (nonatomic, strong)NSMutableArray *mainDataArrM;

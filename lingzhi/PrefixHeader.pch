@@ -25,6 +25,7 @@
 #import "GLD_RefreshHeader.h"
 #import "YXFooterRefresh.h"
 #import "YYWebImage.h"
+#import "GLD_NetworkAPIManager.h"
 #endif /* PrefixHeader_pch */
 
 #ifdef DEBUG
