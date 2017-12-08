@@ -25,4 +25,6 @@ pod 'MBProgressHUD', '~> 1.0.0’
 pod 'ReactiveObjC'
 pod 'SDCycleScrollView','~> 1.73'
 pod 'JSONModel', '~> 1.2.0'
+pod 'AMap3DMap'
+pod 'AMapSearch'
 end

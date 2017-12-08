@@ -11,8 +11,11 @@
 #import "LBTabBarController.h"
 #import "YXFlashAdViewController.h"
 #import "WTBootPageStartViewController.h"
+#import <AMapFoundationKit/AMapFoundationKit.h>
 
 #define LBKeyWindow [UIApplication sharedApplication].keyWindow
+
+#define AMAP_KEY @"ec5fdec75f40817a36093df4c5fd272d"
 @interface AppDelegate ()
 
 @end
@@ -29,6 +32,8 @@
 
     [self initMainPageBody];
 
+    //配置高德地图
+    [AMapServices sharedServices].apiKey = AMAP_KEY;
     return YES;
 }
 

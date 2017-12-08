@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIView+gldController.h"
 
 @interface GLD_BaseTableManager : GLD_NetworkAPIManager <UITableViewDelegate,UITableViewDataSource>
 

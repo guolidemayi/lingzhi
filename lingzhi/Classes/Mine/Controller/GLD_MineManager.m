@@ -10,6 +10,8 @@
 #import "GLD_MinePersonalCell.h"
 #import "GLD_MineWalletCell.h"
 #import "GLD_MineSettingCell.h"
+#import "TestViewController.h"
+#import "GLD_ApplyBusnessController.h"
 
 @interface GLD_MineManager ()
 
@@ -43,8 +45,31 @@
 }
 - (void)editUserMessageClick:(UITapGestureRecognizer *)tap{
      NSLog(@"个人信息");
+    TestViewController *userMessageVc = [[TestViewController alloc]init];
+    [self.tableView.navigationController pushViewController:userMessageVc animated:YES];
 }
 
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    switch (indexPath.section) {
+        case 0:
+            
+            break;
+            
+        case 1:
+            
+            break;
+        case 2:{
+            GLD_ApplyBusnessController *applyVc = [GLD_ApplyBusnessController new];
+            [self.tableView.navigationController pushViewController:applyVc animated:YES];
+        }break;
+        case 3:
+        case 4:
+        case 5:
+            
+            break;
+    }
+}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if(section == 0)
@@ -58,9 +83,7 @@
     return W(120);
     return 5;
 }
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section{
-    return 0.0001;
-}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case 0:

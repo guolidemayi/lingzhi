@@ -68,7 +68,7 @@ static id _instance = nil;
     // 定位
     self.manager = [CLLocationManager new];
     self.manager.distanceFilter = 10;
-    self.manager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    self.manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     // 2.设置代理
     self.manager.delegate = self;
     

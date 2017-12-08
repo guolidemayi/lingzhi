@@ -13,6 +13,21 @@
 		0F28D2991FD6799100138A8B /* UIView+SDAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2941FD6799100138A8B /* UIView+SDAutoLayout.m */; };
 		0F28D29A1FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2971FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.m */; };
 		0F28D29D1FD67D9500138A8B /* GLD_MineWalletCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D29C1FD67D9500138A8B /* GLD_MineWalletCell.m */; };
+		0F28D2AC1FD6ADDE00138A8B /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D29F1FD6ADDE00138A8B /* TestViewController.m */; };
+		0F28D2AD1FD6ADDE00138A8B /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2A21FD6ADDE00138A8B /* BRStringPickerView.m */; };
+		0F28D2AE1FD6ADDE00138A8B /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2A31FD6ADDE00138A8B /* BRTextField.m */; };
+		0F28D2AF1FD6ADDE00138A8B /* BRDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2A71FD6ADDE00138A8B /* BRDatePickerView.m */; };
+		0F28D2B01FD6ADDE00138A8B /* BRBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2A91FD6ADDE00138A8B /* BRBaseView.m */; };
+		0F28D2B31FD6AEC500138A8B /* NSDate+BRAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2B11FD6AEC500138A8B /* NSDate+BRAdd.m */; };
+		0F28D2B61FD77F7D00138A8B /* UIView+gldController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2B51FD77F7D00138A8B /* UIView+gldController.m */; };
+		0F28D2B91FD7BC0600138A8B /* GLD_WirteIntroController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2B81FD7BC0600138A8B /* GLD_WirteIntroController.m */; };
+		0F28D2BB1FD7DDE400138A8B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F28D2BA1FD7DDE400138A8B /* MapKit.framework */; };
+		0F28D2BE1FD7F04000138A8B /* GLD_ApplyBusnessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2BD1FD7F04000138A8B /* GLD_ApplyBusnessController.m */; };
+		0F28D2C11FD91DED00138A8B /* GLD_MapDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2C01FD91DED00138A8B /* GLD_MapDetailCell.m */; };
+		0F28D2C41FD930D900138A8B /* GLD_SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2C31FD930D900138A8B /* GLD_SearchResultCell.m */; };
+		0F28D2C81FD93CFC00138A8B /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2C71FD93CFC00138A8B /* MKMapView+ZoomLevel.m */; };
+		0F28D2CC1FDA2C9600138A8B /* GLD_MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2CB1FDA2C9600138A8B /* GLD_MapModel.m */; };
+		0F28D2CE1FDA42EA00138A8B /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0F28D2CD1FDA42EA00138A8B /* AMap.bundle */; };
 		0F298E4F1FC28AF600EDBA9A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298E4E1FC28AF600EDBA9A /* CoreLocation.framework */; };
 		0F298E521FC2CA7200EDBA9A /* GLD_BaseNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F298E511FC2CA7200EDBA9A /* GLD_BaseNavController.m */; };
 		0F298E7A1FC2CFC200EDBA9A /* CAToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F298E591FC2CFC200EDBA9A /* CAToast.m */; };
@@ -153,6 +168,34 @@
 		0F28D2981FD6799100138A8B /* UIView+SDAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDAutoLayout.h"; sourceTree = "<group>"; };
 		0F28D29B1FD67D9500138A8B /* GLD_MineWalletCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MineWalletCell.h; sourceTree = "<group>"; };
 		0F28D29C1FD67D9500138A8B /* GLD_MineWalletCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MineWalletCell.m; sourceTree = "<group>"; };
+		0F28D29F1FD6ADDE00138A8B /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		0F28D2A11FD6ADDE00138A8B /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
+		0F28D2A21FD6ADDE00138A8B /* BRStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
+		0F28D2A31FD6ADDE00138A8B /* BRTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTextField.m; sourceTree = "<group>"; };
+		0F28D2A41FD6ADDE00138A8B /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		0F28D2A61FD6ADDE00138A8B /* BRDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRDatePickerView.h; sourceTree = "<group>"; };
+		0F28D2A71FD6ADDE00138A8B /* BRDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRDatePickerView.m; sourceTree = "<group>"; };
+		0F28D2A91FD6ADDE00138A8B /* BRBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseView.m; sourceTree = "<group>"; };
+		0F28D2AA1FD6ADDE00138A8B /* BRBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBaseView.h; sourceTree = "<group>"; };
+		0F28D2AB1FD6ADDE00138A8B /* BRTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTextField.h; sourceTree = "<group>"; };
+		0F28D2B11FD6AEC500138A8B /* NSDate+BRAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BRAdd.m"; sourceTree = "<group>"; };
+		0F28D2B21FD6AEC500138A8B /* NSDate+BRAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BRAdd.h"; sourceTree = "<group>"; };
+		0F28D2B41FD77F7C00138A8B /* UIView+gldController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+gldController.h"; sourceTree = "<group>"; };
+		0F28D2B51FD77F7D00138A8B /* UIView+gldController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+gldController.m"; sourceTree = "<group>"; };
+		0F28D2B71FD7BC0600138A8B /* GLD_WirteIntroController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_WirteIntroController.h; sourceTree = "<group>"; };
+		0F28D2B81FD7BC0600138A8B /* GLD_WirteIntroController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_WirteIntroController.m; sourceTree = "<group>"; };
+		0F28D2BA1FD7DDE400138A8B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0F28D2BC1FD7F04000138A8B /* GLD_ApplyBusnessController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ApplyBusnessController.h; sourceTree = "<group>"; };
+		0F28D2BD1FD7F04000138A8B /* GLD_ApplyBusnessController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ApplyBusnessController.m; sourceTree = "<group>"; };
+		0F28D2BF1FD91DED00138A8B /* GLD_MapDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MapDetailCell.h; sourceTree = "<group>"; };
+		0F28D2C01FD91DED00138A8B /* GLD_MapDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MapDetailCell.m; sourceTree = "<group>"; };
+		0F28D2C21FD930D900138A8B /* GLD_SearchResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_SearchResultCell.h; sourceTree = "<group>"; };
+		0F28D2C31FD930D900138A8B /* GLD_SearchResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_SearchResultCell.m; sourceTree = "<group>"; };
+		0F28D2C61FD93CFC00138A8B /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
+		0F28D2C71FD93CFC00138A8B /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
+		0F28D2CA1FDA2C9600138A8B /* GLD_MapModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MapModel.h; sourceTree = "<group>"; };
+		0F28D2CB1FDA2C9600138A8B /* GLD_MapModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MapModel.m; sourceTree = "<group>"; };
+		0F28D2CD1FDA42EA00138A8B /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
 		0F298E4E1FC28AF600EDBA9A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		0F298E501FC2CA7200EDBA9A /* GLD_BaseNavController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BaseNavController.h; sourceTree = "<group>"; };
 		0F298E511FC2CA7200EDBA9A /* GLD_BaseNavController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BaseNavController.m; sourceTree = "<group>"; };
@@ -367,6 +410,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F28D2BB1FD7DDE400138A8B /* MapKit.framework in Frameworks */,
 				0F298ECD1FC2DC3000EDBA9A /* libxml2.2.tbd in Frameworks */,
 				0F298ECB1FC2DBD800EDBA9A /* libiconv.tbd in Frameworks */,
 				0F298EC91FC2DB9700EDBA9A /* libresolv.9.tbd in Frameworks */,
@@ -420,6 +464,12 @@
 				0F28D28E1FD6751A00138A8B /* GLD_MinePersonalCell.m */,
 				0F28D29B1FD67D9500138A8B /* GLD_MineWalletCell.h */,
 				0F28D29C1FD67D9500138A8B /* GLD_MineWalletCell.m */,
+				0F28D2BF1FD91DED00138A8B /* GLD_MapDetailCell.h */,
+				0F28D2C01FD91DED00138A8B /* GLD_MapDetailCell.m */,
+				0F28D2C61FD93CFC00138A8B /* MKMapView+ZoomLevel.h */,
+				0F28D2C71FD93CFC00138A8B /* MKMapView+ZoomLevel.m */,
+				0F28D2C21FD930D900138A8B /* GLD_SearchResultCell.h */,
+				0F28D2C31FD930D900138A8B /* GLD_SearchResultCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,9 +486,62 @@
 			path = SDAutoLayout;
 			sourceTree = "<group>";
 		};
+		0F28D29E1FD6ADDE00138A8B /* userMessage */ = {
+			isa = PBXGroup;
+			children = (
+				0F28D2A01FD6ADDE00138A8B /* StringPickerView */,
+				0F28D2AB1FD6ADDE00138A8B /* BRTextField.h */,
+				0F28D2A31FD6ADDE00138A8B /* BRTextField.m */,
+				0F28D2A41FD6ADDE00138A8B /* TestViewController.h */,
+				0F28D29F1FD6ADDE00138A8B /* TestViewController.m */,
+				0F28D2B21FD6AEC500138A8B /* NSDate+BRAdd.h */,
+				0F28D2B11FD6AEC500138A8B /* NSDate+BRAdd.m */,
+				0F28D2A51FD6ADDE00138A8B /* DatePickerView */,
+				0F28D2A81FD6ADDE00138A8B /* Base */,
+			);
+			path = userMessage;
+			sourceTree = "<group>";
+		};
+		0F28D2A01FD6ADDE00138A8B /* StringPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				0F28D2A11FD6ADDE00138A8B /* BRStringPickerView.h */,
+				0F28D2A21FD6ADDE00138A8B /* BRStringPickerView.m */,
+			);
+			path = StringPickerView;
+			sourceTree = "<group>";
+		};
+		0F28D2A51FD6ADDE00138A8B /* DatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				0F28D2A61FD6ADDE00138A8B /* BRDatePickerView.h */,
+				0F28D2A71FD6ADDE00138A8B /* BRDatePickerView.m */,
+			);
+			path = DatePickerView;
+			sourceTree = "<group>";
+		};
+		0F28D2A81FD6ADDE00138A8B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0F28D2A91FD6ADDE00138A8B /* BRBaseView.m */,
+				0F28D2AA1FD6ADDE00138A8B /* BRBaseView.h */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		0F28D2C91FDA2C5F00138A8B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F28D2CA1FDA2C9600138A8B /* GLD_MapModel.h */,
+				0F28D2CB1FDA2C9600138A8B /* GLD_MapModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0F298E4D1FC28AF500EDBA9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F28D2BA1FD7DDE400138A8B /* MapKit.framework */,
 				0F298ECC1FC2DC3000EDBA9A /* libxml2.2.tbd */,
 				0F298ECA1FC2DBD800EDBA9A /* libiconv.tbd */,
 				0F298EC81FC2DB9700EDBA9A /* libresolv.9.tbd */,
@@ -619,11 +722,14 @@
 		0F60E9BA1FC2754300C5E113 /* lingzhi */ = {
 			isa = PBXGroup;
 			children = (
+				0F28D2CD1FDA42EA00138A8B /* AMap.bundle */,
 				0F28D2931FD6799100138A8B /* SDAutoLayout */,
 				0F6411731FD4EAB40069FDB1 /* GLD_Networking */,
 				0FB536D71FC5887C00B0EDA6 /* Classes */,
 				0F60E9BE1FC2754300C5E113 /* ViewController.h */,
 				0F60E9BF1FC2754300C5E113 /* ViewController.m */,
+				0F28D2B41FD77F7C00138A8B /* UIView+gldController.h */,
+				0F28D2B51FD77F7D00138A8B /* UIView+gldController.m */,
 				0FB537261FC6D22900B0EDA6 /* QRCode */,
 				0FB537251FC6D13600B0EDA6 /* mapAndNav */,
 				0FB5370F1FC6A16500B0EDA6 /* login */,
@@ -835,8 +941,10 @@
 		0FB536E81FC5887C00B0EDA6 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				0F28D29E1FD6ADDE00138A8B /* userMessage */,
 				0F28D2891FD671B100138A8B /* View */,
 				0FB536E91FC5887C00B0EDA6 /* Controller */,
+				0F28D2C91FDA2C5F00138A8B /* Model */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -848,6 +956,10 @@
 				0FB536EB1FC5887C00B0EDA6 /* LBMineViewController.m */,
 				0F28D2861FD66CED00138A8B /* GLD_MineManager.h */,
 				0F28D2871FD66CED00138A8B /* GLD_MineManager.m */,
+				0F28D2B71FD7BC0600138A8B /* GLD_WirteIntroController.h */,
+				0F28D2B81FD7BC0600138A8B /* GLD_WirteIntroController.m */,
+				0F28D2BC1FD7F04000138A8B /* GLD_ApplyBusnessController.h */,
+				0F28D2BD1FD7F04000138A8B /* GLD_ApplyBusnessController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -940,16 +1052,16 @@
 				0FB537271FC6D22900B0EDA6 /* SGQRCode.h */,
 				0FB537281FC6D22900B0EDA6 /* SGQRCode.bundle */,
 				0FB537291FC6D22900B0EDA6 /* Category */,
+				0FB537311FC6D22900B0EDA6 /* SGQRCodeHelperTool.h */,
 				0FB5372C1FC6D22900B0EDA6 /* SGQRCodeHelperTool.m */,
+				0FB537321FC6D22900B0EDA6 /* SGQRCodeScanningView.h */,
 				0FB5372D1FC6D22900B0EDA6 /* SGQRCodeScanningView.m */,
+				0FB537331FC6D22900B0EDA6 /* SGQRCodeScanManager.h */,
 				0FB5372E1FC6D22900B0EDA6 /* SGQRCodeScanManager.m */,
+				0FB537351FC6D22900B0EDA6 /* SGQRCodeGenerateManager.h */,
 				0FB5372F1FC6D22900B0EDA6 /* SGQRCodeGenerateManager.m */,
 				0FB537301FC6D22900B0EDA6 /* SGQRCodeAlbumManager.h */,
-				0FB537311FC6D22900B0EDA6 /* SGQRCodeHelperTool.h */,
-				0FB537321FC6D22900B0EDA6 /* SGQRCodeScanningView.h */,
-				0FB537331FC6D22900B0EDA6 /* SGQRCodeScanManager.h */,
 				0FB537341FC6D22900B0EDA6 /* SGQRCodeAlbumManager.m */,
-				0FB537351FC6D22900B0EDA6 /* SGQRCodeGenerateManager.h */,
 			);
 			path = QRCode;
 			sourceTree = "<group>";
@@ -1106,6 +1218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F28D2CE1FDA42EA00138A8B /* AMap.bundle in Resources */,
 				0F60E9C81FC2754300C5E113 /* LaunchScreen.storyboard in Resources */,
 				0F60E9C51FC2754300C5E113 /* Assets.xcassets in Resources */,
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
@@ -1201,6 +1314,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-lingzhi/Pods-lingzhi-resources.sh",
+				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 			);
@@ -1294,9 +1408,11 @@
 				0FB537011FC5887C00B0EDA6 /* AppDelegate.m in Sources */,
 				0FB537071FC5887C00B0EDA6 /* LBTabBarController.m in Sources */,
 				0FB537381FC6D22A00B0EDA6 /* SGQRCodeHelperTool.m in Sources */,
+				0F28D2C11FD91DED00138A8B /* GLD_MapDetailCell.m in Sources */,
 				0FB5371E1FC6AA7A00B0EDA6 /* WTBootPageStartViewController.m in Sources */,
 				0F298E821FC2CFC200EDBA9A /* MTShareModule.m in Sources */,
 				0F64119F1FD524190069FDB1 /* GLD_BusinessDetailManager.m in Sources */,
+				0F28D2C41FD930D900138A8B /* GLD_SearchResultCell.m in Sources */,
 				0F298E521FC2CA7200EDBA9A /* GLD_BaseNavController.m in Sources */,
 				0F9920061FCEDDE800305DF3 /* GLD_HomeViewManager.m in Sources */,
 				0FB537241FC6C47000B0EDA6 /* MapNavigationManager.m in Sources */,
@@ -1306,6 +1422,7 @@
 				0F28D28F1FD6751A00138A8B /* GLD_MinePersonalCell.m in Sources */,
 				0F6411A51FD526E50069FDB1 /* GLD_DetaileBusiCell.m in Sources */,
 				0F6411911FD512B00069FDB1 /* PTLMenuButton.m in Sources */,
+				0F28D2AC1FD6ADDE00138A8B /* TestViewController.m in Sources */,
 				0F6411851FD4EAB50069FDB1 /* GLD_NetworkClient.m in Sources */,
 				0F298E7D1FC2CFC200EDBA9A /* GLD_ImageCarouselView.m in Sources */,
 				0FB537141FC6A16500B0EDA6 /* GLD_LoginController.m in Sources */,
@@ -1315,15 +1432,20 @@
 				0F9920101FCEE1AA00305DF3 /* GLD_BaseTableManager.m in Sources */,
 				3CA74E4E1FD2808300A7F137 /* GLD_IndustryModel.m in Sources */,
 				0F28D28C1FD671F000138A8B /* GLD_MineSettingCell.m in Sources */,
+				0F28D2CC1FDA2C9600138A8B /* GLD_MapModel.m in Sources */,
 				0F6411AE1FD528B80069FDB1 /* GLD_ButtonLikeView.m in Sources */,
+				0F28D2B61FD77F7D00138A8B /* UIView+gldController.m in Sources */,
+				0F28D2AF1FD6ADDE00138A8B /* BRDatePickerView.m in Sources */,
 				0F28D2991FD6799100138A8B /* UIView+SDAutoLayout.m in Sources */,
 				0F298E871FC2CFC200EDBA9A /* WTFont.m in Sources */,
 				0FB537391FC6D22A00B0EDA6 /* SGQRCodeScanningView.m in Sources */,
+				0F28D2B31FD6AEC500138A8B /* NSDate+BRAdd.m in Sources */,
 				0FB5373A1FC6D22A00B0EDA6 /* SGQRCodeScanManager.m in Sources */,
 				0FB537051FC5887C00B0EDA6 /* UIImage+Image.m in Sources */,
 				0F9920181FCEEFED00305DF3 /* GLD_HomeListCell.m in Sources */,
 				0F42A13A1FD554560072A167 /* GLD_CityModel.m in Sources */,
 				0F6411AB1FD5271C0069FDB1 /* GLD_DetailRankCell.m in Sources */,
+				0F28D2AE1FD6ADDE00138A8B /* BRTextField.m in Sources */,
 				0FB537031FC5887C00B0EDA6 /* LBMineViewController.m in Sources */,
 				0F6411841FD4EAB50069FDB1 /* GLD_CacheManager.m in Sources */,
 				0F28D2881FD66CED00138A8B /* GLD_MineManager.m in Sources */,
@@ -1337,12 +1459,16 @@
 				0F298E8B1FC2CFD000EDBA9A /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				0F298E7E1FC2CFC200EDBA9A /* LQXSwitch.m in Sources */,
 				0FB5371B1FC6A25200B0EDA6 /* UserADsModel.m in Sources */,
+				0F28D2C81FD93CFC00138A8B /* MKMapView+ZoomLevel.m in Sources */,
 				0FB537151FC6A16500B0EDA6 /* YXFlashAdViewController.m in Sources */,
 				0FB537371FC6D22A00B0EDA6 /* UIImage+ImageSize.m in Sources */,
+				0F28D2B01FD6ADDE00138A8B /* BRBaseView.m in Sources */,
+				0F28D2B91FD7BC0600138A8B /* GLD_WirteIntroController.m in Sources */,
 				0F298E7A1FC2CFC200EDBA9A /* CAToast.m in Sources */,
 				0F6411B11FD53B950069FDB1 /* GLD_BusnessModel.m in Sources */,
 				0F99201E1FCEF81E00305DF3 /* GLD_BusinessCell.m in Sources */,
 				0F28D29D1FD67D9500138A8B /* GLD_MineWalletCell.m in Sources */,
+				0F28D2BE1FD7F04000138A8B /* GLD_ApplyBusnessController.m in Sources */,
 				0F298E881FC2CFC200EDBA9A /* YXUniversal.m in Sources */,
 				0FB537091FC5887C00B0EDA6 /* LBFishViewController.m in Sources */,
 				0FB536FF1FC5887C00B0EDA6 /* LBpostViewController.m in Sources */,
@@ -1355,6 +1481,7 @@
 				0FB537041FC5887C00B0EDA6 /* UIView+LBExtension.m in Sources */,
 				3CA74E511FD2829200A7F137 /* GLD_BannerModel.m in Sources */,
 				0FB537181FC6A1F100B0EDA6 /* GLD_BaseViewController.m in Sources */,
+				0F28D2AD1FD6ADDE00138A8B /* BRStringPickerView.m in Sources */,
 				0F9920151FCEEA5900305DF3 /* GLD_BannerCell.m in Sources */,
 				0F298E851FC2CFC200EDBA9A /* UIDevice+DeviceMode.m in Sources */,
 				0F6411861FD4EAB50069FDB1 /* GLD_Request.m in Sources */,
@@ -1545,7 +1672,7 @@
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/WeChat",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/Weibo",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lingzhi.li;
+				PRODUCT_BUNDLE_IDENTIFIER = lingzhi.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1571,7 +1698,7 @@
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/WeChat",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/Weibo",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lingzhi.li;
+				PRODUCT_BUNDLE_IDENTIFIER = lingzhi.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
