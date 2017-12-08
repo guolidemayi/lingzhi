@@ -12,6 +12,8 @@
 #import "YXFlashAdViewController.h"
 #import "WTBootPageStartViewController.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
+#import <MAMapKit/MAMapKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
 
 #define LBKeyWindow [UIApplication sharedApplication].keyWindow
 

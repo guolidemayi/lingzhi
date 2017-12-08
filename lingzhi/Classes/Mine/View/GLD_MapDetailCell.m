@@ -8,8 +8,10 @@
 
 #import "GLD_MapDetailCell.h"
 #import "GLD_SearchResultCell.h"
-#import "MKMapView+ZoomLevel.h"
+
 #import "GLD_MapModel.h"
+#import <MAMapKit/MAMapKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
 
 #define cellHeight W(80)
 #define GEORGIA_TECH_LATITUDE +39.86576800
@@ -17,53 +19,25 @@
 
 #define ZOOM_LEVEL 1
 NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
-@interface GLD_MapDetailCell ()<MKMapViewDelegate,UITableViewDelegate, UITableViewDataSource>
+@interface GLD_MapDetailCell ()<UITableViewDelegate, UITableViewDataSource,MAMapViewDelegate,AMapSearchDelegate>
 
 @property (nonatomic, strong)UILabel *titleLabel;
 @property (nonatomic, strong)UITextField *keyWordField;
 @property (nonatomic, strong)UIButton *searchBut;
 @property (nonatomic, strong)UIView *lineView;
-@property (nonatomic,strong)MKMapView *mapView;
+//高德地图
+@property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong)UITableView *tableView;
+
+@property (nonatomic, strong)AMapSearchAPI *searchAPI;
 @end
 
 @implementation GLD_MapDetailCell
 
 - (void)nextButClick{
-    [self searchData:self.keyWordField.text];
+    [self setAddrssKeyWord:self.keyWordField.text];
 }
-- (void)searchData:(NSString *)data {
-    
-    CLLocationCoordinate2D tocoor = CLLocationCoordinate2DMake(25.02583306, 102.72613118);
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(tocoor, 5000, 5000);
-    
-    MKLocalSearchRequest * req = [[MKLocalSearchRequest alloc]init];
-    req.region = region ;
-    req.naturalLanguageQuery = data ;
-    MKLocalSearch *ser = [[MKLocalSearch alloc]initWithRequest:req];
-    WS(weakSelf);
-    [ser startWithCompletionHandler:^(MKLocalSearchResponse * _Nullable response, NSError * _Nullable error) {
-        NSArray *array = [NSArray arrayWithArray:response.mapItems];
-        NSLog(@"%@",array);
-        for (int i=0; i<array.count; i++) {
-            MKMapItem * item=array[i];
-            MKPointAnnotation * point = [[MKPointAnnotation alloc]init];
-            point.title=item.name;
-            point.subtitle=item.phoneNumber;
-            point.coordinate=item.placemark.coordinate;
-            
-            [_mapView addAnnotation:point];
-            // 显示第一大头针的头部视图
-            if (i == 0) {
-                [_mapView selectAnnotation:point animated:YES];
-            }
-            
-            
-        }
-        weakSelf.dataArr = array;
-    }];
-    
-}
+
 - (void)setDataArr:(NSArray *)dataArr{
     _dataArr = dataArr;
     [self.tableView reloadData];
@@ -72,44 +46,54 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     }];
 }
 
+#pragma mark -- 定位位置发生改变
 
-#pragma mark - MKMapViewDelegate
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation{
+
+-(void)setAddrssKeyWord:(NSString *)addrssKeyWord
+{
     
-    if ([annotation isKindOfClass:[MKUserLocation class]])
-        return nil;
-    if ([annotation isKindOfClass:[MKPointAnnotation class]]) {
-        
-        MKPinAnnotationView *customPinView = (MKPinAnnotationView*)[mapView  dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
-        if (!customPinView){
-            
-            customPinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
-                                                            reuseIdentifier:@"CustomPinAnnotationView"];
-        }
-        
-//        customPinView.pinTintColor = [UIColor redColor];
-//        customPinView.animatesDrop = YES;
-//        customPinView.canShowCallout = YES;
-//        customPinView.selected = YES ;
-//        customPinView.animatesDrop = YES ;
-//        customPinView.userInteractionEnabled = YES ;
-//        customPinView.animatesDrop = YES ;
-//        UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60 *1.25, 60)];
-//        rightButton.backgroundColor = [UIColor whiteColor];
-//        
-//        [rightButton setBackgroundImage:[UIImage imageNamed:@"map_goto"] forState:UIControlStateNormal];
-//        rightButton.backgroundColor = [UIColor grayColor];
-//        
-//        customPinView.rightCalloutAccessoryView = rightButton;
-//        
-        
-        
-        return customPinView;
-        
-    }
-    //返回nil代表使用默认样式
-    return nil;
+    //发起输入提示搜索
+    AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
+    AMapPOIKeywordsSearchRequest *requestKey = [[AMapPOIKeywordsSearchRequest alloc]init];
+    
+   
+    //关键字
+    requestKey.keywords = addrssKeyWord;
+    // types属性表示限定搜索POI的类别，默认为：餐饮服务|商务住宅|生活服务
+    // POI的类型共分为20种大类别，分别为：
+    // 汽车服务|汽车销售|汽车维修|摩托车服务|餐饮服务|购物服务|生活服务|体育休闲服务|
+    // 医疗保健服务|住宿服务|风景名胜|商务住宅|政府机构及社会团体|科教文化服务|
+    // 交通设施服务|金融保险服务|公司企业|道路附属设施|地名地址信息|公共设施
+    //    request.types = @"餐饮服务|生活服务";
+    request.radius =  5000;///< 查询半径，范围：0-50000，单位：米 [default = 3000]
+    request.sortrule = 0;
+    requestKey.requireExtension = YES;
+    requestKey.requireSubPOIs      = YES;
+    //发起周边搜索
+//    [self.searchAPI AMapPOIAroundSearch:request];
+    [self.searchAPI AMapPOIKeywordsSearch:requestKey];
 }
+//实现输入提示的回调函数
+
+- (void)onNearbySearchDone:(AMapNearbySearchRequest *)request response:(AMapNearbySearchResponse *)response{
+    
+}
+
+//实现POI搜索对应的回调函数
+- (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
+{
+    //通过 AMapPOISearchResponse 对象处理搜索结果
+    NSString *strCount = [NSString stringWithFormat:@"count: %ld",response.count];
+    NSString *strSuggestion = [NSString stringWithFormat:@"Suggestion: %@", response.suggestion];
+    NSString *strPoi = @"";
+    for (AMapPOI *p in response.pois) {
+        strPoi = [NSString stringWithFormat:@"%@\nPOI: %@,%@,%@", strPoi, p.description,p.name,p.type];
+    }
+    NSString *result = [NSString stringWithFormat:@"%@ \n %@ \n %@", strCount, strSuggestion, strPoi];
+    NSLog(@"Place: %@", result);
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return cellHeight;
 }
@@ -208,25 +192,20 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     }
     return _lineView;
 }
-- (MKMapView *)mapView{
+- (MAMapView *)mapView {
     if (!_mapView) {
-        _mapView = [[MKMapView alloc]init];
-        _mapView.showsUserLocation = YES ;
-        _mapView.showsTraffic = NO ;
-        _mapView.delegate = self ;
-        _mapView.showsScale = NO;
-        _mapView.userInteractionEnabled = YES;
-        //    _mapView.centerCoordinate = tocoor ;
-//        MKCoordinateSpan span = MKCoordinateSpanMake(1, 1);
-//        
-//        [_mapView setRegion:MKCoordinateRegionMake(self.mapView.userLocation.coordinate, span) animated:YES];
-//        // 开启定位
-//        _mapView.showsUserLocation = YES;
+        _mapView = [[MAMapView alloc] initWithFrame:self.bounds];
+        [_mapView setShowsScale:NO];
+        [_mapView setShowsCompass:NO];
+        [_mapView setRotateEnabled:NO];
+        [_mapView setDelegate:self];
+        [_mapView setShowsUserLocation:YES];
+        [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
+        [_mapView setZoomLevel:15];
+        [_mapView setCustomizeUserLocationAccuracyCircleRepresentation:YES];//自定义用户精度圈
+        //后台定位
         
-        
-        CLLocationCoordinate2D centerCoord = { GEORGIA_TECH_LATITUDE, GEORGIA_TECH_LONGITUDE };
-        [_mapView setCenterCoordinate:centerCoord zoomLevel:ZOOM_LEVEL animated:NO];
-        
+        [self addSubview:_mapView];
     }
     return _mapView;
 }
@@ -246,5 +225,13 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
         [tableView registerClass:[GLD_SearchResultCell class] forCellReuseIdentifier:GLD_SearchResultCellIdentifier];
     }
     return _tableView;
+}
+
+- (AMapSearchAPI *)searchAPI {
+    if (!_searchAPI) {
+        _searchAPI = [[AMapSearchAPI alloc]init];
+        _searchAPI.delegate = self;
+    }
+    return _searchAPI;
 }
 @end

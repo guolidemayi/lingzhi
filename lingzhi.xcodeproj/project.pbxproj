@@ -1180,6 +1180,11 @@
 					0F60E9B71FC2754300C5E113 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					0F60E9CF1FC2754300C5E113 = {
 						CreatedOnToolsVersion = 9.0;
@@ -1658,7 +1663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 48WYF6MTZ2;
+				DEVELOPMENT_TEAM = 4E5R4EWTU6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/QQ",
@@ -1684,7 +1689,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 48WYF6MTZ2;
+				DEVELOPMENT_TEAM = 4E5R4EWTU6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/QQ",

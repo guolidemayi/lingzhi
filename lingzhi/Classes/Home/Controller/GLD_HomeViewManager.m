@@ -33,15 +33,15 @@
     NSLog(@"请求首页方法了");
     
     [self getBannerData];
-    [self getListData];
-    [self getbusnessList:2];
+//    [self getListData];
+//    [self getbusnessList:2];
     
 }
 - (void)getBannerData{
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"main/banner";
+    config.urlPath = @"app/main/v2/getLivingNow";
     config.requestParameters = @{};
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
