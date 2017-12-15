@@ -8,7 +8,8 @@
 
 #import "GLD_BaseCell.h"
 extern NSString *const GLD_SearchResultCellIdentifier;
+@class AMapPOI;
 @interface GLD_SearchResultCell : GLD_BaseCell
 
-@property (nonatomic, strong)MKMapItem *item;
+@property (nonatomic, strong)AMapPOI *item;
 @end

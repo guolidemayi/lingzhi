@@ -8,6 +8,7 @@
 
 #import "GLD_DetailIntroCell.h"
 #import "GLD_ButtonLikeView.h"
+#import "GLD_BusnessModel.h"
 
 NSString *const GLD_DetailIntroCellIdentifier = @"GLD_DetailIntroCellIdentifier";
 @interface GLD_DetailIntroCell ()
@@ -19,6 +20,13 @@ NSString *const GLD_DetailIntroCellIdentifier = @"GLD_DetailIntroCellIdentifier"
 
 @implementation GLD_DetailIntroCell
 
+
+- (void)setBusnessModel:(GLD_BusnessModel *)busnessModel{
+    _busnessModel = busnessModel;
+    self.titleLabel.text = busnessModel.name;
+    [self.addressView setTitle:busnessModel.address];
+    [self.phoneView setTitle:busnessModel.cellphone];
+}
 - (void)setupUI{
     [self.contentView addSubview:self.addressView];
     [self.contentView addSubview:self.phoneView];
@@ -46,12 +54,14 @@ NSString *const GLD_DetailIntroCellIdentifier = @"GLD_DetailIntroCellIdentifier"
 - (GLD_ButtonLikeView *)addressView{
     if (!_addressView) {
         _addressView = [[GLD_ButtonLikeView alloc]initWithTitleColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray] Font:12];
+        _addressView.imgStr = @"地址";
     }
     return _addressView;
 }
 - (GLD_ButtonLikeView *)phoneView{
     if (!_phoneView) {
         _phoneView = [[GLD_ButtonLikeView alloc]initWithTitleColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray] Font:12];
+        _phoneView.imgStr = @"电话";
     }
     return _phoneView;
 }

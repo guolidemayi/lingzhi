@@ -23,6 +23,10 @@ NSString *const GLD_DetaileCellIdentifier = @"GLD_DetaileCellIdentifier";
     [self.contentView addSubview:self.lineView];
 }
 
+- (void)setInstroStr:(NSString *)instroStr{
+    _instroStr = instroStr;
+    self.detailLabel.text = instroStr;
+}
 - (void)layout{
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.equalTo(self.contentView).offset(W(15));
@@ -46,6 +50,7 @@ NSString *const GLD_DetaileCellIdentifier = @"GLD_DetaileCellIdentifier";
         _titleLabel = [UILabel new];
         _titleLabel.font = WTFont(15);
         _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.text = @"门店描述";
         _titleLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK];
     }
     return _titleLabel;

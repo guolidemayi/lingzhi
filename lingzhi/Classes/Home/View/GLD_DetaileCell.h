@@ -11,4 +11,5 @@
 extern NSString *const GLD_DetaileCellIdentifier;
 @interface GLD_DetaileCell : GLD_BaseCell
 
+@property (nonatomic, copy)NSString *instroStr;
 @end

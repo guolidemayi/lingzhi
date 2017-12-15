@@ -7,31 +7,95 @@
 //
 
 #import "GLD_BusinessDetailController.h"
+#import "GLD_BusnessModel.h"
+
+#import "GLD_BusinessDetailManager.h"
+#import "MapNavigationManager.h"
 
 @interface GLD_BusinessDetailController ()
 
+@property (nonatomic, strong)UITableView *detail_table;
+@property (nonatomic, strong)GLD_BusinessDetailManager *busnessManager;
+@property (nonatomic, strong)UIView *bottomView;
 @end
 
 @implementation GLD_BusinessDetailController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.detail_table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    [self.view addSubview:self.detail_table];
+    self.busnessManager = [[GLD_BusinessDetailManager alloc]initWithTableView:self.detail_table];
+    self.busnessManager.busnessModel = self.busnessModel;
+    [self setupBottomView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupBottomView{
+    [self.view addSubview:self.bottomView];
+    self.bottomView.frame = CGRectMake(0, DEVICE_HEIGHT-W(44)-64, DEVICE_WIDTH, W(44));
+    [self.detail_table mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.right.left.equalTo(self.view);
+        make.bottom.equalTo(self.bottomView.mas_top);
+    }];
 }
-*/
+- (void)bottomButClick:(UIButton *)but{
+    switch (but.tag) {
+        case 201:{
+            //导航
+//                [MapNavigationManager showSheetWithCity:self.title start:nil end:@"上海"];
+                CLLocationCoordinate2D coordinate;
+                coordinate.latitude = [self.busnessModel.xpoint floatValue];
+                coordinate.longitude = [self.busnessModel.ypoint floatValue];
+                [MapNavigationManager showSheetWithCoordinate2D:coordinate];
+        }break;
+        case 202:{
+//            拨号
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[NSString stringWithFormat:@"tel://%@",self.busnessModel.cellphone] stringByReplacingOccurrencesOfString:@"-" withString:@""]]];
+        }break;
+        case 203:{
+            
+        }break;
+    }
+}
+- (UIView *)bottomView{
+    if (!_bottomView) {
+        _bottomView = [UIView new];
+        NSArray *arr = @[@"导航",@"拨号",@"扫一扫"];
+        for (int i = 0; i < arr.count; i++) {
+            UIButton *but = [UIButton new];
+            UIImageView *imgV = [UIImageView new];
+            imgV.image = WTImage(arr[i]);
+            
+            UILabel *label = [UILabel new];
+            label.text = arr[i];
+            label.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK];
+            label.font = WTFont(12);
+            [but addSubview:imgV];
+            [but addSubview:label];
+            [imgV mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.equalTo(but);
+                make.top.equalTo(but);
+            }];
+            if (i == 2) {
+                [label mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.center.equalTo(but);
+                }];
+                label.textColor = [UIColor whiteColor];
+                but.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTyellow];
+            }else{
+            [label mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerX.equalTo(imgV);
+                make.top.equalTo(imgV.mas_bottom);
+            }];
+            }
+            [_bottomView addSubview:but];
+            but.frame = CGRectMake(DEVICE_WIDTH/3 * i, 0, DEVICE_WIDTH/3, W(44));
+            [but addTarget:self action:@selector(bottomButClick:) forControlEvents:UIControlEventTouchUpInside];
+            but.tag = 201 + i;
+        }
+    }
+    return _bottomView;
+}
 
 @end

@@ -14,7 +14,7 @@
 @interface GLD_BannerModel : JSONModel
 
 
-@property (nonatomic, copy)NSString *iconUrl;
+@property (nonatomic, copy)NSString *targetUrl;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign)NSInteger type;
 @property (nonatomic, copy)NSString *bannerID;
@@ -25,3 +25,4 @@
 @property (nonatomic, strong) NSMutableArray<GLD_BannerModel> *banner;
 
 @end
+

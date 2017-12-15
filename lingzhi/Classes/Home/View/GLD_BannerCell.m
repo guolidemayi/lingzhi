@@ -9,6 +9,7 @@
 #import "GLD_BannerCell.h"
 #import "SDCycleScrollView.h"
 #import "GLD_BannerModel.h"
+#import "GLD_BannerDetailController.h"
 
 NSString *const GLD_BannerCellIdentifier = @"GLD_BannerCellIdentifier";
 @interface GLD_BannerCell ()<SDCycleScrollViewDelegate>
@@ -23,7 +24,9 @@ NSString *const GLD_BannerCellIdentifier = @"GLD_BannerCellIdentifier";
 }
 /** 点击图片回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
-    
+    NSLog(@"%zd", index);
+    GLD_BannerDetailController *bannerVc =[GLD_BannerDetailController new];
+    [self.navigationController pushViewController:bannerVc animated:YES];
 }
 
 
@@ -31,9 +34,10 @@ NSString *const GLD_BannerCellIdentifier = @"GLD_BannerCellIdentifier";
     _bannerData = bannerData;
     NSMutableArray *arrM = [NSMutableArray array];
     for (GLD_BannerModel *model in bannerData) {
-        [arrM addObject:model.iconUrl];
+        [arrM addObject:model.targetUrl];
     }
     self.cycleView.imageURLStringsGroup = arrM.copy;
+//    self.cycleView.localizationImageNamesGroup = @[@"welcome1",@"welcome2",@"welcome3"];
 }
 /** 图片滚动回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index{
@@ -52,7 +56,8 @@ NSString *const GLD_BannerCellIdentifier = @"GLD_BannerCellIdentifier";
                                                         placeholderImage:[UIImage imageNamed:@"tabbar_icon0_normal"]];
 
         
-        _cycleView.autoScrollTimeInterval = 5.;// 自动滚动时间间隔
+        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
+        _cycleView.autoScroll = YES;
         _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
     }
     return _cycleView;

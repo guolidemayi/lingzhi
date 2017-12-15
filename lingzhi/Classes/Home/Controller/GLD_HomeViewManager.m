@@ -13,6 +13,7 @@
 #import "GLD_BannerModel.h"
 #import "GLD_IndustryModel.h"
 #import "GLD_BusnessModel.h"
+#import "GLD_BusinessDetailController.h"
 
 @interface GLD_HomeViewManager ()
 
@@ -33,53 +34,58 @@
     NSLog(@"请求首页方法了");
     
     [self getBannerData];
-//    [self getListData];
-//    [self getbusnessList:2];
+    [self getListData];
+    [self getbusnessList:2];
     
 }
 - (void)getBannerData{
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"app/main/v2/getLivingNow";
+    config.urlPath = @"api/main/banner";
     config.requestParameters = @{};
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
         weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];
-        
+        [weakSelf.tableView reloadData];
     }];
 }
 -  (void)getListData{
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"main/category";
+    config.urlPath = @"api/main/category";
     config.requestParameters = @{};
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
         weakSelf.industryListModel = [[GLD_IndustryListModel alloc] initWithDictionary:result error:nil];
-        
+        [weakSelf.tableView reloadData];
     }];
 }
 -  (void)getbusnessList :(NSInteger)type{//0(推荐门店)、1(最新开通)、2(附近门店)
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/main/shopList";
     config.requestParameters = @{
                                  @"type" : @(type),
-                                 @"lat:":[NSString stringWithFormat:@"%@",@""],
-                                 @"lng:" : [NSString stringWithFormat:@"%@",@""]
+                                 @"lat:":[NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.location.coordinate.latitude],
+                                 @"lng:" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.location.coordinate.longitude]
                                  };
-    config.urlPath = @"main/shopList";
-    config.requestParameters = @{};
+    
+    
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
         weakSelf.busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
         
+        [weakSelf.tableView reloadData];
     }];
 }
 - (void)reloadOrLoadMoreData{
     [self.tableView.mj_header endRefreshing];
+    [self getBannerData];
+    [self getListData];
+    [self getbusnessList:2];
     NSLog(@"刷新啦");
 }
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -100,24 +106,34 @@
 
 - (GLD_BannerCell *)getBannerCell:(NSIndexPath *)indexPath{
     GLD_BannerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_BannerCellIdentifier];
+    cell.bannerData = self.bannerListModel.banner;
     return cell;
 }
 - (GLD_HomeListCell *)getHomeListCell:(NSIndexPath *)indexPath{
     GLD_HomeListCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_HomeListCellIdentifier];
+    cell.listData = self.industryListModel.category;
     return cell;
 }
 - (GLD_BusinessCell *)getBusinessCell:(NSIndexPath *)indexPath{
     GLD_BusinessCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_BusinessCellIdentifier];
+    cell.model = self.busnessListModel.shop[indexPath.row];
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 1) {
+        GLD_BusinessDetailController *detaileVc = [GLD_BusinessDetailController new];
+        detaileVc.busnessModel = self.busnessListModel.shop[indexPath.row];
+        [self.tableView.navigationController pushViewController:detaileVc animated:YES];
+    }
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case 0:{
             if (indexPath.row == 0) {
                 return W(100);
             }
-            return W(150);
+            return W(180);
         }break;
             
         case 1:{
@@ -128,7 +144,7 @@
 }
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0)return 2;
-    return self.mainDataArrM.count + 4;
+    return self.busnessListModel.shop.count;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;

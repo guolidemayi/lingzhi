@@ -12,6 +12,11 @@
 #import "GLD_MineSettingCell.h"
 #import "TestViewController.h"
 #import "GLD_ApplyBusnessController.h"
+#import "GLD_ApplyCooperatController.h"
+#import "GLD_VerificationController.h"
+#import "GLD_SettingController.h"
+#import "GLD_MyWalletController.h"
+#import "GLD_LoginController.h"
 
 @interface GLD_MineManager ()
 
@@ -33,8 +38,17 @@
 - (void)fetchMainData{
 //    self.tableView.tableHeaderView = self.hasLoginHeadView;
 }
+- (void)reloadOrLoadMoreData{
+    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+}
 - (void)loginButClick{
     NSLog(@"登陆");
+    UIStoryboard *liveBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    GLD_LoginController *loginRegisterGuideVC = [liveBoard instantiateViewControllerWithIdentifier:@"GLD_LoginController"];
+    
+    [self.tableView.navigationController presentViewController:loginRegisterGuideVC animated:YES completion:^{
+        
+    }];
 }
 - (void)registerButClick{
     NSLog(@"注册");
@@ -56,24 +70,40 @@
             
             break;
             
-        case 1:
-            
-            break;
+        case 1:{
+            //我的钱包
+            GLD_MyWalletController *applyVc = [GLD_MyWalletController new];
+            [self.tableView.navigationController pushViewController:applyVc animated:YES];
+        }break;
         case 2:{
             GLD_ApplyBusnessController *applyVc = [GLD_ApplyBusnessController new];
             [self.tableView.navigationController pushViewController:applyVc animated:YES];
         }break;
-        case 3:
-        case 4:
-        case 5:
-            
-            break;
+        case 3:{
+            //合作申请
+            GLD_ApplyCooperatController *applyVc = [GLD_ApplyCooperatController new];
+            [self.tableView.navigationController pushViewController:applyVc animated:YES];
+        }break;
+        case 4:{
+            //实名认证
+            GLD_VerificationController *applyVc = [GLD_VerificationController new];
+            [self.tableView.navigationController pushViewController:applyVc animated:YES];
+        }break;
+        case 5:{
+            //设置
+            GLD_SettingController *applyVc = [GLD_SettingController new];
+            [self.tableView.navigationController pushViewController:applyVc animated:YES];
+        }break;
     }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if(section == 0)
-    return self.hasLoginHeadView;
+    if(section == 0){
+        if (hasLogin) {
+            return self.hasLoginHeadView;
+        }
+        return self.headView;
+    }
     UIView *v = [UIView new];
     v.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTTopLine];
     return v;
@@ -91,7 +121,7 @@
             break;
             
         case 1:
-            return W(130);
+            return hasLogin ? W(130) : W(40);
             break;
         case 2:
         case 3:
@@ -134,7 +164,7 @@
 
 - (GLD_MineWalletCell *)getMineWalletCell:(NSIndexPath *)indexPath{
     GLD_MineWalletCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_MineWalletCellIdentifier];
-    cell.height = W(80);
+    cell.height = hasLogin ? W(80) : 0;
     return cell;
 }
 - (GLD_MineSettingCell *)getMineSettingCell:(NSIndexPath *)indexPath{

@@ -7,7 +7,7 @@
 //
 
 #import "GLD_SearchResultCell.h"
-
+#import <AMapSearchKit/AMapSearchKit.h>
 NSString *const GLD_SearchResultCellIdentifier = @"GLD_SearchResultCellIdentifier";
 @interface GLD_SearchResultCell ()
 
@@ -20,13 +20,13 @@ NSString *const GLD_SearchResultCellIdentifier = @"GLD_SearchResultCellIdentifie
 @implementation GLD_SearchResultCell
 
 
-- (void)setItem:(MKMapItem *)item{
+- (void)setItem:(AMapPOI *)item{
     _item = item;
     self.titleLabel.text = item.name;
-    self.tipLabel.text = item.placemark.country;
-    self.cashLabel.text = item.phoneNumber;
-    if (item.url) {
-        [self.iconImgV yy_setImageWithURL:item.url placeholder:nil];
+    self.tipLabel.text = item.address;
+    self.cashLabel.text = item.tel;
+    if (IsExist_Array(item.images)) {
+        [self.titleImgV yy_setImageWithURL:[NSURL URLWithString:item.images.firstObject.url] placeholder:nil];
     }
 }
 - (void)setupUI {
@@ -36,6 +36,7 @@ NSString *const GLD_SearchResultCellIdentifier = @"GLD_SearchResultCellIdentifie
     [self.contentView addSubview:self.cashLabel];
     [self.contentView addSubview:self.titleImgV];
     [self.contentView addSubview:self.iconImgV];
+     self.selectionStyle = UITableViewCellSelectionStyleGray;
 }
 
 - (void)layout{

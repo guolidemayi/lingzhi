@@ -9,6 +9,7 @@
 #import "GLD_BaseViewController.h"
 #import "GLD_CityModel.h"
 
+typedef void(^cityListBlock)(NSString *name);
 @protocol GLD_CityListViewControllerDelegate <NSObject>
 
 - (void)sl_cityListSelectedCity:(NSString *)selectedCity Id:(NSInteger)Id;
@@ -24,6 +25,7 @@
 /** 代理 */
 @property (weak, nonatomic) id<GLD_CityListViewControllerDelegate> delegate;
 
-
+@property (nonatomic, copy)cityListBlock cityListBlock;
+@property (nonatomic, strong)NSString *locationCity;
 
 @end

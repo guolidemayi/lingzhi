@@ -8,8 +8,10 @@
 
 #import "GLD_BaseCell.h"
 
+@class GLD_BusnessModel;
 extern NSString *const GLD_BusinessCellIdentifier;
 
 @interface GLD_BusinessCell : GLD_BaseCell
 
+@property (nonatomic, copy)GLD_BusnessModel *model;
 @end

@@ -16,10 +16,55 @@
 @property (strong, nonatomic) NSMutableArray *sectionArray;
 /** 定位城市ID */
 @property (assign, nonatomic) NSInteger Id;
+@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @end
 
 @implementation GLD_CityListController
 
+
+- (void)setupTopView{
+    
+    UILabel *titleL = [[UILabel alloc]init];
+    titleL = [UILabel new];
+    titleL.font = WTFont(12);
+    titleL.text = @"定位城市";
+    titleL.textAlignment = NSTextAlignmentLeft;
+    titleL.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK];
+    [self.view addSubview:titleL];
+    [ titleL mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.equalTo(self.view).offset(W(10));
+    }];
+    
+    UIButton *locationBut = [[UIButton alloc]init];
+    [locationBut setTitle:self.locationCity forState:UIControlStateNormal];
+    [locationBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKwirte] forState:UIControlStateNormal];
+    [locationBut setImage:WTImage(@"定位") forState:UIControlStateNormal];
+    locationBut.titleLabel.font = WTFont(15);
+    locationBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTTopLine];
+    locationBut.layer.cornerRadius = 3;
+    locationBut.layer.masksToBounds = YES;
+    [self.view addSubview:locationBut];
+    [locationBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(titleL.mas_bottom).offset(W(5));
+        make.left.equalTo(titleL);
+    }];
+    
+    [self getbusnessList];
+}
+
+-  (void)getbusnessList {
+    self.NetManager = [GLD_NetworkAPIManager new];
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/main/city";
+    
+    
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        
+    }];
+}
 #pragma mark -- 懒加载
 // 区头数组
 - (NSMutableArray *)sectionArray {
@@ -28,7 +73,7 @@
         for (GLD_CityListModel *cityList in self.cityModel.list) {
             [_sectionArray addObject:cityList.initial];
         }
-        [_sectionArray insertObject:@"热门" atIndex:0];
+//        [_sectionArray insertObject:@"热门" atIndex:0];
     }
     return _sectionArray;
 }
@@ -48,7 +93,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 40 + 64, DEVICE_WIDTH, DEVICE_HEIGHT - 64 - 40) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 60, DEVICE_WIDTH, DEVICE_HEIGHT-60) style:UITableViewStylePlain];
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -67,8 +112,8 @@
     
     // 设置navigationBar
     [self setupNavigationBar];
-    
-    
+    self.view .backgroundColor = [UIColor whiteColor];
+    [self setupTopView];
     // 定位方法
     //    [self locationAction:self.cityLocationView];
     
@@ -130,11 +175,6 @@
 }
 
 
-
-
-
-
-
 #pragma mark -- tableView 的代理方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -185,13 +225,9 @@
         //
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 
-
-- (void)dealloc {
-    
-}
 
 @end

@@ -31,12 +31,12 @@ NSString *const GLD_IndustryCollecCellIdentifier = @"GLD_IndustryCollecCellIdent
 
 - (void)setModel:(GLD_IndustryModel *)model{
     _model = model;
-    if([model.iconUrl hasPrefix:@"http://"]){
-    [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:model.iconUrl] placeholder:nil];
+    if([model.icon hasPrefix:@"http://"]){
+    [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:model.icon] placeholder:nil];
     }else{
-        self.iconImgV.image = WTImage(model.iconUrl);
+        self.iconImgV.image = WTImage(@"weixin");
     }
-    self.titleLabel.text = model.title;
+    self.titleLabel.text = model.name;
 }
 - (void)setupUI{
     [self.contentView addSubview:self.iconImgV];
@@ -45,11 +45,11 @@ NSString *const GLD_IndustryCollecCellIdentifier = @"GLD_IndustryCollecCellIdent
 - (void)layout{
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.contentView);
-        make.bottom.equalTo(self.contentView).offset(W(-15));
+        make.bottom.equalTo(self.contentView).offset(W(-5));
     }];
     [self.iconImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.contentView);
-        make.bottom.equalTo(self.titleLabel.mas_top).offset(W(-10));
+        make.bottom.equalTo(self.titleLabel.mas_top).offset(W(-5));
     }];
 }
 - (UIImageView *)iconImgV{

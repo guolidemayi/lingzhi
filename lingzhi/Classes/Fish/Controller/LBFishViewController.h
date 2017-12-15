@@ -6,8 +6,8 @@
 //  Copyright © 2016年 li  bo. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "GLD_BaseViewController.h"
 
-@interface LBFishViewController : UIViewController
+@interface LBFishViewController : GLD_BaseViewController
 
 @end

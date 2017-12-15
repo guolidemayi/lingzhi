@@ -7,6 +7,7 @@
 //
 
 #import "GLD_BusinessCell.h"
+#import "GLD_BusnessModel.h"
 
 NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
 @interface GLD_BusinessCell ()
@@ -23,6 +24,17 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
 
 @implementation GLD_BusinessCell
 
+
+- (void)setModel:(GLD_BusnessModel *)model{
+    _model = model;
+    [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:model.logo] placeholder:nil];
+    self.titleLabel.text = model.name;
+    [self.locationBut setTitle:model.address forState:UIControlStateNormal];
+    self.typeLabel.text = model.category;
+    self.detailLabel.text = model.desc;
+    self.distanceLabel.text = model.distance;
+    self.rankLabel.text = [NSString stringWithFormat:@"%@",model.evaluateScore];
+}
 - (void)setupUI{
     
     self.iconImgV = ({
@@ -83,7 +95,7 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
         UIButton * button = [UIButton new];
         [button setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateNormal];
         
-        [button setTitle:@"安逸酒店" forState:UIControlStateNormal];
+        [button setImage:WTImage(@"定位") forState:UIControlStateNormal];
         button.titleLabel.font = WTFont(15);
         [button setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTline2Gray] forState:UIControlStateNormal];
         button;

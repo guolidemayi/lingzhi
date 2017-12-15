@@ -25,7 +25,6 @@
 		0F28D2BE1FD7F04000138A8B /* GLD_ApplyBusnessController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2BD1FD7F04000138A8B /* GLD_ApplyBusnessController.m */; };
 		0F28D2C11FD91DED00138A8B /* GLD_MapDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2C01FD91DED00138A8B /* GLD_MapDetailCell.m */; };
 		0F28D2C41FD930D900138A8B /* GLD_SearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2C31FD930D900138A8B /* GLD_SearchResultCell.m */; };
-		0F28D2C81FD93CFC00138A8B /* MKMapView+ZoomLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2C71FD93CFC00138A8B /* MKMapView+ZoomLevel.m */; };
 		0F28D2CC1FDA2C9600138A8B /* GLD_MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F28D2CB1FDA2C9600138A8B /* GLD_MapModel.m */; };
 		0F28D2CE1FDA42EA00138A8B /* AMap.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0F28D2CD1FDA42EA00138A8B /* AMap.bundle */; };
 		0F298E4F1FC28AF600EDBA9A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298E4E1FC28AF600EDBA9A /* CoreLocation.framework */; };
@@ -67,6 +66,18 @@
 		0F298EC91FC2DB9700EDBA9A /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EC81FC2DB9700EDBA9A /* libresolv.9.tbd */; };
 		0F298ECB1FC2DBD800EDBA9A /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298ECA1FC2DBD800EDBA9A /* libiconv.tbd */; };
 		0F298ECD1FC2DC3000EDBA9A /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298ECC1FC2DC3000EDBA9A /* libxml2.2.tbd */; };
+		0F32E7F01FDFD56F0042E8BE /* GLD_WalletDetialController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E7EF1FDFD56F0042E8BE /* GLD_WalletDetialController.m */; };
+		0F32E7F31FDFDECF0042E8BE /* GLD_GiveCouponController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E7F21FDFDECF0042E8BE /* GLD_GiveCouponController.m */; };
+		0F32E7F61FE0FA680042E8BE /* GLD_PayRechargeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E7F51FE0FA680042E8BE /* GLD_PayRechargeController.m */; };
+		0F32E7F91FE0FB6C0042E8BE /* GLD_CashCountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E7F81FE0FB6C0042E8BE /* GLD_CashCountCell.m */; };
+		0F32E7FC1FE12CED0042E8BE /* GLD_SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E7FB1FE12CED0042E8BE /* GLD_SearchController.m */; };
+		0F32E7FF1FE267D20042E8BE /* GLD_AllCateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E7FE1FE267D20042E8BE /* GLD_AllCateController.m */; };
+		0F32E8021FE26CE40042E8BE /* GLD_BannerDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E8011FE26CE40042E8BE /* GLD_BannerDetailController.m */; };
+		0F32E8051FE36BF60042E8BE /* GLD_PerfectUserMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E8041FE36BF60042E8BE /* GLD_PerfectUserMController.m */; };
+		0F382EF71FDE6F51006689FA /* GLD_MyCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F382EF61FDE6F51006689FA /* GLD_MyCollectionController.m */; };
+		0F382EFA1FDE6FCF006689FA /* GLD_MycollectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F382EF91FDE6FCF006689FA /* GLD_MycollectionManager.m */; };
+		0F382EFD1FDE7620006689FA /* GLD_ApplyCooperatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F382EFC1FDE7620006689FA /* GLD_ApplyCooperatController.m */; };
+		0F382F001FDE76AF006689FA /* GLD_CooperatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F382EFF1FDE76AF006689FA /* GLD_CooperatCell.m */; };
 		0F42A13A1FD554560072A167 /* GLD_CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F42A1391FD554560072A167 /* GLD_CityModel.m */; };
 		0F42A13D1FD5585A0072A167 /* GLD_CityListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F42A13C1FD5585A0072A167 /* GLD_CityListController.m */; };
 		0F60E9C01FC2754300C5E113 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F60E9BF1FC2754300C5E113 /* ViewController.m */; };
@@ -94,6 +105,17 @@
 		0F6411AB1FD5271C0069FDB1 /* GLD_DetailRankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6411AA1FD5271C0069FDB1 /* GLD_DetailRankCell.m */; };
 		0F6411AE1FD528B80069FDB1 /* GLD_ButtonLikeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6411AD1FD528B80069FDB1 /* GLD_ButtonLikeView.m */; };
 		0F6411B11FD53B950069FDB1 /* GLD_BusnessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F6411B01FD53B950069FDB1 /* GLD_BusnessModel.m */; };
+		0F71A5861FDE81AC00C66EED /* GLD_ApplyCompanyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A5851FDE81AC00C66EED /* GLD_ApplyCompanyController.m */; };
+		0F71A5891FDE8B5300C66EED /* GLD_ApplyUnionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A5881FDE8B5300C66EED /* GLD_ApplyUnionController.m */; };
+		0F71A58C1FDE93AC00C66EED /* GLD_VerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A58B1FDE93AC00C66EED /* GLD_VerificationController.m */; };
+		0F71A58F1FDF742F00C66EED /* GLD_PhoneVerificatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A58E1FDF742F00C66EED /* GLD_PhoneVerificatController.m */; };
+		0F71A5921FDF835300C66EED /* GLD_SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A5911FDF835300C66EED /* GLD_SettingController.m */; };
+		0F71A5951FDF8A1800C66EED /* GLD_ChangePhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A5941FDF8A1800C66EED /* GLD_ChangePhoneController.m */; };
+		0F71A5981FDF8DDF00C66EED /* GLD_GetVerificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A5971FDF8DDF00C66EED /* GLD_GetVerificationController.m */; };
+		0F71A59B1FDFA97D00C66EED /* GLD_NewPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A59A1FDFA97D00C66EED /* GLD_NewPhoneController.m */; };
+		0F71A59E1FDFAF7800C66EED /* GLD_ChangePassWordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A59D1FDFAF7800C66EED /* GLD_ChangePassWordController.m */; };
+		0F71A5A21FDFBD4A00C66EED /* GLD_MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A5A11FDFBD4A00C66EED /* GLD_MyOrderController.m */; };
+		0F71A5A51FDFC16000C66EED /* GLD_MyWalletController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A5A41FDFC16000C66EED /* GLD_MyWalletController.m */; };
 		0F9920061FCEDDE800305DF3 /* GLD_HomeViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920051FCEDDE800305DF3 /* GLD_HomeViewManager.m */; };
 		0F99200C1FCEDEE800305DF3 /* YXFooterRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920081FCEDEE800305DF3 /* YXFooterRefresh.m */; };
 		0F99200D1FCEDEE900305DF3 /* GLD_RefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920091FCEDEE800305DF3 /* GLD_RefreshHeader.m */; };
@@ -191,8 +213,6 @@
 		0F28D2C01FD91DED00138A8B /* GLD_MapDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MapDetailCell.m; sourceTree = "<group>"; };
 		0F28D2C21FD930D900138A8B /* GLD_SearchResultCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_SearchResultCell.h; sourceTree = "<group>"; };
 		0F28D2C31FD930D900138A8B /* GLD_SearchResultCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_SearchResultCell.m; sourceTree = "<group>"; };
-		0F28D2C61FD93CFC00138A8B /* MKMapView+ZoomLevel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MKMapView+ZoomLevel.h"; sourceTree = "<group>"; };
-		0F28D2C71FD93CFC00138A8B /* MKMapView+ZoomLevel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MKMapView+ZoomLevel.m"; sourceTree = "<group>"; };
 		0F28D2CA1FDA2C9600138A8B /* GLD_MapModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MapModel.h; sourceTree = "<group>"; };
 		0F28D2CB1FDA2C9600138A8B /* GLD_MapModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MapModel.m; sourceTree = "<group>"; };
 		0F28D2CD1FDA42EA00138A8B /* AMap.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AMap.bundle; sourceTree = "<group>"; };
@@ -264,6 +284,30 @@
 		0F298EC81FC2DB9700EDBA9A /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		0F298ECA1FC2DBD800EDBA9A /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		0F298ECC1FC2DC3000EDBA9A /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		0F32E7EE1FDFD56F0042E8BE /* GLD_WalletDetialController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_WalletDetialController.h; sourceTree = "<group>"; };
+		0F32E7EF1FDFD56F0042E8BE /* GLD_WalletDetialController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_WalletDetialController.m; sourceTree = "<group>"; };
+		0F32E7F11FDFDECF0042E8BE /* GLD_GiveCouponController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_GiveCouponController.h; sourceTree = "<group>"; };
+		0F32E7F21FDFDECF0042E8BE /* GLD_GiveCouponController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_GiveCouponController.m; sourceTree = "<group>"; };
+		0F32E7F41FE0FA680042E8BE /* GLD_PayRechargeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_PayRechargeController.h; sourceTree = "<group>"; };
+		0F32E7F51FE0FA680042E8BE /* GLD_PayRechargeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PayRechargeController.m; sourceTree = "<group>"; };
+		0F32E7F71FE0FB6C0042E8BE /* GLD_CashCountCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CashCountCell.h; sourceTree = "<group>"; };
+		0F32E7F81FE0FB6C0042E8BE /* GLD_CashCountCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CashCountCell.m; sourceTree = "<group>"; };
+		0F32E7FA1FE12CED0042E8BE /* GLD_SearchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_SearchController.h; sourceTree = "<group>"; };
+		0F32E7FB1FE12CED0042E8BE /* GLD_SearchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_SearchController.m; sourceTree = "<group>"; };
+		0F32E7FD1FE267D20042E8BE /* GLD_AllCateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_AllCateController.h; sourceTree = "<group>"; };
+		0F32E7FE1FE267D20042E8BE /* GLD_AllCateController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_AllCateController.m; sourceTree = "<group>"; };
+		0F32E8001FE26CE40042E8BE /* GLD_BannerDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BannerDetailController.h; sourceTree = "<group>"; };
+		0F32E8011FE26CE40042E8BE /* GLD_BannerDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BannerDetailController.m; sourceTree = "<group>"; };
+		0F32E8031FE36BF60042E8BE /* GLD_PerfectUserMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_PerfectUserMController.h; sourceTree = "<group>"; };
+		0F32E8041FE36BF60042E8BE /* GLD_PerfectUserMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PerfectUserMController.m; sourceTree = "<group>"; };
+		0F382EF51FDE6F51006689FA /* GLD_MyCollectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MyCollectionController.h; sourceTree = "<group>"; };
+		0F382EF61FDE6F51006689FA /* GLD_MyCollectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MyCollectionController.m; sourceTree = "<group>"; };
+		0F382EF81FDE6FCF006689FA /* GLD_MycollectionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MycollectionManager.h; sourceTree = "<group>"; };
+		0F382EF91FDE6FCF006689FA /* GLD_MycollectionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MycollectionManager.m; sourceTree = "<group>"; };
+		0F382EFB1FDE7620006689FA /* GLD_ApplyCooperatController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ApplyCooperatController.h; sourceTree = "<group>"; };
+		0F382EFC1FDE7620006689FA /* GLD_ApplyCooperatController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ApplyCooperatController.m; sourceTree = "<group>"; };
+		0F382EFE1FDE76AF006689FA /* GLD_CooperatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CooperatCell.h; sourceTree = "<group>"; };
+		0F382EFF1FDE76AF006689FA /* GLD_CooperatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CooperatCell.m; sourceTree = "<group>"; };
 		0F42A1381FD554560072A167 /* GLD_CityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CityModel.h; sourceTree = "<group>"; };
 		0F42A1391FD554560072A167 /* GLD_CityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CityModel.m; sourceTree = "<group>"; };
 		0F42A13B1FD5585A0072A167 /* GLD_CityListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CityListController.h; sourceTree = "<group>"; };
@@ -321,6 +365,28 @@
 		0F6411AD1FD528B80069FDB1 /* GLD_ButtonLikeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ButtonLikeView.m; sourceTree = "<group>"; };
 		0F6411AF1FD53B950069FDB1 /* GLD_BusnessModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BusnessModel.h; sourceTree = "<group>"; };
 		0F6411B01FD53B950069FDB1 /* GLD_BusnessModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BusnessModel.m; sourceTree = "<group>"; };
+		0F71A5841FDE81AC00C66EED /* GLD_ApplyCompanyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ApplyCompanyController.h; sourceTree = "<group>"; };
+		0F71A5851FDE81AC00C66EED /* GLD_ApplyCompanyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ApplyCompanyController.m; sourceTree = "<group>"; };
+		0F71A5871FDE8B5300C66EED /* GLD_ApplyUnionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ApplyUnionController.h; sourceTree = "<group>"; };
+		0F71A5881FDE8B5300C66EED /* GLD_ApplyUnionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ApplyUnionController.m; sourceTree = "<group>"; };
+		0F71A58A1FDE93AC00C66EED /* GLD_VerificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_VerificationController.h; sourceTree = "<group>"; };
+		0F71A58B1FDE93AC00C66EED /* GLD_VerificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_VerificationController.m; sourceTree = "<group>"; };
+		0F71A58D1FDF742F00C66EED /* GLD_PhoneVerificatController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_PhoneVerificatController.h; sourceTree = "<group>"; };
+		0F71A58E1FDF742F00C66EED /* GLD_PhoneVerificatController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PhoneVerificatController.m; sourceTree = "<group>"; };
+		0F71A5901FDF835300C66EED /* GLD_SettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_SettingController.h; sourceTree = "<group>"; };
+		0F71A5911FDF835300C66EED /* GLD_SettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_SettingController.m; sourceTree = "<group>"; };
+		0F71A5931FDF8A1800C66EED /* GLD_ChangePhoneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ChangePhoneController.h; sourceTree = "<group>"; };
+		0F71A5941FDF8A1800C66EED /* GLD_ChangePhoneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ChangePhoneController.m; sourceTree = "<group>"; };
+		0F71A5961FDF8DDF00C66EED /* GLD_GetVerificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_GetVerificationController.h; sourceTree = "<group>"; };
+		0F71A5971FDF8DDF00C66EED /* GLD_GetVerificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_GetVerificationController.m; sourceTree = "<group>"; };
+		0F71A5991FDFA97D00C66EED /* GLD_NewPhoneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_NewPhoneController.h; sourceTree = "<group>"; };
+		0F71A59A1FDFA97D00C66EED /* GLD_NewPhoneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_NewPhoneController.m; sourceTree = "<group>"; };
+		0F71A59C1FDFAF7800C66EED /* GLD_ChangePassWordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ChangePassWordController.h; sourceTree = "<group>"; };
+		0F71A59D1FDFAF7800C66EED /* GLD_ChangePassWordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ChangePassWordController.m; sourceTree = "<group>"; };
+		0F71A5A01FDFBD4A00C66EED /* GLD_MyOrderController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MyOrderController.h; sourceTree = "<group>"; };
+		0F71A5A11FDFBD4A00C66EED /* GLD_MyOrderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MyOrderController.m; sourceTree = "<group>"; };
+		0F71A5A31FDFC16000C66EED /* GLD_MyWalletController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MyWalletController.h; sourceTree = "<group>"; };
+		0F71A5A41FDFC16000C66EED /* GLD_MyWalletController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MyWalletController.m; sourceTree = "<group>"; };
 		0F9920041FCEDDE800305DF3 /* GLD_HomeViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_HomeViewManager.h; sourceTree = "<group>"; };
 		0F9920051FCEDDE800305DF3 /* GLD_HomeViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_HomeViewManager.m; sourceTree = "<group>"; };
 		0F9920081FCEDEE800305DF3 /* YXFooterRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXFooterRefresh.m; sourceTree = "<group>"; };
@@ -466,10 +532,12 @@
 				0F28D29C1FD67D9500138A8B /* GLD_MineWalletCell.m */,
 				0F28D2BF1FD91DED00138A8B /* GLD_MapDetailCell.h */,
 				0F28D2C01FD91DED00138A8B /* GLD_MapDetailCell.m */,
-				0F28D2C61FD93CFC00138A8B /* MKMapView+ZoomLevel.h */,
-				0F28D2C71FD93CFC00138A8B /* MKMapView+ZoomLevel.m */,
 				0F28D2C21FD930D900138A8B /* GLD_SearchResultCell.h */,
 				0F28D2C31FD930D900138A8B /* GLD_SearchResultCell.m */,
+				0F382EFE1FDE76AF006689FA /* GLD_CooperatCell.h */,
+				0F382EFF1FDE76AF006689FA /* GLD_CooperatCell.m */,
+				0F32E7F71FE0FB6C0042E8BE /* GLD_CashCountCell.h */,
+				0F32E7F81FE0FB6C0042E8BE /* GLD_CashCountCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -813,6 +881,23 @@
 			path = PTLMenuButton;
 			sourceTree = "<group>";
 		};
+		0F71A59F1FDFBC5E00C66EED /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				0F71A5901FDF835300C66EED /* GLD_SettingController.h */,
+				0F71A5911FDF835300C66EED /* GLD_SettingController.m */,
+				0F71A5931FDF8A1800C66EED /* GLD_ChangePhoneController.h */,
+				0F71A5941FDF8A1800C66EED /* GLD_ChangePhoneController.m */,
+				0F71A5961FDF8DDF00C66EED /* GLD_GetVerificationController.h */,
+				0F71A5971FDF8DDF00C66EED /* GLD_GetVerificationController.m */,
+				0F71A5991FDFA97D00C66EED /* GLD_NewPhoneController.h */,
+				0F71A59A1FDFA97D00C66EED /* GLD_NewPhoneController.m */,
+				0F71A59C1FDFAF7800C66EED /* GLD_ChangePassWordController.h */,
+				0F71A59D1FDFAF7800C66EED /* GLD_ChangePassWordController.m */,
+			);
+			path = setting;
+			sourceTree = "<group>";
+		};
 		0F9920071FCEDEE800305DF3 /* refresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -890,6 +975,12 @@
 				0F64119E1FD524190069FDB1 /* GLD_BusinessDetailManager.m */,
 				0F42A13B1FD5585A0072A167 /* GLD_CityListController.h */,
 				0F42A13C1FD5585A0072A167 /* GLD_CityListController.m */,
+				0F32E7FA1FE12CED0042E8BE /* GLD_SearchController.h */,
+				0F32E7FB1FE12CED0042E8BE /* GLD_SearchController.m */,
+				0F32E7FD1FE267D20042E8BE /* GLD_AllCateController.h */,
+				0F32E7FE1FE267D20042E8BE /* GLD_AllCateController.m */,
+				0F32E8001FE26CE40042E8BE /* GLD_BannerDetailController.h */,
+				0F32E8011FE26CE40042E8BE /* GLD_BannerDetailController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -952,6 +1043,7 @@
 		0FB536E91FC5887C00B0EDA6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0F71A59F1FDFBC5E00C66EED /* setting */,
 				0FB536EA1FC5887C00B0EDA6 /* LBMineViewController.h */,
 				0FB536EB1FC5887C00B0EDA6 /* LBMineViewController.m */,
 				0F28D2861FD66CED00138A8B /* GLD_MineManager.h */,
@@ -960,6 +1052,30 @@
 				0F28D2B81FD7BC0600138A8B /* GLD_WirteIntroController.m */,
 				0F28D2BC1FD7F04000138A8B /* GLD_ApplyBusnessController.h */,
 				0F28D2BD1FD7F04000138A8B /* GLD_ApplyBusnessController.m */,
+				0F382EF51FDE6F51006689FA /* GLD_MyCollectionController.h */,
+				0F382EF61FDE6F51006689FA /* GLD_MyCollectionController.m */,
+				0F382EF81FDE6FCF006689FA /* GLD_MycollectionManager.h */,
+				0F382EF91FDE6FCF006689FA /* GLD_MycollectionManager.m */,
+				0F382EFB1FDE7620006689FA /* GLD_ApplyCooperatController.h */,
+				0F382EFC1FDE7620006689FA /* GLD_ApplyCooperatController.m */,
+				0F71A5841FDE81AC00C66EED /* GLD_ApplyCompanyController.h */,
+				0F71A5851FDE81AC00C66EED /* GLD_ApplyCompanyController.m */,
+				0F71A5871FDE8B5300C66EED /* GLD_ApplyUnionController.h */,
+				0F71A5881FDE8B5300C66EED /* GLD_ApplyUnionController.m */,
+				0F71A58A1FDE93AC00C66EED /* GLD_VerificationController.h */,
+				0F71A58B1FDE93AC00C66EED /* GLD_VerificationController.m */,
+				0F71A58D1FDF742F00C66EED /* GLD_PhoneVerificatController.h */,
+				0F71A58E1FDF742F00C66EED /* GLD_PhoneVerificatController.m */,
+				0F71A5A01FDFBD4A00C66EED /* GLD_MyOrderController.h */,
+				0F71A5A11FDFBD4A00C66EED /* GLD_MyOrderController.m */,
+				0F71A5A31FDFC16000C66EED /* GLD_MyWalletController.h */,
+				0F71A5A41FDFC16000C66EED /* GLD_MyWalletController.m */,
+				0F32E7EE1FDFD56F0042E8BE /* GLD_WalletDetialController.h */,
+				0F32E7EF1FDFD56F0042E8BE /* GLD_WalletDetialController.m */,
+				0F32E7F11FDFDECF0042E8BE /* GLD_GiveCouponController.h */,
+				0F32E7F21FDFDECF0042E8BE /* GLD_GiveCouponController.m */,
+				0F32E7F41FE0FA680042E8BE /* GLD_PayRechargeController.h */,
+				0F32E7F51FE0FA680042E8BE /* GLD_PayRechargeController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1029,6 +1145,8 @@
 				0FB5371C1FC6AA7900B0EDA6 /* WTBootPageStartViewController.m */,
 				0FB537131FC6A16500B0EDA6 /* GLD_LoginController.h */,
 				0FB537111FC6A16500B0EDA6 /* GLD_LoginController.m */,
+				0F32E8031FE36BF60042E8BE /* GLD_PerfectUserMController.h */,
+				0F32E8041FE36BF60042E8BE /* GLD_PerfectUserMController.m */,
 				0FB537191FC6A25200B0EDA6 /* UserADsModel.h */,
 				0FB5371A1FC6A25200B0EDA6 /* UserADsModel.m */,
 			);
@@ -1412,14 +1530,19 @@
 				0F6411991FD5213D0069FDB1 /* GLD_BusinessViewManager.m in Sources */,
 				0FB537011FC5887C00B0EDA6 /* AppDelegate.m in Sources */,
 				0FB537071FC5887C00B0EDA6 /* LBTabBarController.m in Sources */,
+				0F32E7FF1FE267D20042E8BE /* GLD_AllCateController.m in Sources */,
+				0F71A5951FDF8A1800C66EED /* GLD_ChangePhoneController.m in Sources */,
 				0FB537381FC6D22A00B0EDA6 /* SGQRCodeHelperTool.m in Sources */,
 				0F28D2C11FD91DED00138A8B /* GLD_MapDetailCell.m in Sources */,
 				0FB5371E1FC6AA7A00B0EDA6 /* WTBootPageStartViewController.m in Sources */,
 				0F298E821FC2CFC200EDBA9A /* MTShareModule.m in Sources */,
+				0F32E7F31FDFDECF0042E8BE /* GLD_GiveCouponController.m in Sources */,
 				0F64119F1FD524190069FDB1 /* GLD_BusinessDetailManager.m in Sources */,
 				0F28D2C41FD930D900138A8B /* GLD_SearchResultCell.m in Sources */,
+				0F382F001FDE76AF006689FA /* GLD_CooperatCell.m in Sources */,
 				0F298E521FC2CA7200EDBA9A /* GLD_BaseNavController.m in Sources */,
 				0F9920061FCEDDE800305DF3 /* GLD_HomeViewManager.m in Sources */,
+				0F32E8051FE36BF60042E8BE /* GLD_PerfectUserMController.m in Sources */,
 				0FB537241FC6C47000B0EDA6 /* MapNavigationManager.m in Sources */,
 				3CA74E4A1FD27E2800A7F137 /* GLD_IndustryCollecCell.m in Sources */,
 				0FB537211FC6B9C100B0EDA6 /* GLD_LocationHelp.m in Sources */,
@@ -1427,6 +1550,8 @@
 				0F28D28F1FD6751A00138A8B /* GLD_MinePersonalCell.m in Sources */,
 				0F6411A51FD526E50069FDB1 /* GLD_DetaileBusiCell.m in Sources */,
 				0F6411911FD512B00069FDB1 /* PTLMenuButton.m in Sources */,
+				0F71A5921FDF835300C66EED /* GLD_SettingController.m in Sources */,
+				0F32E7F61FE0FA680042E8BE /* GLD_PayRechargeController.m in Sources */,
 				0F28D2AC1FD6ADDE00138A8B /* TestViewController.m in Sources */,
 				0F6411851FD4EAB50069FDB1 /* GLD_NetworkClient.m in Sources */,
 				0F298E7D1FC2CFC200EDBA9A /* GLD_ImageCarouselView.m in Sources */,
@@ -1435,24 +1560,32 @@
 				0F60E9C01FC2754300C5E113 /* ViewController.m in Sources */,
 				0F6411A81FD527080069FDB1 /* GLD_DetaileCell.m in Sources */,
 				0F9920101FCEE1AA00305DF3 /* GLD_BaseTableManager.m in Sources */,
+				0F71A58F1FDF742F00C66EED /* GLD_PhoneVerificatController.m in Sources */,
 				3CA74E4E1FD2808300A7F137 /* GLD_IndustryModel.m in Sources */,
 				0F28D28C1FD671F000138A8B /* GLD_MineSettingCell.m in Sources */,
 				0F28D2CC1FDA2C9600138A8B /* GLD_MapModel.m in Sources */,
 				0F6411AE1FD528B80069FDB1 /* GLD_ButtonLikeView.m in Sources */,
+				0F382EFA1FDE6FCF006689FA /* GLD_MycollectionManager.m in Sources */,
 				0F28D2B61FD77F7D00138A8B /* UIView+gldController.m in Sources */,
 				0F28D2AF1FD6ADDE00138A8B /* BRDatePickerView.m in Sources */,
+				0F71A5861FDE81AC00C66EED /* GLD_ApplyCompanyController.m in Sources */,
+				0F32E8021FE26CE40042E8BE /* GLD_BannerDetailController.m in Sources */,
 				0F28D2991FD6799100138A8B /* UIView+SDAutoLayout.m in Sources */,
 				0F298E871FC2CFC200EDBA9A /* WTFont.m in Sources */,
 				0FB537391FC6D22A00B0EDA6 /* SGQRCodeScanningView.m in Sources */,
 				0F28D2B31FD6AEC500138A8B /* NSDate+BRAdd.m in Sources */,
+				0F382EFD1FDE7620006689FA /* GLD_ApplyCooperatController.m in Sources */,
 				0FB5373A1FC6D22A00B0EDA6 /* SGQRCodeScanManager.m in Sources */,
 				0FB537051FC5887C00B0EDA6 /* UIImage+Image.m in Sources */,
 				0F9920181FCEEFED00305DF3 /* GLD_HomeListCell.m in Sources */,
 				0F42A13A1FD554560072A167 /* GLD_CityModel.m in Sources */,
 				0F6411AB1FD5271C0069FDB1 /* GLD_DetailRankCell.m in Sources */,
+				0F382EF71FDE6F51006689FA /* GLD_MyCollectionController.m in Sources */,
 				0F28D2AE1FD6ADDE00138A8B /* BRTextField.m in Sources */,
 				0FB537031FC5887C00B0EDA6 /* LBMineViewController.m in Sources */,
 				0F6411841FD4EAB50069FDB1 /* GLD_CacheManager.m in Sources */,
+				0F71A59B1FDFA97D00C66EED /* GLD_NewPhoneController.m in Sources */,
+				0F71A5A21FDFBD4A00C66EED /* GLD_MyOrderController.m in Sources */,
 				0F28D2881FD66CED00138A8B /* GLD_MineManager.m in Sources */,
 				0F298E7F1FC2CFC200EDBA9A /* OCPublicEngine.m in Sources */,
 				0F6411821FD4EAB50069FDB1 /* GLD_Service.m in Sources */,
@@ -1462,9 +1595,9 @@
 				0F298E861FC2CFC200EDBA9A /* UILabel+StringFrame.m in Sources */,
 				0F6411A21FD526BF0069FDB1 /* GLD_DetailIntroCell.m in Sources */,
 				0F298E8B1FC2CFD000EDBA9A /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				0F71A5A51FDFC16000C66EED /* GLD_MyWalletController.m in Sources */,
 				0F298E7E1FC2CFC200EDBA9A /* LQXSwitch.m in Sources */,
 				0FB5371B1FC6A25200B0EDA6 /* UserADsModel.m in Sources */,
-				0F28D2C81FD93CFC00138A8B /* MKMapView+ZoomLevel.m in Sources */,
 				0FB537151FC6A16500B0EDA6 /* YXFlashAdViewController.m in Sources */,
 				0FB537371FC6D22A00B0EDA6 /* UIImage+ImageSize.m in Sources */,
 				0F28D2B01FD6ADDE00138A8B /* BRBaseView.m in Sources */,
@@ -1483,21 +1616,28 @@
 				0F6411961FD513120069FDB1 /* GLD_BusinessListController.m in Sources */,
 				0F42A13D1FD5585A0072A167 /* GLD_CityListController.m in Sources */,
 				0F99201B1FCEF04500305DF3 /* GLD_BaseCell.m in Sources */,
+				0F32E7F91FE0FB6C0042E8BE /* GLD_CashCountCell.m in Sources */,
+				0F71A5981FDF8DDF00C66EED /* GLD_GetVerificationController.m in Sources */,
 				0FB537041FC5887C00B0EDA6 /* UIView+LBExtension.m in Sources */,
+				0F32E7F01FDFD56F0042E8BE /* GLD_WalletDetialController.m in Sources */,
+				0F71A58C1FDE93AC00C66EED /* GLD_VerificationController.m in Sources */,
 				3CA74E511FD2829200A7F137 /* GLD_BannerModel.m in Sources */,
 				0FB537181FC6A1F100B0EDA6 /* GLD_BaseViewController.m in Sources */,
 				0F28D2AD1FD6ADDE00138A8B /* BRStringPickerView.m in Sources */,
+				0F71A59E1FDFAF7800C66EED /* GLD_ChangePassWordController.m in Sources */,
 				0F9920151FCEEA5900305DF3 /* GLD_BannerCell.m in Sources */,
 				0F298E851FC2CFC200EDBA9A /* UIDevice+DeviceMode.m in Sources */,
 				0F6411861FD4EAB50069FDB1 /* GLD_Request.m in Sources */,
 				0FB537001FC5887C00B0EDA6 /* main.m in Sources */,
 				0F64119C1FD523BE0069FDB1 /* GLD_BusinessDetailController.m in Sources */,
+				0F32E7FC1FE12CED0042E8BE /* GLD_SearchController.m in Sources */,
 				0F99200D1FCEDEE900305DF3 /* GLD_RefreshHeader.m in Sources */,
 				0FB5373C1FC6D22A00B0EDA6 /* SGQRCodeAlbumManager.m in Sources */,
 				0F6411831FD4EAB50069FDB1 /* GLD_NetworkReachability.m in Sources */,
 				0FB537021FC5887C00B0EDA6 /* LBMessageViewController.m in Sources */,
 				0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */,
 				0F298E7B1FC2CFC200EDBA9A /* GLD_CarouselCell.m in Sources */,
+				0F71A5891FDE8B5300C66EED /* GLD_ApplyUnionController.m in Sources */,
 				0F99200C1FCEDEE800305DF3 /* YXFooterRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1663,7 +1803,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4E5R4EWTU6;
+				DEVELOPMENT_TEAM = 48WYF6MTZ2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/QQ",
@@ -1689,7 +1829,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4E5R4EWTU6;
+				DEVELOPMENT_TEAM = 48WYF6MTZ2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/QQ",

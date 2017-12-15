@@ -91,10 +91,124 @@
             </objects>
             <point key="canvasLocation" x="-254.6875" y="-138.4025"/>
         </scene>
+        <!--Login Controller-->
+        <scene sceneID="1U8-ZN-Mjl">
+            <objects>
+                <viewController storyboardIdentifier="GLD_LoginController" id="xQF-QK-A9x" customClass="GLD_LoginController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eMY-Nc-sVv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="ik5-aC-wHZ">
+                                <rect key="frame" x="0.0" y="211" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kTK-dU-wMw">
+                                        <rect key="frame" x="30" y="14" width="13" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的手机号" textAlignment="natural" minimumFontSize="17" id="2Lj-D0-SZn">
+                                        <rect key="frame" x="55" y="5" width="320" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xQF-QK-A9x" id="hN8-DS-Tnq"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" id="SOg-Lx-Gd7">
+                                        <rect key="frame" x="30" y="53" width="295" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="HIE-4H-gbb">
+                                <rect key="frame" x="0.0" y="262" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QNd-wW-QeS">
+                                        <rect key="frame" x="30" y="14" width="14" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" 请输入验证码" textAlignment="natural" minimumFontSize="17" id="mV2-ub-3fi">
+                                        <rect key="frame" x="56" y="5" width="177" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xQF-QK-A9x" id="AVf-PC-UgO"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" id="zXg-Es-l0O">
+                                        <rect key="frame" x="30" y="53" width="295" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0cE-Wl-asr">
+                                <rect key="frame" x="54" y="391" width="269" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="登录" backgroundImage="可点击">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginClick:" destination="xQF-QK-A9x" eventType="touchUpInside" id="iFn-M3-c8Q"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" id="gUI-RX-eUs">
+                                <rect key="frame" x="0.0" y="539" width="375" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="———— 第三方账号登录————" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oIO-TW-agH">
+                                        <rect key="frame" x="8" y="0.0" width="359" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KoA-is-x45">
+                                        <rect key="frame" x="54" y="29" width="267" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="微信登录" image="weixin">
+                                            <color key="titleColor" red="0.1115781188" green="0.43080780279999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="weixinLoginClick:" destination="xQF-QK-A9x" eventType="touchUpInside" id="he7-d2-veC"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BLT-LD-r8n">
+                                <rect key="frame" x="141" y="64" width="94" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginBut" destination="0cE-Wl-asr" id="v7e-Ui-PDP"/>
+                        <outlet property="phoneField" destination="2Lj-D0-SZn" id="rOA-ig-Wd0"/>
+                        <outlet property="weixinView" destination="gUI-RX-eUs" id="YTX-GW-WxW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TuM-9M-KEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1021.5" y="482.5"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="weixin" width="26" height="22"/>
         <image name="welcome1" width="720" height="1280"/>
         <image name="welcome2" width="720" height="1280"/>
         <image name="welcome3" width="720" height="1280"/>
+        <image name="可点击" width="345" height="44"/>
     </resources>
 </document>

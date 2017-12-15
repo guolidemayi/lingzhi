@@ -10,8 +10,7 @@
 #import "GLD_SearchResultCell.h"
 
 #import "GLD_MapModel.h"
-#import <MAMapKit/MAMapKit.h>
-#import <AMapSearchKit/AMapSearchKit.h>
+
 
 #define cellHeight W(80)
 #define GEORGIA_TECH_LATITUDE +39.86576800
@@ -44,16 +43,16 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(self.dataArr.count * cellHeight));
     }];
+    if ([self.mapDelegate respondsToSelector:@selector(reloadApplyListHeight:)]) {
+        [self.mapDelegate reloadApplyListHeight:(W(210) + self.dataArr.count * cellHeight)];
+    }
 }
-
-#pragma mark -- 定位位置发生改变
-
 
 -(void)setAddrssKeyWord:(NSString *)addrssKeyWord
 {
     
     //发起输入提示搜索
-    AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];
+    AMapPOIAroundSearchRequest *request = [[AMapPOIAroundSearchRequest alloc] init];//附近
     AMapPOIKeywordsSearchRequest *requestKey = [[AMapPOIKeywordsSearchRequest alloc]init];
     
    
@@ -73,11 +72,6 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
 //    [self.searchAPI AMapPOIAroundSearch:request];
     [self.searchAPI AMapPOIKeywordsSearch:requestKey];
 }
-//实现输入提示的回调函数
-
-- (void)onNearbySearchDone:(AMapNearbySearchRequest *)request response:(AMapNearbySearchResponse *)response{
-    
-}
 
 //实现POI搜索对应的回调函数
 - (void)onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
@@ -86,14 +80,93 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     NSString *strCount = [NSString stringWithFormat:@"count: %ld",response.count];
     NSString *strSuggestion = [NSString stringWithFormat:@"Suggestion: %@", response.suggestion];
     NSString *strPoi = @"";
-    for (AMapPOI *p in response.pois) {
-        strPoi = [NSString stringWithFormat:@"%@\nPOI: %@,%@,%@", strPoi, p.description,p.name,p.type];
+    for (int i = 0; i < response.pois.count; i++) {
+        AMapPOI *p = response.pois[i];
+        MAPointAnnotation *pointAnnotation = [[MAPointAnnotation alloc] init];
+        CLLocationCoordinate2D coordinate ;
+        coordinate.latitude = p.location.latitude;
+        coordinate.longitude = p.location.longitude;
+        pointAnnotation.coordinate = coordinate;
+        pointAnnotation.title = p.name;
+        pointAnnotation.subtitle = p.tel;
+        [_mapView addAnnotation:pointAnnotation];
+        if (i == 0) {
+            [_mapView selectAnnotation:pointAnnotation animated:YES];
+        }
     }
+   
     NSString *result = [NSString stringWithFormat:@"%@ \n %@ \n %@", strCount, strSuggestion, strPoi];
     NSLog(@"Place: %@", result);
+    self.dataArr = response.pois;
 }
 
 
+//添加大头针
+- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view{
+    NSLog(@"%@", view.annotation.title);
+    for (int i = 0; i < self.dataArr.count; i++) {
+        AMapPOI *p = self.dataArr[i];
+        if ([p.name isEqualToString:view.annotation.title]) {
+            [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+            if ([self.mapDelegate respondsToSelector:@selector(selectLocation:)]) {
+                [self.mapDelegate selectLocation:p];
+            }
+        }
+    }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    AMapPOI *p = self.dataArr[indexPath.row];
+    MAPointAnnotation *pointAnnotation = [[MAPointAnnotation alloc] init];
+    CLLocationCoordinate2D coordinate ;
+    coordinate.latitude = p.location.latitude;
+    coordinate.longitude = p.location.longitude;
+    pointAnnotation.coordinate = coordinate;
+    pointAnnotation.title = p.name;
+    pointAnnotation.subtitle = p.tel;
+    [_mapView addAnnotation:pointAnnotation];
+    [self.mapView selectAnnotation:pointAnnotation animated:YES];
+    if ([self.mapDelegate respondsToSelector:@selector(selectLocation:)]) {
+        [self.mapDelegate selectLocation:p];
+    }
+}
+//大头针的回调
+- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation
+{
+    
+    /* 自定义userLocation对应的annotationView. */
+    if ([annotation isKindOfClass:[MAUserLocation class]])
+    {
+        static NSString *userLocationStyleReuseIndetifier = @"userLocationStyleReuseIndetifier";
+        MAAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:userLocationStyleReuseIndetifier];
+        if (annotationView == nil)
+        {
+            annotationView = [[MAAnnotationView alloc] initWithAnnotation:annotation
+                                                          reuseIdentifier:userLocationStyleReuseIndetifier];
+        }
+        annotationView.image = [UIImage imageNamed:@"userPosition"];
+        
+        return annotationView;
+    }
+    
+    //大头针
+    if ([annotation isKindOfClass:[MAPointAnnotation class]])
+    {
+        static NSString *pointReuseIndentifier = @"pointReuseIndentifier";
+        MAPinAnnotationView*annotationView = (MAPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndentifier];
+        if (annotationView == nil)
+        {
+            annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndentifier];
+        }
+        annotationView.canShowCallout= YES;       //设置气泡可以弹出，默认为NO
+        annotationView.animatesDrop = YES;        //设置标注动画显示，默认为NO
+        annotationView.draggable = YES;        //设置标注可以拖动，默认为NO
+        annotationView.pinColor = MAPinAnnotationColorPurple;
+        
+        return annotationView;
+    }
+    return nil;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return cellHeight;
 }
@@ -105,6 +178,12 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     cell.item = self.dataArr[indexPath.row];
     return cell;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.001;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [UIView new];
+}
 - (void)setupUI {
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.keyWordField];
@@ -112,6 +191,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     [self.contentView addSubview:self.lineView];
     [self.contentView addSubview:self.mapView];
     [self.contentView addSubview:self.tableView];
+   
 
 }
 
@@ -140,13 +220,15 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     }];
     [self.mapView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView).offset(W(15));
-        make.right.bottom.equalTo(self.contentView).offset(W(-15));
+        make.top.equalTo(self.lineView).offset(W(5));
+        make.right.equalTo(self.contentView).offset(W(-15));
         make.height.equalTo(WIDTH(150));
     }];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.mapView);
         make.top.equalTo(self.mapView.mas_bottom);
         make.height.equalTo(@(0.01));
+        make.centerX.equalTo(self.mapView);
     }];
 }
 
@@ -200,8 +282,8 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
         [_mapView setRotateEnabled:NO];
         [_mapView setDelegate:self];
         [_mapView setShowsUserLocation:YES];
-        [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
-        [_mapView setZoomLevel:15];
+        [_mapView setUserTrackingMode:MAUserTrackingModeNone animated:YES];
+        [_mapView setZoomLevel:11];
         [_mapView setCustomizeUserLocationAccuracyCircleRepresentation:YES];//自定义用户精度圈
         //后台定位
         
@@ -220,6 +302,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
         tableView.estimatedSectionFooterHeight = 0;
         [tableView setSeparatorInset:UIEdgeInsetsMake(0, W(15), 0, W(15))];
         tableView.mj_insetB = W(80);
+        tableView.scrollEnabled = NO;
         //        tableView.rowHeight = 0;
         tableView.sectionFooterHeight = 0.001;
         [tableView registerClass:[GLD_SearchResultCell class] forCellReuseIdentifier:GLD_SearchResultCellIdentifier];

@@ -10,4 +10,5 @@
 
 @interface GLD_BusinessViewManager : GLD_BaseTableManager
 
+- (void)fetchMainDataWithCondition:(NSString *)condition;
 @end

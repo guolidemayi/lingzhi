@@ -10,4 +10,5 @@
 
 @interface GLD_BusinessListController : GLD_BaseViewController
 
+@property (nonatomic, copy)NSString *cityName;//定位城市
 @end

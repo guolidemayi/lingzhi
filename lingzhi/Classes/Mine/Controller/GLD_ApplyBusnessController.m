@@ -14,7 +14,7 @@
 #import "NSDate+BRAdd.h"
 #import "GLD_MapDetailCell.h"
 
-@interface GLD_ApplyBusnessController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
+@interface GLD_ApplyBusnessController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate,GLD_MapDetailCellDelegate>
 @property (nonatomic, strong)UITableView *table_apply;
 
 /** 门店名称 */
@@ -60,6 +60,7 @@
 
 @property (nonatomic, weak)UILabel *introduceLabel;//高低级商家介绍
 @property (nonatomic, assign)CGFloat introHeight;
+@property (nonatomic, assign)CGFloat mapHeight;
 @end
 
 @implementation GLD_ApplyBusnessController
@@ -67,10 +68,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.introHeight = W(80);
+    self.mapHeight = W(210);
     [self.view addSubview:self.table_apply];
 }
 
 
+#pragma mark GLD_MapDetailCellDelegate
+
+- (void)reloadApplyListHeight:(CGFloat) height{
+    self.mapHeight = height;
+    [self.table_apply reloadData];
+}
+- (void)selectLocation:(AMapPOI *)location{
+    NSLog(@"%@", location.name);
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     switch (indexPath.section) {
@@ -239,6 +250,7 @@
                 }break;
                 case 2:{
                     GLD_MapDetailCell *cell1 = [tableView dequeueReusableCellWithIdentifier:GLD_MapDetailCellIdentifier];
+                    cell1.mapDelegate = self;
                     return cell1;
                 }break;
             }
@@ -524,7 +536,7 @@
         }break;
         case 2:{
             if (indexPath.row == 2) {
-                return W(200);
+                return self.mapHeight;
             }
             return W(50);
         }break;

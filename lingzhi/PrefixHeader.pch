@@ -27,6 +27,11 @@
 #import "YYWebImage.h"
 #import "GLD_NetworkAPIManager.h"
 #import "SDAutoLayout.h"
+#import "UIView+gldController.h"
+
+#define userHasLogin       @"userHasLogin"
+
+#define hasLogin  [[NSUserDefaults standardUserDefaults] boolForKey:userHasLogin]
 #endif /* PrefixHeader_pch */
 
 #ifdef DEBUG

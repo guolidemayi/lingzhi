@@ -8,6 +8,8 @@
 
 #import "GLD_BaseTableManager.h"
 
+@class GLD_BusnessModel;
 @interface GLD_BusinessDetailManager : GLD_BaseTableManager
+@property (nonatomic, strong)GLD_BusnessModel *busnessModel;
 
 @end

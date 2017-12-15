@@ -9,6 +9,7 @@
 #import "LBMineViewController.h"
 #import "GLD_MineManager.h"
 #import "GLD_CustomBut.h"
+#import "TestViewController.h"
 
 @interface LBMineViewController ()
 
@@ -37,7 +38,8 @@
 }
 
 - (void)rightButClick {
-    
+    TestViewController *userMessageVc = [[TestViewController alloc]init];
+    [self.navigationController pushViewController:userMessageVc animated:YES];
 }
 
 

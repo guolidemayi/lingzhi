@@ -12,6 +12,8 @@
 #import "MapNavigationManager.h"
 #import "GLD_CustomBut.h"
 #import "GLD_HomeViewManager.h"
+#import "GLD_CityListController.h"
+#import "GLD_SearchController.h"
 
 @interface LBHomeViewController ()
 {
@@ -22,6 +24,7 @@
 
 @property (nonatomic, copy)UITableView *home_table;
 @property (nonatomic, strong)GLD_HomeViewManager *homeManager;
+@property (nonatomic, copy)NSString *locationStr;
 @end
 
 
@@ -32,7 +35,7 @@
     // Do any additional setup after loading the view.
     
     self.homeManager = [[GLD_HomeViewManager alloc]initWithTableView:self.home_table];
-    [self.homeManager fetchMainData];
+    
     [self startLocation];
     //导航到深圳火车站
     [self setNavUi];
@@ -42,7 +45,7 @@
     GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
     self.locationBut = locationBut;
     locationBut.frame = CGRectMake(0, 0, 50, 44);
-    [locationBut image:@"header_back_icon"];
+    [locationBut image:@"更多"];
     [locationBut addTarget:self action:@selector(mapNav) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:locationBut];
     self.navigationItem.leftBarButtonItem = item;
@@ -54,25 +57,34 @@
     titleBut.frame = CGRectMake(0, 0, 150, 40);
     titleBut.layer.cornerRadius = 20;
     titleBut.layer.masksToBounds = YES;
+    [titleBut addTarget:self action:@selector(SearchCLick) forControlEvents:UIControlEventTouchUpInside];
     titleBut.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = titleBut;
     
     GLD_CustomBut *rightBut = [[GLD_CustomBut alloc]init];;
     
     rightBut.frame = CGRectMake(0, 0, 50, 44);
-    [rightBut image:@"header_back_icon"];
+    [rightBut image:@"消息"];
     
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     self.navigationItem.rightBarButtonItem = item1;
     
 }
-
+//搜索
+- (void)SearchCLick{
+    GLD_SearchController *searchVc = [GLD_SearchController new];
+    [self.navigationController pushViewController:searchVc animated:YES];
+}
+//城市列表
 - (void)mapNav{
-    [MapNavigationManager showSheetWithCity:self.title start:nil end:@"上海"];
-//    CLLocationCoordinate2D coordinate;
-//    coordinate.latitude = +39.86628556;
-//    coordinate.longitude = +116.46206778;
-//    [MapNavigationManager showSheetWithCoordinate2D:coordinate];
+    GLD_CityListController *cityList = [GLD_CityListController new];
+    cityList.locationCity = self.locationStr;
+    WS(weakSelf);
+    cityList.cityListBlock = ^(NSString *name) {
+        [weakSelf.locationBut title:name];
+    };
+    [self.navigationController pushViewController:cityList animated:YES];
+
 }
 
 
@@ -96,14 +108,15 @@
         
         if (placemark.locality) {
 
-            [self.locationBut title:placemark.locality];
- 
+            [weakSelf.locationBut title:placemark.locality];
+            weakSelf.locationStr = placemark.locality;
+            [AppDelegate shareDelegate].placemark = placemark;
 //            CLLocationCoordinate2D
         } else {
-
-            [self.locationBut title:@"定位失败"];
+            weakSelf.locationStr = @"定位失败";
+            [weakSelf.locationBut title:@"定位失败"];
         }
-        
+        [weakSelf.homeManager fetchMainData];
     } status:^(CLAuthorizationStatus status) {
         
         if (status != kCLAuthorizationStatusAuthorizedAlways && status != kCLAuthorizationStatusAuthorizedWhenInUse) {
@@ -118,13 +131,15 @@
             [alertController addAction:okAction];
             [weakSelf presentViewController:alertController animated:YES completion:nil];
         } else {
-            [self.locationBut title:@"定位中..."];
+            [weakSelf.locationBut title:@"定位中..."];
+            weakSelf.locationStr = @"定位失败";
         }
         
-        
+//        [weakSelf.homeManager fetchMainData];
     } didFailWithError:^(NSError *error) {
-        [self.locationBut title:@"定位失败"];
-
+        [weakSelf.locationBut title:@"定位失败"];
+        weakSelf.locationStr = @"定位失败";
+        [weakSelf.homeManager fetchMainData];
         
     }];
 }

@@ -9,7 +9,8 @@
 #import "GLD_MinePersonalCell.h"
 #import "GLD_IndustryCollecCell.h"
 #import "GLD_IndustryModel.h"
-
+#import "GLD_MyCollectionController.h"
+#import "GLD_MyOrderController.h"
 NSString *const GLD_MinePersonalCellIdentifier = @"GLD_MinePersonalCellIdentifier";
 @interface GLD_MinePersonalCell ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -21,11 +22,11 @@ NSString *const GLD_MinePersonalCellIdentifier = @"GLD_MinePersonalCellIdentifie
 - (void)setupUI{
     [self.contentView addSubview:self.collectionView];
     GLD_IndustryModel *model = [GLD_IndustryModel new];
-    model.title = @"我的订单";
-    model.iconUrl = @"我的订单";
+    model.name = @"我的订单";
+    model.icon = @"我的订单";
     GLD_IndustryModel *model1 = [GLD_IndustryModel new];
-    model1.title = @"门店收藏";
-    model1.iconUrl = @"门店收藏";
+    model1.name = @"门店收藏";
+    model1.icon = @"门店收藏";
     self.listData = @[model, model1];
 }
 
@@ -53,6 +54,16 @@ NSString *const GLD_MinePersonalCellIdentifier = @"GLD_MinePersonalCellIdentifie
     GLD_IndustryCollecCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:GLD_IndustryCollecCellIdentifier forIndexPath:indexPath];
     cell.model = self.listData[indexPath.item];
     return cell;
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        GLD_MyOrderController *myCollect = [[GLD_MyOrderController alloc]init];
+        [self.contentView.navigationController pushViewController:myCollect animated:YES];
+        NSLog(@"我的订单");
+    }else{
+        GLD_MyCollectionController *myCollect = [[GLD_MyCollectionController alloc]init];
+        [self.contentView.navigationController pushViewController:myCollect animated:YES];
+    }
 }
 - (UICollectionView *)collectionView{
     if (!_collectionView) {

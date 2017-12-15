@@ -8,7 +8,9 @@
 
 #import "GLD_BaseCell.h"
 
+@class GLD_BusnessModel;
 extern NSString *const GLD_DetailIntroCellIdentifier;
 @interface GLD_DetailIntroCell : GLD_BaseCell
 
+@property (nonatomic, strong)GLD_BusnessModel *busnessModel;
 @end

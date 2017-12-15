@@ -46,12 +46,12 @@
     isSendMessage = NO;
     // 判断是否安装微信
     BOOL isWx = [WXApi isWXAppInstalled];
-    if (isWx) {
-        self.weixinView.hidden = NO;
-        
-    }else {
-        self.weixinView.hidden = YES;
-    }
+//    if (isWx) {
+//        self.weixinView.hidden = NO;
+//
+//    }else {
+//        self.weixinView.hidden = YES;
+//    }
     self.yuyinBut.enabled = NO;
     // 取上次登录时的手机号
     self.phoneField.delegate = self;
@@ -74,6 +74,8 @@
     [self setContentFont];
     // Do any additional setup after loading the view.
 }
+
+
 - (void)setContentFont{
     self.yanZhengMaBut.titleLabel.font = WTFont(15);
     self.yuyinBut.titleLabel.font = WTFont(15);
@@ -384,6 +386,9 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 
