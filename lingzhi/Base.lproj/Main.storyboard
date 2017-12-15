@@ -103,7 +103,7 @@
                                 <rect key="frame" x="0.0" y="211" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kTK-dU-wMw">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="登录界面输入用户名" id="kTK-dU-wMw">
                                         <rect key="frame" x="30" y="14" width="13" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -129,7 +129,7 @@
                                 <rect key="frame" x="0.0" y="262" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QNd-wW-QeS">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="登录界面输入密码" id="QNd-wW-QeS">
                                         <rect key="frame" x="30" y="14" width="14" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -151,18 +151,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0cE-Wl-asr">
-                                <rect key="frame" x="54" y="391" width="269" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="登录" backgroundImage="可点击">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginClick:" destination="xQF-QK-A9x" eventType="touchUpInside" id="iFn-M3-c8Q"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" id="gUI-RX-eUs">
-                                <rect key="frame" x="0.0" y="539" width="375" height="128"/>
+                            <view contentMode="scaleToFill" misplaced="YES" id="gUI-RX-eUs">
+                                <rect key="frame" x="0.0" y="480" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="———— 第三方账号登录————" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oIO-TW-agH">
@@ -172,11 +162,16 @@
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KoA-is-x45">
-                                        <rect key="frame" x="54" y="29" width="267" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3f6-I5-1Wi">
+                                        <rect key="frame" x="84" y="29" width="52" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="QQ好友"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KoA-is-x45">
+                                        <rect key="frame" x="236" y="29" width="52" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="微信登录" image="weixin">
+                                        <state key="normal" image="微信好友">
                                             <color key="titleColor" red="0.1115781188" green="0.43080780279999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -186,10 +181,38 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BLT-LD-r8n">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WechatIMG43" id="BLT-LD-r8n">
                                 <rect key="frame" x="141" y="64" width="94" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5oc-so-9Vm">
+                                <rect key="frame" x="16" y="426" width="94" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="快速注册"/>
+                                <connections>
+                                    <action selector="registerClick:" destination="xQF-QK-A9x" eventType="touchUpInside" id="e0E-Xc-i3t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hN6-kr-ZOd">
+                                <rect key="frame" x="284" y="426" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="忘记密码"/>
+                                <connections>
+                                    <action selector="forgetPassword:" destination="xQF-QK-A9x" eventType="touchUpInside" id="fvO-OQ-qj1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0cE-Wl-asr">
+                                <rect key="frame" x="54" y="362" width="269" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="登录" backgroundImage="可点击登陆">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginClick:" destination="xQF-QK-A9x" eventType="touchUpInside" id="iFn-M3-c8Q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -205,10 +228,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="weixin" width="26" height="22"/>
+        <image name="QQ好友" width="52" height="52"/>
+        <image name="WechatIMG43" width="395" height="391"/>
         <image name="welcome1" width="720" height="1280"/>
         <image name="welcome2" width="720" height="1280"/>
         <image name="welcome3" width="720" height="1280"/>
-        <image name="可点击" width="345" height="44"/>
+        <image name="可点击登陆" width="345" height="44"/>
+        <image name="微信好友" width="45" height="45"/>
+        <image name="登录界面输入密码" width="22" height="25"/>
+        <image name="登录界面输入用户名" width="22" height="22"/>
     </resources>
 </document>

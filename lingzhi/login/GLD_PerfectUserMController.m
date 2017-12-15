@@ -10,6 +10,8 @@
 #import "BRTextField.h"
 #import "BRDatePickerView.h"
 #import "NSDate+BRAdd.h"
+#import "GLD_CustomBut.h"
+#import "GLD_BindingPhoneController.h"
 
 @interface GLD_PerfectUserMController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
@@ -28,6 +30,7 @@
 @property (nonatomic, strong) NSArray *titleArr;//
 @property (nonatomic, strong)UIButton *applyBut;//提交
 @property (nonatomic, strong)UIButton *agreeBut;//同意
+@property (nonatomic, strong)UIButton *agreeMentBut;//用户协议
 @end
 
 @implementation GLD_PerfectUserMController
@@ -36,9 +39,53 @@
     [super viewDidLoad];
 
     [self.view addSubview:self.table_apply];
+    
+    GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
+    locationBut.frame = CGRectMake(0, 0, 50, 44);
+    [locationBut image:@"导航栏返回箭头"];
+    [locationBut addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:locationBut];
+    self.navigationItem.leftBarButtonItem = item;
+    self.title = @"注册";
 
 }
-
+- (void)backAction{
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+- (void)applybutClick{
+    NSLog(@"提交");
+//    if (!IsExist_String(self.nameTF.text)) {
+//        [CAToast showWithText:@"请输入手机号"];
+//        return;
+//    }
+//    if (!IsExist_String(self.PersonTF.text)) {
+//        [CAToast showWithText:@"密码"];
+//        return;
+//    }
+//    if (![self.PersonTF.text  isEqualToString:self.phoneTF.text]) {
+//        [CAToast showWithText:@"两次密码不一致"];
+//        return;
+//    }
+    //提交数据
+    
+    GLD_BindingPhoneController *bindingVc = [GLD_BindingPhoneController new];
+    [self.navigationController pushViewController:bindingVc animated:YES];
+}
+- (void)agreeMentButClick{
+    NSLog(@"用户协议");
+}
+- (void)agreeButClick:(UIButton *)senser{
+    
+    if (senser.selected) {
+        senser.selected = NO;
+        [senser setImage:WTImage(@"没选中") forState:UIControlStateNormal];
+    }else{
+        senser.selected = YES;
+        [senser setImage:WTImage(@"勾选") forState:UIControlStateNormal];
+    }
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.titleArr.count;
 }
@@ -76,12 +123,21 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UITableViewHeaderFooterView *header = [UITableViewHeaderFooterView new];
     [header.contentView addSubview:self.applyBut];
+    [header.contentView addSubview:self.agreeMentBut];
+    [header.contentView addSubview:self.agreeBut];
     [self.applyBut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(header.contentView);
+        make.centerX.equalTo(header.contentView);
+        make.centerY.equalTo(header.contentView).offset(W(30));
         make.width.equalTo(WIDTH(300));
         make.height.equalTo(WIDTH(44));
     }];
-    
+    [self.agreeBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.equalTo(header.contentView).offset(W(10));
+    }];
+    [self.agreeMentBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.agreeBut);
+        make.left.equalTo(self.agreeBut.mas_right);
+    }];
     return header;
 }
 
@@ -166,7 +222,7 @@
     if (!_applyBut) {
         _applyBut = [[UIButton alloc]init];
         [_applyBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKyellow] forState:UIControlStateNormal];
-        [_applyBut setTitle:@"申请合作" forState:UIControlStateNormal];
+        [_applyBut setTitle:@"下一步" forState:UIControlStateNormal];
         _applyBut.titleLabel.font = WTFont(15);
         _applyBut.layer.cornerRadius = 3;
         _applyBut.layer.masksToBounds = YES;
@@ -179,15 +235,24 @@
 - (UIButton *)agreeBut{
     if (!_agreeBut) {
         _agreeBut = [[UIButton alloc]init];
-        [_agreeBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKyellow] forState:UIControlStateNormal];
-        [_agreeBut setTitle:@"申请合作" forState:UIControlStateNormal];
-        _agreeBut.titleLabel.font = WTFont(15);
-        _applyBut.layer.cornerRadius = 3;
-        _applyBut.layer.masksToBounds = YES;
-        _applyBut.layer.borderColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKyellow].CGColor;
-        _applyBut.layer.borderWidth = 1;
-        [_applyBut addTarget:self action:@selector(applybutClick) forControlEvents:UIControlEventTouchUpInside];
+        [_agreeBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray] forState:UIControlStateNormal];
+        [_agreeBut setTitle:@"我已同意" forState:UIControlStateNormal];
+        _agreeBut.titleLabel.font = WTFont(12);
+        _agreeBut.selected = YES;
+        [_agreeBut setImage:WTImage(@"勾选") forState:UIControlStateNormal];
+        [_agreeBut addTarget:self action:@selector(agreeButClick:) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _applyBut;
+    return _agreeBut;
+}
+- (UIButton *)agreeMentBut{
+    if (!_agreeMentBut) {
+        _agreeMentBut = [[UIButton alloc]init];
+        [_agreeMentBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE] forState:UIControlStateNormal];
+        [_agreeMentBut setTitle:@"<用户协议>" forState:UIControlStateNormal];
+        _agreeMentBut.titleLabel.font = WTFont(12);
+        
+        [_agreeMentBut addTarget:self action:@selector(agreeMentButClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _agreeMentBut;
 }
 @end

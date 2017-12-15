@@ -17,6 +17,7 @@
 #import "GLD_SettingController.h"
 #import "GLD_MyWalletController.h"
 #import "GLD_LoginController.h"
+#import "GLD_PerfectUserMController.h"
 
 @interface GLD_MineManager ()
 
@@ -45,13 +46,18 @@
     NSLog(@"登陆");
     UIStoryboard *liveBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     GLD_LoginController *loginRegisterGuideVC = [liveBoard instantiateViewControllerWithIdentifier:@"GLD_LoginController"];
-    
-    [self.tableView.navigationController presentViewController:loginRegisterGuideVC animated:YES completion:^{
+    GLD_BaseNavController *navUser = [[GLD_BaseNavController alloc]initWithRootViewController:loginRegisterGuideVC background:[YXUniversal createImageWithColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE]] font:WTFont(16) textColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKwirte] shadowColor:nil];
+    [self.tableView.navigationController presentViewController:navUser animated:YES completion:^{
         
     }];
 }
 - (void)registerButClick{
     NSLog(@"注册");
+    GLD_PerfectUserMController *UserVc = [[GLD_PerfectUserMController alloc]init];
+    GLD_BaseNavController *navUser = [[GLD_BaseNavController alloc]initWithRootViewController:UserVc background:[YXUniversal createImageWithColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE]] font:WTFont(16) textColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKwirte] shadowColor:nil];
+    [self.tableView.navigationController presentViewController:navUser animated:YES completion:^{
+        
+    }];
 }
 
 - (void)iconImgVClick{

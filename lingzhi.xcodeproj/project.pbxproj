@@ -74,6 +74,8 @@
 		0F32E7FF1FE267D20042E8BE /* GLD_AllCateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E7FE1FE267D20042E8BE /* GLD_AllCateController.m */; };
 		0F32E8021FE26CE40042E8BE /* GLD_BannerDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E8011FE26CE40042E8BE /* GLD_BannerDetailController.m */; };
 		0F32E8051FE36BF60042E8BE /* GLD_PerfectUserMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E8041FE36BF60042E8BE /* GLD_PerfectUserMController.m */; };
+		0F32E8081FE39EEF0042E8BE /* GLD_BindingPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E8071FE39EEF0042E8BE /* GLD_BindingPhoneController.m */; };
+		0F32E80B1FE3B14C0042E8BE /* GLD_BackForPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E80A1FE3B14C0042E8BE /* GLD_BackForPasswordController.m */; };
 		0F382EF71FDE6F51006689FA /* GLD_MyCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F382EF61FDE6F51006689FA /* GLD_MyCollectionController.m */; };
 		0F382EFA1FDE6FCF006689FA /* GLD_MycollectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F382EF91FDE6FCF006689FA /* GLD_MycollectionManager.m */; };
 		0F382EFD1FDE7620006689FA /* GLD_ApplyCooperatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F382EFC1FDE7620006689FA /* GLD_ApplyCooperatController.m */; };
@@ -300,6 +302,10 @@
 		0F32E8011FE26CE40042E8BE /* GLD_BannerDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BannerDetailController.m; sourceTree = "<group>"; };
 		0F32E8031FE36BF60042E8BE /* GLD_PerfectUserMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_PerfectUserMController.h; sourceTree = "<group>"; };
 		0F32E8041FE36BF60042E8BE /* GLD_PerfectUserMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PerfectUserMController.m; sourceTree = "<group>"; };
+		0F32E8061FE39EEF0042E8BE /* GLD_BindingPhoneController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BindingPhoneController.h; sourceTree = "<group>"; };
+		0F32E8071FE39EEF0042E8BE /* GLD_BindingPhoneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BindingPhoneController.m; sourceTree = "<group>"; };
+		0F32E8091FE3B14C0042E8BE /* GLD_BackForPasswordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BackForPasswordController.h; sourceTree = "<group>"; };
+		0F32E80A1FE3B14C0042E8BE /* GLD_BackForPasswordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BackForPasswordController.m; sourceTree = "<group>"; };
 		0F382EF51FDE6F51006689FA /* GLD_MyCollectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MyCollectionController.h; sourceTree = "<group>"; };
 		0F382EF61FDE6F51006689FA /* GLD_MyCollectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MyCollectionController.m; sourceTree = "<group>"; };
 		0F382EF81FDE6FCF006689FA /* GLD_MycollectionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MycollectionManager.h; sourceTree = "<group>"; };
@@ -1147,6 +1153,10 @@
 				0FB537111FC6A16500B0EDA6 /* GLD_LoginController.m */,
 				0F32E8031FE36BF60042E8BE /* GLD_PerfectUserMController.h */,
 				0F32E8041FE36BF60042E8BE /* GLD_PerfectUserMController.m */,
+				0F32E8061FE39EEF0042E8BE /* GLD_BindingPhoneController.h */,
+				0F32E8071FE39EEF0042E8BE /* GLD_BindingPhoneController.m */,
+				0F32E8091FE3B14C0042E8BE /* GLD_BackForPasswordController.h */,
+				0F32E80A1FE3B14C0042E8BE /* GLD_BackForPasswordController.m */,
 				0FB537191FC6A25200B0EDA6 /* UserADsModel.h */,
 				0FB5371A1FC6A25200B0EDA6 /* UserADsModel.m */,
 			);
@@ -1579,6 +1589,7 @@
 				0FB537051FC5887C00B0EDA6 /* UIImage+Image.m in Sources */,
 				0F9920181FCEEFED00305DF3 /* GLD_HomeListCell.m in Sources */,
 				0F42A13A1FD554560072A167 /* GLD_CityModel.m in Sources */,
+				0F32E80B1FE3B14C0042E8BE /* GLD_BackForPasswordController.m in Sources */,
 				0F6411AB1FD5271C0069FDB1 /* GLD_DetailRankCell.m in Sources */,
 				0F382EF71FDE6F51006689FA /* GLD_MyCollectionController.m in Sources */,
 				0F28D2AE1FD6ADDE00138A8B /* BRTextField.m in Sources */,
@@ -1596,6 +1607,7 @@
 				0F6411A21FD526BF0069FDB1 /* GLD_DetailIntroCell.m in Sources */,
 				0F298E8B1FC2CFD000EDBA9A /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				0F71A5A51FDFC16000C66EED /* GLD_MyWalletController.m in Sources */,
+				0F32E8081FE39EEF0042E8BE /* GLD_BindingPhoneController.m in Sources */,
 				0F298E7E1FC2CFC200EDBA9A /* LQXSwitch.m in Sources */,
 				0FB5371B1FC6A25200B0EDA6 /* UserADsModel.m in Sources */,
 				0FB537151FC6A16500B0EDA6 /* YXFlashAdViewController.m in Sources */,
