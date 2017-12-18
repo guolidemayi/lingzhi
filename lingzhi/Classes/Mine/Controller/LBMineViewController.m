@@ -41,6 +41,9 @@
     TestViewController *userMessageVc = [[TestViewController alloc]init];
     [self.navigationController pushViewController:userMessageVc animated:YES];
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.table_mine reloadData];
+}
 
 @end

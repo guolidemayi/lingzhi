@@ -18,6 +18,7 @@
 #import "GLD_MyWalletController.h"
 #import "GLD_LoginController.h"
 #import "GLD_PerfectUserMController.h"
+#import "GLD_MyStoreCell.h"
 
 @interface GLD_MineManager ()
 
@@ -35,6 +36,7 @@
     [self.tableView registerClass:[GLD_MinePersonalCell class] forCellReuseIdentifier:GLD_MinePersonalCellIdentifier];
     [self.tableView registerClass:[GLD_MineWalletCell class] forCellReuseIdentifier:GLD_MineWalletCellIdentifier];
     [self.tableView registerClass:[GLD_MineSettingCell class] forCellReuseIdentifier:GLD_MineSettingCellIdentifier];
+    [self.tableView registerClass:[GLD_MyStoreCell class] forCellReuseIdentifier:GLD_MyStoreCellIdentifier];
 }
 - (void)fetchMainData{
 //    self.tableView.tableHeaderView = self.hasLoginHeadView;
@@ -130,6 +132,8 @@
             return hasLogin ? W(130) : W(40);
             break;
         case 2:
+            return hasLogin ? W(130) : W(40);
+            break;
         case 3:
         case 4:
         case 5:
@@ -139,7 +143,7 @@
     return 0.0001;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2 + self.dataArr.count;
+    return 3 + self.dataArr.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -153,6 +157,8 @@
             return [self getMineWalletCell:indexPath];            
             break;
         case 2:
+            return [self getMyStoreCell:indexPath];
+            break;
         case 3:
         case 4:
         case 5:
@@ -163,6 +169,12 @@
     return [UITableViewCell new];
 }
 
+- (GLD_MyStoreCell *)getMyStoreCell:(NSIndexPath *)indexPath{
+    GLD_MyStoreCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_MyStoreCellIdentifier];
+    cell.height = hasLogin ? W(80) : 0;
+    return cell;
+
+}
 - (GLD_MinePersonalCell *)getMinePerconalCell:(NSIndexPath *)indexPath{
     GLD_MinePersonalCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_MinePersonalCellIdentifier];
     return cell;

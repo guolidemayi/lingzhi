@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSArray *titleArr;//
 @property (nonatomic, strong)UILabel *applyLabel;
 
+@property (nonatomic, strong)UIButton *applyBut;//现金
 @end
 
 @implementation GLD_SettingController
@@ -158,6 +159,22 @@
         }break;
     }
 }
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UITableViewHeaderFooterView *header = [UITableViewHeaderFooterView new];
+    [header.contentView addSubview:self.applyBut];
+    [self.applyBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(header.contentView);
+        make.width.equalTo(WIDTH(300));
+        make.height.equalTo(WIDTH(44));
+    }];
+    return header;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if(section == 2)
+    return W(70);
+    return 0.001;
+}
 - (UITableView *)table_apply{
     if (!_table_apply) {
         UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
@@ -181,5 +198,30 @@
     }
     return _titleArr;
 }
-
+- (UIButton *)applyBut{
+    if (!_applyBut) {
+        _applyBut = [[UIButton alloc]init];
+        [_applyBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKyellow] forState:UIControlStateNormal];
+        [_applyBut setTitle:@"退出登录" forState:UIControlStateNormal];
+        _applyBut.titleLabel.font = WTFont(15);
+        _applyBut.layer.cornerRadius = 3;
+        _applyBut.layer.masksToBounds = YES;
+        _applyBut.layer.borderColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKyellow].CGColor;
+        _applyBut.layer.borderWidth = 1;
+        [_applyBut addTarget:self action:@selector(applybutClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _applyBut;
+}
+- (void)applybutClick{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"退出登录" message:@"是否允退出登录" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:userHasLogin];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
 @end

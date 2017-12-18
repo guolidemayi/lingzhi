@@ -106,7 +106,7 @@
     
     if (self.phoneNumber.length == 11 && _yanzhengmaStr.length == 4) {
         self.loginBut.enabled = YES;
-        [self.loginBut setBackgroundImage:[UIImage imageNamed:@"可点击登录"] forState:UIControlStateNormal];
+        [self.loginBut setBackgroundImage:[UIImage imageNamed:@"可点击登陆"] forState:UIControlStateNormal];
     }
     
 }
@@ -152,8 +152,11 @@
 }
 //登录
 - (IBAction)loginClick:(UIButton *)sender {
-     NSString *codeStr = [self.yanZhengMaField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
- 
+//     NSString *codeStr = [self.yanZhengMaField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
+    }];
     
 }
 - (void)registSuccessJoin {
