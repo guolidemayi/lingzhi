@@ -19,6 +19,7 @@
 #import "GLD_LoginController.h"
 #import "GLD_PerfectUserMController.h"
 #import "GLD_MyStoreCell.h"
+#import "GLD_ManagerStoreController.h"
 
 @interface GLD_MineManager ()
 
@@ -84,6 +85,13 @@
             [self.tableView.navigationController pushViewController:applyVc animated:YES];
         }break;
         case 2:{
+            if (hasLogin) {
+                //门店管理
+                GLD_ManagerStoreController *mangeVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"GLD_ManagerStoreController"];
+                
+                [self.tableView.navigationController pushViewController:mangeVc animated:YES];
+                return;
+            }
             GLD_ApplyBusnessController *applyVc = [GLD_ApplyBusnessController new];
             [self.tableView.navigationController pushViewController:applyVc animated:YES];
         }break;

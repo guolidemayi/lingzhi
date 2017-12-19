@@ -76,6 +76,9 @@
 		0F32E8051FE36BF60042E8BE /* GLD_PerfectUserMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E8041FE36BF60042E8BE /* GLD_PerfectUserMController.m */; };
 		0F32E8081FE39EEF0042E8BE /* GLD_BindingPhoneController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E8071FE39EEF0042E8BE /* GLD_BindingPhoneController.m */; };
 		0F32E80B1FE3B14C0042E8BE /* GLD_BackForPasswordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E80A1FE3B14C0042E8BE /* GLD_BackForPasswordController.m */; };
+		0F32E80E1FE8BB3E0042E8BE /* GLD_PayForMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E80D1FE8BB3E0042E8BE /* GLD_PayForMeController.m */; };
+		0F32E8111FE8BD450042E8BE /* GLD_UpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E8101FE8BD450042E8BE /* GLD_UpdateViewController.m */; };
+		0F32E8141FE91D800042E8BE /* GLD_ModifyDiscountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F32E8131FE91D800042E8BE /* GLD_ModifyDiscountController.m */; };
 		0F382EF71FDE6F51006689FA /* GLD_MyCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F382EF61FDE6F51006689FA /* GLD_MyCollectionController.m */; };
 		0F382EFA1FDE6FCF006689FA /* GLD_MycollectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F382EF91FDE6FCF006689FA /* GLD_MycollectionManager.m */; };
 		0F382EFD1FDE7620006689FA /* GLD_ApplyCooperatController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F382EFC1FDE7620006689FA /* GLD_ApplyCooperatController.m */; };
@@ -308,6 +311,12 @@
 		0F32E8071FE39EEF0042E8BE /* GLD_BindingPhoneController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BindingPhoneController.m; sourceTree = "<group>"; };
 		0F32E8091FE3B14C0042E8BE /* GLD_BackForPasswordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BackForPasswordController.h; sourceTree = "<group>"; };
 		0F32E80A1FE3B14C0042E8BE /* GLD_BackForPasswordController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BackForPasswordController.m; sourceTree = "<group>"; };
+		0F32E80C1FE8BB3E0042E8BE /* GLD_PayForMeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_PayForMeController.h; sourceTree = "<group>"; };
+		0F32E80D1FE8BB3E0042E8BE /* GLD_PayForMeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PayForMeController.m; sourceTree = "<group>"; };
+		0F32E80F1FE8BD450042E8BE /* GLD_UpdateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_UpdateViewController.h; sourceTree = "<group>"; };
+		0F32E8101FE8BD450042E8BE /* GLD_UpdateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_UpdateViewController.m; sourceTree = "<group>"; };
+		0F32E8121FE91D800042E8BE /* GLD_ModifyDiscountController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ModifyDiscountController.h; sourceTree = "<group>"; };
+		0F32E8131FE91D800042E8BE /* GLD_ModifyDiscountController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ModifyDiscountController.m; sourceTree = "<group>"; };
 		0F382EF51FDE6F51006689FA /* GLD_MyCollectionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MyCollectionController.h; sourceTree = "<group>"; };
 		0F382EF61FDE6F51006689FA /* GLD_MyCollectionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MyCollectionController.m; sourceTree = "<group>"; };
 		0F382EF81FDE6FCF006689FA /* GLD_MycollectionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MycollectionManager.h; sourceTree = "<group>"; };
@@ -1092,6 +1101,12 @@
 				0F32E7F51FE0FA680042E8BE /* GLD_PayRechargeController.m */,
 				3C604D7E1FE64D0500D4ECA7 /* GLD_ManagerStoreController.h */,
 				3C604D7F1FE64D0500D4ECA7 /* GLD_ManagerStoreController.m */,
+				0F32E80C1FE8BB3E0042E8BE /* GLD_PayForMeController.h */,
+				0F32E80D1FE8BB3E0042E8BE /* GLD_PayForMeController.m */,
+				0F32E80F1FE8BD450042E8BE /* GLD_UpdateViewController.h */,
+				0F32E8101FE8BD450042E8BE /* GLD_UpdateViewController.m */,
+				0F32E8121FE91D800042E8BE /* GLD_ModifyDiscountController.h */,
+				0F32E8131FE91D800042E8BE /* GLD_ModifyDiscountController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1564,6 +1579,7 @@
 				0F9920061FCEDDE800305DF3 /* GLD_HomeViewManager.m in Sources */,
 				0F32E8051FE36BF60042E8BE /* GLD_PerfectUserMController.m in Sources */,
 				0FB537241FC6C47000B0EDA6 /* MapNavigationManager.m in Sources */,
+				0F32E80E1FE8BB3E0042E8BE /* GLD_PayForMeController.m in Sources */,
 				3CA74E4A1FD27E2800A7F137 /* GLD_IndustryCollecCell.m in Sources */,
 				0FB537211FC6B9C100B0EDA6 /* GLD_LocationHelp.m in Sources */,
 				0F298E831FC2CFC200EDBA9A /* MTShareView.m in Sources */,
@@ -1660,6 +1676,8 @@
 				0F6411831FD4EAB50069FDB1 /* GLD_NetworkReachability.m in Sources */,
 				0FB537021FC5887C00B0EDA6 /* LBMessageViewController.m in Sources */,
 				0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */,
+				0F32E8111FE8BD450042E8BE /* GLD_UpdateViewController.m in Sources */,
+				0F32E8141FE91D800042E8BE /* GLD_ModifyDiscountController.m in Sources */,
 				0F298E7B1FC2CFC200EDBA9A /* GLD_CarouselCell.m in Sources */,
 				0F71A5891FDE8B5300C66EED /* GLD_ApplyUnionController.m in Sources */,
 				0F99200C1FCEDEE800305DF3 /* YXFooterRefresh.m in Sources */,
