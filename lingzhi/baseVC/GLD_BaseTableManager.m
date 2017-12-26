@@ -34,7 +34,7 @@
         WS(weakSelf);
         tableView.mj_header = [GLD_RefreshHeader headerWithRefreshingBlock:^{
             [weakSelf.mainDataArrM removeAllObjects];
-            [weakSelf reloadOrLoadMoreData];
+            [weakSelf fetchMainData];
         }];
         tableView.mj_footer = [YXFooterRefresh footerWithRefreshingBlock:^{
             [weakSelf reloadOrLoadMoreData];

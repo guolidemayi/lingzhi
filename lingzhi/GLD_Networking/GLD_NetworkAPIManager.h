@@ -12,7 +12,7 @@
 #import "YXFooterRefresh.h"
 
 
-#define WEB_SERVICE_REQUESTBASEURL @"http://192.168.0.105:8484" //网络链接;
+#define WEB_SERVICE_REQUESTBASEURL @"http://192.168.0.195:8080" //网络链接;
 
 typedef void(^completionHandleBlock)(NSError *error, id result);
 

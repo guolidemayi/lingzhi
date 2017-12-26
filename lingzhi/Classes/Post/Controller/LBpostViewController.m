@@ -136,6 +136,7 @@
 //        ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
 //        jumpVC.jump_URL = [obj stringValue];
 //        [self.navigationController pushViewController:jumpVC animated:YES];
+        NSLog(@".....");
     } else {
         NSLog(@"暂未识别出扫描的二维码");
     }

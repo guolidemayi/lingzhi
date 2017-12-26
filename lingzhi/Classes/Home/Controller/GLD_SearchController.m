@@ -26,7 +26,7 @@
     [super viewDidLoad];
    
     [self setupSearchView];
-    
+    [self.view addSubview:self.table_apply];
 }
 
 - (void)setupSearchView{
@@ -72,6 +72,7 @@
     
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     self.navigationItem.rightBarButtonItem = item1;
+    
 }
 //搜索
 - (void)searchClick{
@@ -84,7 +85,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/searchShop";
-    config.requestParameters = @{@"name" : str};
+    config.requestParameters = @{@"keyword" : str};
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
@@ -108,6 +109,14 @@
     GLD_BusinessCell *cell = [self.table_apply dequeueReusableCellWithIdentifier:GLD_BusinessCellIdentifier];
     cell.model = self.busnessListModel.shop[indexPath.row];
     return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+   
+    return W(100);
+     
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.001;
 }
 - (UITableView *)table_apply{
     if (!_table_apply) {

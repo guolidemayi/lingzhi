@@ -76,17 +76,14 @@
     
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
+        [self.tableView.mj_header endRefreshing];
         weakSelf.busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
         
         [weakSelf.tableView reloadData];
     }];
 }
 - (void)reloadOrLoadMoreData{
-    [self.tableView.mj_header endRefreshing];
-    [self getBannerData];
-    [self getListData];
-    [self getbusnessList:2];
-    NSLog(@"刷新啦");
+    [self.tableView.mj_footer endRefreshing];
 }
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     switch (indexPath.section) {

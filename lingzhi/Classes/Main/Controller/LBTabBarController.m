@@ -64,19 +64,17 @@
 - (void)setUpAllChildVc
 {
 
-
     LBHomeViewController *HomeVC = [[LBHomeViewController alloc] init];
     [self setUpOneChildVcWithVc:HomeVC Image:@"home_normal" selectedImage:@"home_highlight" title:@"首页"];
 
     LBFishViewController *FishVC = [[LBFishViewController alloc] init];
-    [self setUpOneChildVcWithVc:FishVC Image:@"fish_normal" selectedImage:@"fish_highlight" title:@"鱼塘"];
+    [self setUpOneChildVcWithVc:FishVC Image:@"fish_normal" selectedImage:@"fish_highlight" title:@"附近"];
 
     LBMessageViewController *MessageVC = [[LBMessageViewController alloc] init];
-    [self setUpOneChildVcWithVc:MessageVC Image:@"message_normal" selectedImage:@"message_highlight" title:@"消息"];
+    [self setUpOneChildVcWithVc:MessageVC Image:@"message_normal" selectedImage:@"message_highlight" title:@"论坛"];
 
     LBMineViewController *MineVC = [[LBMineViewController alloc] init];
     [self setUpOneChildVcWithVc:MineVC Image:@"account_normal" selectedImage:@"account_highlight" title:@"我的"];
-
 
 }
 

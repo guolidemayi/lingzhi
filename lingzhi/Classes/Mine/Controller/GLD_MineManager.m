@@ -41,6 +41,7 @@
 }
 - (void)fetchMainData{
 //    self.tableView.tableHeaderView = self.hasLoginHeadView;
+    [self.tableView.mj_header endRefreshing];
 }
 - (void)reloadOrLoadMoreData{
     [self.tableView.mj_footer endRefreshingWithNoMoreData];

@@ -10,6 +10,8 @@
 #import "GLD_PayForMeController.h"
 #import "GLD_UpdateViewController.h"
 #import "GLD_ModifyDiscountController.h"
+#import "GLD_MyOrderController.h"
+#import "GLD_ApplyBusnessController.h"
 
 @interface GLD_ManagerStoreController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgV;//商店图标
@@ -19,8 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cashLabel;//本月营业额
 @property (weak, nonatomic) IBOutlet UILabel *orderLabel;//订单
 @property (weak, nonatomic) IBOutlet UILabel *turnoverLabel;//本日营业额
-@property (weak, nonatomic) IBOutlet UIImageView *orderManagerImgV;//订单管理
-@property (weak, nonatomic) IBOutlet UIImageView *discountImgV;//编辑折扣
+
 @end
 
 @implementation GLD_ManagerStoreController
@@ -30,33 +31,31 @@
     [self outLayoutSelfSubviews];
     self.view.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_BLUE_TABLE];
 }
+//折扣设置
+- (IBAction)discountClick:(id)sender {
+    GLD_ModifyDiscountController *modifyVc = [GLD_ModifyDiscountController new];
+    [self.navigationController pushViewController:modifyVc animated:YES];
+
+}
+//订单管理
+- (IBAction)orderClick:(UIButton *)sender {
+    GLD_MyOrderController *myCollect = [[GLD_MyOrderController alloc]init];
+    [self.navigationController pushViewController:myCollect animated:YES];
+}
 - (IBAction)upgradeClick:(UIButton *)sender {
     //升级
     GLD_UpdateViewController *updateVC = [GLD_UpdateViewController new];
     [self.navigationController pushViewController:updateVC animated:YES];
 }
+//编辑门店
 - (IBAction)editClick:(UIButton *)sender {
-    GLD_ModifyDiscountController *modifyVc = [GLD_ModifyDiscountController new];
-    [self.navigationController pushViewController:modifyVc animated:YES];
+    GLD_ApplyBusnessController *applyVc = [GLD_ApplyBusnessController new];
+    [self.navigationController pushViewController:applyVc animated:YES];
 }
 - (IBAction)payForMe:(id)sender {
     GLD_PayForMeController *payforVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"GLD_PayForMeController"];
     [self.navigationController pushViewController:payforVc animated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

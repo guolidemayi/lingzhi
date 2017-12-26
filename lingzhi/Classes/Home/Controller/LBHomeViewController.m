@@ -72,6 +72,7 @@
 }
 //搜索
 - (void)SearchCLick{
+    [CAToast showWithText:@""];
     GLD_SearchController *searchVc = [GLD_SearchController new];
     [self.navigationController pushViewController:searchVc animated:YES];
 }
@@ -99,6 +100,7 @@
     }
     return _home_table;
 }
+
 //定位
 - (void)startLocation
 {

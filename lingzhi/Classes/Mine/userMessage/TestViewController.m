@@ -25,7 +25,8 @@
 @property (nonatomic, strong) BRTextField *birthdayTF;
 /** 所在地 */
 @property (nonatomic, strong) BRTextField *locationTF;
-
+/** 个人简介 */
+@property (nonatomic, strong) BRTextField *personalIntroTF;//
 /** 所属单位 */
 @property (nonatomic, strong) BRTextField *companyTF;
 /** 职位名称 */
@@ -47,9 +48,15 @@
     self.tableView.hidden = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(clickSaveBtn)];
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    if (IsExist_String(self.dec)) {
+        _personalIntroTF.text = self.dec;
+    }
+}
 - (void)clickSaveBtn {
     NSLog(@"保存");
+    
+    
 }
 - (void)iconImgVClick{
     NSLog(@"头像");
@@ -235,7 +242,7 @@
             case 5:
             {
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                
+                [self setupPersonalIntroTF:cell];
             }
                 break;
  
@@ -269,8 +276,7 @@
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 5:{
-                GLD_WirteIntroController *wirteVc = [GLD_WirteIntroController new];
-                [self.navigationController pushViewController:wirteVc animated:YES];
+                
             }break;
         }
     }else{
@@ -313,7 +319,18 @@
         };
     }
 }
-
+#pragma mark - 性别 textField
+- (void)setupPersonalIntroTF:(UITableViewCell *)cell {
+    if (!_personalIntroTF) {
+        _personalIntroTF = [self getTextField:cell];
+        
+        __weak typeof(self) weakSelf = self;
+        _personalIntroTF.tapAcitonBlock = ^{
+            GLD_WirteIntroController *wirteVc = [GLD_WirteIntroController new];
+            [weakSelf.navigationController pushViewController:wirteVc animated:YES];
+        };
+    }
+}
 #pragma mark - 出生日期 textField
 - (void)setupBirthdayTF:(UITableViewCell *)cell {
     if (!_birthdayTF) {
@@ -367,12 +384,12 @@
         _positionTF.tag = 5;
     }
 }
-
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField.tag == 0 || textField.tag == 4) {
-        [textField resignFirstResponder];
-    }
+    [textField resignFirstResponder];
     return YES;
 }
 

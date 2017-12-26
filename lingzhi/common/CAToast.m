@@ -146,7 +146,7 @@ typedef enum {
 
 - (void)showWithPosition:(Position)pos offset:(CGFloat)offset {
 //    UIWindow *window = [UIApplication sharedApplication].keyWindow;   
-    UIWindow *window = [[UIApplication sharedApplication].windows objectAtIndex:0];
+    UIWindow *window = [AppDelegate shareDelegate].window;
     UIInterfaceOrientation currentOrient = [UIApplication sharedApplication].statusBarOrientation;
     switch (currentOrient) {
         case UIInterfaceOrientationPortrait:

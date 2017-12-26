@@ -88,10 +88,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true></true>
-    </dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>访问相册</string>
 </dict>
 </plist>

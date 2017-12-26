@@ -10,4 +10,5 @@
 
 @interface TestViewController : UIViewController
 
+@property (nonatomic, copy)NSString *dec;//个人简介
 @end

@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.netManager = [GLD_NetworkAPIManager new];
-    [self startLocation];
+    
     //导航到深圳火车站
     [self setNavUi];
     [self getbusnessList:2];
@@ -65,9 +65,17 @@
     cell.model = self.busnessListModel.shop[indexPath.row];
     return cell;
 }
+- (void)viewWillAppear:(BOOL)animated{
+    if([AppDelegate shareDelegate].placemark){
+        [self.locationBut title:[AppDelegate shareDelegate].placemark.locality];
+    }else{
+        [self.locationBut title:@"定位失败"];
+    }
+}
 - (void)setNavUi{
     GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
     self.locationBut = locationBut;
+    
     locationBut.frame = CGRectMake(0, 0, 50, 44);
     [locationBut image:@"更多"];
     [locationBut addTarget:self action:@selector(mapNav) forControlEvents:UIControlEventTouchUpInside];
@@ -124,49 +132,6 @@
     return _home_table;
 }
 //定位
-- (void)startLocation
-{
-    
-    __weak typeof(self) weakSelf = self;
-    [[GLD_LocationHelp sharedInstance] getLocationPlacemark:^(CLPlacemark *placemark) {
-        
-        if (placemark.locality) {
-            
-            [weakSelf.locationBut title:placemark.locality];
-            weakSelf.locationStr = placemark.locality;
-            [AppDelegate shareDelegate].placemark = placemark;
-            //            CLLocationCoordinate2D
-        } else {
-            weakSelf.locationStr = @"定位失败";
-            [weakSelf.locationBut title:@"定位失败"];
-        }
-//        [weakSelf.homeManager fetchMainData];
-    } status:^(CLAuthorizationStatus status) {
-        
-        if (status != kCLAuthorizationStatusAuthorizedAlways && status != kCLAuthorizationStatusAuthorizedWhenInUse) {
-            //定位不能用
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"允许“城市列表”在您使用该应用时访问您的位置吗？" message:@"是否允许访问您的位置？" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            }];
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"去设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-            }];
-            [alertController addAction:cancelAction];
-            [alertController addAction:okAction];
-            [weakSelf presentViewController:alertController animated:YES completion:nil];
-        } else {
-            [weakSelf.locationBut title:@"定位中..."];
-            weakSelf.locationStr = @"定位失败";
-        }
-        
-        //        [weakSelf.homeManager fetchMainData];
-    } didFailWithError:^(NSError *error) {
-        [weakSelf.locationBut title:@"定位失败"];
-        weakSelf.locationStr = @"定位失败";
-//        [weakSelf.homeManager fetchMainData];
-        
-    }];
-}
 
 
 

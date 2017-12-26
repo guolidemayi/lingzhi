@@ -368,10 +368,6 @@
                                 <rect key="frame" x="0.0" y="222" width="375" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="购物车黄" translatesAutoresizingMaskIntoConstraints="NO" id="ylL-nD-vLm">
-                                        <rect key="frame" x="91" y="19" width="46" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="订单管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hf6-uE-nbl">
                                         <rect key="frame" x="69" y="73" width="91" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -379,10 +375,6 @@
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="折扣店图标" translatesAutoresizingMaskIntoConstraints="NO" id="3G4-EV-LZP">
-                                        <rect key="frame" x="237" y="19" width="47" height="46"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="折扣设置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FX-Nd-wAN">
                                         <rect key="frame" x="223" y="73" width="75" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -390,6 +382,22 @@
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veo-Cd-dCX">
+                                        <rect key="frame" x="91" y="19" width="46" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="购物车黄"/>
+                                        <connections>
+                                            <action selector="orderClick:" destination="k7L-FQ-tDE" eventType="touchUpInside" id="XH7-IE-Gbd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmr-pc-elo">
+                                        <rect key="frame" x="237" y="19" width="46" height="46"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="折扣店图标"/>
+                                        <connections>
+                                            <action selector="discountClick:" destination="k7L-FQ-tDE" eventType="touchUpInside" id="1Y6-wU-sqM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -399,10 +407,8 @@
                     <connections>
                         <outlet property="busnessType" destination="9uR-g1-C07" id="0qm-dZ-K20"/>
                         <outlet property="cashLabel" destination="ASd-5f-RTa" id="bnq-Dl-CQg"/>
-                        <outlet property="discountImgV" destination="3G4-EV-LZP" id="dsR-cg-iSA"/>
                         <outlet property="iconImgV" destination="gWx-Km-CkB" id="qMZ-Z1-Q8h"/>
                         <outlet property="orderLabel" destination="p3e-VI-why" id="tHe-Zj-Yug"/>
-                        <outlet property="orderManagerImgV" destination="ylL-nD-vLm" id="O6g-6S-P4l"/>
                         <outlet property="titleLabel" destination="rpb-FD-bvE" id="GY3-Vd-U1k"/>
                         <outlet property="turnoverLabel" destination="Rnd-fA-zAv" id="9Lr-gL-fpd"/>
                     </connections>
@@ -500,6 +506,9 @@
                                 <state key="normal" title="保存二维码">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveQRCClick:" destination="mgT-st-ZqQ" eventType="touchUpInside" id="eDv-G0-ku4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -512,6 +521,12 @@
                             <constraint firstItem="ven-ue-VG8" firstAttribute="top" secondItem="eoH-d6-s73" secondAttribute="bottom" constant="95" id="vhg-SV-6ZQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="QRCImageV" destination="2TW-ia-6M6" id="pyK-7Z-qHc"/>
+                        <outlet property="decLabel" destination="peV-u7-TOz" id="O1f-3n-Jpf"/>
+                        <outlet property="iconImageV" destination="Tqx-eV-hyb" id="hEw-tl-ecI"/>
+                        <outlet property="nameLabel" destination="ciQ-1i-r35" id="KPi-Wf-QhB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYz-8X-9q2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
