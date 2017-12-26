@@ -26,6 +26,7 @@ NSString *const GLD_BannerCellIdentifier = @"GLD_BannerCellIdentifier";
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     NSLog(@"%zd", index);
     GLD_BannerDetailController *bannerVc =[GLD_BannerDetailController new];
+    bannerVc.bannerModel = self.bannerData[index];
     [self.navigationController pushViewController:bannerVc animated:YES];
 }
 
@@ -34,7 +35,7 @@ NSString *const GLD_BannerCellIdentifier = @"GLD_BannerCellIdentifier";
     _bannerData = bannerData;
     NSMutableArray *arrM = [NSMutableArray array];
     for (GLD_BannerModel *model in bannerData) {
-        [arrM addObject:model.targetUrl];
+        [arrM addObject:model.Pic];
     }
     self.cycleView.imageURLStringsGroup = arrM.copy;
 //    self.cycleView.localizationImageNamesGroup = @[@"welcome1",@"welcome2",@"welcome3"];

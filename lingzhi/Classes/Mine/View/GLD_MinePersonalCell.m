@@ -22,11 +22,11 @@ NSString *const GLD_MinePersonalCellIdentifier = @"GLD_MinePersonalCellIdentifie
 - (void)setupUI{
     [self.contentView addSubview:self.collectionView];
     GLD_IndustryModel *model = [GLD_IndustryModel new];
-    model.name = @"我的订单";
-    model.icon = @"我的订单";
+    model.title = @"我的订单";
+    model.iconImage = @"我的订单";
     GLD_IndustryModel *model1 = [GLD_IndustryModel new];
-    model1.name = @"门店收藏";
-    model1.icon = @"门店收藏";
+    model1.title = @"门店收藏";
+    model1.iconImage = @"门店收藏";
     self.listData = @[model, model1];
 }
 

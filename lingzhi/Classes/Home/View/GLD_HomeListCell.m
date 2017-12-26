@@ -49,8 +49,8 @@ NSString *const GLD_HomeListCellIdentifier = @"GLD_HomeListCellIdentifier";
     GLD_IndustryCollecCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:GLD_IndustryCollecCellIdentifier forIndexPath:indexPath];
     if (indexPath.row == 14) {
         GLD_IndustryModel *model = [GLD_IndustryModel new];
-        model.icon = @"所有分类";
-        model.name = @"所有分类";
+        model.iconImage = @"所有分类";
+        model.title = @"所有分类";
         cell.model = model;
     }else{
         
@@ -69,6 +69,8 @@ NSString *const GLD_HomeListCellIdentifier = @"GLD_HomeListCellIdentifier";
     }
     GLD_BusinessListController *listVc = [[GLD_BusinessListController alloc]init];
     listVc.cityName = [AppDelegate shareDelegate].placemark.locality;
+
+    listVc.model = self.listData[indexPath.row];
     [self.collectionView.navigationController pushViewController:listVc animated:YES];
 }
 - (UICollectionView *)collectionView{

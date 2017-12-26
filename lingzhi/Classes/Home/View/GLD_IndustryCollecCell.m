@@ -31,12 +31,12 @@ NSString *const GLD_IndustryCollecCellIdentifier = @"GLD_IndustryCollecCellIdent
 
 - (void)setModel:(GLD_IndustryModel *)model{
     _model = model;
-    if([model.icon hasPrefix:@"http://"]){
-    [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:model.icon] placeholder:nil];
+    if([model.iconImage hasPrefix:@"http://"]){
+    [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:model.iconImage] placeholder:nil];
     }else{
         self.iconImgV.image = WTImage(@"weixin");
     }
-    self.titleLabel.text = model.name;
+    self.titleLabel.text = model.title;
 }
 - (void)setupUI{
     [self.contentView addSubview:self.iconImgV];
@@ -49,6 +49,7 @@ NSString *const GLD_IndustryCollecCellIdentifier = @"GLD_IndustryCollecCellIdent
     }];
     [self.iconImgV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.contentView);
+        make.height.width.equalTo(WIDTH(25));
         make.bottom.equalTo(self.titleLabel.mas_top).offset(W(-5));
     }];
 }

@@ -69,6 +69,7 @@
     config.urlPath = @"api/main/shopList";
     config.requestParameters = @{
                                  @"type" : @(type),
+                                 @"city":@"北京",
                                  @"lat:":[NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.location.coordinate.latitude],
                                  @"lng:" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.location.coordinate.longitude]
                                  };
@@ -76,7 +77,7 @@
     
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
-        [self.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
         weakSelf.busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
         
         [weakSelf.tableView reloadData];

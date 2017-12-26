@@ -8,8 +8,8 @@
 
 #import "GLD_BaseViewController.h"
 
+@class GLD_BannerModel;
 @interface GLD_BannerDetailController : GLD_BaseViewController
 
-@property (nonatomic, copy)NSMutableArray *bannerData;
-@property (nonatomic, copy)NSArray *titleArr;
+@property (nonatomic, strong)GLD_BannerModel *bannerModel;
 @end

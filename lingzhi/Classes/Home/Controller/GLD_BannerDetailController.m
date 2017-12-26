@@ -8,8 +8,13 @@
 
 #import "GLD_BannerDetailController.h"
 #import "SDCycleScrollView.h"
+#import "GLD_BannerModel.h"
 
 @interface GLD_BannerDetailController ()<SDCycleScrollViewDelegate>
+
+
+@property (nonatomic, copy)NSMutableArray *bannerData;
+@property (nonatomic, copy)NSArray *titleArr;
 
 @property (nonatomic, strong)SDCycleScrollView *cycleView;
 
@@ -71,11 +76,11 @@
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(W(-100));
+        make.bottom.equalTo(self.view).offset(W(-60));
     }];
     [self.shareBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(W(-100));
+        make.bottom.equalTo(self.view).offset(W(-60));
     }];
     
     [self.applyBut mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -93,9 +98,10 @@
 //        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
         _cycleView.autoScroll = NO;
         _cycleView.showPageControl = NO;
+        NSArray *arr = [self.bannerModel.Pictures componentsSeparatedByString:@";"];
 //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
-        _cycleView.localizationImageNamesGroup = @[@"welcome1",@"welcome2",@"welcome3"];
-        self.titleArr = @[@"woshiyi",@"woshier",@"申请了"];
+        _cycleView.localizationImageNamesGroup = arr;
+        self.titleArr = [self.bannerModel.Titles componentsSeparatedByString:@";"];
         self.titleLabel.text = self.titleArr[0];
     }
     return _cycleView;
@@ -138,7 +144,7 @@
         _titleLabel.font = WTFont(15);
 //        _titleLabel.text = @"我的钱包";
         _titleLabel.textAlignment = NSTextAlignmentLeft;
-        _titleLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK];
+        _titleLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKwirte];
     }
     return _titleLabel;
 }

@@ -13,8 +13,9 @@
 @end
 @interface GLD_IndustryModel : JSONModel
 
-@property (nonatomic, copy)NSString *icon;
-@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy)NSString *iconImage;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *pid;
 @property (nonatomic, copy)NSString *industryId;
 @end
 

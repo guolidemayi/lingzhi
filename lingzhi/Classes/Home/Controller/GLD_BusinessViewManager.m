@@ -24,8 +24,8 @@
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/main/searchShop";
-    config.requestParameters = @{@"name" : condition};
+    config.urlPath = @"api/main/categoryShop";
+    config.requestParameters = @{@"city" : condition};
     
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         

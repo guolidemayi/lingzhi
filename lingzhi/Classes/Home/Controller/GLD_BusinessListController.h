@@ -8,7 +8,9 @@
 
 #import "GLD_BaseViewController.h"
 
+@class GLD_IndustryModel;
 @interface GLD_BusinessListController : GLD_BaseViewController
 
 @property (nonatomic, copy)NSString *cityName;//定位城市
+@property (nonatomic, strong)GLD_IndustryModel *model;//类型
 @end
