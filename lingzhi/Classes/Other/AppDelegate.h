@@ -12,6 +12,7 @@
 #import "WeiboSDK.h"//weibo
 #import "MTShareModule.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
+#import "GLD_UserMessageModel.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -20,6 +21,7 @@
 @property (nonatomic, copy)NSString *token;//用户token
 @property (nonatomic, assign)BOOL *hasLogin;//是否登陆
 @property (nonatomic, strong)CLPlacemark *placemark;
+@property (nonatomic, strong)GLD_UserMessageModel *userModel;
 - (void)initMainPageBody;
 + (AppDelegate *)shareDelegate;
 @end

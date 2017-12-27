@@ -12,6 +12,7 @@
 #import "NSDate+BRAdd.h"
 #import "GLD_CustomBut.h"
 #import "GLD_BackForPasswordController.h"
+#import "TestViewController.h"
 
 @interface GLD_BindingPhoneController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
@@ -28,6 +29,8 @@
 @property (nonatomic, strong) BRTextField *verificationTF;
 
 @property (nonatomic, strong)UIButton *applyBut;//提交
+
+@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @end
 
 @implementation GLD_BindingPhoneController
@@ -39,10 +42,25 @@
     locationBut.frame = CGRectMake(0, 0, 50, 44);
     [locationBut title:@"保存"];
     [locationBut addTarget:self action:@selector(SaveAction) forControlEvents:UIControlEventTouchUpInside];
+    self.NetManager = [GLD_NetworkAPIManager new];
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:locationBut];
     self.navigationItem.rightBarButtonItem = item;
     
     [self.view addSubview:self.table_apply];
+}
+
+- (void)getSMS{
+    WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/sms";
+    config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone)};
+    
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        
+    }];
 }
 - (void)SaveAction{
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
@@ -101,7 +119,7 @@
                                                             selector:@selector(timerAction:)
                                                             userInfo:nil
                                                              repeats:YES];
-    
+    [self getSMS];
     
 }
 - (void)timerAction:(NSTimer *)timer{
@@ -200,7 +218,7 @@
 
 - (void)applybutClick{
     //下一步
-    GLD_BackForPasswordController *backVc = [GLD_BackForPasswordController new];
+    TestViewController *backVc = [TestViewController new];
     [self.navigationController pushViewController:backVc animated:YES];
 }
 - (NSArray *)titleArr {

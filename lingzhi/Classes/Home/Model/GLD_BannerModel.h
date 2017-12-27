@@ -17,7 +17,7 @@
 @property (nonatomic, copy)NSString *Pic;
 @property (nonatomic, copy) NSString *Titles;
 @property (nonatomic, copy) NSString *Pictures;
-@property (nonatomic, copy)NSString *typeTitle;
+@property (nonatomic, assign)NSInteger typeTitle;
 @property (nonatomic, copy)NSString *bannerID;
 
 @end

@@ -9,6 +9,8 @@
 #import "GLD_BannerDetailController.h"
 #import "SDCycleScrollView.h"
 #import "GLD_BannerModel.h"
+#import "GLD_ApplyBusnessController.h"
+#import "GLD_ApplyUnionController.h"
 
 @interface GLD_BannerDetailController ()<SDCycleScrollViewDelegate>
 
@@ -108,7 +110,20 @@
 }
 
 - (void)applybutClick{
-    
+    if (hasLogin) {
+        [CAToast showWithText:@"已经登陆"];
+    }else{
+        switch (self.bannerModel.typeTitle) {
+            case 0:{
+                GLD_ApplyBusnessController *applyVc = [GLD_ApplyBusnessController new];
+                [self.navigationController pushViewController:applyVc animated:YES];
+            }break;
+            case 1:{
+                GLD_ApplyUnionController *applyVc = [GLD_ApplyUnionController new];
+                [self.navigationController pushViewController:applyVc animated:YES];
+            }break;
+        }
+    }
 }
 - (UIButton *)applyBut{
     if (!_applyBut) {

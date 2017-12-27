@@ -17,20 +17,52 @@
 @property (nonatomic, strong)UITableView *detail_table;
 @property (nonatomic, strong)GLD_BusinessDetailManager *busnessManager;
 @property (nonatomic, strong)UIView *bottomView;
+
+@property (nonatomic, strong)GLD_NetworkAPIManager *netManager;
+@property (nonatomic, weak)UIButton *collectBut;
+//0 收藏  1 取消
 @end
 
 @implementation GLD_BusinessDetailController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = self.busnessModel.name;
     self.detail_table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.detail_table];
     self.busnessManager = [[GLD_BusinessDetailManager alloc]initWithTableView:self.detail_table];
     self.busnessManager.busnessModel = self.busnessModel;
     [self setupBottomView];
+    self.netManager = [GLD_NetworkAPIManager new];
+    [self setRightBut];
+}
+- (void)setRightBut{
+    UIButton *rightBut = [[UIButton alloc]init];;
+    self.collectBut = rightBut;
+    rightBut.frame = CGRectMake(0, 0, 50, 44);
+    [rightBut setImage:WTImage(@"starEvaluateYes") forState:UIControlStateNormal];
+    [rightBut addTarget:self action:@selector(collectionClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
+    self.navigationItem.rightBarButtonItem = item1;
 }
 
-
+- (void)collectionClick{
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/main/collectionShop";
+    config.requestParameters = @{
+                                 @"dataId":self.busnessModel.industryId,
+                                 @"userId":@"3",
+                                 @"collectionType":@"0"
+                                 };
+    
+    
+    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        
+    }];
+}
 - (void)setupBottomView{
     [self.view addSubview:self.bottomView];
     self.bottomView.frame = CGRectMake(0, DEVICE_HEIGHT-W(44)-64, DEVICE_WIDTH, W(44));

@@ -61,6 +61,8 @@
 @property (nonatomic, weak)UILabel *introduceLabel;//高低级商家介绍
 @property (nonatomic, assign)CGFloat introHeight;
 @property (nonatomic, assign)CGFloat mapHeight;
+
+@property (nonatomic, strong)GLD_NetworkAPIManager *netManager;
 @end
 
 @implementation GLD_ApplyBusnessController
@@ -70,6 +72,7 @@
     self.introHeight = W(80);
     self.mapHeight = W(210);
     [self.view addSubview:self.table_apply];
+    self.netManager = [GLD_NetworkAPIManager new];
 }
 
 
@@ -121,6 +124,32 @@
     }
     return [UIView new];
 }
+//申请门店提交
+- (void)applyBusnessClick{
+    WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/main/addShop";
+    config.requestParameters = @{@"logo" : GetString(@"15514596836"),
+                                 @"name" : GetString(@"123"),
+                                 @"desc" : GetString(@"15514596836"),
+                                 @"cellphone" : GetString(@"123"),
+                                 @"address" : GetString(@"15514596836"),
+                                 @"xpoint" : GetString(@"123"),
+                                 @"ypoint" : GetString(@"15514596836"),
+                                 @"evaluateScore" : GetString(@"123"),
+                                 @"category" : GetString(@"15514596836"),
+                                 @"busnessType" : GetString(@"123"),
+                                 };
+    
+    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+        
+            
+        }
+    }];
+}
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
     switch (section) {
@@ -140,6 +169,7 @@
             [headView.contentView addSubview:nextBut];
             nextBut.titleLabel.font = WTFont(16);
             [nextBut setTitle:@"下一步" forState:UIControlStateNormal];
+            [nextBut addTarget:self action:@selector(applyBusnessClick) forControlEvents:UIControlEventTouchUpInside];
             [nextBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             nextBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_BLUE];
             [nextBut addTarget:self action:@selector(nextButClick) forControlEvents:UIControlEventTouchUpInside];

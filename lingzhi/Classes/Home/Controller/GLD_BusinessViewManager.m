@@ -9,6 +9,7 @@
 #import "GLD_BusinessViewManager.h"
 #import "GLD_BusinessCell.h"
 #import "GLD_BusnessModel.h"
+#import "GLD_BusinessDetailController.h"
 
 @interface GLD_BusinessViewManager ()
 
@@ -34,7 +35,12 @@
     }];
 
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    GLD_BusinessDetailController *detaileVc = [GLD_BusinessDetailController new];
+    detaileVc.busnessModel = self.busnessListModel.shop[indexPath.row];
+    [self.tableView.navigationController pushViewController:detaileVc animated:YES];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.busnessListModel.shop.count;
 }

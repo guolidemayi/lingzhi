@@ -29,6 +29,7 @@
 @property (nonatomic, strong) BRTextField *industryTF;
 
 @property (nonatomic, strong) NSArray *titleArr;//
+@property (nonatomic, strong) UIButton *nextBut;
 @end
 
 @implementation GLD_ApplyCompanyController
@@ -153,5 +154,31 @@
         _titleArr = @[@"公司名称",@"办事处",@"联系电话",@"预计投入资金",@"意向合作省份"];
     }
     return _titleArr;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return W(60);
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *headView = [UIView new];
+    [self canSetNextBut:headView];
+    return headView;
+}
+- (void)canSetNextBut:(UIView *)headView{
+    if (!_nextBut) {
+        UIButton *nextBut = [[UIButton alloc]init];
+        [headView addSubview:nextBut];
+        nextBut.titleLabel.font = WTFont(16);
+        [nextBut setTitle:@"下一步" forState:UIControlStateNormal];
+        [nextBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        nextBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_BLUE];
+        [nextBut addTarget:self action:@selector(nextButClick) forControlEvents:UIControlEventTouchUpInside];
+        [nextBut mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(headView).offset(-W(10));
+            make.right.equalTo(headView).offset(-W(15));
+            make.left.equalTo(headView).offset(W(15));
+            make.height.equalTo(WIDTH(40));
+        }];
+        
+    }
 }
 @end

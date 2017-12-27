@@ -38,6 +38,8 @@
 @property (nonatomic, strong)UIImageView *iconImgV;
 
 @property (strong, nonatomic) UIImagePickerController* imagePicker;
+
+@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @end
 
 @implementation TestViewController
@@ -47,6 +49,7 @@
     self.navigationItem.title = @"测试选择器的使用";
     self.tableView.hidden = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(clickSaveBtn)];
+    self.NetManager = [GLD_NetworkAPIManager new];
 }
 - (void)viewWillAppear:(BOOL)animated{
     if (IsExist_String(self.dec)) {
@@ -55,8 +58,33 @@
 }
 - (void)clickSaveBtn {
     NSLog(@"保存");
+    [self getSave];
     
+}
+- (void)getSave{
+    WS(weakSelf);
+    [AppDelegate shareDelegate].userModel.phone = @"155145989899";
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/regUser";
+    config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                 @"company" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                 @"industry" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                 @"intro" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                 @"address" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                 @"inviteCode" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                 @"psssword" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                 @"sex" : GetString(@"男"),
+                                 @"name" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                 @"birthDay" : GetString(@"1999-07-09"),
+                                 @"icon" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                 @"duty" : GetString([AppDelegate shareDelegate].userModel.phone)
+                                 };
     
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        
+    }];
 }
 - (void)iconImgVClick{
     NSLog(@"头像");

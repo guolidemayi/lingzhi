@@ -38,6 +38,7 @@
 @property (assign, nonatomic) NSInteger countDownNumber;
 //验证码
 @property (copy, nonatomic) NSString *verificationCode;
+@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @end
 
 @implementation GLD_LoginController
@@ -45,7 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self outLayoutSelfSubviews];
-    
+    self.NetManager = [GLD_NetworkAPIManager new];
     GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
     locationBut.frame = CGRectMake(0, 0, 50, 44);
     [locationBut image:@"导航栏返回箭头"];
@@ -150,14 +151,31 @@
     // 获取验证码埋点
     
 }
+- (void)getSMS{
+    WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/login";
+    config.requestParameters = @{@"phone" : GetString(@"15514596836"),
+                                 @"password" : GetString(@"123")
+                                 };
+    
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
+            
+            [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{
+            }];
+        }
+    }];
+}
 //登录
 - (IBAction)loginClick:(UIButton *)sender {
 //     NSString *codeStr = [self.yanZhengMaField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
-    }];
     
+    [self getSMS];
 }
 - (void)registSuccessJoin {
     // 进入完善信息

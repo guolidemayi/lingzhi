@@ -155,6 +155,8 @@
 		0FB5373B1FC6D22A00B0EDA6 /* SGQRCodeGenerateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5372F1FC6D22900B0EDA6 /* SGQRCodeGenerateManager.m */; };
 		0FB5373C1FC6D22A00B0EDA6 /* SGQRCodeAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB537341FC6D22900B0EDA6 /* SGQRCodeAlbumManager.m */; };
 		0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */; };
+		330AAB3E1FF4053200523FF0 /* GLD_wanShanUserMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */; };
+		330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */; };
 		3C604D7D1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C604D7C1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m */; };
 		3C604D801FE64D0500D4ECA7 /* GLD_ManagerStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C604D7F1FE64D0500D4ECA7 /* GLD_ManagerStoreController.m */; };
 		3CA74E4A1FD27E2800A7F137 /* GLD_IndustryCollecCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA74E491FD27E2800A7F137 /* GLD_IndustryCollecCell.m */; };
@@ -473,6 +475,10 @@
 		0FB5373E1FC7C99B00B0EDA6 /* GLD_CustomBut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CustomBut.h; sourceTree = "<group>"; };
 		0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CustomBut.m; sourceTree = "<group>"; };
 		2AFF7DFDC2A100A721211A54 /* Pods-lingzhiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiUITests/Pods-lingzhiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		330AAB3C1FF4053200523FF0 /* GLD_wanShanUserMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_wanShanUserMController.h; sourceTree = "<group>"; };
+		330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_wanShanUserMController.m; sourceTree = "<group>"; };
+		330AAB3F1FF40ABF00523FF0 /* GLD_UserMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_UserMessageModel.h; sourceTree = "<group>"; };
+		330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_UserMessageModel.m; sourceTree = "<group>"; };
 		3C604D7B1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MyStoreCell.h; sourceTree = "<group>"; };
 		3C604D7C1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MyStoreCell.m; sourceTree = "<group>"; };
 		3C604D7E1FE64D0500D4ECA7 /* GLD_ManagerStoreController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ManagerStoreController.h; sourceTree = "<group>"; };
@@ -1030,6 +1036,8 @@
 			children = (
 				0FB536E11FC5887C00B0EDA6 /* AppDelegate.h */,
 				0FB536E31FC5887C00B0EDA6 /* AppDelegate.m */,
+				330AAB3F1FF40ABF00523FF0 /* GLD_UserMessageModel.h */,
+				330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */,
 				0FB536E21FC5887C00B0EDA6 /* main.m */,
 			);
 			path = Other;
@@ -1182,6 +1190,8 @@
 				0F32E8071FE39EEF0042E8BE /* GLD_BindingPhoneController.m */,
 				0F32E8091FE3B14C0042E8BE /* GLD_BackForPasswordController.h */,
 				0F32E80A1FE3B14C0042E8BE /* GLD_BackForPasswordController.m */,
+				330AAB3C1FF4053200523FF0 /* GLD_wanShanUserMController.h */,
+				330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */,
 				0FB537191FC6A25200B0EDA6 /* UserADsModel.h */,
 				0FB5371A1FC6A25200B0EDA6 /* UserADsModel.m */,
 			);
@@ -1621,6 +1631,7 @@
 				0F28D2AE1FD6ADDE00138A8B /* BRTextField.m in Sources */,
 				0FB537031FC5887C00B0EDA6 /* LBMineViewController.m in Sources */,
 				0F6411841FD4EAB50069FDB1 /* GLD_CacheManager.m in Sources */,
+				330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */,
 				0F71A59B1FDFA97D00C66EED /* GLD_NewPhoneController.m in Sources */,
 				0F71A5A21FDFBD4A00C66EED /* GLD_MyOrderController.m in Sources */,
 				0F28D2881FD66CED00138A8B /* GLD_MineManager.m in Sources */,
@@ -1669,6 +1680,7 @@
 				0F298E851FC2CFC200EDBA9A /* UIDevice+DeviceMode.m in Sources */,
 				0F6411861FD4EAB50069FDB1 /* GLD_Request.m in Sources */,
 				0FB537001FC5887C00B0EDA6 /* main.m in Sources */,
+				330AAB3E1FF4053200523FF0 /* GLD_wanShanUserMController.m in Sources */,
 				0F64119C1FD523BE0069FDB1 /* GLD_BusinessDetailController.m in Sources */,
 				0F32E7FC1FE12CED0042E8BE /* GLD_SearchController.m in Sources */,
 				0F99200D1FCEDEE900305DF3 /* GLD_RefreshHeader.m in Sources */,
@@ -1783,7 +1795,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1832,7 +1844,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1852,7 +1864,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/lingzhi/PrefixHeader.pch";
 				INFOPLIST_FILE = lingzhi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1878,7 +1890,7 @@
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/lingzhi/PrefixHeader.pch";
 				INFOPLIST_FILE = lingzhi/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

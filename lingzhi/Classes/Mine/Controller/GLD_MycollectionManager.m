@@ -9,6 +9,7 @@
 #import "GLD_MycollectionManager.h"
 #import "GLD_BusinessCell.h"
 #import "GLD_BusnessModel.h"
+#import "GLD_BusinessDetailController.h"
 
 @implementation GLD_MycollectionManager
 
@@ -18,7 +19,21 @@
 }
 - (void)fetchMainData{
  //我的收藏接口
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/main/getCollectionShop";
+    config.requestParameters = @{@"userId":@"3"
+                                 };
+    [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        [weakSelf.tableView.mj_header endRefreshing];
+        GLD_BusnessLisModel *busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
+        [weakSelf.mainDataArrM addObjectsFromArray:busnessListModel.shop];
+        [weakSelf.tableView reloadData];
+    }];
 }
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 刷新
@@ -39,6 +54,24 @@
     return YES;
     
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.001;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.001;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return [UIView new];
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [UIView new];
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    GLD_BusinessDetailController *detaileVc = [GLD_BusinessDetailController new];
+    detaileVc.busnessModel = self.mainDataArrM[indexPath.row];
+    [self.tableView.navigationController pushViewController:detaileVc animated:YES];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.mainDataArrM.count;
 }
@@ -49,7 +82,5 @@
     GLD_BusinessCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_BusinessCellIdentifier];
     return cell;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
+
 @end

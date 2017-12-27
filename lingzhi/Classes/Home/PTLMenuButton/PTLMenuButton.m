@@ -118,6 +118,7 @@
     [self.listView.maskingView setSelectRowBlock:^(NSInteger row, NSString *rowTitle) {
 
         if ([weakSelf.delegate respondsToSelector:@selector(ptl_menuButton:didSelectMenuButtonAtIndex:selectMenuButtonTitle:listRow:rowTitle:)]) {
+            [weakSelf.listView.maskingView dismiss];
             [weakSelf.delegate ptl_menuButton:weakSelf didSelectMenuButtonAtIndex:index selectMenuButtonTitle: button.currentTitle listRow:row rowTitle:rowTitle];
         }
         

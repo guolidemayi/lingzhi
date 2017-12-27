@@ -22,6 +22,9 @@
 @property (nonatomic, strong)GLD_BannerLisModel *bannerListModel;
 @property (nonatomic, strong)GLD_IndustryListModel *industryListModel;
 @property (nonatomic, strong)GLD_BusnessLisModel *busnessListModel;
+@property (nonatomic, strong) UIButton *selecBut; //
+
+@property (nonatomic, assign)NSInteger listType;//1 推荐  2 附近  3最新
 @end
 @implementation GLD_HomeViewManager
 
@@ -29,13 +32,14 @@
     [self.tableView registerClass:[GLD_BannerCell class] forCellReuseIdentifier:GLD_BannerCellIdentifier];
     [self.tableView registerClass:[GLD_BusinessCell class] forCellReuseIdentifier:GLD_BusinessCellIdentifier];
     [self.tableView registerClass:[GLD_HomeListCell class] forCellReuseIdentifier:GLD_HomeListCellIdentifier];
+    self.listType = 2;
 }
 - (void)fetchMainData{
     NSLog(@"请求首页方法了");
     
     [self getBannerData];
     [self getListData];
-    [self getbusnessList:2];
+    [self getbusnessList:self.listType];
     
 }
 - (void)getBannerData{
@@ -149,29 +153,47 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if(section == 0) return [UIView new];
-    UITableViewHeaderFooterView  *headerView = [UITableViewHeaderFooterView new];
-    NSArray *titleArr = @[@"推荐门店",@"附近门店",@"最新开通"];
     
-    for (int i = 0; i < titleArr.count; i++) {
-        UIButton * button = [UIButton new];
-        [button addTarget:self action:@selector(businessListClick:) forControlEvents:UIControlEventTouchUpInside];
-        [button setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK] forState:UIControlStateNormal];
-        button.frame = CGRectMake(DEVICE_WIDTH / 3 * i, 0, DEVICE_WIDTH / 3, W(44));
-        [button setTitle:titleArr[i] forState:UIControlStateNormal];
-        [headerView addSubview:button];
-    }
-    [headerView addSubview:self.blueLineView];
-    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, W(43), DEVICE_WIDTH, 1)];
-    lineView.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTline2Gray];
-    [headerView addSubview:lineView];
-    self.blueLineView.frame = CGRectMake(DEVICE_WIDTH / 3 , W(42), DEVICE_WIDTH / 3, 2);
-    return headerView;
+    return self.headView;
 }
-
+- (UIView *)headView{
+    if (!_headView) {
+        _headView = [UIView new];
+        NSArray *titleArr = @[@"推荐门店",@"附近门店",@"最新开通"];
+        
+        for (int i = 0; i < titleArr.count; i++) {
+            UIButton * button = [UIButton new];
+            [button addTarget:self action:@selector(businessListClick:) forControlEvents:UIControlEventTouchUpInside];
+            if (i == 1) {
+                [button setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE] forState:UIControlStateNormal];
+                self.selecBut = button;
+            }else{
+                [button setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK] forState:UIControlStateNormal];
+            }
+            button.tag = 201 + i;
+            button.frame = CGRectMake(DEVICE_WIDTH / 3 * i, 0, DEVICE_WIDTH / 3, W(44));
+            [button setTitle:titleArr[i] forState:UIControlStateNormal];
+            [_headView addSubview:button];
+        }
+        [_headView addSubview:self.blueLineView];
+        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, W(43), DEVICE_WIDTH, 1)];
+        lineView.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTline2Gray];
+        [_headView addSubview:lineView];
+        self.blueLineView.frame = CGRectMake(DEVICE_WIDTH / 3 , W(42), DEVICE_WIDTH / 3, 2);
+    }
+    return _headView;
+}
 - (void)businessListClick:(UIButton *)senser{
     [UIView animateWithDuration:.3 animations:^{        
         self.blueLineView.mj_x = senser.mj_x;
     }];
+    [self.selecBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK] forState:UIControlStateNormal];
+    
+    [senser setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE] forState:UIControlStateNormal];
+
+    self.listType = senser.tag - 200;
+    [self getbusnessList:self.listType];
+    self.selecBut = senser;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 1) {

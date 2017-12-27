@@ -32,8 +32,8 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
     [self.locationBut setTitle:model.address forState:UIControlStateNormal];
     self.typeLabel.text = model.category;
     self.detailLabel.text = model.desc;
-    self.distanceLabel.text = model.distance;
-    self.rankLabel.text = [NSString stringWithFormat:@"%@",model.evaluateScore];
+    self.distanceLabel.text = [NSString stringWithFormat:@" 距离%@KM ",model.distance];
+    self.rankLabel.text = [NSString stringWithFormat:@"%@星",model.evaluateScore];
 }
 - (void)setupUI{
     
@@ -75,7 +75,7 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
     });
     self.distanceLabel = ({
         UILabel * label = [UILabel new];
-        label.font = WTFont(15);
+        label.font = WTFont(12);
         label.textAlignment = NSTextAlignmentCenter;
         label.text = @" 距离0.27km ";
         label.layer.cornerRadius = 2;
@@ -86,7 +86,7 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
     });
     self.detailLabel = ({
         UILabel * label = [UILabel new];
-        label.font = WTFont(15);
+        label.font = WTFont(12);
         label.text = @"婚恋公司的人";
         label.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTline2Gray];
         label;
@@ -94,9 +94,9 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
     self.locationBut = ({
         UIButton * button = [UIButton new];
         [button setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateNormal];
-        
+        button.userInteractionEnabled = NO;
         [button setImage:WTImage(@"定位") forState:UIControlStateNormal];
-        button.titleLabel.font = WTFont(15);
+        button.titleLabel.font = WTFont(12);
         [button setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTline2Gray] forState:UIControlStateNormal];
         button;
     });

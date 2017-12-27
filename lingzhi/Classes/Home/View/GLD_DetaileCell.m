@@ -29,8 +29,9 @@ NSString *const GLD_DetaileCellIdentifier = @"GLD_DetaileCellIdentifier";
 }
 - (void)layout{
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self.contentView).offset(W(15));
+        make.top.left.equalTo(self.contentView).offset(W(10));
         make.right.equalTo(self.contentView).offset(W(-15));
+        make.height.equalTo(WIDTH(25));
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.contentView).offset(W(15));
@@ -39,7 +40,7 @@ NSString *const GLD_DetaileCellIdentifier = @"GLD_DetaileCellIdentifier";
         make.height.equalTo(HEIGHT(1));
     }];
     [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.lineView.mas_bottom);
+        make.top.equalTo(self.lineView.mas_bottom).offset(5);
         make.left.right.equalTo(self.lineView);
 //        make.height.equalTo(WIDTH(25));
     }];
@@ -49,8 +50,8 @@ NSString *const GLD_DetaileCellIdentifier = @"GLD_DetaileCellIdentifier";
     if (!_titleLabel) {
         _titleLabel = [UILabel new];
         _titleLabel.font = WTFont(15);
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
-        _titleLabel.text = @"门店描述";
+        _titleLabel.textAlignment = NSTextAlignmentLeft;
+        _titleLabel.text = @"门店描述:";
         _titleLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK];
     }
     return _titleLabel;
@@ -59,10 +60,11 @@ NSString *const GLD_DetaileCellIdentifier = @"GLD_DetaileCellIdentifier";
     if (!_detailLabel) {
         _detailLabel = [UILabel new];
         _detailLabel.font = WTFont(14);
-        _detailLabel.textAlignment = NSTextAlignmentCenter;
+        _detailLabel.numberOfLines = 0;
+        _detailLabel.textAlignment = NSTextAlignmentLeft;
         _detailLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTline2Gray];
     }
-    return _titleLabel;
+    return _detailLabel;
 }
 - (UIView *)lineView{
     if (!_lineView) {

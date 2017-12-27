@@ -28,6 +28,7 @@
 @property (nonatomic, strong)UIButton *titleLabel;//标题
 @property (nonatomic, strong)UILabel *tipLabel;//副标题
 @property (nonatomic, strong)UIButton *applyBut;//现金
+@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @end
 
 @implementation GLD_PhoneVerificatController
@@ -35,11 +36,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.table_apply];
+    self.NetManager = [GLD_NetworkAPIManager new];
     
 }
 
-- (void)applybutClick{
+- (void)getPhoneVer{
+    WS(weakSelf);
     
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/certification";
+    config.requestParameters = @{@"userId" : GetString(@"3"),
+                                 @"identityId" : GetString(@"412727199907238999"),
+                                 @"phone" : GetString(@"15514596836"),
+                                 @"userName" : GetString(@"王伟"),
+                                 };
+    
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        
+    }];
+}
+- (void)applybutClick{
+    [self getPhoneVer];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.titleArr.count;

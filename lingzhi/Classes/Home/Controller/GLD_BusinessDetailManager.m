@@ -18,7 +18,9 @@
 - (void)fetchMainData{
     
 }
-
+- (void)reloadOrLoadMoreData{
+    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+}
 - (void)setComponentCorner{
     [self.tableView registerClass:[GLD_DetailRankCell class] forCellReuseIdentifier:GLD_DetailRankCellIdentifier];
     [self.tableView registerClass:[GLD_DetaileCell class] forCellReuseIdentifier:GLD_DetaileCellIdentifier];
@@ -83,10 +85,12 @@
             return W(120);
         } break;
         case 1:{
-            return W(60);
+            return W(50);
         } break;
         case 2:{
-            return W(80);
+            CGFloat height = [YXUniversal calculateCellHeight:0 width:300 text:self.busnessModel.desc font:14];
+            
+            return W(50)+height;
         } break;
         case 3:{
             return W(50);

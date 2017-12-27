@@ -40,13 +40,13 @@ NSString *const GLD_DetailIntroCellIdentifier = @"GLD_DetailIntroCellIdentifier"
         make.right.equalTo(self.contentView).offset(W(-15));
     }];
     [self.addressView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLabel.mas_bottom);
-        make.left.right.equalTo(self.titleLabel);
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(5);
+        make.left.right.equalTo(self.contentView);
         make.height.equalTo(WIDTH(25));
     }];
     [self.phoneView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.addressView.mas_bottom);
-        make.left.right.equalTo(self.titleLabel);
+        make.top.equalTo(self.addressView.mas_bottom).offset(5);
+        make.left.right.equalTo(self.contentView);
         make.height.equalTo(WIDTH(25));
     }];
 }
@@ -70,7 +70,7 @@ NSString *const GLD_DetailIntroCellIdentifier = @"GLD_DetailIntroCellIdentifier"
     if (!_titleLabel) {
         _titleLabel = [UILabel new];
         _titleLabel.font = WTFont(15);
-        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.textAlignment = NSTextAlignmentLeft;
         _titleLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK];
     }
     return _titleLabel;

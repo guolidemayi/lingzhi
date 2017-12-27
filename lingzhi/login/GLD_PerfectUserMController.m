@@ -69,7 +69,10 @@
 //        return;
 //    }
     //提交数据
-    
+    NSString *str = self.nameTF.text;
+    [AppDelegate shareDelegate].userModel.phone = self.nameTF.text;
+    [AppDelegate shareDelegate].userModel.password = self.PersonTF.text;
+    [AppDelegate shareDelegate].userModel.inverCode = self.invitationTF.text;
     GLD_BindingPhoneController *bindingVc = [GLD_BindingPhoneController new];
     [self.navigationController pushViewController:bindingVc animated:YES];
 }
