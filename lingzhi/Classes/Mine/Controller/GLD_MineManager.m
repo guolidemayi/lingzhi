@@ -20,6 +20,7 @@
 #import "GLD_PerfectUserMController.h"
 #import "GLD_MyStoreCell.h"
 #import "GLD_ManagerStoreController.h"
+#import "GLD_UserMessageModel.h"
 
 @interface GLD_MineManager ()
 

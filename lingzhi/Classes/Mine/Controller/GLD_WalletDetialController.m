@@ -9,6 +9,7 @@
 #import "GLD_WalletDetialController.h"
 #import "GLD_GiveCouponController.h"
 #import "GLD_PayRechargeController.h"
+#import "GLD_GetCashController.h"
 
 @interface GLD_WalletDetialController ()
 @property (nonatomic, strong)UIImageView *iconImgV;
@@ -39,6 +40,9 @@
     }else if([self.applyBut.titleLabel.text isEqualToString:@"充值"]){
         GLD_PayRechargeController *payVc = [GLD_PayRechargeController new];
         [self.navigationController pushViewController:payVc animated:YES];
+    }else if([self.applyBut.titleLabel.text isEqualToString:@"提现"]){
+        GLD_GetCashController *payVc = [GLD_GetCashController new];
+        [self.navigationController pushViewController:payVc animated:YES];
     }
 }
 
@@ -49,21 +53,21 @@
     NSString *butStr = self.dataArr[2];
     switch (self.type) {
         case 1:{
-            self.cashLabel.text = [NSString stringWithFormat:@"￥ %@",@"0.00"];
+            self.cashLabel.text = [NSString stringWithFormat:@"￥ %@",[AppDelegate shareDelegate].userModel.cashMoney];
             self.applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKyellow];
             [self.applyBut setTitle:butStr forState:UIControlStateNormal];
         }break;
         case 2:{
-            self.cashLabel.text = [NSString stringWithFormat:@"%@",@"0.00"];
+            self.cashLabel.text = [NSString stringWithFormat:@"%@",[AppDelegate shareDelegate].userModel.CouponMoney];
             self.applyBut.hidden = YES;
         }break;
         case 3:{
-            self.cashLabel.text = [NSString stringWithFormat:@"%@",@"0.00"];
+            self.cashLabel.text = [NSString stringWithFormat:@"%@",[AppDelegate shareDelegate].userModel.LMoney];
             self.applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKgray2];
             [self.applyBut setTitle:butStr forState:UIControlStateNormal];
         }break;
         case 4:{
-            self.cashLabel.text = [NSString stringWithFormat:@"%@",@"0.00"];
+            self.cashLabel.text = [NSString stringWithFormat:@"%@",[AppDelegate shareDelegate].userModel.serviceMoney];
             self.applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE];
             [self.applyBut setTitle:butStr forState:UIControlStateNormal];
         }break;

@@ -68,7 +68,7 @@
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
             GLD_OrderModelListModel *orderListModel = [[GLD_OrderModelListModel alloc] initWithDictionary:result error:nil];
-            [weakSelf.dataArr addObjectsFromArray:orderListModel.list];
+            [weakSelf.dataArr addObjectsFromArray:orderListModel.shoporder];
             
         }else{
             
@@ -78,7 +78,7 @@
     }];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    return self.dataArr.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -90,7 +90,7 @@
 - (GLD_MyOrderCell *)getMyorderCell:(NSIndexPath *)indexPath{
     GLD_MyOrderCell *cell = [GLD_MyOrderCell cellWithReuseIdentifier:@"GLD_MyOrderCell"];
     cell.orderDelegate = self;
-    cell.orderModel = self.dataArr[indexPath.row];
+    cell.orderModel = self.dataArr[indexPath.section];
     return cell;
 }
 - (void)businessListClick:(UIButton *)senser{

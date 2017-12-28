@@ -31,11 +31,12 @@ NSString *const GLD_MyStoreCellIdentifier = @"GLD_MyStoreCellIdentifier";
         make.height.equalTo(@(height));
     }];
     if (height > 1) {
-        [self adjusCashLabel:[NSString stringWithFormat:@"￥%@ \n 现金",@"0.00"] andLabel:self.cashLabel];
-        [self adjusCashLabel:[NSString stringWithFormat:@"%@ \n 代金券",@"0.00"] andLabel:self.voucherLabel];
-        [self adjusCashLabel:[NSString stringWithFormat:@"%@ \n K币",@"0.00"] andLabel:self.KLabel];
+        [self adjusCashLabel:[NSString stringWithFormat:@"￥%@ \n 月收益",@"0.00"] andLabel:self.cashLabel];
+        [self adjusCashLabel:[NSString stringWithFormat:@"%@ \n 订单",@"0"] andLabel:self.voucherLabel];
+        [self adjusCashLabel:[NSString stringWithFormat:@"%@ \n 未处理订单",@"0"] andLabel:self.KLabel];
+        self.tipLabel.text = @"管理门店";
     }else{
-        
+        self.tipLabel.text = @"未开启";
     }
 }
 - (void)adjusCashLabel:(NSString *)title andLabel:(UILabel *)label{
@@ -50,7 +51,7 @@ NSString *const GLD_MyStoreCellIdentifier = @"GLD_MyStoreCellIdentifier";
     [self.contentView addSubview:self.iconImgV1];
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.tipLabel];
-    [self.contentView addSubview:self.lineView];
+    [self.contentView addSubview:self.lineView ];
     [self.contentView addSubview:self.bgView];
     [self.contentView addSubview:self.iconImgV];
     [self.bgView addSubview:self.cashLabel];

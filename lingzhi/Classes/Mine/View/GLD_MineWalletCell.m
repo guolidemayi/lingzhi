@@ -16,6 +16,7 @@ NSString *const GLD_MineWalletCellIdentifier = @"GLD_MineWalletCellIdentifier";
 @property (nonatomic, strong)UILabel *tipLabel;//副标题
 @property (nonatomic, strong)UILabel *cashLabel;//现金
 @property (nonatomic, strong)UILabel *voucherLabel;//券
+@property (nonatomic, strong)UILabel *serviceLabel;//服务费
 @property (nonatomic, strong)UILabel *KLabel;//K币
 @property (nonatomic, strong)UIView *bgView;//
 @property (nonatomic, strong)UIView *lineView;//分割线
@@ -30,6 +31,7 @@ NSString *const GLD_MineWalletCellIdentifier = @"GLD_MineWalletCellIdentifier";
     }];
     if (height > 1) {
         [self adjusCashLabel:[NSString stringWithFormat:@"￥%@ \n 现金",@"0.00"] andLabel:self.cashLabel];
+        [self adjusCashLabel:[NSString stringWithFormat:@"￥%@ \n 服务费",@"0.00"] andLabel:self.serviceLabel];
         [self adjusCashLabel:[NSString stringWithFormat:@"%@ \n 代金券",@"0.00"] andLabel:self.voucherLabel];
         [self adjusCashLabel:[NSString stringWithFormat:@"%@ \n K币",@"0.00"] andLabel:self.KLabel];
     }else{
@@ -51,6 +53,7 @@ NSString *const GLD_MineWalletCellIdentifier = @"GLD_MineWalletCellIdentifier";
     [self.contentView addSubview:self.bgView];
     [self.contentView addSubview:self.iconImgV];
     [self.bgView addSubview:self.cashLabel];
+    [self.bgView addSubview:self.serviceLabel];
     [self.bgView addSubview:self.KLabel];
     [self.bgView addSubview:self.voucherLabel];
     
@@ -80,19 +83,25 @@ NSString *const GLD_MineWalletCellIdentifier = @"GLD_MineWalletCellIdentifier";
     }];
     [self.cashLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(self.bgView);
-        make.width.equalTo(@(DEVICE_WIDTH / 3));
+        make.width.equalTo(@(DEVICE_WIDTH / 4));
         make.centerY.equalTo(self.bgView);
         make.left.equalTo(self.bgView);
     }];
-    [self.voucherLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.serviceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(self.bgView);
-        make.width.equalTo(@(DEVICE_WIDTH / 3));
+        make.width.equalTo(@(DEVICE_WIDTH / 4));
         make.centerY.equalTo(self.bgView);
         make.left.equalTo(self.cashLabel.mas_right);
     }];
+    [self.voucherLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.equalTo(self.bgView);
+        make.width.equalTo(@(DEVICE_WIDTH / 4));
+        make.centerY.equalTo(self.bgView);
+        make.left.equalTo(self.serviceLabel.mas_right);
+    }];
     [self.KLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(self.bgView);
-        make.width.equalTo(@(DEVICE_WIDTH / 3));
+        make.width.equalTo(@(DEVICE_WIDTH / 4));
         make.centerY.equalTo(self.bgView);
         make.left.equalTo(self.voucherLabel.mas_right);
     }];
@@ -165,6 +174,16 @@ NSString *const GLD_MineWalletCellIdentifier = @"GLD_MineWalletCellIdentifier";
         _KLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
     }
     return _KLabel;
+}
+- (UILabel *)serviceLabel{
+    if (!_serviceLabel) {
+        _serviceLabel = [UILabel new];
+        _serviceLabel.font = WTFont(12);
+        _serviceLabel.numberOfLines = 0;
+        //        _KLabel.textAlignment = NSTextAlignmentCenter;
+        _serviceLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
+    }
+    return _serviceLabel;
 }
 - (UIView *)lineView{
     if (!_lineView) {

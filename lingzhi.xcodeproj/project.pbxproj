@@ -66,6 +66,9 @@
 		0F298EC91FC2DB9700EDBA9A /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EC81FC2DB9700EDBA9A /* libresolv.9.tbd */; };
 		0F298ECB1FC2DBD800EDBA9A /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298ECA1FC2DBD800EDBA9A /* libiconv.tbd */; };
 		0F298ECD1FC2DC3000EDBA9A /* libxml2.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298ECC1FC2DC3000EDBA9A /* libxml2.2.tbd */; };
+		0F2C2EF51FF4EB3A0083BCCB /* GLD_GetCashController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2C2EF41FF4EB3A0083BCCB /* GLD_GetCashController.m */; };
+		0F2C2EFC1FF4EF1D0083BCCB /* GLD_GetMoneyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2C2EFA1FF4EF1D0083BCCB /* GLD_GetMoneyCell.m */; };
+		0F2C2EFD1FF4EF1D0083BCCB /* GLD_GetMoneyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F2C2EFB1FF4EF1D0083BCCB /* GLD_GetMoneyCell.xib */; };
 		0F326F251FF49D9A00A90106 /* user_industry.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F326F241FF49D9A00A90106 /* user_industry.json */; };
 		0F326F281FF49F7600A90106 /* GLD_ChooseIndustryControllr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F326F271FF49F7600A90106 /* GLD_ChooseIndustryControllr.m */; };
 		0F326F2C1FF4AED500A90106 /* GLD_MyOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F326F2A1FF4AED500A90106 /* GLD_MyOrderCell.m */; };
@@ -299,6 +302,11 @@
 		0F298EC81FC2DB9700EDBA9A /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
 		0F298ECA1FC2DBD800EDBA9A /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		0F298ECC1FC2DC3000EDBA9A /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
+		0F2C2EF31FF4EB3A0083BCCB /* GLD_GetCashController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_GetCashController.h; sourceTree = "<group>"; };
+		0F2C2EF41FF4EB3A0083BCCB /* GLD_GetCashController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_GetCashController.m; sourceTree = "<group>"; };
+		0F2C2EF91FF4EF1D0083BCCB /* GLD_GetMoneyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_GetMoneyCell.h; sourceTree = "<group>"; };
+		0F2C2EFA1FF4EF1D0083BCCB /* GLD_GetMoneyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_GetMoneyCell.m; sourceTree = "<group>"; };
+		0F2C2EFB1FF4EF1D0083BCCB /* GLD_GetMoneyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_GetMoneyCell.xib; sourceTree = "<group>"; };
 		0F326F241FF49D9A00A90106 /* user_industry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_industry.json; sourceTree = "<group>"; };
 		0F326F261FF49F7600A90106 /* GLD_ChooseIndustryControllr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ChooseIndustryControllr.h; sourceTree = "<group>"; };
 		0F326F271FF49F7600A90106 /* GLD_ChooseIndustryControllr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ChooseIndustryControllr.m; sourceTree = "<group>"; };
@@ -583,6 +591,9 @@
 				0F32E7F81FE0FB6C0042E8BE /* GLD_CashCountCell.m */,
 				3C604D7B1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.h */,
 				3C604D7C1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m */,
+				0F2C2EF91FF4EF1D0083BCCB /* GLD_GetMoneyCell.h */,
+				0F2C2EFA1FF4EF1D0083BCCB /* GLD_GetMoneyCell.m */,
+				0F2C2EFB1FF4EF1D0083BCCB /* GLD_GetMoneyCell.xib */,
 				0F326F291FF4AED500A90106 /* GLD_MyOrderCell.h */,
 				0F326F2A1FF4AED500A90106 /* GLD_MyOrderCell.m */,
 				0F326F2B1FF4AED500A90106 /* GLD_MyOrderCell.xib */,
@@ -1141,6 +1152,8 @@
 				0F32E8101FE8BD450042E8BE /* GLD_UpdateViewController.m */,
 				0F32E8121FE91D800042E8BE /* GLD_ModifyDiscountController.h */,
 				0F32E8131FE91D800042E8BE /* GLD_ModifyDiscountController.m */,
+				0F2C2EF31FF4EB3A0083BCCB /* GLD_GetCashController.h */,
+				0F2C2EF41FF4EB3A0083BCCB /* GLD_GetCashController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1419,6 +1432,7 @@
 				0F298EA41FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				0F298EA81FC2D18600EDBA9A /* WeiboSDK.bundle in Resources */,
 				0F326F251FF49D9A00A90106 /* user_industry.json in Resources */,
+				0F2C2EFD1FF4EF1D0083BCCB /* GLD_GetMoneyCell.xib in Resources */,
 				0F326F2D1FF4AED500A90106 /* GLD_MyOrderCell.xib in Resources */,
 				0F298EA61FC2D18600EDBA9A /* read_me.txt in Resources */,
 				0F298E841FC2CFC200EDBA9A /* MTShareView.xib in Resources */,
@@ -1610,8 +1624,10 @@
 				0FB5371E1FC6AA7A00B0EDA6 /* WTBootPageStartViewController.m in Sources */,
 				0F298E821FC2CFC200EDBA9A /* MTShareModule.m in Sources */,
 				0F32E7F31FDFDECF0042E8BE /* GLD_GiveCouponController.m in Sources */,
+				0F2C2EFC1FF4EF1D0083BCCB /* GLD_GetMoneyCell.m in Sources */,
 				0F64119F1FD524190069FDB1 /* GLD_BusinessDetailManager.m in Sources */,
 				0F28D2C41FD930D900138A8B /* GLD_SearchResultCell.m in Sources */,
+				0F2C2EF51FF4EB3A0083BCCB /* GLD_GetCashController.m in Sources */,
 				0F382F001FDE76AF006689FA /* GLD_CooperatCell.m in Sources */,
 				0F298E521FC2CA7200EDBA9A /* GLD_BaseNavController.m in Sources */,
 				0F9920061FCEDDE800305DF3 /* GLD_HomeViewManager.m in Sources */,

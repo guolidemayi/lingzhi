@@ -58,7 +58,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
     cell.textLabel.text = @"商圈服务费";
-    cell.detailTextLabel.text = @"0.00";
+    cell.detailTextLabel.text = [AppDelegate shareDelegate].userModel.serviceMoney;
     cell.imageView.image = WTImage(@"我的选中");
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
@@ -93,13 +93,13 @@
              NSString *str = nil;
             switch (i) {
                 case 0:{
-                    str = [NSString stringWithFormat:@"现金 \n￥%@",@"0.00"];
+                    str = [NSString stringWithFormat:@"现金 \n￥%@",[AppDelegate shareDelegate].userModel.cashMoney];
                 }break;
                 case 1:{
-                    str = [NSString stringWithFormat:@"L币 \n%@",@"0.00"];
+                    str = [NSString stringWithFormat:@"L币 \n%@",[AppDelegate shareDelegate].userModel.LMoney];
                 }break;
                 case 2:{
-                    str = [NSString stringWithFormat:@"代金券 \n￥%@",@"0.00"];
+                    str = [NSString stringWithFormat:@"代金券 \n￥%@",[AppDelegate shareDelegate].userModel.CouponMoney];
                 }break;
             }
             [self adjusCashLabel:str andLabel:label];

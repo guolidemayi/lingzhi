@@ -1,37 +1,36 @@
 //
-//  GLD_PayRechargeController.m
+//  GLD_GetCashController.m
 //  lingzhi
 //
-//  Created by yiyangkeji on 2017/12/13.
+//  Created by yiyangkeji on 2017/12/28.
 //  Copyright © 2017年 com.lingzhi. All rights reserved.
 //
 
-#import "GLD_PayRechargeController.h"
-#import "GLD_CashCountCell.h"
+#import "GLD_GetCashController.h"
+#import "GLD_GetMoneyCell.h"
 
-@interface GLD_PayRechargeController ()<UITableViewDelegate, UITableViewDataSource>
+@interface GLD_GetCashController ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong)UITableView *table_apply;
 @property (nonatomic, strong)NSArray *dataArr;
 @property (nonatomic, strong)UIButton *applyBut;//现金
-@property (nonatomic, weak)GLD_CashCountCell *cashCell;
-
 @property (nonatomic, strong)UIImageView *generalRankImgV;//普通商家
 @property (nonatomic, strong)UIImageView *superRankImgV;//高级商家商家
 @end
 
-@implementation GLD_PayRechargeController
+@implementation GLD_GetCashController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.table_apply];
-    self.automaticallyAdjustsScrollViewInsets = NO; 
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
+    if (section == 1) {
         return 1;
     }
     return self.dataArr.count;
@@ -46,40 +45,21 @@
     }];
     return header;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    switch (indexPath.section) {
-            
-        case 1:{
-            
-            if (indexPath.row == 0) {
-                self.superRankImgV.hidden = YES;
-                self.generalRankImgV.hidden = NO;
-            }else{
-                self.superRankImgV.hidden = NO;
-                self.generalRankImgV.hidden = YES;
-            }
-            [tableView reloadData];
-        }break;
-            
-    }
-}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return W(70);
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 0){
-        return [self getCooperatCell:indexPath];
-    }else{
+        
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cashCell"];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cashCell"];
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cashCell"];
         }
         NSDictionary *dict =  self.dataArr[indexPath.row];
         cell.textLabel.text = dict[@"title"];
-        cell.detailTextLabel.text =dict[@"tip"];
         cell.imageView.image = WTImage(dict[@"image"]);
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         switch (indexPath.row) {
             case 0:{
                 [cell.contentView addSubview:self.generalRankImgV];
@@ -89,6 +69,43 @@
             }break;
         }
         return cell;
+        return cell;
+    }else{
+        return [self getGetMoneyCell:indexPath];
+    }
+    return [UITableViewCell new];
+}
+- (GLD_GetMoneyCell *)getGetMoneyCell:(NSIndexPath *)indexPath{
+    GLD_GetMoneyCell *cell = [GLD_GetMoneyCell cellWithReuseIdentifier:@"GLD_GetMoneyCell"];
+    
+    return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        return W(44);
+    }else{
+        return W(180);
+    }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    switch (indexPath.section) {
+            
+        case 0:{
+            
+            if (indexPath.row == 0) {
+                self.superRankImgV.hidden = YES;
+                
+                self.generalRankImgV.hidden = NO;
+            }else if (indexPath.row == 1){
+        
+                self.superRankImgV.hidden = NO;
+                self.generalRankImgV.hidden = YES;
+            }else{
+                
+            }
+        }break;
+            
     }
 }
 - (UIImageView *)generalRankImgV{
@@ -105,18 +122,6 @@
         _superRankImgV.hidden = YES;
     }
     return _superRankImgV;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        return W(100);
-    }else{
-        return W(44);
-    }
-}
-- (GLD_CashCountCell *)getCooperatCell:(NSIndexPath *)indexPath{
-    GLD_CashCountCell *cell = [self.table_apply dequeueReusableCellWithIdentifier:GLD_CashCountCellIdentifier];
-    self.cashCell = cell;
-    return cell;
 }
 - (NSArray *)dataArr{
     if (!_dataArr) {
@@ -137,7 +142,7 @@
         tableView.estimatedSectionFooterHeight = 0;
         [tableView setSeparatorInset:UIEdgeInsetsMake(0, W(15), 0, W(15))];
         tableView.rowHeight = W(60);
-        [tableView registerClass:[GLD_CashCountCell class] forCellReuseIdentifier:GLD_CashCountCellIdentifier];
+        [tableView registerClass:[GLD_GetMoneyCell class] forCellReuseIdentifier:@"GLD_GetMoneyCell"];
         //        tableView.rowHeight = 0;
         tableView.sectionFooterHeight = 0.001;
     }
@@ -146,7 +151,7 @@
 
 - (void)applybutClick{
     //
-    NSLog(@"%@",self.cashCell.moneyStr);
+//    NSLog(@"%@",self.cashCell.moneyStr);
 }
 - (UIButton *)applyBut{
     if (!_applyBut) {
@@ -162,4 +167,6 @@
     }
     return _applyBut;
 }
+
+
 @end

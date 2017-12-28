@@ -23,5 +23,5 @@
 
 @interface GLD_OrderModelListModel : JSONModel
 
-@property (nonatomic, strong) NSMutableArray<GLD_OrderModel> *list;
+@property (nonatomic, strong) NSMutableArray<GLD_OrderModel> *shoporder;
 @end
