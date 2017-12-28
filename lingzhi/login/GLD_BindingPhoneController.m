@@ -31,6 +31,8 @@
 @property (nonatomic, strong)UIButton *applyBut;//提交
 
 @property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
+
+@property (nonatomic, copy)NSString *phoneCode;//手机验证码
 @end
 
 @implementation GLD_BindingPhoneController
@@ -38,17 +40,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
-    locationBut.frame = CGRectMake(0, 0, 50, 44);
-    [locationBut title:@"保存"];
-    [locationBut addTarget:self action:@selector(SaveAction) forControlEvents:UIControlEventTouchUpInside];
-    self.NetManager = [GLD_NetworkAPIManager new];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:locationBut];
-    self.navigationItem.rightBarButtonItem = item;
+//    GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
+//    locationBut.frame = CGRectMake(0, 0, 50, 44);
+//    [locationBut title:@"保存"];
+//    [locationBut addTarget:self action:@selector(SaveAction) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:locationBut];
+//    self.navigationItem.rightBarButtonItem = item;
     
+    self.NetManager = [GLD_NetworkAPIManager new];
     [self.view addSubview:self.table_apply];
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [self.view endEditing:YES];
+}
 - (void)getSMS{
     WS(weakSelf);
     
@@ -59,7 +63,7 @@
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
-        
+        weakSelf.phoneCode = @"1111";
     }];
 }
 - (void)SaveAction{
@@ -113,6 +117,7 @@
 - (void)sendVerificationClick:(UIButton *)senser{
     //验证码
     senser.enabled = NO;
+    self.phoneCode = @"";
     [senser setTitle:@"59" forState:UIControlStateNormal];
     self.verificationTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                               target:self
@@ -157,8 +162,9 @@
         _verificationTF = [self getTextField:cell];
         _verificationTF.placeholder = @"请输入验证码";
         _verificationTF.returnKeyType = UIReturnKeyDone;
+        _verificationTF.keyboardType = UIKeyboardTypeNumberPad;
         _verificationTF.tag = 3;
-        UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - W(130), W(5), W(100), W(40))];
+        UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - W(130), W(5), W(100), W(30))];
         but.titleLabel.font = WTFont(15);
         _verificationTF.frame = CGRectMake(SCREEN_WIDTH - W(260), 0, W(100), W(50));
         [cell.contentView addSubview:but];
@@ -173,13 +179,24 @@
         
     }
 }
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
 #pragma mark - 申请人身份证号
 - (void)setupPhoneTF:(UITableViewCell *)cell{
     if (!_phoneTF) {
         _phoneTF = [self getTextField:cell];
-        _phoneTF.placeholder = @"请填写手机号";
+//        _phoneTF.placeholder = @"请填写手机号";
+        _phoneTF.text = [AppDelegate shareDelegate].userModel.phone;
 //        _phoneTF.textAlignment = NSTextAlignmentLeft;
+        _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
         _phoneTF.returnKeyType = UIReturnKeyDone;
         _phoneTF.tag = 4;
     }
@@ -217,9 +234,14 @@
 }
 
 - (void)applybutClick{
+    if([self.phoneCode isEqualToString:self.verificationTF.text]){
     //下一步
     TestViewController *backVc = [TestViewController new];
+        backVc.type = 1;
     [self.navigationController pushViewController:backVc animated:YES];
+    }else{
+        [CAToast showWithText:@"验证码不正确"];
+    }
 }
 - (NSArray *)titleArr {
     if (!_titleArr) {

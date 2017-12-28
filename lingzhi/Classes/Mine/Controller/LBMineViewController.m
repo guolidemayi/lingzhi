@@ -39,6 +39,7 @@
 
 - (void)rightButClick {
     TestViewController *userMessageVc = [[TestViewController alloc]init];
+    userMessageVc.type = 2;
     [self.navigationController pushViewController:userMessageVc animated:YES];
 }
 - (void)viewWillAppear:(BOOL)animated{

@@ -16,13 +16,13 @@
 @interface GLD_PerfectUserMController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong)UITableView *table_apply;
-/** 手机号 */
+/** 确认密码 */
 @property (nonatomic, strong) BRTextField *nameTF;
 
 /** 密码 */
 @property (nonatomic, strong) BRTextField *PersonTF;
 
-/** 确认密码 */
+/** 手机号 */
 @property (nonatomic, strong) BRTextField *phoneTF;
 /** 邀请码 */
 @property (nonatomic, strong) BRTextField *invitationTF;
@@ -50,27 +50,38 @@
 
 }
 - (void)backAction{
+    if (self.navigationController.viewControllers.count > 1) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }else{
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         
     }];
+    }
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [self.view endEditing:YES];
 }
 - (void)applybutClick{
     NSLog(@"提交");
-//    if (!IsExist_String(self.nameTF.text)) {
-//        [CAToast showWithText:@"请输入手机号"];
-//        return;
-//    }
-//    if (!IsExist_String(self.PersonTF.text)) {
-//        [CAToast showWithText:@"密码"];
-//        return;
-//    }
-//    if (![self.PersonTF.text  isEqualToString:self.phoneTF.text]) {
-//        [CAToast showWithText:@"两次密码不一致"];
-//        return;
-//    }
+    
+    if (!IsExist_String(self.phoneTF.text)) {
+        [CAToast showWithText:@"请输入手机号"];
+        return;
+    }
+    if (!IsExist_String(self.PersonTF.text)) {
+        [CAToast showWithText:@"密码"];
+        return;
+    }
+    if (![self.PersonTF.text isEqualToString:self.nameTF.text]) {
+        [CAToast showWithText:@"两次密码不一致"];
+        return;
+    }
+    if (self.agreeBut.selected == NO) {
+        [CAToast showWithText:@"请阅读用户协议"];
+        return;
+    }
     //提交数据
-    NSString *str = self.nameTF.text;
-    [AppDelegate shareDelegate].userModel.phone = self.nameTF.text;
+    [AppDelegate shareDelegate].userModel.phone = self.phoneTF.text;
     [AppDelegate shareDelegate].userModel.password = self.PersonTF.text;
     [AppDelegate shareDelegate].userModel.inverCode = self.invitationTF.text;
     GLD_BindingPhoneController *bindingVc = [GLD_BindingPhoneController new];
@@ -158,11 +169,23 @@
     [cell.contentView addSubview:textField];
     return textField;
 }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
+
 #pragma mark - 申请人姓名
 - (void)setupNameTF:(UITableViewCell *)cell{
     if (!_nameTF) {
         _nameTF = [self getTextField:cell];
         _nameTF.placeholder = @"请输入";
+        _nameTF.keyboardType = UIKeyboardTypeNumberPad;
         _nameTF.returnKeyType = UIReturnKeyDone;
         _nameTF.tag = 0;
     }
@@ -173,8 +196,9 @@
 - (void)setupPhoneTF:(UITableViewCell *)cell{
     if (!_phoneTF) {
         _phoneTF = [self getTextField:cell];
-        _phoneTF.placeholder = @"请填写身份证号";
+        _phoneTF.placeholder = @"请填写手机号";
         _phoneTF.returnKeyType = UIReturnKeyDone;
+        _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
         _phoneTF.tag = 4;
     }
 }
@@ -185,6 +209,7 @@
         _PersonTF = [self getTextField:cell];
         _PersonTF.placeholder = @"请输入";
         _PersonTF.returnKeyType = UIReturnKeyDone;
+        _PersonTF.keyboardType = UIKeyboardTypeNumberPad;
         _PersonTF.tag = 1;
     }
 }

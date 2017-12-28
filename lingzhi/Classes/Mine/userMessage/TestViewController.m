@@ -12,6 +12,7 @@
 #import "BRDatePickerView.h"
 #import "NSDate+BRAdd.h"
 #import "GLD_WirteIntroController.h"
+#import "GLD_ChooseIndustryControllr.h"
 
 @interface TestViewController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -31,7 +32,7 @@
 @property (nonatomic, strong) BRTextField *companyTF;
 /** 职位名称 */
 @property (nonatomic, strong) BRTextField *positionTF;
-
+@property (nonatomic, weak)UITableViewCell *industryCell;
 
 @property (nonatomic, strong) NSArray *titleArr;
 @property (nonatomic, strong) NSArray *secondTitleArr;
@@ -46,7 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"测试选择器的使用";
+    self.navigationItem.title = @"信息";
     self.tableView.hidden = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(clickSaveBtn)];
     self.NetManager = [GLD_NetworkAPIManager new];
@@ -63,27 +64,64 @@
 }
 - (void)getSave{
     WS(weakSelf);
-    [AppDelegate shareDelegate].userModel.phone = @"155145989899";
+    
+    if (!IsExist_String(self.nicknameTF.text)) {
+        [CAToast showWithText:@"请输入昵称"];
+        return;
+    }
+    if (!IsExist_String(self.genderTF.text)) {
+        [CAToast showWithText:@"请选择性别"];
+        return;
+    }
+    if (!IsExist_String(self.birthdayTF.text)) {
+        [CAToast showWithText:@"请选择出生日期"];
+        return;
+    }
+    if (!IsExist_String(self.locationTF.text)) {
+        [CAToast showWithText:@"请选择所在地区"];
+        return;
+    }
+    if (!IsExist_String(self.personalIntroTF.text)) {
+        [CAToast showWithText:@"请填写个人简介"];
+        return;
+    }
+    if (!IsExist_String(self.industryCell.detailTextLabel.text)) {
+        [CAToast showWithText:@"请选择从事行业"];
+        return;
+    }
+    if (!IsExist_String(self.companyTF.text)) {
+        [CAToast showWithText:@"请填写所属单位"];
+        return;
+    }
+    if (!IsExist_String(self.positionTF.text)) {
+        [CAToast showWithText:@"请填写职位"];
+        return;
+    }
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/user/regUser";
     config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"company" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"industry" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"intro" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"address" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"inviteCode" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"psssword" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"sex" : GetString(@"男"),
-                                 @"name" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"birthDay" : GetString(@"1999-07-09"),
+                                 @"company" : GetString(self.companyTF.text),
+                                 @"industry" : GetString(self.industryCell.detailTextLabel.text),
+                                 @"intro" : GetString(self.personalIntroTF.text),
+                                 @"address" : GetString(self.locationTF.text),
+                                 @"inviteCode" : GetString([AppDelegate shareDelegate].userModel.inverCode),
+                                 @"psssword" : GetString([AppDelegate shareDelegate].userModel.password),
+                                 @"sex" : GetString(self.genderTF.text),
+                                 @"name" : GetString(self.nicknameTF.text),
+                                 @"birthDay" : GetString(self.birthdayTF.text),
                                  @"icon" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"duty" : GetString([AppDelegate shareDelegate].userModel.phone)
+                                 @"duty" : GetString(self.positionTF.text)
                                  };
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
-        
+        if (weakSelf.type == 1) {
+             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        }else{
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }
     }];
 }
 - (void)iconImgVClick{
@@ -221,7 +259,7 @@
     static NSString *cellID = @"systemCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.font = [UIFont systemFontOfSize:16.0f];
@@ -281,7 +319,7 @@
         switch (indexPath.row) {
             case 0:{
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-                
+                self.industryCell = cell;
             }break;
             case 1:{
             cell.accessoryType = UITableViewCellAccessoryNone;
@@ -309,7 +347,12 @@
         }
     }else{
         if (indexPath.row == 0) {
-            
+            WS(weakSelf);
+            GLD_ChooseIndustryControllr *chooseVc = [GLD_ChooseIndustryControllr new];
+            chooseVc.nameBlock = ^(NSString *name) {
+                weakSelf.industryCell.detailTextLabel.text = name;
+            };
+            [self.navigationController pushViewController:chooseVc animated:YES];
         }
     }
 }
@@ -392,10 +435,11 @@
         _locationTF = [self getTextField:cell];
         _locationTF.placeholder = @"请选择";
         __weak typeof(self) weakSelf = self;
+        
         _locationTF.tapAcitonBlock = ^{
-//            [BRAddressPickerView showAddressPickerWithDefaultSelected:@[@10, @0, @3] isAutoSelect:YES resultBlock:^(NSArray *selectAddressArr) {
-//                weakSelf.addressTF.text = [NSString stringWithFormat:@"%@%@%@", selectAddressArr[0], selectAddressArr[1], selectAddressArr[2]];
-//            }];
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[@"北京市", @"上海市", @"天津市",@"重庆市",@"河北省",@"山西省",@"台湾省",@"辽宁省",@"吉林省",@"黑龙江省",@"江苏省",@"浙江省",@"安徽省",@"福建省",@"江西省",@"山东省",@"河南省",@"湖北省",@"湖南省",@"广东省",@"甘肃省",@"四川省",@"贵州省",@"海南省",@"云南省",@"青海省",@"陕西省",@"广西壮族自治区",@"西藏自治区",@"宁夏回族自治区",@"新疆维吾尔自治区",@"内蒙古自治区",@"澳门特别行政区",@"香港特别行政区"] defaultSelValue:@"男" isAutoSelect:YES resultBlock:^(id selectValue) {
+                weakSelf.locationTF.text = selectValue;
+            }];
         };
     }
 }

@@ -145,4 +145,10 @@ GLD_BaseNavController *rootViewController = [[GLD_BaseNavController alloc] initW
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (GLD_UserMessageModel *)userModel{
+    if (!_userModel) {
+        _userModel = [GLD_UserMessageModel new];
+    }
+    return _userModel;
+}
 @end

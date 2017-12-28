@@ -157,8 +157,8 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/user/login";
-    config.requestParameters = @{@"phone" : GetString(@"15514596836"),
-                                 @"password" : GetString(@"123")
+    config.requestParameters = @{@"phone" : GetString(self.phoneField.text),
+                                 @"password" : GetString(self.yanZhengMaField.text)
                                  };
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
@@ -168,6 +168,8 @@
             
             [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{
             }];
+        }else{
+            [CAToast showWithText:@"登陆失败"];
         }
     }];
 }
@@ -208,9 +210,7 @@
     }
     
     }else if([textField isEqual:self.yanZhengMaField]){
-        if (proposedNewLength > 4) {
-            return NO;
-        }
+        
     }
     return YES;
 }

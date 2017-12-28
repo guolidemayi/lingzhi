@@ -70,6 +70,7 @@
 - (void)editUserMessageClick:(UITapGestureRecognizer *)tap{
      NSLog(@"个人信息");
     TestViewController *userMessageVc = [[TestViewController alloc]init];
+    userMessageVc.type = 2;
     [self.tableView.navigationController pushViewController:userMessageVc animated:YES];
 }
 

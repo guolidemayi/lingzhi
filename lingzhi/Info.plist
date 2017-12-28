@@ -65,6 +65,8 @@
 	<string>是否可以使用您的位置？</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>是否可以使用您的位置？</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>访问相册</string>
 	<key>Privacy - Photo Library Usage Description </key>
 	<string>相册访问权限</string>
 	<key>UILaunchStoryboardName</key>
@@ -78,8 +80,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -88,7 +88,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>访问相册</string>
 </dict>
 </plist>
