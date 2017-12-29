@@ -17,7 +17,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "LBTabBar.h"
 #import "UIImage+Image.h"
-
+#import "GLD_ForumController.h"
 
 @interface LBTabBarController ()<LBTabBarDelegate>
 
@@ -70,7 +70,7 @@
     LBFishViewController *FishVC = [[LBFishViewController alloc] init];
     [self setUpOneChildVcWithVc:FishVC Image:@"fish_normal" selectedImage:@"fish_highlight" title:@"附近"];
 
-    LBMessageViewController *MessageVC = [[LBMessageViewController alloc] init];
+    GLD_ForumController *MessageVC = [[GLD_ForumController alloc] init];
     [self setUpOneChildVcWithVc:MessageVC Image:@"message_normal" selectedImage:@"message_highlight" title:@"论坛"];
 
     LBMineViewController *MineVC = [[LBMineViewController alloc] init];

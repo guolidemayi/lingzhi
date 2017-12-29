@@ -28,6 +28,7 @@
 #import "GLD_NetworkAPIManager.h"
 #import "SDAutoLayout.h"
 #import "UIView+gldController.h"
+#import "UILabel+StringFrame.h"
 
 #define userHasLogin       @"userHasLogin"
 
