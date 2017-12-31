@@ -19,6 +19,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property(strong, nonatomic) MTShareModule *shareModuleDelegate;
 @property (nonatomic, copy)NSString *token;//用户token
+@property (nonatomic, copy)NSString *deviceId;
 @property (nonatomic, assign)BOOL *hasLogin;//是否登陆
 @property (nonatomic, strong)CLPlacemark *placemark;
 @property (nonatomic, strong)GLD_UserMessageModel *userModel;

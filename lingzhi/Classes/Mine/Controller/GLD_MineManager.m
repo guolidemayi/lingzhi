@@ -29,6 +29,8 @@
 
 @property (nonatomic, weak) UIImageView *iconImgV;
 
+@property (nonatomic, weak) UILabel *nameLabel;
+@property (nonatomic, weak) UILabel*codeLabel;
 @property (nonatomic, strong)NSArray *dataArr;
 @end
 @implementation GLD_MineManager
@@ -56,8 +58,8 @@
             
             [AppDelegate shareDelegate].userModel = model.data;
             [weakSelf.tableView reloadData];
-            [weakSelf.tableView.mj_header endRefreshing];
         }
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
 - (void)reloadOrLoadMoreData{
@@ -135,6 +137,9 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if(section == 0){
         if (hasLogin) {
+            self.nameLabel.text = [AppDelegate shareDelegate].userModel.name;
+            self.codeLabel.text = [NSString stringWithFormat:@"编号  %@", [AppDelegate shareDelegate].userModel.code];
+            [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:[AppDelegate shareDelegate].userModel.iconImage] placeholder:WTImage(@"默认头像")];
             return self.hasLoginHeadView;
         }
         return self.headView;
@@ -284,6 +289,7 @@
         UILabel *userNameLabel = [[UILabel alloc]init];
         userNameLabel.font = WTFont(15);
         userNameLabel.textColor = [UIColor whiteColor];
+        self.nameLabel = userNameLabel;
         userNameLabel.text = @"用户";
         [_hasLoginHeadView addSubview:userNameLabel];
         [userNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -293,6 +299,7 @@
         }];
         UILabel *numberLabel = [[UILabel alloc]init];
         numberLabel.font = WTFont(12);
+        self.codeLabel = numberLabel;
         numberLabel.textColor = [UIColor whiteColor];
         numberLabel.text = @"编号  123456";
         [_hasLoginHeadView addSubview:numberLabel];

@@ -10,6 +10,7 @@
 #import "NSDate+BRAdd.h"
 #import "BRTextField.h"
 #import "BRDatePickerView.h"
+#import "BRStringPickerView.h"
 
 @interface GLD_ApplyCompanyController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
 
@@ -28,8 +29,12 @@
 /** 意向合作省份 */
 @property (nonatomic, strong) BRTextField *industryTF;
 
+/** 联系电话 */
+@property (nonatomic, strong) BRTextField *businessTypeTF;
+
 @property (nonatomic, strong) NSArray *titleArr;//
 @property (nonatomic, strong) UIButton *nextBut;
+@property (nonatomic, strong)GLD_NetworkAPIManager *netManager;
 @end
 
 @implementation GLD_ApplyCompanyController
@@ -37,6 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.netManager = [GLD_NetworkAPIManager new];
     [self.view addSubview:self.table_apply];
 }
 
@@ -70,11 +76,30 @@
             [self setupIndustryTF:cell];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }break;
+        case 5:{
+            [self setupBusinessTypeTF:cell];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        }break;
     }
     
     return cell;
 }
 
+#pragma mark - 渠道类型
+- (void)setupBusinessTypeTF:(UITableViewCell *)cell {
+    if (!_businessTypeTF) {
+        _businessTypeTF = [self getTextField:cell];
+        _businessTypeTF.placeholder = @"请选择渠道商";
+        __weak typeof(self) weakSelf = self;
+        _businessTypeTF.tapAcitonBlock = ^{
+            //跳转地区
+            [BRStringPickerView showStringPickerWithTitle:@"选择代理商" dataSource:@[@"省代理商", @"市代理商", @"区代理商"] defaultSelValue:@"省代理商" isAutoSelect:YES resultBlock:^(id selectValue) {
+                weakSelf.businessTypeTF.text = selectValue;
+            }];
+
+        };
+    }
+}
 - (BRTextField *)getTextField:(UITableViewCell *)cell {
     BRTextField *textField = [[BRTextField alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - W(230), 0, W(200), W(50))];
     textField.backgroundColor = [UIColor clearColor];
@@ -125,10 +150,13 @@
 - (void)setupIndustryTF:(UITableViewCell *)cell {
     if (!_industryTF) {
         _industryTF = [self getTextField:cell];
-        _industryTF.placeholder = @"请选择所属行业";
+        _industryTF.placeholder = @"请选择合作省份";
         __weak typeof(self) weakSelf = self;
         _industryTF.tapAcitonBlock = ^{
             //跳转地区
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[@"北京市", @"上海市", @"天津市",@"重庆市",@"河北省",@"山西省",@"台湾省",@"辽宁省",@"吉林省",@"黑龙江省",@"江苏省",@"浙江省",@"安徽省",@"福建省",@"江西省",@"山东省",@"河南省",@"湖北省",@"湖南省",@"广东省",@"甘肃省",@"四川省",@"贵州省",@"海南省",@"云南省",@"青海省",@"陕西省",@"广西壮族自治区",@"西藏自治区",@"宁夏回族自治区",@"新疆维吾尔自治区",@"内蒙古自治区",@"澳门特别行政区",@"香港特别行政区"] defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
+                weakSelf.industryTF.text = selectValue;
+            }];
         };
     }
 }
@@ -151,7 +179,7 @@
 }
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"公司名称",@"办事处",@"联系电话",@"预计投入资金",@"意向合作省份"];
+        _titleArr = @[@"公司名称",@"办事处",@"联系电话",@"预计投入资金",@"意向合作省份",@"代理商类型"];
     }
     return _titleArr;
 }
@@ -180,5 +208,55 @@
         }];
         
     }
+}
+- (void)nextButClick{
+    WS(weakSelf);
+    
+    if(!IsExist_String(self.nameTF.text)){
+        [CAToast showWithText:@"请输入公司名称"];
+        return;
+    }
+    if(!IsExist_String(self.PersonTF.text)){
+        [CAToast showWithText:@"请输入办事处名称"];
+        return;
+    }
+    if(!IsExist_String(self.discountTF.text)){
+        [CAToast showWithText:@"请输入电话"];
+        return;
+    }
+    if(!IsExist_String(self.verificationTF.text)){
+        [CAToast showWithText:@"请输入预计投入资金"];
+        return;
+    }
+    if(!IsExist_String(self.industryTF.text)){
+        [CAToast showWithText:@"请输入意向合作省份"];
+        return;
+    }
+    if(!IsExist_String(self.businessTypeTF.text)){
+        [CAToast showWithText:@"请选择渠道商"];
+        return;
+    }
+ 
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/adagentUser";
+    config.requestParameters = @{@"agentType" : GetString(self.businessTypeTF.text),
+                                 @"phone" : GetString(self.discountTF.text),
+                                 @"company" : GetString(self.PersonTF.text),//描述
+                                 @"money" : GetString(self.verificationTF.text),
+                                 @"area" : GetString(self.industryTF.text),
+                                 @"officeName" : GetString(self.PersonTF.text),
+                                 @"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
+                                 };
+    
+    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            
+            [CAToast showWithText:@"申请成功,请耐心等待"];
+        }else{
+            [CAToast showWithText:@"申请失败,请重试"];
+        }
+    }];
 }
 @end

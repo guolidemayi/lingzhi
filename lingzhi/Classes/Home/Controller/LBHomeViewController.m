@@ -14,6 +14,7 @@
 #import "GLD_HomeViewManager.h"
 #import "GLD_CityListController.h"
 #import "GLD_SearchController.h"
+#import "GLD_MessageController.h"
 
 @interface LBHomeViewController ()
 {
@@ -64,11 +65,16 @@
     GLD_CustomBut *rightBut = [[GLD_CustomBut alloc]init];;
     
     rightBut.frame = CGRectMake(0, 0, 50, 44);
-    [rightBut image:@"消息"];
-    
+    [rightBut image:@"站内信"];
+    [rightBut addTarget:self action:@selector(rightClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     self.navigationItem.rightBarButtonItem = item1;
     
+}
+
+- (void)rightClick{
+    GLD_MessageController *message = [GLD_MessageController new];
+    [self.navigationController pushViewController:message animated:YES];
 }
 //搜索
 - (void)SearchCLick{

@@ -58,7 +58,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
     cell.textLabel.text = @"商圈服务费";
-    cell.detailTextLabel.text = [AppDelegate shareDelegate].userModel.cash1;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash1];
     cell.imageView.image = WTImage(@"我的选中");
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;

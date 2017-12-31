@@ -72,6 +72,7 @@
 @property (nonatomic, strong)AMapPOI *mapPoi;//商家位置信息
 @property (nonatomic, strong)GLD_IndustryListModel *industryListModel;//行业列表
 @property (nonatomic, strong)NSString *updateImg;//上传图片返回连接
+@property (nonatomic, assign)BOOL isSuccss;//是否验证成功
 @end
 
 @implementation GLD_ApplyBusnessController
@@ -84,6 +85,7 @@
     self.netManager = [GLD_NetworkAPIManager new];
     [self getParentCategory];
     self.loginCode = @"-1";
+    self.isSuccss = NO;
 }
 
 //获取行业列表
@@ -200,6 +202,10 @@
         [CAToast showWithText:@"验证码不正确"];
         return;
     }
+    if(!self.isSuccss){
+        [CAToast showWithText:@"请输入正确的邀请码"];
+        return;
+    }
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/addShop";
@@ -212,7 +218,6 @@
                                  @"ypoint" : [NSString stringWithFormat:@"%lf",self.mapPoi.location.longitude],
                                  @"shopType" : self.superRankImgV.hidden == YES ? @"1": @"2",
                                  @"category" : GetString(self.industryTF.text),
-                                 @"inviteCode" : GetString(self.invitationTF.text),
                                  @"discount" : GetString(self.discountTF.text),
                                  @"userName" : GetString(self.PersonTF.text),
                                  @"city" : GetString(self.addressTF.text),
@@ -613,9 +618,32 @@
         but.layer.borderColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE].CGColor;
 
         [but setTitle:@"验证" forState:UIControlStateNormal];
-        [but addTarget:self action:@selector(checkDiscountClick) forControlEvents:UIControlEventTouchUpInside];
+        [but addTarget:self action:@selector(yanzhengInviteCode) forControlEvents:UIControlEventTouchUpInside];
         
     }
+}
+- (void)yanzhengInviteCode{
+    
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/existChannelUser";
+    config.requestParameters= @{@"code":GetString(self.invitationTF.text)};
+    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            if ([result[@"code"] integerValue] == 200) {
+                
+                weakSelf.isSuccss = YES;
+                [CAToast showWithText:@"验证成功"];
+            }else{
+                
+                [CAToast showWithText:result[@"msg"]];
+            }
+        }else{
+            [CAToast showWithText:@"网络错误"];
+
+        }
+    }];
 }
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

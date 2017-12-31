@@ -197,6 +197,11 @@
 		330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */; };
 		339EF9541FF74DDB00C6170E /* GLD_BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 339EF9531FF74DDB00C6170E /* GLD_BaseModel.m */; };
 		339EF9571FF8958100C6170E /* GLD_ForgetPassControllor.m in Sources */ = {isa = PBXBuildFile; fileRef = 339EF9561FF8958100C6170E /* GLD_ForgetPassControllor.m */; };
+		339EF9621FF9295500C6170E /* GLD_RemindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 339EF95D1FF9295400C6170E /* GLD_RemindCell.m */; };
+		339EF9631FF9295500C6170E /* GLD_RemindModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 339EF9601FF9295500C6170E /* GLD_RemindModel.m */; };
+		339EF9641FF9295500C6170E /* GLD_MessageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339EF9611FF9295500C6170E /* GLD_MessageController.m */; };
+		339EF9771FF93C7900C6170E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339EF9761FF93C7900C6170E /* UIKit.framework */; };
+		339EF9791FF93CC000C6170E /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 339EF9781FF93CC000C6170E /* libresolv.tbd */; };
 		3C604D7D1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C604D7C1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m */; };
 		3C604D801FE64D0500D4ECA7 /* GLD_ManagerStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C604D7F1FE64D0500D4ECA7 /* GLD_ManagerStoreController.m */; };
 		3CA74E4A1FD27E2800A7F137 /* GLD_IndustryCollecCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA74E491FD27E2800A7F137 /* GLD_IndustryCollecCell.m */; };
@@ -596,6 +601,15 @@
 		339EF9531FF74DDB00C6170E /* GLD_BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BaseModel.m; sourceTree = "<group>"; };
 		339EF9551FF8958100C6170E /* GLD_ForgetPassControllor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ForgetPassControllor.h; sourceTree = "<group>"; };
 		339EF9561FF8958100C6170E /* GLD_ForgetPassControllor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ForgetPassControllor.m; sourceTree = "<group>"; };
+		339EF95C1FF9295300C6170E /* GLD_MessageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLD_MessageController.h; sourceTree = "<group>"; };
+		339EF95D1FF9295400C6170E /* GLD_RemindCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLD_RemindCell.m; sourceTree = "<group>"; };
+		339EF95E1FF9295400C6170E /* GLD_RemindModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLD_RemindModel.h; sourceTree = "<group>"; };
+		339EF95F1FF9295400C6170E /* GLD_RemindCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLD_RemindCell.h; sourceTree = "<group>"; };
+		339EF9601FF9295500C6170E /* GLD_RemindModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLD_RemindModel.m; sourceTree = "<group>"; };
+		339EF9611FF9295500C6170E /* GLD_MessageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLD_MessageController.m; sourceTree = "<group>"; };
+		339EF9761FF93C7900C6170E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		339EF9781FF93CC000C6170E /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		339EF97A1FF93CF900C6170E /* lingzhi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lingzhi.entitlements; sourceTree = "<group>"; };
 		3C604D7B1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MyStoreCell.h; sourceTree = "<group>"; };
 		3C604D7C1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MyStoreCell.m; sourceTree = "<group>"; };
 		3C604D7E1FE64D0500D4ECA7 /* GLD_ManagerStoreController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ManagerStoreController.h; sourceTree = "<group>"; };
@@ -620,6 +634,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				339EF9791FF93CC000C6170E /* libresolv.tbd in Frameworks */,
+				339EF9771FF93C7900C6170E /* UIKit.framework in Frameworks */,
+				0F298EBF1FC2DB2900EDBA9A /* CFNetwork.framework in Frameworks */,
+				0F298EAD1FC2DA9600EDBA9A /* UserNotifications.framework in Frameworks */,
 				0F28D2BB1FD7DDE400138A8B /* MapKit.framework in Frameworks */,
 				0F298ECD1FC2DC3000EDBA9A /* libxml2.2.tbd in Frameworks */,
 				0F298ECB1FC2DBD800EDBA9A /* libiconv.tbd in Frameworks */,
@@ -628,7 +646,6 @@
 				0F298EC51FC2DB7B00EDBA9A /* libsqlite3.0.tbd in Frameworks */,
 				0F298EC31FC2DB4C00EDBA9A /* libstdc++.tbd in Frameworks */,
 				0F298EC11FC2DB3D00EDBA9A /* libstdc++.6.tbd in Frameworks */,
-				0F298EBF1FC2DB2900EDBA9A /* CFNetwork.framework in Frameworks */,
 				0F298EBD1FC2DB1A00EDBA9A /* CoreFoundation.framework in Frameworks */,
 				0F298EBB1FC2DB0D00EDBA9A /* CoreTelephony.framework in Frameworks */,
 				0F298EB91FC2DAFA00EDBA9A /* SystemConfiguration.framework in Frameworks */,
@@ -637,7 +654,6 @@
 				0F298EB31FC2DABA00EDBA9A /* Security.framework in Frameworks */,
 				0F298EB11FC2DAAF00EDBA9A /* libz.tbd in Frameworks */,
 				0F298EAF1FC2DAA100EDBA9A /* AdSupport.framework in Frameworks */,
-				0F298EAD1FC2DA9600EDBA9A /* UserNotifications.framework in Frameworks */,
 				0F298E4F1FC28AF600EDBA9A /* CoreLocation.framework in Frameworks */,
 				0F298EA31FC2D18600EDBA9A /* TencentOpenAPI.framework in Frameworks */,
 				0F298EA51FC2D18600EDBA9A /* libWeChatSDK.a in Frameworks */,
@@ -766,6 +782,8 @@
 		0F298E4D1FC28AF500EDBA9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				339EF9781FF93CC000C6170E /* libresolv.tbd */,
+				339EF9761FF93C7900C6170E /* UIKit.framework */,
 				0F28D2BA1FD7DDE400138A8B /* MapKit.framework */,
 				0F298ECC1FC2DC3000EDBA9A /* libxml2.2.tbd */,
 				0F298ECA1FC2DBD800EDBA9A /* libiconv.tbd */,
@@ -1048,6 +1066,7 @@
 		0F60E9BA1FC2754300C5E113 /* lingzhi */ = {
 			isa = PBXGroup;
 			children = (
+				339EF97A1FF93CF900C6170E /* lingzhi.entitlements */,
 				0F28D2CD1FDA42EA00138A8B /* AMap.bundle */,
 				0F28D2931FD6799100138A8B /* SDAutoLayout */,
 				0F6411731FD4EAB40069FDB1 /* GLD_Networking */,
@@ -1209,6 +1228,7 @@
 		0FB536D81FC5887C00B0EDA6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				339EF9661FF9296F00C6170E /* sysMessage */,
 				0F64118A1FD512AF0069FDB1 /* PTLMenuButton */,
 				3CA74E4B1FD2805100A7F137 /* Model */,
 				0F9920121FCEEA0C00305DF3 /* View */,
@@ -1472,6 +1492,19 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		339EF9661FF9296F00C6170E /* sysMessage */ = {
+			isa = PBXGroup;
+			children = (
+				339EF95C1FF9295300C6170E /* GLD_MessageController.h */,
+				339EF9611FF9295500C6170E /* GLD_MessageController.m */,
+				339EF95F1FF9295400C6170E /* GLD_RemindCell.h */,
+				339EF95D1FF9295400C6170E /* GLD_RemindCell.m */,
+				339EF95E1FF9295400C6170E /* GLD_RemindModel.h */,
+				339EF9601FF9295500C6170E /* GLD_RemindModel.m */,
+			);
+			path = sysMessage;
+			sourceTree = "<group>";
+		};
 		3CA74E4B1FD2805100A7F137 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1580,6 +1613,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
 							};
 						};
 					};
@@ -1808,6 +1844,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				339EF9621FF9295500C6170E /* GLD_RemindCell.m in Sources */,
 				0F28D29A1FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				0F2C2F491FF62E330083BCCB /* GLD_Button.m in Sources */,
 				0F6411991FD5213D0069FDB1 /* GLD_BusinessViewManager.m in Sources */,
@@ -1864,6 +1901,7 @@
 				0F2C2F5A1FF62E330083BCCB /* GLD_BBSStandardView.m in Sources */,
 				3CA74E4E1FD2808300A7F137 /* GLD_IndustryModel.m in Sources */,
 				0F28D28C1FD671F000138A8B /* GLD_MineSettingCell.m in Sources */,
+				339EF9631FF9295500C6170E /* GLD_RemindModel.m in Sources */,
 				0F28D2CC1FDA2C9600138A8B /* GLD_MapModel.m in Sources */,
 				0F6411AE1FD528B80069FDB1 /* GLD_ButtonLikeView.m in Sources */,
 				0F382EFA1FDE6FCF006689FA /* GLD_MycollectionManager.m in Sources */,
@@ -1939,6 +1977,7 @@
 				0F32E7F01FDFD56F0042E8BE /* GLD_WalletDetialController.m in Sources */,
 				0F71A58C1FDE93AC00C66EED /* GLD_VerificationController.m in Sources */,
 				3CA74E511FD2829200A7F137 /* GLD_BannerModel.m in Sources */,
+				339EF9641FF9295500C6170E /* GLD_MessageController.m in Sources */,
 				0F2C2F501FF62E330083BCCB /* GLD_PostController.m in Sources */,
 				0FB537181FC6A1F100B0EDA6 /* GLD_BaseViewController.m in Sources */,
 				0F28D2AD1FD6ADDE00138A8B /* BRStringPickerView.m in Sources */,

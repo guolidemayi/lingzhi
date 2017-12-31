@@ -49,9 +49,9 @@
         [weakSelf.iconImgV yy_setImageWithURL:[NSURL URLWithString:weakSelf.model.logo] placeholder:nil];
         weakSelf.titleLabel.text = weakSelf.model.name;
         weakSelf.busnessType.text = [NSString stringWithFormat:@" %@ ",weakSelf.model.busnessType.integerValue == 1 ? @"高级商家联盟" : @"普通商家联盟"];
-        weakSelf.cashLabel.text = [NSString stringWithFormat:@"本月收益 ￥ %@",[AppDelegate shareDelegate].userModel.Profit];
-        weakSelf.orderLabel.text = [AppDelegate shareDelegate].userModel.Order;
-        
+        weakSelf.cashLabel.text = [NSString stringWithFormat:@"本月收益 ￥ %.2f",[AppDelegate shareDelegate].userModel.Profit];
+        weakSelf.orderLabel.text = [NSString stringWithFormat:@"%zd",[AppDelegate shareDelegate].userModel.Order];
+        weakSelf.turnoverLabel.text = [NSString stringWithFormat:@"%.2f", [AppDelegate shareDelegate].userModel.dayCash];
 //        weakSelf.phoneCode = @"1111";
     }];
 }

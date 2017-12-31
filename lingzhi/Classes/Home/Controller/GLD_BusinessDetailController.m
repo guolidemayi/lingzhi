@@ -52,9 +52,9 @@
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/collectionShop";
     config.requestParameters = @{
-                                 @"dataId":self.busnessModel.industryId,
-                                 @"userId":@"3",
-                                 @"collectionType":@"0"
+                                 @"dataId":GetString(self.busnessModel.industryId),
+                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                                 @"collectionType":GetString(self.busnessModel.isCollect)
                                  };
     
     

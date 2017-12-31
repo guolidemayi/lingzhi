@@ -30,10 +30,10 @@ NSString *const GLD_MineWalletCellIdentifier = @"GLD_MineWalletCellIdentifier";
         make.height.equalTo(@(height));
     }];
     if (height > 1) {
-        [self adjusCashLabel:[NSString stringWithFormat:@"￥%@ \n 现金",@"0.00"] andLabel:self.cashLabel];
-        [self adjusCashLabel:[NSString stringWithFormat:@"￥%@ \n 服务费",@"0.00"] andLabel:self.serviceLabel];
-        [self adjusCashLabel:[NSString stringWithFormat:@"%@ \n 代金券",@"0.00"] andLabel:self.voucherLabel];
-        [self adjusCashLabel:[NSString stringWithFormat:@"%@ \n K币",@"0.00"] andLabel:self.KLabel];
+        [self adjusCashLabel:[NSString stringWithFormat:@"￥%.2f \n 现金", [AppDelegate shareDelegate].userModel.cash] andLabel:self.cashLabel];
+        [self adjusCashLabel:[NSString stringWithFormat:@"￥%.2f \n 服务费",[AppDelegate shareDelegate].userModel.cash1] andLabel:self.serviceLabel];
+        [self adjusCashLabel:[NSString stringWithFormat:@"%.2f \n 代金券",[AppDelegate shareDelegate].userModel.cash2] andLabel:self.voucherLabel];
+        [self adjusCashLabel:[NSString stringWithFormat:@"%.2f \n K币",[AppDelegate shareDelegate].userModel.cash3] andLabel:self.KLabel];
     }else{
         
     }

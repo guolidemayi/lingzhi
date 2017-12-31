@@ -56,12 +56,12 @@
     isSendMessage = NO;
     // 判断是否安装微信
     BOOL isWx = [WXApi isWXAppInstalled];
-//    if (isWx) {
-//        self.weixinView.hidden = NO;
-//
-//    }else {
-//        self.weixinView.hidden = YES;
-//    }
+    if (isWx) {
+        self.weixinView.hidden = NO;
+
+    }else {
+        self.weixinView.hidden = YES;
+    }
     
     
     self.loginBut.enabled = NO;
