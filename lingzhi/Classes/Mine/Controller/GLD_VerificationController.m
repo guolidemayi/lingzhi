@@ -87,7 +87,7 @@
     if (!_titleLabel) {
         _titleLabel = [UILabel new];
         _titleLabel.font = WTFont(15);
-        _titleLabel.text = @"认证";
+        _titleLabel.text = IsExist_String([AppDelegate shareDelegate].userModel.Very) ? [AppDelegate shareDelegate].userModel.Very : @"尚未认证" ;
         _titleLabel.textAlignment = NSTextAlignmentLeft;
         _titleLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK];
     }
@@ -98,7 +98,7 @@
         _tipLabel = [UILabel new];
         _tipLabel.font = WTFont(12);
         _tipLabel.numberOfLines = 2;
-        _tipLabel.text = @"管理我的钱包";
+        _tipLabel.text = @"实名认证";
         _tipLabel.textAlignment = NSTextAlignmentCenter;
         _tipLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
     }

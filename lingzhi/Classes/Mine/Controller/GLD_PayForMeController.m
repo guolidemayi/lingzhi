@@ -8,6 +8,7 @@
 
 #import "GLD_PayForMeController.h"
 #import "SGQRCodeGenerateManager.h"
+#import "GLD_BusnessModel.h"
 
 @interface GLD_PayForMeController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageV;
@@ -25,7 +26,11 @@
     self.view.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_BLUE_TABLE];
 //    CGFloat imgW = CGRectGetWidth(self.QRCImageV.frame);
     CGFloat scale = 0.2;
-   self.QRCImageV.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:@"https://github.com/kingsic" logoImageName:@"WechatIMG43" logoScaleToSuperView:scale];;
+   self.QRCImageV.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:@"https://github.com/kingsic" logoImageName:@"WechatIMG43" logoScaleToSuperView:scale];
+    
+    [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:self.model.logo] placeholder:nil];
+    self.nameLabel.text = self.model.name;
+    self.decLabel.text = self.model.desc;
     
 }
 - (IBAction)saveQRCClick:(UIButton *)sender {

@@ -52,7 +52,7 @@
                 [listArr1 addObject:dict[@"title"]];
             }
             NSMutableArray *arrM2 = [NSMutableArray array];
-            for ( GLD_IndustryModel *model in weakSelf.industryListModel.category) {
+            for ( GLD_IndustryModel *model in weakSelf.industryListModel.data) {
                 [arrM2 addObject:model.title];
             }
             NSArray * listArr3 = @[@"离我最近",@"最近开通",@"推荐"];
@@ -111,7 +111,7 @@
 #pragma mark - PTLMenuButtonDelegate
 -(void)ptl_menuButton:(PTLMenuButton *)menuButton didSelectMenuButtonAtIndex:(NSInteger)index selectMenuButtonTitle:(NSString *)title listRow:(NSInteger)row rowTitle:(NSString *)rowTitle{
     NSLog(@"index: %zd, title:%@, listrow: %zd, rowTitle: %@", index, title, row, rowTitle);
-   GLD_IndustryModel *model = self.industryListModel.category[index];
+   GLD_IndustryModel *model = self.industryListModel.data[index];
     
     [self getSubCategory:model.pid];
 }

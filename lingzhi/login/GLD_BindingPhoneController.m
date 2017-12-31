@@ -13,6 +13,7 @@
 #import "GLD_CustomBut.h"
 #import "GLD_BackForPasswordController.h"
 #import "TestViewController.h"
+#import "GLD_ForgetPassControllor.h"
 
 @interface GLD_BindingPhoneController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
@@ -46,26 +47,14 @@
 //    [locationBut addTarget:self action:@selector(SaveAction) forControlEvents:UIControlEventTouchUpInside];
 //    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:locationBut];
 //    self.navigationItem.rightBarButtonItem = item;
-    
+    self.phoneCode = @"-1";
     self.NetManager = [GLD_NetworkAPIManager new];
     [self.view addSubview:self.table_apply];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [self.view endEditing:YES];
 }
-- (void)getSMS{
-    WS(weakSelf);
-    
-    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
-    config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/user/sms";
-    config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone)};
-    
-    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-        
-        weakSelf.phoneCode = @"1111";
-    }];
-}
+
 - (void)SaveAction{
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         
@@ -116,15 +105,28 @@
 
 - (void)sendVerificationClick:(UIButton *)senser{
     //验证码
-    senser.enabled = NO;
-    self.phoneCode = @"";
-    [senser setTitle:@"59" forState:UIControlStateNormal];
-    self.verificationTimer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                              target:self
-                                                            selector:@selector(timerAction:)
-                                                            userInfo:nil
-                                                             repeats:YES];
-    [self getSMS];
+    WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/sms";
+    config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone)};
+    
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        senser.enabled = NO;
+        
+        [senser setTitle:@"59" forState:UIControlStateNormal];
+        weakSelf.verificationTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                                  target:self
+                                                                selector:@selector(timerAction:)
+                                                                userInfo:nil
+                                                                 repeats:YES];
+        NSString *str = result[@"data"];
+        [CAToast showWithText:str duration:3];
+        weakSelf.phoneCode = str;
+    }];
+   
+    
     
 }
 - (void)timerAction:(NSTimer *)timer{
@@ -193,8 +195,13 @@
 - (void)setupPhoneTF:(UITableViewCell *)cell{
     if (!_phoneTF) {
         _phoneTF = [self getTextField:cell];
-//        _phoneTF.placeholder = @"请填写手机号";
-        _phoneTF.text = [AppDelegate shareDelegate].userModel.phone;
+        if (self.type == 1) {
+            
+                    _phoneTF.placeholder = @"请填写手机号";
+        }else{
+            
+            _phoneTF.text = [AppDelegate shareDelegate].userModel.phone;
+        }
 //        _phoneTF.textAlignment = NSTextAlignmentLeft;
         _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
         _phoneTF.returnKeyType = UIReturnKeyDone;
@@ -234,6 +241,11 @@
 }
 
 - (void)applybutClick{
+    if(self.type == 1){
+    GLD_ForgetPassControllor *changeVc = [GLD_ForgetPassControllor new];
+    [self.navigationController pushViewController:changeVc animated:YES];
+        return;
+    }
     if([self.phoneCode isEqualToString:self.verificationTF.text]){
     //下一步
     TestViewController *backVc = [TestViewController new];

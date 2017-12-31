@@ -10,4 +10,20 @@
 
 @implementation GLD_UserMessageModel
 
++(BOOL)propertyIsOptional:(NSString*)propertyName;
+{
+    return YES;
+}
++(JSONKeyMapper*)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"id" : @"userId",
+                                                       }];
+}
+@end
+@implementation GLD_UserModel
++(BOOL)propertyIsOptional:(NSString*)propertyName;
+{
+    return YES;
+}
 @end

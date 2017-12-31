@@ -24,8 +24,7 @@
     self.table_mine = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     [self.view addSubview:self.table_mine];
     self.mineManager = [[GLD_MineManager alloc]initWithTableView:self.table_mine];
-    //请求数据
-    [self.mineManager fetchMainData];
+    
     
     GLD_CustomBut *rightBut = [[GLD_CustomBut alloc]init];;
     
@@ -44,7 +43,8 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.table_mine reloadData];
+    //请求数据
+    [self.mineManager fetchMainData];
 }
 
 @end

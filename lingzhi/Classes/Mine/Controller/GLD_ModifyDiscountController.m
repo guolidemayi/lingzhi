@@ -10,13 +10,16 @@
 #import "BRTextField.h"
 #import "BRDatePickerView.h"
 #import "NSDate+BRAdd.h"
+#import "GLD_BusnessModel.h"
 
 @interface GLD_ModifyDiscountController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate>
+
 
 @property (nonatomic, strong)UITableView *table_apply;
 @property (nonatomic, strong)UIButton *applyBut;//升级
 /** 折扣 */
 @property (nonatomic, strong) BRTextField *discountTF;
+@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @end
 
 @implementation GLD_ModifyDiscountController
@@ -25,6 +28,7 @@
     [super viewDidLoad];
     
     [self.view addSubview:self.table_apply];
+    self.NetManager = [GLD_NetworkAPIManager new];
 }
 
 
@@ -58,7 +62,7 @@
             cell.detailTextLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
             cell.textLabel.font = WTFont(15);
             cell.detailTextLabel.font = WTFont(12);
-            cell.detailTextLabel.text = @"武夷宏康药房";
+            cell.detailTextLabel.text = self.model.name;
         }break;
         case 1:{
             cell.textLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
@@ -66,7 +70,7 @@
             cell.detailTextLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
             cell.textLabel.font = WTFont(15);
             cell.detailTextLabel.font = WTFont(12);
-            cell.detailTextLabel.text = @"15514522222";
+            cell.detailTextLabel.text = self.model.cellphone;
         }break;
         case 2:{
             cell.textLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK];
@@ -119,6 +123,30 @@
 }
 - (void)applybutClick{
     NSLog(@"确认");
+    
+    if (!IsExist_String(self.discountTF.text)) {
+        [CAToast showWithText:@"请设置折扣"];
+        return;
+    }
+    WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/resetDiscount";
+    config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
+                                 @"discount" : GetString(self.discountTF.text)};
+    
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+//        weakSelf.model = [[GLD_BusnessModel alloc] initWithDictionary:result error:&error];
+        
+        if (!error) {
+            [CAToast showWithText:@"设置折扣成功"];
+        }else{
+            [CAToast showWithText:@"请设置折扣失败"];
+        }
+        //        weakSelf.phoneCode = @"1111";
+    }];
+    
 }
 - (UITableView *)table_apply{
     if (!_table_apply) {

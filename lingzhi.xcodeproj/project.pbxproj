@@ -195,6 +195,8 @@
 		0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */; };
 		330AAB3E1FF4053200523FF0 /* GLD_wanShanUserMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */; };
 		330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */; };
+		339EF9541FF74DDB00C6170E /* GLD_BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 339EF9531FF74DDB00C6170E /* GLD_BaseModel.m */; };
+		339EF9571FF8958100C6170E /* GLD_ForgetPassControllor.m in Sources */ = {isa = PBXBuildFile; fileRef = 339EF9561FF8958100C6170E /* GLD_ForgetPassControllor.m */; };
 		3C604D7D1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C604D7C1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m */; };
 		3C604D801FE64D0500D4ECA7 /* GLD_ManagerStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C604D7F1FE64D0500D4ECA7 /* GLD_ManagerStoreController.m */; };
 		3CA74E4A1FD27E2800A7F137 /* GLD_IndustryCollecCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA74E491FD27E2800A7F137 /* GLD_IndustryCollecCell.m */; };
@@ -590,6 +592,10 @@
 		330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_wanShanUserMController.m; sourceTree = "<group>"; };
 		330AAB3F1FF40ABF00523FF0 /* GLD_UserMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_UserMessageModel.h; sourceTree = "<group>"; };
 		330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_UserMessageModel.m; sourceTree = "<group>"; };
+		339EF9521FF74DDB00C6170E /* GLD_BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BaseModel.h; sourceTree = "<group>"; };
+		339EF9531FF74DDB00C6170E /* GLD_BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BaseModel.m; sourceTree = "<group>"; };
+		339EF9551FF8958100C6170E /* GLD_ForgetPassControllor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ForgetPassControllor.h; sourceTree = "<group>"; };
+		339EF9561FF8958100C6170E /* GLD_ForgetPassControllor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ForgetPassControllor.m; sourceTree = "<group>"; };
 		3C604D7B1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MyStoreCell.h; sourceTree = "<group>"; };
 		3C604D7C1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MyStoreCell.m; sourceTree = "<group>"; };
 		3C604D7E1FE64D0500D4ECA7 /* GLD_ManagerStoreController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ManagerStoreController.h; sourceTree = "<group>"; };
@@ -799,6 +805,8 @@
 				0F99200F1FCEE1AA00305DF3 /* GLD_BaseTableManager.m */,
 				0F9920191FCEF04500305DF3 /* GLD_BaseCell.h */,
 				0F99201A1FCEF04500305DF3 /* GLD_BaseCell.m */,
+				339EF9521FF74DDB00C6170E /* GLD_BaseModel.h */,
+				339EF9531FF74DDB00C6170E /* GLD_BaseModel.m */,
 				0F9920111FCEE24100305DF3 /* GLD_BaseTableManager+table_extension.h */,
 			);
 			path = baseVC;
@@ -1339,6 +1347,8 @@
 				0F32E8131FE91D800042E8BE /* GLD_ModifyDiscountController.m */,
 				0F2C2EF31FF4EB3A0083BCCB /* GLD_GetCashController.h */,
 				0F2C2EF41FF4EB3A0083BCCB /* GLD_GetCashController.m */,
+				339EF9551FF8958100C6170E /* GLD_ForgetPassControllor.h */,
+				339EF9561FF8958100C6170E /* GLD_ForgetPassControllor.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1804,6 +1814,7 @@
 				0F2C2F711FF6368E0083BCCB /* YXRecordButton.m in Sources */,
 				0FB537011FC5887C00B0EDA6 /* AppDelegate.m in Sources */,
 				0FB537071FC5887C00B0EDA6 /* LBTabBarController.m in Sources */,
+				339EF9541FF74DDB00C6170E /* GLD_BaseModel.m in Sources */,
 				0F32E7FF1FE267D20042E8BE /* GLD_AllCateController.m in Sources */,
 				0F2C2F5C1FF62E330083BCCB /* GLD_PickerView.m in Sources */,
 				0F71A5951FDF8A1800C66EED /* GLD_ChangePhoneController.m in Sources */,
@@ -1893,6 +1904,7 @@
 				0F32E8081FE39EEF0042E8BE /* GLD_BindingPhoneController.m in Sources */,
 				0F298E7E1FC2CFC200EDBA9A /* LQXSwitch.m in Sources */,
 				3C604D7D1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m in Sources */,
+				339EF9571FF8958100C6170E /* GLD_ForgetPassControllor.m in Sources */,
 				0FB5371B1FC6A25200B0EDA6 /* UserADsModel.m in Sources */,
 				0FB537151FC6A16500B0EDA6 /* YXFlashAdViewController.m in Sources */,
 				0F326F301FF4C05900A90106 /* GLD_OrderModel.m in Sources */,

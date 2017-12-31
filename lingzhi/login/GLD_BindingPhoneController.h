@@ -9,5 +9,5 @@
 #import "GLD_BaseViewController.h"
 
 @interface GLD_BindingPhoneController : GLD_BaseViewController
-
+@property (nonatomic, assign)NSInteger type;//1 忘记密码
 @end

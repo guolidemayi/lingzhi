@@ -46,14 +46,18 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/user/certification";
-    config.requestParameters = @{@"userId" : GetString(@"3"),
-                                 @"identityId" : GetString(@"412727199907238999"),
-                                 @"phone" : GetString(@"15514596836"),
-                                 @"userName" : GetString(@"王伟"),
+    config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
+                                 @"identityId" : GetString(self.phoneTF.text),
+                                 @"phone" : GetString(self.PersonTF.text),
+                                 @"userName" : GetString(self.nameTF.text),
                                  };
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-        
+        if (!error) {
+            [CAToast showWithText:@"认证成功"];
+        }else{
+            [CAToast showWithText:@"认证失败"];
+        }
         
     }];
 }
@@ -136,7 +140,7 @@
 - (void)setupNameTF:(UITableViewCell *)cell{
     if (!_nameTF) {
         _nameTF = [self getTextField:cell];
-        _nameTF.placeholder = @"请输入";
+        _nameTF.placeholder = @"请输入姓名";
         _nameTF.returnKeyType = UIReturnKeyDone;
         _nameTF.tag = 0;
     }
@@ -147,7 +151,8 @@
 - (void)setupPhoneTF:(UITableViewCell *)cell{
     if (!_phoneTF) {
         _phoneTF = [self getTextField:cell];
-        _phoneTF.placeholder = @"请填写身份证号";
+//        _phoneTF.placeholder = @"请填写";
+        _phoneTF.text = [AppDelegate shareDelegate].userModel.phone;
         _phoneTF.returnKeyType = UIReturnKeyDone;
         _phoneTF.tag = 4;
     }
@@ -157,7 +162,7 @@
 - (void)setupPersonTF:(UITableViewCell *)cell{
     if (!_PersonTF) {
         _PersonTF = [self getTextField:cell];
-        _PersonTF.placeholder = @"请输入";
+        _PersonTF.placeholder = @"请输入身份证";
         _PersonTF.returnKeyType = UIReturnKeyDone;
         _PersonTF.tag = 1;
     }
@@ -211,7 +216,7 @@
     if (!_applyBut) {
         _applyBut = [[UIButton alloc]init];
         [_applyBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKyellow] forState:UIControlStateNormal];
-        [_applyBut setTitle:@"申请合作" forState:UIControlStateNormal];
+        [_applyBut setTitle:@"提交审核" forState:UIControlStateNormal];
         _applyBut.titleLabel.font = WTFont(15);
         _applyBut.layer.cornerRadius = 3;
         _applyBut.layer.masksToBounds = YES;

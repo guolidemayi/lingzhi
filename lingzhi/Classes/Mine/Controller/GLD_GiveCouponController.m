@@ -21,6 +21,7 @@
 
 @property (nonatomic, strong) NSArray *titleArr;//
 @property (nonatomic, strong)UIButton *applyBut;//现金
+@property (nonatomic, strong) GLD_NetworkAPIManager *NetManager;//
 @end
 
 @implementation GLD_GiveCouponController
@@ -28,8 +29,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.table_apply];
+    self.NetManager = [GLD_NetworkAPIManager new];
 }
 
+- (void)sendVerificationClick:(UIButton *)senser{
+    //验证码
+    
+    if (!IsExist_String(self.phoneTF.text)) {
+        [CAToast showWithText:@"转赠人"];
+        return;
+    }
+    if (!IsExist_String(self.PersonTF.text)) {
+        [CAToast showWithText:@"转增数"];
+        return;
+    }
+    WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/convertCoupon";
+    config.requestParameters = @{@"coupon" : GetString(self.PersonTF.text),
+                                 @"phone" : GetString(self.phoneTF.text),
+                                 @"userId" : GetString([AppDelegate shareDelegate].userModel.userId)
+                                 };
+    
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+       
+        if(!error){
+            if ([result[@"code"] integerValue] != 200) {
+                [CAToast showWithText:result[@"msg"]];
+                return ;
+            }else{
+                [CAToast showWithText:@"转增成功"];
+            }
+            
+        }
+//        weakSelf.phoneCode = @"1111";
+    }];
+    
+    
+    
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.titleArr.count;
 }
@@ -97,7 +137,7 @@
         _applyBut.layer.masksToBounds = YES;
         _applyBut.layer.borderColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKyellow].CGColor;
         _applyBut.layer.borderWidth = 1;
-        [_applyBut addTarget:self action:@selector(applybutClick) forControlEvents:UIControlEventTouchUpInside];
+        [_applyBut addTarget:self action:@selector(sendVerificationClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _applyBut;
 }

@@ -42,7 +42,23 @@
 }
 - (void)fetchMainData{
 //    self.tableView.tableHeaderView = self.hasLoginHeadView;
-    [self.tableView.mj_header endRefreshing];
+    WS(weakSelf);
+    NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"loginToken"];
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/getUserInfo";
+    config.requestParameters = @{@"loginToken":GetString(str)};
+    [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        if (!error) {
+            
+            GLD_UserModel *model = [[GLD_UserModel alloc] initWithDictionary:result error:nil];
+            
+            [AppDelegate shareDelegate].userModel = model.data;
+            [weakSelf.tableView reloadData];
+            [weakSelf.tableView.mj_header endRefreshing];
+        }
+    }];
 }
 - (void)reloadOrLoadMoreData{
     [self.tableView.mj_footer endRefreshingWithNoMoreData];
@@ -88,7 +104,7 @@
             [self.tableView.navigationController pushViewController:applyVc animated:YES];
         }break;
         case 2:{
-            if (hasLogin) {
+            if (hasLogin && [AppDelegate shareDelegate].userModel.isHasBusness) {
                 //门店管理
                 GLD_ManagerStoreController *mangeVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"GLD_ManagerStoreController"];
                 
@@ -143,7 +159,7 @@
             return hasLogin ? W(130) : W(40);
             break;
         case 2:
-            return hasLogin ? W(130) : W(40);
+            return (hasLogin && [AppDelegate shareDelegate].userModel.isHasBusness) ? W(130) : W(40);
             break;
         case 3:
         case 4:

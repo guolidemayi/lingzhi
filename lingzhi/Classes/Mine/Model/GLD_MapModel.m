@@ -9,5 +9,9 @@
 #import "GLD_MapModel.h"
 
 @implementation GLD_MapModel
++(BOOL)propertyIsOptional:(NSString*)propertyName;
+{
+    return YES;
+}
 
 @end

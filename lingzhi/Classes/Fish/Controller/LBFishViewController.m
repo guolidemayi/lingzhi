@@ -62,7 +62,7 @@
         weakSelf.busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
         [weakSelf.home_table.mj_header endRefreshing];
         [weakSelf.home_table.mj_footer endRefreshing];
-        [weakSelf.dataArrM addObjectsFromArray:weakSelf.busnessListModel.shop];
+        [weakSelf.dataArrM addObjectsFromArray:weakSelf.busnessListModel.data];
         [weakSelf.home_table reloadData];
     }];
 }

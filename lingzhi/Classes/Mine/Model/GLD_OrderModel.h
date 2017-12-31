@@ -6,7 +6,7 @@
 //  Copyright © 2017年 com.lingzhi. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+#import "GLD_BaseModel.h"
 
 
 @protocol GLD_OrderModel
@@ -21,7 +21,7 @@
 @end
 
 
-@interface GLD_OrderModelListModel : JSONModel
+@interface GLD_OrderModelListModel : GLD_BaseModel
 
-@property (nonatomic, strong) NSMutableArray<GLD_OrderModel> *shoporder;
+@property (nonatomic, strong) NSMutableArray<GLD_OrderModel> *data;
 @end

@@ -21,7 +21,8 @@
 @property (nonatomic, strong)NSTimer *verificationTimer;
 @property (nonatomic, weak)UIButton *verificationBut;
 @property (nonatomic, strong)UILabel *titleLabel;//标题
-
+@property (nonatomic, strong)GLD_NetworkAPIManager *netManager;
+@property (nonatomic, copy)NSString *loginCode;//验证码
 @end
 
 @implementation GLD_NewPhoneController
@@ -37,15 +38,38 @@
     [rightBut setTitle:@"提交" forState:UIControlStateNormal];
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     self.navigationItem.rightBarButtonItem = item1;
+    self.loginCode = @"-1";
     [self.view addSubview:self.table_apply];
 }
 - (void)rightButClick{
-    for (UIViewController *vc in self.navigationController.viewControllers) {
+    if (!IsExist_String(self.verificationTF.text)) {
+        [CAToast showWithText:@"请输入手机号"];
+        return;
+    }
+    if (![self.loginCode isEqualToString:self.PersonTF.text]) {
+        [CAToast showWithText:@"验证码不正确"];
+        return;
+    }
+    WS(weakSelf);
+    //提交绑定
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/sms";
+    config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone)};
+    
+    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            
+        }
+        [CAToast showWithText:@"绑定成功"];
+    for (UIViewController *vc in weakSelf.navigationController.viewControllers) {
         if ([vc isKindOfClass:NSClassFromString(@"GLD_ChangePhoneController")]) {
-            [self.navigationController popToViewController:vc animated:YES];
+            [weakSelf.navigationController popToViewController:vc animated:YES];
         }
     }
+    }];
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return W(30);
 }
@@ -89,16 +113,29 @@
 }
 - (void)sendVerificationClick:(UIButton *)senser{
     //验证码
-    senser.enabled = NO;
-    [senser setTitle:@"59" forState:UIControlStateNormal];
-    self.verificationTimer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                              target:self
-                                                            selector:@selector(timerAction:)
-                                                            userInfo:nil
-                                                             repeats:YES];
+    WS(weakSelf);
     
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/sms";
+    config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone)};
     
+    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        senser.enabled = NO;
+        [senser setTitle:@"59" forState:UIControlStateNormal];
+        self.verificationTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                                  target:self
+                                                                selector:@selector(timerAction:)
+                                                                userInfo:nil
+                                                                 repeats:YES];
+        NSString *str = result[@"data"];
+        [CAToast showWithText:str duration:3];
+
+        weakSelf.loginCode = str;
+    }];
 }
+
+
 - (void)timerAction:(NSTimer *)timer{
     
     
@@ -129,9 +166,9 @@
         _verificationTF.placeholder = @"请输入手机号";
         _verificationTF.returnKeyType = UIReturnKeyDone;
         _verificationTF.tag = 3;
-        UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(DEVICE_WIDTH - W(130), W(5), W(100), W(40))];
+        UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(DEVICE_WIDTH - W(130), W(5), W(100), W(35))];
         but.titleLabel.font = WTFont(15);
-        _verificationTF.frame = CGRectMake(DEVICE_WIDTH - W(260), 0, W(100), W(50));
+        _verificationTF.frame = CGRectMake(DEVICE_WIDTH - W(260), 0, W(100), W(40));
         [cell.contentView addSubview:but];
         [but setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE] forState:UIControlStateNormal];
         but.layer.cornerRadius = 3;

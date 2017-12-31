@@ -68,7 +68,7 @@
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
             GLD_OrderModelListModel *orderListModel = [[GLD_OrderModelListModel alloc] initWithDictionary:result error:nil];
-            [weakSelf.dataArr addObjectsFromArray:orderListModel.shoporder];
+            [weakSelf.dataArr addObjectsFromArray:orderListModel.data];
             
         }else{
             

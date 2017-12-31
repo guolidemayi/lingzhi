@@ -23,6 +23,9 @@
 @property (nonatomic, strong)UILabel *titleLabel;//标题
 @property (nonatomic, strong)UILabel *tipLabel;//副标题
 @property (nonatomic, strong)UILabel *phoneLabel;//副标题
+
+@property (nonatomic, strong)GLD_NetworkAPIManager *netManager;
+@property (nonatomic, copy)NSString *loginCode;//验证码
 @end
 
 @implementation GLD_GetVerificationController
@@ -38,8 +41,15 @@
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     self.navigationItem.rightBarButtonItem = item1;
     [self.view addSubview:self.table_apply];
+    self.netManager = [GLD_NetworkAPIManager new];
+    self.loginCode = @"-1";
 }
 - (void)rightButClick{
+    if(![self.loginCode isEqualToString:self.verificationTF.text])
+    {
+        [CAToast showWithText:@"验证码不正确"];
+        return;
+    }
     GLD_NewPhoneController *verifica = [GLD_NewPhoneController new];
     [self.navigationController pushViewController:verifica animated:YES];
 }
@@ -89,16 +99,28 @@
 }
 - (void)sendVerificationClick:(UIButton *)senser{
     //验证码
-    senser.enabled = NO;
-    [senser setTitle:@"59" forState:UIControlStateNormal];
-    self.verificationTimer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                              target:self
-                                                            selector:@selector(timerAction:)
-                                                            userInfo:nil
-                                                             repeats:YES];
+    WS(weakSelf);
     
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/sms";
+    config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone)};
     
+    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        senser.enabled = NO;
+        [senser setTitle:@"59" forState:UIControlStateNormal];
+        weakSelf.verificationTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                                  target:self
+                                                                selector:@selector(timerAction:)
+                                                                userInfo:nil
+                                                                 repeats:YES];
+        NSString *str = result[@"data"];
+        [CAToast showWithText:str duration:3];
+
+        weakSelf.loginCode = str;
+    }];
 }
+
 - (void)timerAction:(NSTimer *)timer{
     
     
@@ -129,9 +151,9 @@
         _verificationTF.placeholder = @"请输入验证码";
         _verificationTF.returnKeyType = UIReturnKeyDone;
         _verificationTF.tag = 3;
-        UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(DEVICE_WIDTH - W(130), W(5), W(100), W(40))];
+        UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(DEVICE_WIDTH - W(130), W(5), W(100), W(35))];
         but.titleLabel.font = WTFont(15);
-        _verificationTF.frame = CGRectMake(DEVICE_WIDTH - W(260), 0, W(100), W(50));
+        _verificationTF.frame = CGRectMake(DEVICE_WIDTH - W(260), 0, W(100), W(35));
         [cell.contentView addSubview:but];
         [but setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE] forState:UIControlStateNormal];
         but.layer.cornerRadius = 3;
@@ -185,7 +207,7 @@
     if (!_phoneLabel) {
         _phoneLabel = [UILabel new];
         _phoneLabel.font = WTFont(12);
-        NSString *str = @"15511115555";
+        NSString *str = [AppDelegate shareDelegate].userModel.phone;
         NSRange rang ;
         rang.location = 3;
         rang.length = 4;

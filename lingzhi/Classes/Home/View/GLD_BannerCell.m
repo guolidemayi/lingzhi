@@ -34,8 +34,9 @@ NSString *const GLD_BannerCellIdentifier = @"GLD_BannerCellIdentifier";
 - (void)setBannerData:(NSMutableArray *)bannerData{
     _bannerData = bannerData;
     NSMutableArray *arrM = [NSMutableArray array];
+    if(bannerData.count == 0)return;
     for (GLD_BannerModel *model in bannerData) {
-        [arrM addObject:model.Pic];
+        [arrM addObject:GetString(model.Pic)];
     }
     self.cycleView.imageURLStringsGroup = arrM.copy;
 //    self.cycleView.localizationImageNamesGroup = @[@"welcome1",@"welcome2",@"welcome3"];
@@ -59,7 +60,7 @@ NSString *const GLD_BannerCellIdentifier = @"GLD_BannerCellIdentifier";
         
         _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
         _cycleView.autoScroll = YES;
-        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
+//        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
     }
     return _cycleView;
 }

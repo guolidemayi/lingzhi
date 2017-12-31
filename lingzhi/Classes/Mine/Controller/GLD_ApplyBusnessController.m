@@ -13,6 +13,8 @@
 #import "BRDatePickerView.h"
 #import "NSDate+BRAdd.h"
 #import "GLD_MapDetailCell.h"
+#import "GLD_IndustryModel.h"
+#import "AFHTTPSessionManager.h"
 
 @interface GLD_ApplyBusnessController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate,GLD_MapDetailCellDelegate>
 @property (nonatomic, strong)UITableView *table_apply;
@@ -63,6 +65,13 @@
 @property (nonatomic, assign)CGFloat mapHeight;
 
 @property (nonatomic, strong)GLD_NetworkAPIManager *netManager;
+
+@property (nonatomic, copy)NSString *loginCode;
+
+
+@property (nonatomic, strong)AMapPOI *mapPoi;//商家位置信息
+@property (nonatomic, strong)GLD_IndustryListModel *industryListModel;//行业列表
+@property (nonatomic, strong)NSString *updateImg;//上传图片返回连接
 @end
 
 @implementation GLD_ApplyBusnessController
@@ -73,9 +82,34 @@
     self.mapHeight = W(210);
     [self.view addSubview:self.table_apply];
     self.netManager = [GLD_NetworkAPIManager new];
+    [self getParentCategory];
+    self.loginCode = @"-1";
 }
 
-
+//获取行业列表
+- (void)getParentCategory{
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/main/getParentCategory";
+    
+    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        weakSelf.industryListModel = [[GLD_IndustryListModel alloc] initWithDictionary:result error:nil];
+        __weak typeof(self) weakSelf = self;
+       __block NSMutableArray *arr = [NSMutableArray array];
+        for (GLD_IndustryModel *model in weakSelf.industryListModel.data) {
+            [arr addObject:model.title];
+        }
+        if (!IsExist_Array(weakSelf.industryListModel.data)) return ;
+        weakSelf.industryTF.tapAcitonBlock = ^{
+            //跳转地区
+            [BRStringPickerView showStringPickerWithTitle:@"行业" dataSource:arr defaultSelValue:@"百货商超" isAutoSelect:YES resultBlock:^(id selectValue) {
+                weakSelf.industryTF.text = selectValue;
+            }];
+        };
+        NSLog(@"");
+    }];
+}
 #pragma mark GLD_MapDetailCellDelegate
 
 - (void)reloadApplyListHeight:(CGFloat) height{
@@ -84,6 +118,7 @@
 }
 - (void)selectLocation:(AMapPOI *)location{
     NSLog(@"%@", location.name);
+    self.mapPoi = location;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -128,25 +163,68 @@
 - (void)applyBusnessClick{
     WS(weakSelf);
     
+    if(!IsExist_String(self.nameTF.text)){
+        [CAToast showWithText:@"请输入门店名称"];
+        return;
+    }
+    if(!IsExist_String(self.PersonTF.text)){
+        [CAToast showWithText:@"请输入负责人"];
+        return;
+    }
+    if(!IsExist_String(self.discountTF.text)){
+        [CAToast showWithText:@"请输入折扣"];
+        return;
+    }
+    if(!IsExist_String(self.industryTF.text)){
+        [CAToast showWithText:@"请选择行业"];
+        return;
+    }
+    if(!IsExist_String(self.addressTF.text)){
+        [CAToast showWithText:@"请选择地区"];
+        return;
+    }
+    if(!IsExist_String(self.phoneTF.text)){
+        [CAToast showWithText:@"请输入门店电话"];
+        return;
+    }
+    if(!IsExist_String(self.updateImg)){
+        [CAToast showWithText:@"请上传logo"];
+        return;
+    }
+    if(!IsExist_String(self.describeTF.text)){
+        [CAToast showWithText:@"请输入门店描述"];
+        return;
+    }
+ 
+    if (![self.loginCode isEqualToString:self.verificationTF.text]) {
+        [CAToast showWithText:@"验证码不正确"];
+        return;
+    }
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/addShop";
-    config.requestParameters = @{@"logo" : GetString(@"15514596836"),
-                                 @"name" : GetString(@"123"),
-                                 @"desc" : GetString(@"15514596836"),
-                                 @"cellphone" : GetString(@"123"),
-                                 @"address" : GetString(@"15514596836"),
-                                 @"xpoint" : GetString(@"123"),
-                                 @"ypoint" : GetString(@"15514596836"),
-                                 @"evaluateScore" : GetString(@"123"),
-                                 @"category" : GetString(@"15514596836"),
-                                 @"busnessType" : GetString(@"123"),
+    config.requestParameters = @{@"logo" : GetString(self.updateImg),
+                                 @"name" : GetString(self.nameTF.text),
+                                 @"desc" : GetString(self.describeTF.text),
+                                 @"cellphone" : GetString(self.phoneTF.text),
+                                 @"address" : GetString(self.mapPoi.address),
+                                 @"xpoint" : [NSString stringWithFormat:@"%lf",self.mapPoi.location.latitude],
+                                 @"ypoint" : [NSString stringWithFormat:@"%lf",self.mapPoi.location.longitude],
+                                 @"shopType" : self.superRankImgV.hidden == YES ? @"1": @"2",
+                                 @"category" : GetString(self.industryTF.text),
+                                 @"inviteCode" : GetString(self.invitationTF.text),
+                                 @"discount" : GetString(self.discountTF.text),
+                                 @"userName" : GetString(self.PersonTF.text),
+                                 @"city" : GetString(self.addressTF.text),
+                                 @"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
                                  };
     
     [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
         
-            
+            [CAToast showWithText:@"申请成功,请耐心等待"];
+        }else{
+            [CAToast showWithText:@"申请失败,请重试"];
         }
     }];
 }
@@ -224,7 +302,7 @@
     
     if (!cell) {
         
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellID];
         [self.cellsDictM setObject:cell forKey:cellID];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = WTFont(16);
@@ -246,6 +324,8 @@
                 case 2:{
                     cell.textLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
 //                    [self setupPhoneTF:cell];
+                    cell.detailTextLabel.text = [AppDelegate shareDelegate].userModel.phone;
+                    cell.detailTextLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
                 }break;
                 case 3:{
                     [self setupDiscountTF:cell];
@@ -374,16 +454,31 @@
 }
 - (void)sendVerificationClick:(UIButton *)senser{
     //验证码
-    senser.enabled = NO;
-    [senser setTitle:@"59" forState:UIControlStateNormal];
-    self.verificationTimer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                              target:self
-                                                            selector:@selector(timerAction:)
-                                                            userInfo:nil
-                                                             repeats:YES];
+    
+    WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/sms";
+    config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone)};
+    
+    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        senser.enabled = NO;
+        [senser setTitle:@"59" forState:UIControlStateNormal];
+        weakSelf.verificationTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                                      target:self
+                                                                    selector:@selector(timerAction:)
+                                                                    userInfo:nil
+                                                                     repeats:YES];
+        NSString *str = result[@"data"];
+        [CAToast showWithText:str duration:3];
 
+        weakSelf.loginCode =str;
+    }];
     
 }
+
+
 - (void)timerAction:(NSTimer *)timer{
     
 
@@ -429,10 +524,7 @@
     if (!_industryTF) {
         _industryTF = [self getTextField:cell];
         _industryTF.placeholder = @"请选择所属行业";
-        __weak typeof(self) weakSelf = self;
-        _industryTF.tapAcitonBlock = ^{
-            //跳转地区
-        };
+       
     }
 }
 #pragma mark - 所在地区
@@ -443,6 +535,9 @@
         __weak typeof(self) weakSelf = self;
         _addressTF.tapAcitonBlock = ^{
             //跳转地区
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[@"北京市", @"上海市", @"天津市",@"重庆市",@"河北省",@"山西省",@"台湾省",@"辽宁省",@"吉林省",@"黑龙江省",@"江苏省",@"浙江省",@"安徽省",@"福建省",@"江西省",@"山东省",@"河南省",@"湖北省",@"湖南省",@"广东省",@"甘肃省",@"四川省",@"贵州省",@"海南省",@"云南省",@"青海省",@"陕西省",@"广西壮族自治区",@"西藏自治区",@"宁夏回族自治区",@"新疆维吾尔自治区",@"内蒙古自治区",@"澳门特别行政区",@"香港特别行政区"] defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
+                weakSelf.addressTF.text = selectValue;
+            }];
         };
     }
 }
@@ -660,7 +755,40 @@
 -(void)uploadImage:(NSData *)data
 {
     
+    WS(weakSelf);
+    //1.创建管理者对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
+    NSString *url = [NSString stringWithFormat:@"%@/%@",WEB_SERVICE_REQUESTBASEURL,@"api/other/uploadImg"];
+    //2.上传文件
+    
+    [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        //上传文件参数
+        //        [formData appendPartWithFileData:data name:@"" fileName:@"" mimeType:@"image/jpg"];
+        [formData appendPartWithFormData:data name:@"image/jpeg"];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        //打印上传进度
+        CGFloat progress = 100.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount;
+        NSLog(@"%.2lf%%", progress);
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [CAToast showWithText:@"上传成功"];
+        //请求成功
+        weakSelf.updateImg = responseObject[@"data"];
+        NSLog(@"请求成功：%@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        //请求失败
+        NSLog(@"请求失败：%@",error);
+        [CAToast showWithText:@"上传失败"];
+        
+    }];
 }
 -(UIImage *)thumbnailWithImageWithoutScale:(UIImage *)image size:(CGSize)asize
 {

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 com.lingzhi. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+#import "GLD_BaseModel.h"
 
 @protocol GLD_BannerModel
 
@@ -22,8 +22,8 @@
 
 @end
 
-@interface GLD_BannerLisModel : JSONModel
-@property (nonatomic, strong) NSMutableArray<GLD_BannerModel> *banner;
+@interface GLD_BannerLisModel : GLD_BaseModel
+@property (nonatomic, strong) NSMutableArray<GLD_BannerModel> *data;
 
 @end
 

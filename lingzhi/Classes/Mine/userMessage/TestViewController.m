@@ -13,6 +13,7 @@
 #import "NSDate+BRAdd.h"
 #import "GLD_WirteIntroController.h"
 #import "GLD_ChooseIndustryControllr.h"
+#import "AFHTTPSessionManager.h"
 
 @interface TestViewController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -41,6 +42,10 @@
 @property (strong, nonatomic) UIImagePickerController* imagePicker;
 
 @property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
+
+@property (nonatomic, strong)AFURLSessionManager *AFNetManager;
+
+@property (nonatomic, strong)NSString *updateImg;//上传图片返回连接
 @end
 
 @implementation TestViewController
@@ -65,6 +70,11 @@
 - (void)getSave{
     WS(weakSelf);
     
+    if (!IsExist_String(self.updateImg)) {
+        [CAToast showWithText:@"请上传头像"];
+        return;
+
+    }
     if (!IsExist_String(self.nicknameTF.text)) {
         [CAToast showWithText:@"请输入昵称"];
         return;
@@ -105,22 +115,26 @@
                                  @"industry" : GetString(self.industryCell.detailTextLabel.text),
                                  @"intro" : GetString(self.personalIntroTF.text),
                                  @"address" : GetString(self.locationTF.text),
-                                 @"inviteCode" : GetString([AppDelegate shareDelegate].userModel.inverCode),
-                                 @"psssword" : GetString([AppDelegate shareDelegate].userModel.password),
+                                 @"inviteCode" : GetString([AppDelegate shareDelegate].userModel.inviteCode),
+                                 @"password" : GetString([AppDelegate shareDelegate].userModel.password),
                                  @"sex" : GetString(self.genderTF.text),
                                  @"name" : GetString(self.nicknameTF.text),
                                  @"birthDay" : GetString(self.birthdayTF.text),
-                                 @"icon" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                 @"icon" : GetString(self.updateImg),
                                  @"duty" : GetString(self.positionTF.text)
                                  };
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-        
-        if (weakSelf.type == 1) {
-             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
-            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        if (!error) {
+            if (weakSelf.type == 1) {
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
+                [weakSelf dismissViewControllerAnimated:YES completion:nil];
+            }else{
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }
+            
         }else{
-            [weakSelf.navigationController popViewControllerAnimated:YES];
+            [CAToast showWithText:@""];
         }
     }];
 }
@@ -199,8 +213,40 @@
 }
 -(void)uploadImage:(NSData *)data
 {
+    WS(weakSelf);
+    //1.创建管理者对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
-    
+    NSString *url = [NSString stringWithFormat:@"%@/%@",WEB_SERVICE_REQUESTBASEURL,@"api/other/uploadImg"];
+    //2.上传文件
+   
+    [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        //上传文件参数
+//        [formData appendPartWithFileData:data name:@"" fileName:@"" mimeType:@"image/jpg"];
+        [formData appendPartWithFormData:data name:@"image/jpg"];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        //打印上传进度
+        CGFloat progress = 100.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount;
+        NSLog(@"%.2lf%%", progress);
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [CAToast showWithText:@"上传成功"];
+        //请求成功
+        weakSelf.updateImg = responseObject[@"data"];
+        NSLog(@"请求成功：%@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        //请求失败
+        NSLog(@"请求失败：%@",error);
+        [CAToast showWithText:@"上传失败"];
+        
+    }];
 }
 -(UIImage *)thumbnailWithImageWithoutScale:(UIImage *)image size:(CGSize)asize
 {
@@ -437,7 +483,7 @@
         __weak typeof(self) weakSelf = self;
         
         _locationTF.tapAcitonBlock = ^{
-            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[@"北京市", @"上海市", @"天津市",@"重庆市",@"河北省",@"山西省",@"台湾省",@"辽宁省",@"吉林省",@"黑龙江省",@"江苏省",@"浙江省",@"安徽省",@"福建省",@"江西省",@"山东省",@"河南省",@"湖北省",@"湖南省",@"广东省",@"甘肃省",@"四川省",@"贵州省",@"海南省",@"云南省",@"青海省",@"陕西省",@"广西壮族自治区",@"西藏自治区",@"宁夏回族自治区",@"新疆维吾尔自治区",@"内蒙古自治区",@"澳门特别行政区",@"香港特别行政区"] defaultSelValue:@"男" isAutoSelect:YES resultBlock:^(id selectValue) {
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[@"北京市", @"上海市", @"天津市",@"重庆市",@"河北省",@"山西省",@"台湾省",@"辽宁省",@"吉林省",@"黑龙江省",@"江苏省",@"浙江省",@"安徽省",@"福建省",@"江西省",@"山东省",@"河南省",@"湖北省",@"湖南省",@"广东省",@"甘肃省",@"四川省",@"贵州省",@"海南省",@"云南省",@"青海省",@"陕西省",@"广西壮族自治区",@"西藏自治区",@"宁夏回族自治区",@"新疆维吾尔自治区",@"内蒙古自治区",@"澳门特别行政区",@"香港特别行政区"] defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
                 weakSelf.locationTF.text = selectValue;
             }];
         };

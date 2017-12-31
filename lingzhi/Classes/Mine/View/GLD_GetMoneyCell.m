@@ -31,7 +31,7 @@
         if (proposedNewLength > 11) {
             return NO;//限制长度
         }
-    if (-textField.text.floatValue + [AppDelegate shareDelegate].userModel.serviceMoney.floatValue <= 0) {
+    if (-textField.text.floatValue + [AppDelegate shareDelegate].userModel.cash1.floatValue <= 0) {
         
         textField.textColor = [UIColor redColor];
         self.helpLabel.text = @"当前余额不足";

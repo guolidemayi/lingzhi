@@ -38,18 +38,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     GLD_BusinessDetailController *detaileVc = [GLD_BusinessDetailController new];
-    detaileVc.busnessModel = self.busnessListModel.shop[indexPath.row];
+    detaileVc.busnessModel = self.busnessListModel.data[indexPath.row];
     [self.tableView.navigationController pushViewController:detaileVc animated:YES];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.busnessListModel.shop.count;
+    return self.busnessListModel.data.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [self getBusinessCell:indexPath];
 }
 - (GLD_BusinessCell *)getBusinessCell:(NSIndexPath *)indexPath{
     GLD_BusinessCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_BusinessCellIdentifier];
-    cell.model = self.busnessListModel.shop[indexPath.row];
+    cell.model = self.busnessListModel.data[indexPath.row];
     return cell;
 }
 

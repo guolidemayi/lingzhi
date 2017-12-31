@@ -30,12 +30,14 @@ NSString *const GLD_MyStoreCellIdentifier = @"GLD_MyStoreCellIdentifier";
     [self.bgView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(@(height));
     }];
-    if (height > 1) {
+    if (height > 10) {
         [self adjusCashLabel:[NSString stringWithFormat:@"￥%@ \n 月收益",@"0.00"] andLabel:self.cashLabel];
         [self adjusCashLabel:[NSString stringWithFormat:@"%@ \n 订单",@"0"] andLabel:self.voucherLabel];
         [self adjusCashLabel:[NSString stringWithFormat:@"%@ \n 未处理订单",@"0"] andLabel:self.KLabel];
         self.tipLabel.text = @"管理门店";
+        self.bgView.hidden = NO;
     }else{
+        self.bgView.hidden = YES;
         self.tipLabel.text = @"未开启";
     }
 }

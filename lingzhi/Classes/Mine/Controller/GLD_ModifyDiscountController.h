@@ -8,6 +8,8 @@
 
 #import "GLD_BaseViewController.h"
 
+@class GLD_BusnessModel;
 @interface GLD_ModifyDiscountController : GLD_BaseViewController
 
+@property (nonatomic, strong)GLD_BusnessModel *model;
 @end

@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderLabel;//订单
 @property (weak, nonatomic) IBOutlet UILabel *turnoverLabel;//本日营业额
 
+@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
+@property (nonatomic, strong)GLD_BusnessModel *model;
 @end
 
 @implementation GLD_ManagerStoreController
@@ -30,6 +32,28 @@
     [super viewDidLoad];
     [self outLayoutSelfSubviews];
     self.view.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_BLUE_TABLE];
+    self.NetManager = [GLD_NetworkAPIManager new];
+    [self getMyShopData];
+}
+
+- (void)getMyShopData{
+    WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/getMyShop";
+    config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId)};
+    
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        weakSelf.model = [[GLD_BusnessModel alloc] initWithDictionary:result error:&error];
+        [weakSelf.iconImgV yy_setImageWithURL:[NSURL URLWithString:weakSelf.model.logo] placeholder:nil];
+        weakSelf.titleLabel.text = weakSelf.model.name;
+        weakSelf.busnessType.text = [NSString stringWithFormat:@" %@ ",weakSelf.model.busnessType.integerValue == 1 ? @"高级商家联盟" : @"普通商家联盟"];
+        weakSelf.cashLabel.text = [NSString stringWithFormat:@"本月收益 ￥ %@",[AppDelegate shareDelegate].userModel.Profit];
+        weakSelf.orderLabel.text = [AppDelegate shareDelegate].userModel.Order;
+        
+//        weakSelf.phoneCode = @"1111";
+    }];
 }
 //折扣设置
 - (IBAction)discountClick:(id)sender {

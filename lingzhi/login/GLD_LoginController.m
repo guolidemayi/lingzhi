@@ -82,6 +82,7 @@
     
     //忘记密码
     GLD_BindingPhoneController *bingVc = [GLD_BindingPhoneController new];
+    bingVc.type = 1;
     [self.navigationController pushViewController:bingVc animated:YES];
 }
 
@@ -105,7 +106,7 @@
         _yanzhengmaStr = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     }
     
-    if (self.phoneNumber.length == 11 && _yanzhengmaStr.length == 4) {
+    if (self.phoneNumber.length == 11 && _yanzhengmaStr.length > 0) {
         self.loginBut.enabled = YES;
         [self.loginBut setBackgroundImage:[UIImage imageNamed:@"可点击登陆"] forState:UIControlStateNormal];
     }
@@ -164,6 +165,17 @@
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
             
+            NSDictionary *dict = result;
+            if ([dict[@"code"] integerValue] != 200) {
+                [CAToast showWithText:dict[@"msg"]];
+                return ;
+            }
+            GLD_UserModel *model = [[GLD_UserModel alloc] initWithDictionary:result error:&error];
+            [AppDelegate shareDelegate].userModel = model.data;
+
+            if (IsExist_String(model.data.loginToken)) {
+                [[NSUserDefaults standardUserDefaults] setObject:model.data.loginToken forKey:@"loginToken"];
+            }
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
             
             [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{

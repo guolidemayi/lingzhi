@@ -6,7 +6,7 @@
 //  Copyright © 2017年 com.lingzhi. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+#import "GLD_BaseModel.h"
 
 @protocol GLD_IndustryModel
 
@@ -20,7 +20,7 @@
 @end
 
 
-@interface GLD_IndustryListModel : JSONModel
+@interface GLD_IndustryListModel : GLD_BaseModel
 
-@property (nonatomic, strong) NSMutableArray<GLD_IndustryModel> *category;
+@property (nonatomic, strong) NSMutableArray<GLD_IndustryModel> *data;
 @end

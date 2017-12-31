@@ -218,6 +218,7 @@
     }];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[NSUserDefaults standardUserDefaults]setBool:NO forKey:userHasLogin];
+        [AppDelegate shareDelegate].userModel = nil;
         [self.navigationController popViewControllerAnimated:YES];
     }];
     [alertController addAction:cancelAction];

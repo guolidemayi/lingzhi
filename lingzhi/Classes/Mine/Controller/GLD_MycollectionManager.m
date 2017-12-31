@@ -29,7 +29,7 @@
         
         [weakSelf.tableView.mj_header endRefreshing];
         GLD_BusnessLisModel *busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
-        [weakSelf.mainDataArrM addObjectsFromArray:busnessListModel.shop];
+        [weakSelf.mainDataArrM addObjectsFromArray:busnessListModel.data];
         [weakSelf.tableView reloadData];
     }];
 }

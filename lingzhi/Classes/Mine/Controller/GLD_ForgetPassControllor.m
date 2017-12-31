@@ -1,20 +1,18 @@
 //
-//  GLD_ChangePassWordController.m
+//  GLD_ForgetPassControllor.m
 //  lingzhi
 //
-//  Created by yiyangkeji on 2017/12/12.
+//  Created by rabbit on 2017/12/31.
 //  Copyright © 2017年 com.lingzhi. All rights reserved.
 //
 
-#import "GLD_ChangePassWordController.h"
+#import "GLD_ForgetPassControllor.h"
 #import "BRTextField.h"
 #import "NSDate+BRAdd.h"
 
-@interface GLD_ChangePassWordController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface GLD_ForgetPassControllor ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 @property (nonatomic, strong)UITableView *table_apply;
 
-/** 旧密码 */
-@property (nonatomic, strong) BRTextField *oldWordTF;
 /** 新密码 */
 @property (nonatomic, strong) BRTextField *newsWordTF;
 /** 在输入 */
@@ -25,7 +23,7 @@
 @property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @end
 
-@implementation GLD_ChangePassWordController
+@implementation GLD_ForgetPassControllor
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,36 +43,28 @@
 
 - (void)rightButClick{
     
-    if (!IsExist_String(self.oldWordTF.text)) {
-        [CAToast showWithText:@"请输入旧密码"];
-        return;
-    }
+  
     if (!IsExist_String(self.newsWordTF.text)) {
         [CAToast showWithText:@"请输入新密码"];
         return;
     }
-
+    
     if (![self.newsWordTF.text isEqualToString:self.aginTF.text]) {
         [CAToast showWithText:@"不一致"];
         return;
     }
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/user/resetPassword";
+    config.urlPath = @"api/user/missPassword";
     config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"newPassword" : GetString(self.newsWordTF.text),
-                                 @"oldPassword" : GetString(self.oldWordTF.text)
+                                 @"password" : GetString(self.newsWordTF.text)
                                  };
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
-//        weakSelf.phoneCode = @"1111";
+        //        weakSelf.phoneCode = @"1111";
         [CAToast showWithText:@"修改成功"];
-        for (UIViewController *vc in self.navigationController.viewControllers) {
-            if ([vc isKindOfClass:NSClassFromString(@"GLD_LoginController")]) {
-                [self.navigationController popToViewController:vc animated:YES];
-            }
-        }
+        
     }];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -93,12 +83,9 @@
     cell.textLabel.text = self.titleArr[indexPath.row];
     switch (indexPath.row) {
         case 0:{
-            [self setupOldWordTF:cell];
-        }break;
-        case 1:{
             [self setupNewsWordTF:cell];
         }break;
-        case 2:{
+        case 1:{
             [self setupAginTF:cell];
         }break;
     }
@@ -115,15 +102,7 @@
     [cell.contentView addSubview:textField];
     return textField;
 }
-#pragma mark - 旧密码
-- (void)setupOldWordTF:(UITableViewCell *)cell{
-    if (!_oldWordTF) {
-        _oldWordTF = [self getTextField:cell];
-        _oldWordTF.placeholder = @"请输入";
-        _oldWordTF.returnKeyType = UIReturnKeyDone;
-        _oldWordTF.tag = 0;
-    }
-}
+
 #pragma mark - 新密码
 - (void)setupNewsWordTF:(UITableViewCell *)cell{
     if (!_newsWordTF) {
@@ -161,7 +140,7 @@
 }
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"旧密码",@"新密码",@"再次输入"];
+        _titleArr = @[@"新密码",@"再次输入"];
     }
     return _titleArr;
 }

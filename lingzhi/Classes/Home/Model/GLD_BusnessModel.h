@@ -6,7 +6,7 @@
 //  Copyright © 2017年 com.lingzhi. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+#import "GLD_BaseModel.h"
 
 @protocol GLD_BusnessModel
 
@@ -25,9 +25,9 @@
 @property (nonatomic, copy) NSString *isCollect;//收藏
 @property (nonatomic, copy) NSString *isOpenRebate;//
 @property (nonatomic, copy) NSString *category;//所属行业
-@property (nonatomic, copy)NSString *busnessType;
+@property (nonatomic, copy)NSString *busnessType; //1高级  2普通
 
 @end
-@interface GLD_BusnessLisModel : JSONModel
-@property (nonatomic, strong) NSMutableArray<GLD_BusnessModel> *shop;
+@interface GLD_BusnessLisModel : GLD_BaseModel
+@property (nonatomic, strong) NSMutableArray<GLD_BusnessModel> *data;
 @end

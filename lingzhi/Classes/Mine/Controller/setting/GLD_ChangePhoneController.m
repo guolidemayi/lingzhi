@@ -46,10 +46,11 @@
         _titleLabel = [UILabel new];
         _titleLabel.font = WTFont(15);
         
-        NSString *str = @"15511115555";
+        NSString *str = [AppDelegate shareDelegate].userModel.phone;
         NSRange rang ;
         rang.location = 3;
         rang.length = 4;
+        if (IsExist_String(str))
         str = [str stringByReplacingCharactersInRange:rang withString:@"****"];
         _titleLabel.text = [NSString stringWithFormat:@"手机绑定 ：%@",str];
         _titleLabel.textAlignment = NSTextAlignmentLeft;

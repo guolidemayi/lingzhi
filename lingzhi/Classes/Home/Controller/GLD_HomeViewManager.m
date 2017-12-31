@@ -108,24 +108,24 @@
 
 - (GLD_BannerCell *)getBannerCell:(NSIndexPath *)indexPath{
     GLD_BannerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_BannerCellIdentifier];
-    cell.bannerData = self.bannerListModel.banner;
+    cell.bannerData = self.bannerListModel.data;
     return cell;
 }
 - (GLD_HomeListCell *)getHomeListCell:(NSIndexPath *)indexPath{
     GLD_HomeListCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_HomeListCellIdentifier];
-    cell.listData = self.industryListModel.category;
+    cell.listData = self.industryListModel.data;
     return cell;
 }
 - (GLD_BusinessCell *)getBusinessCell:(NSIndexPath *)indexPath{
     GLD_BusinessCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_BusinessCellIdentifier];
-    cell.model = self.busnessListModel.shop[indexPath.row];
+    cell.model = self.busnessListModel.data[indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1) {
         GLD_BusinessDetailController *detaileVc = [GLD_BusinessDetailController new];
-        detaileVc.busnessModel = self.busnessListModel.shop[indexPath.row];
+        detaileVc.busnessModel = self.busnessListModel.data[indexPath.row];
         [self.tableView.navigationController pushViewController:detaileVc animated:YES];
     }
 }
@@ -146,7 +146,7 @@
 }
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0)return 2;
-    return self.busnessListModel.shop.count;
+    return self.busnessListModel.data.count;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;

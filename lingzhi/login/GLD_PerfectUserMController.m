@@ -83,7 +83,7 @@
     //提交数据
     [AppDelegate shareDelegate].userModel.phone = self.phoneTF.text;
     [AppDelegate shareDelegate].userModel.password = self.PersonTF.text;
-    [AppDelegate shareDelegate].userModel.inverCode = self.invitationTF.text;
+//    [AppDelegate shareDelegate].userModel.inverCode = self.invitationTF.text;
     GLD_BindingPhoneController *bindingVc = [GLD_BindingPhoneController new];
     [self.navigationController pushViewController:bindingVc animated:YES];
 }
