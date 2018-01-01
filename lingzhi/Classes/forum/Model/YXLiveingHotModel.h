@@ -43,14 +43,14 @@
 @property (copy,nonatomic)NSString *pic;
 @property (copy,nonatomic)NSString *themeName;
 @property (copy,nonatomic)NSString *isQaQuestionDelFlag;//是否删除帖子 @“1” 删除
-
+@property (copy,nonatomic)NSString *createTime;
 @end
 
-@interface YXCommentContent1Model : JSONModel
-@property (nonatomic, strong)NSMutableArray<YXCommentContent2Model> *list;
+@interface YXCommentContent1Model : YXBaseModel
+@property (nonatomic, strong)NSMutableArray<YXCommentContent2Model> *data;
 
-@property (assign,nonatomic)NSInteger commentCount;
-@property (assign,nonatomic)BOOL hasMore;
+
+
 @end
 
 

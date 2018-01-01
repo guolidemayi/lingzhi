@@ -195,6 +195,8 @@
 		0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */; };
 		330AAB3E1FF4053200523FF0 /* GLD_wanShanUserMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */; };
 		330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */; };
+		332D9B101FFA011D00A86304 /* GLD_ForumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 332D9B0E1FFA011D00A86304 /* GLD_ForumCell.m */; };
+		332D9B111FFA011D00A86304 /* GLD_ForumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 332D9B0F1FFA011D00A86304 /* GLD_ForumCell.xib */; };
 		339EF9541FF74DDB00C6170E /* GLD_BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 339EF9531FF74DDB00C6170E /* GLD_BaseModel.m */; };
 		339EF9571FF8958100C6170E /* GLD_ForgetPassControllor.m in Sources */ = {isa = PBXBuildFile; fileRef = 339EF9561FF8958100C6170E /* GLD_ForgetPassControllor.m */; };
 		339EF9621FF9295500C6170E /* GLD_RemindCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 339EF95D1FF9295400C6170E /* GLD_RemindCell.m */; };
@@ -597,6 +599,9 @@
 		330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_wanShanUserMController.m; sourceTree = "<group>"; };
 		330AAB3F1FF40ABF00523FF0 /* GLD_UserMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_UserMessageModel.h; sourceTree = "<group>"; };
 		330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_UserMessageModel.m; sourceTree = "<group>"; };
+		332D9B0D1FFA011D00A86304 /* GLD_ForumCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ForumCell.h; sourceTree = "<group>"; };
+		332D9B0E1FFA011D00A86304 /* GLD_ForumCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ForumCell.m; sourceTree = "<group>"; };
+		332D9B0F1FFA011D00A86304 /* GLD_ForumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_ForumCell.xib; sourceTree = "<group>"; };
 		339EF9521FF74DDB00C6170E /* GLD_BaseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BaseModel.h; sourceTree = "<group>"; };
 		339EF9531FF74DDB00C6170E /* GLD_BaseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BaseModel.m; sourceTree = "<group>"; };
 		339EF9551FF8958100C6170E /* GLD_ForgetPassControllor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ForgetPassControllor.h; sourceTree = "<group>"; };
@@ -1004,10 +1009,10 @@
 				0F2C2F2A1FF62E320083BCCB /* GLD_ForumNewsDetailModel.m */,
 				0F2C2F2B1FF62E320083BCCB /* GLD_TopicModel.h */,
 				0F2C2F2C1FF62E320083BCCB /* GLD_ForumModel.h */,
+				0F2C2F301FF62E320083BCCB /* GLD_ForumModel.m */,
 				0F2C2F2D1FF62E320083BCCB /* GLD_ForumNewsDetailModel.h */,
 				0F2C2F2E1FF62E320083BCCB /* GLD_TopicTypeListModel.m */,
 				0F2C2F2F1FF62E320083BCCB /* GLD_TopicModel.m */,
-				0F2C2F301FF62E320083BCCB /* GLD_ForumModel.m */,
 				0F2C2F641FF62EFF0083BCCB /* YXLiveingHotModel.h */,
 				0F2C2F631FF62EFF0083BCCB /* YXLiveingHotModel.m */,
 			);
@@ -1037,6 +1042,9 @@
 				0F2C2F431FF62E320083BCCB /* GLD_DrawBut.m */,
 				0F2C2F331FF62E320083BCCB /* GLD_BBSStandardView.h */,
 				0F2C2F3D1FF62E320083BCCB /* GLD_BBSStandardView.m */,
+				332D9B0D1FFA011D00A86304 /* GLD_ForumCell.h */,
+				332D9B0E1FFA011D00A86304 /* GLD_ForumCell.m */,
+				332D9B0F1FFA011D00A86304 /* GLD_ForumCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1665,6 +1673,7 @@
 				0F326F251FF49D9A00A90106 /* user_industry.json in Resources */,
 				0F2C2EFD1FF4EF1D0083BCCB /* GLD_GetMoneyCell.xib in Resources */,
 				0F326F2D1FF4AED500A90106 /* GLD_MyOrderCell.xib in Resources */,
+				332D9B111FFA011D00A86304 /* GLD_ForumCell.xib in Resources */,
 				0F298EA61FC2D18600EDBA9A /* read_me.txt in Resources */,
 				0F298E841FC2CFC200EDBA9A /* MTShareView.xib in Resources */,
 				0FB537361FC6D22A00B0EDA6 /* SGQRCode.bundle in Resources */,
@@ -2001,6 +2010,7 @@
 				0F32E8111FE8BD450042E8BE /* GLD_UpdateViewController.m in Sources */,
 				0F2C2F551FF62E330083BCCB /* GLD_ForumModel.m in Sources */,
 				0F2C2F6B1FF6338F0083BCCB /* InputKeyboardView.m in Sources */,
+				332D9B101FFA011D00A86304 /* GLD_ForumCell.m in Sources */,
 				0F32E8141FE91D800042E8BE /* GLD_ModifyDiscountController.m in Sources */,
 				0F298E7B1FC2CFC200EDBA9A /* GLD_CarouselCell.m in Sources */,
 				0F71A5891FDE8B5300C66EED /* GLD_ApplyUnionController.m in Sources */,

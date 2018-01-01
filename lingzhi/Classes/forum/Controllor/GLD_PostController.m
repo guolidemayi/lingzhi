@@ -17,6 +17,7 @@
 
 #import "GLD_TopicModel.h"
 #import "YXRecordButton.h"
+#import "AFHTTPSessionManager.h"
 
 @interface GLD_PostController ()<UICollectionViewDelegate, UICollectionViewDataSource,UITextViewDelegate,GLD_topicCellDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,GLD_PhotoViewDelegate,GLD_PictureCellDelegate,UITextFieldDelegate>
 {
@@ -48,6 +49,7 @@
 @property (nonatomic, weak)GLD_PictureCell *selectCell;
 @property (nonatomic, strong)NSMutableArray *topicArrM;
 @property (nonatomic, copy)void(^postReloadBlock)(void);
+@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @end
 
 @implementation GLD_PostController
@@ -69,10 +71,11 @@
     [self setUP];
     [self initData];
     [self setBackbut];
+    self.NetManager = [GLD_NetworkAPIManager new];
     _photoView =  [GLD_PhotoView showPhotoViewInView:[AppDelegate shareDelegate].window];
     _photoView.delegate = self;
  
-    [self initKeywordRequest];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -102,53 +105,6 @@
     
    
 }
-- (void)reLoadMainData{
-    [self initKeywordRequest];
-}
-- (void)initKeywordRequest{
-  WS(weakSelf);
-//    GLD_TopicTypeListRequest *request = [GLD_TopicTypeListRequest shareManager];
-//    [request httpPost:@"" parameters:nil block:^(WTBaseRequest *request, NSError *error) {
-//
-//        if (error) {
-//            [weakSelf showNoDataViewOrLoadView:error];
-//        }else{
-//            [weakSelf hiddenNoDataView];
-//            NSDictionary *dict = request.resultData[@"data"];
-//            dict = dict[@"categoryMap"];
-//
-//            for (NSString *key in dict.allKeys) {
-//
-//                NSArray *topicArr = dict[key];
-//                NSMutableArray *topicListArrM = [NSMutableArray arrayWithCapacity:0];
-//                for (NSDictionary *dd in topicArr) {
-//                    GLD_TopicModel *model = [[GLD_TopicModel alloc]init];
-//                    model.categoryId = dd[@"categoryId"];
-//                    model.categoryName = dd[@"categoryName"];
-//                    [topicListArrM addObject:model];
-//                }
-//                [topicDict addEntriesFromDictionary:@{key : topicListArrM}];
-//
-//            }
-//
-//            WS(weakSeaf);
-//            weakSelf.pickerView = [GLD_PickerView gld_getPickerViewWithContent:dict.allKeys andDict:topicDict andBlock:^(GLD_TopicModel *model) {
-//                NSLog(@"name = %@",model);
-//                for (GLD_TopicModel *topicModel in weakSeaf.topicArrM) {
-//                    if ([topicModel.categoryName isEqualToString:model.categoryName]) {
-//                        [CAToast showWithText:@"已经增加过此话题"];
-//                        return;
-//                    }
-//                }
-//                [weakSeaf.topicArrM addObject:model];
-//                [weakSelf.topicCollectionView reloadData];
-//
-//            }];
-//
-//        }
-//    }];
-//
-}
 
 - (void)sendTieZiContentRequest{
     
@@ -174,25 +130,26 @@
    
     NSString *jsonString = [self arrayToJson:pictureArrM];
     
-    NSString *jsonString1 = [self arrayToJson:arr];
     
-//    [dictM addEntriesFromDictionary:@{@"userId":[AppDelegate shareDelegate].userDataModel.id,@"title":self.textField.text ,@"content":self.textView.text,@"images":jsonString,@"categorys":jsonString1}];
-//    WS(weakSelf);
-//    GLD_TopicAddBbsV2Request *request = [GLD_TopicAddBbsV2Request shareManager];
-//    [request httpPost:@"" parameters:dictM block:^(WTBaseRequest *request, NSError *error) {
-//
-//        if (error) {
-//            [weakSelf toastInfo:error.localizedDescription];
-////            [weakSelf showNoDataViewOrLoadView:error];
-//        }else{
-//            [CAToast showWithText:@"发布成功"];
-//            [weakSelf hiddenNoDataView];
-//            if(weakSelf.postReloadBlock)weakSelf.postReloadBlock();
-//            [weakSelf.navigationController popViewControllerAnimated:YES];
-//        }
-//
-//    }];
-//
+    [dictM addEntriesFromDictionary:@{@"userId":GetString(@"9"),
+                                      @"title":self.textField.text ,
+                                      @"summary":self.textView.text,@"pic":jsonString}];
+
+    WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/comment/addbbs";
+    config.requestParameters = dictM;
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            [CAToast showWithText:@"发布成功"];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }else{
+            [CAToast showWithText:@"发布失败"];
+        }
+        
+    }];
 }
 
 - (NSString *)arrayToJson:(NSArray *)arr{
@@ -202,7 +159,7 @@
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:arr options:NSJSONWritingPrettyPrinted error:nil];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
-    jsonString = [jsonString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    jsonString = [jsonString stringByReplacingOccurrencesOfString:@"," withString:@""];
     jsonString = [jsonString stringByReplacingOccurrencesOfString:@" " withString:@""];
     return jsonString;
 }
@@ -383,7 +340,49 @@
 //    NSString *token = [SDKTool HMACWithSecret:YX_HMACMD5_KEY string:[NSString stringWithFormat:@"%@__%@",time,YX_UPLOAD_KEY]];
 //    YXUploadImageRequest *request = [[YXUploadImageRequest alloc] init];
     
+    WS(weakSelf);
+    //1.创建管理者对象
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
+    NSString *url = [NSString stringWithFormat:@"%@/%@",WEB_SERVICE_REQUESTBASEURL,@"api/other/uploadImg"];
+    //2.上传文件
+    
+    [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        //上传文件参数
+        //        [formData appendPartWithFileData:data name:@"" fileName:@"" mimeType:@"image/jpg"];
+        [formData appendPartWithFormData:data name:@"image/jpg"];
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+        //打印上传进度
+        CGFloat progress = 100.0 * uploadProgress.completedUnitCount / uploadProgress.totalUnitCount;
+        NSLog(@"%.2lf%%", progress);
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [CAToast showWithText:@"上传成功"];
+        
+        //更新高度
+        if (index == 2)
+            [self.picCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.height.equalTo(HEIGHT(225));
+            }];
+        [pictureArrM addObject:responseObject[@"data"]];
+        //请求成功
+        [imgArrM addObject:_certificationImage];
+        _certificationImage = nil;
+        [self.picCollectionView reloadData];
+        NSLog(@"请求成功：%@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        //请求失败
+        NSLog(@"请求失败：%@",error);
+        [CAToast showWithText:@"上传失败"];
+        
+    }];
     
 }
 
@@ -526,33 +525,19 @@
         
     }];
     
-    UILabel *topicLabel = [UILabel creatLableWithText:@"" andFont:WTFont(15) textAlignment:NSTextAlignmentLeft textColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK]];
-    [self.scrollView addSubview:topicLabel];
-    topicLabel.attributedText = [YXUniversal changeColorLabel:@"所属话题（最多3个）" find:@"（最多3个）"  flMaxFont:17 flMinFont:12 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK]];
-    [topicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(titleLabel);
-        make.top.equalTo(self.picCollectionView.mas_bottom).offset(H(15));
-        
-    }];
+   
     
     
-    
-    [self.scrollView addSubview:self.topicCollectionView];
-    [self.topicCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(titleLabel);
-        make.top.equalTo(topicLabel.mas_bottom).offset(W(15));
-        make.width.equalTo(textView);
-        make.height.equalTo(WIDTH(40));
-    }];
+   
     
     
     YXRecordButton *commitBut = [YXRecordButton creatButWithTitle:@"发布" andImageStr:nil andFont:15 andTextColorStr:COLOR_YX_DRAKwirte];;
-    [commitBut setBackgroundImage:WTImage(@"登录可点击") forState:UIControlStateNormal];
+    [commitBut setBackgroundImage:WTImage(@"可点击登陆") forState:UIControlStateNormal];
     [self.scrollView addSubview:commitBut];
     [commitBut addTarget:self action:@selector(sendTieZiContentRequest) forControlEvents:UIControlEventTouchUpInside];
     [commitBut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self.topicCollectionView);
-        make.top.equalTo(self.topicCollectionView.mas_bottom).offset(H(30));
+        make.left.equalTo(self.picCollectionView);
+        make.bottom.equalTo(self.view.mas_bottom).offset(H(-60));
         make.height.equalTo(HEIGHT(44));
         make.width.equalTo(textField);
         

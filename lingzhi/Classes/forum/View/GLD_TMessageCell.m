@@ -40,19 +40,25 @@ NSString  *const GLD_TMessageCellIdentifi = @"GLD_TMessageCellIdentifi";
 - (void)setBLdetailModel:(GLD_ForumDetailModel *)BLdetailModel{
     _BLdetailModel = BLdetailModel;
     
-    [_iconImageV yy_setImageWithURL:[NSURL URLWithString:BLdetailModel.headIco] placeholder:[UIImage imageNamed:@"default"]];
+    [_iconImageV yy_setImageWithURL:[NSURL URLWithString:BLdetailModel.userPhone] placeholder:[UIImage imageNamed:@"default"]];
     _dutyLabel.text = BLdetailModel.dutie;
     _timeLabel.text = BLdetailModel.companyName;
-    if (!IsExist_String(BLdetailModel.imageUrl)) {
+    
+    if (!IsExist_String(BLdetailModel.pic)) {
+       
         [_titleImgV mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(WIDTH(0.1));
         }];
+        
         [self layoutIfNeeded];
     }else{
+        NSArray *arr = [BLdetailModel.pic componentsSeparatedByString:@","];
+        if(!IsExist_Array(arr)){
         [_titleImgV mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(WIDTH(65));
         }];
-        [_titleImgV yy_setImageWithURL:[NSURL URLWithString:BLdetailModel.imageUrl] placeholder:nil];
+        [_titleImgV yy_setImageWithURL:[NSURL URLWithString:arr.firstObject] placeholder:nil];
+        }
     }
     _nameLabel.text = !IsExist_String(BLdetailModel.userName) ? BLdetailModel.nickName : BLdetailModel.userName;
     _titleLabel.text = BLdetailModel.title;
@@ -60,33 +66,6 @@ NSString  *const GLD_TMessageCellIdentifi = @"GLD_TMessageCellIdentifi";
     _readLabel.text = [self tipStr:BLdetailModel];
 }
 
-- (void)setTZdetailModel:(GLD_ForumDetailModel *)TZdetailModel{
-    
-    [_iconImageV yy_setImageWithURL:[NSURL URLWithString:TZdetailModel.headIco] placeholder:[UIImage imageNamed:@"default"]];
-    _dutyLabel.text = @"";
-    _timeLabel.text = TZdetailModel.time;
-    if (!IsExist_String(TZdetailModel.imageUrl)) {
-        [_titleImgV mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(WIDTH(0.1));
-        }];
-        [self layoutIfNeeded];
-    }else{
-        [_titleImgV mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(WIDTH(65));
-        }];
-        [self layoutIfNeeded];
-        [_titleImgV yy_setImageWithURL:[NSURL URLWithString:TZdetailModel.imageUrl] placeholder:nil];
-    }
-    _nameLabel.text = IsExist_String(TZdetailModel.nickName)?TZdetailModel.nickName:TZdetailModel.userName;
-//    CGFloat beW = [YXUniversal calculateLabelWidth:20 text:_nameLabel.text font:WTFont(15)]+10;
-//    [_nameLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.width.equalTo(WIDTH(beW));
-//    }];
-    
-    _titleLabel.text = TZdetailModel.title;
-    _contentLabel.text = TZdetailModel.summary;
-    _readLabel.text = [self tipStr:TZdetailModel];
-}
 - (NSString *)tipStr:(GLD_ForumDetailModel *)careModel{
     
     if(careModel.commentCount >= 20){

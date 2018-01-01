@@ -22,7 +22,7 @@
     UILabel *_beNameLabel;
     UIButton *_beRecordBut;
     UILabel *_deleLabel;
-    UIButton *_replyBut;
+//    UIButton *_replyBut;
     UILabel  *_coverLabel;
     UILabel  *_beCoverLabel;
     UIButton *_beReplyUserBut;
@@ -49,15 +49,6 @@
 
 
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    
-    CGPoint point = [touches.anyObject locationInView:self.contentView];
-    
-    NSLog(@"cellPoint = %lf , %lf",point.x, point.y);
-    if ([self.delegate respondsToSelector:@selector(showPopViewInSomeWhere:andLocation:)]) {
-        [self.delegate showPopViewInSomeWhere:self.commentIndexPath andLocation:point.y];
-    }
-}
 
 
 - (void)likeClick:(UIButton *)senser{
@@ -75,19 +66,17 @@
 - (void)setCommentModel:(YXCommentContent2Model *)commentModel{
 
     _commentModel = commentModel;
+    
+    if ([commentModel.replyUserId isEqualToString:[AppDelegate shareDelegate].userModel.userId]) {
+        _likeBut.hidden = NO;
+    }else{
+        _likeBut.hidden = YES;
+    }
     if(commentModel.replyUserNickName.length > 11)commentModel.replyUserNickName = [NSString stringWithFormat:@"%@...",[commentModel.replyUserNickName substringToIndex:8]];
     _nameLabel.text = commentModel.replyUserNickName;
     [_iconImgV yy_setImageWithURL:[NSURL URLWithString:commentModel.replyUserHeadPhoto] placeholder:[UIImage imageNamed:@"default"]];
-    _timeLabel.text = commentModel.createTimeString;
-    if (commentModel.like) {
-        [_likeBut setImage:[UIImage imageNamed:@"已赞"] forState:UIControlStateNormal];
-        [_likeBut setTitle:[NSString stringWithFormat:@"%zd",commentModel.likeCount] forState:UIControlStateNormal];
-        [_likeBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE] forState:UIControlStateNormal];
-    }else{
-        [_likeBut setImage:[UIImage imageNamed:@"未点赞"] forState:UIControlStateNormal];
-        [_likeBut setTitle:[NSString stringWithFormat:@"%zd",commentModel.likeCount] forState:UIControlStateNormal];
-        [_likeBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKgray3] forState:UIControlStateNormal];
-    }
+    _timeLabel.text = commentModel.createTime;
+   
     _authImageV.hidden = commentModel.replyIsAuth?NO:YES;
     //有回复
     if (commentModel.beReplyUserNickName) {
@@ -214,13 +203,13 @@
     _nickNameLable.numberOfLines = 0;
     _likeBut  = [[GLD_Button alloc]init];
     _likeBut.titleLabel.font = WTFont(15);
+    
     _likeBut.tag = 2019;
+    [_likeBut setTitle:@"删除" forState:UIControlStateNormal];
+    [_likeBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_RED_TEXT] forState:UIControlStateNormal];
     [_likeBut addTarget:self action:@selector(likeClick:) forControlEvents:UIControlEventTouchUpInside];
     _recordBut = [[UIButton alloc]init];
-    _recordBut.titleLabel.font = WTFont(15);
-    [_recordBut setBackgroundImage:[UIImage imageNamed:@"yuyin-底"] forState:UIControlStateNormal];
-    [_recordBut setImage:[UIImage imageNamed:@"播放语音3"] forState:UIControlStateNormal];
-    [_recordBut addTarget:self action:@selector(playButClick:) forControlEvents:UIControlEventTouchUpInside];
+
     _recoverView = [[UIView alloc]init];
     _recoverView.layer.cornerRadius = 5;
     _recoverView.layer.masksToBounds = YES;
@@ -238,15 +227,7 @@
     _deleLabel = [UILabel creatLableWithText:@"该评论已删除!" andFont:WTFont(15) textAlignment:NSTextAlignmentCenter textColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
     _deleLabel.hidden = YES;
     
-    _replyBut = [[UIButton alloc]init];
-    [_replyBut setBackgroundImage:[UIImage imageNamed:@"语音回复Rectangle 29"] forState:UIControlStateNormal];
-    [_replyBut setImage:[UIImage imageNamed:@"语音2回复"] forState:UIControlStateNormal];
-    _replyBut.tag = 2020;
-    [_replyBut setTitle:@"语音回复" forState:UIControlStateNormal];
-    [_replyBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE] forState:UIControlStateNormal];
-   
-    _replyBut.titleLabel.font = WTFont(12);
-    [_replyBut addTarget:self action:@selector(likeClick:) forControlEvents:UIControlEventTouchUpInside];
+
     
     _coverLabel = [UILabel creatLableWithText:@"" andFont:WTFont(15) textAlignment:NSTextAlignmentLeft textColor:[UIColor clearColor]];
     _beCoverLabel = [UILabel creatLableWithText:@"" andFont:WTFont(15) textAlignment:NSTextAlignmentLeft textColor:[UIColor clearColor]];
@@ -258,7 +239,7 @@
     
     
     [self.contentView addSubview:_nameLabel];
-    [self.contentView addSubview:_replyBut];
+
     [self.contentView addSubview:_iconImgV];
     [self.contentView addSubview:_timeLabel];
     [self.contentView addSubview:_nickNameLable];
@@ -299,11 +280,6 @@
         make.right.equalTo(self.contentView).offset(-20);
         make.width.equalTo(@(35));
         
-    }];
-    
-    [_replyBut mas_makeConstraints:^(MASConstraintMaker *make) {
-       make.centerY.equalTo(_iconImgV);
-       make.right.equalTo(_likeBut.mas_left).offset(-15);
     }];
     
 }

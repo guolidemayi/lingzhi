@@ -13,10 +13,8 @@
 #import "GLD_PopView.h"
 #import "GLD_CommentCell.h"
 #import "GLD_CommentBottomView.h"
-
+#import "GLD_ForumCell.h"
 #import "YXLiveingHotModel.h"
-
-
 
 #import "GLD_ForumNewsDetailModel.h"
 
@@ -49,7 +47,7 @@
 @property (nonatomic, strong) NSString *contentCopy;//回复人
 @property (nonatomic, strong) NSIndexPath *indexP;//回复人
 @property (nonatomic, strong) NSString *ext2Title;//回复标题
-
+@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @end
 
 @implementation GLD_ForumDetailController
@@ -57,27 +55,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.NetManager = [GLD_NetworkAPIManager new];
     self.commentArrM = [NSMutableArray array];
     self.keyView = [[InputKeyboardView alloc] initWithFrame:CGRectMake(0, -64, DEVICE_WIDTH, DEVICE_HEIGHT)];
     self.keyView.delegate = self;
     [self commentView];
-    
+    [self getCommentList];
     [self getForumDetailRequest];
-    self.title = @"帖子详情";
+//    self.title = @"帖子详情";
 
-    // Do any additional setup after loading the view.
-    if ([_type isEqualToString:@"8"]) {
-        UIButton *tmpButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [tmpButton setImage:[UIImage imageNamed:@"post举报"] forState:UIControlStateNormal];
-        [tmpButton addTarget:self action:@selector(rightButClick) forControlEvents:UIControlEventTouchUpInside];
-        tmpButton.frame = CGRectMake(0, 0, 20, 20);
-        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:tmpButton]];
-    }
-    UIButton *tmpButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [tmpButton setImage:[UIImage imageNamed:@"back_black"] forState:UIControlStateNormal];
-    [tmpButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    tmpButton.frame = CGRectMake(0, 0, 20, 20);
-    [self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:tmpButton]];
+//    // Do any additional setup after loading the view.
+//    if ([_type isEqualToString:@"8"]) {
+//        UIButton *tmpButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [tmpButton setImage:[UIImage imageNamed:@"post举报"] forState:UIControlStateNormal];
+//        [tmpButton addTarget:self action:@selector(rightButClick) forControlEvents:UIControlEventTouchUpInside];
+//        tmpButton.frame = CGRectMake(0, 0, 20, 20);
+//        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:tmpButton]];
+//    }
+
 }
 
 - (void)back{
@@ -90,20 +85,7 @@
 // 举报
 - (void)rightButClick
 {
-    //App-帖子详情-举报
-   
-//    GLD_ForumAccusationRequest *request = [GLD_ForumAccusationRequest shareManager];
-//    NSDictionary *params = @{@"id" : self.newsId};
-//    [request httpPost:@"" parameters:params block:^(WTBaseRequest *request, NSError *error) {
-//        if (!error) {
-//            [CAToast showWithText:@"举报已收到，将尽快核实，感谢支持！"];
-//        }
-//    }];
-}
 
-- (void)reLoadMainData{
-    [self getCommentList];
-    [self getForumDetailRequest];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -158,7 +140,7 @@
                 break;
             case 2:
             {
-                titleStr = [NSString stringWithFormat:@"(%zd)",commentListModel.data.commentCount];
+                titleStr = @"";
                 label.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"   讨论区 %@", titleStr] find:titleStr  flMaxFont:15 flMinFont:12 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK]];
                 break;
             }
@@ -190,7 +172,7 @@
         case 1:
             return IsExist_Array(forumDetailModel.topicList) ? 1 : 0;
         case 2:
-            return _commentArrM.count;
+            return self.commentArrM.count;
     }
     return 0;
 }
@@ -210,8 +192,23 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
-        case 0:
-            return self.refreshHeight - 1;
+        case 0: {
+            CGFloat height = [YXUniversal calculateCellHeight:0 width:300 text:self.forumModel.summary font:12] + W(150);
+            if (self.forumModel.pic.length > 10) {
+                
+                NSArray *arr = [self.forumModel.pic componentsSeparatedByString:@","];
+                if(IsExist_Array(arr)){
+                    if (arr.count > 3) {
+                        height = height + W(200);
+                    }else{
+                        height = height + W(100);
+                    }
+                }
+            }
+           
+            return height;
+        }
+            
         case 1:
             return H(60);
         case 2:
@@ -246,14 +243,10 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (GLD_NewsCell *)getNewsCellWith: (NSIndexPath *)indexPath{
-    [self.detailTable registerClass:[GLD_NewsCell class] forCellReuseIdentifier:@"GLD_NewsCell"];
-    GLD_NewsCell *cell = [self.detailTable dequeueReusableCellWithIdentifier:@"GLD_NewsCell"];
-    newsCell = cell;
-//    cell.contentString = self.urlString;
-    if (self.refreshHeight == 0) 
-    cell.forumDetailUrl = forumDetailModel.contentWebUrl;
-    cell.delegate =self;
+- (GLD_ForumCell *)getNewsCellWith: (NSIndexPath *)indexPath{
+
+    GLD_ForumCell *cell = [GLD_ForumCell cellWithReuseIdentifier:@"GLD_ForumCell"];
+    cell.detailModel = self.forumModel;
     return cell;
 }
 
@@ -303,28 +296,31 @@
     }
     YXCommentContent2Model *commentModel = _commentArrM[idex.row];
     
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    
+    [dict addEntriesFromDictionary:@{@"id":GetString(commentModel.commentId)}];
+    [dict addEntriesFromDictionary:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId)}];
+    
     __weak typeof(self) weakSelf = self;
-//    YXBBSGoodRequest *request = [YXBBSGoodRequest shareManager];
-//    [request httpPost:nil parameters:@{@"id":GetString(commentModel.commentId),@"questionId":GetString(commentModel.questionId)} block:^(WTBaseRequest *request, NSError *error) {
-//        if (error) {
-//            [weakSelf handleError:error];
-//        }
-//        else
-//        {
-//
-//            NSString *message = request.resultData[@"message"];
-//            [weakSelf toastInfo:message];
-//            if ([message isEqualToString:@"您已经赞过了"]) {
-//                return ;
-//            }
-//            [_commentArrM removeObject:commentModel];
-//            commentModel.like = YES;
-//            commentModel.likeCount += 1;
-//            [_commentArrM insertObject:commentModel atIndex:idex.row];
-//            [weakSelf.detailTable reloadData];
-//        }
-//    }];
-//
+    
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/comment/deleteComment";
+    
+    config.requestParameters = dict;
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            //            [CAToast showWithText:@"认证成功"];
+            [weakSelf.commentArrM removeObject:commentModel];
+            [weakSelf.detailTable reloadData];
+            [CAToast showWithText:@"发送成功"];
+        }else{
+            [CAToast showWithText:@"网络错误"];
+        }
+        
+    }];
+
 }
 
 #pragma NewsCellDelegate
@@ -400,24 +396,27 @@
     
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     
-    [dict addEntriesFromDictionary:@{@"ext2":GetString(self.ext2Title)}];
-    [dict addEntriesFromDictionary:@{@"content":text, @"questionId":self.newsId}];
-    [dict addEntriesFromDictionary:@{@"content":text,@"answerId":self.answerID?self.answerID:@"", @"questionId":GetString(self.newsId),@"type":[NSNumber numberWithInteger:forumDetailModel.type]}];
+    [dict addEntriesFromDictionary:@{@"id":GetString(self.forumModel.newsId)}];
+    [dict addEntriesFromDictionary:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId)}];
+    [dict addEntriesFromDictionary:@{@"content":text}];
     __weak typeof(self) weakSelf = self;
-//    YXBBSAddCommentRequest *request = [YXBBSAddCommentRequest shareManager];
-//    [request httpPost:@"" parameters:dict block:^(WTBaseRequest *request, NSError *error) {
-//        if (error) {
-//            [weakSelf handleError:error];
-//        }
-//        else
-//        {
-//            [weakSelf toastInfo:request.resultData[@"message"]];
-//
-//            weakSelf.commentView.textFeild.text = @"";
-//            [_commentArrM removeAllObjects];
-//            [weakSelf getCommentList];
-//        }
-//    }];
+   
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/comment/addComment";
+    
+    config.requestParameters = dict;
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            //            [CAToast showWithText:@"认证成功"];
+            [weakSelf getCommentList];
+            [CAToast showWithText:@"发送成功"];
+        }else{
+            [CAToast showWithText:@"网络错误"];
+        }
+        
+    }];
 }
 // 收藏
 - (void)xuanfuWithShouCangAction: (UIButton *)senser {
@@ -430,33 +429,7 @@
     {
         opt = @"2";
     }
-    
-    __weak typeof(self) weakSelf = self;
-//    YXBBSFavRequest *request = [YXBBSFavRequest shareManager];
-//    [request httpPost:nil parameters:@{@"id":self.newsId, @"type":opt, @"opt":forumDetailModel.type == 2?@"4":@"2"} block:^(WTBaseRequest *request, NSError *error) {
-//        if (error) {
-//            [weakSelf handleError:error];
-//        }
-//        else
-//        {
-////            YXBaseModel *model = [request.resultArray objectAtIndex:0];
-//
-//            forumDetailModel.collected = !forumDetailModel.collected;
-//            if (forumDetailModel.collected) {
-//                weakSelf.commentView.collectionBut.selected = YES;
-//                [weakSelf toastInfo:@"收藏成功"];
-//                weakSelf.commentView.count = weakSelf.commentView.count + 1;
-//                [weakSelf.commentView countLabelCorlor:YES];
-//            }else{
-//                weakSelf.commentView.collectionBut.selected = NO;
-//                [weakSelf toastInfo:@"取消收藏"];
-//                weakSelf.commentView.count = weakSelf.commentView.count - 1;
-//                [weakSelf.commentView countLabelCorlor:NO];
-//            }
-//
-//
-//        }
-//    }];
+
 //
 }
 - (void)getCommentList{
@@ -475,33 +448,33 @@
         fid = model.fid;
         pageNo++;
     }
-//    YXCommentRequest *request = [YXCommentRequest shareManager];
-//
-//    [request httpPost:@"" parameters:@{@"id":GetString(self.newsId),@"fid":[NSNumber numberWithInteger:fid],@"limit":@"10",@"pageNo":[NSNumber numberWithInteger:pageNo],} block:^(WTBaseRequest *request, NSError *error) {
-//        if (error) {
-//            [weakSelf handleError:error];
-//            if (!IsExist_Array(_commentArrM)) {
-//                [weakSelf showNoDataViewOrLoadView:error];
-//            }
-//            [weakSelf.detailTable.mj_footer endRefreshing];
-//            [weakSelf.detailTable.mj_header endRefreshing];
-//        }else{
-//            [weakSelf hiddenNoDataView];
-//            [weakSelf.detailTable.mj_header endRefreshing];
-//            YXCommentListModel *commentModel = request.resultArray.firstObject;
-//            commentListModel = commentModel;
-//            [weakSelf.detailTable.mj_footer endRefreshing];
-////            if(IsExist_Array(_commentArrM)){
-//                if (commentModel.data.hasMore) {
-//                    [weakSelf.detailTable.mj_footer endRefreshing];
-//                }else{
-//                    [weakSelf.detailTable.mj_footer endRefreshingWithNoMoreData];
-//                }
-////            }
-//
-//            [weakSelf handleCommentList:commentListModel.data.list.copy];
-//        }
-//    }];
+    
+    NSInteger offset = _commentArrM.count;
+    
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/comment/getComments";
+    
+    config.requestParameters = @{@"limit":@"10",
+                                 @"offset":[NSString stringWithFormat:@"%zd",offset],
+                                 @"id":GetString(self.forumModel.newsId),
+                                 };
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            //            [CAToast showWithText:@"认证成功"];
+            YXCommentContent1Model *commentModel = [[YXCommentContent1Model alloc]initWithDictionary:result error:nil];
+            [weakSelf handleCommentList:commentModel.data.copy];
+            
+        }else{
+            [CAToast showWithText:@"网络错误"];
+        }
+        
+                    [weakSelf.detailTable.mj_footer endRefreshing];
+                    [weakSelf.detailTable.mj_header endRefreshing];
+        
+    }];
+
 }
 
 - (void)handleCommentList: (NSArray *)commentArr {
@@ -542,7 +515,6 @@
     
     [self.detailTable reloadData];
 }
-
 
 
 

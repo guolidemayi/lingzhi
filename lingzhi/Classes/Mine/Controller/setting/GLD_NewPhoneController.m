@@ -39,6 +39,7 @@
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     self.navigationItem.rightBarButtonItem = item1;
     self.loginCode = @"-1";
+    self.netManager = [GLD_NetworkAPIManager new];
     [self.view addSubview:self.table_apply];
 }
 - (void)rightButClick{
@@ -54,19 +55,22 @@
     //提交绑定
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/user/sms";
-    config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone)};
+    config.urlPath = @"api/user/changePhone";
+    config.requestParameters = @{@"phone" : GetString(self.verificationTF.text),
+                                 @"userId" : GetString([AppDelegate shareDelegate].userModel.userId)
+                                 };
     
     [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
             
+            [CAToast showWithText:@"绑定成功"];
+            [AppDelegate shareDelegate].userModel.phone = weakSelf.verificationTF.text;
+            for (UIViewController *vc in weakSelf.navigationController.viewControllers) {
+                if ([vc isKindOfClass:NSClassFromString(@"GLD_ChangePhoneController")]) {
+                    [weakSelf.navigationController popToViewController:vc animated:YES];
+                }
+            }
         }
-        [CAToast showWithText:@"绑定成功"];
-    for (UIViewController *vc in weakSelf.navigationController.viewControllers) {
-        if ([vc isKindOfClass:NSClassFromString(@"GLD_ChangePhoneController")]) {
-            [weakSelf.navigationController popToViewController:vc animated:YES];
-        }
-    }
     }];
 }
 

@@ -7,9 +7,12 @@
 //
 
 #import "GLD_BaseViewController.h"
+#import "GLD_ForumModel.h"
 
 @interface GLD_ForumDetailController : GLD_BaseViewController
 
 @property (nonatomic, strong)NSString *newsId;
 @property (nonatomic, strong)NSString *type;  //病例 2。课程答疑 4。   帖子 8
+@property (nonatomic, strong)GLD_ForumDetailModel *forumModel;  //
+
 @end

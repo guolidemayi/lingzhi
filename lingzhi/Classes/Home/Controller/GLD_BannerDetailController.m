@@ -67,6 +67,7 @@
         self.titleLabel.hidden = NO;
         self.shareBut.hidden = YES;
         self.applyBut.hidden = YES;
+        if (index > self.titleArr.count) return;
         self.titleLabel.text = self.titleArr[index];
     }
 }
@@ -98,7 +99,7 @@
         
         
 //        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
-        _cycleView.autoScroll = YES;
+//        _cycleView.autoScroll = YES;
         _cycleView.showPageControl = NO;
         NSArray *arr = [self.bannerModel.Pictures componentsSeparatedByString:@";"];
 //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角

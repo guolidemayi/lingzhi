@@ -50,7 +50,7 @@
         NSRange rang ;
         rang.location = 3;
         rang.length = 4;
-        if (IsExist_String(str))
+        if (str.length == 11)
         str = [str stringByReplacingCharactersInRange:rang withString:@"****"];
         _titleLabel.text = [NSString stringWithFormat:@"手机绑定 ：%@",str];
         _titleLabel.textAlignment = NSTextAlignmentLeft;

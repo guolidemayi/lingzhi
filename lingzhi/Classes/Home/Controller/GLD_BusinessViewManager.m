@@ -21,12 +21,12 @@
     [self.tableView registerClass:[GLD_BusinessCell class] forCellReuseIdentifier:GLD_BusinessCellIdentifier];
     self.tableView.rowHeight = W(100);
 }
-- (void)fetchMainDataWithCondition:(NSString *)condition{
+- (void)fetchMainDataWithCondition:(NSDictionary *)condition{
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/categoryShop";
-    config.requestParameters = @{@"city" : condition};
+    config.requestParameters = condition;
     
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         

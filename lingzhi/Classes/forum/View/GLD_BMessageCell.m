@@ -35,27 +35,6 @@ NSString *const GLD_BMessageCellIdentifi = @"GLD_BMessageCellIdentifi";
     return self;
 }
 
-- (void)setCCdetailModel:(GLD_ForumDetailModel *)CCdetailModel{
-    _CCdetailModel = CCdetailModel;
-    [_iconImageV yy_setImageWithURL:[NSURL URLWithString:CCdetailModel.headIco] placeholder:[UIImage imageNamed:@"default"]];
-    _dutyLabel.text = CCdetailModel.dutie;
-    _hospitalLabel.text = CCdetailModel.companyName;
-    _titleLabel.text = CCdetailModel.title;
-    if (!IsExist_String(CCdetailModel.imageUrl)) {
-        [_titleImgV mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(WIDTH(0.1));
-        }];
-        [self layoutIfNeeded];
-    } else {
-        [_titleImgV mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(WIDTH(128));
-        }];
-        [self layoutIfNeeded];
-        [_titleImgV yy_setImageWithURL:[NSURL URLWithString:CCdetailModel.imageUrl] placeholder:nil];
-    }
-    _nameLabel.text = !IsExist_String(CCdetailModel.userName)?CCdetailModel.nickName:CCdetailModel.userName;
-}
-
 - (void)setUpUI{
     _iconImageV = [[UIImageView alloc]init];
     _iconImageV.layer.cornerRadius = W(17);

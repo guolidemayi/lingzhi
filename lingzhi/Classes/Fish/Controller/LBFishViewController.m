@@ -110,20 +110,12 @@
     [titleBut setTitle:@"搜索" forState:UIControlStateNormal];
     [titleBut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [titleBut setImage:WTImage(@"搜索-搜索") forState:UIControlStateNormal];
-    titleBut.frame = CGRectMake(0, 0, 150, 40);
-    titleBut.layer.cornerRadius = 20;
+    titleBut.frame = CGRectMake(0, 0, W(150), W(30));
+    titleBut.layer.cornerRadius = W(15);
     titleBut.layer.masksToBounds = YES;
     [titleBut addTarget:self action:@selector(SearchCLick) forControlEvents:UIControlEventTouchUpInside];
     titleBut.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = titleBut;
-    
-    GLD_CustomBut *rightBut = [[GLD_CustomBut alloc]init];;
-    
-    rightBut.frame = CGRectMake(0, 0, 50, 44);
-    [rightBut image:@"消息"];
-    
-    UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
-    self.navigationItem.rightBarButtonItem = item1;
     
 }
 //搜索

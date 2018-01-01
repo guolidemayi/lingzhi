@@ -116,7 +116,7 @@
         
     }else{
         self.yaoqingBut.enabled = YES;
-        [self.yaoqingBut setBackgroundImage:[UIImage imageNamed:@"发表-输入"] forState:UIControlStateNormal];
+        [self.yaoqingBut setBackgroundImage:[UIImage imageNamed:@"发表"] forState:UIControlStateNormal];
         self.placeHolderLabel.text = @"";//这里给空
     }
   

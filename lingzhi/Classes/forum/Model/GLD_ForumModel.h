@@ -16,8 +16,9 @@
 
 @property (nonatomic, copy)NSString *dutie;//职称
 @property (nonatomic, copy)NSString *companyName;
-@property (nonatomic, copy)NSString *headIco;//
-@property (nonatomic, copy)NSString *imageUrl;
+@property (nonatomic, copy)NSString *userPhone;//
+@property (nonatomic, copy)NSString *pic;
+
 @property (nonatomic, copy)NSString *newsId;
 @property (nonatomic, copy)NSString *nickName;
 @property (nonatomic, copy)NSString *userName;
@@ -35,9 +36,9 @@
 @end
 @interface GLD_ForumModel : YXBaseModel
 
-@property (nonatomic, strong) NSMutableArray<GLD_ForumDetailModel> *list;
-@property (nonatomic, assign)BOOL hasMore;
-@property (nonatomic, assign)NSInteger totalNum;
+@property (nonatomic, strong) NSMutableArray<GLD_ForumDetailModel> *data;
+
+
 @end
 
 @interface GLD_ForumSearchModel : YXBaseModel

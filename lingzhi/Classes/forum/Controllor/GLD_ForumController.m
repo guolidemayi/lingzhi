@@ -27,10 +27,11 @@
     NSInteger addButIsShow;
 }
 @property (nonatomic, weak)UITableView *LTanTableView;
-@property (nonatomic, strong)UIView *topView;
+//@property (nonatomic, strong)UIView *topView;
 @property (nonatomic, assign)CGFloat lastContentOffset;
 @property (nonatomic, weak)UIButton *addBut;
 @property (nonatomic, strong)NSMutableArray *forumListArrM;
+@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @end
 
 @implementation GLD_ForumController
@@ -43,8 +44,8 @@
     _forumListArrM = [NSMutableArray arrayWithCapacity:0];
     
     // Do any additional setup after loading the view.
+    self.NetManager = [GLD_NetworkAPIManager new];
     [self addTableUP];
-    [self titleArrRequest];
     [self forumDetailRequest];
    
     
@@ -55,22 +56,7 @@
     
 }
 - (void)reLoadMainData{
-    [self titleArrRequest];
     [self forumDetailRequest];
-}
-- (void)titleArrRequest{
-//    GLD_ForumTopicRequest *request = [GLD_ForumTopicRequest shareManager];
-//    [request httpPost:@"" parameters:nil block:^(WTBaseRequest *request, NSError *error) {
-//        if (error) {
-//
-//        }else{
-//            GLD_TopicDataModel *model = request.resultArray.firstObject;
-//            titleArr = model.data;
-//            [self.LTanTableView reloadData];
-//
-//        }
-//    }];
-//    titleArr = @[@"# 高血压",@"# 心脏病",@"#心脏病心脏病"];
 }
 
 
@@ -111,67 +97,33 @@
         pageNo = 1;
     }
 
-    WS(weakSelf)
-//    GLD_ForumRequest *request = [GLD_ForumRequest shareManager];
-//    [request httpPost:@"" parameters:@{@"pageNo":[NSString stringWithFormat:@"%zd",pageNo]} block:^(WTBaseRequest *request, NSError *error) {
-//        if (error) {
-//            [weakSelf showNoDataViewOrLoadView:error];
-//            [weakSelf.LTanTableView.mj_footer endRefreshing];
-//            [weakSelf.LTanTableView.mj_header endRefreshing];
-//        } else {
-//            [weakSelf hiddenNoDataView];
-//            GLD_ForumModel *model = request.resultArray.firstObject;
-//            if (model.list.count > 0) {
-//                [_forumListArrM addObjectsFromArray:model.list];
-//                [weakSelf.LTanTableView.mj_footer endRefreshing];
-//            } else {
-//                [weakSelf.LTanTableView.mj_footer endRefreshingWithNoMoreData];
-//            }
-//            [weakSelf.LTanTableView.mj_header endRefreshing];
-//            [weakSelf.LTanTableView reloadData];
-//        }
-//    }];
-}
-
-- (UIView *)topView{
-    if (!_topView) {
-        UIView *topview = [[UIView alloc]init];
-        [self.view addSubview:topview];
-            topview.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_butbackColor];
-        _topView = topview;
-        UIButton *but = [[UIButton alloc]init];
-        [but addTarget:self action:@selector(searchClick) forControlEvents:UIControlEventTouchUpInside];
-        [topview addSubview:but];
-        [but setImage:WTImage(@"icon_sousuo") forState:UIControlStateNormal];
-        [but setTitle:@"  搜索" forState:UIControlStateNormal];
-        [but setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTline2Gray] forState:UIControlStateNormal];
-        but.backgroundColor = [YXUniversal colorWithHexString:@"#F2F2F2"];
-        but.layer.cornerRadius = 5;
-        but.layer.masksToBounds = YES;
-        UIView *lineView = [[UIView alloc]init];
-        lineView.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_tableFooter];
-        [topview addSubview:lineView];
-
-        UIView *lineView1 = [[UIView alloc]init];
-        lineView1.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_tableFooter];
-        [topview addSubview:lineView1];
+    NSInteger offset = self.forumListArrM.count;
+    WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/comment/bbslist";
+  
+    config.requestParameters = @{@"limit":@"10",
+                                 @"offset":[NSString stringWithFormat:@"%zd",offset]
+                                 };
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+//            [CAToast showWithText:@"认证成功"];
+            GLD_ForumModel *model = [[GLD_ForumModel alloc]initWithDictionary:result error:nil];
+//            GLD_ForumDetailModel *TZdetailModel
+            [weakSelf.forumListArrM addObjectsFromArray:model.data];
+            [weakSelf.LTanTableView reloadData];
+        }else{
+            [CAToast showWithText:@"网络错误"];
+        }
+        [weakSelf.LTanTableView.mj_header endRefreshing];
+        [weakSelf.LTanTableView.mj_footer endRefreshing];
         
-        [but mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.center.equalTo(topview);
-            make.height.equalTo(HEIGHT(29));
-            make.width.equalTo(WIDTH(345));
-        }];
-        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.bottom.right.equalTo(topview);
-            make.height.equalTo(HEIGHT(0.5));
-        }];
-        [lineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.right.equalTo(topview);
-            make.height.equalTo(HEIGHT(0.5));
-        }];
-    }
-    return _topView;
+    }];
 }
+
+
 - (void)addTableUP{
     
     [self.LTanTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -231,13 +183,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (!IsExist_Array(_forumListArrM))return [[UITableViewCell alloc]init];
     GLD_ForumDetailModel *model = _forumListArrM[indexPath.row];
-    if ([model.type isEqualToString:@"2"]) {
-        //病例
-         return [self setBLMessageModel:model andIdexPath:indexPath];
-    }else if([model.type isEqualToString:@"4"]){
-        //课程答疑
-        return [self setBMessageModel:model andIdexPath:indexPath];
-    }
+//    if ([model.type isEqualToString:@"2"]) {
+//        //病例
+//         return [self setBLMessageModel:model andIdexPath:indexPath];
+//    }else if([model.type isEqualToString:@"4"]){
+//        //课程答疑
+//        return [self setBMessageModel:model andIdexPath:indexPath];
+//    }
     return [self setTMessageModel:model andIdexPath:indexPath];
 }
 
@@ -251,7 +203,7 @@
 - (UITableViewCell *)setTMessageModel:(GLD_ForumDetailModel *)model andIdexPath:(NSIndexPath *)indexPath{
     [self.LTanTableView registerClass:[GLD_TMessageCell class] forCellReuseIdentifier:GLD_TMessageCellIdentifi];
     GLD_TMessageCell *cell = [self.LTanTableView dequeueReusableCellWithIdentifier:GLD_TMessageCellIdentifi];
-    cell.TZdetailModel = model;
+    cell.BLdetailModel = model;
     
     return cell;
 }
@@ -267,15 +219,9 @@
 }
 
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc]init];
-//    if (IsExist_Array(titleArr))
-    [self setTopViewContent:titleArr andSupView:headerView];
-    return headerView;
-}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return W(98);
+    return W(0.01);
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return [UIView new];
@@ -285,6 +231,7 @@
     GLD_ForumDetailModel *Model = _forumListArrM[indexPath.row];
     detailVc.type = Model.type;
     detailVc.newsId = Model.newsId;
+    detailVc.forumModel = Model;
     [self.navigationController pushViewController:detailVc animated:YES];
 }
 - (void)tieziButClick:(GLD_DrawBut *)but{
@@ -295,49 +242,7 @@
     [self.navigationController pushViewController:vc animated:YES];
     
 }
-- (void)setTopViewContent:(NSArray *)tArr andSupView:(UIView *)view{
-    
-    UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, W(44), DEVICE_WIDTH, W(54))];
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.backgroundColor = [UIColor whiteColor];
-    [view addSubview:scrollView];
-    [view addSubview:self.topView];
-    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(view);
-        make.height.equalTo(WIDTH(44));
-        make.top.equalTo(view);
-    }];
-    [self.LTanTableView setContentOffset:CGPointMake(0, W(44)) animated:NO];
-    CGFloat h = W(34);
-    CGFloat x = W(15);
-    for (int i = 0; i < tArr.count; i++) {
-        GLD_TopicModel *model = tArr[i];
-        CGFloat beW = [YXUniversal calculateLabelWidth:20 text:[NSString stringWithFormat:@"# %@",model.categoryName] font:WTFont(15)]+ 15;
-        
-        CGFloat butW = MAX(beW, W(90));
-        NSString *butTitle = [NSString stringWithFormat:@"#%@",model.categoryName];
-        
-        NSInteger type = [butTitle hash] % 7;
-        if (type < 0) {
-            type = 0 - type;
-        }
-        NSLog(@"标题 = %@，type= %zd, hash = %zd ", butTitle ,type,[butTitle hash] );
-        GLD_DrawBut *but = [[GLD_DrawBut alloc]initWithFrame:CGRectMake(x, W(10), butW, h) andType:type];
-        but.tag = i;
-        but.type = type;
-        [but addTarget:self action:@selector(tieziButClick:) forControlEvents:UIControlEventTouchUpInside];
-        [but setTitle:butTitle forState:UIControlStateNormal];
-        [scrollView addSubview:but];
-        [but setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE] forState:UIControlStateNormal];
-        but.titleLabel.font = WTFont(15);
-        
-        x = x + butW + W(15);
-        [but startDrawlineChart];
-    }
-    scrollView.contentSize = CGSizeMake(x, 0);
-    
-}
+
 
 - (UITableView *)LTanTableView{
     if (!_LTanTableView) {

@@ -40,7 +40,7 @@
     UIButton *rightBut = [[UIButton alloc]init];;
     self.collectBut = rightBut;
     rightBut.frame = CGRectMake(0, 0, 50, 44);
-    [rightBut setImage:WTImage(@"starEvaluateYes") forState:UIControlStateNormal];
+    [rightBut setImage:WTImage(@"btn_shoucang_null") forState:UIControlStateNormal];
     [rightBut addTarget:self action:@selector(collectionClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     self.navigationItem.rightBarButtonItem = item1;

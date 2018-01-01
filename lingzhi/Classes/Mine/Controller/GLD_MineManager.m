@@ -203,7 +203,7 @@
 
 - (GLD_MyStoreCell *)getMyStoreCell:(NSIndexPath *)indexPath{
     GLD_MyStoreCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_MyStoreCellIdentifier];
-    cell.height = hasLogin ? W(80) : 0;
+    cell.height = (hasLogin && [AppDelegate shareDelegate].userModel.isHasBusness) ? W(80) : 0;
     return cell;
 
 }

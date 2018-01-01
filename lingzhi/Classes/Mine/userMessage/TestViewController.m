@@ -321,8 +321,8 @@
                 [cell.contentView addSubview:self.iconImgV];
                 [self.iconImgV mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.centerY.equalTo(cell.contentView);
-                    make.height.equalTo(WIDTH(20));
-                    make.width.equalTo(WIDTH(20));
+                    make.height.equalTo(WIDTH(35));
+                    make.width.equalTo(WIDTH(35));
                     make.right.equalTo(cell.contentView).offset(W(-15));
                 }];
             }
@@ -529,7 +529,7 @@
         _iconImgV = [UIImageView new];
         _iconImgV.userInteractionEnabled = YES;
         [_iconImgV addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(iconImgVClick)]];
-        _iconImgV.layer.cornerRadius = W(10);
+        _iconImgV.layer.cornerRadius = W(17);
         _iconImgV.layer.masksToBounds = YES;
         _iconImgV.image = WTImage(@"默认头像");
     }
