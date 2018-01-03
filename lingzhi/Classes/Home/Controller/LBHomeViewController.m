@@ -78,18 +78,24 @@
 }
 //搜索
 - (void)SearchCLick{
-    [CAToast showWithText:@""];
     GLD_SearchController *searchVc = [GLD_SearchController new];
     [self.navigationController pushViewController:searchVc animated:YES];
 }
 //城市列表
 - (void)mapNav{
+    WS(weakSelf);
     GLD_CityListController *cityList = [GLD_CityListController new];
     cityList.locationCity = self.locationStr;
-    WS(weakSelf);
-    cityList.cityListBlock = ^(NSString *name) {
-        [weakSelf.locationBut title:name];
+    cityList.cityListBlock = ^(GLD_CityModel *placemar) {
+        [weakSelf.locationBut title:placemar.area_name];
+//        weakSelf.locationStr = name;
+        [AppDelegate shareDelegate].placemark = placemar;
+        [weakSelf.homeManager fetchMainData];
     };
+    
+//    cityList.cityListBlock = ^(NSString *name) {
+//        [weakSelf.locationBut title:name];
+//    };
     [self.navigationController pushViewController:cityList animated:YES];
 
 }
@@ -118,7 +124,11 @@
 
             [weakSelf.locationBut title:placemark.locality];
             weakSelf.locationStr = placemark.locality;
-            [AppDelegate shareDelegate].placemark = placemark;
+            GLD_CityModel *placemar = [GLD_CityModel new];
+            placemar.area_name = placemark.locality;
+            placemar.lat = placemark.location.coordinate.latitude;
+            placemar.lon = placemark.location.coordinate.longitude;
+            [AppDelegate shareDelegate].placemark = placemar;
 //            CLLocationCoordinate2D
         } else {
             weakSelf.locationStr = @"定位失败";

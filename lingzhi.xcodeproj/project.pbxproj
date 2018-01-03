@@ -98,6 +98,7 @@
 		0F2C2F6B1FF6338F0083BCCB /* InputKeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2C2F6A1FF6338F0083BCCB /* InputKeyboardView.m */; };
 		0F2C2F6E1FF6362A0083BCCB /* GLD_PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2C2F6D1FF6362A0083BCCB /* GLD_PhotoView.m */; };
 		0F2C2F711FF6368E0083BCCB /* YXRecordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2C2F701FF6368E0083BCCB /* YXRecordButton.m */; };
+		0F2C2F791FFC839E0083BCCB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F2C2F781FFC839E0083BCCB /* Images.xcassets */; };
 		0F326F251FF49D9A00A90106 /* user_industry.json in Resources */ = {isa = PBXBuildFile; fileRef = 0F326F241FF49D9A00A90106 /* user_industry.json */; };
 		0F326F281FF49F7600A90106 /* GLD_ChooseIndustryControllr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F326F271FF49F7600A90106 /* GLD_ChooseIndustryControllr.m */; };
 		0F326F2C1FF4AED500A90106 /* GLD_MyOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F326F2A1FF4AED500A90106 /* GLD_MyOrderCell.m */; };
@@ -403,6 +404,7 @@
 		0F2C2F6D1FF6362A0083BCCB /* GLD_PhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLD_PhotoView.m; sourceTree = "<group>"; };
 		0F2C2F6F1FF6368E0083BCCB /* YXRecordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXRecordButton.h; sourceTree = "<group>"; };
 		0F2C2F701FF6368E0083BCCB /* YXRecordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXRecordButton.m; sourceTree = "<group>"; };
+		0F2C2F781FFC839E0083BCCB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0F326F241FF49D9A00A90106 /* user_industry.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = user_industry.json; sourceTree = "<group>"; };
 		0F326F261FF49F7600A90106 /* GLD_ChooseIndustryControllr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ChooseIndustryControllr.h; sourceTree = "<group>"; };
 		0F326F271FF49F7600A90106 /* GLD_ChooseIndustryControllr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ChooseIndustryControllr.m; sourceTree = "<group>"; };
@@ -1094,6 +1096,7 @@
 				0F60E9C11FC2754300C5E113 /* Main.storyboard */,
 				0F60E9C91FC2754300C5E113 /* Info.plist */,
 				0F298EAB1FC2D30400EDBA9A /* PrefixHeader.pch */,
+				0F2C2F781FFC839E0083BCCB /* Images.xcassets */,
 			);
 			path = lingzhi;
 			sourceTree = "<group>";
@@ -1673,6 +1676,7 @@
 				0F326F251FF49D9A00A90106 /* user_industry.json in Resources */,
 				0F2C2EFD1FF4EF1D0083BCCB /* GLD_GetMoneyCell.xib in Resources */,
 				0F326F2D1FF4AED500A90106 /* GLD_MyOrderCell.xib in Resources */,
+				0F2C2F791FFC839E0083BCCB /* Images.xcassets in Resources */,
 				332D9B111FFA011D00A86304 /* GLD_ForumCell.xib in Resources */,
 				0F298EA61FC2D18600EDBA9A /* read_me.txt in Resources */,
 				0F298E841FC2CFC200EDBA9A /* MTShareView.xib in Resources */,
@@ -2179,6 +2183,7 @@
 			baseConfigurationReference = B71A964312F2EC99F300DABB /* Pods-lingzhi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48WYF6MTZ2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2194,7 +2199,7 @@
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/WeChat",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/Weibo",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lingzhi.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huihui.lingzhi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2205,6 +2210,7 @@
 			baseConfigurationReference = 075C245191CB367AE2029273 /* Pods-lingzhi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48WYF6MTZ2;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2220,7 +2226,7 @@
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/WeChat",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/Weibo",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lingzhi.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.huihui.lingzhi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

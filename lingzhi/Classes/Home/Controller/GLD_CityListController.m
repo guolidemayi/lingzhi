@@ -7,13 +7,17 @@
 //
 
 #import "GLD_CityListController.h"
+#import "GLD_CityModel.h"
 
 @interface GLD_CityListController ()<UITableViewDelegate, UITableViewDataSource>
 /** 列表视图 */
 @property (strong, nonatomic) UITableView *tableView;
 
 /** 区头数组 */
-@property (strong, nonatomic) NSMutableArray *sectionArray;
+@property (copy, nonatomic) NSArray *sectionArray;
+
+/** 区头数组 */
+@property (copy, nonatomic) NSDictionary *dataDict;
 /** 定位城市ID */
 @property (assign, nonatomic) NSInteger Id;
 @property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
@@ -61,32 +65,13 @@
     
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-        
+        if (!error) {
+            weakSelf.dataDict = result[@"data"];
+            weakSelf.sectionArray = [weakSelf.dataDict.allKeys sortedArrayUsingSelector:@selector(compare:)];
+            [weakSelf.tableView reloadData];
+        }
         
     }];
-}
-#pragma mark -- 懒加载
-// 区头数组
-- (NSMutableArray *)sectionArray {
-    if (!_sectionArray) {
-        _sectionArray = [NSMutableArray new];
-        for (GLD_CityListModel *cityList in self.cityModel.list) {
-            [_sectionArray addObject:cityList.initial];
-        }
-//        [_sectionArray insertObject:@"热门" atIndex:0];
-    }
-    return _sectionArray;
-}
-
-
-
-- (GLD_CityMainModel *)cityModel {
-    if (!_cityModel) {
-        //        NSString *path = [[NSBundle mainBundle] pathForResource:kCityData ofType:nil];
-        //        NSDictionary *data = [NSDictionary dictionaryWithContentsOfFile:path];
-        //        _cityModel = [SLCityModel mj_objectWithKeyValues:data];
-    }
-    return _cityModel;
 }
 
 
@@ -116,10 +101,7 @@
     [self setupTopView];
     // 定位方法
     //    [self locationAction:self.cityLocationView];
-    
-    
-    
-    
+ 
     [self.view addSubview:self.tableView];
     
     // 定位索引图片
@@ -141,25 +123,10 @@
     
     self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
     // 设置标题
-    self.navigationItem.title = self.cityModel.selectedCityId? [NSString stringWithFormat:@"当前选择-%@", self.cityModel.selectedCity]: @"选择城市";
-    [self selectdeCity];
-}
-- (void)selectdeCity {
-    
-    // 遍历选择
-    for (GLD_CityListModel *cityList in self.cityModel.list) {
-        for (GLD_CityModel *city in cityList.citys) {
-            
-            if (city.Id == self.cityModel.selectedCityId) {
-                city.selected = YES;
-            } else {
-                city.selected = NO;
-            }
-        }
-    }
-    
+//    self.navigationItem.title = self.cityModel.selectedCityId? [NSString stringWithFormat:@"当前选择-%@", self.cityModel.selectedCity]: @"选择城市";
     
 }
+
 
 #pragma mark -- 定位
 /// 定位选择
@@ -183,39 +150,68 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    GLD_CityListModel *model = self.cityModel.list[section - 1];
-    return section? model.citys.count: 1;
+   NSArray *arr = self.dataDict[self.sectionArray[section]];
+    
+    return arr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     
-    
+    }
+    cell.textLabel.font = WTFont(15);
+    NSArray *arr = self.dataDict[self.sectionArray[indexPath.section]];
+    NSDictionary *dict = arr[indexPath.row];
+    cell.textLabel.text = dict[@"area_name"];
     //    SLCityListCell *cell = [tableView dequeueReusableCellWithIdentifier:cityListCell forIndexPath:indexPath];
     //    cell.city = self.cityModel.list[indexPath.section - 1].citys[indexPath.row];
     
-    return [UITableViewCell new ];
+    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return indexPath.section? 33: self.cityModel.hotCellH;
-}
 
+    return W(44);
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return W(30);
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UITableViewHeaderFooterView *header = [[UITableViewHeaderFooterView alloc]initWithReuseIdentifier:@"sysHeaderView"];
+    if (header == nil) {
+        header = [[UITableViewHeaderFooterView alloc]initWithReuseIdentifier:@"sysHeaderView"];
+    }
+    UILabel *titleLabel = [UILabel creatLableWithText:@"" andFont:WTFont(12) textAlignment:NSTextAlignmentLeft textColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE]];
+    [header.contentView addSubview:titleLabel];
+    titleLabel.frame = CGRectMake(15, 0, 100, W(30));
+    titleLabel.text = self.sectionArray[section];
+    return header;
+}
 - (NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     
     return self.sectionArray;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    
-    return section? 18: 0.;
-}
 
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    NSArray *arr = self.dataDict[self.sectionArray[indexPath.section]];
+    NSDictionary *dict = arr[indexPath.row];
+    
+    if (self.cityListBlock) {
+        GLD_CityModel *placemar = [GLD_CityModel new];
+        placemar.area_name = dict[@"area_name"];
+        placemar.lat = [dict[@"lat"] floatValue];
+        placemar.lon = [dict[@"lon"] floatValue];
+        self.cityListBlock(placemar);
+        [self.navigationController popViewControllerAnimated:YES];
+    }
     if (indexPath.section == 0) return;
     
     if (_delegate && [_delegate respondsToSelector:@selector(sl_cityListSelectedCity:Id:)]) {

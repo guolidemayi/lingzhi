@@ -68,7 +68,7 @@ NSString *const GLD_HomeListCellIdentifier = @"GLD_HomeListCellIdentifier";
         return;
     }
     GLD_BusinessListController *listVc = [[GLD_BusinessListController alloc]init];
-    listVc.cityName = [AppDelegate shareDelegate].placemark.locality;
+    listVc.cityName = [AppDelegate shareDelegate].placemark.area_name;
 
     listVc.model = self.listData[indexPath.row];
     [self.collectionView.navigationController pushViewController:listVc animated:YES];

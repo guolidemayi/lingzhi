@@ -155,6 +155,10 @@
 - (void)getSMS{
     WS(weakSelf);
     
+    if (self.phoneField.text.length < 11) {
+        [CAToast showWithText:@"请输入正确的手机号"];
+        return;
+    }
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/user/login";

@@ -13,6 +13,7 @@
 #import "MTShareModule.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import "GLD_UserMessageModel.h"
+#import "GLD_CityModel.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -21,7 +22,7 @@
 @property (nonatomic, copy)NSString *token;//用户token
 @property (nonatomic, copy)NSString *deviceId;
 @property (nonatomic, assign)BOOL *hasLogin;//是否登陆
-@property (nonatomic, strong)CLPlacemark *placemark;
+@property (nonatomic, strong)GLD_CityModel *placemark;
 @property (nonatomic, strong)GLD_UserMessageModel *userModel;
 - (void)initMainPageBody;
 + (AppDelegate *)shareDelegate;

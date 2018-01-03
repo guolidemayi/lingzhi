@@ -11,59 +11,31 @@
 #import "GLD_BusinessCell.h"
 #import "GLD_BusnessModel.h"
 
-@interface GLD_SearchController ()<UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
+@interface GLD_SearchController ()<UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate>
 @property (nonatomic, strong)UITableView *table_apply;
 @property (nonatomic, strong)NSArray *dataArr;
-@property (nonatomic, weak)UITextField *textFeild;
 @property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @property (nonatomic, strong)GLD_BusnessLisModel *busnessListModel;
-
+@property (nonatomic, strong)UISearchBar *searchBar;
 @end
 
 @implementation GLD_SearchController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+       self.NetManager = [GLD_NetworkAPIManager new];
     [self setupSearchView];
+    self.navigationItem.titleView = self.searchBar;;
+    
+    [self.searchBar becomeFirstResponder];
     [self.view addSubview:self.table_apply];
 }
-
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.searchBar resignFirstResponder];
+}
 - (void)setupSearchView{
     
-    
-    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, W(150), W(36))];
-    bgView.backgroundColor = [UIColor whiteColor];
-    bgView.layer.cornerRadius = W(18);
-    bgView.layer.masksToBounds = YES;
-    
-    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(WIDTH(36));
-        make.width.equalTo(WIDTH(180));
-    }];
-    
-    UIImageView *imgV = [UIImageView new];
-    imgV.image = WTImage(@"搜索-搜索");
-    [bgView addSubview:imgV];
-    [imgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(bgView);
-        make.left.equalTo(bgView).offset(W(15));
-        make.height.width.equalTo(WIDTH(20));
-    }];
-    
-    UITextField *textFeild = [[UITextField alloc]init];
-    textFeild.placeholder = @"请输入商家名称";
-    textFeild.delegate = self;
-    self.textFeild = textFeild;
-    [bgView addSubview:textFeild];
-    [textFeild mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(imgV.mas_right);
-        make.centerY.equalTo(bgView);
-        make.height.equalTo(WIDTH(30));
-        make.right.equalTo(bgView);
-    }];
-    [textFeild becomeFirstResponder];
-    self.navigationItem.titleView = bgView;
     
     GLD_CustomBut *rightBut = [[GLD_CustomBut alloc]init];;
     [rightBut addTarget:self action:@selector(searchClick) forControlEvents:UIControlEventTouchUpInside];
@@ -74,21 +46,22 @@
     self.navigationItem.rightBarButtonItem = item1;
     
 }
+
 //搜索
 - (void)searchClick{
-    [self searchForData:self.textFeild.text];
-    [self.textFeild resignFirstResponder];
+    [self searchForData:self.searchBar.text];
+    [self.searchBar resignFirstResponder];
 }
 - (void)searchForData:(NSString *)str{
-    self.NetManager = [GLD_NetworkAPIManager new];
+
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/searchShop";
     config.requestParameters = @{@"keyword" : str};
-    
+
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-        
+
         weakSelf.busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
         [weakSelf.table_apply reloadData];
     }];
@@ -135,5 +108,14 @@
     }
     return _table_apply;
 }
-
+- (UISearchBar *)searchBar{
+    if (!_searchBar) {
+        
+        UISearchBar *searBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, W(100), W(35))];
+        _searchBar = searBar;
+        _searchBar.delegate = self;
+        self.searchBar.placeholder = @"请输入商家名称";
+    }
+    return _searchBar;
+}
 @end

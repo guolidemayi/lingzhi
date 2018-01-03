@@ -13,18 +13,13 @@
 {
     return YES;
 }
++(JSONKeyMapper*)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"id" : @"Id",
+                                                       }];
+}
 @end
 
-@implementation GLD_CityListModel
-+(BOOL)propertyIsOptional:(NSString*)propertyName;
-{
-    return YES;
-}
-@end
-@implementation GLD_CityMainModel
-+(BOOL)propertyIsOptional:(NSString*)propertyName;
-{
-    return YES;
-}
-@end
+
 

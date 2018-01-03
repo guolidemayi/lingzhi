@@ -33,7 +33,7 @@
     [super viewDidLoad];
     [self setupUI];
     [self layout];
-    
+    self.title = @"详情";
 }
 
 - (void)setupUI{

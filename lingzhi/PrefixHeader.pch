@@ -11,9 +11,9 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
-#import "UINavigationController+FDFullscreenPopGesture.h"
-#import "Constants.h"
+
 #import "CAToast.h"
+#import "Constants.h"
 #import "WTFont.h"
 #import "AppDelegate.h"
 #import "YXUniversal.h"
@@ -29,7 +29,7 @@
 #import "SDAutoLayout.h"
 #import "UIView+gldController.h"
 #import "UILabel+StringFrame.h"
-
+#import "UINavigationController+FDFullscreenPopGesture.h"
 #define userHasLogin       @"userHasLogin"
 
 #define hasLogin  [[NSUserDefaults standardUserDefaults] boolForKey:userHasLogin]

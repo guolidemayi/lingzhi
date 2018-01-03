@@ -9,51 +9,20 @@
 #import <JSONModel/JSONModel.h>
 
 
-@protocol GLD_CityModel
-
-@end
 @interface GLD_CityModel : NSObject
 
 
 /** 城市 */
-@property (strong, nonatomic) NSString *name;
+@property (strong, nonatomic) NSString *area_name;
 /** ID */
 @property (assign, nonatomic) NSInteger Id;
+/** 子区域id */
+@property (strong, nonatomic) NSString *parent_id;
 
-/** 是否被选中 */
-@property (assign, nonatomic, getter=isSelected) BOOL selected;
+@property (strong, nonatomic) NSString *first;//头。如： Q
 
-
-
-
-@end
-@protocol GLD_CityListModel
-
-@end
-@interface GLD_CityListModel : JSONModel
-
-/** 城市数组 */
-@property (strong, nonatomic) NSArray<GLD_CityModel> *citys;
-
-/** 首字母 */
-@property (strong, nonatomic) NSString *initial;
-
-
-
-@end
-@interface GLD_CityMainModel : JSONModel
-
-/** 城市列表 */
-@property (strong, nonatomic) NSArray<GLD_CityListModel> *list;
-
-/** 选中城市 */
-@property (strong, nonatomic) NSString *selectedCity;
-
-/** 选中城市ID */
-@property (assign, nonatomic) NSInteger selectedCityId;
-
-/** 高度 */
-@property (assign, nonatomic) CGFloat hotCellH;
+@property (assign, nonatomic) CGFloat lat;//经
+@property (assign, nonatomic) CGFloat lon;
 @end
 
 

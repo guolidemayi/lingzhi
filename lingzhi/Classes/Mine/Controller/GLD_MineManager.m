@@ -41,9 +41,13 @@
     [self.tableView registerClass:[GLD_MineWalletCell class] forCellReuseIdentifier:GLD_MineWalletCellIdentifier];
     [self.tableView registerClass:[GLD_MineSettingCell class] forCellReuseIdentifier:GLD_MineSettingCellIdentifier];
     [self.tableView registerClass:[GLD_MyStoreCell class] forCellReuseIdentifier:GLD_MyStoreCellIdentifier];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//            self.tableView.delegate = self;
+//            tableView.dataSource = self;
+
 }
 - (void)fetchMainData{
-//    self.tableView.tableHeaderView = self.hasLoginHeadView;
+
     WS(weakSelf);
     NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"loginToken"];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
@@ -141,8 +145,10 @@
             self.codeLabel.text = [NSString stringWithFormat:@"编号  %@", [AppDelegate shareDelegate].userModel.code];
             [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:[AppDelegate shareDelegate].userModel.iconImage] placeholder:WTImage(@"默认头像")];
             return self.hasLoginHeadView;
+        }else{
+            
+            return self.headView;
         }
-        return self.headView;
     }
     UIView *v = [UIView new];
     v.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTTopLine];
@@ -175,7 +181,8 @@
     return 0.0001;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3 + self.dataArr.count;
+//    return 3 + self.dataArr.count;
+    return 6;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -186,7 +193,7 @@
             return [self getMinePerconalCell:indexPath];
             break;
         case 1:
-            return [self getMineWalletCell:indexPath];            
+            return [self getMineWalletCell:indexPath];
             break;
         case 2:
             return [self getMyStoreCell:indexPath];

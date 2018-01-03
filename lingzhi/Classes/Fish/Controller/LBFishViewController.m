@@ -51,9 +51,9 @@
     config.urlPath = @"api/main/shopList";
     config.requestParameters = @{
                                  @"type" : @(type),
-                                 @"city":@"北京",
-                                 @"lat:":[NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.location.coordinate.latitude],
-                                 @"lng:" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.location.coordinate.longitude]
+                                 @"city":[AppDelegate shareDelegate].placemark.area_name ? [AppDelegate shareDelegate].placemark.area_name:@"北京",
+                                 @"lat:":[NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lat],
+                                 @"lng:" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lon]
                                  };
     
     
@@ -91,7 +91,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     if([AppDelegate shareDelegate].placemark){
-        [self.locationBut title:[AppDelegate shareDelegate].placemark.locality];
+        [self.locationBut title:[AppDelegate shareDelegate].placemark.area_name];
     }else{
         [self.locationBut title:@"定位失败"];
     }
@@ -128,8 +128,11 @@
     GLD_CityListController *cityList = [GLD_CityListController new];
     cityList.locationCity = self.locationStr;
     WS(weakSelf);
-    cityList.cityListBlock = ^(NSString *name) {
-        [weakSelf.locationBut title:name];
+    cityList.cityListBlock = ^(GLD_CityModel *placemar) {
+        [weakSelf.locationBut title:placemar.area_name];
+        //        weakSelf.locationStr = name;
+        [AppDelegate shareDelegate].placemark = placemar;
+        [weakSelf getbusnessList:2];
     };
     [self.navigationController pushViewController:cityList animated:YES];
     

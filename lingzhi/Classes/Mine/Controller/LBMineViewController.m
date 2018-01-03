@@ -21,9 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.table_mine = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    [self.view addSubview:self.table_mine];
-    self.mineManager = [[GLD_MineManager alloc]initWithTableView:self.table_mine];
+   
     
     
     GLD_CustomBut *rightBut = [[GLD_CustomBut alloc]init];;
@@ -33,9 +31,14 @@
     [rightBut addTarget:self action:@selector(rightButClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     self.navigationItem.rightBarButtonItem = item1;
-    // Do any additional setup after loading the view.
+    [self setupUI];
 }
 
+- (void)setupUI{
+    self.table_mine = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    [self.view addSubview:self.table_mine];
+    self.mineManager = [[GLD_MineManager alloc]initWithTableView:self.table_mine];
+}
 - (void)rightButClick {
     TestViewController *userMessageVc = [[TestViewController alloc]init];
     userMessageVc.type = 2;
@@ -43,6 +46,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.fd_interactivePopDisabled = YES;
     //请求数据
     [self.mineManager fetchMainData];
 }

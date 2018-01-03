@@ -29,8 +29,6 @@
         tableView.estimatedSectionFooterHeight = 0;
         [tableView setSeparatorInset:UIEdgeInsetsMake(0, W(15), 0, W(15))];
         
-        tableView.rowHeight = 0;
-        tableView.sectionFooterHeight = 0.001;
         WS(weakSelf);
         tableView.mj_header = [GLD_RefreshHeader headerWithRefreshingBlock:^{
             [weakSelf.mainDataArrM removeAllObjects];

@@ -16,7 +16,7 @@
 
 /** plus按钮 */
 @property (nonatomic, weak) UIButton *plusBtn ;
-
+@property (nonatomic, strong)UILabel *plusLabel;
 @end
 
 @implementation LBTabBar
@@ -48,7 +48,7 @@
         [plusBtn addTarget:self action:@selector(plusBtnDidClick) forControlEvents:UIControlEventTouchUpInside];
 
         [self addSubview:plusBtn];
-
+        [self addSubview:self.plusLabel];
 
 
     }
@@ -61,21 +61,16 @@
     //系统自带的按钮类型是UITabBarButton，找出这些类型的按钮，然后重新排布位置，空出中间的位置
     Class class = NSClassFromString(@"UITabBarButton");
 
-    self.plusBtn.centerX = self.centerX;
+    self.plusBtn.x = self.centerX - self.width / 10;
     //调整发布按钮的中线点Y值
-    self.plusBtn.centerY = self.height * 0.5 - 2*LBMagin ;
+    self.plusBtn.y = -W(3*LBMagin)+5 ;
 
     self.plusBtn.size = CGSizeMake(self.plusBtn.currentBackgroundImage.size.width, self.plusBtn.currentBackgroundImage.size.height);
 
 
-        UILabel *label = [[UILabel alloc] init];
-        label.text = @"发布";
-        label.font = [UIFont systemFontOfSize:11];
-        [label sizeToFit];
-        label.textColor = [UIColor grayColor];
-        [self addSubview:label];
-        label.centerX = self.plusBtn.centerX;
-        label.centerY = CGRectGetMaxY(self.plusBtn.frame) + LBMagin ;
+    
+    self.plusLabel.centerX = self.plusBtn.centerX;
+    self.plusLabel.centerY = CGRectGetMaxY(self.plusBtn.frame) + W(LBMagin) ;
 
 
 
@@ -135,4 +130,16 @@
     }
 }
 
+- (UILabel *)plusLabel{
+    if (!_plusLabel) {
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.text = @"发布";
+        label.font = WTFont(12);
+        [label sizeToFit];
+        label.textColor = [UIColor grayColor];
+        _plusLabel = label;
+    }
+    return _plusLabel;
+}
 @end

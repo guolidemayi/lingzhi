@@ -73,9 +73,9 @@
     config.urlPath = @"api/main/shopList";
     config.requestParameters = @{
                                  @"type" : @(type),
-                                 @"city":@"北京",
-                                 @"lat:":[NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.location.coordinate.latitude],
-                                 @"lng:" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.location.coordinate.longitude]
+                                 @"city":[AppDelegate shareDelegate].placemark.area_name ? [AppDelegate shareDelegate].placemark.area_name : @"北京",
+                                 @"lat:":[NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lat],
+                                 @"lng:" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lon]
                                  };
     
     

@@ -31,7 +31,7 @@ NSString *const GLD_IndustryCollecCellIdentifier = @"GLD_IndustryCollecCellIdent
 
 - (void)setModel:(GLD_IndustryModel *)model{
     _model = model;
-    if([model.iconImage hasPrefix:@"http://"]){
+    if([model.iconImage hasPrefix:@"http://"] || [model.iconImage hasPrefix:@"https://"]){
     [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:model.iconImage] placeholder:nil];
     }else{
         self.iconImgV.image = WTImage(model.iconImage);
