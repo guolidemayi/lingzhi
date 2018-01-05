@@ -477,7 +477,7 @@
                                                                      repeats:YES];
         NSString *str = result[@"data"];
         [CAToast showWithText:str duration:3];
-
+        [weakSelf.view endEditing:YES];
         weakSelf.loginCode =str;
     }];
     
@@ -898,7 +898,7 @@
         [_iconImgV addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(iconImgVClick)]];
         _iconImgV.layer.cornerRadius = W(10);
         _iconImgV.layer.masksToBounds = YES;
-        _iconImgV.frame = CGRectMake(DEVICE_WIDTH - W(50), W(15), W(20), H(20));
+        _iconImgV.frame = CGRectMake(DEVICE_WIDTH - W(50), W(15), W(30), H(30));
         _iconImgV.image = WTImage(@"默认头像");
     }
     return _iconImgV;

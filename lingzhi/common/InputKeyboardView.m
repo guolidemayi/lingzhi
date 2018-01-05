@@ -12,7 +12,7 @@
     NSString *_contentText;
 }
 @property (nonatomic, strong)UILabel *placeHolderLabel;
-
+@property (nonatomic, assign)BOOL first;//第一次
 @end
 @implementation InputKeyboardView
 
@@ -25,7 +25,7 @@
         viewBack.backgroundColor = [UIColor blackColor];
         viewBack.alpha = 0.6f;
         [self addSubview:viewBack];
-        
+        self.first = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboradView)];
         [self addGestureRecognizer:tap];
         
@@ -34,7 +34,7 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
         
-        self.backView = [[UIView alloc] initWithFrame: CGRectMake(0, DEVICE_HEIGHT - 100*DEVICEHEIGHT_SCALE, DEVICE_WIDTH, 100 * DEVICEHEIGHT_SCALE)];
+        self.backView = [[UIView alloc] initWithFrame: CGRectMake(0, DEVICE_HEIGHT, DEVICE_WIDTH, 100 * DEVICEHEIGHT_SCALE)];
         self.backView.backgroundColor = [UIColor whiteColor];
         self.textField = [[UITextView alloc] initWithFrame:CGRectMake(15*DEVICEWIDTH_SCALE, 15*DEVICEHEIGHT_SCALE ,DEVICE_WIDTH -  100*DEVICEWIDTH_SCALE, 80*DEVICEHEIGHT_SCALE)];
         self.textField.delegate = self;
@@ -139,7 +139,8 @@
 }
 
 - (void) keyBoardWillShow:(NSNotification*) notification{
-    
+   
+   
     NSDictionary *userInfo = [notification userInfo];
     
     // Get the origin of the keyboard when it's displayed.
@@ -151,9 +152,13 @@
     
     CGFloat keyboardHeight = keyboardFrame.size.height;
     
-    if (self.isHideStatus) {
-        keyboardHeight += 20;
+    if (self.first) {
+        self.first = NO;
+        return;
     }
+//    if (self.isHideStatus) {
+//        keyboardHeight += 20;
+//    }
     if(self.isFrom){
         self.fenxiang.hidden = YES;
     }
@@ -161,7 +166,7 @@
     NSLog(@"%@", NSStringFromCGRect(self.backView.frame));
     
     [UIView animateWithDuration:0.25 animations:^{
-       self.backView.frame = CGRectMake(0, self.frame.size.height - keyboardHeight - 100*DEVICEHEIGHT_SCALE, DEVICE_WIDTH, 100*DEVICEHEIGHT_SCALE);
+       self.backView.frame = CGRectMake(0, self.frame.size.height - keyboardHeight, DEVICE_WIDTH, 100*DEVICEHEIGHT_SCALE);
     }];
     
     
@@ -208,7 +213,6 @@
 
 - (void)dealloc{
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 @end

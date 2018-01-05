@@ -214,7 +214,7 @@
                                                                      repeats:YES];
         NSString *str = result[@"data"];
         [CAToast showWithText:str duration:3];
-        
+        [weakSelf.view endEditing:YES];
         weakSelf.phoneCode = str;
     }];
 }
@@ -299,8 +299,8 @@
         [CAToast showWithText:@"请输入地址"];
         return;
     }
-    if(!IsExist_String(self.phoneTF.text)){
-        [CAToast showWithText:@"请输入身份证号"];
+    if(!IsExist_String(self.phoneTF.text) || ![YXUniversal checkUserIDCard:self.phoneTF.text]){
+        [CAToast showWithText:@"请输入正确的身份证号"];
         return;
     }
 //    if(!IsExist_String(self.industryTF.text)){
@@ -308,7 +308,7 @@
 //        return;
 //    }
     if(![self.verificationTF.text isEqualToString:self.phoneCode]){
-        [CAToast showWithText:@"验证码不争取"];
+        [CAToast showWithText:@"验证码不正确"];
         return;
     }
     
@@ -328,6 +328,7 @@
         if (!error) {
             
             [CAToast showWithText:@"申请成功,请耐心等待"];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
         }else{
             [CAToast showWithText:@"申请失败,请重试"];
         }

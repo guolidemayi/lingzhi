@@ -55,13 +55,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     self.NetManager = [GLD_NetworkAPIManager new];
     self.commentArrM = [NSMutableArray array];
-    self.keyView = [[InputKeyboardView alloc] initWithFrame:CGRectMake(0, -64, DEVICE_WIDTH, DEVICE_HEIGHT)];
+    self.keyView = [[InputKeyboardView alloc] initWithFrame:CGRectMake(0, 64, DEVICE_WIDTH, DEVICE_HEIGHT)];
     self.keyView.delegate = self;
     [self commentView];
     [self getCommentList];
-    [self getForumDetailRequest];
+    
 //    self.title = @"帖子详情";
 
 //    // Do any additional setup after loading the view.
@@ -75,51 +76,6 @@
 
 }
 
-- (void)back{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-   
-}
-// 举报
-- (void)rightButClick
-{
-
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-  
-    
-}
-
-- (void)getForumDetailRequest{
-    
-    WS(weakSelf);
-//    GLD_ForumDetailRequest *request = [GLD_ForumDetailRequest shareManager];
-//    [request httpPost:@"" parameters:@{@"newsId":self.newsId,@"type":self.type} block:^(WTBaseRequest *request, NSError *error) {
-//        if (error) {
-//            [weakSelf showNoDataViewOrLoadView:error];
-//        }else{
-////            [weakSelf hiddenNoDataView];
-//            GLD_ForumDataModel *model = request.resultArray.firstObject;
-//            forumDetailModel = model.data;
-//
-//            if (forumDetailModel.collected) {
-//                weakSelf.commentView.collectionBut.selected = YES;
-//                [weakSelf.commentView countLabelCorlor:YES];
-//            } else {
-//                weakSelf.commentView.collectionBut.selected = NO;
-//                [weakSelf.commentView countLabelCorlor:NO];
-//            }
-//            weakSelf.commentView.count = model.data.collectionCount;
-//            [weakSelf getCommentList];
-//            [weakSelf.detailTable reloadData];
-//        }
-//    }];
-//
-}
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 1&& !IsExist_Array(forumDetailModel.topicList))return 0.0;
@@ -160,8 +116,7 @@
     [_operationView dismiss];
     _operationView = nil;
 }
--
-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 3;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -594,10 +549,10 @@
 }
 - (void)collection:(UIButton *)but{
     
-    [self xuanfuWithShouCangAction:but];
+//    [self xuanfuWithShouCangAction:but];
 }
 - (void)share{
-    [self requestShareMessageWithFenXiang];
+//    [self requestShareMessageWithFenXiang];
 }
 - (void)requestShareMessageWithFenXiang {
  
@@ -635,7 +590,7 @@
                     [ws pastCotent];
                     break;
                 case GLD_OperationTypeDelete:
-                    [ws deleteToggle:nil];
+                    
                     break;
                 case GLD_OperationTypeJuBao:
                     [ws accusation];
@@ -667,31 +622,5 @@
 //        }
 //    }];
 }
-//删除
--(void)deleteToggle:(id)sender{
-    if(!IsExist_Array(_commentArrM))
-    {
-        return;
-    }
-    __weak typeof(self) weakSelf = self;
-    YXCommentContent2Model *commentModel = _commentArrM[self.indexP.row];
-    if (commentModel) {
-//        YXBBSDelRequest *request = [YXBBSDelRequest shareManager];
-//        [request httpPost:@"" parameters:@{@"id":GetString(commentModel.commentId), @"questionId":GetString(commentModel.questionId)} block:^(WTBaseRequest *request, NSError *error) {
-//            if (error) {
-//                [weakSelf handleError:error];
-//            }
-//            else
-//            {
-//                
-//                [_commentArrM removeObject:commentModel];
-//                commentListModel.data.commentCount -= 1;
-//                [weakSelf.detailTable reloadData];
-//            }
-//        }];
-    }
-}
-
-
 
 @end

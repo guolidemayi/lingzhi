@@ -252,7 +252,7 @@
     
     [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
-            
+            [weakSelf.navigationController popViewControllerAnimated:YES];
             [CAToast showWithText:@"申请成功,请耐心等待"];
         }else{
             [CAToast showWithText:@"申请失败,请重试"];

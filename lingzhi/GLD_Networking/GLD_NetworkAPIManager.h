@@ -15,6 +15,7 @@
 #define WEB_SERVICE_REQUESTBASEURL @"http://47.104.108.65:8080" //服务器网络链接;
 //#define WEB_SERVICE_REQUESTBASEURL @"http://192.168.1.111:8081" //测试网络链接;
 
+//2027463920@qq.com/lp13393185821
 typedef void(^completionHandleBlock)(NSError *error, id result);
 
 @interface GLD_APIConfiguration : NSObject
@@ -31,7 +32,6 @@ typedef void(^completionHandleBlock)(NSError *error, id result);
 @end
 
 @interface GLD_NetworkAPIManager : NSObject
-
 
 + (void)cancelTaskWith:(NSNumber *)taskIdentifier;
 

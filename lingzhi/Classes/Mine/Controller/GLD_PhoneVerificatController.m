@@ -42,7 +42,18 @@
 
 - (void)getPhoneVer{
     WS(weakSelf);
-    
+    if(!IsExist_String(self.nameTF.text)){
+        [CAToast showWithText:@"请输入姓名"];
+        return;
+    }
+    if(!IsExist_String(self.PersonTF.text) || ![YXUniversal isValidateMobile:self.phoneTF.text]){
+        [CAToast showWithText:@"请输入正确的手机号"];
+        return;
+    }
+    if(!IsExist_String(self.phoneTF.text) || ![YXUniversal checkUserIDCard:self.phoneTF.text]){
+        [CAToast showWithText:@"请输入正确的身份证号"];
+        return;
+    }
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/user/certification";

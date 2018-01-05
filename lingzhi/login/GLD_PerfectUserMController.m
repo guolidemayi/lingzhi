@@ -64,8 +64,8 @@
 - (void)applybutClick{
     NSLog(@"提交");
     
-    if (!IsExist_String(self.phoneTF.text)) {
-        [CAToast showWithText:@"请输入手机号"];
+    if (!IsExist_String(self.phoneTF.text) || ![YXUniversal isValidateMobile:self.phoneTF.text]) {
+        [CAToast showWithText:@"请输入正确手机号"];
         return;
     }
     if (!IsExist_String(self.PersonTF.text)) {

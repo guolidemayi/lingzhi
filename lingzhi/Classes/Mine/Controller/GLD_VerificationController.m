@@ -98,7 +98,7 @@
         _tipLabel = [UILabel new];
         _tipLabel.font = WTFont(12);
         _tipLabel.numberOfLines = 2;
-        _tipLabel.text = @"实名认证";
+        _tipLabel.text = IsExist_String([AppDelegate shareDelegate].userModel.VeryMsg) ?[AppDelegate shareDelegate].userModel.VeryMsg : @"实名认证";
         _tipLabel.textAlignment = NSTextAlignmentCenter;
         _tipLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
     }
@@ -122,6 +122,8 @@
     if (!_iconImgV) {
         _iconImgV = [UIImageView new];
         _iconImgV.image = WTImage(@"identificationFailed");
+        _iconImgV.image = IsExist_String([AppDelegate shareDelegate].userModel.Very) ? WTImage(@"identificationFailed") : WTImage(@"通过认证");
+        
     }
     return _iconImgV;
 }

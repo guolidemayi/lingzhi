@@ -44,7 +44,8 @@
 
 //邮箱地址的正则表达式
 + (BOOL)isValidateEmail:(NSString *)email;
-
+//验证身份证
++(BOOL)checkUserIDCard:(NSString *)userID;
 
 /**
  * 把时间戳转换成格式为yyyy年M月dd的string

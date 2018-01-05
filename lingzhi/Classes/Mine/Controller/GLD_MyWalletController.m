@@ -73,11 +73,11 @@
     if (!_topView) {
         _topView = [UIView new];
         _topView.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKyellow];
-        NSArray *titleArr = @[@"现金",@"L币",@"优惠券"];
+        NSArray *titleArr = @[@"现金图标144x144",@"亿币图标",@"代金券图标"];
         
         for (int i = 0; i < titleArr.count; i++) {
             UIImageView *imgV = [UIImageView new];
-            imgV.image = WTImage(@"realNmaeIdentification");
+            imgV.image = WTImage(titleArr[i]);
             imgV.frame = CGRectMake(W(35) + W(125)*i, W(15), W(55), W(60));
             imgV.userInteractionEnabled = YES;
             [imgV addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imgVClick:)]];
@@ -93,13 +93,13 @@
              NSString *str = nil;
             switch (i) {
                 case 0:{
-                    str = [NSString stringWithFormat:@"现金 \n￥%@",[AppDelegate shareDelegate].userModel.cash1];
+                    str = [NSString stringWithFormat:@"现金 \n￥%lf",[AppDelegate shareDelegate].userModel.cash1];
                 }break;
                 case 1:{
-                    str = [NSString stringWithFormat:@"L币 \n%@",[AppDelegate shareDelegate].userModel.cash3];
+                    str = [NSString stringWithFormat:@"L币 \n%lf",[AppDelegate shareDelegate].userModel.cash3];
                 }break;
                 case 2:{
-                    str = [NSString stringWithFormat:@"代金券 \n￥%@",[AppDelegate shareDelegate].userModel.cash2];
+                    str = [NSString stringWithFormat:@"代金券 \n￥%lf",[AppDelegate shareDelegate].userModel.cash2];
                 }break;
             }
             [self adjusCashLabel:str andLabel:label];

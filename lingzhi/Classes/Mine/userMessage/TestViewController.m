@@ -127,6 +127,8 @@
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
             if (weakSelf.type == 1) {
+                GLD_UserModel *model = [[GLD_UserModel alloc] initWithDictionary:result error:&error];
+                [AppDelegate shareDelegate].userModel = model.data;
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
                 [weakSelf dismissViewControllerAnimated:YES completion:nil];
             }else{
