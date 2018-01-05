@@ -120,17 +120,29 @@
                                  @"sex" : GetString(self.genderTF.text),
                                  @"name" : GetString(self.nicknameTF.text),
                                  @"birthDay" : GetString(self.birthdayTF.text),
-                                 @"icon" : GetString(self.updateImg),
+                                 @"iconImage" : GetString(self.updateImg),
                                  @"duty" : GetString(self.positionTF.text)
                                  };
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
+            if ([result[@"code"] integerValue] != 200) {
+                [CAToast showWithText:result[@"msg"]];
+                return ;
+            }
             if (weakSelf.type == 1) {
+                
                 GLD_UserModel *model = [[GLD_UserModel alloc] initWithDictionary:result error:&error];
-                [AppDelegate shareDelegate].userModel = model.data;
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
-                [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [AppDelegate shareDelegate].userModel = model.data;
+                    if (IsExist_String(model.data.loginToken)) {
+                        [[NSUserDefaults standardUserDefaults] setObject:model.data.loginToken forKey:@"loginToken"];
+                    }
+                    NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"loginToken"];
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
+                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                });
             }else{
                 [weakSelf.navigationController popViewControllerAnimated:YES];
             }
@@ -420,6 +432,9 @@
     if (!_nicknameTF) {
         _nicknameTF = [self getTextField:cell];
         _nicknameTF.placeholder = @"请输入";
+        if (IsExist_String([AppDelegate shareDelegate].userModel.name)) {
+            _nicknameTF.text = [AppDelegate shareDelegate].userModel.name;
+        }
         _nicknameTF.returnKeyType = UIReturnKeyDone;
         _nicknameTF.tag = 0;
     }
@@ -430,6 +445,9 @@
     if (!_genderTF) {
         _genderTF = [self getTextField:cell];
         _genderTF.placeholder = @"请选择";
+        if (IsExist_String([AppDelegate shareDelegate].userModel.sex)) {
+            _genderTF.text = [AppDelegate shareDelegate].userModel.sex;
+        }
         __weak typeof(self) weakSelf = self;
         _genderTF.tapAcitonBlock = ^{
             [BRStringPickerView showStringPickerWithTitle:@"宝宝性别" dataSource:@[@"男", @"女", @"其他"] defaultSelValue:@"男" isAutoSelect:YES resultBlock:^(id selectValue) {
@@ -438,11 +456,13 @@
         };
     }
 }
-#pragma mark - 性别 textField
+#pragma mark - 简介 textField
 - (void)setupPersonalIntroTF:(UITableViewCell *)cell {
     if (!_personalIntroTF) {
         _personalIntroTF = [self getTextField:cell];
-        
+        if (IsExist_String([AppDelegate shareDelegate].userModel.intro)) {
+            _personalIntroTF.text = [AppDelegate shareDelegate].userModel.intro;
+        }
         __weak typeof(self) weakSelf = self;
         _personalIntroTF.tapAcitonBlock = ^{
             GLD_WirteIntroController *wirteVc = [GLD_WirteIntroController new];
@@ -455,6 +475,9 @@
     if (!_birthdayTF) {
         _birthdayTF = [self getTextField:cell];
         _birthdayTF.placeholder = @"请选择";
+        if (IsExist_String([AppDelegate shareDelegate].userModel.birthDay)) {
+            _birthdayTF.text = [AppDelegate shareDelegate].userModel.birthDay;
+        }
         __weak typeof(self) weakSelf = self;
         _birthdayTF.tapAcitonBlock = ^{
             [BRDatePickerView showDatePickerWithTitle:@"出生年月" dateType:UIDatePickerModeDate defaultSelValue:weakSelf.birthdayTF.text minDateStr:@"" maxDateStr:[NSDate currentDateString] isAutoSelect:YES resultBlock:^(NSString *selectValue) {
@@ -471,6 +494,9 @@
     if (!_companyTF) {
         _companyTF = [self getTextField:cell];
         _companyTF.placeholder = @"请输入你的所属单位";
+        if (IsExist_String([AppDelegate shareDelegate].userModel.company)) {
+            _companyTF.text = [AppDelegate shareDelegate].userModel.company;
+        }
         _companyTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
         _companyTF.returnKeyType = UIReturnKeyDone;
         _companyTF.tag = 4;
@@ -482,6 +508,9 @@
     if (!_locationTF) {
         _locationTF = [self getTextField:cell];
         _locationTF.placeholder = @"请选择";
+        if (IsExist_String([AppDelegate shareDelegate].userModel.address)) {
+            _locationTF.text = [AppDelegate shareDelegate].userModel.address;
+        }
         __weak typeof(self) weakSelf = self;
         
         _locationTF.tapAcitonBlock = ^{
@@ -501,6 +530,9 @@
         _positionTF.placeholder = @"请输入您的职位名称";
         _positionTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
         _positionTF.returnKeyType = UIReturnKeyDone;
+        if (IsExist_String([AppDelegate shareDelegate].userModel.duty)) {
+            _positionTF.text = [AppDelegate shareDelegate].userModel.duty;
+        }
         _positionTF.tag = 5;
     }
 }
@@ -533,7 +565,8 @@
         [_iconImgV addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(iconImgVClick)]];
         _iconImgV.layer.cornerRadius = W(17);
         _iconImgV.layer.masksToBounds = YES;
-        _iconImgV.image = WTImage(@"默认头像");
+       [ _iconImgV yy_setImageWithURL:[NSURL URLWithString:[AppDelegate shareDelegate].userModel.iconImage] placeholder:WTImage(@"默认头像")];
+        
     }
     return _iconImgV;
 }

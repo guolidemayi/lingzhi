@@ -165,7 +165,7 @@
     cell.textLabel.font = WTFont(15);
     NSArray *arr = self.dataDict[self.sectionArray[indexPath.section]];
     NSDictionary *dict = arr[indexPath.row];
-    cell.textLabel.text = dict[@"area_name"];
+    cell.textLabel.text = dict[@"city"];
     //    SLCityListCell *cell = [tableView dequeueReusableCellWithIdentifier:cityListCell forIndexPath:indexPath];
     //    cell.city = self.cityModel.list[indexPath.section - 1].citys[indexPath.row];
     
@@ -206,9 +206,9 @@
     
     if (self.cityListBlock) {
         GLD_CityModel *placemar = [GLD_CityModel new];
-        placemar.area_name = dict[@"area_name"];
-        placemar.lat = [dict[@"lat"] floatValue];
-        placemar.lon = [dict[@"lon"] floatValue];
+        placemar.area_name = dict[@"city"];
+        placemar.lat = [dict[@"Lat"] floatValue];
+        placemar.lon = [dict[@"Lng"] floatValue];
         self.cityListBlock(placemar);
         [self.navigationController popViewControllerAnimated:YES];
     }

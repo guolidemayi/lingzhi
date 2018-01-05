@@ -314,7 +314,9 @@
             make.top.equalTo(userNameLabel.mas_bottom).offset(W(8));
             make.left.right.equalTo(userNameLabel);
         }];
-        
+        self.nameLabel.text = [AppDelegate shareDelegate].userModel.name;
+        self.codeLabel.text = [NSString stringWithFormat:@"编号  %@", [AppDelegate shareDelegate].userModel.code];
+        [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:[AppDelegate shareDelegate].userModel.iconImage] placeholder:WTImage(@"默认头像")];
     }
     return _hasLoginHeadView;
 }

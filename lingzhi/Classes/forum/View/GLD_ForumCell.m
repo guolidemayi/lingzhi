@@ -43,8 +43,7 @@
     self.pictures = [detailModel.pic componentsSeparatedByString:@","];
     if (self.pictures.count > 3) {
         self.colleHeight.constant = W(200);
-    }
-    if (self.pictures.count > 0) {
+    }else if (self.pictures.count > 0) {
         self.colleHeight.constant = W(100);
     }else{
         self.colleHeight.constant = W(1);

@@ -152,21 +152,15 @@
     
     CGFloat keyboardHeight = keyboardFrame.size.height;
     
-    if (self.first) {
-        self.first = NO;
-        return;
-    }
-//    if (self.isHideStatus) {
-//        keyboardHeight += 20;
-//    }
+
     if(self.isFrom){
         self.fenxiang.hidden = YES;
     }
-    
+    CGFloat hei =DEVICE_HEIGHT - keyboardHeight;
     NSLog(@"%@", NSStringFromCGRect(self.backView.frame));
     
     [UIView animateWithDuration:0.25 animations:^{
-       self.backView.frame = CGRectMake(0, self.frame.size.height - keyboardHeight, DEVICE_WIDTH, 100*DEVICEHEIGHT_SCALE);
+       self.backView.frame = CGRectMake(0, DEVICE_HEIGHT - keyboardHeight + W(70), DEVICE_WIDTH, 100*DEVICEHEIGHT_SCALE);
     }];
     
     
