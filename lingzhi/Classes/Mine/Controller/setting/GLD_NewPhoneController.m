@@ -62,7 +62,10 @@
     
     [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
-            
+            if([result[@"code"] integerValue] != 200){
+                [CAToast showWithText:result[@"msg"]];
+                return ;
+            }
             [CAToast showWithText:@"绑定成功"];
             [AppDelegate shareDelegate].userModel.phone = weakSelf.verificationTF.text;
             for (UIViewController *vc in weakSelf.navigationController.viewControllers) {
@@ -118,7 +121,7 @@
 - (void)sendVerificationClick:(UIButton *)senser{
     //验证码
     WS(weakSelf);
-    
+    [self.view endEditing:YES];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/user/sms";

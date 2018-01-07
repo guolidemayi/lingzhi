@@ -18,8 +18,11 @@
 #import "GLD_TopicModel.h"
 //#import "GLD_NewSearchControllor.h"
 #import "GLD_BBSStandardView.h"
+#import "SDCycleScrollView.h"
+#import "GLD_BannerDetailController.h"
+#import "GLD_BannerModel.h"
 
-@interface GLD_ForumController ()<UITableViewDelegate, UITableViewDataSource>
+@interface GLD_ForumController ()<UITableViewDelegate, UITableViewDataSource,SDCycleScrollViewDelegate>
 {
     NSArray *titleArr;
     NSInteger  pageNo;
@@ -32,6 +35,10 @@
 @property (nonatomic, weak)UIButton *addBut;
 @property (nonatomic, strong)NSMutableArray *forumListArrM;
 @property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
+
+
+@property (nonatomic, strong)SDCycleScrollView *cycleView;
+@property (nonatomic, strong)GLD_BannerLisModel *bannerListModel;
 @end
 
 @implementation GLD_ForumController
@@ -48,7 +55,7 @@
     [self addTableUP];
     [self forumDetailRequest];
    
-    
+    [self getBannerData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -219,10 +226,15 @@
 }
 
 
-
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return W(0.01);
+    return W(100);
 }
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
+    [headView addSubview:self.cycleView];
+    return headView;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return [UIView new];
 }
@@ -242,8 +254,46 @@
     [self.navigationController pushViewController:vc animated:YES];
     
 }
-
-
+- (void)getBannerData{
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/main/banner";
+    config.requestParameters = @{};
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];
+        NSMutableArray *arrM = [NSMutableArray array];
+        for (GLD_BannerModel *model in weakSelf.bannerListModel.data) {
+            [arrM addObject:GetString(model.Pic)];
+        }
+        if (arrM.count > 0) {
+            weakSelf.cycleView.imageURLStringsGroup = arrM.copy;
+        }
+        [weakSelf.LTanTableView reloadData];
+    }];
+}
+/** 点击图片回调 */
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    NSLog(@"%zd", index);
+    GLD_BannerDetailController *bannerVc =[GLD_BannerDetailController new];
+    bannerVc.bannerModel = self.bannerListModel.data[index];
+    [self.navigationController pushViewController:bannerVc animated:YES];
+}
+- (SDCycleScrollView *)cycleView{
+    if (!_cycleView) {
+        _cycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero
+                                                        delegate:self
+                                                placeholderImage:[UIImage imageNamed:@"tabbar_icon0_normal"]];
+        
+        
+        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
+        _cycleView.autoScroll = YES;
+        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(100));
+        //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
+    }
+    return _cycleView;
+}
 - (UITableView *)LTanTableView{
     if (!_LTanTableView) {
         UITableView *table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
@@ -256,6 +306,8 @@
         WS(weakSelf);
         table.mj_header = [GLD_RefreshHeader headerWithRefreshingBlock:^{
             [weakSelf.forumListArrM removeAllObjects];
+            weakSelf.bannerListModel = nil;
+            [weakSelf getBannerData];
             [weakSelf forumDetailRequest];
         }];
         table.mj_footer = [YXFooterRefresh footerWithRefreshingBlock:^{

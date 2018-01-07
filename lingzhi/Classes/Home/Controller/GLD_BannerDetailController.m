@@ -146,8 +146,8 @@
         _shareBut = [[UIButton alloc]init];
         _shareBut.hidden = YES;
         [_shareBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKwirte] forState:UIControlStateNormal];
-        [_shareBut setTitle:@"分享" forState:UIControlStateNormal];
-        [_shareBut setImage:WTImage(@"分享 copy 3") forState:UIControlStateNormal];
+//        [_shareBut setTitle:@"分享" forState:UIControlStateNormal];
+//        [_shareBut setImage:WTImage(@"分享 copy 3") forState:UIControlStateNormal];
         _shareBut.titleLabel.font = WTFont(12);
        
         [_shareBut addTarget:self action:@selector(applybutClick) forControlEvents:UIControlEventTouchUpInside];

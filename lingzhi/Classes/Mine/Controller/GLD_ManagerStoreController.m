@@ -78,6 +78,7 @@
 }
 - (IBAction)payForMe:(id)sender {
     GLD_PayForMeController *payforVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"GLD_PayForMeController"];
+    payforVc.model = self.model;
     [self.navigationController pushViewController:payforVc animated:YES];
 }
 

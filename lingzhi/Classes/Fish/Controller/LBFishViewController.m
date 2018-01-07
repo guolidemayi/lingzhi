@@ -16,8 +16,11 @@
 #import "GLD_BusnessModel.h"
 #import "GLD_BusinessCell.h"
 #import "GLD_BusinessDetailController.h"
+#import "SDCycleScrollView.h"
+#import "GLD_BannerDetailController.h"
+#import "GLD_BannerModel.h"
 
-@interface LBFishViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface LBFishViewController ()<UITableViewDelegate, UITableViewDataSource,SDCycleScrollViewDelegate>
 @property (nonatomic, weak)GLD_CustomBut *locationBut;
 @property (nonatomic, copy)NSString *locationStr;
 @property (nonatomic, strong)GLD_BusnessLisModel *busnessListModel;
@@ -25,6 +28,11 @@
 @property (nonatomic, strong)GLD_NetworkAPIManager *netManager;
 
 @property (nonatomic, strong)NSMutableArray *dataArrM;
+
+//banner
+
+@property (nonatomic, strong)SDCycleScrollView *cycleView;
+@property (nonatomic, strong)GLD_BannerLisModel *bannerListModel;
 @end
 
 @implementation LBFishViewController
@@ -36,6 +44,7 @@
     //导航到深圳火车站
     [self setNavUi];
     [self getbusnessList:2];
+    [self getBannerData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -74,14 +83,59 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.001;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 0.001;
-}
+
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     return [UIView new];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return W(100);
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return [UIView new];
+    UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
+    [headView addSubview:self.cycleView];
+    return headView;
+}
+- (void)getBannerData{
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/main/banner";
+    config.requestParameters = @{};
+    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];
+        NSMutableArray *arrM = [NSMutableArray array];
+        for (GLD_BannerModel *model in weakSelf.bannerListModel.data) {
+            [arrM addObject:GetString(model.Pic)];
+        }
+        if (arrM.count > 0) {
+            weakSelf.cycleView.imageURLStringsGroup = arrM.copy;
+        }
+        [weakSelf.home_table reloadData];
+    }];
+}
+/** 点击图片回调 */
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    NSLog(@"%zd", index);
+    GLD_BannerDetailController *bannerVc =[GLD_BannerDetailController new];
+    bannerVc.bannerModel = self.bannerListModel.data[index];
+    [self.navigationController pushViewController:bannerVc animated:YES];
+}
+- (SDCycleScrollView *)cycleView{
+    if (!_cycleView) {
+        _cycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero
+                                                        delegate:self
+                                                placeholderImage:[UIImage imageNamed:@"tabbar_icon0_normal"]];
+        
+        
+        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
+        _cycleView.autoScroll = YES;
+        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(100));
+        //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
+    }
+    return _cycleView;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -155,9 +209,12 @@
         WS(weakSelf);
         table.mj_footer = [YXFooterRefresh footerWithRefreshingBlock:^{
             [weakSelf getbusnessList:2];
+            
         }];
         table.mj_header = [GLD_RefreshHeader headerWithRefreshingBlock:^{
             [weakSelf.dataArrM removeAllObjects];
+            weakSelf.bannerListModel = nil;
+            [weakSelf getBannerData];
             [weakSelf getbusnessList:2];
         }];
         table.rowHeight = W(100);

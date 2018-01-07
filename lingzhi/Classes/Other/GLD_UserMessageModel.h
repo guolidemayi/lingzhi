@@ -40,7 +40,7 @@
 @property (nonatomic, copy)NSString *VeryMsg;//认证错误信息
 @property (nonatomic, copy)NSString *Very;//市民认证状态
 @property (nonatomic, assign)CGFloat Profit;//月收益
-@property (nonatomic, assign)CGFloat dayCash;//月收益
+@property (nonatomic, assign)CGFloat dayCash;//日收益
 
 
 @end

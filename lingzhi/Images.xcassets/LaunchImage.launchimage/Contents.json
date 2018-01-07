@@ -1,18 +1,19 @@
 {
   "images" : [
     {
-      "orientation" : "portrait",
-      "idiom" : "iphone",
       "extent" : "full-screen",
-      "minimum-system-version" : "11.0",
+      "idiom" : "iphone",
       "subtype" : "2436h",
+      "filename" : " iOS1125x2436.png",
+      "minimum-system-version" : "11.0",
+      "orientation" : "portrait",
       "scale" : "3x"
     },
     {
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "736h",
-      "filename" : "启动图片iOS 1242x2208.png",
+      "filename" : " iOS 1242x2208.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "3x"
@@ -21,7 +22,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "667h",
-      "filename" : "启动图片iOS 750x1334.png",
+      "filename" : "start.png",
       "minimum-system-version" : "8.0",
       "orientation" : "portrait",
       "scale" : "2x"
@@ -37,7 +38,7 @@
       "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "filename" : "启动图片ios 640x1136.png",
+      "filename" : "iOS 640x1136.png",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
       "scale" : "2x"
