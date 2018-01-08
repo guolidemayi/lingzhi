@@ -168,6 +168,7 @@
 		0F9920181FCEEFED00305DF3 /* GLD_HomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920171FCEEFED00305DF3 /* GLD_HomeListCell.m */; };
 		0F99201B1FCEF04500305DF3 /* GLD_BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F99201A1FCEF04500305DF3 /* GLD_BaseCell.m */; };
 		0F99201E1FCEF81E00305DF3 /* GLD_BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F99201D1FCEF81E00305DF3 /* GLD_BusinessCell.m */; };
+		0F995DC11FFF5C0C009EB2FE /* GLD_AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F995DC01FFF5C0B009EB2FE /* GLD_AboutUsController.m */; };
 		0FB536FE1FC5887C00B0EDA6 /* LBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB536DA1FC5887C00B0EDA6 /* LBHomeViewController.m */; };
 		0FB536FF1FC5887C00B0EDA6 /* LBpostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB536DE1FC5887C00B0EDA6 /* LBpostViewController.m */; };
 		0FB537001FC5887C00B0EDA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB536E21FC5887C00B0EDA6 /* main.m */; };
@@ -545,6 +546,8 @@
 		0F99201A1FCEF04500305DF3 /* GLD_BaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BaseCell.m; sourceTree = "<group>"; };
 		0F99201C1FCEF81E00305DF3 /* GLD_BusinessCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BusinessCell.h; sourceTree = "<group>"; };
 		0F99201D1FCEF81E00305DF3 /* GLD_BusinessCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BusinessCell.m; sourceTree = "<group>"; };
+		0F995DBF1FFF5C0B009EB2FE /* GLD_AboutUsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_AboutUsController.h; sourceTree = "<group>"; };
+		0F995DC01FFF5C0B009EB2FE /* GLD_AboutUsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_AboutUsController.m; sourceTree = "<group>"; };
 		0FB536DA1FC5887C00B0EDA6 /* LBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBHomeViewController.m; sourceTree = "<group>"; };
 		0FB536DB1FC5887C00B0EDA6 /* LBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBHomeViewController.h; sourceTree = "<group>"; };
 		0FB536DE1FC5887C00B0EDA6 /* LBpostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBpostViewController.m; sourceTree = "<group>"; };
@@ -1380,6 +1383,8 @@
 				0F2C2EF41FF4EB3A0083BCCB /* GLD_GetCashController.m */,
 				339EF9551FF8958100C6170E /* GLD_ForgetPassControllor.h */,
 				339EF9561FF8958100C6170E /* GLD_ForgetPassControllor.m */,
+				0F995DBF1FFF5C0B009EB2FE /* GLD_AboutUsController.h */,
+				0F995DC01FFF5C0B009EB2FE /* GLD_AboutUsController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1896,6 +1901,7 @@
 				0F2C2F621FF62EB30083BCCB /* YXBaseModel.m in Sources */,
 				0F6411A51FD526E50069FDB1 /* GLD_DetaileBusiCell.m in Sources */,
 				0F2C2F471FF62E330083BCCB /* GLD_NewsCell.m in Sources */,
+				0F995DC11FFF5C0C009EB2FE /* GLD_AboutUsController.m in Sources */,
 				0F2C2F681FF6334B0083BCCB /* YXButton.m in Sources */,
 				0F6411911FD512B00069FDB1 /* PTLMenuButton.m in Sources */,
 				0F71A5921FDF835300C66EED /* GLD_SettingController.m in Sources */,

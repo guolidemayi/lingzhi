@@ -9,6 +9,7 @@
 #import "GLD_SettingController.h"
 #import "GLD_ChangePhoneController.h"
 #import "GLD_ChangePassWordController.h"
+#import "GLD_AboutUsController.h"
 @interface GLD_SettingController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong)UITableView *table_apply;
@@ -156,6 +157,8 @@
         }break;
         case 2:{
             //关于我们
+            GLD_AboutUsController *aboutVc = [GLD_AboutUsController new];
+            [self.navigationController pushViewController:aboutVc animated:YES];
         }break;
     }
 }
