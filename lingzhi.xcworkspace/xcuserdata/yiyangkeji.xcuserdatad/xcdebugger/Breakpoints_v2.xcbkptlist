@@ -36,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Mine/Controller/GLD_ApplyUnionController.m"
-            timestampString = "536829868.141663"
+            timestampString = "537092307.0623879"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
@@ -68,13 +68,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Home/Controller/GLD_BusinessDetailController.m"
-            timestampString = "535372439.264532"
+            timestampString = "537092307.06269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
+            landmarkName = "GLD_BusinessDetailController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Home/Controller/GLD_BusinessDetailController.m"
-            timestampString = "535372439.264599"
+            timestampString = "537092307.062883"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -116,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Home/View/GLD_BannerCell.m"
-            timestampString = "535372439.264948"
+            timestampString = "537088354.778275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
@@ -163,13 +163,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "lingzhi/Classes/Mine/Controller/GLD_MyOrderController.m"
-            timestampString = "536729012.687916"
+            filePath = "lingzhi/Classes/Home/View/GLD_HomeListCell.m"
+            timestampString = "537088832.130895"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-getOrderList:"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

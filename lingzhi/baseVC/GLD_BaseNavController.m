@@ -29,7 +29,7 @@
     
     UINavigationBar *bar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[self]];
     
-    [bar setBackgroundImage:[UIImage imageWithColor:NavBarColor] forBarMetrics:UIBarMetricsDefault];
+    [bar setBackgroundImage:[YXUniversal createImageWithColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE]] forBarMetrics:UIBarMetricsDefault];
     NSMutableDictionary *dicBar=[NSMutableDictionary dictionary];
     
     dicBar[NSFontAttributeName]=[UIFont systemFontOfSize:15];

@@ -57,6 +57,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
    
     GLD_BusinessListController *listVc = [[GLD_BusinessListController alloc]init];
+    listVc.model = self.listData[indexPath.item];
     [self.collectionView.navigationController pushViewController:listVc animated:YES];
 }
 - (UICollectionView *)collectionView{
@@ -65,7 +66,7 @@
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
         //不知道为什么 cell 比collectionView大  就不会调用
         //        flowLayout.itemSize = self.listCollection.bounds.size;
-        flowLayout.itemSize = CGSizeMake(W(75), W(50));
+        flowLayout.itemSize = CGSizeMake(W(75), W(80));
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.minimumLineSpacing = 0;
         flowLayout.sectionInset = UIEdgeInsetsMake(0.1, 0.1, 0.1, 0.1);

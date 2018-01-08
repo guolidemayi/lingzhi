@@ -39,8 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view addSubview:self.home_table];
     self.netManager = [GLD_NetworkAPIManager new];
-    
     //导航到深圳火车站
     [self setNavUi];
     [self getbusnessList:2];
@@ -60,7 +60,7 @@
     config.urlPath = @"api/main/shopList";
     config.requestParameters = @{
                                  @"type" : @(type),
-                                 @"city":[AppDelegate shareDelegate].placemark.area_name ? [AppDelegate shareDelegate].placemark.area_name:@"北京",
+                                 @"city":[AppDelegate shareDelegate].placemark.area_name ? [AppDelegate shareDelegate].placemark.area_name:@"北京市",
                                  @"lat:":[NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lat],
                                  @"lng:" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lon]
                                  };
@@ -195,17 +195,17 @@
 
 - (UITableView *)home_table{
     if (!_home_table) {
-        UITableView *table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-        [self.view addSubview:table];
+        UITableView *table = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        
         table.delegate = self;
         table.dataSource = self;
         table.estimatedRowHeight = 0;
         table.estimatedSectionHeaderHeight = 0;
         table.estimatedSectionFooterHeight = 0;
         [table setSeparatorInset:UIEdgeInsetsMake(0, W(15), 0, W(15))];
-        [table mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self.view);
-        }];
+//        [table mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.equalTo(self.view);
+//        }];
         WS(weakSelf);
         table.mj_footer = [YXFooterRefresh footerWithRefreshingBlock:^{
             [weakSelf getbusnessList:2];

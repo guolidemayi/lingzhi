@@ -107,18 +107,19 @@
             [but addSubview:label];
             [imgV mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(but);
-                make.top.equalTo(but);
+                make.top.equalTo(but).offset(3);
             }];
             if (i == 2) {
                 [label mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.center.equalTo(but);
+                    make.centerX.equalTo(but);
+                    make.bottom.equalTo(but);
                 }];
                 label.textColor = [UIColor whiteColor];
                 but.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTyellow];
             }else{
             [label mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.centerX.equalTo(imgV);
-                make.top.equalTo(imgV.mas_bottom);
+                make.top.equalTo(imgV.mas_bottom).offset(-3);
             }];
             }
             [_bottomView addSubview:but];

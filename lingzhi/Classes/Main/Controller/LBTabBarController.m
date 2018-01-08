@@ -71,7 +71,7 @@
     [self setUpOneChildVcWithVc:FishVC Image:@"fish_normal" selectedImage:@"fish_highlight" title:@"附近"];
 
     GLD_ForumController *MessageVC = [[GLD_ForumController alloc] init];
-    [self setUpOneChildVcWithVc:MessageVC Image:@"message_normal" selectedImage:@"message_highlight" title:@"论坛"];
+    [self setUpOneChildVcWithVc:MessageVC Image:@"message_normal" selectedImage:@"message_highlight" title:@"圈圈"];
 
     LBMineViewController *MineVC = [[LBMineViewController alloc] init];
     [self setUpOneChildVcWithVc:MineVC Image:@"account_normal" selectedImage:@"account_highlight" title:@"我的"];

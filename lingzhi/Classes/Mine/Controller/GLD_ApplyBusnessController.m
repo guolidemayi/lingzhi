@@ -133,6 +133,8 @@
                 self.introHeight = W(80);
                 self.generalRankImgV.hidden = NO;
             }else{
+                [CAToast showWithText:@"高级联盟正在建设中，敬请期待！"];
+                return;
             self.introHeight = W(100);
                 self.superRankImgV.hidden = NO;
                 self.generalRankImgV.hidden = YES;
@@ -239,8 +241,10 @@
         case 1:{
             UILabel *title = [[UILabel alloc]init];
             title.numberOfLines = 0;
+            title.font = WTFont(12);
+            title.textColor = [UIColor redColor];
             self.introduceLabel = title;
-            title.text = @"门店类型:\n1、门店类型\n1、门店类型\n1、门店类型";
+            title.text = @"门店类型:\n1、商家免费使用，期满后无优先续约权，不享受联盟平台的同业距离限制保护\n2、获得按联盟会员消费现金发放等额优惠券，同事享受联盟会员使用该优惠券后，按优惠券使用额度的5-10%的现金奖励";
             [headView.contentView addSubview:title];
             [title mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(headView.contentView);
@@ -380,7 +384,7 @@
                 }break;
                 case 1:{
                     [cell.contentView addSubview:self.iconImgV];
-                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                    cell.accessoryType = UITableViewCellAccessoryNone;
                 }break;
             }
             return cell;

@@ -39,11 +39,11 @@
         [self setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
 
         UIButton *plusBtn = [[UIButton alloc] init];
-        [plusBtn setBackgroundImage:[UIImage imageNamed:@"post_normal"] forState:UIControlStateNormal];
-        [plusBtn setBackgroundImage:[UIImage imageNamed:@"post_normal"] forState:UIControlStateHighlighted];
+        [plusBtn setBackgroundImage:[UIImage imageNamed:@"扫一扫2"] forState:UIControlStateNormal];
+        [plusBtn setBackgroundImage:[UIImage imageNamed:@"扫一扫2"] forState:UIControlStateHighlighted];
 
         self.plusBtn = plusBtn;
-
+//        self.plusBtn.backgroundColor = [UIColor whiteColor];
 
         [plusBtn addTarget:self action:@selector(plusBtnDidClick) forControlEvents:UIControlEventTouchUpInside];
 
@@ -61,16 +61,16 @@
     //系统自带的按钮类型是UITabBarButton，找出这些类型的按钮，然后重新排布位置，空出中间的位置
     Class class = NSClassFromString(@"UITabBarButton");
 
-    self.plusBtn.x = self.centerX - self.width / 10;
+    self.plusBtn.x = self.centerX - W(25);
     //调整发布按钮的中线点Y值
-    self.plusBtn.y = -W(3*LBMagin)+5 ;
+    self.plusBtn.y = -W(20) ;
 
-    self.plusBtn.size = CGSizeMake(self.plusBtn.currentBackgroundImage.size.width, self.plusBtn.currentBackgroundImage.size.height);
+    self.plusBtn.size = CGSizeMake(W(50), W(70));
 
 
     
     self.plusLabel.centerX = self.plusBtn.centerX;
-    self.plusLabel.centerY = CGRectGetMaxY(self.plusBtn.frame) + W(LBMagin) ;
+    self.plusLabel.centerY = CGRectGetMaxY(self.plusBtn.frame)-W(15) ;
 
 
 
@@ -134,7 +134,7 @@
     if (!_plusLabel) {
         
         UILabel *label = [[UILabel alloc] init];
-        label.text = @"发布";
+        label.text = @"扫码.支付";
         label.font = WTFont(12);
         [label sizeToFit];
         label.textColor = [UIColor grayColor];

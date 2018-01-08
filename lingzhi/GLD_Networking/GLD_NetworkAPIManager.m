@@ -10,6 +10,7 @@
 #import "GLD_CacheManager.h"
 #import "GLD_NetworkClient.h"
 #import "GLD_NetworkError.h"
+#import "MBProgressHUD.h"
 
 @implementation GLD_APIConfiguration
 
@@ -27,6 +28,7 @@
 
 @interface GLD_NetworkAPIManager ()
 
+@property (nonatomic, strong) MBProgressHUD *HUD;
 @property (nonatomic, strong)NSMutableDictionary *requestCaches;
 @end
 @implementation GLD_NetworkAPIManager
@@ -81,9 +83,11 @@
         }
 //        cacheKey	__NSCFString *	@"5444c431ac01ce2e14afee2e6b2f694f"	0x00000001742799c0
     }
+    [self showHUD];
     WS(weakSelf);
     NSNumber *taskIdentifier = [[GLD_NetworkClient shareInstance] dispatchTaskWithPath:config.urlPath useHttps:config.useHttps requestType:config.requestType params:config.requestParameters headers:config.requestHeader completionHandle:^(NSURLResponse * response, id data, NSError *error) {
         [weakSelf.requestCaches removeObjectForKey:requestCache];
+        [weakSelf hideHUD];
         if (error.code == NSURLErrorCancelled) {
             NSLog(@"请求被取消了~");
             return ;
@@ -145,4 +149,26 @@
     }
     return _requestCaches;
 }
+#pragma mark - MBProgressHUD
+- (MBProgressHUD *)HUD {
+    if (_HUD == nil) {
+        _HUD = [MBProgressHUD showHUDAddedTo:[AppDelegate shareDelegate].window animated:YES];
+        _HUD.mode = MBProgressHUDModeIndeterminate;
+        _HUD.bezelView.color = [UIColor clearColor];
+        _HUD.minShowTime = 0;//HUD_network_minShowTime;
+    }
+    return _HUD;
+}
+- (void)showHUD
+{
+    [self.HUD showAnimated:YES];
+}
+- (void)hideHUD
+{
+    if (_HUD) {
+        [_HUD hideAnimated:NO];
+        _HUD = nil;
+    }
+}
+
 @end

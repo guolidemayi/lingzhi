@@ -40,7 +40,7 @@
     self.mineCodeBut = rBut;
     rBut.hidden = YES;
     rBut.frame = CGRectMake(0, 0, 50, 44);
-    [rBut image:@"编辑资料"];
+    [rBut image:@"二维码"];
     [rBut addTarget:self action:@selector(mineCodeButClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:rBut];
     self.navigationItem.rightBarButtonItem = item;

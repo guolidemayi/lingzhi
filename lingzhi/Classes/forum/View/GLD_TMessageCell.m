@@ -40,7 +40,7 @@ NSString  *const GLD_TMessageCellIdentifi = @"GLD_TMessageCellIdentifi";
 - (void)setBLdetailModel:(GLD_ForumDetailModel *)BLdetailModel{
     _BLdetailModel = BLdetailModel;
     
-    [_iconImageV yy_setImageWithURL:[NSURL URLWithString:BLdetailModel.userPhone] placeholder:[UIImage imageNamed:@"default"]];
+    [_iconImageV yy_setImageWithURL:[NSURL URLWithString:BLdetailModel.userPhone] placeholder:[UIImage imageNamed:@"默认头像"]];
     _dutyLabel.text = BLdetailModel.dutie;
     _timeLabel.text = BLdetailModel.companyName;
     
@@ -63,7 +63,7 @@ NSString  *const GLD_TMessageCellIdentifi = @"GLD_TMessageCellIdentifi";
     _nameLabel.text = !IsExist_String(BLdetailModel.userName) ? BLdetailModel.nickName : BLdetailModel.userName;
     _titleLabel.text = BLdetailModel.title;
     _contentLabel.text = BLdetailModel.summary;
-    _readLabel.text = [self tipStr:BLdetailModel];
+//    _readLabel.text = [self tipStr:BLdetailModel];
 }
 
 - (NSString *)tipStr:(GLD_ForumDetailModel *)careModel{

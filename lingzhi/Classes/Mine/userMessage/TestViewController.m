@@ -70,58 +70,62 @@
 - (void)getSave{
     WS(weakSelf);
     
-    if (!IsExist_String(self.updateImg)) {
+    if (!IsExist_String(self.updateImg) && ![AppDelegate shareDelegate].userModel.iconImage) {
         [CAToast showWithText:@"请上传头像"];
         return;
 
     }
-    if (!IsExist_String(self.nicknameTF.text)) {
+    if (!IsExist_String(self.nicknameTF.text)&& ![AppDelegate shareDelegate].userModel.name) {
         [CAToast showWithText:@"请输入昵称"];
         return;
     }
-    if (!IsExist_String(self.genderTF.text)) {
+    if (!IsExist_String(self.genderTF.text)&& ![AppDelegate shareDelegate].userModel.sex) {
         [CAToast showWithText:@"请选择性别"];
         return;
     }
-    if (!IsExist_String(self.birthdayTF.text)) {
+    if (!IsExist_String(self.birthdayTF.text)&& ![AppDelegate shareDelegate].userModel.birthDay) {
         [CAToast showWithText:@"请选择出生日期"];
         return;
     }
-    if (!IsExist_String(self.locationTF.text)) {
+    if (!IsExist_String(self.locationTF.text)&& ![AppDelegate shareDelegate].userModel.address) {
         [CAToast showWithText:@"请选择所在地区"];
         return;
     }
-    if (!IsExist_String(self.personalIntroTF.text)) {
+    if (!IsExist_String(self.personalIntroTF.text)&& ![AppDelegate shareDelegate].userModel.intro) {
         [CAToast showWithText:@"请填写个人简介"];
         return;
     }
-    if (!IsExist_String(self.industryCell.detailTextLabel.text)) {
+    if (!IsExist_String(self.industryCell.detailTextLabel.text)&& ![AppDelegate shareDelegate].userModel.industry) {
         [CAToast showWithText:@"请选择从事行业"];
         return;
     }
-    if (!IsExist_String(self.companyTF.text)) {
+    if (!IsExist_String(self.companyTF.text)&& ![AppDelegate shareDelegate].userModel.company) {
         [CAToast showWithText:@"请填写所属单位"];
         return;
     }
-    if (!IsExist_String(self.positionTF.text)) {
+    if (!IsExist_String(self.positionTF.text)&& ![AppDelegate shareDelegate].userModel.duty) {
         [CAToast showWithText:@"请填写职位"];
         return;
     }
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/user/regUser";
+    if(self.type == 1){
+        config.urlPath = @"api/user/regUser";
+    }else{
+        config.urlPath = @"api/user/updateUser";
+    }
     config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"company" : GetString(self.companyTF.text),
-                                 @"industry" : GetString(self.industryCell.detailTextLabel.text),
-                                 @"intro" : GetString(self.personalIntroTF.text),
-                                 @"address" : GetString(self.locationTF.text),
+                                 @"company" : IsExist_String(self.companyTF.text) ? self.companyTF.text : [AppDelegate shareDelegate].userModel.company,
+                                 @"industry" : IsExist_String(self.industryCell.detailTextLabel.text)? self.industryCell.detailTextLabel.text : [AppDelegate shareDelegate].userModel.industry,
+                                 @"intro" : IsExist_String(self.personalIntroTF.text) ? self.personalIntroTF.text : [AppDelegate shareDelegate].userModel.intro,
+                                 @"address" : IsExist_String(self.locationTF.text) ? self.locationTF.text : [AppDelegate shareDelegate].userModel.address,
                                  @"inviteCode" : GetString([AppDelegate shareDelegate].userModel.inviteCode),
                                  @"password" : GetString([AppDelegate shareDelegate].userModel.password),
-                                 @"sex" : GetString(self.genderTF.text),
-                                 @"name" : GetString(self.nicknameTF.text),
-                                 @"birthDay" : GetString(self.birthdayTF.text),
+                                 @"sex" : IsExist_String(self.genderTF.text) ? self.genderTF.text : [AppDelegate shareDelegate].userModel.sex,
+                                 @"name" : IsExist_String(self.nicknameTF.text) ? self.nicknameTF.text : [AppDelegate shareDelegate].userModel.name,
+                                 @"birthDay" : IsExist_String(self.birthdayTF.text) ? self.birthdayTF.text : [AppDelegate shareDelegate].userModel.birthDay,
                                  @"iconImage" : GetString(self.updateImg),
-                                 @"duty" : GetString(self.positionTF.text)
+                                 @"duty" : IsExist_String(self.positionTF.text) ? self.positionTF.text : [AppDelegate shareDelegate].userModel.duty
                                  };
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
@@ -380,6 +384,9 @@
             case 0:{
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 self.industryCell = cell;
+                if (IsExist_String([AppDelegate shareDelegate].userModel.industry)) {
+                    cell.detailTextLabel.text = [AppDelegate shareDelegate].userModel.industry;
+                }
             }break;
             case 1:{
             cell.accessoryType = UITableViewCellAccessoryNone;

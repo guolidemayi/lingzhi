@@ -113,22 +113,7 @@
         NSLog(@"");
     }];
 }
-- (void)searchForData{
-    self.NetManager = [GLD_NetworkAPIManager new];
-    WS(weakSelf);
-    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
-    config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/main/categoryShop";
-    config.requestParameters = @{@"category" : GetString(self.model.title),
-                                 @"type" : GetString(self.model.title),
-                                 @"city" : GetString(self.model.title),
-                                 };
-    
-    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-     
 
-    }];
-}
 - (void)fetchData:(NSDictionary *)titles{
     [self.businessManager fetchMainDataWithCondition:titles];
 }

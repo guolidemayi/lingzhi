@@ -65,17 +65,22 @@
     
 //    self.title = @"帖子详情";
 
-//    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
 //    if ([_type isEqualToString:@"8"]) {
-//        UIButton *tmpButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [tmpButton setImage:[UIImage imageNamed:@"post举报"] forState:UIControlStateNormal];
-//        [tmpButton addTarget:self action:@selector(rightButClick) forControlEvents:UIControlEventTouchUpInside];
-//        tmpButton.frame = CGRectMake(0, 0, 20, 20);
-//        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:tmpButton]];
+        UIButton *tmpButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [tmpButton setImage:[UIImage imageNamed:@"举报"] forState:UIControlStateNormal];
+        [tmpButton addTarget:self action:@selector(rightButClick) forControlEvents:UIControlEventTouchUpInside];
+        tmpButton.frame = CGRectMake(0, 0, 20, 20);
+        [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:tmpButton]];
 //    }
 
 }
-
+- (void)rightButClick{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [CAToast showWithText:@"我们会尽快处理您的举报"];
+    });
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 1&& !IsExist_Array(forumDetailModel.topicList))return 0.0;

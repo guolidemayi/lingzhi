@@ -74,7 +74,7 @@
     if (!_menuTitles.count) return;
     for (NSInteger i = 0; i < _menuTitles.count; i ++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0];
+        btn.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_LIGHT_BLUE];
         btn.tag = i;
         [btn setTitle:_menuTitles[i] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(didSelectMenuButton:) forControlEvents:UIControlEventTouchUpInside];

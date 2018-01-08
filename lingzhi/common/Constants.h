@@ -89,7 +89,7 @@
 #define COLOR_YX_DRAKgray2              @"#878787"
 #define COLOR_YX_DRAKblack              @"#4a4a4a"
 #define COLOR_YX_DRAKblackNew           @"#191919"
-#define COLOR_YX_DRAKyellow             @"f3a536"
+#define COLOR_YX_DRAKyellow             @"#027cfa"//nav颜色
 #define COLOR_YX_DRAKwirte              @"#ffffff"
 #define COLOR_YX_DRAKgray3              @"#707070"
 #define COLOR_YX_DRAKgrayBIANK          @"#8F9395"
