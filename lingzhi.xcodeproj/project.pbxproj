@@ -169,6 +169,7 @@
 		0F99201B1FCEF04500305DF3 /* GLD_BaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F99201A1FCEF04500305DF3 /* GLD_BaseCell.m */; };
 		0F99201E1FCEF81E00305DF3 /* GLD_BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F99201D1FCEF81E00305DF3 /* GLD_BusinessCell.m */; };
 		0F995DC11FFF5C0C009EB2FE /* GLD_AboutUsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F995DC01FFF5C0B009EB2FE /* GLD_AboutUsController.m */; };
+		0F995DC420045E5E009EB2FE /* GLD_SecondIndustryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F995DC320045E5E009EB2FE /* GLD_SecondIndustryController.m */; };
 		0FB536FE1FC5887C00B0EDA6 /* LBHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB536DA1FC5887C00B0EDA6 /* LBHomeViewController.m */; };
 		0FB536FF1FC5887C00B0EDA6 /* LBpostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB536DE1FC5887C00B0EDA6 /* LBpostViewController.m */; };
 		0FB537001FC5887C00B0EDA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB536E21FC5887C00B0EDA6 /* main.m */; };
@@ -548,6 +549,8 @@
 		0F99201D1FCEF81E00305DF3 /* GLD_BusinessCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BusinessCell.m; sourceTree = "<group>"; };
 		0F995DBF1FFF5C0B009EB2FE /* GLD_AboutUsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_AboutUsController.h; sourceTree = "<group>"; };
 		0F995DC01FFF5C0B009EB2FE /* GLD_AboutUsController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_AboutUsController.m; sourceTree = "<group>"; };
+		0F995DC220045E5E009EB2FE /* GLD_SecondIndustryController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_SecondIndustryController.h; sourceTree = "<group>"; };
+		0F995DC320045E5E009EB2FE /* GLD_SecondIndustryController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_SecondIndustryController.m; sourceTree = "<group>"; };
 		0FB536DA1FC5887C00B0EDA6 /* LBHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBHomeViewController.m; sourceTree = "<group>"; };
 		0FB536DB1FC5887C00B0EDA6 /* LBHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBHomeViewController.h; sourceTree = "<group>"; };
 		0FB536DE1FC5887C00B0EDA6 /* LBpostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBpostViewController.m; sourceTree = "<group>"; };
@@ -1385,6 +1388,8 @@
 				339EF9561FF8958100C6170E /* GLD_ForgetPassControllor.m */,
 				0F995DBF1FFF5C0B009EB2FE /* GLD_AboutUsController.h */,
 				0F995DC01FFF5C0B009EB2FE /* GLD_AboutUsController.m */,
+				0F995DC220045E5E009EB2FE /* GLD_SecondIndustryController.h */,
+				0F995DC320045E5E009EB2FE /* GLD_SecondIndustryController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1876,6 +1881,7 @@
 				0FB537381FC6D22A00B0EDA6 /* SGQRCodeHelperTool.m in Sources */,
 				0F28D2C11FD91DED00138A8B /* GLD_MapDetailCell.m in Sources */,
 				0FB5371E1FC6AA7A00B0EDA6 /* WTBootPageStartViewController.m in Sources */,
+				0F995DC420045E5E009EB2FE /* GLD_SecondIndustryController.m in Sources */,
 				0F298E821FC2CFC200EDBA9A /* MTShareModule.m in Sources */,
 				0F32E7F31FDFDECF0042E8BE /* GLD_GiveCouponController.m in Sources */,
 				0F2C2EFC1FF4EF1D0083BCCB /* GLD_GetMoneyCell.m in Sources */,

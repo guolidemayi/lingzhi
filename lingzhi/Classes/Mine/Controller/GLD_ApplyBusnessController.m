@@ -15,6 +15,7 @@
 #import "GLD_MapDetailCell.h"
 #import "GLD_IndustryModel.h"
 #import "AFHTTPSessionManager.h"
+#import "GLD_SecondIndustryController.h"
 
 @interface GLD_ApplyBusnessController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate,GLD_MapDetailCellDelegate>
 @property (nonatomic, strong)UITableView *table_apply;
@@ -73,6 +74,7 @@
 @property (nonatomic, strong)GLD_IndustryListModel *industryListModel;//行业列表
 @property (nonatomic, strong)NSString *updateImg;//上传图片返回连接
 @property (nonatomic, assign)BOOL isSuccss;//是否验证成功
+
 @end
 
 @implementation GLD_ApplyBusnessController
@@ -105,8 +107,15 @@
         if (!IsExist_Array(weakSelf.industryListModel.data)) return ;
         weakSelf.industryTF.tapAcitonBlock = ^{
             //跳转地区
-            [BRStringPickerView showStringPickerWithTitle:@"行业" dataSource:arr defaultSelValue:@"百货商超" isAutoSelect:YES resultBlock:^(id selectValue) {
-                weakSelf.industryTF.text = selectValue;
+            [BRStringPickerView showStringPickerWithTitle:@"行业" dataSource:arr defaultSelValue:@"百货商超" isAutoSelect:NO resultBlock:^(id selectValue) {
+//
+                GLD_SecondIndustryController *indeVc = [GLD_SecondIndustryController new];
+                indeVc.firstTitle = selectValue;
+                indeVc.nameBlock = ^(NSString *name) {
+                    weakSelf.industryTF.text = name;
+                };
+                [weakSelf.navigationController pushViewController:indeVc animated:YES];
+                
             }];
         };
         NSLog(@"");
