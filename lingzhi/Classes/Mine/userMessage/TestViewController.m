@@ -53,6 +53,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"信息";
+//    self.updateImg = @"";
     self.tableView.hidden = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(clickSaveBtn)];
     self.NetManager = [GLD_NetworkAPIManager new];
@@ -254,6 +255,11 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [CAToast showWithText:@"上传成功"];
+        if ([responseObject[@"code"] integerValue] != 200 ) {
+            [CAToast showWithText:responseObject[@"msg"]];
+            weakSelf.updateImg = @"ddddd";
+            return ;
+        }
         //请求成功
         weakSelf.updateImg = responseObject[@"data"];
         NSLog(@"请求成功：%@",responseObject);

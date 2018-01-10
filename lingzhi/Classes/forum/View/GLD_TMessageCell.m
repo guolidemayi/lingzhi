@@ -53,7 +53,7 @@ NSString  *const GLD_TMessageCellIdentifi = @"GLD_TMessageCellIdentifi";
         [self layoutIfNeeded];
     }else{
         NSArray *arr = [BLdetailModel.pic componentsSeparatedByString:@","];
-        if(!IsExist_Array(arr)){
+        if(IsExist_Array(arr)){
         [_titleImgV mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(WIDTH(65));
         }];
@@ -63,6 +63,7 @@ NSString  *const GLD_TMessageCellIdentifi = @"GLD_TMessageCellIdentifi";
     _nameLabel.text = !IsExist_String(BLdetailModel.userName) ? BLdetailModel.nickName : BLdetailModel.userName;
     _titleLabel.text = BLdetailModel.title;
     _contentLabel.text = BLdetailModel.summary;
+    
 //    _readLabel.text = [self tipStr:BLdetailModel];
 }
 

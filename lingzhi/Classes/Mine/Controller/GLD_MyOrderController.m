@@ -59,7 +59,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/order/orderList";
-    config.requestParameters = @{@"userId" : @"3",
+    config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
                                  @"status" : status,
                                  @"limit" : @"10",
                                  @"offset" : [NSString stringWithFormat:@"%zd",offset]
@@ -193,7 +193,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/order/orderList";
-    config.requestParameters = @{@"userId" : @"3",
+    config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
                                  @"busnessId":self.busnessId
                                  };
     

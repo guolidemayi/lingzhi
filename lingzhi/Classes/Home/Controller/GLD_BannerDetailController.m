@@ -111,20 +111,22 @@
 }
 
 - (void)applybutClick{
-    if (hasLogin) {
-        [CAToast showWithText:@"已经登陆"];
-    }else{
-        switch (self.bannerModel.typeTitle) {
-            case 0:{
-                GLD_ApplyBusnessController *applyVc = [GLD_ApplyBusnessController new];
-                [self.navigationController pushViewController:applyVc animated:YES];
-            }break;
-            case 1:{
-                GLD_ApplyUnionController *applyVc = [GLD_ApplyUnionController new];
-                [self.navigationController pushViewController:applyVc animated:YES];
-            }break;
-        }
+    
+    switch (self.bannerModel.typeTitle) {
+        case 0:{
+            if ([AppDelegate shareDelegate].userModel.isHasBusness) {
+                [CAToast showWithText:@"已经登陆"];
+                return;
+            }
+            GLD_ApplyBusnessController *applyVc = [GLD_ApplyBusnessController new];
+            [self.navigationController pushViewController:applyVc animated:YES];
+        }break;
+        case 1:{
+            GLD_ApplyUnionController *applyVc = [GLD_ApplyUnionController new];
+            [self.navigationController pushViewController:applyVc animated:YES];
+        }break;
     }
+    
 }
 - (UIButton *)applyBut{
     if (!_applyBut) {

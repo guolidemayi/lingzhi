@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WXApi.h"//微信SDK
 #import <TencentOpenAPI/TencentApiInterface.h>//qqSDK
-#import "WeiboSDK.h"//weibo
+
 #import "MTShareModule.h"
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import "GLD_UserMessageModel.h"

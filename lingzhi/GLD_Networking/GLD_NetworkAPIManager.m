@@ -94,7 +94,7 @@
         }
         if([data[@"code"] integerValue] != 200){
             [CAToast showWithText:data[@"msg"]];
-            return;
+            
         }
         if (!error && config.cacheValidTimeInterval > 0) {
             GLD_Cache *cacheData = [GLD_Cache cacheWithData:data validTime:config.cacheValidTimeInterval];

@@ -23,7 +23,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/getCollectionShop";
-    config.requestParameters = @{@"userId":@"3"
+    config.requestParameters = @{@"userId":GetString([AppDelegate shareDelegate].userModel.userId)
                                  };
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         

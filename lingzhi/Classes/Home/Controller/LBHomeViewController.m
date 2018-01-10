@@ -36,7 +36,8 @@
     // Do any additional setup after loading the view.
     
     self.homeManager = [[GLD_HomeViewManager alloc]initWithTableView:self.home_table];
-    
+    //获取用户信息
+    [self.homeManager fetchMainUserData];
     [self startLocation];
     //导航到深圳火车站
     [self setNavUi];

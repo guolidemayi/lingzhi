@@ -53,7 +53,7 @@
     // Do any additional setup after loading the view.
     self.NetManager = [GLD_NetworkAPIManager new];
     [self addTableUP];
-    [self forumDetailRequest];
+    
    
     [self getBannerData];
 }
@@ -61,6 +61,10 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self forumDetailRequest];
 }
 - (void)reLoadMainData{
     [self forumDetailRequest];
@@ -220,10 +224,6 @@
     cell.CCdetailModel = model;
     return cell;
 }
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-  
-}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -259,7 +259,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/banner";
-    config.requestParameters = @{};
+    config.requestParameters = @{@"type":@"3"};
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
         weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];

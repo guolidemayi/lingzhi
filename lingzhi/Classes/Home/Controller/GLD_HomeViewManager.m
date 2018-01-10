@@ -42,12 +42,32 @@
     [self getbusnessList:self.listType];
     
 }
+- (void)fetchMainUserData{
+    
+    WS(weakSelf);
+    NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"loginToken"];
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/getUserInfo";
+    config.requestParameters = @{@"loginToken":GetString(str)};
+    [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        if (!error) {
+            
+            GLD_UserModel *model = [[GLD_UserModel alloc] initWithDictionary:result error:nil];
+            
+            [AppDelegate shareDelegate].userModel = model.data;
+            [weakSelf.tableView reloadData];
+        }
+        [weakSelf.tableView.mj_header endRefreshing];
+    }];
+}
 - (void)getBannerData{
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/banner";
-    config.requestParameters = @{};
+    config.requestParameters = @{@"type":@"1"};
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
         weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];

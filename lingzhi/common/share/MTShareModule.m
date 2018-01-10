@@ -34,10 +34,7 @@
 {
     return [WXApi isWXAppInstalled];
 }
-+ (BOOL)getWeiboAppIsInstalled
-{
-    return [WeiboSDK isWeiboAppInstalled];
-}
+
 #pragma mark - 短信分享
 - (void)shareSMS
 {
@@ -375,104 +372,8 @@
     }
     return errStr;
 }
-#pragma mark - 新浪分享相关
-- (void)shareSina
-{
-    if([WeiboSDK isWeiboAppInstalled] == YES)//已安装微博
-    {
-        AppDelegate *myDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-        myDelegate.shareModuleDelegate = self;
-        WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare]];
-        
-        request.userInfo = @{@"ShareMessageFrom": @"CDVSinaPlugins"};
-        [WeiboSDK sendRequest:request];
-    }
-    else
-    {
-        [CAToast showWithText:@"新浪微博还未安装"];
-    }
-}
-#pragma mark 组合分享的内容
-- (WBMessageObject *)messageToShare
-{
-    WBMessageObject *message = [WBMessageObject message];
-    //NSInteger shareType = [[command.arguments objectAtIndex:0] integerValue];
-    //message.text = ShareText;
-    WBWebpageObject *webpage = [WBWebpageObject object];
-    webpage.objectID = @"identifier1";
-    webpage.title = ShareTitleStr;
-    webpage.description = self.str_shareText;
-    UIImage *img = [UIImage imageWithContentsOfFile:ShareIconPath];
-    NSLog(@"%@",[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"AppIcon60x60@3x.png"]);
-    NSData *dataObj = UIImageJPEGRepresentation(img, 0.5);
-    webpage.thumbnailData = dataObj;
-    webpage.webpageUrl = self.str_shareUrl;
-    message.mediaObject = webpage;
-    return message;
-}
-#pragma mark 分享的回调
--(void)sinaShareResp:(NSString *)errcodeStr
-{
-    int errCode = [errcodeStr intValue];
-    
-    
-    if (errCode == WeiboSDKResponseStatusCodeSuccess) {
-        NSLog(@"分享成功");
-        [CAToast showWithText:@"分享成功"];
-        
-    } else {
-//        NSString *errStr = [self getErrorStr:errCode];
-//        NSLog(@"分享失败 原因：%@", errStr);
-        [CAToast showWithText:@"分享失败"];
-    }
-}
 
 
-#pragma mark 根据新浪客户端返回的错误码得到错误描述文字
--(NSString *)getSinaShareErrorStr:(NSInteger)errcode
-{
-    NSString *errStr = nil;
-    
-    switch (errcode)
-    {
-        case WeiboSDKResponseStatusCodeUserCancel:
-        {
-            errStr = @"cancelSina";
-            break;
-        }
-        case WeiboSDKResponseStatusCodeAuthDeny:
-        {
-            errStr = @"授权失败";
-            break;
-        }
-        case WeiboSDKResponseStatusCodeUserCancelInstall:
-        {
-            errStr = @"用户取消安装微博客户端";
-            break;
-        }
-        case WeiboSDKResponseStatusCodeUnsupport:
-        {
-            errStr = @"不支持的请求";
-            break;
-        }
-        case WeiboSDKResponseStatusCodeSentFail:
-        {
-            errStr = @"发送失败";
-            break;
-        }
-        case WeiboSDKResponseStatusCodeUnknown:
-        {
-            errStr = @"cancelSina";
-            break;
-        }
-        default:
-        {
-            break;
-        }
-    }
-    
-    return errStr;
-}
 
 #pragma mark - QQ开放平台相关功能
 - (void)loginByQQ

@@ -24,15 +24,16 @@
     UIBarButtonItem *item=[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[self]];
     NSMutableDictionary *dic=[NSMutableDictionary dictionary];
     dic[NSFontAttributeName]=[UIFont systemFontOfSize:15];
-    dic[NSForegroundColorAttributeName]=[UIColor blackColor];
+    dic[NSForegroundColorAttributeName]=[UIColor whiteColor];
     [item setTitleTextAttributes:dic forState:UIControlStateNormal];
-    
+//    [item setImage:WTImage(@"白色返回按钮")];
+    [item setTintColor:[UIColor whiteColor]];
     UINavigationBar *bar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[self]];
     
     [bar setBackgroundImage:[YXUniversal createImageWithColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE]] forBarMetrics:UIBarMetricsDefault];
     NSMutableDictionary *dicBar=[NSMutableDictionary dictionary];
     
-    dicBar[NSFontAttributeName]=[UIFont systemFontOfSize:15];
+    dicBar[NSFontAttributeName]=WTFont(16);
     [bar setTitleTextAttributes:dic];
     
 }

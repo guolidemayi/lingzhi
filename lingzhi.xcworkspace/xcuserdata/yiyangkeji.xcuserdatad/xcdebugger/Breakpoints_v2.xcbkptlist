@@ -36,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Mine/Controller/GLD_ApplyUnionController.m"
-            timestampString = "537158495.3458591"
+            timestampString = "537181307.947706"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Home/Controller/GLD_BusinessDetailController.m"
-            timestampString = "537158495.346148"
+            timestampString = "537181307.949541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Home/Controller/GLD_BusinessDetailController.m"
-            timestampString = "537158495.346326"
+            timestampString = "537181307.950038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -163,13 +163,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "lingzhi/Classes/Home/View/GLD_HomeListCell.m"
-            timestampString = "537088832.130895"
+            filePath = "lingzhi/Classes/Mine/userMessage/TestViewController.m"
+            timestampString = "537249543.596144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
+            landmarkName = "-uploadImage:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "lingzhi/Classes/Home/Controller/GLD_BusinessListController.m"
+            timestampString = "537249543.59621"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "-ptl_menuButton:didSelectMenuButtonAtIndex:selectMenuButtonTitle:listRow:rowTitle:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

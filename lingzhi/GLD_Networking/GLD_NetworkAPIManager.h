@@ -16,6 +16,7 @@
 //#define WEB_SERVICE_REQUESTBASEURL @"http://192.168.0.61:8085" //测试网络链接;
 
 //2027463920@qq.com/lp13393185821
+//appleId 843394241zZ
 typedef void(^completionHandleBlock)(NSError *error, id result);
 
 @interface GLD_APIConfiguration : NSObject

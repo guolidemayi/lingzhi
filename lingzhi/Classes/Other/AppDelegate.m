@@ -17,7 +17,7 @@
 
 #define LBKeyWindow [UIApplication sharedApplication].keyWindow
 
-#define AMAP_KEY @"32b7ced813a607ad23195108ed0ac622"
+#define AMAP_KEY @"963b65d551f51f9c4837ad49bb679ce7"
 @interface AppDelegate ()
 
 @end

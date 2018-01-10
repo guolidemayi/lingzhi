@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>访问相册</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,38 +11,13 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>惠汇联盟</string>
+	<string>惠会联盟</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>comgooglemaps://</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>iosamap://</string>
-			</array>
-		</dict>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>baidumap://</string>
-			</array>
-		</dict>
-	</array>
+	<array/>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -68,6 +41,8 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>是否可以使用您的位置？</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>访问相册</string>
+	<key>NSPhotoLibraryUsageDescription</key>
 	<string>访问相册</string>
 	<key>Privacy - Photo Library Usage Description </key>
 	<string>相册访问权限</string>

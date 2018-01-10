@@ -14,6 +14,7 @@
 @interface GLD_BusinessViewManager ()
 
 @property (nonatomic, strong)GLD_BusnessLisModel *busnessListModel;
+@property (nonatomic, copy)NSDictionary *condition;
 @end
 @implementation GLD_BusinessViewManager
 
@@ -27,13 +28,20 @@
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/categoryShop";
     config.requestParameters = condition;
-    
+    self.condition = condition;
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
         weakSelf.busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
         [weakSelf.tableView reloadData];
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
 
+}
+- (void)reloadOrLoadMoreData{
+    [self.tableView.mj_footer endRefreshing];
+}
+- (void)fetchMainData{
+    [self fetchMainDataWithCondition:self.condition];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     

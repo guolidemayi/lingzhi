@@ -90,7 +90,7 @@
             for ( GLD_IndustryModel *model in weakSelf.industryListModel1.data) {
                 [arrM2 addObject:model.title];
             }
-            NSArray * listArr3 = @[@"推荐",@"最近开通",@"离我最近"];
+            NSArray * listArr3 = @[@"推荐",@"离我最近",@"最近开通"];
             btn.listTitles = @[@[self.cityName ? self.cityName :@"北京市"], arrM2.copy,listArr3];
             btn.delegate = self;
             [weakSelf.view addSubview:btn];
@@ -125,7 +125,7 @@
     
     NSString *type = @"-1";
     NSString *ttt = @"";
-    switch (row) {
+    switch (index) {
         case 0:{
             
         }break;
@@ -134,7 +134,7 @@
             ttt = rowTitle;
         }break;
         case 2:{
-            type = [NSString stringWithFormat:@"%zd",index];
+            type = [NSString stringWithFormat:@"%zd",row+1];
         }break;
 
     }

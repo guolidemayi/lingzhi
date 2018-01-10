@@ -54,7 +54,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/other/getStationMessage";
-    config.requestParameters = @{@"userId" : GetString(@"1")};
+    config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId)};
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         

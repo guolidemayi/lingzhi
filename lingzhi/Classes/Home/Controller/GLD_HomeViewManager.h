@@ -10,5 +10,5 @@
 
 @interface GLD_HomeViewManager : GLD_BaseTableManager
 
-
+- (void)fetchMainUserData;
 @end

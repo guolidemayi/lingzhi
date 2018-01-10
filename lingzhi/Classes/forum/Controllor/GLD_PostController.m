@@ -70,7 +70,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setUP];
     [self initData];
-    [self setBackbut];
+//    [self setBackbut];
     self.NetManager = [GLD_NetworkAPIManager new];
     _photoView =  [GLD_PhotoView showPhotoViewInView:[AppDelegate shareDelegate].window];
     _photoView.delegate = self;
@@ -131,9 +131,10 @@
     NSString *jsonString = [self arrayToJson:pictureArrM];
     
     
-    [dictM addEntriesFromDictionary:@{@"userId":GetString(@"9"),
+    [dictM addEntriesFromDictionary:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
                                       @"title":self.textField.text ,
-                                      @"summary":self.textView.text,@"pic":jsonString}];
+                                      @"summary":self.textView.text,
+                                      @"pic":jsonString}];
 
     WS(weakSelf);
     
@@ -156,11 +157,12 @@
     if (!IsExist_Array(arr)) {
         return @"";
     }
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:arr options:NSJSONWritingPrettyPrinted error:nil];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSMutableString *jsonString = [NSMutableString string];
+    for (NSString *img in arr) {
+        [jsonString appendString:img];
+        [jsonString appendString:@","];
+    }
     
-    jsonString = [jsonString stringByReplacingOccurrencesOfString:@"," withString:@""];
-    jsonString = [jsonString stringByReplacingOccurrencesOfString:@" " withString:@""];
     return jsonString;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
