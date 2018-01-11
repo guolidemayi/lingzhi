@@ -243,6 +243,7 @@
 - (void)applybutClick{
     if(self.type == 1){
     GLD_ForgetPassControllor *changeVc = [GLD_ForgetPassControllor new];
+    changeVc.phone = self.phoneTF.text;
     [self.navigationController pushViewController:changeVc animated:YES];
         return;
     }

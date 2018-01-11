@@ -10,4 +10,5 @@
 
 @interface GLD_ForgetPassControllor : GLD_BaseViewController
 
+@property (nonatomic, copy)NSString *phone;//手机号
 @end

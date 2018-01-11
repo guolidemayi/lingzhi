@@ -43,7 +43,7 @@
 
 - (void)rightButClick{
     
-  
+    [self.view endEditing:YES];
     if (!IsExist_String(self.newsWordTF.text)) {
         [CAToast showWithText:@"请输入新密码"];
         return;
@@ -56,14 +56,21 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/user/missPassword";
-    config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone),
+    config.requestParameters = @{@"phone" : GetString(self.phone),
                                  @"password" : GetString(self.newsWordTF.text)
                                  };
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-        
+        if (!error) {
+            
+            for (UIViewController *vc in self.navigationController.viewControllers) {
+                if ([vc isMemberOfClass:NSClassFromString(@"GLD_LoginController")]) {
+                    [self.navigationController popToViewController:vc animated:YES];
+                }
+            }
+            [CAToast showWithText:@"修改成功"];
+        }
         //        weakSelf.phoneCode = @"1111";
-        [CAToast showWithText:@"修改成功"];
         
     }];
 }
