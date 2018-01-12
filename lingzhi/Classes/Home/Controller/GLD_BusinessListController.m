@@ -38,40 +38,7 @@
     
     [self fetchData:dict];
 }
-////区
-//- (void)getDistrictList{
-//    WS(weakSelf);
-//    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
-//    config.requestType = gld_networkRequestTypePOST;
-//    config.urlPath = @"api/main/getDistrictList";
-//    config.requestParameters = @{@"city" : self.cityName?self.cityName : @"北京市"};
-//
-//    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-//
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            PTLMenuButton *btn = [[PTLMenuButton alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, W(44)) menuTitles:@[@"全城",self.model.title,@"筛选"]];
-////            NSArray * listArr1 = @[@"全科",@"妇产科",@"儿科",@"内科",@"外科",@"中医科",@"口腔科",@"耳科",@"耳鼻喉科"];
-//            NSArray * list = result[@"data"];
-//            NSMutableArray *listArr1 = [NSMutableArray array];
-//            for (NSDictionary *dict in list) {
-//                [listArr1 addObject:dict[@"title"]];
-//            }
-//            NSMutableArray *arrM2 = [NSMutableArray array];
-//            for ( GLD_IndustryModel *model in weakSelf.industryListModel1.data) {
-//                [arrM2 addObject:model.title];
-//            }
-//            NSArray * listArr3 = @[@"离我最近",@"最近开通",@"推荐"];
-//            btn.listTitles = @[listArr1, arrM2.copy,listArr3];
-//            btn.delegate = self;
-//            [weakSelf.view addSubview:btn];
-//            [weakSelf.business_table mas_makeConstraints:^(MASConstraintMaker *make) {
-//                make.left.right.bottom.equalTo(weakSelf.view);
-//                make.top.equalTo(btn.mas_bottom);
-//            }];
-//        });
-////        weakSelf.industryListModel1 = [[GLD_IndustryListModel alloc] initWithDictionary:result error:nil];
-//    }];
-//}
+
 - (void)getSubCategory:(NSString *)pid{
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
@@ -115,7 +82,16 @@
 }
 
 - (void)fetchData:(NSDictionary *)titles{
-    [self.businessManager fetchMainDataWithCondition:titles];
+    WS(weakSelf);
+    [self.businessManager fetchMainDataWithCondition:titles complate:^(NSError *error, id result) {
+        NSArray *arr = result[@"data"];
+        if (arr.count == 0) {
+            weakSelf.noDataLabel.hidden = NO;
+            [weakSelf.view bringSubviewToFront:weakSelf.noDataLabel];
+        }else{
+            weakSelf.noDataLabel.hidden = YES;
+        }
+    }];
 }
 
 #pragma mark - PTLMenuButtonDelegate

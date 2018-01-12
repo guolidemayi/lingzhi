@@ -114,7 +114,7 @@
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         senser.enabled = NO;
-        
+        [weakSelf.view endEditing:YES];
         [senser setTitle:@"59" forState:UIControlStateNormal];
         weakSelf.verificationTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                                   target:self

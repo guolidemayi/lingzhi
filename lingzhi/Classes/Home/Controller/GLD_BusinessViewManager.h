@@ -10,5 +10,5 @@
 
 @interface GLD_BusinessViewManager : GLD_BaseTableManager
 
-- (void)fetchMainDataWithCondition:(NSDictionary *)condition;
+- (void)fetchMainDataWithCondition:(NSDictionary *)condition complate:(completionHandleBlock)block;
 @end

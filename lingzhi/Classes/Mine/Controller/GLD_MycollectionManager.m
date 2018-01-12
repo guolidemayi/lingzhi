@@ -30,6 +30,9 @@
         [weakSelf.tableView.mj_header endRefreshing];
         GLD_BusnessLisModel *busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
         [weakSelf.mainDataArrM addObjectsFromArray:busnessListModel.data];
+        if ([weakSelf.mycollecDeleagte respondsToSelector:@selector(complate:)]) {
+            [weakSelf.mycollecDeleagte complate:result];
+        }
         [weakSelf.tableView reloadData];
     }];
 }

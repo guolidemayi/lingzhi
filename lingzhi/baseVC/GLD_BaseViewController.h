@@ -10,5 +10,7 @@
 
 @interface GLD_BaseViewController : UIViewController
 
+@property (nonatomic, strong)UILabel *noDataLabel;
 - (void)outLayoutSelfSubviews;
+
 @end

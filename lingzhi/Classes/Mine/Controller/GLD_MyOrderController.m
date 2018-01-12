@@ -50,6 +50,7 @@
     [self.view addSubview:self.bgView];
     self.NetManager = [GLD_NetworkAPIManager new];
     self.status = @"0";
+    self.title = @"我的订单";
     [self getOrderList:self.status];
 }
 - (void)getOrderList:(NSString *)status{
@@ -68,6 +69,13 @@
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
             GLD_OrderModelListModel *orderListModel = [[GLD_OrderModelListModel alloc] initWithDictionary:result error:nil];
+            if (orderListModel.data.count == 0) {
+                weakSelf.noDataLabel.text = @"暂无订单消息";
+                weakSelf.noDataLabel.hidden = NO;
+                [weakSelf.view bringSubviewToFront:weakSelf.noDataLabel];
+            }else{
+                weakSelf.noDataLabel.hidden = YES;
+            }
             [weakSelf.dataArr addObjectsFromArray:orderListModel.data];
             
         }else{

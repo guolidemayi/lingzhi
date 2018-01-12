@@ -164,7 +164,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Mine/userMessage/TestViewController.m"
-            timestampString = "537249543.596144"
+            timestampString = "537418378.4399329"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "264"
@@ -180,12 +180,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Home/Controller/GLD_BusinessListController.m"
-            timestampString = "537249543.59621"
+            timestampString = "537418378.4399951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "-ptl_menuButton:didSelectMenuButtonAtIndex:selectMenuButtonTitle:listRow:rowTitle:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "lingzhi/Classes/Mine/Controller/setting/GLD_ChangePassWordController.m"
+            timestampString = "537349812.08987"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-rightButClick"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

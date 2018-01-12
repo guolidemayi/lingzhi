@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.noDataLabel];
+    [self.noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+    }];
     // Do any additional setup after loading the view.
 }
 
@@ -43,14 +47,11 @@
         }
     }
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UILabel *)noDataLabel{
+    if (!_noDataLabel) {
+        _noDataLabel = [UILabel creatLableWithText:@"暂时无相关门店信息 T_T" andFont:WTFont(15) textAlignment:NSTextAlignmentCenter textColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTline2Gray]];
+        _noDataLabel.hidden = YES;
+    }
+    return _noDataLabel;
 }
-*/
-
 @end
