@@ -33,7 +33,7 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
     self.typeLabel.text = model.category;
     self.detailLabel.text = model.desc;
     self.distanceLabel.text = [NSString stringWithFormat:@" 距离%@KM ",IsExist_String(model.distance) ? model.distance : @"12.7"];
-    self.rankLabel.text = [NSString stringWithFormat:@"%@星",model.evaluateScore];
+    self.rankLabel.text = [NSString stringWithFormat:@"%@星",model.evaluateScore?model.evaluateScore:@"5"];
 }
 - (void)setupUI{
     
