@@ -59,6 +59,7 @@ NSString *const GLD_BannerCellIdentifier = @"GLD_BannerCellIdentifier";
 
         
         _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
+        
         _cycleView.autoScroll = YES;
 //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
     }

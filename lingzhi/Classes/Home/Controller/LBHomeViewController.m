@@ -35,6 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
     self.homeManager = [[GLD_HomeViewManager alloc]initWithTableView:self.home_table];
     //获取用户信息
     [self.homeManager fetchMainUserData];
@@ -140,7 +141,7 @@
         
         if (status != kCLAuthorizationStatusAuthorizedAlways && status != kCLAuthorizationStatusAuthorizedWhenInUse) {
             //定位不能用
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"允许“城市列表”在您使用该应用时访问您的位置吗？" message:@"是否允许访问您的位置？" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"允许“惠会联盟”在您使用该应用时访问您的位置吗？" message:@"是否允许访问您的位置以获取附近门店？" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             }];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"去设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

@@ -19,7 +19,7 @@
 	<key>CFBundleURLTypes</key>
 	<array/>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>4</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>baidumap</string>
@@ -33,19 +33,15 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>相机访问权限</string>
+	<string>惠会联盟 需要您的同意才能使用相机拍照</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>是否可以使用您的位置？</string>
+	<string>使用定位以发现附近门店</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>是否可以使用您的位置？</string>
+	<string>使用定位以发现附近门店</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>是否可以使用您的位置？</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>访问相册</string>
+	<string>使用定位以发现附近门店</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>访问相册</string>
-	<key>Privacy - Photo Library Usage Description </key>
-	<string>相册访问权限</string>
+	<string>惠会联盟 需要您的同意才能使用相册选取照片</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

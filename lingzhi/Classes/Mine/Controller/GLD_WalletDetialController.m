@@ -77,6 +77,7 @@
 
 - (NSArray *)dataArr{
     if (!_dataArr) {
+        self.applyBut.hidden = NO;
         switch (self.type) {
             case 1:{
                 _dataArr = @[@"realNmaeIdentification",@"现金可以自由支配，包括但不限于：在联盟商家购物、绑卡提现、商家预存服务费等（提现产生的个人所得税和银行手续费由个人自理，平台代收的商家营业款除外）",@"提现"];
@@ -89,6 +90,7 @@
             }break;
             case 4:{
                 _dataArr = @[@"realNmaeIdentification",@"联盟会员在联盟商家消费，平台按合同约定扣去商家的折扣分金，商家如开通线下支付，需要预存适量服务费，如走线上则不需要",@"充值"];
+                self.applyBut.hidden = YES;
             }break;
         }
     }

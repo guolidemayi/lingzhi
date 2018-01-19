@@ -31,7 +31,7 @@
     [self.view addSubview:self.business_table];
     
     [self getSubCategory:self.model.title];
-    NSDictionary *dict = @{@"category" : GetString(@""),
+    NSDictionary *dict = @{@"category" : GetString(_model.title),
                           @"type" : GetString(@"-1"),
                            @"city" : self.cityName?self.cityName : @"北京市"
                           };
@@ -114,12 +114,13 @@
         }break;
 
     }
-    NSDictionary *dict = @{@"category" : GetString(ttt),
+    NSDictionary *dict = @{@"category" : IsExist_String(ttt)?ttt:self.model.title,
                            @"type" : GetString(type),
                            @"city" : self.cityName?self.cityName : @"北京市"
                            };
     [self fetchData:dict];
 
+    
 }
 
 @end

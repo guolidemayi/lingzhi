@@ -13,7 +13,7 @@
 
 
 #define WEB_SERVICE_REQUESTBASEURL @"http://www.hhlmcn.com:8080" //服务器网络链接;
-//#define WEB_SERVICE_REQUESTBASEURL @"http://192.168.0.61:8085" //测试网络链接;
+//#define WEB_SERVICE_REQUESTBASEURL @"http://192.168.0.80:8085" //测试网络链接;
 
 //2027463920@qq.com/lp13393185821
 //appleId 843394241zZ
