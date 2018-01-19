@@ -74,6 +74,7 @@
 @property (nonatomic, strong)GLD_IndustryListModel *industryListModel;//行业列表
 @property (nonatomic, strong)NSString *updateImg;//上传图片返回连接
 @property (nonatomic, assign)BOOL isSuccss;//是否验证成功
+@property (nonatomic, copy)NSString *parentCate;//一级分类
 
 @end
 
@@ -111,6 +112,7 @@
 //
                 GLD_SecondIndustryController *indeVc = [GLD_SecondIndustryController new];
                 indeVc.firstTitle = selectValue;
+                weakSelf.parentCate = selectValue;
                 indeVc.nameBlock = ^(NSString *name) {
                     weakSelf.industryTF.text = name;
                 };
@@ -144,7 +146,7 @@
             }else{
                 [CAToast showWithText:@"高级联盟正在建设中，敬请期待！"];
                 return;
-            self.introHeight = W(100);
+               self.introHeight = W(100);
                 self.superRankImgV.hidden = NO;
                 self.generalRankImgV.hidden = YES;
             }
@@ -233,6 +235,7 @@
                                  @"userName" : GetString(self.PersonTF.text),
                                  @"city" : GetString(self.addressTF.text),
                                  @"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
+                                 @"parentCategory" : GetString(self.parentCate)
                                  };
     
     [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {

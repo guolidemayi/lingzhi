@@ -92,10 +92,10 @@
             NSLog(@"请求被取消了~");
             return ;
         }
-        if([data[@"code"] integerValue] != 200){
-            [CAToast showWithText:data[@"msg"]];
-            
-        }
+//        if([data[@"code"] integerValue] != 200){
+//            [CAToast showWithText:data[@"msg"]];
+//            
+//        }
         if (!error && config.cacheValidTimeInterval > 0) {
             GLD_Cache *cacheData = [GLD_Cache cacheWithData:data validTime:config.cacheValidTimeInterval];
 //            [[GLD_CacheManager shareCacheManager] setObjcet:cacheData forKey:cacheKey];

@@ -105,8 +105,7 @@
         case 0:{
             
         }break;
-        case 1:{
-            
+        case 1:{   
             ttt = rowTitle;
         }break;
         case 2:{

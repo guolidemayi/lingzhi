@@ -58,6 +58,7 @@
    
     GLD_BusinessListController *listVc = [[GLD_BusinessListController alloc]init];
     listVc.model = self.listData[indexPath.item];
+    listVc.cityName = [AppDelegate shareDelegate].placemark.area_name;
     [self.collectionView.navigationController pushViewController:listVc animated:YES];
 }
 - (UICollectionView *)collectionView{
