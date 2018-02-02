@@ -28,4 +28,5 @@ typedef NS_ENUM(NSInteger, callBackType) {
 + (GLD_MyOrderCell *)cellWithReuseIdentifier:(NSString *)reuseIdentifier;
 @property (nonatomic, strong)GLD_OrderModel *orderModel;
 @property (nonatomic, weak)id<GLD_MyOrderCellDelegate> orderDelegate;
+
 @end

@@ -158,6 +158,10 @@
 		0F71A59E1FDFAF7800C66EED /* GLD_ChangePassWordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A59D1FDFAF7800C66EED /* GLD_ChangePassWordController.m */; };
 		0F71A5A21FDFBD4A00C66EED /* GLD_MyOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A5A11FDFBD4A00C66EED /* GLD_MyOrderController.m */; };
 		0F71A5A51FDFC16000C66EED /* GLD_MyWalletController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F71A5A41FDFC16000C66EED /* GLD_MyWalletController.m */; };
+		0F80FB20202439D700F7EE22 /* GLD_ZFBPayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F80FB1E202439D700F7EE22 /* GLD_ZFBPayCell.m */; };
+		0F80FB21202439D700F7EE22 /* GLD_ZFBPayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F80FB1F202439D700F7EE22 /* GLD_ZFBPayCell.xib */; };
+		0F80FB2820243D8000F7EE22 /* GLD_ZFBCashCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F80FB2620243D8000F7EE22 /* GLD_ZFBCashCell.m */; };
+		0F80FB2920243D8000F7EE22 /* GLD_ZFBCashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F80FB2720243D8000F7EE22 /* GLD_ZFBCashCell.xib */; };
 		0F9920061FCEDDE800305DF3 /* GLD_HomeViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920051FCEDDE800305DF3 /* GLD_HomeViewManager.m */; };
 		0F99200C1FCEDEE800305DF3 /* YXFooterRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920081FCEDEE800305DF3 /* YXFooterRefresh.m */; };
 		0F99200D1FCEDEE900305DF3 /* GLD_RefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9920091FCEDEE800305DF3 /* GLD_RefreshHeader.m */; };
@@ -516,6 +520,12 @@
 		0F71A5A11FDFBD4A00C66EED /* GLD_MyOrderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MyOrderController.m; sourceTree = "<group>"; };
 		0F71A5A31FDFC16000C66EED /* GLD_MyWalletController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MyWalletController.h; sourceTree = "<group>"; };
 		0F71A5A41FDFC16000C66EED /* GLD_MyWalletController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MyWalletController.m; sourceTree = "<group>"; };
+		0F80FB1D202439D700F7EE22 /* GLD_ZFBPayCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ZFBPayCell.h; sourceTree = "<group>"; };
+		0F80FB1E202439D700F7EE22 /* GLD_ZFBPayCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ZFBPayCell.m; sourceTree = "<group>"; };
+		0F80FB1F202439D700F7EE22 /* GLD_ZFBPayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_ZFBPayCell.xib; sourceTree = "<group>"; };
+		0F80FB2520243D8000F7EE22 /* GLD_ZFBCashCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ZFBCashCell.h; sourceTree = "<group>"; };
+		0F80FB2620243D8000F7EE22 /* GLD_ZFBCashCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ZFBCashCell.m; sourceTree = "<group>"; };
+		0F80FB2720243D8000F7EE22 /* GLD_ZFBCashCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_ZFBCashCell.xib; sourceTree = "<group>"; };
 		0F9920041FCEDDE800305DF3 /* GLD_HomeViewManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_HomeViewManager.h; sourceTree = "<group>"; };
 		0F9920051FCEDDE800305DF3 /* GLD_HomeViewManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_HomeViewManager.m; sourceTree = "<group>"; };
 		0F9920081FCEDEE800305DF3 /* YXFooterRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXFooterRefresh.m; sourceTree = "<group>"; };
@@ -704,6 +714,12 @@
 				0F326F291FF4AED500A90106 /* GLD_MyOrderCell.h */,
 				0F326F2A1FF4AED500A90106 /* GLD_MyOrderCell.m */,
 				0F326F2B1FF4AED500A90106 /* GLD_MyOrderCell.xib */,
+				0F80FB1D202439D700F7EE22 /* GLD_ZFBPayCell.h */,
+				0F80FB1E202439D700F7EE22 /* GLD_ZFBPayCell.m */,
+				0F80FB1F202439D700F7EE22 /* GLD_ZFBPayCell.xib */,
+				0F80FB2520243D8000F7EE22 /* GLD_ZFBCashCell.h */,
+				0F80FB2620243D8000F7EE22 /* GLD_ZFBCashCell.m */,
+				0F80FB2720243D8000F7EE22 /* GLD_ZFBCashCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1643,6 +1659,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F28D2CE1FDA42EA00138A8B /* AMap.bundle in Resources */,
+				0F80FB21202439D700F7EE22 /* GLD_ZFBPayCell.xib in Resources */,
 				0F60E9C81FC2754300C5E113 /* LaunchScreen.storyboard in Resources */,
 				0F60E9C51FC2754300C5E113 /* Assets.xcassets in Resources */,
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
@@ -1654,6 +1671,7 @@
 				332D9B111FFA011D00A86304 /* GLD_ForumCell.xib in Resources */,
 				0F298EA61FC2D18600EDBA9A /* read_me.txt in Resources */,
 				0F298E841FC2CFC200EDBA9A /* MTShareView.xib in Resources */,
+				0F80FB2920243D8000F7EE22 /* GLD_ZFBCashCell.xib in Resources */,
 				0FB537361FC6D22A00B0EDA6 /* SGQRCode.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1870,9 +1888,11 @@
 				0F28D28F1FD6751A00138A8B /* GLD_MinePersonalCell.m in Sources */,
 				0F2C2F621FF62EB30083BCCB /* YXBaseModel.m in Sources */,
 				0F6411A51FD526E50069FDB1 /* GLD_DetaileBusiCell.m in Sources */,
+				0F80FB20202439D700F7EE22 /* GLD_ZFBPayCell.m in Sources */,
 				0F2C2F471FF62E330083BCCB /* GLD_NewsCell.m in Sources */,
 				0F995DC11FFF5C0C009EB2FE /* GLD_AboutUsController.m in Sources */,
 				0F2C2F681FF6334B0083BCCB /* YXButton.m in Sources */,
+				0F80FB2820243D8000F7EE22 /* GLD_ZFBCashCell.m in Sources */,
 				0F6411911FD512B00069FDB1 /* PTLMenuButton.m in Sources */,
 				0F71A5921FDF835300C66EED /* GLD_SettingController.m in Sources */,
 				0F32E7F61FE0FA680042E8BE /* GLD_PayRechargeController.m in Sources */,

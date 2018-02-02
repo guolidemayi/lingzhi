@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="168" id="KGk-i7-Jjw" customClass="GLD_ZFBPayCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="168"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="167.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KS9-2j-yhn">
+                        <rect key="frame" x="23" y="18" width="61.5" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付宝真实姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RmE-XO-uWN">
+                        <rect key="frame" x="23" y="69" width="86" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入支付宝账号" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uG9-gG-JAR">
+                        <rect key="frame" x="99.5" y="11" width="197.5" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="2KR-pb-znf"/>
+                        </connections>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入支付宝真实姓名" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hqC-tL-BPB">
+                        <rect key="frame" x="124" y="62" width="173" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="C5D-TF-22d"/>
+                        </connections>
+                    </textField>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入备注（选填）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Reh-JO-lCv">
+                        <rect key="frame" x="23" y="113" width="274" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="a6N-nv-64F"/>
+                        </connections>
+                    </textField>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8Z-IV-c6k">
+                        <rect key="frame" x="8" y="51" width="289" height="1"/>
+                        <color key="backgroundColor" red="0.90080553760000004" green="0.90080553760000004" blue="0.90080553760000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="SS9-JJ-u2x"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBv-BL-8O1">
+                        <rect key="frame" x="8" y="102" width="289" height="1"/>
+                        <color key="backgroundColor" red="0.90080553760000004" green="0.90080553760000004" blue="0.90080553760000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="5hN-RZ-FqO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="uG9-gG-JAR" secondAttribute="trailing" constant="15" id="0Gv-bb-Orf"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hqC-tL-BPB" secondAttribute="trailing" constant="15" id="8b6-Jz-YU6"/>
+                    <constraint firstItem="M8Z-IV-c6k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="8fW-Ts-dPj"/>
+                    <constraint firstItem="M8Z-IV-c6k" firstAttribute="top" secondItem="uG9-gG-JAR" secondAttribute="bottom" constant="10" id="GBQ-JZ-bsk"/>
+                    <constraint firstItem="hqC-tL-BPB" firstAttribute="centerY" secondItem="RmE-XO-uWN" secondAttribute="centerY" id="HVa-GO-gMb"/>
+                    <constraint firstItem="hqC-tL-BPB" firstAttribute="leading" secondItem="RmE-XO-uWN" secondAttribute="trailing" constant="15" id="OjB-On-qhs"/>
+                    <constraint firstItem="LBv-BL-8O1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="USH-fG-dmF"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Reh-JO-lCv" secondAttribute="trailing" constant="15" id="UdH-zD-5Cu"/>
+                    <constraint firstItem="LBv-BL-8O1" firstAttribute="top" secondItem="hqC-tL-BPB" secondAttribute="bottom" constant="10" id="VM3-vH-IRA"/>
+                    <constraint firstItem="uG9-gG-JAR" firstAttribute="centerY" secondItem="KS9-2j-yhn" secondAttribute="centerY" id="Vob-wa-MjD"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="M8Z-IV-c6k" secondAttribute="trailing" constant="15" id="VtC-VE-XGN"/>
+                    <constraint firstItem="RmE-XO-uWN" firstAttribute="top" secondItem="M8Z-IV-c6k" secondAttribute="bottom" constant="17" id="WUg-o1-5K5"/>
+                    <constraint firstItem="RmE-XO-uWN" firstAttribute="leading" secondItem="KS9-2j-yhn" secondAttribute="leading" id="gTD-lF-Q6A"/>
+                    <constraint firstItem="KS9-2j-yhn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="jb7-cf-9Og"/>
+                    <constraint firstItem="KS9-2j-yhn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="kbK-Ns-hv2"/>
+                    <constraint firstItem="Reh-JO-lCv" firstAttribute="top" secondItem="LBv-BL-8O1" secondAttribute="bottom" constant="10" id="ncH-Fi-eWD"/>
+                    <constraint firstItem="Reh-JO-lCv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="oUA-3P-tle"/>
+                    <constraint firstItem="uG9-gG-JAR" firstAttribute="leading" secondItem="KS9-2j-yhn" secondAttribute="trailing" constant="15" id="qor-45-tVn"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="LBv-BL-8O1" secondAttribute="trailing" constant="15" id="rlW-qd-eDQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="accountField" destination="uG9-gG-JAR" id="dca-dG-WV5"/>
+                <outlet property="nameField" destination="hqC-tL-BPB" id="Kit-2d-MZS"/>
+                <outlet property="remarksField" destination="Reh-JO-lCv" id="sQ4-ZI-rqb"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="158"/>
+        </tableViewCell>
+    </objects>
+</document>
