@@ -33,7 +33,8 @@
 
 
     [self initMainPageBody];
-
+    //注册微信
+    [WXApi registerApp:WeiXinAppKey withDescription:@"医生汇"];
     //配置高德地图
     [AMapServices sharedServices].apiKey = AMAP_KEY;
     return YES;

@@ -50,7 +50,8 @@
     if (!_locationLabel) {
         _locationLabel = [[UILabel alloc]init];
         _locationLabel.font = WTFont(15);
-        _locationLabel.textColor = [UIColor blackColor];
+        _locationLabel.textColor = [UIColor whiteColor];
+//        _locationLabel.textColor = [UIColor blackColor];
         
     }
     return _locationLabel;

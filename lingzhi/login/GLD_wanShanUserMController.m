@@ -10,7 +10,7 @@
 #import "BRTextField.h"
 #import "BRDatePickerView.h"
 #import "NSDate+BRAdd.h"
-#import "GLD_CustomBut.h"
+
 #import "BRStringPickerView.h"
 
 @interface GLD_wanShanUserMController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>

@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     [self setupUI];
     [self layout];
@@ -53,21 +54,21 @@
     NSString *butStr = self.dataArr[2];
     switch (self.type) {
         case 1:{
-            self.cashLabel.text = [NSString stringWithFormat:@"￥ %@",[AppDelegate shareDelegate].userModel.cash1];
+            self.cashLabel.text = [NSString stringWithFormat:@"￥ %.2f",[AppDelegate shareDelegate].userModel.cash1];
             self.applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKyellow];
             [self.applyBut setTitle:butStr forState:UIControlStateNormal];
         }break;
         case 2:{
-            self.cashLabel.text = [NSString stringWithFormat:@"%@",[AppDelegate shareDelegate].userModel.cash1];
+            self.cashLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash1];
             self.applyBut.hidden = YES;
         }break;
         case 3:{
-            self.cashLabel.text = [NSString stringWithFormat:@"%@",[AppDelegate shareDelegate].userModel.cash3];
+            self.cashLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash3];
             self.applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKgray2];
             [self.applyBut setTitle:butStr forState:UIControlStateNormal];
         }break;
         case 4:{
-            self.cashLabel.text = [NSString stringWithFormat:@"%@",[AppDelegate shareDelegate].userModel.cash1];
+            self.cashLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash1];
             self.applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE];
             [self.applyBut setTitle:butStr forState:UIControlStateNormal];
         }break;
@@ -90,7 +91,7 @@
             }break;
             case 4:{
                 _dataArr = @[@"realNmaeIdentification",@"联盟会员在联盟商家消费，平台按合同约定扣去商家的折扣分金，商家如开通线下支付，需要预存适量服务费，如走线上则不需要",@"充值"];
-                self.applyBut.hidden = YES;
+                
             }break;
         }
     }

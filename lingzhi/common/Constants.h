@@ -156,7 +156,7 @@
 
 //第三方分享宏定义
 //微信
-#define WeiXinAppKey @"wxa09f54de6e29f24e"
+#define WeiXinAppKey @"wx007f5aef7d8bbc0a"
 //微信登陆
 #define WeiXinAppSecret @"02d671e1a891e42d721dae8dd42999a5"
 #define WeiXinAuthScope @"snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact"
@@ -289,5 +289,10 @@ CG_INLINE CGRect WTCGRectMake(CGRect frame) {
 
 #define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 //
+
+
+//noti
+
+#define RECIV_EQRCODEPAY_ACTION @"reciveQRCodePayAction"
 
 #endif /* Constants_h */

@@ -15,6 +15,7 @@
 #import "GLD_CityListController.h"
 #import "GLD_SearchController.h"
 #import "GLD_MessageController.h"
+#import "GLD_PayRechargeController.h"
 
 @interface LBHomeViewController ()
 {
@@ -40,13 +41,28 @@
     //获取用户信息
     [self.homeManager fetchMainUserData];
     [self startLocation];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reciveQRCodePayAction:) name:RECIV_EQRCODEPAY_ACTION object:nil];
     //导航到深圳火车站
     [self setNavUi];
 }
 
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)reciveQRCodePayAction:(NSNotification *)noti{
+    NSString *str =noti.object;
+    NSArray *arr = [str componentsSeparatedByString:@"+++userId = "];
+    GLD_PayRechargeController *jumpVC = [[GLD_PayRechargeController alloc] init];
+    //        jumpVC.jump_URL = result;
+    if (IsExist_Array(arr))
+    jumpVC.payForUserId = arr.lastObject;
+    
+    [self.navigationController pushViewController:jumpVC animated:YES];
+}
 - (void)setNavUi{
     GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
     self.locationBut = locationBut;
+    
     locationBut.frame = CGRectMake(0, 0, 50, 44);
     [locationBut image:@"更多"];
     [locationBut addTarget:self action:@selector(mapNav) forControlEvents:UIControlEventTouchUpInside];

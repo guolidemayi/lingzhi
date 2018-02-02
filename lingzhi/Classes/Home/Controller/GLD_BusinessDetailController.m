@@ -54,15 +54,18 @@
     config.requestParameters = @{
                                  @"dataId":GetString(self.busnessModel.industryId),
                                  @"userId":GetString([AppDelegate shareDelegate].userModel.userId),
-                                 @"collectionType":IsExist_String(self.busnessModel.isCollect)?self.busnessModel.isCollect : @"0"
+                                 @"collectionType":self.busnessModel.isCollect.integerValue == 1?self.busnessModel.isCollect : @"0"
                                  };
     
     
     [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if(error){
             [CAToast showWithText:@"收藏失败，请稍后再试"];
+            
         }else{
-            [CAToast showWithText:result[@"msg"]];
+            weakSelf.busnessModel.isCollect = weakSelf.busnessModel.isCollect.integerValue == 1? @"0":self.busnessModel.isCollect;
+            [CAToast showWithText:result[@"data"]];
+            
         }
         
     }];

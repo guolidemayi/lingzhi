@@ -127,9 +127,9 @@
 }
 - (NSArray *)dataArr{
     if (!_dataArr) {
-        _dataArr = @[@{@"title":@"现金支付",@"tip":@"现金 0.00元",@"image":@"微信支付"},
-                     @{@"title":@"支付宝支付",@"tip":@"需要安装支付宝客户端",@"image":@"支付宝-2 copy"},
-                     @{@"title":@"微信支付",@"tip":@"需要安装微信客户端",@"image":@"微信支付"}];
+        _dataArr = @[
+                     @{@"title":@"提现到银行卡",@"image":@"支付宝-2 copy"},
+                     @{@"title":@"提现到支付宝",@"image":@"支付宝-2 copy"}];
     }
     return _dataArr;
 }
@@ -159,7 +159,7 @@
     if (!_applyBut) {
         _applyBut = [[UIButton alloc]init];
         [_applyBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKyellow] forState:UIControlStateNormal];
-        [_applyBut setTitle:@"立即充值" forState:UIControlStateNormal];
+        [_applyBut setTitle:@"提现" forState:UIControlStateNormal];
         _applyBut.titleLabel.font = WTFont(15);
         _applyBut.layer.cornerRadius = 3;
         _applyBut.layer.masksToBounds = YES;

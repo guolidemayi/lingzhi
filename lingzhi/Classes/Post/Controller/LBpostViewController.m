@@ -9,6 +9,7 @@
 #import "LBpostViewController.h"
 #import "SGQRCode.h"
 
+
 @interface LBpostViewController ()<SGQRCodeScanManagerDelegate,SGQRCodeAlbumManagerDelegate>
 @property (nonatomic, strong) SGQRCodeScanManager *manager;
 @property (nonatomic, strong) SGQRCodeScanningView *scanningView;
@@ -113,14 +114,15 @@
 }
 - (void)QRCodeAlbumManager:(SGQRCodeAlbumManager *)albumManager didFinishPickingMediaWithResult:(NSString *)result {
     if ([result hasPrefix:@"http"]) {
-//        ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
-//        jumpVC.jump_URL = result;
-//        [self.navigationController pushViewController:jumpVC animated:YES];
+        [self dismissViewControllerAnimated:YES completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:RECIV_EQRCODEPAY_ACTION object:result];
+        }];
         
     } else {
 //        ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
 //        jumpVC.jump_bar_code = result;
 //        [self.navigationController pushViewController:jumpVC animated:YES];
+        [CAToast showWithText:@"无效二维码"];
     }
 }
 

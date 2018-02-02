@@ -23,7 +23,7 @@
     
     UIBarButtonItem *item=[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[self]];
     NSMutableDictionary *dic=[NSMutableDictionary dictionary];
-    dic[NSFontAttributeName]=[UIFont systemFontOfSize:15];
+    dic[NSFontAttributeName]=WTFont(15);
     dic[NSForegroundColorAttributeName]=[UIColor whiteColor];
     [item setTitleTextAttributes:dic forState:UIControlStateNormal];
 //    [item setImage:WTImage(@"白色返回按钮")];

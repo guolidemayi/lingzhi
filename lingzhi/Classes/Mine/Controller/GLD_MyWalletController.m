@@ -58,6 +58,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
     cell.textLabel.text = @"商圈服务费";
+    
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash1];
     cell.imageView.image = WTImage(@"我的选中");
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -93,13 +94,13 @@
              NSString *str = nil;
             switch (i) {
                 case 0:{
-                    str = [NSString stringWithFormat:@"现金 \n￥%lf",[AppDelegate shareDelegate].userModel.cash1];
+                    str = [NSString stringWithFormat:@"现金 \n￥%.2lf",[AppDelegate shareDelegate].userModel.cash1];
                 }break;
                 case 1:{
-                    str = [NSString stringWithFormat:@"L币 \n%lf",[AppDelegate shareDelegate].userModel.cash3];
+                    str = [NSString stringWithFormat:@"L币 \n%.2lf",[AppDelegate shareDelegate].userModel.cash3];
                 }break;
                 case 2:{
-                    str = [NSString stringWithFormat:@"代金券 \n￥%lf",[AppDelegate shareDelegate].userModel.cash2];
+                    str = [NSString stringWithFormat:@"代金券 \n￥%.2lf",[AppDelegate shareDelegate].userModel.cash2];
                 }break;
             }
             [self adjusCashLabel:str andLabel:label];
@@ -122,6 +123,7 @@
     if (!_table_apply) {
         UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         self.table_apply = tableView;
+        tableView.separatorStyle = UITableViewCellSelectionStyleNone;
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.estimatedRowHeight = 0;

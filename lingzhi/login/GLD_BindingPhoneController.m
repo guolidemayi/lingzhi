@@ -40,13 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
-//    locationBut.frame = CGRectMake(0, 0, 50, 44);
-//    [locationBut title:@"保存"];
-//    [locationBut addTarget:self action:@selector(SaveAction) forControlEvents:UIControlEventTouchUpInside];
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:locationBut];
-//    self.navigationItem.rightBarButtonItem = item;
+
     self.phoneCode = @"-1";
     self.NetManager = [GLD_NetworkAPIManager new];
     [self.view addSubview:self.table_apply];

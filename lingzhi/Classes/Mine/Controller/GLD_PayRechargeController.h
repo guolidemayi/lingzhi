@@ -10,4 +10,7 @@
 
 @interface GLD_PayRechargeController : GLD_BaseViewController
 
+@property (nonatomic, assign)NSInteger isQRCode;//1 扫描支付。0 充值
+@property (nonatomic, copy)NSString *payForUserId;//被付款人id
+
 @end

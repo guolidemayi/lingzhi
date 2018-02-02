@@ -29,14 +29,14 @@
     CGFloat scale = 0.2;
     if (!self.model) {
          [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:[AppDelegate shareDelegate].userModel.iconImage] placeholder:WTImage(@"默认头像")];
-         self.QRCImageV.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:@"https://github.com/kingsic" logoImageName:@"WechatIMG43" logoScaleToSuperView:scale];
+         self.QRCImageV.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:[NSString stringWithFormat:@"https://++userId = %@",GetString([AppDelegate shareDelegate].userModel.userId)] logoImageName:@"WechatIMG43" logoScaleToSuperView:scale];
         self.nameLabel.text = [AppDelegate shareDelegate].userModel.name;
         self.decLabel.text = [AppDelegate shareDelegate].userModel.intro;
         self.tipLabel.hidden = YES;
     }else{
         self.tipLabel.hidden = NO;
         
-        self.QRCImageV.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:@"https://github.com/kingsic" logoImageName:@"WechatIMG43" logoScaleToSuperView:scale];
+        self.QRCImageV.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:[NSString stringWithFormat:@"https://www.hhlmcn.com:8080/++userId = %@",GetString([AppDelegate shareDelegate].userModel.userId)] logoImageName:@"WechatIMG43" logoScaleToSuperView:scale];
         
         [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:self.model.logo] placeholder:nil];
         self.nameLabel.text = self.model.name;

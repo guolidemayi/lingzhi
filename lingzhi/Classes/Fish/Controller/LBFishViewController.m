@@ -153,7 +153,7 @@
 - (void)setNavUi{
     GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
     self.locationBut = locationBut;
-    
+    [locationBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     locationBut.frame = CGRectMake(0, 0, 50, 44);
     [locationBut image:@"更多"];
     [locationBut addTarget:self action:@selector(mapNav) forControlEvents:UIControlEventTouchUpInside];

@@ -46,7 +46,7 @@
     textField.borderStyle = UITextBorderStyleRoundedRect;
     textField.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
     textField.delegate = self;
-    textField.keyboardType = UIKeyboardTypeNumberPad;
+    textField.keyboardType = UIKeyboardTypeDefault;
     [cell.contentView addSubview:textField];
     return textField;
 }

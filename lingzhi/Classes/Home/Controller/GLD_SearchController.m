@@ -26,7 +26,7 @@
        self.NetManager = [GLD_NetworkAPIManager new];
     [self setupSearchView];
     self.navigationItem.titleView = self.searchBar;;
-    
+    [self setUpNav];
     [self.searchBar becomeFirstResponder];
     [self.view addSubview:self.table_apply];
 }
@@ -46,7 +46,18 @@
     self.navigationItem.rightBarButtonItem = item1;
     
 }
+- (void)setUpNav
+{
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"header_back_icon"] style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
+    self.navigationItem.leftBarButtonItem = backItem;
+    
+}
 
+- (void)pop
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 //搜索
 - (void)searchClick{
     [self searchForData:self.searchBar.text];

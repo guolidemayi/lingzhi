@@ -31,9 +31,10 @@
     [self.view addSubview:self.business_table];
     
     [self getSubCategory:self.model.title];
-    NSDictionary *dict = @{@"category" : GetString(_model.title),
+    NSDictionary *dict = @{@"category" : GetString(@""),
+                           @"parentCategory" : GetString(_model.title),
                           @"type" : GetString(@"-1"),
-                           @"city" : self.cityName?self.cityName : @"北京市"
+                           @"city" : self.cityName?self.cityName : @"衡水"
                           };
     
     [self fetchData:dict];
@@ -113,13 +114,13 @@
         }break;
 
     }
-    NSDictionary *dict = @{@"category" : IsExist_String(ttt)?ttt:self.model.title,
+    NSDictionary *dict = @{@"category" : IsExist_String(ttt)?ttt:@"",
                            @"type" : GetString(type),
-                           @"city" : self.cityName?self.cityName : @"北京市"
+                           @"parentCategory" : GetString(_model.title),
+                           @"city" : self.cityName?self.cityName : @"衡水"
                            };
     [self fetchData:dict];
 
-    
 }
 
 @end
