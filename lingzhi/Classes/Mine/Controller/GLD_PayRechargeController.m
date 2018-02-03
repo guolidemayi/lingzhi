@@ -258,13 +258,13 @@ typedef enum
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     if (IsExist_String(self.payForUserId)) {
-        [dict addEntriesFromDictionary:@{@"beUserId":self.payForUserId}];
+        [dict addEntriesFromDictionary:@{@"toUserId":self.payForUserId}];
     }
     NSInteger money = self.cashCell.moneyStr.integerValue * 100;
     
     [dict addEntriesFromDictionary:@{@"amount" : [NSString stringWithFormat:@"%zd",money],
                                      @"payType" : self.payType == AliPay ? @"zfbPay" : @"wxPay",
-                                     @"userId" : GetString([AppDelegate shareDelegate].userModel.userId)
+                                     @"fromUserId" : GetString([AppDelegate shareDelegate].userModel.userId)
                                      }];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;

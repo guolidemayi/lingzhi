@@ -40,7 +40,31 @@ typedef NS_ENUM(NSInteger, payType) {
     self.type = CARD;
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
-
+- (void)getData{
+    
+    WS(weakSelf);
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+        [dict addEntriesFromDictionary:@{@"userId":[AppDelegate shareDelegate].userModel.userId}];
+    
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/getMoney";
+    config.requestParameters = dict;
+    
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        if(!error){
+            
+           
+        }
+        //        weakSelf.phoneCode = @"1111";
+    }];
+    
+    
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 3;
 }
@@ -184,6 +208,9 @@ typedef NS_ENUM(NSInteger, payType) {
     }
     return _superRankImgV;
 }
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
 - (NSArray *)dataArr{
     if (!_dataArr) {
         _dataArr = @[
@@ -215,7 +242,8 @@ typedef NS_ENUM(NSInteger, payType) {
     
     NSDictionary *dictM = [NSDictionary dictionary];
     if (self.type == CARD) {
-        
+        [CAToast showWithText:@"银行卡支付暂未开通"];
+        return;
     }else{
         
         
@@ -235,23 +263,25 @@ typedef NS_ENUM(NSInteger, payType) {
             [CAToast showWithText:@"请输入支付宝账号"];
             return;
         }
-        dictM = @{@"111":self.ZFBPayCell.accountField.text,
-                  @"222":self.ZFBPayCell.nameField.text,
-                  @"333":self.ZFBCashCell.cashField.text,
-                  @"444":GetString(self.ZFBPayCell.remarksField.text)
+        dictM = @{@"account":self.ZFBPayCell.accountField.text,
+                  @"name":self.ZFBPayCell.nameField.text,
+                  @"money":self.ZFBCashCell.cashField.text,
+                  @"remark":GetString(self.ZFBPayCell.remarksField.text),
+                  @"userId":GetString([AppDelegate shareDelegate].userModel.userId)
                   };
         
     }
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/user/missPassword";
+    config.urlPath = @"api/wx/tixian";
     config.requestParameters = dictM;
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
+            if([result[@"code"] integerValue] == 200)
+            [CAToast showWithText:@"操作成功"];
             
-           
-            [CAToast showWithText:@"修改成功"];
+            [CAToast showWithText:result[@"data"]];
         }
         
         

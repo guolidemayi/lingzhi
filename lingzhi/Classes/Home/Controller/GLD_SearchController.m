@@ -10,13 +10,14 @@
 #import "GLD_CustomBut.h"
 #import "GLD_BusinessCell.h"
 #import "GLD_BusnessModel.h"
+#import "GLD_BusinessDetailController.h"
 
-@interface GLD_SearchController ()<UITableViewDelegate, UITableViewDataSource,UISearchBarDelegate>
+@interface GLD_SearchController ()<UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
 @property (nonatomic, strong)UITableView *table_apply;
 @property (nonatomic, strong)NSArray *dataArr;
 @property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @property (nonatomic, strong)GLD_BusnessLisModel *busnessListModel;
-@property (nonatomic, strong)UISearchBar *searchBar;
+@property (nonatomic, strong)UITextField *searchBar;
 @end
 
 @implementation GLD_SearchController
@@ -27,19 +28,23 @@
     [self setupSearchView];
     self.navigationItem.titleView = self.searchBar;;
     [self setUpNav];
-    [self.searchBar becomeFirstResponder];
+    
     [self.view addSubview:self.table_apply];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.searchBar resignFirstResponder];
 }
+
+- (void)viewDidAppear:(BOOL)animated{
+    [self.searchBar becomeFirstResponder];
+}
 - (void)setupSearchView{
     
     
     GLD_CustomBut *rightBut = [[GLD_CustomBut alloc]init];;
     [rightBut addTarget:self action:@selector(searchClick) forControlEvents:UIControlEventTouchUpInside];
-    rightBut.frame = CGRectMake(0, 0, W(50), W(44));
+    rightBut.frame = CGRectMake(0, 0, W(50), W(30));
     [rightBut title:@"搜索"];
     
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
@@ -48,7 +53,6 @@
 }
 - (void)setUpNav
 {
-    
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"header_back_icon"] style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
     self.navigationItem.leftBarButtonItem = backItem;
     
@@ -82,6 +86,12 @@
     [textField resignFirstResponder];
     [self searchForData:textField.text];
     return YES;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    GLD_BusinessDetailController *detaileVc = [GLD_BusinessDetailController new];
+    detaileVc.busnessModel = self.busnessListModel.data[indexPath.row];
+    [self.navigationController pushViewController:detaileVc animated:YES];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.busnessListModel.data.count;
@@ -119,13 +129,18 @@
     }
     return _table_apply;
 }
-- (UISearchBar *)searchBar{
+
+
+- (UITextField *)searchBar{
     if (!_searchBar) {
         
-        UISearchBar *searBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, W(100), W(35))];
+        UITextField *searBar = [[UITextField alloc]initWithFrame:CGRectMake(0, 0, W(250), W(30))];
         _searchBar = searBar;
+        searBar.backgroundColor = [UIColor whiteColor];
         _searchBar.delegate = self;
-        self.searchBar.placeholder = @"请输入商家名称";
+        _searchBar.borderStyle = UITextBorderStyleRoundedRect;
+        _searchBar.placeholder = @"请输入商家名称";
+        
     }
     return _searchBar;
 }

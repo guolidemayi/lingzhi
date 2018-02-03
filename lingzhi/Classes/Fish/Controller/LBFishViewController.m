@@ -47,6 +47,7 @@
     [self getBannerData];
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArrM.count;
 }
@@ -144,11 +145,15 @@
     [self.navigationController pushViewController:detaileVc animated:YES];
 }
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     if([AppDelegate shareDelegate].placemark){
         [self.locationBut title:[AppDelegate shareDelegate].placemark.area_name];
     }else{
         [self.locationBut title:@"定位失败"];
     }
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
 }
 - (void)setNavUi{
     GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;

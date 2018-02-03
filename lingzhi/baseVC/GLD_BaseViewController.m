@@ -7,6 +7,7 @@
 //
 
 #import "GLD_BaseViewController.h"
+#import "GLD_PayForBusinessController.h"
 
 @interface GLD_BaseViewController ()
 
@@ -21,9 +22,33 @@
     [self.noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
     }];
+    
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(reciveQRCodePayAction:) name:RECIV_EQRCODEPAY_ACTION object:nil];
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:RECIV_EQRCODEPAY_ACTION object:self];
+}
+- (void)reciveQRCodePayAction:(NSNotification *)noti{
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:NSClassFromString(@"GLD_PayForBusinessController")]) {
+            return;
+        }
+    }
+    NSString *str =noti.object;
+    NSArray *arr = [str componentsSeparatedByString:@"++userId = "];
+    GLD_PayForBusinessController *jumpVC = [[GLD_PayForBusinessController alloc] init];
+    //        jumpVC.jump_URL = result;
+    if (IsExist_Array(arr))
+        jumpVC.payForUserId = arr.lastObject;
+    
+    [self.navigationController pushViewController:jumpVC animated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

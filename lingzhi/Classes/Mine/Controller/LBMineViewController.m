@@ -72,5 +72,7 @@
         self.mineCodeBut.hidden = YES;
     }
 }
-
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
 @end

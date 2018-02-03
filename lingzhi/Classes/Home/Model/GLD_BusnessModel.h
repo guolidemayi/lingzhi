@@ -21,6 +21,7 @@
 @property (nonatomic, copy) NSString *xpoint;//纬度
 @property (nonatomic, copy) NSString *ypoint;//经度
 @property (nonatomic, copy) NSString *distance;//距离
+@property (nonatomic, copy) NSString *discount;//折扣
 @property (nonatomic, copy) NSString *evaluateScore;//等级
 @property (nonatomic, copy) NSString *isCollect;//收藏
 @property (nonatomic, copy) NSString *isOpenRebate;//

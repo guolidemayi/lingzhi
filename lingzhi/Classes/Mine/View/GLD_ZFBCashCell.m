@@ -29,29 +29,29 @@
     return YES;
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    NSUInteger proposedNewLength = textField.text.length - range.length + string.length;
-    
-    if (proposedNewLength > 11) {
-        return NO;//限制长度
-    }
-    if (-textField.text.floatValue + [AppDelegate shareDelegate].userModel.cash1 <= 0) {
-        
-        textField.textColor = [UIColor redColor];
-        self.tipLabel.text = @"当前余额不足";
-        
-    }else{
-        textField.textColor = [UIColor blackColor];
-        self.tipLabel.text = @"输入一个最多两位小数的数字";
-    }
-    if (proposedNewLength > 3) {
-        NSString *str = [NSString stringWithFormat:@"当前手续费：%.2lf元",textField.text.floatValue * 0.02];
-        self.tipLabel.text = str;
-    }else if(proposedNewLength > 0){
-        
-    }else if(proposedNewLength == 0){
-        
-        self.tipLabel.text = @"输入一个最多两位小数的数字";
-    }
+//    NSUInteger proposedNewLength = textField.text.length - range.length + string.length;
+//    
+//    if (proposedNewLength > 11) {
+//        return NO;//限制长度
+//    }
+//    if (-textField.text.floatValue + [AppDelegate shareDelegate].userModel.cash1 <= 0) {
+//        
+//        textField.textColor = [UIColor redColor];
+//        self.tipLabel.text = @"当前余额不足";
+//        
+//    }else{
+//        textField.textColor = [UIColor blackColor];
+//        self.tipLabel.text = @"输入一个最多两位小数的数字";
+//    }
+//    if (proposedNewLength > 3) {
+//        NSString *str = [NSString stringWithFormat:@"当前手续费：%.2lf元",textField.text.floatValue * 0.02];
+//        self.tipLabel.text = str;
+//    }else if(proposedNewLength > 0){
+//        
+//    }else if(proposedNewLength == 0){
+//        
+//        self.tipLabel.text = @"输入一个最多两位小数的数字";
+//    }
     return YES;
 }
 

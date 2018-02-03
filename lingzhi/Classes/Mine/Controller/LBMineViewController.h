@@ -6,8 +6,8 @@
 //  Copyright © 2016年 li  bo. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "GLD_BaseViewController.h"
 
-@interface LBMineViewController : UIViewController
+@interface LBMineViewController : GLD_BaseViewController
 
 @end

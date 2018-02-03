@@ -114,9 +114,7 @@
 }
 - (void)QRCodeAlbumManager:(SGQRCodeAlbumManager *)albumManager didFinishPickingMediaWithResult:(NSString *)result {
     if ([result hasPrefix:@"http"]) {
-        [self dismissViewControllerAnimated:YES completion:^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:RECIV_EQRCODEPAY_ACTION object:result];
-        }];
+       
         
     } else {
 //        ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
@@ -133,8 +131,11 @@
         [scanManager palySoundName:@"SGQRCode.bundle/sound.caf"];
         [scanManager stopRunning];
         [scanManager videoPreviewLayerRemoveFromSuperlayer];
-        
         AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];
+        
+        [self dismissViewControllerAnimated:YES completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:RECIV_EQRCODEPAY_ACTION object:[obj stringValue]];
+        }];
 //        ScanSuccessJumpVC *jumpVC = [[ScanSuccessJumpVC alloc] init];
 //        jumpVC.jump_URL = [obj stringValue];
 //        [self.navigationController pushViewController:jumpVC animated:YES];

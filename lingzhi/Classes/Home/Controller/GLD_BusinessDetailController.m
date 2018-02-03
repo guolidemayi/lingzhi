@@ -20,6 +20,7 @@
 
 @property (nonatomic, strong)GLD_NetworkAPIManager *netManager;
 @property (nonatomic, weak)UIButton *collectBut;
+@property (nonatomic, assign)NSInteger isCollection;
 //0 收藏  1 取消
 @end
 
@@ -35,6 +36,7 @@
     [self setupBottomView];
     self.netManager = [GLD_NetworkAPIManager new];
     [self setRightBut];
+    [self isCollectionRequest];
 }
 - (void)setRightBut{
     UIButton *rightBut = [[UIButton alloc]init];;
@@ -46,6 +48,30 @@
     self.navigationItem.rightBarButtonItem = item1;
 }
 
+- (void)isCollectionRequest{
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/main/isCollect";
+    config.requestParameters = @{
+                                 @"dataId":GetString(self.busnessModel.industryId),
+                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                                 };
+    
+    
+    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if(error){
+            
+            
+        }else{
+            weakSelf.isCollection = [result[@"data"] integerValue];
+            
+            
+        }
+        
+    }];
+}
+
 - (void)collectionClick{
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
@@ -54,7 +80,7 @@
     config.requestParameters = @{
                                  @"dataId":GetString(self.busnessModel.industryId),
                                  @"userId":GetString([AppDelegate shareDelegate].userModel.userId),
-                                 @"collectionType":self.busnessModel.isCollect.integerValue == 1?self.busnessModel.isCollect : @"0"
+                                 @"collectionType":[NSString stringWithFormat:@"%zd",self.isCollection]
                                  };
     
     
@@ -64,6 +90,7 @@
             
         }else{
             weakSelf.busnessModel.isCollect = weakSelf.busnessModel.isCollect.integerValue == 1? @"0":self.busnessModel.isCollect;
+            weakSelf.isCollection == 0 ? (weakSelf.isCollection = 1) : (weakSelf.isCollection = 0);
             [CAToast showWithText:result[@"data"]];
             
         }
