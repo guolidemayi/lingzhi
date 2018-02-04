@@ -79,7 +79,8 @@
     [self.navigationController pushViewController:UserVc animated:YES];
 }
 - (IBAction)forgetPassword:(id)sender {
-    
+    [CAToast showWithText:@"请联系客服：18632830588"];
+    return;
     //忘记密码
     GLD_BindingPhoneController *bingVc = [GLD_BindingPhoneController new];
     bingVc.type = 1;
