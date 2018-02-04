@@ -89,6 +89,7 @@
     [self getParentCategory];
     self.loginCode = @"-1";
     self.isSuccss = NO;
+    self.updateImg = @"";
 }
 
 //获取行业列表
@@ -235,17 +236,21 @@
                                  @"userName" : GetString(self.PersonTF.text),
                                  @"city" : GetString(self.addressTF.text),
                                  @"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
-                                 @"parentCategory" : GetString(self.parentCate)
+                                 @"parentCategory" : GetString(self.parentCate),
+                                 @"inviteCode":GetString(self.invitationTF.text)
                                  };
     
     [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
-        
             [CAToast showWithText:@"申请成功,请耐心等待"];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
         }else{
             [CAToast showWithText:@"申请失败,请重试"];
         }
     }];
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
     UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
@@ -663,9 +668,7 @@
 }
 #pragma mark - UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField.tag == 0 || textField.tag == 4) {
-        [textField resignFirstResponder];
-    }
+    [textField resignFirstResponder];
     return YES;
 }
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

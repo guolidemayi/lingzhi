@@ -18,7 +18,7 @@ typedef enum
     offLine
 }PayType;
 
-@interface GLD_PayForBusinessController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate,GLD_PayForBusiCellDelegate>
+@interface GLD_PayForBusinessController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate,GLD_PayForBusiCellDelegate,UIScrollViewDelegate>
 
 @property (nonatomic, strong)UITableView *table_apply;
 @property (nonatomic, strong) NSArray *titleArr;//
@@ -40,6 +40,7 @@ typedef enum
 @property (nonatomic, strong) GLD_PayForBusiModel *payMainModel;//
 @property (nonatomic, assign) CGFloat payMoney;//要支付的钱
 @property (nonatomic, assign) CGFloat payCoupon;//预付的代金券
+@property (nonatomic, assign) CGFloat prize;//总钱数
 @end
 
 @implementation GLD_PayForBusinessController
@@ -60,7 +61,9 @@ typedef enum
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     if (IsExist_String(self.payForUserId)) {
-        [dict addEntriesFromDictionary:@{@"userId":self.payForUserId}];
+        [dict addEntriesFromDictionary:@{@"toUserId":self.payForUserId,
+                                         @"fromUserId":[AppDelegate shareDelegate].userModel.userId
+                                         }];
     }
     
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
@@ -171,14 +174,18 @@ typedef enum
     
     return cell;
 }
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
 - (void)updatePayCash:(NSString *)money{
     NSLog(@"%lf", money.floatValue);
-    self.payMoney = money.floatValue;
+    self.prize = money.floatValue;
     CGFloat discount = (10 - self.payMainModel.shop.discount.floatValue)/10.0;
     CGFloat ff = money.floatValue * discount;
     self.payCoupon = ff*self.payMainModel.discount.floatValue;
     
     self.counpCell.detailTextLabel.text = [NSString stringWithFormat:@"%.2lf",-ff*self.payMainModel.discount.floatValue];
+    self.payMoney = money.floatValue - ff*self.payMainModel.discount.floatValue;
     self.cashLabel.text = [NSString stringWithFormat:@"￥ %.2f", money.floatValue - ff*self.payMainModel.discount.floatValue];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -259,13 +266,13 @@ typedef enum
 //升级
 - (void)applybutClick{
     
-    if (self.payMoney < 0) {
+    if (self.payMoney <= 0) {
         [CAToast showWithText:@"请输入金额"];
         return;
     }
     if (self.payType == offLine) {
         if (self.payMoney * 0.1 > self.payMainModel.cash.floatValue) {
-            [CAToast showWithText:@"服务费不足，请充值"];
+            [CAToast showWithText:@"该商家服务费不足，无法支付"];
             return;
         }
     }
@@ -280,7 +287,8 @@ typedef enum
     [dict addEntriesFromDictionary:@{@"amount" : [NSString stringWithFormat:@"%.2f",self.payMoney],
                                      @"payType" :self.payType == offLine ? @"offLine": (self.payType == AliPay ? @"zfbPay" : @"wxPay"),
                                      @"fromUserId" : GetString([AppDelegate shareDelegate].userModel.userId),
-                                     @"coupon" :[NSString stringWithFormat:@"%.2f",self.payCoupon]
+                                     @"coupon" :[NSString stringWithFormat:@"%.2f",self.payCoupon],
+                                     @"prize" : [NSString stringWithFormat:@"%.2f",self.prize]
                                      }];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
@@ -298,7 +306,7 @@ typedef enum
                 }else if(weakSelf.payType == offLine){
                     [CAToast showWithText:@"支付成功"];
                 }
-                return ;
+                [weakSelf.navigationController popViewControllerAnimated:YES];
             }else{
                 [CAToast showWithText:@"支付失败，请重试！"];
             }
@@ -361,6 +369,7 @@ typedef enum
         tableView.estimatedSectionFooterHeight = 0;
         [tableView setSeparatorInset:UIEdgeInsetsMake(0, W(15), 0, W(15))];
         tableView.mj_insetB = W(50);
+        tableView.bounces = NO;
         //        [tableView registerClass:[GLD_MapDetailCell class] forCellReuseIdentifier:GLD_MapDetailCellIdentifier];
         //        tableView.rowHeight = 0;
         tableView.sectionFooterHeight = 0.001;

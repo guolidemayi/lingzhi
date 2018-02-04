@@ -83,6 +83,7 @@
 }
 - (GLD_BusinessCell *)getBusinessCell:(NSIndexPath *)indexPath{
     GLD_BusinessCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_BusinessCellIdentifier];
+    cell.model = self.mainDataArrM[indexPath.row];
     return cell;
 }
 

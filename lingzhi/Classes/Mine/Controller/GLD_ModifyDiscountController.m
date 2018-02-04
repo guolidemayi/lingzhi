@@ -108,7 +108,8 @@
 - (void)setupDiscountTF:(UITableViewCell *)cell{
     if (!_discountTF) {
         _discountTF = [self getTextField:cell];
-        _discountTF.placeholder = @"请输入";
+//        _discountTF.placeholder = @"请输入";
+        _discountTF.text = self.model.discount;
         _discountTF.returnKeyType = UIReturnKeyDone;
         _discountTF.tag = 2;
         UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - W(95), 0, W(80), W(50))];

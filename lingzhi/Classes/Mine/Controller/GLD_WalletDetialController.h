@@ -11,4 +11,6 @@
 @interface GLD_WalletDetialController : GLD_BaseViewController
 
 @property (nonatomic, assign)NSInteger type;//1,现金 2，L币  3， 代金券  4充值
+@property (nonatomic, assign)CGFloat cash;
+
 @end

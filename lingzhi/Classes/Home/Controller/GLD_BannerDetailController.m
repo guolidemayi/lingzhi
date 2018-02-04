@@ -99,7 +99,7 @@
         
         
 //        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
-//        _cycleView.autoScroll = YES;
+        _cycleView.autoScroll = NO;
         _cycleView.showPageControl = NO;
         NSArray *arr = [self.bannerModel.Pictures componentsSeparatedByString:@";"];
 //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角

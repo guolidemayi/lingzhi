@@ -95,20 +95,23 @@
                                  @"type" : @(type),
                                  @"city":[AppDelegate shareDelegate].placemark.area_name ? [AppDelegate shareDelegate].placemark.area_name : @"衡水",
                                  @"lat":[NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lat],
-                                 @"lng" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lon]
+                                 @"lng" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lon],
+                                 @"limit":[NSString stringWithFormat:@"10"],
+                                 @"offset" : [NSString stringWithFormat:@"%zd",self.mainDataArrM.count]
                                  };
     
     
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
         [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView.mj_footer endRefreshing];
         weakSelf.busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
-        
+        [weakSelf.mainDataArrM addObjectsFromArray:weakSelf.busnessListModel.data];
         [weakSelf.tableView reloadData];
     }];
 }
 - (void)reloadOrLoadMoreData{
-    [self.tableView.mj_footer endRefreshing];
+    [self getbusnessList:self.listType];
 }
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     switch (indexPath.section) {
@@ -138,14 +141,14 @@
 }
 - (GLD_BusinessCell *)getBusinessCell:(NSIndexPath *)indexPath{
     GLD_BusinessCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_BusinessCellIdentifier];
-    cell.model = self.busnessListModel.data[indexPath.row];
+    cell.model = self.mainDataArrM[indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1) {
         GLD_BusinessDetailController *detaileVc = [GLD_BusinessDetailController new];
-        detaileVc.busnessModel = self.busnessListModel.data[indexPath.row];
+        detaileVc.busnessModel = self.mainDataArrM[indexPath.row];
         [self.tableView.navigationController pushViewController:detaileVc animated:YES];
     }
 }
@@ -166,7 +169,7 @@
 }
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0)return 2;
-    return self.busnessListModel.data.count;
+    return self.mainDataArrM.count;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;

@@ -54,16 +54,16 @@
     NSString *butStr = self.dataArr[2];
     switch (self.type) {
         case 1:{
-            self.cashLabel.text = [NSString stringWithFormat:@"￥ %.2f",[AppDelegate shareDelegate].userModel.cash1];
+            self.cashLabel.text = [NSString stringWithFormat:@"￥ %.2f",[AppDelegate shareDelegate].userModel.cash];
             self.applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKyellow];
             [self.applyBut setTitle:butStr forState:UIControlStateNormal];
         }break;
         case 2:{
-            self.cashLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash1];
+            self.cashLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash3];
             self.applyBut.hidden = YES;
         }break;
         case 3:{
-            self.cashLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash3];
+            self.cashLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash2];
             self.applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKgray2];
             [self.applyBut setTitle:butStr forState:UIControlStateNormal];
         }break;

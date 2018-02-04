@@ -34,6 +34,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
 @implementation GLD_MapDetailCell
 
 - (void)nextButClick{
+    [self.keyWordField resignFirstResponder];
     [self setAddrssKeyWord:self.keyWordField.text];
 }
 

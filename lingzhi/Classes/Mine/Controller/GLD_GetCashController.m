@@ -149,16 +149,19 @@ typedef NS_ENUM(NSInteger, payType) {
 - (GLD_ZFBPayCell *)getZFBPayCell:(NSIndexPath *)indexPath{
     GLD_ZFBPayCell *cell = [GLD_ZFBPayCell cellWithReuseIdentifier:@"GLD_ZFBPayCell"];
     self.ZFBPayCell = cell;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (GLD_ZFBCashCell *)getZFBCashCell:(NSIndexPath *)indexPath{
     GLD_ZFBCashCell *cell = [GLD_ZFBCashCell cellWithReuseIdentifier:@"GLD_ZFBCashCell"];
     self.ZFBCashCell = cell;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (GLD_GetMoneyCell *)getGetMoneyCell:(NSIndexPath *)indexPath{
     GLD_GetMoneyCell *cell = [GLD_GetMoneyCell cellWithReuseIdentifier:@"GLD_GetMoneyCell"];
     self.cardCashCell = cell;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -188,10 +191,10 @@ typedef NS_ENUM(NSInteger, payType) {
             }else{
                 
             }
+            [self.table_apply reloadData];
         }break;
             
     }
-    [self.table_apply reloadData];
 }
 - (UIImageView *)generalRankImgV{
     if (!_generalRankImgV) {
@@ -281,7 +284,7 @@ typedef NS_ENUM(NSInteger, payType) {
             if([result[@"code"] integerValue] == 200)
             [CAToast showWithText:@"操作成功"];
             
-            [CAToast showWithText:result[@"data"]];
+            [CAToast showWithText:result[@"msg"]];
         }
         
         

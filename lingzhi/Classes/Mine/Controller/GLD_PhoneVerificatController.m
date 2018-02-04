@@ -50,7 +50,7 @@
         [CAToast showWithText:@"请输入正确的手机号"];
         return;
     }
-    if(!IsExist_String(self.phoneTF.text) || ![YXUniversal checkUserIDCard:self.phoneTF.text]){
+    if(!IsExist_String(self.PersonTF.text) || ![YXUniversal checkUserIDCard:self.PersonTF.text]){
         [CAToast showWithText:@"请输入正确的身份证号"];
         return;
     }

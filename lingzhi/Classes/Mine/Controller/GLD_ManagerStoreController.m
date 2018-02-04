@@ -45,7 +45,8 @@
     config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId)};
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-        weakSelf.model = [[GLD_BusnessModel alloc] initWithDictionary:result error:&error];
+        NSError *ee;
+        weakSelf.model = [[GLD_BusnessModel alloc] initWithDictionary:result[@"data"] error:&ee];
         [weakSelf.iconImgV yy_setImageWithURL:[NSURL URLWithString:weakSelf.model.logo] placeholder:nil];
         weakSelf.titleLabel.text = weakSelf.model.name;
         weakSelf.busnessType.text = [NSString stringWithFormat:@" %@ ",weakSelf.model.busnessType.integerValue == 1 ? @"高级商家联盟" : @"普通商家联盟"];
@@ -58,6 +59,7 @@
 //折扣设置
 - (IBAction)discountClick:(id)sender {
     GLD_ModifyDiscountController *modifyVc = [GLD_ModifyDiscountController new];
+    modifyVc.model = self.model;
     [self.navigationController pushViewController:modifyVc animated:YES];
 
 }

@@ -31,7 +31,7 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
     self.titleLabel.text = model.name;
     [self.locationBut setTitle:model.address forState:UIControlStateNormal];
     self.typeLabel.text = model.category;
-    self.detailLabel.text = model.desc;
+    self.detailLabel.text = GetString(model.desc);
     self.distanceLabel.text = [NSString stringWithFormat:@" 距离%@KM ",IsExist_String(model.distance) ? model.distance : @"12.7"];
     self.rankLabel.text = [NSString stringWithFormat:@"%@星",model.evaluateScore?model.evaluateScore:@"5"];
 }
@@ -86,6 +86,7 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
     });
     self.detailLabel = ({
         UILabel * label = [UILabel new];
+        label.numberOfLines = 2;
         label.font = WTFont(12);
         label.text = @"婚恋公司的人";
         label.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTline2Gray];
@@ -135,12 +136,13 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
         make.top.equalTo(self.titleLabel.mas_bottom).offset(W(5));
     }];
     [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(self.typeLabel);
+        make.top.equalTo(self.typeLabel);
         make.left.equalTo(self.typeLabel.mas_right).offset(W(5));
+        make.width.equalTo(WIDTH(180));
     }];
     [self.locationBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.titleLabel);
-        make.top.equalTo(self.typeLabel.mas_bottom).offset(W(5));
+        make.top.equalTo(self.detailLabel.mas_bottom).offset(W(5));
         
     }];
 }

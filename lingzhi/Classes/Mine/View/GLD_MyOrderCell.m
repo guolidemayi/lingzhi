@@ -33,11 +33,19 @@ NSString *const GLD_MyOrderCellIdentifier = @"GLD_MyOrderCellIdentifier";
 + (GLD_MyOrderCell *)cellWithReuseIdentifier:(NSString *)reuseIdentifier{
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:reuseIdentifier owner:nil options:nil];
     GLD_MyOrderCell *cell = (GLD_MyOrderCell*)[topLevelObjects firstObject];
-    
+    cell.commentBut.hidden = YES;
+    cell.tipLabel.hidden = YES;
     return cell;
 }
 - (void)setOrderModel:(GLD_OrderModel *)orderModel{
     _orderModel = orderModel;
+    self.orderCodeLabel.text = orderModel.orderNumber;
+    self.nameLabel.text = orderModel.shopName;
+    self.cashLabel.text = orderModel.prize;
+    [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:orderModel.shopPic] placeholder:nil];
+    self.couponLabel.text = orderModel.discount;
+    self.payTypeLabel.text = orderModel.wxPay;
+    self.dateLabel.text = orderModel.createTime;
 }
 - (IBAction)commentClick:(UIButton *)sender {
     if ([self.orderDelegate respondsToSelector:@selector(commentCallBack: andBusnessId:)]) {

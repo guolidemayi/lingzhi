@@ -156,6 +156,10 @@
 }
 
 - (void)addButClick{
+    if (!hasLogin) {
+        [CAToast showWithText:@"请登陆"];
+        return;
+    }
     BOOL bbsStandard = [[NSUserDefaults standardUserDefaults] boolForKey:@"bbsStandard"];
     WS(weakSelf);
     if (bbsStandard){

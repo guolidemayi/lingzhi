@@ -47,7 +47,7 @@
 
 }
 - (void)fetchMainData{
-
+  
     WS(weakSelf);
     NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"loginToken"];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
@@ -62,6 +62,8 @@
             
             [AppDelegate shareDelegate].userModel = model.data;
             [weakSelf.tableView reloadData];
+        }else{
+            [CAToast showWithText:@"网络错误"];
         }
         [weakSelf.tableView.mj_header endRefreshing];
     }];

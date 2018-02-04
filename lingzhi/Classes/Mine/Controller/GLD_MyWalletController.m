@@ -37,6 +37,7 @@
         case 101:{
             NSLog(@"现金");
             walletVc.type = 1;
+            
         }break;
         case 102:{
             walletVc.type = 2;
@@ -58,7 +59,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
     }
     cell.textLabel.text = @"商圈服务费";
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash1];
     cell.imageView.image = WTImage(@"我的选中");
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -94,7 +95,7 @@
              NSString *str = nil;
             switch (i) {
                 case 0:{
-                    str = [NSString stringWithFormat:@"现金 \n￥%.2lf",[AppDelegate shareDelegate].userModel.cash1];
+                    str = [NSString stringWithFormat:@"现金 \n￥%.2lf",[AppDelegate shareDelegate].userModel.cash];
                 }break;
                 case 1:{
                     str = [NSString stringWithFormat:@"L币 \n%.2lf",[AppDelegate shareDelegate].userModel.cash3];

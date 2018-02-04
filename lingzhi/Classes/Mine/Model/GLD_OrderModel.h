@@ -14,10 +14,15 @@
 @end
 @interface GLD_OrderModel : JSONModel
 @property (nonatomic, copy)NSString *busnessId;
-@property (nonatomic, copy)NSString *address;
-@property (nonatomic, copy)NSString *phone;
-@property (nonatomic, copy)NSString *url;
+@property (nonatomic, copy)NSString *shopName;
+@property (nonatomic, copy)NSString *prize;//报价格
+@property (nonatomic, copy)NSString *wxPay;//实际支付
+@property (nonatomic, copy)NSString *discount;//折扣金额
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, copy)NSString *shopPic;//商店图标
+@property (nonatomic, copy)NSString *createTime;//创建时间
+@property (nonatomic, copy)NSString *orderNumber;//订单号
+
 @end
 
 

@@ -149,11 +149,22 @@
                     [weakSelf dismissViewControllerAnimated:YES completion:nil];
                 });
             }else{
-                [weakSelf.navigationController popViewControllerAnimated:YES];
+                GLD_UserModel *model = [[GLD_UserModel alloc] initWithDictionary:result error:&error];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    [AppDelegate shareDelegate].userModel = model.data;
+                    if (IsExist_String(model.data.loginToken)) {
+                        [[NSUserDefaults standardUserDefaults] setObject:model.data.loginToken forKey:@"loginToken"];
+                    }
+                    NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"loginToken"];
+                    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
+                    
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                });
             }
             
         }else{
-            [CAToast showWithText:@""];
+            [CAToast showWithText:@"请求错误"];
         }
     }];
 }
@@ -463,7 +474,7 @@
         }
         __weak typeof(self) weakSelf = self;
         _genderTF.tapAcitonBlock = ^{
-            [BRStringPickerView showStringPickerWithTitle:@"宝宝性别" dataSource:@[@"男", @"女", @"其他"] defaultSelValue:@"男" isAutoSelect:YES resultBlock:^(id selectValue) {
+            [BRStringPickerView showStringPickerWithTitle:@"性别" dataSource:@[@"男", @"女"] defaultSelValue:@"男" isAutoSelect:YES resultBlock:^(id selectValue) {
                 weakSelf.genderTF.text = selectValue;
             }];
         };
