@@ -65,7 +65,12 @@
         _textView = [[IQTextView alloc]init];
         _textView.frame = CGRectMake(W(15), W(15), DEVICE_WIDTH - W(30), W(100));
         _textView.delegate = self;
-        _textView.placeholder = @"请编辑您的个人简介";
+        if(IsExist_String([AppDelegate shareDelegate].userModel.intro)){
+            _textView.text = [AppDelegate shareDelegate].userModel.intro;
+        }else{
+            _textView.placeholder = @"请编辑您的个人简介";
+            
+        }
     }
     return _textView;
 }

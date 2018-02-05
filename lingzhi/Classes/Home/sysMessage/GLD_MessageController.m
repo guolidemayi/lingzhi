@@ -61,7 +61,7 @@
         if (!error) {
             GLD_RemindListModel *model = [[GLD_RemindListModel alloc]initWithDictionary:result error:nil];
             [_remindArrM addObjectsFromArray:model.data];
-            if (model.data.count == 0) {
+            if (model.data.count == 0 && !IsExist_Array(_remindArrM)) {
                 weakSelf.noDataLabel.text = @"暂无系统消息";
                 weakSelf.noDataLabel.hidden = NO;
                 [weakSelf.view bringSubviewToFront:weakSelf.noDataLabel];

@@ -46,7 +46,13 @@
         [self.navigationController pushViewController:payVc animated:YES];
     }
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    if (self.type == 3) {
+        self.cashLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash2];
+    }else if(self.type == 1){
+        self.cashLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash];
+    }
+}
 
 - (void)setData{
     self.iconImgV.image = WTImage(self.dataArr[0]);
@@ -65,6 +71,7 @@
         case 3:{
             self.cashLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash2];
             self.applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKgray2];
+            self.applyBut.hidden = YES;
             [self.applyBut setTitle:butStr forState:UIControlStateNormal];
         }break;
         case 4:{

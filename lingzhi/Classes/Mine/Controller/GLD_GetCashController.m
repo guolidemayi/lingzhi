@@ -226,6 +226,7 @@ typedef NS_ENUM(NSInteger, payType) {
     if (!_table_apply) {
         UITableView *tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
         self.table_apply = tableView;
+        tableView.bounces = NO;
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.estimatedRowHeight = 0;
@@ -274,17 +275,23 @@ typedef NS_ENUM(NSInteger, payType) {
                   };
         
     }
+    
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/wx/tixian";
     config.requestParameters = dictM;
-    
+    WS(weakSelf)
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
-            if([result[@"code"] integerValue] == 200)
-            [CAToast showWithText:@"操作成功"];
+            if([result[@"code"] integerValue] == 200){
+                
+                [AppDelegate shareDelegate].userModel.cash = [AppDelegate shareDelegate].userModel.cash -self.ZFBCashCell.cashField.text.floatValue;
+                [CAToast showWithText:@"操作成功"];
+                [weakSelf.navigationController popViewControllerAnimated:YES];
+            }else{
+                [CAToast showWithText:result[@"msg"]];
+            }
             
-            [CAToast showWithText:result[@"msg"]];
         }
         
         
@@ -295,6 +302,7 @@ typedef NS_ENUM(NSInteger, payType) {
     if (!_applyBut) {
         _applyBut = [[UIButton alloc]init];
         [_applyBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKyellow] forState:UIControlStateNormal];
+        
         [_applyBut setTitle:@"提现" forState:UIControlStateNormal];
         _applyBut.titleLabel.font = WTFont(15);
         _applyBut.layer.cornerRadius = 3;

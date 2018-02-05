@@ -44,6 +44,16 @@
     self.netManager = [GLD_NetworkAPIManager new];
     self.loginCode = @"-1";
 }
+- (void)viewWillAppear:(BOOL)animated{
+    
+    NSString *str = [AppDelegate shareDelegate].userModel.phone;
+    NSRange rang ;
+    rang.location = 3;
+    rang.length = 4;
+    if (str.length > 5)
+        str = [str stringByReplacingCharactersInRange:rang withString:@"****"];
+    _titleLabel.text = [NSString stringWithFormat:@"手机绑定 ：%@",str];
+}
 - (void)rightButClick{
     if(![self.loginCode isEqualToString:self.verificationTF.text])
     {
@@ -213,7 +223,7 @@
         rang.length = 4;
         if (str.length == 11)
         str = [str stringByReplacingCharactersInRange:rang withString:@"****"];
-        _phoneLabel.text = [NSString stringWithFormat:@"手机绑定 ：%@",str];
+        _phoneLabel.text = [NSString stringWithFormat:@"绑定手机为 ：%@",str];
         _phoneLabel.textAlignment = NSTextAlignmentCenter;
         _phoneLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK];
     }

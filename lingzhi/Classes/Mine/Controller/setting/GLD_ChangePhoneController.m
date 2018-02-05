@@ -41,6 +41,15 @@
     GLD_GetVerificationController *verifica = [GLD_GetVerificationController new];
     [self.navigationController pushViewController:verifica animated:YES];
 }
+- (void)viewWillAppear:(BOOL)animated{
+    NSString *str = [AppDelegate shareDelegate].userModel.phone;
+    NSRange rang ;
+    rang.location = 3;
+    rang.length = 4;
+    if (str.length > 5)
+        str = [str stringByReplacingCharactersInRange:rang withString:@"****"];
+    _titleLabel.text = [NSString stringWithFormat:@"手机绑定 ：%@",str];
+}
 - (UILabel *)titleLabel{
     if (!_titleLabel) {
         _titleLabel = [UILabel new];

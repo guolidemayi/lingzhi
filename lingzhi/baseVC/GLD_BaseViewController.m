@@ -41,7 +41,7 @@
         }
     }
     NSString *str =noti.object;
-    NSArray *arr = [str componentsSeparatedByString:@"++userId = "];
+    NSArray *arr = [str componentsSeparatedByString:@"/"];
     GLD_PayForBusinessController *jumpVC = [[GLD_PayForBusinessController alloc] init];
     //        jumpVC.jump_URL = result;
     if (IsExist_Array(arr))

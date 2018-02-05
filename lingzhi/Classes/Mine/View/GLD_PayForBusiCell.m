@@ -45,9 +45,9 @@
     return YES;
 }
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    NSLog(@"%@,%@",textField.text,string);
+    NSLog(@"-----------%@,%@,%@\n",textField.text,string,NSStringFromRange(range));
     NSMutableString *strM = textField.text.mutableCopy;
-    [strM appendString:string];
+    [strM replaceCharactersInRange:range withString:string ];
     if ([self.payDelegate respondsToSelector:@selector(updatePayCash:)]) {
         [self.payDelegate updatePayCash:strM];
     }

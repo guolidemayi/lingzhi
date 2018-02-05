@@ -61,6 +61,8 @@
                 return ;
             }else{
                 [CAToast showWithText:@"转增成功"];
+                [AppDelegate shareDelegate].userModel.cash2 = [AppDelegate shareDelegate].userModel.cash2 - weakSelf.PersonTF.text.floatValue;
+                [weakSelf.navigationController popViewControllerAnimated:YES];
             }
             
         }
@@ -109,6 +111,10 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return W(70);
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 - (UITableView *)table_apply{
     if (!_table_apply) {

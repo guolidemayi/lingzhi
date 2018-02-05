@@ -14,6 +14,8 @@
 @property (nonatomic, strong)NSArray *dataArr;
 @property (nonatomic, strong)UIView *topView;
 
+@property (nonatomic, weak)UILabel *cashLabel;
+
 @end
 
 @implementation GLD_MyWalletController
@@ -29,7 +31,9 @@
         make.top.equalTo(self.topView.mas_bottom);
     }];
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    self.cashLabel.text = [NSString stringWithFormat:@"现金 \n￥%.2lf",[AppDelegate shareDelegate].userModel.cash];
+}
 - (void)imgVClick:(UITapGestureRecognizer *)tap{
     UIImageView *imgV = (UIImageView *)tap.view;
     GLD_WalletDetialController *walletVc = [GLD_WalletDetialController new];
@@ -88,6 +92,9 @@
             UILabel *label = [UILabel new];
             label.font = WTFont(15);
             label.numberOfLines = 0;
+            if (i == 0) {
+                self.cashLabel = label;
+            }
             label.textColor = [UIColor whiteColor];
             label.textAlignment = NSTextAlignmentCenter;
             label.frame = CGRectMake(DEVICE_WIDTH / 3 * i, W(70), DEVICE_WIDTH / 3, W(50));

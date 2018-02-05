@@ -58,8 +58,8 @@
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/user/certification";
     config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
-                                 @"identityId" : GetString(self.phoneTF.text),
-                                 @"phone" : GetString(self.PersonTF.text),
+                                 @"identityId" : GetString(self.PersonTF.text),
+                                 @"phone" : GetString(self.phoneTF.text),
                                  @"userName" : GetString(self.nameTF.text),
                                  };
     

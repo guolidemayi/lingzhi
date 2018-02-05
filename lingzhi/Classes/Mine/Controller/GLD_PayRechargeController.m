@@ -54,12 +54,14 @@ typedef enum
         [CAToast showWithText:@"请安装微信"];
         return;
     }
+    
     PayReq *request = [[PayReq alloc] init];
     request.partnerId = dic[@"partnerid"];  // 商户号
     request.prepayId = dic[@"prepayid"]; // 预支付交易会话ID
     request.package = dic[@"package"];    // 扩展字段(固定值)
     request.nonceStr = dic[@"noncestr"]; // 随机字符串
     NSString *timeStampString = dic[@"timestamp"];
+    if (IsExist_String(timeStampString)) return;
     UInt32 num;
     sscanf([timeStampString UTF8String], "%u", &num);
     request.timeStamp = num;     // 时间戳
@@ -260,9 +262,8 @@ typedef enum
     if (IsExist_String(self.payForUserId)) {
         [dict addEntriesFromDictionary:@{@"toUserId":self.payForUserId}];
     }
-    NSInteger money = self.cashCell.moneyStr.integerValue * 100;
     
-    [dict addEntriesFromDictionary:@{@"amount" : [NSString stringWithFormat:@"%zd",money],
+    [dict addEntriesFromDictionary:@{@"amount" : [NSString stringWithFormat:@"%zd",self.cashCell.moneyStr.integerValue],
                                      @"payType" : self.payType == AliPay ? @"zfbPay" : @"wxPay",
                                      @"fromUserId" : GetString([AppDelegate shareDelegate].userModel.userId)
                                      }];
@@ -278,6 +279,7 @@ typedef enum
                 if(weakSelf.payType == AliPay){
                     
                 }else if(weakSelf.payType == WeChatPay){
+                    
                     [weakSelf payToWeChatWithDic:result[@"data"]];
                 }
                 return ;

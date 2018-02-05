@@ -69,7 +69,7 @@
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
             GLD_OrderModelListModel *orderListModel = [[GLD_OrderModelListModel alloc] initWithDictionary:result error:nil];
-            if (orderListModel.data.count == 0) {
+            if (orderListModel.data.count == 0 && !IsExist_Array(weakSelf.dataArr)) {
                 weakSelf.noDataLabel.text = @"暂无订单消息";
                 weakSelf.noDataLabel.hidden = NO;
                 [weakSelf.view bringSubviewToFront:weakSelf.noDataLabel];

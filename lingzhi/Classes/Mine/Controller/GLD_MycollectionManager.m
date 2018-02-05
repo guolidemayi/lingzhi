@@ -23,7 +23,9 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/getCollectionShop";
-    config.requestParameters = @{@"userId":GetString([AppDelegate shareDelegate].userModel.userId)
+    config.requestParameters = @{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                                 @"offset":[NSString stringWithFormat:@"%zd",self.mainDataArrM.count],
+                                 @"limit":@"10"
                                  };
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
@@ -31,12 +33,17 @@
         GLD_BusnessLisModel *busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
         [weakSelf.mainDataArrM addObjectsFromArray:busnessListModel.data];
         if ([weakSelf.mycollecDeleagte respondsToSelector:@selector(complate:)]) {
-            [weakSelf.mycollecDeleagte complate:result];
+            if (!IsExist_Array(weakSelf.mainDataArrM)) {
+                [weakSelf.mycollecDeleagte complate:result];
+            }
         }
         [weakSelf.tableView reloadData];
     }];
 }
 
+- (void)reloadOrLoadMoreData{
+    [self fetchMainData];
+}
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // 刷新

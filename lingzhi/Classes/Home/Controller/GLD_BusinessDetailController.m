@@ -11,6 +11,7 @@
 
 #import "GLD_BusinessDetailManager.h"
 #import "MapNavigationManager.h"
+#import "GLD_PayForBusinessController.h"
 
 @interface GLD_BusinessDetailController ()
 
@@ -65,7 +66,9 @@
             
         }else{
             weakSelf.isCollection = [result[@"data"] integerValue];
-            
+            if(weakSelf.isCollection != 0){
+                [weakSelf.collectBut setImage:WTImage(@"课程页-已收藏") forState:UIControlStateNormal];
+            }
             
         }
         
@@ -91,6 +94,11 @@
         }else{
             weakSelf.busnessModel.isCollect = weakSelf.busnessModel.isCollect.integerValue == 1? @"0":self.busnessModel.isCollect;
             weakSelf.isCollection == 0 ? (weakSelf.isCollection = 1) : (weakSelf.isCollection = 0);
+            if(weakSelf.isCollection != 0){
+                [weakSelf.collectBut setImage:WTImage(@"课程页-已收藏") forState:UIControlStateNormal];
+            }else{
+                [weakSelf.collectBut setImage:WTImage(@"btn_shoucang_null") forState:UIControlStateNormal];
+            }
             [CAToast showWithText:result[@"data"]];
             
         }
@@ -120,7 +128,11 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[NSString stringWithFormat:@"tel://%@",self.busnessModel.cellphone] stringByReplacingOccurrencesOfString:@"-" withString:@""]]];
         }break;
         case 203:{
+            GLD_PayForBusinessController *jumpVC = [[GLD_PayForBusinessController alloc] init];
+            //        jumpVC.jump_URL = result;
+                jumpVC.payForUserId = @"54";
             
+            [self.navigationController pushViewController:jumpVC animated:YES];
         }break;
     }
 }

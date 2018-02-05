@@ -49,7 +49,9 @@
                 cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
             }
             cell.textLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE];
-            cell.textLabel.text = self.busnessModel.busnessType;
+            NSString *str = ![self.busnessModel.busnessType isEqualToString:@"2"] ? @"普通商家":@"高级商家";
+            cell.textLabel.text = str;
+            cell.textLabel.font = WTFont(15);
             cell.imageView.image = WTImage(@"体验店图标");
             return cell;
         }break;

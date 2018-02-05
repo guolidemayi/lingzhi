@@ -138,7 +138,7 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
     [self.detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.typeLabel);
         make.left.equalTo(self.typeLabel.mas_right).offset(W(5));
-        make.width.equalTo(WIDTH(180));
+        make.right.equalTo(WIDTH(190));
     }];
     [self.locationBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.titleLabel);

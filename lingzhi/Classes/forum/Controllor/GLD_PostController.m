@@ -371,6 +371,7 @@
             [self.picCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(HEIGHT(225));
             }];
+        if (responseObject[@"data"])
         [pictureArrM addObject:responseObject[@"data"]];
         //请求成功
         [imgArrM addObject:_certificationImage];

@@ -29,7 +29,7 @@
     CGFloat scale = 0.2;
     if (!self.model) {
          [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:[AppDelegate shareDelegate].userModel.iconImage] placeholder:WTImage(@"默认头像")];
-         self.QRCImageV.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:[NSString stringWithFormat:@"https://++userId = %@",GetString([AppDelegate shareDelegate].userModel.userId)] logoImageName:@"WechatIMG43" logoScaleToSuperView:scale];
+         self.QRCImageV.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:[NSString stringWithFormat:@"http://www.hhlmcn.com:8080/pay/%@",GetString([AppDelegate shareDelegate].userModel.userId)] logoImageName:@"WechatIMG43" logoScaleToSuperView:scale];
         self.nameLabel.text = [AppDelegate shareDelegate].userModel.name;
         self.decLabel.text = [AppDelegate shareDelegate].userModel.intro;
         self.tipLabel.hidden = YES;
@@ -56,6 +56,8 @@
 {
     if(error){
         [CAToast showWithText:@"保存失败"];
+    }else{
+        [CAToast showWithText:@"保存成功"];
     }
     
     NSLog(@"image = %@, error = %@, contextInfo = %@", image, error, contextInfo);

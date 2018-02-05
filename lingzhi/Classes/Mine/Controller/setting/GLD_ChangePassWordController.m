@@ -67,14 +67,20 @@
                                  };
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-        
-//        weakSelf.phoneCode = @"1111";
-        [CAToast showWithText:@"修改成功"];
-        for (UIViewController *vc in self.navigationController.viewControllers) {
-            if ([vc isKindOfClass:NSClassFromString(@"GLD_LoginController")]) {
-                [self.navigationController popToViewController:vc animated:YES];
+        if (!error) {
+            
+            [CAToast showWithText:@"修改成功"];
+            for (UIViewController *vc in self.navigationController.viewControllers) {
+                if ([vc isKindOfClass:NSClassFromString(@"GLD_LoginController")]) {
+                    [self.navigationController popToViewController:vc animated:YES];
+                    return ;
+                }
             }
+            [self.navigationController popViewControllerAnimated:YES];
+        }else{
+            [CAToast showWithText:@"修改失败"];
         }
+//        weakSelf.phoneCode = @"1111";
     }];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

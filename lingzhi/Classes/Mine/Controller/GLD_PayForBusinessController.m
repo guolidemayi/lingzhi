@@ -184,7 +184,7 @@ typedef enum
     CGFloat ff = money.floatValue * discount;
     self.payCoupon = ff*self.payMainModel.discount.floatValue;
     
-    self.counpCell.detailTextLabel.text = [NSString stringWithFormat:@"%.2lf",-ff*self.payMainModel.discount.floatValue];
+    self.counpCell.detailTextLabel.text = [NSString stringWithFormat:@"%.2lf",-MIN(ff*self.payMainModel.discount.floatValue, self.payMainModel.coupon.floatValue)];
     self.payMoney = money.floatValue - ff*self.payMainModel.discount.floatValue;
     self.cashLabel.text = [NSString stringWithFormat:@"￥ %.2f", money.floatValue - ff*self.payMainModel.discount.floatValue];
 }
@@ -339,6 +339,7 @@ typedef enum
     request.package = dic[@"package"];    // 扩展字段(固定值)
     request.nonceStr = dic[@"noncestr"]; // 随机字符串
     NSString *timeStampString = dic[@"timestamp"];
+        if (IsExist_String(timeStampString)) return;
     UInt32 num;
     sscanf([timeStampString UTF8String], "%u", &num);
     request.timeStamp = num;     // 时间戳
