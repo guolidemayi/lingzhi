@@ -21,7 +21,9 @@
 @implementation GLD_MyWalletController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    self.title = @"我的钱包";
     [self.view addSubview:self.topView];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.table_apply];
@@ -41,14 +43,11 @@
         case 101:{
             NSLog(@"现金");
             walletVc.type = 1;
-            
+            walletVc.title = @"我的现金";
         }break;
         case 102:{
-            walletVc.type = 2;
-            NSLog(@"L币");
-        }break;
-        case 103:{
             walletVc.type = 3;
+            walletVc.title = @"我的代金券";
             NSLog(@"代金券");
         }break;
     }
@@ -79,12 +78,12 @@
     if (!_topView) {
         _topView = [UIView new];
         _topView.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKyellow];
-        NSArray *titleArr = @[@"现金图标144x144",@"亿币图标",@"代金券图标"];
+        NSArray *titleArr = @[@"现金图标144x144",@"代金券图标"];
         
         for (int i = 0; i < titleArr.count; i++) {
             UIImageView *imgV = [UIImageView new];
             imgV.image = WTImage(titleArr[i]);
-            imgV.frame = CGRectMake(W(35) + W(125)*i, W(15), W(55), W(60));
+            imgV.frame = CGRectMake(W(65) + W(375/2)*i, W(15), W(55), W(60));
             imgV.userInteractionEnabled = YES;
             [imgV addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imgVClick:)]];
             imgV.tag = 101 + i;
@@ -97,7 +96,7 @@
             }
             label.textColor = [UIColor whiteColor];
             label.textAlignment = NSTextAlignmentCenter;
-            label.frame = CGRectMake(DEVICE_WIDTH / 3 * i, W(70), DEVICE_WIDTH / 3, W(50));
+            label.frame = CGRectMake(DEVICE_WIDTH / 2 * i, W(70), DEVICE_WIDTH / 2, W(50));
             [_topView addSubview:label];
              NSString *str = nil;
             switch (i) {
@@ -105,9 +104,6 @@
                     str = [NSString stringWithFormat:@"现金 \n￥%.2lf",[AppDelegate shareDelegate].userModel.cash];
                 }break;
                 case 1:{
-                    str = [NSString stringWithFormat:@"L币 \n%.2lf",[AppDelegate shareDelegate].userModel.cash3];
-                }break;
-                case 2:{
                     str = [NSString stringWithFormat:@"代金券 \n￥%.2lf",[AppDelegate shareDelegate].userModel.cash2];
                 }break;
             }

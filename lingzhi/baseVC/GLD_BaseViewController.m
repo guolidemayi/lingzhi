@@ -32,7 +32,7 @@
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:RECIV_EQRCODEPAY_ACTION object:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:RECIV_EQRCODEPAY_ACTION object:nil];
 }
 - (void)reciveQRCodePayAction:(NSNotification *)noti{
     for (UIViewController *vc in self.navigationController.viewControllers) {

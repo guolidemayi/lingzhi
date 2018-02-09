@@ -302,15 +302,20 @@ typedef enum
                 if(weakSelf.payType == AliPay){
                     
                 }else if(weakSelf.payType == WeChatPay){
+                    if (!WXApi.isWXAppInstalled) {
+                        [CAToast showWithText:@"请安装微信"];
+                        return;
+                    }
                     [weakSelf payToWeChatWithDic:result[@"data"]];
+//                    [weakSelf.navigationController popViewControllerAnimated:YES];
                 }else if(weakSelf.payType == offLine){
                     [CAToast showWithText:@"支付成功"];
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
                 }
-                [weakSelf.navigationController popViewControllerAnimated:YES];
-            }else{
-                [CAToast showWithText:@"支付失败，请重试！"];
             }
             
+        }else{
+            [CAToast showWithText:@"支付失败，请重试！"];
         }
         //        weakSelf.phoneCode = @"1111";
     }];
@@ -329,17 +334,14 @@ typedef enum
     //    }
     //    SensorsAnalyticsTrack(@"app_peixunxiangqing_weixinzhifu", param);
     //
-    if (!WXApi.isWXAppInstalled) {
-        [CAToast showWithText:@"请安装微信"];
-        return;
-    }
+   
     PayReq *request = [[PayReq alloc] init];
     request.partnerId = dic[@"partnerid"];  // 商户号
     request.prepayId = dic[@"prepayid"]; // 预支付交易会话ID
     request.package = dic[@"package"];    // 扩展字段(固定值)
     request.nonceStr = dic[@"noncestr"]; // 随机字符串
     NSString *timeStampString = dic[@"timestamp"];
-        if (IsExist_String(timeStampString)) return;
+        if (!IsExist_String(timeStampString)) return;
     UInt32 num;
     sscanf([timeStampString UTF8String], "%u", &num);
     request.timeStamp = num;     // 时间戳

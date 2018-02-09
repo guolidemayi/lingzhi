@@ -128,11 +128,11 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[NSString stringWithFormat:@"tel://%@",self.busnessModel.cellphone] stringByReplacingOccurrencesOfString:@"-" withString:@""]]];
         }break;
         case 203:{
-            GLD_PayForBusinessController *jumpVC = [[GLD_PayForBusinessController alloc] init];
-            //        jumpVC.jump_URL = result;
-                jumpVC.payForUserId = @"54";
-            
-            [self.navigationController pushViewController:jumpVC animated:YES];
+//            GLD_PayForBusinessController *jumpVC = [[GLD_PayForBusinessController alloc] init];
+//            //        jumpVC.jump_URL = result;
+//                jumpVC.payForUserId = @"54";
+//
+//            [self.navigationController pushViewController:jumpVC animated:YES];
         }break;
     }
 }

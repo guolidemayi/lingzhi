@@ -10,6 +10,7 @@
 #import "GLD_GiveCouponController.h"
 #import "GLD_PayRechargeController.h"
 #import "GLD_GetCashController.h"
+#import "GLD_DetailedAccountController.h"
 
 @interface GLD_WalletDetialController ()
 @property (nonatomic, strong)UIImageView *iconImgV;
@@ -30,9 +31,42 @@
     [self setupUI];
     [self layout];
     [self setData];
+    [self setRightBut];
 }
-
-
+- (void)setRightBut{
+    
+    UIButton *but = [UIButton new];
+    [but setTitle:@"明细" forState:UIControlStateNormal];
+    but.titleLabel.font = WTFont(15);
+    but.frame = CGRectMake(0, 0, 50, 30);
+    [but addTarget:self action:@selector(rightButClick) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:but];
+    self.navigationItem.rightBarButtonItem = item;
+}
+- (void)rightButClick{
+    
+    GLD_DetailedAccountController *detailVc = [GLD_DetailedAccountController new];
+    NSString *str ;
+    switch (self.type) {
+        case 1:{
+            str = @"money";
+            detailVc.title = @"现金明细";
+        }break;
+        case 2:{
+            str = @"money";
+        }break;
+        case 3:{
+            detailVc.title = @"代金券";
+            str = @"coupon";
+        }break;
+        case 4:{
+            str = @"charge";
+            detailVc.title = @"充值明细";
+        }break;
+    }
+    detailVc.type = str;
+    [self.navigationController pushViewController:detailVc animated:YES];
+}
 - (void)applybutClick{
     if ([self.applyBut.titleLabel.text isEqualToString:@"转赠"]) {
         NSLog(@"转赠");
