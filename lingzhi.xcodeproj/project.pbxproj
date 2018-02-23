@@ -126,6 +126,7 @@
 		0F5EC5DF202D6F4200298A7D /* GLD_CountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EC5DD202D6F4200298A7D /* GLD_CountCell.m */; };
 		0F5EC5E0202D6F4200298A7D /* GLD_CountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5EC5DE202D6F4200298A7D /* GLD_CountCell.xib */; };
 		0F5EC5E3202D701700298A7D /* GLD_CountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EC5E2202D701700298A7D /* GLD_CountModel.m */; };
+		0F5FDDD1203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FDDCF203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.m */; };
 		0F60E9C01FC2754300C5E113 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F60E9BF1FC2754300C5E113 /* ViewController.m */; };
 		0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F60E9C11FC2754300C5E113 /* Main.storyboard */; };
 		0F60E9C51FC2754300C5E113 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F60E9C41FC2754300C5E113 /* Assets.xcassets */; };
@@ -460,6 +461,8 @@
 		0F5EC5DE202D6F4200298A7D /* GLD_CountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_CountCell.xib; sourceTree = "<group>"; };
 		0F5EC5E1202D701700298A7D /* GLD_CountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CountModel.h; sourceTree = "<group>"; };
 		0F5EC5E2202D701700298A7D /* GLD_CountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CountModel.m; sourceTree = "<group>"; };
+		0F5FDDCF203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+GLD_PreventDDouble.m"; path = "lingzhi/common/UIButton+GLD_PreventDDouble.m"; sourceTree = SOURCE_ROOT; };
+		0F5FDDD0203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+GLD_PreventDDouble.h"; path = "lingzhi/common/UIButton+GLD_PreventDDouble.h"; sourceTree = SOURCE_ROOT; };
 		0F60E9B81FC2754300C5E113 /* lingzhi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lingzhi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F60E9BE1FC2754300C5E113 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		0F60E9BF1FC2754300C5E113 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -872,6 +875,8 @@
 				339EF9521FF74DDB00C6170E /* GLD_BaseModel.h */,
 				339EF9531FF74DDB00C6170E /* GLD_BaseModel.m */,
 				0F9920111FCEE24100305DF3 /* GLD_BaseTableManager+table_extension.h */,
+				0F5FDDD0203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.h */,
+				0F5FDDCF203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.m */,
 			);
 			path = baseVC;
 			sourceTree = "<group>";
@@ -1997,6 +2002,7 @@
 				0FB5371B1FC6A25200B0EDA6 /* UserADsModel.m in Sources */,
 				0FB537151FC6A16500B0EDA6 /* YXFlashAdViewController.m in Sources */,
 				0F326F301FF4C05900A90106 /* GLD_OrderModel.m in Sources */,
+				0F5FDDD1203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.m in Sources */,
 				0F2C2F591FF62E330083BCCB /* GLD_topicCell.m in Sources */,
 				0FB537371FC6D22A00B0EDA6 /* UIImage+ImageSize.m in Sources */,
 				0F28D2B01FD6ADDE00138A8B /* BRBaseView.m in Sources */,
