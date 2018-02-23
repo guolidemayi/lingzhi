@@ -48,7 +48,8 @@
 - (void)setNavUi{
     GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
     self.locationBut = locationBut;
-    
+    [locationBut setTitle:@"ddddddd" forState:UIControlStateNormal];
+    [locationBut setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
     locationBut.frame = CGRectMake(0, 0, 50, 44);
     [locationBut image:@"更多"];
     [locationBut addTarget:self action:@selector(mapNav) forControlEvents:UIControlEventTouchUpInside];
@@ -59,7 +60,7 @@
     [titleBut setTitle:@"搜索" forState:UIControlStateNormal];
     [titleBut setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [titleBut setImage:WTImage(@"搜索-搜索") forState:UIControlStateNormal];
-    titleBut.frame = CGRectMake(0, 0, W(200), W(25));
+    titleBut.frame = CGRectMake(0, 0, W(180), W(30));
     titleBut.layer.cornerRadius = W(15);
     titleBut.layer.masksToBounds = YES;
     [titleBut addTarget:self action:@selector(SearchCLick) forControlEvents:UIControlEventTouchUpInside];
