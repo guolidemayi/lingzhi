@@ -73,7 +73,7 @@
 @property (nonatomic, strong)AMapPOI *mapPoi;//商家位置信息
 @property (nonatomic, strong)GLD_IndustryListModel *industryListModel;//行业列表
 @property (nonatomic, strong)NSString *updateImg;//上传图片返回连接
-@property (nonatomic, assign)BOOL isSuccss;//是否验证成功
+
 @property (nonatomic, copy)NSString *parentCate;//一级分类
 
 @end
@@ -88,7 +88,7 @@
     self.netManager = [GLD_NetworkAPIManager new];
     [self getParentCategory];
     self.loginCode = @"-1";
-    self.isSuccss = NO;
+
     self.updateImg = @"";
 }
 
@@ -268,6 +268,7 @@
             }];
             return headView;
         }break;
+        case 4:if(!self.isSuccss)break;
         case 5:{
             UIButton *nextBut = [[UIButton alloc]init];
             [headView.contentView addSubview:nextBut];
@@ -315,6 +316,7 @@
         case 1:{
             return self.introHeight;
         }break;
+        case 4:if(!self.isSuccss)break;
         case 5:{
             return W(60);
         }break;
@@ -657,10 +659,11 @@
                 weakSelf.isSuccss = YES;
                 [CAToast showWithText:@"验证成功"];
             }else{
-                
+                    weakSelf.isSuccss = NO;
                 [CAToast showWithText:result[@"msg"]];
             }
         }else{
+            weakSelf.isSuccss = NO;
             [CAToast showWithText:@"网络错误"];
 
         }
@@ -695,6 +698,9 @@
     return 0;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    if (self.isSuccss) {
+        return 5;
+    }
     return 6;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

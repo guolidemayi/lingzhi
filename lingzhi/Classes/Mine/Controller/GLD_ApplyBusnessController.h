@@ -10,4 +10,6 @@
 
 @interface GLD_ApplyBusnessController : GLD_BaseViewController
 
+
+@property (nonatomic, assign)BOOL isSuccss;//是否验证成功
 @end
