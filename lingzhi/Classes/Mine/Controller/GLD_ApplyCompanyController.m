@@ -141,7 +141,7 @@
 - (void)setupVerificationTF:(UITableViewCell *)cell{
     if (!_verificationTF) {
         _verificationTF = [self getTextField:cell];
-        _verificationTF.placeholder = @"请输入";
+        _verificationTF.placeholder = @"请输入(选填，省代理不用填写)";
         _verificationTF.returnKeyType = UIReturnKeyDone;
         _verificationTF.tag = 3;
     }
@@ -179,7 +179,7 @@
 }
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"公司名称",@"办事处",@"联系电话",@"预计投入资金",@"意向合作省份",@"代理商类型"];
+        _titleArr = @[@"公司名称",@"办事处",@"联系电话",@"邀请码",@"意向合作省份",@"代理商类型"];
     }
     return _titleArr;
 }
@@ -224,10 +224,10 @@
         [CAToast showWithText:@"请输入电话"];
         return;
     }
-    if(!IsExist_String(self.verificationTF.text)){
-        [CAToast showWithText:@"请输入预计投入资金"];
-        return;
-    }
+//    if(!IsExist_String(self.verificationTF.text)){
+//        [CAToast showWithText:@"请输入预计投入资金"];
+//        return;
+//    }
     if(!IsExist_String(self.industryTF.text)){
         [CAToast showWithText:@"请输入意向合作省份"];
         return;
@@ -244,7 +244,7 @@
     config.requestParameters = @{@"agentType" : GetString(self.businessTypeTF.text),
                                  @"phone" : GetString(self.discountTF.text),
                                  @"company" : GetString(self.PersonTF.text),//描述
-                                 @"money" : GetString(self.verificationTF.text),
+                                 @"inviteCode" : GetString(self.verificationTF.text),
                                  @"area" : GetString(self.industryTF.text),
                                  @"officeName" : GetString(self.PersonTF.text),
                                  @"userId" : GetString([AppDelegate shareDelegate].userModel.userId),

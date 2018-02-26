@@ -128,18 +128,18 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[NSString stringWithFormat:@"tel://%@",self.busnessModel.cellphone] stringByReplacingOccurrencesOfString:@"-" withString:@""]]];
         }break;
         case 203:{
-//            GLD_PayForBusinessController *jumpVC = [[GLD_PayForBusinessController alloc] init];
-//            //        jumpVC.jump_URL = result;
-//                jumpVC.payForUserId = @"54";
-//
-//            [self.navigationController pushViewController:jumpVC animated:YES];
+            GLD_PayForBusinessController *jumpVC = [[GLD_PayForBusinessController alloc] init];
+            //        jumpVC.jump_URL = result;
+                jumpVC.payForUserId = self.busnessModel.userId;
+
+            [self.navigationController pushViewController:jumpVC animated:YES];
         }break;
     }
 }
 - (UIView *)bottomView{
     if (!_bottomView) {
         _bottomView = [UIView new];
-        NSArray *arr = @[@"导航",@"拨号",@"扫一扫"];
+        NSArray *arr = @[@"导航",@"拨号",@"向商家付款"];
         for (int i = 0; i < arr.count; i++) {
             UIButton *but = [UIButton new];
             UIImageView *imgV = [UIImageView new];

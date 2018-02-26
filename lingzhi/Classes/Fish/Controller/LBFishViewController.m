@@ -90,7 +90,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return W(100);
+    return W(150);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -133,7 +133,7 @@
         
         _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
         _cycleView.autoScroll = YES;
-        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(100));
+        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(150));
         //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
     }
     return _cycleView;

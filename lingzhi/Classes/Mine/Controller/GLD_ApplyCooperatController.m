@@ -43,10 +43,15 @@
             }break;
                 
             case 2:{
+                if([AppDelegate shareDelegate].userModel.isHasBusness){
+                    [CAToast showWithText:@"不能重复申请门店"];
+                    return ;
+                }
                 GLD_ApplyBusnessController *applyVc = [GLD_ApplyBusnessController new];
                 [weakSelf.navigationController pushViewController:applyVc animated:YES];
             }break;
             case 3:{
+                
                 GLD_ApplyUnionController *applyVc = [GLD_ApplyUnionController new];
                 [weakSelf.navigationController pushViewController:applyVc animated:YES];
             }break;

@@ -47,7 +47,7 @@
 		0F298EA41FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0F298E8F1FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle */; };
 		0F298EA51FC2D18600EDBA9A /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298E911FC2D18600EDBA9A /* libWeChatSDK.a */; };
 		0F298EA61FC2D18600EDBA9A /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0F298E921FC2D18600EDBA9A /* read_me.txt */; };
-		0F298EAD1FC2DA9600EDBA9A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EAC1FC2DA9600EDBA9A /* UserNotifications.framework */; };
+		0F298EAD1FC2DA9600EDBA9A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EAC1FC2DA9600EDBA9A /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0F298EAF1FC2DAA100EDBA9A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EAE1FC2DAA000EDBA9A /* AdSupport.framework */; };
 		0F298EB11FC2DAAF00EDBA9A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EB01FC2DAAF00EDBA9A /* libz.tbd */; };
 		0F298EB31FC2DABA00EDBA9A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EB21FC2DABA00EDBA9A /* Security.framework */; };
@@ -2231,7 +2231,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CW3B6PTZCK;
+				DEVELOPMENT_TEAM = 48WYF6MTZ2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/QQ",
@@ -2258,7 +2258,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CW3B6PTZCK;
+				DEVELOPMENT_TEAM = 48WYF6MTZ2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/QQ",

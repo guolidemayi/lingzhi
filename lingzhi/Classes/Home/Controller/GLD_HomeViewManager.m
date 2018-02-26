@@ -156,7 +156,7 @@
     switch (indexPath.section) {
         case 0:{
             if (indexPath.row == 0) {
-                return W(100);
+                return W(150);
             }
             return W(180);
         }break;
