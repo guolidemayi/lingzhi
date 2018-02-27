@@ -203,6 +203,7 @@
 		0FB5373B1FC6D22A00B0EDA6 /* SGQRCodeGenerateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5372F1FC6D22900B0EDA6 /* SGQRCodeGenerateManager.m */; };
 		0FB5373C1FC6D22A00B0EDA6 /* SGQRCodeAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB537341FC6D22900B0EDA6 /* SGQRCodeAlbumManager.m */; };
 		0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */; };
+		0FE8158D2045562700DE8756 /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE8158C2045562700DE8756 /* address.plist */; };
 		330AAB3E1FF4053200523FF0 /* GLD_wanShanUserMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */; };
 		330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */; };
 		332D9B101FFA011D00A86304 /* GLD_ForumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 332D9B0E1FFA011D00A86304 /* GLD_ForumCell.m */; };
@@ -616,6 +617,7 @@
 		0FB537351FC6D22900B0EDA6 /* SGQRCodeGenerateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQRCodeGenerateManager.h; sourceTree = "<group>"; };
 		0FB5373E1FC7C99B00B0EDA6 /* GLD_CustomBut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CustomBut.h; sourceTree = "<group>"; };
 		0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CustomBut.m; sourceTree = "<group>"; };
+		0FE8158C2045562700DE8756 /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
 		2AFF7DFDC2A100A721211A54 /* Pods-lingzhiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiUITests/Pods-lingzhiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		330AAB3C1FF4053200523FF0 /* GLD_wanShanUserMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_wanShanUserMController.h; sourceTree = "<group>"; };
 		330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_wanShanUserMController.m; sourceTree = "<group>"; };
@@ -875,8 +877,6 @@
 				339EF9521FF74DDB00C6170E /* GLD_BaseModel.h */,
 				339EF9531FF74DDB00C6170E /* GLD_BaseModel.m */,
 				0F9920111FCEE24100305DF3 /* GLD_BaseTableManager+table_extension.h */,
-				0F5FDDD0203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.h */,
-				0F5FDDCF203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.m */,
 			);
 			path = baseVC;
 			sourceTree = "<group>";
@@ -915,6 +915,8 @@
 				0F2C2F6D1FF6362A0083BCCB /* GLD_PhotoView.m */,
 				0F2C2F6F1FF6368E0083BCCB /* YXRecordButton.h */,
 				0F2C2F701FF6368E0083BCCB /* YXRecordButton.m */,
+				0F5FDDD0203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.h */,
+				0F5FDDCF203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1100,6 +1102,7 @@
 		0F60E9BA1FC2754300C5E113 /* lingzhi */ = {
 			isa = PBXGroup;
 			children = (
+				0FE8158C2045562700DE8756 /* address.plist */,
 				339EF97A1FF93CF900C6170E /* lingzhi.entitlements */,
 				0F28D2CD1FDA42EA00138A8B /* AMap.bundle */,
 				0F28D2931FD6799100138A8B /* SDAutoLayout */,
@@ -1704,6 +1707,7 @@
 				0F80FB21202439D700F7EE22 /* GLD_ZFBPayCell.xib in Resources */,
 				0F60E9C81FC2754300C5E113 /* LaunchScreen.storyboard in Resources */,
 				0F60E9C51FC2754300C5E113 /* Assets.xcassets in Resources */,
+				0FE8158D2045562700DE8756 /* address.plist in Resources */,
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
 				0F298EA41FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				0F326F251FF49D9A00A90106 /* user_industry.json in Resources */,

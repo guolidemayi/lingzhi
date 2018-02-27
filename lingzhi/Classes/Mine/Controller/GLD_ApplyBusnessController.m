@@ -830,9 +830,14 @@
         NSLog(@"%.2lf%%", progress);
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSString *str = [responseObject[@"data"] stringValue];
+        if (!IsExist_String(str)) {
+            [CAToast showWithText:@"上传失败"];
+            return ;
+        }
         [CAToast showWithText:@"上传成功"];
         //请求成功
-        weakSelf.updateImg = responseObject[@"data"];
+        weakSelf.updateImg = str;
         NSLog(@"请求成功：%@",responseObject);
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

@@ -101,6 +101,11 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if(!hasLogin){
+        [CAToast showWithText:@"请登录"];
+        return;
+    }
     switch (indexPath.section) {
         case 0:
             
