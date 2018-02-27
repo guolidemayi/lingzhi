@@ -71,7 +71,7 @@
             [self.provenceArr addObject:dict[@"name"]];
            
         }
-    })
+    });
     
     
 }
