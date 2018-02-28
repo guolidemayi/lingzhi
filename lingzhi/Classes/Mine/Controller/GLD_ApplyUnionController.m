@@ -28,8 +28,12 @@
 /** 所在行业 */
 @property (nonatomic, strong) BRTextField *industryTF;
 
-/** 所在地区 */
+/** 所在地区省份 */
 @property (nonatomic, strong) BRTextField *addressTF;
+/** 意向合作市 */
+@property (nonatomic, strong) BRTextField *cityTF;
+/** 意向合作区 */
+@property (nonatomic, strong) BRTextField *areaTF;
 
 /** 门店电话 */
 @property (nonatomic, strong) BRTextField *phoneTF;
@@ -48,6 +52,12 @@
 @property (nonatomic, copy)NSString *phoneCode;
 @property (nonatomic, strong)GLD_NetworkAPIManager *netManager;
 
+
+@property (nonatomic, strong) NSArray *addressArr;//
+@property (nonatomic, strong) NSArray *secondAddressArr;//
+@property (nonatomic, strong) NSMutableArray *provenceArr;//
+@property (nonatomic, strong) NSMutableArray *cityArr;//
+@property (nonatomic, copy) NSMutableArray *areaArr;//
 @end
 
 @implementation GLD_ApplyUnionController
@@ -58,6 +68,25 @@
     self.phoneCode = @"-1";
     self.netManager = [GLD_NetworkAPIManager new];
     [self.view addSubview:self.table_apply];
+    self.provenceArr = [NSMutableArray array];
+    self.cityArr = [NSMutableArray array];
+    self.areaArr = [NSMutableArray array];
+    
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        NSBundle *bundle = [NSBundle mainBundle];
+        NSString *plistPath = [bundle pathForResource:@"address" ofType:@"plist"];
+        
+        NSDictionary *dict = [[NSDictionary alloc]initWithContentsOfFile:plistPath];
+        self.addressArr = [NSArray arrayWithArray:dict[@"address"]];
+        for (int i = 0; i < self.addressArr.count; i++) {
+            NSDictionary *dict = self.addressArr[i];
+            
+            [self.provenceArr addObjectsFromArray:dict.allKeys];
+            
+        }
+        
+    });
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -89,6 +118,12 @@
             [self setupAddressTF:cell];
         }break;
         case 2:{
+            [self setupCityTF:cell];
+        }break;
+        case 3:{
+            [self setupAreaTF:cell];
+        }break;
+        case 4:{
             cell.textLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
             UILabel *label = [[UILabel alloc]init];
             [cell.contentView addSubview:label];
@@ -100,16 +135,16 @@
             }];
             label.text = [AppDelegate shareDelegate].userModel.phone;
         }break;
-        case 3:{
+        case 5:{
             [self setupPhoneTF:cell];
         }break;
-        case 4:{
+        case 6:{
             [self setupDiscountTF:cell];
         }break;
-        case 5:{
+        case 7:{
             [self setupVerificationTF:cell];
         }break;
-        case 6:{
+        case 8:{
             [self setupPersonTF:cell];
         }break;
     }
@@ -147,8 +182,63 @@
         
         _addressTF.tapAcitonBlock = ^{
             
-            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[@"北京市", @"上海市", @"天津市",@"重庆市",@"河北省",@"山西省",@"台湾省",@"辽宁省",@"吉林省",@"黑龙江省",@"江苏省",@"浙江省",@"安徽省",@"福建省",@"江西省",@"山东省",@"河南省",@"湖北省",@"湖南省",@"广东省",@"甘肃省",@"四川省",@"贵州省",@"海南省",@"云南省",@"青海省",@"陕西省",@"广西壮族自治区",@"西藏自治区",@"宁夏回族自治区",@"新疆维吾尔自治区",@"内蒙古自治区",@"澳门特别行政区",@"香港特别行政区"] defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
-                weakSelf.addressTF.text = selectValue;
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:weakSelf.provenceArr defaultSelValue:@"北京" isAutoSelect:YES resultBlock:^(id selectValue) {
+                [weakSelf.cityArr removeAllObjects];
+                for (int i = 0; i < weakSelf.addressArr.count; i++) {
+                    NSDictionary *dict = weakSelf.addressArr[i];
+                    if ([dict.allKeys.firstObject isEqualToString:selectValue]) {
+                        weakSelf.secondAddressArr = [[NSArray alloc]initWithArray:dict[selectValue]];
+                        for (int j = 0; j < weakSelf.secondAddressArr.count; j++) {
+                            NSDictionary *dict1 = weakSelf.secondAddressArr[j];
+                            [weakSelf.cityArr addObjectsFromArray:dict1.allKeys];
+                        }
+                    }
+                }
+                _addressTF.text = selectValue;
+            }];
+        };
+    }
+}
+
+#pragma mark - 市
+- (void)setupCityTF:(UITableViewCell *)cell {
+    if (!_cityTF) {
+        _cityTF = [self getTextField:cell];
+        _cityTF.placeholder = @"请选择合作城市";
+        __weak typeof(self) weakSelf = self;
+        _cityTF.tapAcitonBlock = ^{
+            //跳转地区
+            if (!IsExist_Array(weakSelf.cityArr)) {
+                [CAToast showWithText:@"请选择合作省份"];
+            }
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:weakSelf.cityArr defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
+                //                [weakSelf.areaArr removeAllObjects];
+                
+                for (int i = 0; i < weakSelf.secondAddressArr.count; i++) {
+                    NSDictionary *dict = weakSelf.secondAddressArr[i];
+                    if ([dict.allKeys.firstObject isEqualToString:selectValue]) {
+                        weakSelf.areaArr = dict[selectValue];
+                    }
+                }
+                weakSelf.cityTF.text = selectValue;
+            }];
+        };
+    }
+}
+#pragma mark - 区
+- (void)setupAreaTF:(UITableViewCell *)cell {
+    if (!_areaTF) {
+        _areaTF = [self getTextField:cell];
+        _areaTF.placeholder = @"请选择合作区域";
+        __weak typeof(self) weakSelf = self;
+        _areaTF.tapAcitonBlock = ^{
+            //跳转地区
+            if (!IsExist_Array(weakSelf.areaArr)) {
+                [CAToast showWithText:@"请选择合作城市"];
+            }
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:weakSelf.areaArr defaultSelValue:@"东城区" isAutoSelect:YES resultBlock:^(id selectValue) {
+                
+                weakSelf.areaTF.text = selectValue;
             }];
         };
     }
@@ -265,7 +355,7 @@
 }
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"申请人姓名",@"申请人地址",@"申请人手机号",@"申请人身份证号",@"推荐人邀请码",@"验证码",@"备注"];
+        _titleArr = @[@"申请人姓名",@"申请人所在省份",@"申请人所在城市",@"申请人所在地区",@"申请人手机号",@"申请人身份证号",@"推荐人邀请码",@"验证码",@"备注"];
     }
     return _titleArr;
 }
@@ -297,10 +387,18 @@
         return;
     }
     if(!IsExist_String(self.addressTF.text)){
-        [CAToast showWithText:@"请输入地址"];
+        [CAToast showWithText:@"请输入地址省份"];
         return;
     }
-    if(!IsExist_String(self.phoneTF.text) || ![YXUniversal checkUserIDCard:self.phoneTF.text]){
+    if(!IsExist_String(self.cityTF.text)){
+        [CAToast showWithText:@"请输入意向合作城市"];
+        return;
+    }
+    if(!IsExist_String(self.areaTF.text)){
+        [CAToast showWithText:@"请输入意向合作区域"];
+        return;
+    }
+    if(![YXUniversal checkUserIDCard:self.phoneTF.text]){
         [CAToast showWithText:@"请输入正确的身份证号"];
         return;
     }
@@ -312,7 +410,7 @@
         [CAToast showWithText:@"验证码不正确"];
         return;
     }
-    
+    NSString *area = [NSString stringWithFormat:@"%@%@%@",GetString(self.addressTF.text),GetString(self.cityTF.text),GetString(self.areaTF.text)];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/user/addChannelUser";
@@ -321,7 +419,7 @@
                                  @"remark" : GetString(self.PersonTF.text),//描述
                                  @"identCard" : GetString(self.phoneTF.text),
                                  @"inviteCode" : GetString(self.discountTF.text),
-                                 @"address" : GetString(self.addressTF.text),
+                                 @"address" : area,
                                  @"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
                                  };
     

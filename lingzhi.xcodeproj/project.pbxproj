@@ -204,6 +204,7 @@
 		0FB5373C1FC6D22A00B0EDA6 /* SGQRCodeAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB537341FC6D22900B0EDA6 /* SGQRCodeAlbumManager.m */; };
 		0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */; };
 		0FE8158D2045562700DE8756 /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE8158C2045562700DE8756 /* address.plist */; };
+		0FE8159020467DED00DE8756 /* GLD_BusnessLogoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE8158F20467DED00DE8756 /* GLD_BusnessLogoController.m */; };
 		330AAB3E1FF4053200523FF0 /* GLD_wanShanUserMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */; };
 		330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */; };
 		332D9B101FFA011D00A86304 /* GLD_ForumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 332D9B0E1FFA011D00A86304 /* GLD_ForumCell.m */; };
@@ -618,6 +619,8 @@
 		0FB5373E1FC7C99B00B0EDA6 /* GLD_CustomBut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CustomBut.h; sourceTree = "<group>"; };
 		0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CustomBut.m; sourceTree = "<group>"; };
 		0FE8158C2045562700DE8756 /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
+		0FE8158E20467DED00DE8756 /* GLD_BusnessLogoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BusnessLogoController.h; sourceTree = "<group>"; };
+		0FE8158F20467DED00DE8756 /* GLD_BusnessLogoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BusnessLogoController.m; sourceTree = "<group>"; };
 		2AFF7DFDC2A100A721211A54 /* Pods-lingzhiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiUITests/Pods-lingzhiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		330AAB3C1FF4053200523FF0 /* GLD_wanShanUserMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_wanShanUserMController.h; sourceTree = "<group>"; };
 		330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_wanShanUserMController.m; sourceTree = "<group>"; };
@@ -1415,6 +1418,8 @@
 				33FD33A920255DAD00725317 /* GLD_PayForBusinessController.m */,
 				0F5EC5D9202D51F200298A7D /* GLD_DetailedAccountController.h */,
 				0F5EC5DA202D51F200298A7D /* GLD_DetailedAccountController.m */,
+				0FE8158E20467DED00DE8756 /* GLD_BusnessLogoController.h */,
+				0FE8158F20467DED00DE8756 /* GLD_BusnessLogoController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2003,6 +2008,7 @@
 				0F298E7E1FC2CFC200EDBA9A /* LQXSwitch.m in Sources */,
 				3C604D7D1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m in Sources */,
 				339EF9571FF8958100C6170E /* GLD_ForgetPassControllor.m in Sources */,
+				0FE8159020467DED00DE8756 /* GLD_BusnessLogoController.m in Sources */,
 				0FB5371B1FC6A25200B0EDA6 /* UserADsModel.m in Sources */,
 				0FB537151FC6A16500B0EDA6 /* YXFlashAdViewController.m in Sources */,
 				0F326F301FF4C05900A90106 /* GLD_OrderModel.m in Sources */,

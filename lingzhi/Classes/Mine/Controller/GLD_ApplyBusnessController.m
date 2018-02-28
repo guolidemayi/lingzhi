@@ -16,6 +16,7 @@
 #import "GLD_IndustryModel.h"
 #import "AFHTTPSessionManager.h"
 #import "GLD_SecondIndustryController.h"
+#import "GLD_BusnessLogoController.h"
 
 @interface GLD_ApplyBusnessController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate,GLD_MapDetailCellDelegate>
 @property (nonatomic, strong)UITableView *table_apply;
@@ -76,6 +77,7 @@
 
 @property (nonatomic, copy)NSString *parentCate;//一级分类
 
+@property (nonatomic, strong)GLD_BusnessLogoController *logoVc;
 @end
 
 @implementation GLD_ApplyBusnessController
@@ -90,6 +92,12 @@
     self.loginCode = @"-1";
 
     self.updateImg = @"";
+    WS(weakSelf);
+    GLD_BusnessLogoController *logoVc = [GLD_BusnessLogoController instancePost:^(NSData *data, NSString *jsonStr) {
+        weakSelf.updateImg = jsonStr;
+        weakSelf.iconImgV.image = [UIImage imageWithData:data];
+    }];
+    self.logoVc = logoVc;
 }
 
 //获取行业列表
@@ -522,6 +530,7 @@
 
 
 - (void)dealloc{
+    NSLog(@"+++++++++");
     [self.verificationTimer invalidate];
     self.verificationTimer = nil;
 }
@@ -560,13 +569,7 @@
     if (!_addressTF) {
         _addressTF = [self getTextField:cell];
         _addressTF.placeholder = @"请填写所在地区";
-        __weak typeof(self) weakSelf = self;
-//        _addressTF.tapAcitonBlock = ^{
-//            //跳转地区
-//            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[@"北京市", @"上海市", @"天津市",@"重庆市",@"河北省",@"山西省",@"台湾省",@"辽宁省",@"吉林省",@"黑龙江省",@"江苏省",@"浙江省",@"安徽省",@"福建省",@"江西省",@"山东省",@"河南省",@"湖北省",@"湖南省",@"广东省",@"甘肃省",@"四川省",@"贵州省",@"海南省",@"云南省",@"青海省",@"陕西省",@"广西壮族自治区",@"西藏自治区",@"宁夏回族自治区",@"新疆维吾尔自治区",@"内蒙古自治区",@"澳门特别行政区",@"香港特别行政区"] defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
-//                weakSelf.addressTF.text = selectValue;
-//            }];
-//        };
+
     }
 }
 
@@ -733,6 +736,10 @@
 }
 
 - (void)iconImgVClick{
+    
+    
+    [self.navigationController pushViewController:self.logoVc animated:YES];
+    return;
     NSLog(@"头像");
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

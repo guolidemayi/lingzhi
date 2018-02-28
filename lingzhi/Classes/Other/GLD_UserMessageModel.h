@@ -41,6 +41,14 @@
 @property (nonatomic, copy)NSString *Very;//市民认证状态
 @property (nonatomic, assign)CGFloat Profit;//月收益
 @property (nonatomic, assign)CGFloat dayCash;//日收益
+/**
+ * 0:未注册渠道商
+ * 1：未审核
+ * 2：已审核
+ * */
+
+@property (nonatomic, assign)NSInteger channelUserStatus;
+@property (nonatomic, assign)NSInteger proxyUserStatus;// * 0:未注册代理商* 1：未审核* 2：已审核
 
 
 @end

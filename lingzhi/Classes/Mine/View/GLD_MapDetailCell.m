@@ -111,6 +111,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
             [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
             if ([self.mapDelegate respondsToSelector:@selector(selectLocation:)]) {
                 [self.mapDelegate selectLocation:p];
+                self.keyWordField.text = p.address;
             }
         }
     }
@@ -206,7 +207,8 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     [self.searchBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.titleLabel);
         make.right.equalTo(self.contentView).offset(W(-15));
-        make.height.with.equalTo(WIDTH(30));
+        make.height.equalTo(WIDTH(40));
+        make.width.equalTo(WIDTH(40));
     }];
     
     [self.keyWordField mas_makeConstraints:^(MASConstraintMaker *make) {

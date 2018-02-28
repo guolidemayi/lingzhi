@@ -11,8 +11,12 @@
 #import "GLD_DetaileCell.h"
 #import "GLD_DetaileBusiCell.h"
 #import "GLD_DetailIntroCell.h"
-
+#import "SDCycleScrollView.h"
 #import "GLD_BusnessModel.h"
+
+@interface GLD_BusinessDetailManager ()<SDCycleScrollViewDelegate>
+@property (nonatomic, strong)SDCycleScrollView *cycleView;
+@end
 @implementation GLD_BusinessDetailManager
 
 - (void)fetchMainData{
@@ -105,14 +109,41 @@
     UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc]init];
     UIImageView * imgV = [[UIImageView alloc]init];
     [imgV yy_setImageWithURL:[NSURL URLWithString:self.busnessModel.logo] placeholder:nil];
-    [headerView.contentView addSubview:imgV];
-    [imgV mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(headerView.contentView);
-    }];
+    [headerView.contentView addSubview:self.cycleView];
+    
     return headerView;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) return W(180);
     return 5;
+}
+
+- (SDCycleScrollView *)cycleView{
+    if (!_cycleView) {
+        _cycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero
+                                                        delegate:self
+                                                placeholderImage:[UIImage imageNamed:@"tabbar_icon0_normal"]];
+        if ([self.busnessModel.logo containsString:@","]) {
+            
+            NSArray *arrM = [self.busnessModel.logo componentsSeparatedByString:@","];
+            NSMutableArray *arr = [NSMutableArray array];
+            for (int i = 0; i < arrM.count; i++) {
+                NSString *str = arrM[i];
+                if ([str hasPrefix:@"http"]) {
+                    [arr addObject:str];
+                }
+            }
+            if (arrM.count > 0) {
+                _cycleView.imageURLStringsGroup = arr.copy;
+            }
+        }else{
+            _cycleView.imageURLStringsGroup = @[self.busnessModel.logo];
+        }
+//        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
+        _cycleView.autoScroll = NO;
+        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(150));
+        //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
+    }
+    return _cycleView;
 }
 @end
