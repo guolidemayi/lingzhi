@@ -3,10 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>address</key>
-	<dict>
-		<key>New item</key>
+	<array>
 		<dict>
-			<key>New item</key>
+			<key>北京</key>
 			<array>
 				<dict>
 					<key>北京市</key>
@@ -30,21 +29,14 @@
 						<string>密云县</string>
 						<string>延庆县</string>
 					</array>
-					<key>zipcode</key>
-					<string>100000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 2</key>
 		<dict>
-			<key>name</key>
-			<string>天津</string>
-			<key>sub</key>
+			<key>天津</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>天津市</string>
-					<key>sub</key>
+					<key>天津市</key>
 					<array>
 						<string>和平区</string>
 						<string>河东区</string>
@@ -65,21 +57,14 @@
 						<string>静海县</string>
 						<string>蓟县</string>
 					</array>
-					<key>zipcode</key>
-					<string>100000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 3</key>
 		<dict>
-			<key>name</key>
-			<string>河北省</string>
-			<key>sub</key>
+			<key>河北省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>石家庄市</string>
-					<key>sub</key>
+					<key>石家庄市</key>
 					<array>
 						<string>长安区</string>
 						<string>桥东区</string>
@@ -105,13 +90,9 @@
 						<string>新乐市</string>
 						<string>鹿泉市</string>
 					</array>
-					<key>zipcode</key>
-					<string>050000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>唐山市</string>
-					<key>sub</key>
+					<key>唐山市</key>
 					<array>
 						<string>路南区</string>
 						<string>路北区</string>
@@ -128,13 +109,9 @@
 						<string>遵化市</string>
 						<string>迁安市</string>
 					</array>
-					<key>zipcode</key>
-					<string>063000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>秦皇岛市</string>
-					<key>sub</key>
+					<key>秦皇岛市</key>
 					<array>
 						<string>海港区</string>
 						<string>山海关区</string>
@@ -144,13 +121,9 @@
 						<string>抚宁县</string>
 						<string>卢龙县</string>
 					</array>
-					<key>zipcode</key>
-					<string>066000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>邯郸市</string>
-					<key>sub</key>
+					<key>邯郸市</key>
 					<array>
 						<string>邯山区</string>
 						<string>丛台区</string>
@@ -172,13 +145,9 @@
 						<string>曲周县</string>
 						<string>武安市</string>
 					</array>
-					<key>zipcode</key>
-					<string>056000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>邢台市</string>
-					<key>sub</key>
+					<key>邢台市</key>
 					<array>
 						<string>桥东区</string>
 						<string>桥西区</string>
@@ -200,13 +169,9 @@
 						<string>南宫市</string>
 						<string>沙河市</string>
 					</array>
-					<key>zipcode</key>
-					<string>054000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>保定市</string>
-					<key>sub</key>
+					<key>保定市</key>
 					<array>
 						<string>新市区</string>
 						<string>北市区</string>
@@ -234,13 +199,9 @@
 						<string>安国市</string>
 						<string>高碑店市</string>
 					</array>
-					<key>zipcode</key>
-					<string>071000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>张家口市</string>
-					<key>sub</key>
+					<key>张家口市</key>
 					<array>
 						<string>桥东区</string>
 						<string>桥西区</string>
@@ -260,13 +221,9 @@
 						<string>赤城县</string>
 						<string>崇礼县</string>
 					</array>
-					<key>zipcode</key>
-					<string>075000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>承德市</string>
-					<key>sub</key>
+					<key>承德市</key>
 					<array>
 						<string>双桥区</string>
 						<string>双滦区</string>
@@ -280,13 +237,9 @@
 						<string>宽城满族自治县</string>
 						<string>围场满族蒙古族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>067000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>沧州市</string>
-					<key>sub</key>
+					<key>沧州市</key>
 					<array>
 						<string>新华区</string>
 						<string>运河区</string>
@@ -305,13 +258,9 @@
 						<string>黄骅市</string>
 						<string>河间市</string>
 					</array>
-					<key>zipcode</key>
-					<string>061000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>廊坊市</string>
-					<key>sub</key>
+					<key>廊坊市</key>
 					<array>
 						<string>安次区</string>
 						<string>广阳区</string>
@@ -324,13 +273,9 @@
 						<string>霸州市</string>
 						<string>三河市</string>
 					</array>
-					<key>zipcode</key>
-					<string>065000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>衡水市</string>
-					<key>sub</key>
+					<key>衡水市</key>
 					<array>
 						<string>桃城区</string>
 						<string>枣强县</string>
@@ -344,21 +289,14 @@
 						<string>冀州市</string>
 						<string>深州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>053000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 4</key>
 		<dict>
-			<key>name</key>
-			<string>山西省</string>
-			<key>sub</key>
+			<key>山西省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>太原市</string>
-					<key>sub</key>
+					<key>太原市</key>
 					<array>
 						<string>小店区</string>
 						<string>迎泽区</string>
@@ -371,13 +309,9 @@
 						<string>娄烦县</string>
 						<string>古交市</string>
 					</array>
-					<key>zipcode</key>
-					<string>030000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>大同市</string>
-					<key>sub</key>
+					<key>大同市</key>
 					<array>
 						<string>城区</string>
 						<string>矿区</string>
@@ -391,13 +325,9 @@
 						<string>左云县</string>
 						<string>大同县</string>
 					</array>
-					<key>zipcode</key>
-					<string>037000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>阳泉市</string>
-					<key>sub</key>
+					<key>阳泉市</key>
 					<array>
 						<string>城区</string>
 						<string>矿区</string>
@@ -405,13 +335,9 @@
 						<string>平定县</string>
 						<string>盂县</string>
 					</array>
-					<key>zipcode</key>
-					<string>045000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>长治市</string>
-					<key>sub</key>
+					<key>长治市</key>
 					<array>
 						<string>城区</string>
 						<string>郊区</string>
@@ -427,13 +353,9 @@
 						<string>沁源县</string>
 						<string>潞城市</string>
 					</array>
-					<key>zipcode</key>
-					<string>046000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>晋城市</string>
-					<key>sub</key>
+					<key>晋城市</key>
 					<array>
 						<string>城区</string>
 						<string>沁水县</string>
@@ -442,13 +364,9 @@
 						<string>泽州县</string>
 						<string>高平市</string>
 					</array>
-					<key>zipcode</key>
-					<string>048000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>朔州市</string>
-					<key>sub</key>
+					<key>朔州市</key>
 					<array>
 						<string>朔城区</string>
 						<string>平鲁区</string>
@@ -457,13 +375,9 @@
 						<string>右玉县</string>
 						<string>怀仁县</string>
 					</array>
-					<key>zipcode</key>
-					<string>036000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>晋中市</string>
-					<key>sub</key>
+					<key>晋中市</key>
 					<array>
 						<string>榆次区</string>
 						<string>榆社县</string>
@@ -477,13 +391,9 @@
 						<string>灵石县</string>
 						<string>介休市</string>
 					</array>
-					<key>zipcode</key>
-					<string>030600</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>运城市</string>
-					<key>sub</key>
+					<key>运城市</key>
 					<array>
 						<string>盐湖区</string>
 						<string>临猗县</string>
@@ -499,13 +409,9 @@
 						<string>永济市</string>
 						<string>河津市</string>
 					</array>
-					<key>zipcode</key>
-					<string>044000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>忻州市</string>
-					<key>sub</key>
+					<key>忻州市</key>
 					<array>
 						<string>忻府区</string>
 						<string>定襄县</string>
@@ -522,13 +428,9 @@
 						<string>偏关县</string>
 						<string>原平市</string>
 					</array>
-					<key>zipcode</key>
-					<string>034000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>临汾市</string>
-					<key>sub</key>
+					<key>临汾市</key>
 					<array>
 						<string>尧都区</string>
 						<string>曲沃县</string>
@@ -548,13 +450,9 @@
 						<string>侯马市</string>
 						<string>霍州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>041000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>吕梁市</string>
-					<key>sub</key>
+					<key>吕梁市</key>
 					<array>
 						<string>离石区</string>
 						<string>文水县</string>
@@ -570,21 +468,14 @@
 						<string>孝义市</string>
 						<string>汾阳市</string>
 					</array>
-					<key>zipcode</key>
-					<string>030500</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 5</key>
 		<dict>
-			<key>name</key>
-			<string>内蒙古自治区</string>
-			<key>sub</key>
+			<key>内蒙古自治区</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>呼和浩特市</string>
-					<key>sub</key>
+					<key>呼和浩特市</key>
 					<array>
 						<string>新城区</string>
 						<string>回民区</string>
@@ -596,13 +487,9 @@
 						<string>清水河县</string>
 						<string>武川县</string>
 					</array>
-					<key>zipcode</key>
-					<string>010000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>包头市</string>
-					<key>sub</key>
+					<key>包头市</key>
 					<array>
 						<string>东河区</string>
 						<string>昆都仑区</string>
@@ -614,25 +501,17 @@
 						<string>固阳县</string>
 						<string>达尔罕茂明安联合旗</string>
 					</array>
-					<key>zipcode</key>
-					<string>014000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>乌海市</string>
-					<key>sub</key>
+					<key>乌海市</key>
 					<array>
 						<string>海勃湾区</string>
 						<string>海南区</string>
 						<string>乌达区</string>
 					</array>
-					<key>zipcode</key>
-					<string>016000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>赤峰市</string>
-					<key>sub</key>
+					<key>赤峰市</key>
 					<array>
 						<string>红山区</string>
 						<string>元宝山区</string>
@@ -647,13 +526,9 @@
 						<string>宁城县</string>
 						<string>敖汉旗</string>
 					</array>
-					<key>zipcode</key>
-					<string>024000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>通辽市</string>
-					<key>sub</key>
+					<key>通辽市</key>
 					<array>
 						<string>科尔沁区</string>
 						<string>科尔沁左翼中旗</string>
@@ -664,13 +539,9 @@
 						<string>扎鲁特旗</string>
 						<string>霍林郭勒市</string>
 					</array>
-					<key>zipcode</key>
-					<string>028000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>鄂尔多斯市</string>
-					<key>sub</key>
+					<key>鄂尔多斯市</key>
 					<array>
 						<string>东胜区</string>
 						<string>达拉特旗</string>
@@ -681,13 +552,9 @@
 						<string>乌审旗</string>
 						<string>伊金霍洛旗</string>
 					</array>
-					<key>zipcode</key>
-					<string>010300</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>呼伦贝尔市</string>
-					<key>sub</key>
+					<key>呼伦贝尔市</key>
 					<array>
 						<string>海拉尔区</string>
 						<string>阿荣旗</string>
@@ -703,13 +570,9 @@
 						<string>额尔古纳市</string>
 						<string>根河市</string>
 					</array>
-					<key>zipcode</key>
-					<string>021000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>巴彦淖尔市</string>
-					<key>sub</key>
+					<key>巴彦淖尔市</key>
 					<array>
 						<string>临河区</string>
 						<string>五原县</string>
@@ -719,13 +582,9 @@
 						<string>乌拉特后旗</string>
 						<string>杭锦后旗</string>
 					</array>
-					<key>zipcode</key>
-					<string>014400</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>乌兰察布市</string>
-					<key>sub</key>
+					<key>乌兰察布市</key>
 					<array>
 						<string>集宁区</string>
 						<string>卓资县</string>
@@ -739,13 +598,9 @@
 						<string>四子王旗</string>
 						<string>丰镇市</string>
 					</array>
-					<key>zipcode</key>
-					<string>011800</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>兴安盟</string>
-					<key>sub</key>
+					<key>兴安盟</key>
 					<array>
 						<string>乌兰浩特市</string>
 						<string>阿尔山市</string>
@@ -754,13 +609,9 @@
 						<string>扎赉特旗</string>
 						<string>突泉县</string>
 					</array>
-					<key>zipcode</key>
-					<string>137500</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>锡林郭勒盟</string>
-					<key>sub</key>
+					<key>锡林郭勒盟</key>
 					<array>
 						<string>二连浩特市</string>
 						<string>锡林浩特市</string>
@@ -775,33 +626,22 @@
 						<string>正蓝旗</string>
 						<string>多伦县</string>
 					</array>
-					<key>zipcode</key>
-					<string>011100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>阿拉善盟</string>
-					<key>sub</key>
+					<key>阿拉善盟</key>
 					<array>
 						<string>阿拉善左旗</string>
 						<string>阿拉善右旗</string>
 						<string>额济纳旗</string>
 					</array>
-					<key>zipcode</key>
-					<string>016000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 6</key>
 		<dict>
-			<key>name</key>
-			<string>辽宁省</string>
-			<key>sub</key>
+			<key>辽宁省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>沈阳市</string>
-					<key>sub</key>
+					<key>沈阳市</key>
 					<array>
 						<string>和平区</string>
 						<string>沈河区</string>
@@ -817,13 +657,9 @@
 						<string>法库县</string>
 						<string>新民市</string>
 					</array>
-					<key>zipcode</key>
-					<string>110000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>大连市</string>
-					<key>sub</key>
+					<key>大连市</key>
 					<array>
 						<string>中山区</string>
 						<string>西岗区</string>
@@ -836,13 +672,9 @@
 						<string>普兰店市</string>
 						<string>庄河市</string>
 					</array>
-					<key>zipcode</key>
-					<string>116000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>鞍山市</string>
-					<key>sub</key>
+					<key>鞍山市</key>
 					<array>
 						<string>铁东区</string>
 						<string>铁西区</string>
@@ -852,13 +684,9 @@
 						<string>岫岩满族自治县</string>
 						<string>海城市</string>
 					</array>
-					<key>zipcode</key>
-					<string>114000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>抚顺市</string>
-					<key>sub</key>
+					<key>抚顺市</key>
 					<array>
 						<string>新抚区</string>
 						<string>东洲区</string>
@@ -868,13 +696,9 @@
 						<string>新宾满族自治县</string>
 						<string>清原满族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>113000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>本溪市</string>
-					<key>sub</key>
+					<key>本溪市</key>
 					<array>
 						<string>平山区</string>
 						<string>溪湖区</string>
@@ -883,13 +707,9 @@
 						<string>本溪满族自治县</string>
 						<string>桓仁满族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>117000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>丹东市</string>
-					<key>sub</key>
+					<key>丹东市</key>
 					<array>
 						<string>元宝区</string>
 						<string>振兴区</string>
@@ -898,13 +718,9 @@
 						<string>东港市</string>
 						<string>凤城市</string>
 					</array>
-					<key>zipcode</key>
-					<string>118000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>锦州市</string>
-					<key>sub</key>
+					<key>锦州市</key>
 					<array>
 						<string>古塔区</string>
 						<string>凌河区</string>
@@ -914,13 +730,9 @@
 						<string>凌海市</string>
 						<string>北宁市</string>
 					</array>
-					<key>zipcode</key>
-					<string>121000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>营口市</string>
-					<key>sub</key>
+					<key>营口市</key>
 					<array>
 						<string>站前区</string>
 						<string>西市区</string>
@@ -929,13 +741,9 @@
 						<string>盖州市</string>
 						<string>大石桥市</string>
 					</array>
-					<key>zipcode</key>
-					<string>115000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>阜新市</string>
-					<key>sub</key>
+					<key>阜新市</key>
 					<array>
 						<string>海州区</string>
 						<string>新邱区</string>
@@ -945,13 +753,9 @@
 						<string>阜新蒙古族自治县</string>
 						<string>彰武县</string>
 					</array>
-					<key>zipcode</key>
-					<string>123000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>辽阳市</string>
-					<key>sub</key>
+					<key>辽阳市</key>
 					<array>
 						<string>白塔区</string>
 						<string>文圣区</string>
@@ -961,26 +765,18 @@
 						<string>辽阳县</string>
 						<string>灯塔市</string>
 					</array>
-					<key>zipcode</key>
-					<string>111000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>盘锦市</string>
-					<key>sub</key>
+					<key>盘锦市</key>
 					<array>
 						<string>双台子区</string>
 						<string>兴隆台区</string>
 						<string>大洼县</string>
 						<string>盘山县</string>
 					</array>
-					<key>zipcode</key>
-					<string>124000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>铁岭市</string>
-					<key>sub</key>
+					<key>铁岭市</key>
 					<array>
 						<string>银州区</string>
 						<string>清河区</string>
@@ -990,13 +786,9 @@
 						<string>调兵山市</string>
 						<string>开原市</string>
 					</array>
-					<key>zipcode</key>
-					<string>112000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>朝阳市</string>
-					<key>sub</key>
+					<key>朝阳市</key>
 					<array>
 						<string>双塔区</string>
 						<string>龙城区</string>
@@ -1006,13 +798,9 @@
 						<string>北票市</string>
 						<string>凌源市</string>
 					</array>
-					<key>zipcode</key>
-					<string>122000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>葫芦岛市</string>
-					<key>sub</key>
+					<key>葫芦岛市</key>
 					<array>
 						<string>连山区</string>
 						<string>龙港区</string>
@@ -1021,21 +809,14 @@
 						<string>建昌县</string>
 						<string>兴城市</string>
 					</array>
-					<key>zipcode</key>
-					<string>125000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 7</key>
 		<dict>
-			<key>name</key>
-			<string>吉林省</string>
-			<key>sub</key>
+			<key>吉林省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>长春市</string>
-					<key>sub</key>
+					<key>长春市</key>
 					<array>
 						<string>南关区</string>
 						<string>宽城区</string>
@@ -1048,13 +829,9 @@
 						<string>榆树市</string>
 						<string>德惠市</string>
 					</array>
-					<key>zipcode</key>
-					<string>130000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>吉林市</string>
-					<key>sub</key>
+					<key>吉林市</key>
 					<array>
 						<string>昌邑区</string>
 						<string>龙潭区</string>
@@ -1066,13 +843,9 @@
 						<string>舒兰市</string>
 						<string>磐石市</string>
 					</array>
-					<key>zipcode</key>
-					<string>132000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>四平市</string>
-					<key>sub</key>
+					<key>四平市</key>
 					<array>
 						<string>铁西区</string>
 						<string>铁东区</string>
@@ -1081,26 +854,18 @@
 						<string>公主岭市</string>
 						<string>双辽市</string>
 					</array>
-					<key>zipcode</key>
-					<string>136000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>辽源市</string>
-					<key>sub</key>
+					<key>辽源市</key>
 					<array>
 						<string>龙山区</string>
 						<string>西安区</string>
 						<string>东丰县</string>
 						<string>东辽县</string>
 					</array>
-					<key>zipcode</key>
-					<string>136200</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>通化市</string>
-					<key>sub</key>
+					<key>通化市</key>
 					<array>
 						<string>东昌区</string>
 						<string>二道江区</string>
@@ -1110,13 +875,9 @@
 						<string>梅河口市</string>
 						<string>集安市</string>
 					</array>
-					<key>zipcode</key>
-					<string>134000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>白山市</string>
-					<key>sub</key>
+					<key>白山市</key>
 					<array>
 						<string>八道江区</string>
 						<string>抚松县</string>
@@ -1125,13 +886,9 @@
 						<string>江源县</string>
 						<string>临江市</string>
 					</array>
-					<key>zipcode</key>
-					<string>134300</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>松原市</string>
-					<key>sub</key>
+					<key>松原市</key>
 					<array>
 						<string>宁江区</string>
 						<string>前郭尔罗斯蒙古族自治县</string>
@@ -1139,13 +896,9 @@
 						<string>乾安县</string>
 						<string>扶余县</string>
 					</array>
-					<key>zipcode</key>
-					<string>131100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>白城市</string>
-					<key>sub</key>
+					<key>白城市</key>
 					<array>
 						<string>洮北区</string>
 						<string>镇赉县</string>
@@ -1153,13 +906,9 @@
 						<string>洮南市</string>
 						<string>大安市</string>
 					</array>
-					<key>zipcode</key>
-					<string>137000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>延边朝鲜族自治州</string>
-					<key>sub</key>
+					<key>延边朝鲜族自治州</key>
 					<array>
 						<string>延吉市</string>
 						<string>图们市</string>
@@ -1170,21 +919,14 @@
 						<string>汪清县</string>
 						<string>安图县</string>
 					</array>
-					<key>zipcode</key>
-					<string>133000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 8</key>
 		<dict>
-			<key>name</key>
-			<string>黑龙江省</string>
-			<key>sub</key>
+			<key>黑龙江省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>哈尔滨市</string>
-					<key>sub</key>
+					<key>哈尔滨市</key>
 					<array>
 						<string>道里区</string>
 						<string>南岗区</string>
@@ -1206,13 +948,9 @@
 						<string>尚志市</string>
 						<string>五常市</string>
 					</array>
-					<key>zipcode</key>
-					<string>150000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>齐齐哈尔市</string>
-					<key>sub</key>
+					<key>齐齐哈尔市</key>
 					<array>
 						<string>龙沙区</string>
 						<string>建华区</string>
@@ -1231,13 +969,9 @@
 						<string>拜泉县</string>
 						<string>讷河市</string>
 					</array>
-					<key>zipcode</key>
-					<string>161000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>鸡西市</string>
-					<key>sub</key>
+					<key>鸡西市</key>
 					<array>
 						<string>鸡冠区</string>
 						<string>恒山区</string>
@@ -1249,13 +983,9 @@
 						<string>虎林市</string>
 						<string>密山市</string>
 					</array>
-					<key>zipcode</key>
-					<string>158100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>鹤岗市</string>
-					<key>sub</key>
+					<key>鹤岗市</key>
 					<array>
 						<string>向阳区</string>
 						<string>工农区</string>
@@ -1266,13 +996,9 @@
 						<string>萝北县</string>
 						<string>绥滨县</string>
 					</array>
-					<key>zipcode</key>
-					<string>154100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>双鸭山市</string>
-					<key>sub</key>
+					<key>双鸭山市</key>
 					<array>
 						<string>尖山区</string>
 						<string>岭东区</string>
@@ -1283,13 +1009,9 @@
 						<string>宝清县</string>
 						<string>饶河县</string>
 					</array>
-					<key>zipcode</key>
-					<string>155100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>大庆市</string>
-					<key>sub</key>
+					<key>大庆市</key>
 					<array>
 						<string>萨尔图区</string>
 						<string>龙凤区</string>
@@ -1301,13 +1023,9 @@
 						<string>林甸县</string>
 						<string>杜尔伯特蒙古族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>163000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>伊春市</string>
-					<key>sub</key>
+					<key>伊春市</key>
 					<array>
 						<string>伊春区</string>
 						<string>南岔区</string>
@@ -1327,13 +1045,9 @@
 						<string>嘉荫县</string>
 						<string>铁力市</string>
 					</array>
-					<key>zipcode</key>
-					<string>152300</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>佳木斯市</string>
-					<key>sub</key>
+					<key>佳木斯市</key>
 					<array>
 						<string>永红区</string>
 						<string>向阳区</string>
@@ -1347,26 +1061,18 @@
 						<string>同江市</string>
 						<string>富锦市</string>
 					</array>
-					<key>zipcode</key>
-					<string>154000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>七台河市</string>
-					<key>sub</key>
+					<key>七台河市</key>
 					<array>
 						<string>新兴区</string>
 						<string>桃山区</string>
 						<string>茄子河区</string>
 						<string>勃利县</string>
 					</array>
-					<key>zipcode</key>
-					<string>154600</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>牡丹江市</string>
-					<key>sub</key>
+					<key>牡丹江市</key>
 					<array>
 						<string>东安区</string>
 						<string>阳明区</string>
@@ -1379,13 +1085,9 @@
 						<string>宁安市</string>
 						<string>穆棱市</string>
 					</array>
-					<key>zipcode</key>
-					<string>157000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>黑河市</string>
-					<key>sub</key>
+					<key>黑河市</key>
 					<array>
 						<string>爱辉区</string>
 						<string>嫩江县</string>
@@ -1394,13 +1096,9 @@
 						<string>北安市</string>
 						<string>五大连池市</string>
 					</array>
-					<key>zipcode</key>
-					<string>164300</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>绥化市</string>
-					<key>sub</key>
+					<key>绥化市</key>
 					<array>
 						<string>北林区</string>
 						<string>望奎县</string>
@@ -1413,33 +1111,22 @@
 						<string>肇东市</string>
 						<string>海伦市</string>
 					</array>
-					<key>zipcode</key>
-					<string>152000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>大兴安岭地区</string>
-					<key>sub</key>
+					<key>大兴安岭地区</key>
 					<array>
 						<string>呼玛县</string>
 						<string>塔河县</string>
 						<string>漠河县</string>
 					</array>
-					<key>zipcode</key>
-					<string>165000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 9</key>
 		<dict>
-			<key>name</key>
-			<string>上海</string>
-			<key>sub</key>
+			<key>上海</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>上海市</string>
-					<key>sub</key>
+					<key>上海市</key>
 					<array>
 						<string>黄浦区</string>
 						<string>卢湾区</string>
@@ -1461,21 +1148,14 @@
 						<string>奉贤区</string>
 						<string>崇明县</string>
 					</array>
-					<key>zipcode</key>
-					<string>200000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 10</key>
 		<dict>
-			<key>name</key>
-			<string>江苏省</string>
-			<key>sub</key>
+			<key>江苏省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>南京市</string>
-					<key>sub</key>
+					<key>南京市</key>
 					<array>
 						<string>玄武区</string>
 						<string>白下区</string>
@@ -1491,13 +1171,9 @@
 						<string>溧水县</string>
 						<string>高淳县</string>
 					</array>
-					<key>zipcode</key>
-					<string>210000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>无锡市</string>
-					<key>sub</key>
+					<key>无锡市</key>
 					<array>
 						<string>崇安区</string>
 						<string>南长区</string>
@@ -1508,13 +1184,9 @@
 						<string>江阴市</string>
 						<string>宜兴市</string>
 					</array>
-					<key>zipcode</key>
-					<string>214000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>徐州市</string>
-					<key>sub</key>
+					<key>徐州市</key>
 					<array>
 						<string>鼓楼区</string>
 						<string>云龙区</string>
@@ -1528,13 +1200,9 @@
 						<string>新沂市</string>
 						<string>邳州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>221000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>常州市</string>
-					<key>sub</key>
+					<key>常州市</key>
 					<array>
 						<string>天宁区</string>
 						<string>钟楼区</string>
@@ -1544,13 +1212,9 @@
 						<string>溧阳市</string>
 						<string>金坛市</string>
 					</array>
-					<key>zipcode</key>
-					<string>213000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>苏州市</string>
-					<key>sub</key>
+					<key>苏州市</key>
 					<array>
 						<string>沧浪区</string>
 						<string>平江区</string>
@@ -1564,13 +1228,9 @@
 						<string>吴江市</string>
 						<string>太仓市</string>
 					</array>
-					<key>zipcode</key>
-					<string>215000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>南通市</string>
-					<key>sub</key>
+					<key>南通市</key>
 					<array>
 						<string>崇川区</string>
 						<string>港闸区</string>
@@ -1581,13 +1241,9 @@
 						<string>通州市</string>
 						<string>海门市</string>
 					</array>
-					<key>zipcode</key>
-					<string>226000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>连云港市</string>
-					<key>sub</key>
+					<key>连云港市</key>
 					<array>
 						<string>连云区</string>
 						<string>新浦区</string>
@@ -1597,13 +1253,9 @@
 						<string>灌云县</string>
 						<string>灌南县</string>
 					</array>
-					<key>zipcode</key>
-					<string>222000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>淮安市</string>
-					<key>sub</key>
+					<key>淮安市</key>
 					<array>
 						<string>清河区</string>
 						<string>楚州区</string>
@@ -1614,13 +1266,9 @@
 						<string>盱眙县</string>
 						<string>金湖县</string>
 					</array>
-					<key>zipcode</key>
-					<string>223200</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>盐城市</string>
-					<key>sub</key>
+					<key>盐城市</key>
 					<array>
 						<string>亭湖区</string>
 						<string>盐都区</string>
@@ -1632,13 +1280,9 @@
 						<string>东台市</string>
 						<string>大丰市</string>
 					</array>
-					<key>zipcode</key>
-					<string>224000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>扬州市</string>
-					<key>sub</key>
+					<key>扬州市</key>
 					<array>
 						<string>广陵区</string>
 						<string>邗江区</string>
@@ -1648,13 +1292,9 @@
 						<string>高邮市</string>
 						<string>江都市</string>
 					</array>
-					<key>zipcode</key>
-					<string>225000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>镇江市</string>
-					<key>sub</key>
+					<key>镇江市</key>
 					<array>
 						<string>京口区</string>
 						<string>润州区</string>
@@ -1663,13 +1303,9 @@
 						<string>扬中市</string>
 						<string>句容市</string>
 					</array>
-					<key>zipcode</key>
-					<string>212000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>泰州市</string>
-					<key>sub</key>
+					<key>泰州市</key>
 					<array>
 						<string>海陵区</string>
 						<string>高港区</string>
@@ -1678,13 +1314,9 @@
 						<string>泰兴市</string>
 						<string>姜堰市</string>
 					</array>
-					<key>zipcode</key>
-					<string>225300</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>宿迁市</string>
-					<key>sub</key>
+					<key>宿迁市</key>
 					<array>
 						<string>宿城区</string>
 						<string>宿豫区</string>
@@ -1692,21 +1324,14 @@
 						<string>泗阳县</string>
 						<string>泗洪县</string>
 					</array>
-					<key>zipcode</key>
-					<string>223800</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 11</key>
 		<dict>
-			<key>name</key>
-			<string>浙江省</string>
-			<key>sub</key>
+			<key>浙江省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>杭州市</string>
-					<key>sub</key>
+					<key>杭州市</key>
 					<array>
 						<string>上城区</string>
 						<string>下城区</string>
@@ -1722,13 +1347,9 @@
 						<string>富阳市</string>
 						<string>临安市</string>
 					</array>
-					<key>zipcode</key>
-					<string>310000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>宁波市</string>
-					<key>sub</key>
+					<key>宁波市</key>
 					<array>
 						<string>海曙区</string>
 						<string>江东区</string>
@@ -1742,13 +1363,9 @@
 						<string>慈溪市</string>
 						<string>奉化市</string>
 					</array>
-					<key>zipcode</key>
-					<string>315000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>温州市</string>
-					<key>sub</key>
+					<key>温州市</key>
 					<array>
 						<string>鹿城区</string>
 						<string>龙湾区</string>
@@ -1762,13 +1379,9 @@
 						<string>瑞安市</string>
 						<string>乐清市</string>
 					</array>
-					<key>zipcode</key>
-					<string>325000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>嘉兴市</string>
-					<key>sub</key>
+					<key>嘉兴市</key>
 					<array>
 						<string>秀城区</string>
 						<string>秀洲区</string>
@@ -1778,13 +1391,9 @@
 						<string>平湖市</string>
 						<string>桐乡市</string>
 					</array>
-					<key>zipcode</key>
-					<string>314000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>湖州市</string>
-					<key>sub</key>
+					<key>湖州市</key>
 					<array>
 						<string>吴兴区</string>
 						<string>南浔区</string>
@@ -1792,13 +1401,9 @@
 						<string>长兴县</string>
 						<string>安吉县</string>
 					</array>
-					<key>zipcode</key>
-					<string>313000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>绍兴市</string>
-					<key>sub</key>
+					<key>绍兴市</key>
 					<array>
 						<string>越城区</string>
 						<string>绍兴县</string>
@@ -1807,13 +1412,9 @@
 						<string>上虞市</string>
 						<string>嵊州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>312000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>金华市</string>
-					<key>sub</key>
+					<key>金华市</key>
 					<array>
 						<string>婺城区</string>
 						<string>金东区</string>
@@ -1825,13 +1426,9 @@
 						<string>东阳市</string>
 						<string>永康市</string>
 					</array>
-					<key>zipcode</key>
-					<string>321000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>衢州市</string>
-					<key>sub</key>
+					<key>衢州市</key>
 					<array>
 						<string>柯城区</string>
 						<string>衢江区</string>
@@ -1840,26 +1437,18 @@
 						<string>龙游县</string>
 						<string>江山市</string>
 					</array>
-					<key>zipcode</key>
-					<string>324000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>舟山市</string>
-					<key>sub</key>
+					<key>舟山市</key>
 					<array>
 						<string>定海区</string>
 						<string>普陀区</string>
 						<string>岱山县</string>
 						<string>嵊泗县</string>
 					</array>
-					<key>zipcode</key>
-					<string>316000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>台州市</string>
-					<key>sub</key>
+					<key>台州市</key>
 					<array>
 						<string>椒江区</string>
 						<string>黄岩区</string>
@@ -1871,13 +1460,9 @@
 						<string>温岭市</string>
 						<string>临海市</string>
 					</array>
-					<key>zipcode</key>
-					<string>318000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>丽水市</string>
-					<key>sub</key>
+					<key>丽水市</key>
 					<array>
 						<string>莲都区</string>
 						<string>青田县</string>
@@ -1889,21 +1474,14 @@
 						<string>景宁畲族自治县</string>
 						<string>龙泉市</string>
 					</array>
-					<key>zipcode</key>
-					<string>323000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 12</key>
 		<dict>
-			<key>name</key>
-			<string>安徽省</string>
-			<key>sub</key>
+			<key>安徽省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>合肥市</string>
-					<key>sub</key>
+					<key>合肥市</key>
 					<array>
 						<string>瑶海区</string>
 						<string>庐阳区</string>
@@ -1913,13 +1491,9 @@
 						<string>肥东县</string>
 						<string>肥西县</string>
 					</array>
-					<key>zipcode</key>
-					<string>230000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>芜湖市</string>
-					<key>sub</key>
+					<key>芜湖市</key>
 					<array>
 						<string>镜湖区</string>
 						<string>马塘区</string>
@@ -1929,13 +1503,9 @@
 						<string>繁昌县</string>
 						<string>南陵县</string>
 					</array>
-					<key>zipcode</key>
-					<string>241000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>蚌埠市</string>
-					<key>sub</key>
+					<key>蚌埠市</key>
 					<array>
 						<string>龙子湖区</string>
 						<string>蚌山区</string>
@@ -1945,13 +1515,9 @@
 						<string>五河县</string>
 						<string>固镇县</string>
 					</array>
-					<key>zipcode</key>
-					<string>233000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>淮南市</string>
-					<key>sub</key>
+					<key>淮南市</key>
 					<array>
 						<string>大通区</string>
 						<string>田家庵区</string>
@@ -1960,52 +1526,36 @@
 						<string>潘集区</string>
 						<string>凤台县</string>
 					</array>
-					<key>zipcode</key>
-					<string>232000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>马鞍山市</string>
-					<key>sub</key>
+					<key>马鞍山市</key>
 					<array>
 						<string>金家庄区</string>
 						<string>花山区</string>
 						<string>雨山区</string>
 						<string>当涂县</string>
 					</array>
-					<key>zipcode</key>
-					<string>243000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>淮北市</string>
-					<key>sub</key>
+					<key>淮北市</key>
 					<array>
 						<string>杜集区</string>
 						<string>相山区</string>
 						<string>烈山区</string>
 						<string>濉溪县</string>
 					</array>
-					<key>zipcode</key>
-					<string>235000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>铜陵市</string>
-					<key>sub</key>
+					<key>铜陵市</key>
 					<array>
 						<string>铜官山区</string>
 						<string>狮子山区</string>
 						<string>郊区</string>
 						<string>铜陵县</string>
 					</array>
-					<key>zipcode</key>
-					<string>244000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>安庆市</string>
-					<key>sub</key>
+					<key>安庆市</key>
 					<array>
 						<string>迎江区</string>
 						<string>大观区</string>
@@ -2019,13 +1569,9 @@
 						<string>岳西县</string>
 						<string>桐城市</string>
 					</array>
-					<key>zipcode</key>
-					<string>246000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>黄山市</string>
-					<key>sub</key>
+					<key>黄山市</key>
 					<array>
 						<string>屯溪区</string>
 						<string>黄山区</string>
@@ -2035,13 +1581,9 @@
 						<string>黟县</string>
 						<string>祁门县</string>
 					</array>
-					<key>zipcode</key>
-					<string>242700</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>滁州市</string>
-					<key>sub</key>
+					<key>滁州市</key>
 					<array>
 						<string>琅琊区</string>
 						<string>南谯区</string>
@@ -2052,13 +1594,9 @@
 						<string>天长市</string>
 						<string>明光市</string>
 					</array>
-					<key>zipcode</key>
-					<string>239000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>阜阳市</string>
-					<key>sub</key>
+					<key>阜阳市</key>
 					<array>
 						<string>颍州区</string>
 						<string>颍东区</string>
@@ -2069,13 +1607,9 @@
 						<string>颍上县</string>
 						<string>界首市</string>
 					</array>
-					<key>zipcode</key>
-					<string>236100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>宿州市</string>
-					<key>sub</key>
+					<key>宿州市</key>
 					<array>
 						<string>埇桥区</string>
 						<string>砀山县</string>
@@ -2083,13 +1617,9 @@
 						<string>灵璧县</string>
 						<string>泗县</string>
 					</array>
-					<key>zipcode</key>
-					<string>234100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>巢湖市</string>
-					<key>sub</key>
+					<key>巢湖市</key>
 					<array>
 						<string>居巢区</string>
 						<string>庐江县</string>
@@ -2097,13 +1627,9 @@
 						<string>含山县</string>
 						<string>和县</string>
 					</array>
-					<key>zipcode</key>
-					<string>238000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>六安市</string>
-					<key>sub</key>
+					<key>六安市</key>
 					<array>
 						<string>金安区</string>
 						<string>裕安区</string>
@@ -2113,39 +1639,27 @@
 						<string>金寨县</string>
 						<string>霍山县</string>
 					</array>
-					<key>zipcode</key>
-					<string>237000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>亳州市</string>
-					<key>sub</key>
+					<key>亳州市</key>
 					<array>
 						<string>谯城区</string>
 						<string>涡阳县</string>
 						<string>蒙城县</string>
 						<string>利辛县</string>
 					</array>
-					<key>zipcode</key>
-					<string>236800</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>池州市</string>
-					<key>sub</key>
+					<key>池州市</key>
 					<array>
 						<string>贵池区</string>
 						<string>东至县</string>
 						<string>石台县</string>
 						<string>青阳县</string>
 					</array>
-					<key>zipcode</key>
-					<string>247100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>宣城市</string>
-					<key>sub</key>
+					<key>宣城市</key>
 					<array>
 						<string>宣州区</string>
 						<string>郎溪县</string>
@@ -2155,21 +1669,14 @@
 						<string>旌德县</string>
 						<string>宁国市</string>
 					</array>
-					<key>zipcode</key>
-					<string>366000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 13</key>
 		<dict>
-			<key>name</key>
-			<string>福建省</string>
-			<key>sub</key>
+			<key>福建省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>福州市</string>
-					<key>sub</key>
+					<key>福州市</key>
 					<array>
 						<string>鼓楼区</string>
 						<string>台江区</string>
@@ -2185,13 +1692,9 @@
 						<string>福清市</string>
 						<string>长乐市</string>
 					</array>
-					<key>zipcode</key>
-					<string>350000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>厦门市</string>
-					<key>sub</key>
+					<key>厦门市</key>
 					<array>
 						<string>思明区</string>
 						<string>海沧区</string>
@@ -2200,13 +1703,9 @@
 						<string>同安区</string>
 						<string>翔安区</string>
 					</array>
-					<key>zipcode</key>
-					<string>361000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>莆田市</string>
-					<key>sub</key>
+					<key>莆田市</key>
 					<array>
 						<string>城厢区</string>
 						<string>涵江区</string>
@@ -2214,13 +1713,9 @@
 						<string>秀屿区</string>
 						<string>仙游县</string>
 					</array>
-					<key>zipcode</key>
-					<string>351100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>三明市</string>
-					<key>sub</key>
+					<key>三明市</key>
 					<array>
 						<string>梅列区</string>
 						<string>三元区</string>
@@ -2235,13 +1730,9 @@
 						<string>建宁县</string>
 						<string>永安市</string>
 					</array>
-					<key>zipcode</key>
-					<string>365000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>泉州市</string>
-					<key>sub</key>
+					<key>泉州市</key>
 					<array>
 						<string>鲤城区</string>
 						<string>丰泽区</string>
@@ -2256,13 +1747,9 @@
 						<string>晋江市</string>
 						<string>南安市</string>
 					</array>
-					<key>zipcode</key>
-					<string>362000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>漳州市</string>
-					<key>sub</key>
+					<key>漳州市</key>
 					<array>
 						<string>芗城区</string>
 						<string>龙文区</string>
@@ -2276,13 +1763,9 @@
 						<string>华安县</string>
 						<string>龙海市</string>
 					</array>
-					<key>zipcode</key>
-					<string>363000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>南平市</string>
-					<key>sub</key>
+					<key>南平市</key>
 					<array>
 						<string>延平区</string>
 						<string>顺昌县</string>
@@ -2295,13 +1778,9 @@
 						<string>建瓯市</string>
 						<string>建阳市</string>
 					</array>
-					<key>zipcode</key>
-					<string>353000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>龙岩市</string>
-					<key>sub</key>
+					<key>龙岩市</key>
 					<array>
 						<string>新罗区</string>
 						<string>长汀县</string>
@@ -2311,13 +1790,9 @@
 						<string>连城县</string>
 						<string>漳平市</string>
 					</array>
-					<key>zipcode</key>
-					<string>364000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>宁德市</string>
-					<key>sub</key>
+					<key>宁德市</key>
 					<array>
 						<string>蕉城区</string>
 						<string>霞浦县</string>
@@ -2329,21 +1804,14 @@
 						<string>福安市</string>
 						<string>福鼎市</string>
 					</array>
-					<key>zipcode</key>
-					<string>352100</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 14</key>
 		<dict>
-			<key>name</key>
-			<string>江西省</string>
-			<key>sub</key>
+			<key>江西省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>南昌市</string>
-					<key>sub</key>
+					<key>南昌市</key>
 					<array>
 						<string>东湖区</string>
 						<string>西湖区</string>
@@ -2355,26 +1823,18 @@
 						<string>安义县</string>
 						<string>进贤县</string>
 					</array>
-					<key>zipcode</key>
-					<string>330000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>景德镇市</string>
-					<key>sub</key>
+					<key>景德镇市</key>
 					<array>
 						<string>昌江区</string>
 						<string>珠山区</string>
 						<string>浮梁县</string>
 						<string>乐平市</string>
 					</array>
-					<key>zipcode</key>
-					<string>333000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>萍乡市</string>
-					<key>sub</key>
+					<key>萍乡市</key>
 					<array>
 						<string>安源区</string>
 						<string>湘东区</string>
@@ -2382,13 +1842,9 @@
 						<string>上栗县</string>
 						<string>芦溪县</string>
 					</array>
-					<key>zipcode</key>
-					<string>337000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>九江市</string>
-					<key>sub</key>
+					<key>九江市</key>
 					<array>
 						<string>庐山区</string>
 						<string>浔阳区</string>
@@ -2403,36 +1859,24 @@
 						<string>彭泽县</string>
 						<string>瑞昌市</string>
 					</array>
-					<key>zipcode</key>
-					<string>332000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>新余市</string>
-					<key>sub</key>
+					<key>新余市</key>
 					<array>
 						<string>渝水区</string>
 						<string>分宜县</string>
 					</array>
-					<key>zipcode</key>
-					<string>338000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>鹰潭市</string>
-					<key>sub</key>
+					<key>鹰潭市</key>
 					<array>
 						<string>月湖区</string>
 						<string>余江县</string>
 						<string>贵溪市</string>
 					</array>
-					<key>zipcode</key>
-					<string>335000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>赣州市</string>
-					<key>sub</key>
+					<key>赣州市</key>
 					<array>
 						<string>章贡区</string>
 						<string>赣县</string>
@@ -2453,13 +1897,9 @@
 						<string>瑞金市</string>
 						<string>南康市</string>
 					</array>
-					<key>zipcode</key>
-					<string>341000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>吉安市</string>
-					<key>sub</key>
+					<key>吉安市</key>
 					<array>
 						<string>吉州区</string>
 						<string>青原区</string>
@@ -2475,13 +1915,9 @@
 						<string>永新县</string>
 						<string>井冈山市</string>
 					</array>
-					<key>zipcode</key>
-					<string>343000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>宜春市</string>
-					<key>sub</key>
+					<key>宜春市</key>
 					<array>
 						<string>袁州区</string>
 						<string>奉新县</string>
@@ -2494,13 +1930,9 @@
 						<string>樟树市</string>
 						<string>高安市</string>
 					</array>
-					<key>zipcode</key>
-					<string>336000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>抚州市</string>
-					<key>sub</key>
+					<key>抚州市</key>
 					<array>
 						<string>临川区</string>
 						<string>南城县</string>
@@ -2514,13 +1946,9 @@
 						<string>东乡县</string>
 						<string>广昌县</string>
 					</array>
-					<key>zipcode</key>
-					<string>332900</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>上饶市</string>
-					<key>sub</key>
+					<key>上饶市</key>
 					<array>
 						<string>信州区</string>
 						<string>上饶县</string>
@@ -2535,21 +1963,14 @@
 						<string>婺源县</string>
 						<string>德兴市</string>
 					</array>
-					<key>zipcode</key>
-					<string>334000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 15</key>
 		<dict>
-			<key>name</key>
-			<string>山东省</string>
-			<key>sub</key>
+			<key>山东省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>济南市</string>
-					<key>sub</key>
+					<key>济南市</key>
 					<array>
 						<string>历下区</string>
 						<string>市中区</string>
@@ -2562,13 +1983,9 @@
 						<string>商河县</string>
 						<string>章丘市</string>
 					</array>
-					<key>zipcode</key>
-					<string>250000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>青岛市</string>
-					<key>sub</key>
+					<key>青岛市</key>
 					<array>
 						<string>市南区</string>
 						<string>市北区</string>
@@ -2583,13 +2000,9 @@
 						<string>胶南市</string>
 						<string>莱西市</string>
 					</array>
-					<key>zipcode</key>
-					<string>266000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>淄博市</string>
-					<key>sub</key>
+					<key>淄博市</key>
 					<array>
 						<string>淄川区</string>
 						<string>张店区</string>
@@ -2600,13 +2013,9 @@
 						<string>高青县</string>
 						<string>沂源县</string>
 					</array>
-					<key>zipcode</key>
-					<string>255000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>枣庄市</string>
-					<key>sub</key>
+					<key>枣庄市</key>
 					<array>
 						<string>市中区</string>
 						<string>薛城区</string>
@@ -2615,13 +2024,9 @@
 						<string>山亭区</string>
 						<string>滕州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>277100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>东营市</string>
-					<key>sub</key>
+					<key>东营市</key>
 					<array>
 						<string>东营区</string>
 						<string>河口区</string>
@@ -2629,13 +2034,9 @@
 						<string>利津县</string>
 						<string>广饶县</string>
 					</array>
-					<key>zipcode</key>
-					<string>257000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>烟台市</string>
-					<key>sub</key>
+					<key>烟台市</key>
 					<array>
 						<string>芝罘区</string>
 						<string>福山区</string>
@@ -2650,13 +2051,9 @@
 						<string>栖霞市</string>
 						<string>海阳市</string>
 					</array>
-					<key>zipcode</key>
-					<string>264000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>潍坊市</string>
-					<key>sub</key>
+					<key>潍坊市</key>
 					<array>
 						<string>潍城区</string>
 						<string>寒亭区</string>
@@ -2671,13 +2068,9 @@
 						<string>高密市</string>
 						<string>昌邑市</string>
 					</array>
-					<key>zipcode</key>
-					<string>261000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>济宁市</string>
-					<key>sub</key>
+					<key>济宁市</key>
 					<array>
 						<string>市中区</string>
 						<string>任城区</string>
@@ -2692,13 +2085,9 @@
 						<string>兖州市</string>
 						<string>邹城市</string>
 					</array>
-					<key>zipcode</key>
-					<string>272100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>泰安市</string>
-					<key>sub</key>
+					<key>泰安市</key>
 					<array>
 						<string>泰山区</string>
 						<string>岱岳区</string>
@@ -2707,50 +2096,34 @@
 						<string>新泰市</string>
 						<string>肥城市</string>
 					</array>
-					<key>zipcode</key>
-					<string>271000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>威海市</string>
-					<key>sub</key>
+					<key>威海市</key>
 					<array>
 						<string>环翠区</string>
 						<string>文登市</string>
 						<string>荣成市</string>
 						<string>乳山市</string>
 					</array>
-					<key>zipcode</key>
-					<string>265700</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>日照市</string>
-					<key>sub</key>
+					<key>日照市</key>
 					<array>
 						<string>东港区</string>
 						<string>岚山区</string>
 						<string>五莲县</string>
 						<string>莒县</string>
 					</array>
-					<key>zipcode</key>
-					<string>276800</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>莱芜市</string>
-					<key>sub</key>
+					<key>莱芜市</key>
 					<array>
 						<string>莱城区</string>
 						<string>钢城区</string>
 					</array>
-					<key>zipcode</key>
-					<string>271100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>临沂市</string>
-					<key>sub</key>
+					<key>临沂市</key>
 					<array>
 						<string>兰山区</string>
 						<string>罗庄区</string>
@@ -2765,13 +2138,9 @@
 						<string>蒙阴县</string>
 						<string>临沭县</string>
 					</array>
-					<key>zipcode</key>
-					<string>276000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>德州市</string>
-					<key>sub</key>
+					<key>德州市</key>
 					<array>
 						<string>德城区</string>
 						<string>陵县</string>
@@ -2785,13 +2154,9 @@
 						<string>乐陵市</string>
 						<string>禹城市</string>
 					</array>
-					<key>zipcode</key>
-					<string>253000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>聊城市</string>
-					<key>sub</key>
+					<key>聊城市</key>
 					<array>
 						<string>东昌府区</string>
 						<string>阳谷县</string>
@@ -2802,13 +2167,9 @@
 						<string>高唐县</string>
 						<string>临清市</string>
 					</array>
-					<key>zipcode</key>
-					<string>252000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>滨州市</string>
-					<key>sub</key>
+					<key>滨州市</key>
 					<array>
 						<string>滨城区</string>
 						<string>惠民县</string>
@@ -2818,13 +2179,9 @@
 						<string>博兴县</string>
 						<string>邹平县</string>
 					</array>
-					<key>zipcode</key>
-					<string>256600</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>荷泽市</string>
-					<key>sub</key>
+					<key>荷泽市</key>
 					<array>
 						<string>牡丹区</string>
 						<string>曹县</string>
@@ -2836,21 +2193,14 @@
 						<string>定陶县</string>
 						<string>东明县</string>
 					</array>
-					<key>zipcode</key>
-					<string>255000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 16</key>
 		<dict>
-			<key>name</key>
-			<string>河南省</string>
-			<key>sub</key>
+			<key>河南省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>郑州市</string>
-					<key>sub</key>
+					<key>郑州市</key>
 					<array>
 						<string>中原区</string>
 						<string>二七区</string>
@@ -2864,13 +2214,9 @@
 						<string>新郑市</string>
 						<string>登封市</string>
 					</array>
-					<key>zipcode</key>
-					<string>450000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>开封市</string>
-					<key>sub</key>
+					<key>开封市</key>
 					<array>
 						<string>龙亭区</string>
 						<string>顺河回族区</string>
@@ -2883,13 +2229,9 @@
 						<string>开封县</string>
 						<string>兰考县</string>
 					</array>
-					<key>zipcode</key>
-					<string>475000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>洛阳市</string>
-					<key>sub</key>
+					<key>洛阳市</key>
 					<array>
 						<string>老城区</string>
 						<string>西工区</string>
@@ -2907,13 +2249,9 @@
 						<string>伊川县</string>
 						<string>偃师市</string>
 					</array>
-					<key>zipcode</key>
-					<string>471000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>平顶山市</string>
-					<key>sub</key>
+					<key>平顶山市</key>
 					<array>
 						<string>新华区</string>
 						<string>卫东区</string>
@@ -2926,13 +2264,9 @@
 						<string>舞钢市</string>
 						<string>汝州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>467000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>安阳市</string>
-					<key>sub</key>
+					<key>安阳市</key>
 					<array>
 						<string>文峰区</string>
 						<string>北关区</string>
@@ -2944,13 +2278,9 @@
 						<string>内黄县</string>
 						<string>林州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>454900</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>鹤壁市</string>
-					<key>sub</key>
+					<key>鹤壁市</key>
 					<array>
 						<string>鹤山区</string>
 						<string>山城区</string>
@@ -2958,13 +2288,9 @@
 						<string>浚县</string>
 						<string>淇县</string>
 					</array>
-					<key>zipcode</key>
-					<string>456600</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>新乡市</string>
-					<key>sub</key>
+					<key>新乡市</key>
 					<array>
 						<string>红旗区</string>
 						<string>卫滨区</string>
@@ -2979,13 +2305,9 @@
 						<string>卫辉市</string>
 						<string>辉县市</string>
 					</array>
-					<key>zipcode</key>
-					<string>453000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>焦作市</string>
-					<key>sub</key>
+					<key>焦作市</key>
 					<array>
 						<string>解放区</string>
 						<string>中站区</string>
@@ -2999,13 +2321,9 @@
 						<string>沁阳市</string>
 						<string>孟州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>454100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>濮阳市</string>
-					<key>sub</key>
+					<key>濮阳市</key>
 					<array>
 						<string>华龙区</string>
 						<string>清丰县</string>
@@ -3014,13 +2332,9 @@
 						<string>台前县</string>
 						<string>濮阳县</string>
 					</array>
-					<key>zipcode</key>
-					<string>457000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>许昌市</string>
-					<key>sub</key>
+					<key>许昌市</key>
 					<array>
 						<string>魏都区</string>
 						<string>许昌县</string>
@@ -3029,13 +2343,9 @@
 						<string>禹州市</string>
 						<string>长葛市</string>
 					</array>
-					<key>zipcode</key>
-					<string>461000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>漯河市</string>
-					<key>sub</key>
+					<key>漯河市</key>
 					<array>
 						<string>源汇区</string>
 						<string>郾城区</string>
@@ -3043,13 +2353,9 @@
 						<string>舞阳县</string>
 						<string>临颍县</string>
 					</array>
-					<key>zipcode</key>
-					<string>462000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>三门峡市</string>
-					<key>sub</key>
+					<key>三门峡市</key>
 					<array>
 						<string>市辖区</string>
 						<string>湖滨区</string>
@@ -3059,13 +2365,9 @@
 						<string>义马市</string>
 						<string>灵宝市</string>
 					</array>
-					<key>zipcode</key>
-					<string>472000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>南阳市</string>
-					<key>sub</key>
+					<key>南阳市</key>
 					<array>
 						<string>宛城区</string>
 						<string>卧龙区</string>
@@ -3081,13 +2383,9 @@
 						<string>桐柏县</string>
 						<string>邓州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>473000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>商丘市</string>
-					<key>sub</key>
+					<key>商丘市</key>
 					<array>
 						<string>梁园区</string>
 						<string>睢阳区</string>
@@ -3099,13 +2397,9 @@
 						<string>夏邑县</string>
 						<string>永城市</string>
 					</array>
-					<key>zipcode</key>
-					<string>476000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>信阳市</string>
-					<key>sub</key>
+					<key>信阳市</key>
 					<array>
 						<string>浉河区</string>
 						<string>平桥区</string>
@@ -3118,13 +2412,9 @@
 						<string>淮滨县</string>
 						<string>息县</string>
 					</array>
-					<key>zipcode</key>
-					<string>464000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>周口市</string>
-					<key>sub</key>
+					<key>周口市</key>
 					<array>
 						<string>川汇区</string>
 						<string>扶沟县</string>
@@ -3137,13 +2427,9 @@
 						<string>鹿邑县</string>
 						<string>项城市</string>
 					</array>
-					<key>zipcode</key>
-					<string>466000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>驻马店市</string>
-					<key>sub</key>
+					<key>驻马店市</key>
 					<array>
 						<string>驿城区</string>
 						<string>西平县</string>
@@ -3156,21 +2442,14 @@
 						<string>遂平县</string>
 						<string>新蔡县</string>
 					</array>
-					<key>zipcode</key>
-					<string>463000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 17</key>
 		<dict>
-			<key>name</key>
-			<string>湖北省</string>
-			<key>sub</key>
+			<key>湖北省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>武汉市</string>
-					<key>sub</key>
+					<key>武汉市</key>
 					<array>
 						<string>江岸区</string>
 						<string>江汉区</string>
@@ -3186,13 +2465,9 @@
 						<string>黄陂区</string>
 						<string>新洲区</string>
 					</array>
-					<key>zipcode</key>
-					<string>430000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>黄石市</string>
-					<key>sub</key>
+					<key>黄石市</key>
 					<array>
 						<string>黄石港区</string>
 						<string>西塞山区</string>
@@ -3201,13 +2476,9 @@
 						<string>阳新县</string>
 						<string>大冶市</string>
 					</array>
-					<key>zipcode</key>
-					<string>435000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>十堰市</string>
-					<key>sub</key>
+					<key>十堰市</key>
 					<array>
 						<string>茅箭区</string>
 						<string>张湾区</string>
@@ -3218,13 +2489,9 @@
 						<string>房县</string>
 						<string>丹江口市</string>
 					</array>
-					<key>zipcode</key>
-					<string>442000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>宜昌市</string>
-					<key>sub</key>
+					<key>宜昌市</key>
 					<array>
 						<string>西陵区</string>
 						<string>伍家岗区</string>
@@ -3240,13 +2507,9 @@
 						<string>当阳市</string>
 						<string>枝江市</string>
 					</array>
-					<key>zipcode</key>
-					<string>443000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>襄樊市</string>
-					<key>sub</key>
+					<key>襄樊市</key>
 					<array>
 						<string>襄城区</string>
 						<string>樊城区</string>
@@ -3258,25 +2521,17 @@
 						<string>枣阳市</string>
 						<string>宜城市</string>
 					</array>
-					<key>zipcode</key>
-					<string>441000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>鄂州市</string>
-					<key>sub</key>
+					<key>鄂州市</key>
 					<array>
 						<string>梁子湖区</string>
 						<string>华容区</string>
 						<string>鄂城区</string>
 					</array>
-					<key>zipcode</key>
-					<string>436000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>荆门市</string>
-					<key>sub</key>
+					<key>荆门市</key>
 					<array>
 						<string>东宝区</string>
 						<string>掇刀区</string>
@@ -3284,13 +2539,9 @@
 						<string>沙洋县</string>
 						<string>钟祥市</string>
 					</array>
-					<key>zipcode</key>
-					<string>448000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>孝感市</string>
-					<key>sub</key>
+					<key>孝感市</key>
 					<array>
 						<string>孝南区</string>
 						<string>孝昌县</string>
@@ -3300,13 +2551,9 @@
 						<string>安陆市</string>
 						<string>汉川市</string>
 					</array>
-					<key>zipcode</key>
-					<string>432100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>荆州市</string>
-					<key>sub</key>
+					<key>荆州市</key>
 					<array>
 						<string>沙市区</string>
 						<string>荆州区</string>
@@ -3317,13 +2564,9 @@
 						<string>洪湖市</string>
 						<string>松滋市</string>
 					</array>
-					<key>zipcode</key>
-					<string>434000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>黄冈市</string>
-					<key>sub</key>
+					<key>黄冈市</key>
 					<array>
 						<string>黄州区</string>
 						<string>团风县</string>
@@ -3336,13 +2579,9 @@
 						<string>麻城市</string>
 						<string>武穴市</string>
 					</array>
-					<key>zipcode</key>
-					<string>438000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>咸宁市</string>
-					<key>sub</key>
+					<key>咸宁市</key>
 					<array>
 						<string>咸安区</string>
 						<string>嘉鱼县</string>
@@ -3351,24 +2590,16 @@
 						<string>通山县</string>
 						<string>赤壁市</string>
 					</array>
-					<key>zipcode</key>
-					<string>437000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>随州市</string>
-					<key>sub</key>
+					<key>随州市</key>
 					<array>
 						<string>曾都区</string>
 						<string>广水市</string>
 					</array>
-					<key>zipcode</key>
-					<string>441300</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>恩施土家族苗族自治州</string>
-					<key>sub</key>
+					<key>恩施土家族苗族自治州</key>
 					<array>
 						<string>恩施市</string>
 						<string>利川市</string>
@@ -3379,34 +2610,23 @@
 						<string>来凤县</string>
 						<string>鹤峰县</string>
 					</array>
-					<key>zipcode</key>
-					<string>445000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>神农架</string>
-					<key>sub</key>
+					<key>神农架</key>
 					<array>
 						<string>仙桃市</string>
 						<string>潜江市</string>
 						<string>天门市</string>
 						<string>神农架林区</string>
 					</array>
-					<key>zipcode</key>
-					<string>442400</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 18</key>
 		<dict>
-			<key>name</key>
-			<string>湖南省</string>
-			<key>sub</key>
+			<key>湖南省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>长沙市</string>
-					<key>sub</key>
+					<key>长沙市</key>
 					<array>
 						<string>芙蓉区</string>
 						<string>天心区</string>
@@ -3418,13 +2638,9 @@
 						<string>宁乡县</string>
 						<string>浏阳市</string>
 					</array>
-					<key>zipcode</key>
-					<string>410000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>株洲市</string>
-					<key>sub</key>
+					<key>株洲市</key>
 					<array>
 						<string>荷塘区</string>
 						<string>芦淞区</string>
@@ -3436,13 +2652,9 @@
 						<string>炎陵县</string>
 						<string>醴陵市</string>
 					</array>
-					<key>zipcode</key>
-					<string>412000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>湘潭市</string>
-					<key>sub</key>
+					<key>湘潭市</key>
 					<array>
 						<string>雨湖区</string>
 						<string>岳塘区</string>
@@ -3450,13 +2662,9 @@
 						<string>湘乡市</string>
 						<string>韶山市</string>
 					</array>
-					<key>zipcode</key>
-					<string>411100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>衡阳市</string>
-					<key>sub</key>
+					<key>衡阳市</key>
 					<array>
 						<string>珠晖区</string>
 						<string>雁峰区</string>
@@ -3471,13 +2679,9 @@
 						<string>耒阳市</string>
 						<string>常宁市</string>
 					</array>
-					<key>zipcode</key>
-					<string>421000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>邵阳市</string>
-					<key>sub</key>
+					<key>邵阳市</key>
 					<array>
 						<string>双清区</string>
 						<string>大祥区</string>
@@ -3492,13 +2696,9 @@
 						<string>城步苗族自治县</string>
 						<string>武冈市</string>
 					</array>
-					<key>zipcode</key>
-					<string>422000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>岳阳市</string>
-					<key>sub</key>
+					<key>岳阳市</key>
 					<array>
 						<string>岳阳楼区</string>
 						<string>云溪区</string>
@@ -3510,13 +2710,9 @@
 						<string>汨罗市</string>
 						<string>临湘市</string>
 					</array>
-					<key>zipcode</key>
-					<string>414000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>常德市</string>
-					<key>sub</key>
+					<key>常德市</key>
 					<array>
 						<string>武陵区</string>
 						<string>鼎城区</string>
@@ -3528,26 +2724,18 @@
 						<string>石门县</string>
 						<string>津市市</string>
 					</array>
-					<key>zipcode</key>
-					<string>415000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>张家界市</string>
-					<key>sub</key>
+					<key>张家界市</key>
 					<array>
 						<string>永定区</string>
 						<string>武陵源区</string>
 						<string>慈利县</string>
 						<string>桑植县</string>
 					</array>
-					<key>zipcode</key>
-					<string>427000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>益阳市</string>
-					<key>sub</key>
+					<key>益阳市</key>
 					<array>
 						<string>资阳区</string>
 						<string>赫山区</string>
@@ -3556,13 +2744,9 @@
 						<string>安化县</string>
 						<string>沅江市</string>
 					</array>
-					<key>zipcode</key>
-					<string>413000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>郴州市</string>
-					<key>sub</key>
+					<key>郴州市</key>
 					<array>
 						<string>北湖区</string>
 						<string>苏仙区</string>
@@ -3576,13 +2760,9 @@
 						<string>安仁县</string>
 						<string>资兴市</string>
 					</array>
-					<key>zipcode</key>
-					<string>423000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>永州市</string>
-					<key>sub</key>
+					<key>永州市</key>
 					<array>
 						<string>芝山区</string>
 						<string>冷水滩区</string>
@@ -3596,13 +2776,9 @@
 						<string>新田县</string>
 						<string>江华瑶族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>425000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>怀化市</string>
-					<key>sub</key>
+					<key>怀化市</key>
 					<array>
 						<string>鹤城区</string>
 						<string>中方县</string>
@@ -3617,13 +2793,9 @@
 						<string>通道侗族自治县</string>
 						<string>洪江市</string>
 					</array>
-					<key>zipcode</key>
-					<string>418000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>娄底市</string>
-					<key>sub</key>
+					<key>娄底市</key>
 					<array>
 						<string>娄星区</string>
 						<string>双峰县</string>
@@ -3631,13 +2803,9 @@
 						<string>冷水江市</string>
 						<string>涟源市</string>
 					</array>
-					<key>zipcode</key>
-					<string>417000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>湘西土家族苗族自治州</string>
-					<key>sub</key>
+					<key>湘西土家族苗族自治州</key>
 					<array>
 						<string>吉首市</string>
 						<string>泸溪县</string>
@@ -3648,21 +2816,14 @@
 						<string>永顺县</string>
 						<string>龙山县</string>
 					</array>
-					<key>zipcode</key>
-					<string>416000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 19</key>
 		<dict>
-			<key>name</key>
-			<string>广东省</string>
-			<key>sub</key>
+			<key>广东省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>广州市</string>
-					<key>sub</key>
+					<key>广州市</key>
 					<array>
 						<string>东山区</string>
 						<string>荔湾区</string>
@@ -3677,13 +2838,9 @@
 						<string>增城市</string>
 						<string>从化市</string>
 					</array>
-					<key>zipcode</key>
-					<string>510000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>韶关市</string>
-					<key>sub</key>
+					<key>韶关市</key>
 					<array>
 						<string>武江区</string>
 						<string>浈江区</string>
@@ -3696,13 +2853,9 @@
 						<string>乐昌市</string>
 						<string>南雄市</string>
 					</array>
-					<key>zipcode</key>
-					<string>521000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>深圳市</string>
-					<key>sub</key>
+					<key>深圳市</key>
 					<array>
 						<string>罗湖区</string>
 						<string>福田区</string>
@@ -3711,25 +2864,17 @@
 						<string>龙岗区</string>
 						<string>盐田区</string>
 					</array>
-					<key>zipcode</key>
-					<string>518000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>珠海市</string>
-					<key>sub</key>
+					<key>珠海市</key>
 					<array>
 						<string>香洲区</string>
 						<string>斗门区</string>
 						<string>金湾区</string>
 					</array>
-					<key>zipcode</key>
-					<string>519000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>汕头市</string>
-					<key>sub</key>
+					<key>汕头市</key>
 					<array>
 						<string>龙湖区</string>
 						<string>金平区</string>
@@ -3739,13 +2884,9 @@
 						<string>澄海区</string>
 						<string>南澳县</string>
 					</array>
-					<key>zipcode</key>
-					<string>515000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>佛山市</string>
-					<key>sub</key>
+					<key>佛山市</key>
 					<array>
 						<string>禅城区</string>
 						<string>南海区</string>
@@ -3753,13 +2894,9 @@
 						<string>三水区</string>
 						<string>高明区</string>
 					</array>
-					<key>zipcode</key>
-					<string>528000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>江门市</string>
-					<key>sub</key>
+					<key>江门市</key>
 					<array>
 						<string>蓬江区</string>
 						<string>江海区</string>
@@ -3769,13 +2906,9 @@
 						<string>鹤山市</string>
 						<string>恩平市</string>
 					</array>
-					<key>zipcode</key>
-					<string>529000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>湛江市</string>
-					<key>sub</key>
+					<key>湛江市</key>
 					<array>
 						<string>赤坎区</string>
 						<string>霞山区</string>
@@ -3787,13 +2920,9 @@
 						<string>雷州市</string>
 						<string>吴川市</string>
 					</array>
-					<key>zipcode</key>
-					<string>524000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>茂名市</string>
-					<key>sub</key>
+					<key>茂名市</key>
 					<array>
 						<string>茂南区</string>
 						<string>茂港区</string>
@@ -3802,13 +2931,9 @@
 						<string>化州市</string>
 						<string>信宜市</string>
 					</array>
-					<key>zipcode</key>
-					<string>525000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>肇庆市</string>
-					<key>sub</key>
+					<key>肇庆市</key>
 					<array>
 						<string>端州区</string>
 						<string>鼎湖区</string>
@@ -3819,13 +2944,9 @@
 						<string>高要市</string>
 						<string>四会市</string>
 					</array>
-					<key>zipcode</key>
-					<string>526000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>惠州市</string>
-					<key>sub</key>
+					<key>惠州市</key>
 					<array>
 						<string>惠城区</string>
 						<string>惠阳区</string>
@@ -3833,13 +2954,9 @@
 						<string>惠东县</string>
 						<string>龙门县</string>
 					</array>
-					<key>zipcode</key>
-					<string>516000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>梅州市</string>
-					<key>sub</key>
+					<key>梅州市</key>
 					<array>
 						<string>梅江区</string>
 						<string>梅县</string>
@@ -3850,26 +2967,18 @@
 						<string>蕉岭县</string>
 						<string>兴宁市</string>
 					</array>
-					<key>zipcode</key>
-					<string>514000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>汕尾市</string>
-					<key>sub</key>
+					<key>汕尾市</key>
 					<array>
 						<string>城区</string>
 						<string>海丰县</string>
 						<string>陆河县</string>
 						<string>陆丰市</string>
 					</array>
-					<key>zipcode</key>
-					<string>516600</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>河源市</string>
-					<key>sub</key>
+					<key>河源市</key>
 					<array>
 						<string>源城区</string>
 						<string>紫金县</string>
@@ -3878,26 +2987,18 @@
 						<string>和平县</string>
 						<string>东源县</string>
 					</array>
-					<key>zipcode</key>
-					<string>517000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>阳江市</string>
-					<key>sub</key>
+					<key>阳江市</key>
 					<array>
 						<string>江城区</string>
 						<string>阳西县</string>
 						<string>阳东县</string>
 						<string>阳春市</string>
 					</array>
-					<key>zipcode</key>
-					<string>529500</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>清远市</string>
-					<key>sub</key>
+					<key>清远市</key>
 					<array>
 						<string>清城区</string>
 						<string>佛冈县</string>
@@ -3908,41 +3009,25 @@
 						<string>英德市</string>
 						<string>连州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>511500</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>东莞市</string>
-					<key>sub</key>
+					<key>东莞市</key>
 					<array/>
-					<key>zipcode</key>
-					<string>511700</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>中山市</string>
-					<key>sub</key>
+					<key>中山市</key>
 					<array/>
-					<key>zipcode</key>
-					<string>528400</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>潮州市</string>
-					<key>sub</key>
+					<key>潮州市</key>
 					<array>
 						<string>湘桥区</string>
 						<string>潮安县</string>
 						<string>饶平县</string>
 					</array>
-					<key>zipcode</key>
-					<string>515600</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>揭阳市</string>
-					<key>sub</key>
+					<key>揭阳市</key>
 					<array>
 						<string>榕城区</string>
 						<string>揭东县</string>
@@ -3950,13 +3035,9 @@
 						<string>惠来县</string>
 						<string>普宁市</string>
 					</array>
-					<key>zipcode</key>
-					<string>522000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>云浮市</string>
-					<key>sub</key>
+					<key>云浮市</key>
 					<array>
 						<string>云城区</string>
 						<string>新兴县</string>
@@ -3964,21 +3045,14 @@
 						<string>云安县</string>
 						<string>罗定市</string>
 					</array>
-					<key>zipcode</key>
-					<string>527300</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 20</key>
 		<dict>
-			<key>name</key>
-			<string>广西壮族自治区</string>
-			<key>sub</key>
+			<key>广西壮族自治区</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>南宁市</string>
-					<key>sub</key>
+					<key>南宁市</key>
 					<array>
 						<string>兴宁区</string>
 						<string>青秀区</string>
@@ -3993,13 +3067,9 @@
 						<string>宾阳县</string>
 						<string>横县</string>
 					</array>
-					<key>zipcode</key>
-					<string>530000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>柳州市</string>
-					<key>sub</key>
+					<key>柳州市</key>
 					<array>
 						<string>城中区</string>
 						<string>鱼峰区</string>
@@ -4012,13 +3082,9 @@
 						<string>融水苗族自治县</string>
 						<string>三江侗族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>545000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>桂林市</string>
-					<key>sub</key>
+					<key>桂林市</key>
 					<array>
 						<string>秀峰区</string>
 						<string>叠彩区</string>
@@ -4038,13 +3104,9 @@
 						<string>荔蒲县</string>
 						<string>恭城瑶族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>541000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>梧州市</string>
-					<key>sub</key>
+					<key>梧州市</key>
 					<array>
 						<string>万秀区</string>
 						<string>蝶山区</string>
@@ -4054,52 +3116,36 @@
 						<string>蒙山县</string>
 						<string>岑溪市</string>
 					</array>
-					<key>zipcode</key>
-					<string>543000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>北海市</string>
-					<key>sub</key>
+					<key>北海市</key>
 					<array>
 						<string>海城区</string>
 						<string>银海区</string>
 						<string>铁山港区</string>
 						<string>合浦县</string>
 					</array>
-					<key>zipcode</key>
-					<string>536000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>防城港市</string>
-					<key>sub</key>
+					<key>防城港市</key>
 					<array>
 						<string>港口区</string>
 						<string>防城区</string>
 						<string>上思县</string>
 						<string>东兴市</string>
 					</array>
-					<key>zipcode</key>
-					<string>538000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>钦州市</string>
-					<key>sub</key>
+					<key>钦州市</key>
 					<array>
 						<string>钦南区</string>
 						<string>钦北区</string>
 						<string>灵山县</string>
 						<string>浦北县</string>
 					</array>
-					<key>zipcode</key>
-					<string>535000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>贵港市</string>
-					<key>sub</key>
+					<key>贵港市</key>
 					<array>
 						<string>港北区</string>
 						<string>港南区</string>
@@ -4107,13 +3153,9 @@
 						<string>平南县</string>
 						<string>桂平市</string>
 					</array>
-					<key>zipcode</key>
-					<string>537100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>玉林市</string>
-					<key>sub</key>
+					<key>玉林市</key>
 					<array>
 						<string>玉州区</string>
 						<string>容县</string>
@@ -4122,13 +3164,9 @@
 						<string>兴业县</string>
 						<string>北流市</string>
 					</array>
-					<key>zipcode</key>
-					<string>537000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>百色市</string>
-					<key>sub</key>
+					<key>百色市</key>
 					<array>
 						<string>右江区</string>
 						<string>田阳县</string>
@@ -4143,26 +3181,18 @@
 						<string>西林县</string>
 						<string>隆林各族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>533000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>贺州市</string>
-					<key>sub</key>
+					<key>贺州市</key>
 					<array>
 						<string>八步区</string>
 						<string>昭平县</string>
 						<string>钟山县</string>
 						<string>富川瑶族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>542800</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>河池市</string>
-					<key>sub</key>
+					<key>河池市</key>
 					<array>
 						<string>金城江区</string>
 						<string>南丹县</string>
@@ -4176,13 +3206,9 @@
 						<string>大化瑶族自治县</string>
 						<string>宜州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>547000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>来宾市</string>
-					<key>sub</key>
+					<key>来宾市</key>
 					<array>
 						<string>兴宾区</string>
 						<string>忻城县</string>
@@ -4191,13 +3217,9 @@
 						<string>金秀瑶族自治县</string>
 						<string>合山市</string>
 					</array>
-					<key>zipcode</key>
-					<string>546100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>崇左市</string>
-					<key>sub</key>
+					<key>崇左市</key>
 					<array>
 						<string>江洲区</string>
 						<string>扶绥县</string>
@@ -4207,34 +3229,23 @@
 						<string>天等县</string>
 						<string>凭祥市</string>
 					</array>
-					<key>zipcode</key>
-					<string>532200</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 21</key>
 		<dict>
-			<key>name</key>
-			<string>海南省</string>
-			<key>sub</key>
+			<key>海南省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>海口市</string>
-					<key>sub</key>
+					<key>海口市</key>
 					<array>
 						<string>秀英区</string>
 						<string>龙华区</string>
 						<string>琼山区</string>
 						<string>美兰区</string>
 					</array>
-					<key>zipcode</key>
-					<string>570000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>三亚市</string>
-					<key>sub</key>
+					<key>三亚市</key>
 					<array>
 						<string>五指山市</string>
 						<string>琼海市</string>
@@ -4256,21 +3267,14 @@
 						<string>南沙群岛</string>
 						<string>中沙群岛的岛礁及其海域</string>
 					</array>
-					<key>zipcode</key>
-					<string>572000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 22</key>
 		<dict>
-			<key>name</key>
-			<string>重庆</string>
-			<key>sub</key>
+			<key>重庆</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>重庆市</string>
-					<key>sub</key>
+					<key>重庆市</key>
 					<array>
 						<string>万州区</string>
 						<string>涪陵区</string>
@@ -4313,21 +3317,14 @@
 						<string>永川市</string>
 						<string>南川市</string>
 					</array>
-					<key>zipcode</key>
-					<string>400000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 23</key>
 		<dict>
-			<key>name</key>
-			<string>四川省</string>
-			<key>sub</key>
+			<key>四川省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>成都市</string>
-					<key>sub</key>
+					<key>成都市</key>
 					<array>
 						<string>锦江区</string>
 						<string>青羊区</string>
@@ -4349,13 +3346,9 @@
 						<string>邛崃市</string>
 						<string>崇州市</string>
 					</array>
-					<key>zipcode</key>
-					<string>610000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>自贡市</string>
-					<key>sub</key>
+					<key>自贡市</key>
 					<array>
 						<string>自流井区</string>
 						<string>贡井区</string>
@@ -4364,13 +3357,9 @@
 						<string>荣县</string>
 						<string>富顺县</string>
 					</array>
-					<key>zipcode</key>
-					<string>643000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>攀枝花市</string>
-					<key>sub</key>
+					<key>攀枝花市</key>
 					<array>
 						<string>东区</string>
 						<string>西区</string>
@@ -4378,13 +3367,9 @@
 						<string>米易县</string>
 						<string>盐边县</string>
 					</array>
-					<key>zipcode</key>
-					<string>617000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>泸州市</string>
-					<key>sub</key>
+					<key>泸州市</key>
 					<array>
 						<string>江阳区</string>
 						<string>纳溪区</string>
@@ -4394,13 +3379,9 @@
 						<string>叙永县</string>
 						<string>古蔺县</string>
 					</array>
-					<key>zipcode</key>
-					<string>646100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>德阳市</string>
-					<key>sub</key>
+					<key>德阳市</key>
 					<array>
 						<string>旌阳区</string>
 						<string>中江县</string>
@@ -4409,13 +3390,9 @@
 						<string>什邡市</string>
 						<string>绵竹市</string>
 					</array>
-					<key>zipcode</key>
-					<string>618000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>绵阳市</string>
-					<key>sub</key>
+					<key>绵阳市</key>
 					<array>
 						<string>涪城区</string>
 						<string>游仙区</string>
@@ -4427,13 +3404,9 @@
 						<string>平武县</string>
 						<string>江油市</string>
 					</array>
-					<key>zipcode</key>
-					<string>621000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>广元市</string>
-					<key>sub</key>
+					<key>广元市</key>
 					<array>
 						<string>市中区</string>
 						<string>元坝区</string>
@@ -4443,13 +3416,9 @@
 						<string>剑阁县</string>
 						<string>苍溪县</string>
 					</array>
-					<key>zipcode</key>
-					<string>628000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>遂宁市</string>
-					<key>sub</key>
+					<key>遂宁市</key>
 					<array>
 						<string>船山区</string>
 						<string>安居区</string>
@@ -4457,13 +3426,9 @@
 						<string>射洪县</string>
 						<string>大英县</string>
 					</array>
-					<key>zipcode</key>
-					<string>629000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>内江市</string>
-					<key>sub</key>
+					<key>内江市</key>
 					<array>
 						<string>市中区</string>
 						<string>东兴区</string>
@@ -4471,13 +3436,9 @@
 						<string>资中县</string>
 						<string>隆昌县</string>
 					</array>
-					<key>zipcode</key>
-					<string>641000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>乐山市</string>
-					<key>sub</key>
+					<key>乐山市</key>
 					<array>
 						<string>市中区</string>
 						<string>沙湾区</string>
@@ -4491,13 +3452,9 @@
 						<string>马边彝族自治县</string>
 						<string>峨眉山市</string>
 					</array>
-					<key>zipcode</key>
-					<string>614000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>南充市</string>
-					<key>sub</key>
+					<key>南充市</key>
 					<array>
 						<string>顺庆区</string>
 						<string>高坪区</string>
@@ -4509,13 +3466,9 @@
 						<string>西充县</string>
 						<string>阆中市</string>
 					</array>
-					<key>zipcode</key>
-					<string>637000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>眉山市</string>
-					<key>sub</key>
+					<key>眉山市</key>
 					<array>
 						<string>东坡区</string>
 						<string>仁寿县</string>
@@ -4524,13 +3477,9 @@
 						<string>丹棱县</string>
 						<string>青神县</string>
 					</array>
-					<key>zipcode</key>
-					<string>612100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>宜宾市</string>
-					<key>sub</key>
+					<key>宜宾市</key>
 					<array>
 						<string>翠屏区</string>
 						<string>宜宾县</string>
@@ -4543,13 +3492,9 @@
 						<string>兴文县</string>
 						<string>屏山县</string>
 					</array>
-					<key>zipcode</key>
-					<string>644000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>广安市</string>
-					<key>sub</key>
+					<key>广安市</key>
 					<array>
 						<string>广安区</string>
 						<string>岳池县</string>
@@ -4557,13 +3502,9 @@
 						<string>邻水县</string>
 						<string>华蓥市</string>
 					</array>
-					<key>zipcode</key>
-					<string>638000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>达州市</string>
-					<key>sub</key>
+					<key>达州市</key>
 					<array>
 						<string>通川区</string>
 						<string>达县</string>
@@ -4573,13 +3514,9 @@
 						<string>渠县</string>
 						<string>万源市</string>
 					</array>
-					<key>zipcode</key>
-					<string>635000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>雅安市</string>
-					<key>sub</key>
+					<key>雅安市</key>
 					<array>
 						<string>雨城区</string>
 						<string>名山县</string>
@@ -4590,39 +3527,27 @@
 						<string>芦山县</string>
 						<string>宝兴县</string>
 					</array>
-					<key>zipcode</key>
-					<string>625000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>巴中市</string>
-					<key>sub</key>
+					<key>巴中市</key>
 					<array>
 						<string>巴州区</string>
 						<string>通江县</string>
 						<string>南江县</string>
 						<string>平昌县</string>
 					</array>
-					<key>zipcode</key>
-					<string>635500</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>资阳市</string>
-					<key>sub</key>
+					<key>资阳市</key>
 					<array>
 						<string>雁江区</string>
 						<string>安岳县</string>
 						<string>乐至县</string>
 						<string>简阳市</string>
 					</array>
-					<key>zipcode</key>
-					<string>641300</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>阿坝藏族羌族自治州</string>
-					<key>sub</key>
+					<key>阿坝藏族羌族自治州</key>
 					<array>
 						<string>汶川县</string>
 						<string>理县</string>
@@ -4638,13 +3563,9 @@
 						<string>若尔盖县</string>
 						<string>红原县</string>
 					</array>
-					<key>zipcode</key>
-					<string>624600</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>甘孜藏族自治州</string>
-					<key>sub</key>
+					<key>甘孜藏族自治州</key>
 					<array>
 						<string>康定县</string>
 						<string>泸定县</string>
@@ -4665,13 +3586,9 @@
 						<string>稻城县</string>
 						<string>得荣县</string>
 					</array>
-					<key>zipcode</key>
-					<string>626000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>凉山彝族自治州</string>
-					<key>sub</key>
+					<key>凉山彝族自治州</key>
 					<array>
 						<string>西昌市</string>
 						<string>木里藏族自治县</string>
@@ -4691,21 +3608,14 @@
 						<string>美姑县</string>
 						<string>雷波县</string>
 					</array>
-					<key>zipcode</key>
-					<string>615000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 24</key>
 		<dict>
-			<key>name</key>
-			<string>贵州省</string>
-			<key>sub</key>
+			<key>贵州省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>贵阳市</string>
-					<key>sub</key>
+					<key>贵阳市</key>
 					<array>
 						<string>南明区</string>
 						<string>云岩区</string>
@@ -4718,26 +3628,18 @@
 						<string>修文县</string>
 						<string>清镇市</string>
 					</array>
-					<key>zipcode</key>
-					<string>55000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>六盘水市</string>
-					<key>sub</key>
+					<key>六盘水市</key>
 					<array>
 						<string>钟山区</string>
 						<string>六枝特区</string>
 						<string>水城县</string>
 						<string>盘县</string>
 					</array>
-					<key>zipcode</key>
-					<string>553000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>遵义市</string>
-					<key>sub</key>
+					<key>遵义市</key>
 					<array>
 						<string>红花岗区</string>
 						<string>汇川区</string>
@@ -4754,13 +3656,9 @@
 						<string>赤水市</string>
 						<string>仁怀市</string>
 					</array>
-					<key>zipcode</key>
-					<string>563000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>安顺市</string>
-					<key>sub</key>
+					<key>安顺市</key>
 					<array>
 						<string>西秀区</string>
 						<string>平坝县</string>
@@ -4769,13 +3667,9 @@
 						<string>关岭布依族苗族自治县</string>
 						<string>紫云苗族布依族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>561000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>铜仁地区</string>
-					<key>sub</key>
+					<key>铜仁地区</key>
 					<array>
 						<string>铜仁市</string>
 						<string>江口县</string>
@@ -4788,13 +3682,9 @@
 						<string>松桃苗族自治县</string>
 						<string>万山特区</string>
 					</array>
-					<key>zipcode</key>
-					<string>554300</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>黔西南布依族苗族自治州</string>
-					<key>sub</key>
+					<key>黔西南布依族苗族自治州</key>
 					<array>
 						<string>兴义市</string>
 						<string>兴仁县</string>
@@ -4805,13 +3695,9 @@
 						<string>册亨县</string>
 						<string>安龙县</string>
 					</array>
-					<key>zipcode</key>
-					<string>551500</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>毕节地区</string>
-					<key>sub</key>
+					<key>毕节地区</key>
 					<array>
 						<string>毕节市</string>
 						<string>大方县</string>
@@ -4822,13 +3708,9 @@
 						<string>威宁彝族回族苗族自治县</string>
 						<string>赫章县</string>
 					</array>
-					<key>zipcode</key>
-					<string>551700</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>黔东南苗族侗族自治州</string>
-					<key>sub</key>
+					<key>黔东南苗族侗族自治州</key>
 					<array>
 						<string>凯里市</string>
 						<string>黄平县</string>
@@ -4847,13 +3729,9 @@
 						<string>麻江县</string>
 						<string>丹寨县</string>
 					</array>
-					<key>zipcode</key>
-					<string>551500</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>黔南布依族苗族自治州</string>
-					<key>sub</key>
+					<key>黔南布依族苗族自治州</key>
 					<array>
 						<string>都匀市</string>
 						<string>福泉市</string>
@@ -4868,21 +3746,14 @@
 						<string>惠水县</string>
 						<string>三都水族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>550100</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 25</key>
 		<dict>
-			<key>name</key>
-			<string>云南省</string>
-			<key>sub</key>
+			<key>云南省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>昆明市</string>
-					<key>sub</key>
+					<key>昆明市</key>
 					<array>
 						<string>五华区</string>
 						<string>盘龙区</string>
@@ -4899,13 +3770,9 @@
 						<string>寻甸回族彝族自治县</string>
 						<string>安宁市</string>
 					</array>
-					<key>zipcode</key>
-					<string>650000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>曲靖市</string>
-					<key>sub</key>
+					<key>曲靖市</key>
 					<array>
 						<string>麒麟区</string>
 						<string>马龙县</string>
@@ -4917,13 +3784,9 @@
 						<string>沾益县</string>
 						<string>宣威市</string>
 					</array>
-					<key>zipcode</key>
-					<string>655000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>玉溪市</string>
-					<key>sub</key>
+					<key>玉溪市</key>
 					<array>
 						<string>红塔区</string>
 						<string>江川县</string>
@@ -4935,13 +3798,9 @@
 						<string>新平彝族傣族自治县</string>
 						<string>元江哈尼族彝族傣族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>653100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>保山市</string>
-					<key>sub</key>
+					<key>保山市</key>
 					<array>
 						<string>隆阳区</string>
 						<string>施甸县</string>
@@ -4949,13 +3808,9 @@
 						<string>龙陵县</string>
 						<string>昌宁县</string>
 					</array>
-					<key>zipcode</key>
-					<string>678000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>昭通市</string>
-					<key>sub</key>
+					<key>昭通市</key>
 					<array>
 						<string>昭阳区</string>
 						<string>鲁甸县</string>
@@ -4969,13 +3824,9 @@
 						<string>威信县</string>
 						<string>水富县</string>
 					</array>
-					<key>zipcode</key>
-					<string>657000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>丽江市</string>
-					<key>sub</key>
+					<key>丽江市</key>
 					<array>
 						<string>古城区</string>
 						<string>玉龙纳西族自治县</string>
@@ -4983,13 +3834,9 @@
 						<string>华坪县</string>
 						<string>宁蒗彝族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>674100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>思茅市</string>
-					<key>sub</key>
+					<key>思茅市</key>
 					<array>
 						<string>翠云区</string>
 						<string>普洱哈尼族彝族自治县</string>
@@ -5002,13 +3849,9 @@
 						<string>澜沧拉祜族自治县</string>
 						<string>西盟佤族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>665000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>临沧市</string>
-					<key>sub</key>
+					<key>临沧市</key>
 					<array>
 						<string>临翔区</string>
 						<string>凤庆县</string>
@@ -5019,13 +3862,9 @@
 						<string>耿马傣族佤族自治县</string>
 						<string>沧源佤族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>677000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>楚雄彝族自治州</string>
-					<key>sub</key>
+					<key>楚雄彝族自治州</key>
 					<array>
 						<string>楚雄市</string>
 						<string>双柏县</string>
@@ -5038,13 +3877,9 @@
 						<string>武定县</string>
 						<string>禄丰县</string>
 					</array>
-					<key>zipcode</key>
-					<string>675000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>红河哈尼族彝族自治州</string>
-					<key>sub</key>
+					<key>红河哈尼族彝族自治州</key>
 					<array>
 						<string>个旧市</string>
 						<string>开远市</string>
@@ -5060,13 +3895,9 @@
 						<string>绿春县</string>
 						<string>河口瑶族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>654400</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>文山壮族苗族自治州</string>
-					<key>sub</key>
+					<key>文山壮族苗族自治州</key>
 					<array>
 						<string>文山县</string>
 						<string>砚山县</string>
@@ -5077,25 +3908,17 @@
 						<string>广南县</string>
 						<string>富宁县</string>
 					</array>
-					<key>zipcode</key>
-					<string>663000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>西双版纳傣族自治州</string>
-					<key>sub</key>
+					<key>西双版纳傣族自治州</key>
 					<array>
 						<string>景洪市</string>
 						<string>勐海县</string>
 						<string>勐腊县</string>
 					</array>
-					<key>zipcode</key>
-					<string>666200</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>大理白族自治州</string>
-					<key>sub</key>
+					<key>大理白族自治州</key>
 					<array>
 						<string>大理市</string>
 						<string>漾濞彝族自治县</string>
@@ -5110,13 +3933,9 @@
 						<string>剑川县</string>
 						<string>鹤庆县</string>
 					</array>
-					<key>zipcode</key>
-					<string>671000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>德宏傣族景颇族自治州</string>
-					<key>sub</key>
+					<key>德宏傣族景颇族自治州</key>
 					<array>
 						<string>瑞丽市</string>
 						<string>潞西市</string>
@@ -5124,46 +3943,31 @@
 						<string>盈江县</string>
 						<string>陇川县</string>
 					</array>
-					<key>zipcode</key>
-					<string>678400</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>怒江傈僳族自治州</string>
-					<key>sub</key>
+					<key>怒江傈僳族自治州</key>
 					<array>
 						<string>泸水县</string>
 						<string>福贡县</string>
 						<string>贡山独龙族怒族自治县</string>
 						<string>兰坪白族普米族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>671400</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>迪庆藏族自治州</string>
-					<key>sub</key>
+					<key>迪庆藏族自治州</key>
 					<array>
 						<string>香格里拉县</string>
 						<string>德钦县</string>
 						<string>维西傈僳族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>674400</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 26</key>
 		<dict>
-			<key>name</key>
-			<string>西藏自治区</string>
-			<key>sub</key>
+			<key>西藏自治区</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>拉萨市</string>
-					<key>sub</key>
+					<key>拉萨市</key>
 					<array>
 						<string>城关区</string>
 						<string>林周县</string>
@@ -5174,13 +3978,9 @@
 						<string>达孜县</string>
 						<string>墨竹工卡县</string>
 					</array>
-					<key>zipcode</key>
-					<string>850000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>昌都地区</string>
-					<key>sub</key>
+					<key>昌都地区</key>
 					<array>
 						<string>昌都县</string>
 						<string>江达县</string>
@@ -5194,13 +3994,9 @@
 						<string>洛隆县</string>
 						<string>边坝县</string>
 					</array>
-					<key>zipcode</key>
-					<string>854000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>山南地区</string>
-					<key>sub</key>
+					<key>山南地区</key>
 					<array>
 						<string>乃东县</string>
 						<string>扎囊县</string>
@@ -5215,13 +4011,9 @@
 						<string>错那县</string>
 						<string>浪卡子县</string>
 					</array>
-					<key>zipcode</key>
-					<string>856000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>日喀则地区</string>
-					<key>sub</key>
+					<key>日喀则地区</key>
 					<array>
 						<string>日喀则市</string>
 						<string>南木林县</string>
@@ -5242,13 +4034,9 @@
 						<string>萨嘎县</string>
 						<string>岗巴县</string>
 					</array>
-					<key>zipcode</key>
-					<string>857000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>那曲地区</string>
-					<key>sub</key>
+					<key>那曲地区</key>
 					<array>
 						<string>那曲县</string>
 						<string>嘉黎县</string>
@@ -5261,13 +4049,9 @@
 						<string>巴青县</string>
 						<string>尼玛县</string>
 					</array>
-					<key>zipcode</key>
-					<string>852000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>阿里地区</string>
-					<key>sub</key>
+					<key>阿里地区</key>
 					<array>
 						<string>普兰县</string>
 						<string>札达县</string>
@@ -5277,13 +4061,9 @@
 						<string>改则县</string>
 						<string>措勤县</string>
 					</array>
-					<key>zipcode</key>
-					<string>859100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>林芝地区</string>
-					<key>sub</key>
+					<key>林芝地区</key>
 					<array>
 						<string>林芝县</string>
 						<string>工布江达县</string>
@@ -5293,21 +4073,14 @@
 						<string>察隅县</string>
 						<string>朗县</string>
 					</array>
-					<key>zipcode</key>
-					<string>860100</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 27</key>
 		<dict>
-			<key>name</key>
-			<string>陕西省</string>
-			<key>sub</key>
+			<key>陕西省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>西安市</string>
-					<key>sub</key>
+					<key>西安市</key>
 					<array>
 						<string>新城区</string>
 						<string>碑林区</string>
@@ -5323,26 +4096,18 @@
 						<string>户县</string>
 						<string>高陵县</string>
 					</array>
-					<key>zipcode</key>
-					<string>710000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>铜川市</string>
-					<key>sub</key>
+					<key>铜川市</key>
 					<array>
 						<string>王益区</string>
 						<string>印台区</string>
 						<string>耀州区</string>
 						<string>宜君县</string>
 					</array>
-					<key>zipcode</key>
-					<string>727000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>宝鸡市</string>
-					<key>sub</key>
+					<key>宝鸡市</key>
 					<array>
 						<string>渭滨区</string>
 						<string>金台区</string>
@@ -5357,13 +4122,9 @@
 						<string>凤县</string>
 						<string>太白县</string>
 					</array>
-					<key>zipcode</key>
-					<string>721000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>咸阳市</string>
-					<key>sub</key>
+					<key>咸阳市</key>
 					<array>
 						<string>秦都区</string>
 						<string>杨凌区</string>
@@ -5380,13 +4141,9 @@
 						<string>武功县</string>
 						<string>兴平市</string>
 					</array>
-					<key>zipcode</key>
-					<string>712000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>渭南市</string>
-					<key>sub</key>
+					<key>渭南市</key>
 					<array>
 						<string>临渭区</string>
 						<string>华县</string>
@@ -5400,13 +4157,9 @@
 						<string>韩城市</string>
 						<string>华阴市</string>
 					</array>
-					<key>zipcode</key>
-					<string>714000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>延安市</string>
-					<key>sub</key>
+					<key>延安市</key>
 					<array>
 						<string>宝塔区</string>
 						<string>延长县</string>
@@ -5422,13 +4175,9 @@
 						<string>黄龙县</string>
 						<string>黄陵县</string>
 					</array>
-					<key>zipcode</key>
-					<string>716000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>汉中市</string>
-					<key>sub</key>
+					<key>汉中市</key>
 					<array>
 						<string>汉台区</string>
 						<string>南郑县</string>
@@ -5442,13 +4191,9 @@
 						<string>留坝县</string>
 						<string>佛坪县</string>
 					</array>
-					<key>zipcode</key>
-					<string>723000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>榆林市</string>
-					<key>sub</key>
+					<key>榆林市</key>
 					<array>
 						<string>榆阳区</string>
 						<string>神木县</string>
@@ -5463,13 +4208,9 @@
 						<string>清涧县</string>
 						<string>子洲县</string>
 					</array>
-					<key>zipcode</key>
-					<string>719000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>安康市</string>
-					<key>sub</key>
+					<key>安康市</key>
 					<array>
 						<string>汉滨区</string>
 						<string>汉阴县</string>
@@ -5482,13 +4223,9 @@
 						<string>旬阳县</string>
 						<string>白河县</string>
 					</array>
-					<key>zipcode</key>
-					<string>725000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>商洛市</string>
-					<key>sub</key>
+					<key>商洛市</key>
 					<array>
 						<string>商州区</string>
 						<string>洛南县</string>
@@ -5498,21 +4235,14 @@
 						<string>镇安县</string>
 						<string>柞水县</string>
 					</array>
-					<key>zipcode</key>
-					<string>711500</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 28</key>
 		<dict>
-			<key>name</key>
-			<string>甘肃省</string>
-			<key>sub</key>
+			<key>甘肃省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>兰州市</string>
-					<key>sub</key>
+					<key>兰州市</key>
 					<array>
 						<string>城关区</string>
 						<string>七里河区</string>
@@ -5523,32 +4253,20 @@
 						<string>皋兰县</string>
 						<string>榆中县</string>
 					</array>
-					<key>zipcode</key>
-					<string>730000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>嘉峪关市</string>
-					<key>sub</key>
+					<key>嘉峪关市</key>
 					<array/>
-					<key>zipcode</key>
-					<string>735100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>金昌市</string>
-					<key>sub</key>
+					<key>金昌市</key>
 					<array>
 						<string>金川区</string>
 						<string>永昌县</string>
 					</array>
-					<key>zipcode</key>
-					<string>737100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>白银市</string>
-					<key>sub</key>
+					<key>白银市</key>
 					<array>
 						<string>白银区</string>
 						<string>平川区</string>
@@ -5556,13 +4274,9 @@
 						<string>会宁县</string>
 						<string>景泰县</string>
 					</array>
-					<key>zipcode</key>
-					<string>730900</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>天水市</string>
-					<key>sub</key>
+					<key>天水市</key>
 					<array>
 						<string>秦城区</string>
 						<string>北道区</string>
@@ -5572,26 +4286,18 @@
 						<string>武山县</string>
 						<string>张家川回族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>741000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>武威市</string>
-					<key>sub</key>
+					<key>武威市</key>
 					<array>
 						<string>凉州区</string>
 						<string>民勤县</string>
 						<string>古浪县</string>
 						<string>天祝藏族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>733000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>张掖市</string>
-					<key>sub</key>
+					<key>张掖市</key>
 					<array>
 						<string>甘州区</string>
 						<string>肃南裕固族自治县</string>
@@ -5600,13 +4306,9 @@
 						<string>高台县</string>
 						<string>山丹县</string>
 					</array>
-					<key>zipcode</key>
-					<string>734000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>平凉市</string>
-					<key>sub</key>
+					<key>平凉市</key>
 					<array>
 						<string>崆峒区</string>
 						<string>泾川县</string>
@@ -5616,13 +4318,9 @@
 						<string>庄浪县</string>
 						<string>静宁县</string>
 					</array>
-					<key>zipcode</key>
-					<string>744000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>酒泉市</string>
-					<key>sub</key>
+					<key>酒泉市</key>
 					<array>
 						<string>肃州区</string>
 						<string>金塔县</string>
@@ -5632,13 +4330,9 @@
 						<string>玉门市</string>
 						<string>敦煌市</string>
 					</array>
-					<key>zipcode</key>
-					<string>735000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>庆阳市</string>
-					<key>sub</key>
+					<key>庆阳市</key>
 					<array>
 						<string>西峰区</string>
 						<string>庆城县</string>
@@ -5649,13 +4343,9 @@
 						<string>宁县</string>
 						<string>镇原县</string>
 					</array>
-					<key>zipcode</key>
-					<string>744500</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>定西市</string>
-					<key>sub</key>
+					<key>定西市</key>
 					<array>
 						<string>安定区</string>
 						<string>通渭县</string>
@@ -5665,13 +4355,9 @@
 						<string>漳县</string>
 						<string>岷县</string>
 					</array>
-					<key>zipcode</key>
-					<string>743000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>陇南市</string>
-					<key>sub</key>
+					<key>陇南市</key>
 					<array>
 						<string>武都区</string>
 						<string>成县</string>
@@ -5683,13 +4369,9 @@
 						<string>徽县</string>
 						<string>两当县</string>
 					</array>
-					<key>zipcode</key>
-					<string>742100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>临夏回族自治州</string>
-					<key>sub</key>
+					<key>临夏回族自治州</key>
 					<array>
 						<string>临夏市</string>
 						<string>临夏县</string>
@@ -5700,13 +4382,9 @@
 						<string>东乡族自治县</string>
 						<string>积石山保安族东乡族撒拉族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>731100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>甘南藏族自治州</string>
-					<key>sub</key>
+					<key>甘南藏族自治州</key>
 					<array>
 						<string>合作市</string>
 						<string>临潭县</string>
@@ -5717,21 +4395,14 @@
 						<string>碌曲县</string>
 						<string>夏河县</string>
 					</array>
-					<key>zipcode</key>
-					<string>747000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 29</key>
 		<dict>
-			<key>name</key>
-			<string>青海省</string>
-			<key>sub</key>
+			<key>青海省</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>西宁市</string>
-					<key>sub</key>
+					<key>西宁市</key>
 					<array>
 						<string>城东区</string>
 						<string>城中区</string>
@@ -5741,13 +4412,9 @@
 						<string>湟中县</string>
 						<string>湟源县</string>
 					</array>
-					<key>zipcode</key>
-					<string>810000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>海东地区</string>
-					<key>sub</key>
+					<key>海东地区</key>
 					<array>
 						<string>平安县</string>
 						<string>民和回族土族自治县</string>
@@ -5756,39 +4423,27 @@
 						<string>化隆回族自治县</string>
 						<string>循化撒拉族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>810600</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>海北藏族自治州</string>
-					<key>sub</key>
+					<key>海北藏族自治州</key>
 					<array>
 						<string>门源回族自治县</string>
 						<string>祁连县</string>
 						<string>海晏县</string>
 						<string>刚察县</string>
 					</array>
-					<key>zipcode</key>
-					<string>810300</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>黄南藏族自治州</string>
-					<key>sub</key>
+					<key>黄南藏族自治州</key>
 					<array>
 						<string>同仁县</string>
 						<string>尖扎县</string>
 						<string>泽库县</string>
 						<string>河南蒙古族自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>811300</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>海南藏族自治州</string>
-					<key>sub</key>
+					<key>海南藏族自治州</key>
 					<array>
 						<string>共和县</string>
 						<string>同德县</string>
@@ -5796,13 +4451,9 @@
 						<string>兴海县</string>
 						<string>贵南县</string>
 					</array>
-					<key>zipcode</key>
-					<string>813000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>果洛藏族自治州</string>
-					<key>sub</key>
+					<key>果洛藏族自治州</key>
 					<array>
 						<string>玛沁县</string>
 						<string>班玛县</string>
@@ -5811,13 +4462,9 @@
 						<string>久治县</string>
 						<string>玛多县</string>
 					</array>
-					<key>zipcode</key>
-					<string>814000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>玉树藏族自治州</string>
-					<key>sub</key>
+					<key>玉树藏族自治州</key>
 					<array>
 						<string>玉树县</string>
 						<string>杂多县</string>
@@ -5826,13 +4473,9 @@
 						<string>囊谦县</string>
 						<string>曲麻莱县</string>
 					</array>
-					<key>zipcode</key>
-					<string>815000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>海西蒙古族藏族自治州</string>
-					<key>sub</key>
+					<key>海西蒙古族藏族自治州</key>
 					<array>
 						<string>格尔木市</string>
 						<string>德令哈市</string>
@@ -5840,21 +4483,14 @@
 						<string>都兰县</string>
 						<string>天峻县</string>
 					</array>
-					<key>zipcode</key>
-					<string>817000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 30</key>
 		<dict>
-			<key>name</key>
-			<string>宁夏回族自治区</string>
-			<key>sub</key>
+			<key>宁夏回族自治区</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>银川市</string>
-					<key>sub</key>
+					<key>银川市</key>
 					<array>
 						<string>兴庆区</string>
 						<string>西夏区</string>
@@ -5863,38 +4499,26 @@
 						<string>贺兰县</string>
 						<string>灵武市</string>
 					</array>
-					<key>zipcode</key>
-					<string>750000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>石嘴山市</string>
-					<key>sub</key>
+					<key>石嘴山市</key>
 					<array>
 						<string>大武口区</string>
 						<string>惠农区</string>
 						<string>平罗县</string>
 					</array>
-					<key>zipcode</key>
-					<string>753000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>吴忠市</string>
-					<key>sub</key>
+					<key>吴忠市</key>
 					<array>
 						<string>利通区</string>
 						<string>盐池县</string>
 						<string>同心县</string>
 						<string>青铜峡市</string>
 					</array>
-					<key>zipcode</key>
-					<string>751100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>固原市</string>
-					<key>sub</key>
+					<key>固原市</key>
 					<array>
 						<string>原州区</string>
 						<string>西吉县</string>
@@ -5902,33 +4526,22 @@
 						<string>泾源县</string>
 						<string>彭阳县</string>
 					</array>
-					<key>zipcode</key>
-					<string>756000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>中卫市</string>
-					<key>sub</key>
+					<key>中卫市</key>
 					<array>
 						<string>沙坡头区</string>
 						<string>中宁县</string>
 						<string>海原县</string>
 					</array>
-					<key>zipcode</key>
-					<string>751700</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 31</key>
 		<dict>
-			<key>name</key>
-			<string>新疆维吾尔自治区</string>
-			<key>sub</key>
+			<key>新疆维吾尔自治区</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>乌鲁木齐市</string>
-					<key>sub</key>
+					<key>乌鲁木齐市</key>
 					<array>
 						<string>天山区</string>
 						<string>沙依巴克区</string>
@@ -5939,50 +4552,34 @@
 						<string>东山区</string>
 						<string>乌鲁木齐县</string>
 					</array>
-					<key>zipcode</key>
-					<string>830000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>克拉玛依市</string>
-					<key>sub</key>
+					<key>克拉玛依市</key>
 					<array>
 						<string>独山子区</string>
 						<string>克拉玛依区</string>
 						<string>白碱滩区</string>
 						<string>乌尔禾区</string>
 					</array>
-					<key>zipcode</key>
-					<string>834000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>吐鲁番地区</string>
-					<key>sub</key>
+					<key>吐鲁番地区</key>
 					<array>
 						<string>吐鲁番市</string>
 						<string>鄯善县</string>
 						<string>托克逊县</string>
 					</array>
-					<key>zipcode</key>
-					<string>838000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>哈密地区</string>
-					<key>sub</key>
+					<key>哈密地区</key>
 					<array>
 						<string>哈密市</string>
 						<string>巴里坤哈萨克自治县</string>
 						<string>伊吾县</string>
 					</array>
-					<key>zipcode</key>
-					<string>839000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>昌吉回族自治州</string>
-					<key>sub</key>
+					<key>昌吉回族自治州</key>
 					<array>
 						<string>昌吉市</string>
 						<string>阜康市</string>
@@ -5993,25 +4590,17 @@
 						<string>吉木萨尔县</string>
 						<string>木垒哈萨克自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>831100</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>博尔塔拉蒙古自治州</string>
-					<key>sub</key>
+					<key>博尔塔拉蒙古自治州</key>
 					<array>
 						<string>博乐市</string>
 						<string>精河县</string>
 						<string>温泉县</string>
 					</array>
-					<key>zipcode</key>
-					<string>833400</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>巴音郭楞蒙古自治州</string>
-					<key>sub</key>
+					<key>巴音郭楞蒙古自治州</key>
 					<array>
 						<string>库尔勒市</string>
 						<string>轮台县</string>
@@ -6023,13 +4612,9 @@
 						<string>和硕县</string>
 						<string>博湖县</string>
 					</array>
-					<key>zipcode</key>
-					<string>841000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>阿克苏地区</string>
-					<key>sub</key>
+					<key>阿克苏地区</key>
 					<array>
 						<string>阿克苏市</string>
 						<string>温宿县</string>
@@ -6041,26 +4626,18 @@
 						<string>阿瓦提县</string>
 						<string>柯坪县</string>
 					</array>
-					<key>zipcode</key>
-					<string>843000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>克孜勒苏柯尔克孜自治州</string>
-					<key>sub</key>
+					<key>克孜勒苏柯尔克孜自治州</key>
 					<array>
 						<string>阿图什市</string>
 						<string>阿克陶县</string>
 						<string>阿合奇县</string>
 						<string>乌恰县</string>
 					</array>
-					<key>zipcode</key>
-					<string>835600</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>喀什地区</string>
-					<key>sub</key>
+					<key>喀什地区</key>
 					<array>
 						<string>喀什市</string>
 						<string>疏附县</string>
@@ -6075,13 +4652,9 @@
 						<string>巴楚县</string>
 						<string>塔什库尔干塔吉克自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>844000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>和田地区</string>
-					<key>sub</key>
+					<key>和田地区</key>
 					<array>
 						<string>和田市</string>
 						<string>和田县</string>
@@ -6092,13 +4665,9 @@
 						<string>于田县</string>
 						<string>民丰县</string>
 					</array>
-					<key>zipcode</key>
-					<string>848000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>伊犁哈萨克自治州</string>
-					<key>sub</key>
+					<key>伊犁哈萨克自治州</key>
 					<array>
 						<string>伊宁市</string>
 						<string>奎屯市</string>
@@ -6111,13 +4680,9 @@
 						<string>特克斯县</string>
 						<string>尼勒克县</string>
 					</array>
-					<key>zipcode</key>
-					<string>833200</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>塔城地区</string>
-					<key>sub</key>
+					<key>塔城地区</key>
 					<array>
 						<string>塔城市</string>
 						<string>乌苏市</string>
@@ -6127,13 +4692,9 @@
 						<string>裕民县</string>
 						<string>和布克赛尔蒙古自治县</string>
 					</array>
-					<key>zipcode</key>
-					<string>834700</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>阿勒泰地区</string>
-					<key>sub</key>
+					<key>阿勒泰地区</key>
 					<array>
 						<string>阿勒泰市</string>
 						<string>布尔津县</string>
@@ -6143,91 +4704,52 @@
 						<string>青河县</string>
 						<string>吉木乃县</string>
 					</array>
-					<key>zipcode</key>
-					<string>836500</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>石河子市</string>
-					<key>sub</key>
+					<key>石河子市</key>
 					<array/>
-					<key>zipcode</key>
-					<string>832000</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>阿拉尔市</string>
-					<key>sub</key>
+					<key>阿拉尔市</key>
 					<array/>
-					<key>zipcode</key>
-					<string>843300</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>图木舒克市</string>
-					<key>sub</key>
+					<key>图木舒克市</key>
 					<array/>
-					<key>zipcode</key>
-					<string>843900</string>
 				</dict>
 				<dict>
-					<key>name</key>
-					<string>五家渠市</string>
-					<key>sub</key>
+					<key>五家渠市</key>
 					<array/>
-					<key>zipcode</key>
-					<string>831300</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 32</key>
 		<dict>
-			<key>name</key>
-			<string>香港特别行政区</string>
-			<key>sub</key>
+			<key>香港特别行政区</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>香港特别行政区</string>
-					<key>sub</key>
+					<key>香港特别行政区</key>
 					<array/>
-					<key>zipcode</key>
-					<string>000000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 33</key>
 		<dict>
-			<key>name</key>
-			<string>澳门特别行政区</string>
-			<key>sub</key>
+			<key>澳门特别行政区</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>澳门特别行政区</string>
-					<key>sub</key>
+					<key>澳门特别行政区</key>
 					<array/>
-					<key>zipcode</key>
-					<string>000000</string>
 				</dict>
 			</array>
 		</dict>
-		<key>New item - 34</key>
 		<dict>
-			<key>name</key>
-			<string>台湾</string>
-			<key>sub</key>
+			<key>台湾</key>
 			<array>
 				<dict>
-					<key>name</key>
-					<string>台湾省</string>
-					<key>sub</key>
+					<key>台湾省</key>
 					<array/>
-					<key>zipcode</key>
-					<string>000000</string>
 				</dict>
 			</array>
 		</dict>
-	</dict>
+	</array>
 </dict>
 </plist>

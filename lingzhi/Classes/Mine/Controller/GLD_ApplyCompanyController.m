@@ -42,9 +42,10 @@
 @property (nonatomic, assign)NSInteger areaIdex;//2 省 1 市 0区
 
 @property (nonatomic, strong) NSArray *addressArr;//
+@property (nonatomic, strong) NSArray *secondAddressArr;//
 @property (nonatomic, strong) NSMutableArray *provenceArr;//
 @property (nonatomic, strong) NSMutableArray *cityArr;//
-@property (nonatomic, strong) NSMutableArray *areaArr;//
+@property (nonatomic, copy) NSMutableArray *areaArr;//
 @end
 
 @implementation GLD_ApplyCompanyController
@@ -60,20 +61,22 @@
     [self.view addSubview:self.table_apply];
     
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        
+    
         NSBundle *bundle = [NSBundle mainBundle];
         NSString *plistPath = [bundle pathForResource:@"address" ofType:@"plist"];
-        self.addressArr = [[NSArray alloc] initWithContentsOfFile:plistPath];
-        
+    
+    NSDictionary *dict = [[NSDictionary alloc]initWithContentsOfFile:plistPath];
+    self.addressArr = [NSArray arrayWithArray:dict[@"address"]];
         for (int i = 0; i < self.addressArr.count; i++) {
             NSDictionary *dict = self.addressArr[i];
             
-            [self.provenceArr addObject:dict[@"name"]];
+            [self.provenceArr addObjectsFromArray:dict.allKeys];
            
         }
+        
     });
-    
-    
+
+ 
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -198,10 +201,23 @@
         _industryTF = [self getTextField:cell];
         _industryTF.placeholder = @"请选择合作省份";
         __weak typeof(self) weakSelf = self;
+        
         _industryTF.tapAcitonBlock = ^{
             //跳转地区
            
-            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[@"北京市", @"上海市", @"天津市",@"重庆市",@"河北省",@"山西省",@"台湾省",@"辽宁省",@"吉林省",@"黑龙江省",@"江苏省",@"浙江省",@"安徽省",@"福建省",@"江西省",@"山东省",@"河南省",@"湖北省",@"湖南省",@"广东省",@"甘肃省",@"四川省",@"贵州省",@"海南省",@"云南省",@"青海省",@"陕西省",@"广西壮族自治区",@"西藏自治区",@"宁夏回族自治区",@"新疆维吾尔自治区",@"内蒙古自治区",@"澳门特别行政区",@"香港特别行政区"] defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:weakSelf.provenceArr defaultSelValue:@"北京" isAutoSelect:YES resultBlock:^(id selectValue) {
+                
+                [weakSelf.cityArr removeAllObjects];
+                for (int i = 0; i < weakSelf.addressArr.count; i++) {
+                    NSDictionary *dict = weakSelf.addressArr[i];
+                    if ([dict.allKeys.firstObject isEqualToString:selectValue]) {
+                        weakSelf.secondAddressArr = [[NSArray alloc]initWithArray:dict[selectValue]];
+                        for (int j = 0; j < weakSelf.secondAddressArr.count; j++) {
+                            NSDictionary *dict1 = weakSelf.secondAddressArr[j];
+                            [weakSelf.cityArr addObjectsFromArray:dict1.allKeys];
+                        }
+                    }
+                }
                 weakSelf.industryTF.text = selectValue;
             }];
         };
@@ -215,9 +231,19 @@
         __weak typeof(self) weakSelf = self;
         _cityTF.tapAcitonBlock = ^{
             //跳转地区
-            
-            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[@"北京市", @"上海市", @"天津市",@"重庆市",@"河北省",@"山西省",@"台湾省",@"辽宁省",@"吉林省",@"黑龙江省",@"江苏省",@"浙江省",@"安徽省",@"福建省",@"江西省",@"山东省",@"河南省",@"湖北省",@"湖南省",@"广东省",@"甘肃省",@"四川省",@"贵州省",@"海南省",@"云南省",@"青海省",@"陕西省",@"广西壮族自治区",@"西藏自治区",@"宁夏回族自治区",@"新疆维吾尔自治区",@"内蒙古自治区",@"澳门特别行政区",@"香港特别行政区"] defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
-                weakSelf.industryTF.text = selectValue;
+            if (!IsExist_Array(weakSelf.cityArr)) {
+                [CAToast showWithText:@"请选择合作省份"];
+            }
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:weakSelf.cityArr defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
+//                [weakSelf.areaArr removeAllObjects];
+                
+                for (int i = 0; i < weakSelf.secondAddressArr.count; i++) {
+                    NSDictionary *dict = weakSelf.secondAddressArr[i];
+                    if ([dict.allKeys.firstObject isEqualToString:selectValue]) {
+                        weakSelf.areaArr = dict[selectValue];
+                    }
+                }
+                weakSelf.cityTF.text = selectValue;
             }];
         };
     }
@@ -230,9 +256,12 @@
         __weak typeof(self) weakSelf = self;
         _areaTF.tapAcitonBlock = ^{
             //跳转地区
-            
-            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[@"北京市", @"上海市", @"天津市",@"重庆市",@"河北省",@"山西省",@"台湾省",@"辽宁省",@"吉林省",@"黑龙江省",@"江苏省",@"浙江省",@"安徽省",@"福建省",@"江西省",@"山东省",@"河南省",@"湖北省",@"湖南省",@"广东省",@"甘肃省",@"四川省",@"贵州省",@"海南省",@"云南省",@"青海省",@"陕西省",@"广西壮族自治区",@"西藏自治区",@"宁夏回族自治区",@"新疆维吾尔自治区",@"内蒙古自治区",@"澳门特别行政区",@"香港特别行政区"] defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
-                weakSelf.industryTF.text = selectValue;
+            if (!IsExist_Array(weakSelf.areaArr)) {
+                [CAToast showWithText:@"请选择合作城市"];
+            }
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:weakSelf.areaArr defaultSelValue:@"东城区" isAutoSelect:YES resultBlock:^(id selectValue) {
+               
+                weakSelf.areaTF.text = selectValue;
             }];
         };
     }
