@@ -215,6 +215,7 @@
     [senser setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE] forState:UIControlStateNormal];
 
     self.listType = senser.tag - 200;
+    [self.mainDataArrM removeAllObjects];
     [self getbusnessList:self.listType];
     self.selecBut = senser;
 }

@@ -169,6 +169,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     }
     return nil;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return cellHeight;
 }
@@ -244,7 +245,12 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
         textField.font = [UIFont systemFontOfSize:16.0f];
         textField.textAlignment = NSTextAlignmentRight;
         textField.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
-        textField.placeholder = @"请输入";
+        if (IsExist_String([AppDelegate shareDelegate].userAddress)) {
+            textField.text = [AppDelegate shareDelegate].userAddress;
+        }else{
+            textField.placeholder = @"请输入";
+            
+        }
         _keyWordField = textField;
     }
     return _keyWordField;
@@ -263,8 +269,8 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     if (!_titleLabel) {
         _titleLabel = [UILabel new];
         _titleLabel.text = @"详细地址";
-        _titleLabel.font = WTFont(15);
-        _titleLabel.textAlignment = NSTextAlignmentRight;
+        _titleLabel.font = WTFont(16);
+        _titleLabel.textAlignment = NSTextAlignmentLeft;
         _titleLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK];
     }
     return _titleLabel;
@@ -289,7 +295,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
         [_mapView setZoomLevel:11];
         [_mapView setCustomizeUserLocationAccuracyCircleRepresentation:YES];//自定义用户精度圈
         //后台定位
-        
+//        self.keyWordField.text = _mapView.userLocation.
         [self addSubview:_mapView];
     }
     return _mapView;

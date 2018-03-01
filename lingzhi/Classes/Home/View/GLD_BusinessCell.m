@@ -27,7 +27,13 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
 
 - (void)setModel:(GLD_BusnessModel *)model{
     _model = model;
-    [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:model.logo] placeholder:nil];
+    if([model.logo containsString:@","]){
+        NSArray *arr = [model.logo componentsSeparatedByString:@","];
+        [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:arr[arr.count-2]] placeholder:nil];
+    }else{
+        
+        [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:model.logo] placeholder:nil];
+    }
     self.titleLabel.text = model.name;
     [self.locationBut setTitle:model.address forState:UIControlStateNormal];
     self.typeLabel.text = model.category;

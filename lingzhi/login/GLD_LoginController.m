@@ -107,7 +107,7 @@
         _yanzhengmaStr = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     }
     
-    if (self.phoneNumber.length == 11 && _yanzhengmaStr.length > 0) {
+    if (self.phoneNumber.length > 4 && _yanzhengmaStr.length > 0) {
         self.loginBut.enabled = YES;
         [self.loginBut setBackgroundImage:[UIImage imageNamed:@"可点击登陆"] forState:UIControlStateNormal];
     }

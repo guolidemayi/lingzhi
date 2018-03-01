@@ -134,6 +134,8 @@
             placemar.lat = placemark.location.coordinate.latitude;
             placemar.lon = placemark.location.coordinate.longitude;
             [AppDelegate shareDelegate].placemark = placemar;
+            [AppDelegate shareDelegate].userAddress = [NSString stringWithFormat:@"%@%@%@",placemark.locality,placemark.subLocality,placemark.name];
+           
 //            CLLocationCoordinate2D
         } else {
             weakSelf.locationStr = @"定位失败";

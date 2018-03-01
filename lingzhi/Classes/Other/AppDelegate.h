@@ -21,6 +21,7 @@
 @property(strong, nonatomic) MTShareModule *shareModuleDelegate;
 @property (nonatomic, copy)NSString *token;//用户token
 @property (nonatomic, copy)NSString *deviceId;
+@property (nonatomic, copy)NSString *userAddress;
 @property (nonatomic, assign)BOOL *hasLogin;//是否登陆
 @property (nonatomic, strong)GLD_CityModel *placemark;
 @property (nonatomic, strong)GLD_UserMessageModel *userModel;

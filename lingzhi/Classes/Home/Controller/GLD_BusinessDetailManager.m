@@ -20,7 +20,7 @@
 @implementation GLD_BusinessDetailManager
 
 - (void)fetchMainData{
-    
+    [self.tableView.mj_header endRefreshing];
 }
 - (void)reloadOrLoadMoreData{
     [self.tableView.mj_footer endRefreshingWithNoMoreData];
@@ -141,7 +141,7 @@
         }
 //        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
         _cycleView.autoScroll = NO;
-        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(150));
+        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(180));
         //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
     }
     return _cycleView;
