@@ -37,8 +37,14 @@
         self.tipLabel.hidden = NO;
         
         self.QRCImageV.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:[NSString stringWithFormat:@"http://www.hhlmcn.com:8080/pay/%@",GetString([AppDelegate shareDelegate].userModel.userId)] logoImageName:@"WechatIMG43" logoScaleToSuperView:scale];
-        
-        [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:self.model.logo] placeholder:nil];
+        if([self.model.logo containsString:@","]){
+            NSArray *arr = [self.model.logo componentsSeparatedByString:@","];
+            [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:arr[arr.count-2]] placeholder:nil];
+        }else{
+            
+            [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:self.model.logo] placeholder:nil];
+        }
+         
         self.nameLabel.text = self.model.name;
         self.decLabel.text = self.model.desc;
     }

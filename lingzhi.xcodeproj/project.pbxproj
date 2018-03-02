@@ -205,6 +205,12 @@
 		0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */; };
 		0FE8158D2045562700DE8756 /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE8158C2045562700DE8756 /* address.plist */; };
 		0FE8159020467DED00DE8756 /* GLD_BusnessLogoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE8158F20467DED00DE8756 /* GLD_BusnessLogoController.m */; };
+		0FE81593204939BB00DE8756 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0FE81591204939BB00DE8756 /* AlipaySDK.bundle */; };
+		0FE81594204939BB00DE8756 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE81592204939BB00DE8756 /* AlipaySDK.framework */; };
+		0FE8159620493A1700DE8756 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159520493A1700DE8756 /* libc++.tbd */; };
+		0FE8159820493A5300DE8756 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159720493A5300DE8756 /* QuartzCore.framework */; };
+		0FE8159A20493A7600DE8756 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159920493A7600DE8756 /* CoreText.framework */; };
+		0FE8159C20493AA400DE8756 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159B20493AA400DE8756 /* CoreMotion.framework */; };
 		330AAB3E1FF4053200523FF0 /* GLD_wanShanUserMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */; };
 		330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */; };
 		332D9B101FFA011D00A86304 /* GLD_ForumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 332D9B0E1FFA011D00A86304 /* GLD_ForumCell.m */; };
@@ -621,6 +627,12 @@
 		0FE8158C2045562700DE8756 /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
 		0FE8158E20467DED00DE8756 /* GLD_BusnessLogoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BusnessLogoController.h; sourceTree = "<group>"; };
 		0FE8158F20467DED00DE8756 /* GLD_BusnessLogoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BusnessLogoController.m; sourceTree = "<group>"; };
+		0FE81591204939BB00DE8756 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		0FE81592204939BB00DE8756 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		0FE8159520493A1700DE8756 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		0FE8159720493A5300DE8756 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		0FE8159920493A7600DE8756 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		0FE8159B20493AA400DE8756 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		2AFF7DFDC2A100A721211A54 /* Pods-lingzhiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiUITests/Pods-lingzhiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		330AAB3C1FF4053200523FF0 /* GLD_wanShanUserMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_wanShanUserMController.h; sourceTree = "<group>"; };
 		330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_wanShanUserMController.m; sourceTree = "<group>"; };
@@ -673,12 +685,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FE8159C20493AA400DE8756 /* CoreMotion.framework in Frameworks */,
+				0FE8159A20493A7600DE8756 /* CoreText.framework in Frameworks */,
+				0FE8159820493A5300DE8756 /* QuartzCore.framework in Frameworks */,
+				0FE8159620493A1700DE8756 /* libc++.tbd in Frameworks */,
 				339EF9791FF93CC000C6170E /* libresolv.tbd in Frameworks */,
 				339EF9771FF93C7900C6170E /* UIKit.framework in Frameworks */,
 				0F298EBF1FC2DB2900EDBA9A /* CFNetwork.framework in Frameworks */,
 				0F298EAD1FC2DA9600EDBA9A /* UserNotifications.framework in Frameworks */,
 				0F28D2BB1FD7DDE400138A8B /* MapKit.framework in Frameworks */,
 				0F298ECD1FC2DC3000EDBA9A /* libxml2.2.tbd in Frameworks */,
+				0FE81594204939BB00DE8756 /* AlipaySDK.framework in Frameworks */,
 				0F298ECB1FC2DBD800EDBA9A /* libiconv.tbd in Frameworks */,
 				0F298EC91FC2DB9700EDBA9A /* libresolv.9.tbd in Frameworks */,
 				0F298EC71FC2DB8800EDBA9A /* libz.1.tbd in Frameworks */,
@@ -836,6 +853,10 @@
 		0F298E4D1FC28AF500EDBA9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FE8159B20493AA400DE8756 /* CoreMotion.framework */,
+				0FE8159920493A7600DE8756 /* CoreText.framework */,
+				0FE8159720493A5300DE8756 /* QuartzCore.framework */,
+				0FE8159520493A1700DE8756 /* libc++.tbd */,
 				339EF9781FF93CC000C6170E /* libresolv.tbd */,
 				339EF9761FF93C7900C6170E /* UIKit.framework */,
 				0F28D2BA1FD7DDE400138A8B /* MapKit.framework */,
@@ -1105,6 +1126,8 @@
 		0F60E9BA1FC2754300C5E113 /* lingzhi */ = {
 			isa = PBXGroup;
 			children = (
+				0FE81591204939BB00DE8756 /* AlipaySDK.bundle */,
+				0FE81592204939BB00DE8756 /* AlipaySDK.framework */,
 				0FE8158C2045562700DE8756 /* address.plist */,
 				339EF97A1FF93CF900C6170E /* lingzhi.entitlements */,
 				0F28D2CD1FDA42EA00138A8B /* AMap.bundle */,
@@ -1711,6 +1734,7 @@
 				33FD33AF2025607700725317 /* GLD_PayForBusiCell.xib in Resources */,
 				0F80FB21202439D700F7EE22 /* GLD_ZFBPayCell.xib in Resources */,
 				0F60E9C81FC2754300C5E113 /* LaunchScreen.storyboard in Resources */,
+				0FE81593204939BB00DE8756 /* AlipaySDK.bundle in Resources */,
 				0F60E9C51FC2754300C5E113 /* Assets.xcassets in Resources */,
 				0FE8158D2045562700DE8756 /* address.plist in Resources */,
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
@@ -2245,6 +2269,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/QQ",
+					"$(PROJECT_DIR)/lingzhi",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/lingzhi/PrefixHeader.pch";
 				INFOPLIST_FILE = lingzhi/Info.plist;
@@ -2272,6 +2297,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/QQ",
+					"$(PROJECT_DIR)/lingzhi",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/lingzhi/PrefixHeader.pch";
 				INFOPLIST_FILE = lingzhi/Info.plist;

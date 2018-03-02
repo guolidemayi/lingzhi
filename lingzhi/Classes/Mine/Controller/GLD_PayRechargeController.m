@@ -8,7 +8,7 @@
 
 #import "GLD_PayRechargeController.h"
 #import "GLD_CashCountCell.h"
-
+#import <AlipaySDK/AlipaySDK.h>
 
 typedef enum
 {
@@ -293,6 +293,38 @@ typedef enum
     
     
     NSLog(@"%@",self.cashCell.moneyStr);
+}
+- (void)payToALiPayWithString:(NSString *)string
+{
+    // App-培训详情-支付宝支付
+    //    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObject:self.detailModel.title forKey:@"title"];
+    //    if ([self.detailModel.courseTypeId isEqualToString:@"1"]) {
+    //        [param setObject:@"精品课" forKey:@"type"];
+    //    } else {
+    //        [param setObject:@"培训班" forKey:@"type"];
+    //    }
+    //    SensorsAnalyticsTrack(@"app_peixunxiangqing_zhifubaozhifu", param);
+
+    WS(weakSelf);
+    [[AlipaySDK defaultService] payOrder:string fromScheme:@"com.hhlmcn.huihuilinmeng" callback:^(NSDictionary *resultDic) {
+        NSLog(@"status:%@ reslut = %@", resultDic[@"resultStatus"], resultDic[@"result"]);
+        NSString *resultStatus = resultDic[@"resultStatus"];
+        if ([resultStatus isEqualToString:@"9000"]) {
+            NSLog(@"支付成功");
+            //            [weakSelf queryPayStatus];
+        } else if ([resultStatus isEqualToString:@"4000"]) {
+            [CAToast showWithText:@"支付失败"];
+        } else if ([resultStatus isEqualToString:@"5000"]) {
+            [CAToast showWithText:@"支付订单重复"];
+        } else if ([resultStatus isEqualToString:@"6001"]) {
+            NSLog(@"支付取消");
+            return;
+        } else if ([resultStatus isEqualToString:@"6002"]) {
+            [CAToast showWithText:@"请检查网络连接"];
+        } else {
+            [CAToast showWithText:@"支付错误"];
+        }
+    }];
 }
 - (UIButton *)applyBut{
     if (!_applyBut) {

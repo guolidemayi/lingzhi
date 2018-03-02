@@ -25,8 +25,12 @@
 @property (nonatomic, strong) BRTextField *genderTF;
 /** 出生年月 */
 @property (nonatomic, strong) BRTextField *birthdayTF;
-/** 所在地 */
+/** 所在省 */
 @property (nonatomic, strong) BRTextField *locationTF;
+/** 意向合作市 */
+@property (nonatomic, strong) BRTextField *cityTF;
+/** 意向合作区 */
+@property (nonatomic, strong) BRTextField *areaTF;
 /** 个人简介 */
 @property (nonatomic, strong) BRTextField *personalIntroTF;//
 /** 所属单位 */
@@ -46,6 +50,13 @@
 @property (nonatomic, strong)AFURLSessionManager *AFNetManager;
 
 @property (nonatomic, strong)NSString *updateImg;//上传图片返回连接
+
+
+@property (nonatomic, strong) NSArray *addressArr;//
+@property (nonatomic, strong) NSArray *secondAddressArr;//
+@property (nonatomic, strong) NSMutableArray *provenceArr;//
+@property (nonatomic, strong) NSMutableArray *cityArr;//
+@property (nonatomic, copy) NSMutableArray *areaArr;//
 @end
 
 @implementation TestViewController
@@ -57,6 +68,24 @@
     self.tableView.hidden = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(clickSaveBtn)];
     self.NetManager = [GLD_NetworkAPIManager new];
+    self.provenceArr = [NSMutableArray array];
+    self.cityArr = [NSMutableArray array];
+    self.areaArr = [NSMutableArray array];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        
+        NSBundle *bundle = [NSBundle mainBundle];
+        NSString *plistPath = [bundle pathForResource:@"address" ofType:@"plist"];
+        
+        NSDictionary *dict = [[NSDictionary alloc]initWithContentsOfFile:plistPath];
+        self.addressArr = [NSArray arrayWithArray:dict[@"address"]];
+        for (int i = 0; i < self.addressArr.count; i++) {
+            NSDictionary *dict = self.addressArr[i];
+            
+            [self.provenceArr addObjectsFromArray:dict.allKeys];
+            
+        }
+        
+    });
 }
 - (void)viewWillAppear:(BOOL)animated{
     if (IsExist_String(self.dec)) {
@@ -90,6 +119,14 @@
     }
     if (!IsExist_String(self.locationTF.text)&& ![AppDelegate shareDelegate].userModel.address) {
         [CAToast showWithText:@"请选择所在地区"];
+        return;
+    }
+    if(!IsExist_String(self.cityTF.text)&& ![AppDelegate shareDelegate].userModel.address){
+        [CAToast showWithText:@"请输入意向合作城市"];
+        return;
+    }
+    if(!IsExist_String(self.areaTF.text)&& ![AppDelegate shareDelegate].userModel.address){
+        [CAToast showWithText:@"请输入意向合作区域"];
         return;
     }
     if (!IsExist_String(self.personalIntroTF.text)&& ![AppDelegate shareDelegate].userModel.intro) {
@@ -389,6 +426,18 @@
             case 5:
             {
                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                [self setupCityTF:cell];
+            }
+                break;
+            case 6:
+            {
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                [self setupAreaTF:cell];
+            }
+                break;
+            case 7:
+            {
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                 [self setupPersonalIntroTF:cell];
             }
                 break;
@@ -538,14 +587,68 @@
         __weak typeof(self) weakSelf = self;
         
         _locationTF.tapAcitonBlock = ^{
-            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[@"北京市", @"上海市", @"天津市",@"重庆市",@"河北省",@"山西省",@"台湾省",@"辽宁省",@"吉林省",@"黑龙江省",@"江苏省",@"浙江省",@"安徽省",@"福建省",@"江西省",@"山东省",@"河南省",@"湖北省",@"湖南省",@"广东省",@"甘肃省",@"四川省",@"贵州省",@"海南省",@"云南省",@"青海省",@"陕西省",@"广西壮族自治区",@"西藏自治区",@"宁夏回族自治区",@"新疆维吾尔自治区",@"内蒙古自治区",@"澳门特别行政区",@"香港特别行政区"] defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:weakSelf.provenceArr defaultSelValue:@"北京" isAutoSelect:YES resultBlock:^(id selectValue) {
+                
+                [weakSelf.cityArr removeAllObjects];
+                for (int i = 0; i < weakSelf.addressArr.count; i++) {
+                    NSDictionary *dict = weakSelf.addressArr[i];
+                    if ([dict.allKeys.firstObject isEqualToString:selectValue]) {
+                        weakSelf.secondAddressArr = [[NSArray alloc]initWithArray:dict[selectValue]];
+                        for (int j = 0; j < weakSelf.secondAddressArr.count; j++) {
+                            NSDictionary *dict1 = weakSelf.secondAddressArr[j];
+                            [weakSelf.cityArr addObjectsFromArray:dict1.allKeys];
+                        }
+                    }
+                }
                 weakSelf.locationTF.text = selectValue;
             }];
         };
     }
 }
 
-
+#pragma mark - 市
+- (void)setupCityTF:(UITableViewCell *)cell {
+    if (!_cityTF) {
+        _cityTF = [self getTextField:cell];
+        _cityTF.placeholder = @"请选择合作城市";
+        __weak typeof(self) weakSelf = self;
+        _cityTF.tapAcitonBlock = ^{
+            //跳转地区
+            if (!IsExist_Array(weakSelf.cityArr)) {
+                [CAToast showWithText:@"请选择合作省份"];
+            }
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:weakSelf.cityArr defaultSelValue:@"北京市" isAutoSelect:YES resultBlock:^(id selectValue) {
+                //                [weakSelf.areaArr removeAllObjects];
+                
+                for (int i = 0; i < weakSelf.secondAddressArr.count; i++) {
+                    NSDictionary *dict = weakSelf.secondAddressArr[i];
+                    if ([dict.allKeys.firstObject isEqualToString:selectValue]) {
+                        weakSelf.areaArr = dict[selectValue];
+                    }
+                }
+                weakSelf.cityTF.text = selectValue;
+            }];
+        };
+    }
+}
+#pragma mark - 区
+- (void)setupAreaTF:(UITableViewCell *)cell {
+    if (!_areaTF) {
+        _areaTF = [self getTextField:cell];
+        _areaTF.placeholder = @"请选择合作区域";
+        __weak typeof(self) weakSelf = self;
+        _areaTF.tapAcitonBlock = ^{
+            //跳转地区
+            if (!IsExist_Array(weakSelf.areaArr)) {
+                [CAToast showWithText:@"请选择合作城市"];
+            }
+            [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:weakSelf.areaArr defaultSelValue:@"东城区" isAutoSelect:YES resultBlock:^(id selectValue) {
+                
+                weakSelf.areaTF.text = selectValue;
+            }];
+        };
+    }
+}
 
 #pragma mark - 职位名称 textField
 - (void)setupPositionTF:(UITableViewCell *)cell {
@@ -571,7 +674,7 @@
 
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"编辑头像", @"昵称",@"性别", @"出生年月", @"所在地区", @"个人简介"];
+        _titleArr = @[@"编辑头像", @"昵称",@"性别", @"出生年月", @"所在省份", @"所在城市",@"所在区域",@"个人简介"];
     }
     return _titleArr;
 }
