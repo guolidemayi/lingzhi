@@ -134,7 +134,7 @@
         __weak typeof(self) weakSelf = self;
         _businessTypeTF.tapAcitonBlock = ^{
             //跳转地区
-            [BRStringPickerView showStringPickerWithTitle:@"选择代理商" dataSource:@[@"省代理商", @"市代理商", @"区代理商"] defaultSelValue:@"省代理商" isAutoSelect:YES resultBlock:^(id selectValue) {
+            [BRStringPickerView showStringPickerWithTitle:@"选择代理商" dataSource:@[@"省代理商", @"市代理商", @"区/县代理商"] defaultSelValue:@"省代理商" isAutoSelect:YES resultBlock:^(id selectValue) {
                 if([selectValue isEqualToString:@"省代理商"]){
                     weakSelf.areaIdex = 2;
                 }else if([selectValue isEqualToString:@"市代理商"]){
