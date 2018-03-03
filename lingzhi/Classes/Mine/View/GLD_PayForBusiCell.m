@@ -30,7 +30,7 @@
     _busnessModel = busnessModel;
     if([busnessModel.logo containsString:@","]){
         NSArray *arr = [busnessModel.logo componentsSeparatedByString:@","];
-        [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:arr[arr.count-2]] placeholder:nil];
+        [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:arr.lastObject] placeholder:nil];
     }else{
         
         [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:busnessModel.logo] placeholder:nil];

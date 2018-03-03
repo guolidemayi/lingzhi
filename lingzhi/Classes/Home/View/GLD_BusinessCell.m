@@ -29,7 +29,7 @@ NSString *const GLD_BusinessCellIdentifier = @"GLD_BusinessCellIdentifier";
     _model = model;
     if([model.logo containsString:@","]){
         NSArray *arr = [model.logo componentsSeparatedByString:@","];
-        [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:arr[arr.count-2]] placeholder:nil];
+        [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:arr.firstObject] placeholder:nil];
     }else{
         
         [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:model.logo] placeholder:nil];

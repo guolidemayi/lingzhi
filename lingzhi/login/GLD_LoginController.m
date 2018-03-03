@@ -156,7 +156,7 @@
 - (void)getSMS{
     WS(weakSelf);
     
-    if (self.phoneField.text.length < 11) {
+    if (self.phoneField.text.length < 4) {
         [CAToast showWithText:@"请输入正确的手机号"];
         return;
     }

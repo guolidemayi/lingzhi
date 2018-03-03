@@ -323,12 +323,7 @@
     }];
     
     
-    
-    
-    
-    
-    
-    YXRecordButton *commitBut = [YXRecordButton creatButWithTitle:@"发布" andImageStr:nil andFont:15 andTextColorStr:COLOR_YX_DRAKwirte];;
+    YXRecordButton *commitBut = [YXRecordButton creatButWithTitle:@"提交" andImageStr:nil andFont:15 andTextColorStr:COLOR_YX_DRAKwirte];;
     [commitBut setBackgroundImage:WTImage(@"可点击登陆") forState:UIControlStateNormal];
     [self.view addSubview:commitBut];
     [commitBut addTarget:self action:@selector(sendTieZiContentRequest) forControlEvents:UIControlEventTouchUpInside];
@@ -348,7 +343,7 @@
         return;
     }
     if(self.postReloadBlock){
-        self.postReloadBlock(imgArrM.lastObject, [self arrayToJson:pictureArrM]);
+        self.postReloadBlock(imgArrM.firstObject, [self arrayToJson:pictureArrM]);
     }
     [self.navigationController popViewControllerAnimated:YES];
 }

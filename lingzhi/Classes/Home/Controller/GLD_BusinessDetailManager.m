@@ -127,7 +127,8 @@
             
             NSArray *arrM = [self.busnessModel.logo componentsSeparatedByString:@","];
             NSMutableArray *arr = [NSMutableArray array];
-            for (int i = 0; i < arrM.count; i++) {
+            for (int i = 0; i < arrM.count-1; i++) {
+                
                 NSString *str = arrM[i];
                 if ([str hasPrefix:@"http"]) {
                     [arr addObject:str];

@@ -43,6 +43,8 @@
 
 /** 门店电话 */
 @property (nonatomic, strong) BRTextField *phoneTF;
+/** 门店展示图 */
+@property (nonatomic, strong) BRTextField *pictureTF;
 /** 门店描述 */
 @property (nonatomic, strong) UITextView *describeTF;
 /** 邀请码 */
@@ -54,6 +56,7 @@
 @property (nonatomic, strong)UIImageView *superRankImgV;//高级商家商家
 
 @property (nonatomic, strong)UIImageView *iconImgV;
+@property (nonatomic, strong)UIImageView *iconImgV1;//门店展示图
 
 @property (strong, nonatomic) UIImagePickerController* imagePicker;
 
@@ -74,6 +77,7 @@
 @property (nonatomic, strong)AMapPOI *mapPoi;//商家位置信息
 @property (nonatomic, strong)GLD_IndustryListModel *industryListModel;//行业列表
 @property (nonatomic, strong)NSString *updateImg;//上传图片返回连接
+@property (nonatomic, strong)NSString *stordUpdateImg;//门店展示图片返回连接
 
 @property (nonatomic, copy)NSString *parentCate;//一级分类
 
@@ -94,8 +98,8 @@
     self.updateImg = @"";
     WS(weakSelf);
     GLD_BusnessLogoController *logoVc = [GLD_BusnessLogoController instancePost:^(NSData *data, NSString *jsonStr) {
-        weakSelf.updateImg = jsonStr;
-        weakSelf.iconImgV.image = [UIImage imageWithData:data];
+        weakSelf.stordUpdateImg = jsonStr;
+        weakSelf.iconImgV1.image = [UIImage imageWithData:data];
     }];
     self.logoVc = logoVc;
 }
@@ -172,7 +176,7 @@
             UILabel *title = [[UILabel alloc]init];
             
             title.text = @"门店类型";
-            self.introduceLabel.text = @"门店类型:\n2、门店类型\n3、门店类型\n3、门店类型";
+            self.introduceLabel.text = @"门店类型:\n1、商家免费使用，期满后无优先续约权，不享受联盟平台的同业距离限制保护\n2、获得按联盟会员消费现金发放等额优惠券，同事享受联盟会员使用该优惠券后，按优惠券使用额度的5-10%的现金奖励";
             [headView.contentView addSubview:title];
             [title mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(headView.contentView);
@@ -215,6 +219,10 @@
         [CAToast showWithText:@"请上传logo"];
         return;
     }
+    if(!IsExist_String(self.stordUpdateImg)){
+        [CAToast showWithText:@"请上传门店展示图"];
+        return;
+    }
     if(!IsExist_String(self.describeTF.text)){
         [CAToast showWithText:@"请输入门店描述"];
         return;
@@ -231,7 +239,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/addShop";
-    config.requestParameters = @{@"logo" : GetString(self.updateImg),
+    config.requestParameters = @{@"logo" : [NSString stringWithFormat:@"%@%@",self.stordUpdateImg,self.updateImg],
                                  @"name" : GetString(self.nameTF.text),
                                  @"desc" : GetString(self.describeTF.text),
                                  @"cellphone" : GetString(self.phoneTF.text),
@@ -413,6 +421,10 @@
                     [cell.contentView addSubview:self.iconImgV];
                     cell.accessoryType = UITableViewCellAccessoryNone;
                 }break;
+                case 2:{
+                    [cell.contentView addSubview:self.iconImgV1];
+                    cell.accessoryType = UITableViewCellAccessoryNone;
+                }break;
             }
             return cell;
         }break;
@@ -521,7 +533,8 @@
     NSInteger time = [self.verificationBut.titleLabel.text integerValue];
     [self.verificationBut setTitle:[NSString stringWithFormat:@"%zd",--time] forState:UIControlStateNormal];
     if(time == 0){
-        self.verificationBut.selected = NO;
+//        self.verificationBut.selected = NO;
+        self.verificationBut.enabled = YES;
         [self.verificationBut setTitle:@"重新获取" forState:UIControlStateNormal];
         [self.verificationTimer invalidate];
         self.verificationTimer = nil;
@@ -580,6 +593,16 @@
         _phoneTF.placeholder = @"请输入";
         _phoneTF.returnKeyType = UIReturnKeyDone;
         _phoneTF.tag = 4;
+    }
+}
+
+#pragma mark - 门店电话
+- (void)setupPictureTF:(UITableViewCell *)cell{
+    if (!_pictureTF) {
+        _pictureTF = [self getTextField:cell];
+        
+        _pictureTF.returnKeyType = UIReturnKeyDone;
+       
     }
 }
 #pragma mark - 描述
@@ -689,7 +712,7 @@
             return 3;
             break;
         case 3:
-            return 2;
+            return 3;
             break;
         case 4:
             return 1;
@@ -737,9 +760,6 @@
 
 - (void)iconImgVClick{
     
-    
-    [self.navigationController pushViewController:self.logoVc animated:YES];
-    return;
     NSLog(@"头像");
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVc addAction:[UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -838,7 +858,7 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSString *str = responseObject[@"data"];
-        if (str) {
+        if (str != NULL) {
             
             if (!IsExist_String(str)) {
                 [CAToast showWithText:@"上传失败"];
@@ -912,7 +932,7 @@
         _titleArr = @[@[@"门店名称",@"负责人",@"联系电话",@"折扣比例",@"验证码"],
                       @[@"普通联盟商家",@"高级联盟商家"],
                       @[@"所属行业",@"所在地区",@""],
-                      @[@"门店电话",@"门店图标"],
+                      @[@"门店电话",@"门店图标",@"门店展示图片"],
                       @[@""],
                       @[@"渠道商邀请码"]];
     }
@@ -933,6 +953,18 @@
     }
     return _superRankImgV;
 }
+- (UIImageView *)iconImgV1{
+    if (!_iconImgV1) {
+        _iconImgV1 = [UIImageView new];
+        _iconImgV1.userInteractionEnabled = YES;
+        [_iconImgV1 addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(iconImgVClick1)]];
+        _iconImgV1.layer.cornerRadius = W(10);
+        _iconImgV1.layer.masksToBounds = YES;
+        _iconImgV1.frame = CGRectMake(DEVICE_WIDTH - W(50), W(15), W(30), H(30));
+        _iconImgV1.image = WTImage(@"默认头像");
+    }
+    return _iconImgV1;
+}
 - (UIImageView *)iconImgV{
     if (!_iconImgV) {
         _iconImgV = [UIImageView new];
@@ -944,6 +976,10 @@
         _iconImgV.image = WTImage(@"默认头像");
     }
     return _iconImgV;
+}
+- (void)iconImgVClick1{
+    [self.navigationController pushViewController:self.logoVc animated:YES];
+
 }
 - (NSMutableDictionary *)cellsDictM{
     if (_cellsDictM == nil) {

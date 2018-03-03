@@ -47,7 +47,14 @@
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         NSError *ee;
         weakSelf.model = [[GLD_BusnessModel alloc] initWithDictionary:result[@"data"] error:&ee];
-        [weakSelf.iconImgV yy_setImageWithURL:[NSURL URLWithString:weakSelf.model.logo] placeholder:nil];
+        if([weakSelf.model.logo containsString:@","]){
+            NSArray *arr = [weakSelf.model.logo componentsSeparatedByString:@","];
+            [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:arr.lastObject] placeholder:nil];
+        }else{
+            
+            [self.iconImgV yy_setImageWithURL:[NSURL URLWithString:weakSelf.model.logo] placeholder:nil];
+        }
+        
         weakSelf.titleLabel.text = weakSelf.model.name;
         weakSelf.busnessType.text = [NSString stringWithFormat:@" %@ ",weakSelf.model.busnessType.integerValue == 1 ? @"高级商家联盟" : @"普通商家联盟"];
         weakSelf.cashLabel.text = [NSString stringWithFormat:@"本月收益 ￥ %.2f",[AppDelegate shareDelegate].userModel.Profit];

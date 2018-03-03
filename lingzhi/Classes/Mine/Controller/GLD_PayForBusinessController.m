@@ -339,6 +339,7 @@ typedef enum
         NSString *resultStatus = resultDic[@"resultStatus"];
         if ([resultStatus isEqualToString:@"9000"]) {
             NSLog(@"支付成功");
+            [weakSelf.navigationController popViewControllerAnimated:YES];
 //            [weakSelf queryPayStatus];
         } else if ([resultStatus isEqualToString:@"4000"]) {
             [CAToast showWithText:@"支付失败"];
@@ -388,7 +389,10 @@ typedef enum
         if (response.errCode == -2) {
             return;
         }
-        
+        if (response.errCode == 0) {
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+        }
      
     }
 }
