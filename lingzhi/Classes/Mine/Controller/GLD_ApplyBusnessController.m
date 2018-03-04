@@ -174,9 +174,9 @@
         case 1:{
             UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
             UILabel *title = [[UILabel alloc]init];
-            
+
             title.text = @"门店类型";
-            self.introduceLabel.text = @"门店类型:\n1、商家免费使用，期满后无优先续约权，不享受联盟平台的同业距离限制保护\n2、获得按联盟会员消费现金发放等额优惠券，同事享受联盟会员使用该优惠券后，按优惠券使用额度的5-10%的现金奖励";
+           
             [headView.contentView addSubview:title];
             [title mas_makeConstraints:^(MASConstraintMaker *make) {
                 make.edges.equalTo(headView.contentView);
@@ -272,16 +272,16 @@
     UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
     switch (section) {
         case 1:{
-            UILabel *title = [[UILabel alloc]init];
-            title.numberOfLines = 0;
-            title.font = WTFont(12);
-            title.textColor = [UIColor redColor];
-            self.introduceLabel = title;
-            title.text = @"门店类型:\n1、商家免费使用，期满后无优先续约权，不享受联盟平台的同业距离限制保护\n2、获得按联盟会员消费现金发放等额优惠券，同事享受联盟会员使用该优惠券后，按优惠券使用额度的5-10%的现金奖励";
-            [headView.contentView addSubview:title];
-            [title mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(headView.contentView);
-            }];
+//            UILabel *title = [[UILabel alloc]init];
+//            title.numberOfLines = 0;
+//            title.font = WTFont(12);
+//            title.textColor = [UIColor redColor];
+//            self.introduceLabel = title;
+//            title.text = @"门店类型:\n1、商家免费使用，期满后无优先续约权，不享受联盟平台的同业距离限制保护\n2、获得按联盟会员消费现金发放等额优惠券，同事享受联盟会员使用该优惠券后，按优惠券使用额度的5-10%的现金奖励";
+//            [headView.contentView addSubview:title];
+//            [title mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.edges.equalTo(headView.contentView);
+//            }];
             return headView;
         }break;
         case 4:if(!self.isSuccss)break;
@@ -330,7 +330,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     switch (section) {
         case 1:{
-            return self.introHeight;
+            return W(5);
         }break;
         case 4:if(!self.isSuccss)break;
         case 5:{

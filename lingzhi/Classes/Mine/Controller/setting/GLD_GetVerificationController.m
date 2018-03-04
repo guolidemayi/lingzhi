@@ -137,7 +137,7 @@
     NSInteger time = [self.verificationBut.titleLabel.text integerValue];
     [self.verificationBut setTitle:[NSString stringWithFormat:@"%zd",--time] forState:UIControlStateNormal];
     if(time == 0){
-        self.verificationBut.enabled = NO;
+        self.verificationBut.enabled = YES;
         [self.verificationBut setTitle:@"重新获取" forState:UIControlStateNormal];
         [self.verificationTimer invalidate];
         self.verificationTimer = nil;
