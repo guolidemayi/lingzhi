@@ -226,7 +226,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
         make.left.equalTo(self.contentView).offset(W(15));
         make.top.equalTo(self.lineView).offset(W(5));
         make.right.equalTo(self.contentView).offset(W(-15));
-        make.height.equalTo(WIDTH(150));
+        make.height.equalTo(WIDTH(200));
     }];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(self.mapView);
@@ -293,6 +293,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
         [_mapView setShowsUserLocation:YES];
         [_mapView setUserTrackingMode:MAUserTrackingModeNone animated:YES];
         [_mapView setZoomLevel:11];
+        _mapView.desiredAccuracy = kCLLocationAccuracyBest;
         [_mapView setCustomizeUserLocationAccuracyCircleRepresentation:YES];//自定义用户精度圈
         //后台定位
 //        self.keyWordField.text = _mapView.userLocation.
@@ -300,6 +301,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     }
     return _mapView;
 }
+
 - (UITableView *)tableView{
     if (!_tableView) {
         UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];

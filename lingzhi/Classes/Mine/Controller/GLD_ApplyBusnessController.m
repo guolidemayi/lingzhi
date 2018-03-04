@@ -89,7 +89,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.introHeight = W(80);
-    self.mapHeight = W(210);
+    self.mapHeight = W(260);
     [self.view addSubview:self.table_apply];
     self.netManager = [GLD_NetworkAPIManager new];
     [self getParentCategory];

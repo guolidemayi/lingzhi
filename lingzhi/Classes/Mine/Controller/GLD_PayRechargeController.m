@@ -62,7 +62,7 @@ typedef enum
     request.package = dic[@"package"];    // 扩展字段(固定值)
     request.nonceStr = dic[@"noncestr"]; // 随机字符串
     NSString *timeStampString = dic[@"timestamp"];
-    if (IsExist_String(timeStampString)) return;
+    if (!IsExist_String(timeStampString)) return;
     UInt32 num;
     sscanf([timeStampString UTF8String], "%u", &num);
     request.timeStamp = num;     // 时间戳
