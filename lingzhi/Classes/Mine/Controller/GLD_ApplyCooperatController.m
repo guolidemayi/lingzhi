@@ -38,7 +38,14 @@
     cell.cooperatBlock = ^(cooperatType type) {
         switch (type) {
             case 1:{
-                
+                if([AppDelegate shareDelegate].userModel.proxyUserStatus != 0){
+                    [CAToast showWithText:@"您已经申请过代理商"];
+                    return ;
+                }
+                if([AppDelegate shareDelegate].userModel.channelUserStatus != 0){
+                    [CAToast showWithText:@"您已经申请过渠道商了"];
+                    return ;
+                }
                 GLD_ApplyCompanyController *appleVc = [GLD_ApplyCompanyController new];
                 [weakSelf.navigationController pushViewController:appleVc animated:YES];
             }break;
@@ -53,7 +60,7 @@
             }break;
             case 3:{
                 if([AppDelegate shareDelegate].userModel.proxyUserStatus != 0){
-                    [CAToast showWithText:@"您已经申请过代理商，没必要申请渠道商"];
+                    [CAToast showWithText:@"您已经申请过代理商"];
                     return ;
                 }
                 if([AppDelegate shareDelegate].userModel.channelUserStatus != 0){

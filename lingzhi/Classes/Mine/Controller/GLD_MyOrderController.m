@@ -78,13 +78,17 @@
             }
             [weakSelf.dataArr addObjectsFromArray:orderListModel.data];
             
-            [weakSelf.table_apply reloadData];
-        }else{
             
+        }else{
+            [CAToast showWithText:@"请求失败，请重试"];
         }
+        [weakSelf.table_apply reloadData];
         [weakSelf.table_apply.mj_footer endRefreshing];
         [weakSelf.table_apply.mj_header endRefreshing];
     }];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return W(10);
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.dataArr.count;
@@ -109,8 +113,8 @@
     [self.selecBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK] forState:UIControlStateNormal];
     
     [senser setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE] forState:UIControlStateNormal];
-    
-    self.status = [NSString stringWithFormat:@"%zd",senser.tag - 300];
+    [self.dataArr removeAllObjects];
+    self.status = [NSString stringWithFormat:@"%zd",senser.tag - 301];
     [self getOrderList:self.status];
     self.selecBut = senser;
 }
