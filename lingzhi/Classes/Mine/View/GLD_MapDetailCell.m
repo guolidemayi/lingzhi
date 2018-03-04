@@ -34,6 +34,10 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
 @implementation GLD_MapDetailCell
 
 - (void)nextButClick{
+    if (!IsExist_String(self.keyWordField.text)) {
+        [CAToast showWithText:@"请输入地址"];
+        return;
+    }
     [self.keyWordField resignFirstResponder];
     [self setAddrssKeyWord:self.keyWordField.text];
 }
@@ -45,7 +49,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
         make.height.equalTo(@(self.dataArr.count * cellHeight));
     }];
     if ([self.mapDelegate respondsToSelector:@selector(reloadApplyListHeight:)]) {
-        [self.mapDelegate reloadApplyListHeight:(W(210) + self.dataArr.count * cellHeight)];
+        [self.mapDelegate reloadApplyListHeight:(W(260) + self.dataArr.count * cellHeight)];
     }
 }
 
@@ -79,6 +83,12 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
 {
     //通过 AMapPOISearchResponse 对象处理搜索结果
     NSString *strCount = [NSString stringWithFormat:@"count: %ld",response.count];
+    if (response.count == 0) {
+        [CAToast showWithText: @"没有搜索出结果，请换个关键词搜索"];
+        return;
+    }else{
+    [CAToast showWithText: [NSString stringWithFormat:@"搜索出%zd个结果",response.count]];
+    }
     NSString *strSuggestion = [NSString stringWithFormat:@"Suggestion: %@", response.suggestion];
     NSString *strPoi = @"";
     for (int i = 0; i < response.pois.count; i++) {
