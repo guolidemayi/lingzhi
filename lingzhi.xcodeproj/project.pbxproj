@@ -226,6 +226,7 @@
 		33FD33AE2025607700725317 /* GLD_PayForBusiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FD33AC2025607700725317 /* GLD_PayForBusiCell.m */; };
 		33FD33AF2025607700725317 /* GLD_PayForBusiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33FD33AD2025607700725317 /* GLD_PayForBusiCell.xib */; };
 		33FD33B22025780F00725317 /* GLD_PayForBusiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FD33B12025780F00725317 /* GLD_PayForBusiModel.m */; };
+		3C431933204B9632007FCA1E /* GLD_WeChatManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C431932204B9632007FCA1E /* GLD_WeChatManger.m */; };
 		3C604D7D1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C604D7C1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m */; };
 		3C604D801FE64D0500D4ECA7 /* GLD_ManagerStoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C604D7F1FE64D0500D4ECA7 /* GLD_ManagerStoreController.m */; };
 		3CA74E4A1FD27E2800A7F137 /* GLD_IndustryCollecCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA74E491FD27E2800A7F137 /* GLD_IndustryCollecCell.m */; };
@@ -661,6 +662,8 @@
 		33FD33AD2025607700725317 /* GLD_PayForBusiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_PayForBusiCell.xib; sourceTree = "<group>"; };
 		33FD33B02025780F00725317 /* GLD_PayForBusiModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_PayForBusiModel.h; sourceTree = "<group>"; };
 		33FD33B12025780F00725317 /* GLD_PayForBusiModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PayForBusiModel.m; sourceTree = "<group>"; };
+		3C431931204B9632007FCA1E /* GLD_WeChatManger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_WeChatManger.h; sourceTree = "<group>"; };
+		3C431932204B9632007FCA1E /* GLD_WeChatManger.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_WeChatManger.m; sourceTree = "<group>"; };
 		3C604D7B1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_MyStoreCell.h; sourceTree = "<group>"; };
 		3C604D7C1FE4DEDD00D4ECA7 /* GLD_MyStoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_MyStoreCell.m; sourceTree = "<group>"; };
 		3C604D7E1FE64D0500D4ECA7 /* GLD_ManagerStoreController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ManagerStoreController.h; sourceTree = "<group>"; };
@@ -1350,6 +1353,8 @@
 			children = (
 				0FB536E11FC5887C00B0EDA6 /* AppDelegate.h */,
 				0FB536E31FC5887C00B0EDA6 /* AppDelegate.m */,
+				3C431931204B9632007FCA1E /* GLD_WeChatManger.h */,
+				3C431932204B9632007FCA1E /* GLD_WeChatManger.m */,
 				330AAB3F1FF40ABF00523FF0 /* GLD_UserMessageModel.h */,
 				330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */,
 				0FB536E21FC5887C00B0EDA6 /* main.m */,
@@ -2094,6 +2099,7 @@
 				0F32E8111FE8BD450042E8BE /* GLD_UpdateViewController.m in Sources */,
 				0F2C2F551FF62E330083BCCB /* GLD_ForumModel.m in Sources */,
 				0F2C2F6B1FF6338F0083BCCB /* InputKeyboardView.m in Sources */,
+				3C431933204B9632007FCA1E /* GLD_WeChatManger.m in Sources */,
 				332D9B101FFA011D00A86304 /* GLD_ForumCell.m in Sources */,
 				0F32E8141FE91D800042E8BE /* GLD_ModifyDiscountController.m in Sources */,
 				0F298E7B1FC2CFC200EDBA9A /* GLD_CarouselCell.m in Sources */,

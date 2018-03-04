@@ -40,10 +40,10 @@
     [self.view addSubview:self.topView];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.table_apply];
-//    self.topView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(44));
+    self.topView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(44));
     [self.table_apply mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.right.left.equalTo(self.view);
-        make.top.equalTo(self.view);
+        make.top.equalTo(self.topView.mas_bottom);
     }];
     self.dataArr = [NSMutableArray array];
     self.fd_interactivePopDisabled = YES;

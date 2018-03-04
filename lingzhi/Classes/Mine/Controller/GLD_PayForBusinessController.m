@@ -18,7 +18,7 @@ typedef enum
     offLine
 }PayType;
 
-@interface GLD_PayForBusinessController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate,GLD_PayForBusiCellDelegate,UIScrollViewDelegate>
+@interface GLD_PayForBusinessController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate,GLD_PayForBusiCellDelegate,UIScrollViewDelegate,WXApiManagerDelegate>
 
 @property (nonatomic, strong)UITableView *table_apply;
 @property (nonatomic, strong) NSArray *titleArr;//
@@ -53,10 +53,15 @@ typedef enum
     [self setuBottomView];
     [self getData];
     self.title = @"支付";
+    [WXApiManager sharedManager].delegate = self;
 }
 
 - (void)getData{
     
+    if (!IsExist_String([AppDelegate shareDelegate].userModel.userId)) {
+        [CAToast showWithText:@"用户id异常，请重新登录"];
+        return;
+    }
     WS(weakSelf);
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -387,6 +392,7 @@ typedef enum
         PayResp *response = (PayResp *)resp;
         // 返回结果 0:成功 -1:错误 -2:用户取消
         if (response.errCode == -2) {
+            [CAToast showWithText:@"用户取消"];
             return;
         }
         if (response.errCode == 0) {
@@ -418,7 +424,7 @@ typedef enum
     if (!_titleArr) {
         _titleArr = @[@{@"title":@"微信",@"image":@"微信支付"},
                       @{@"title":@"支付宝",@"image":@"支付宝-2 copy"},
-                      @{@"title":@"线下",@"image":@"支付宝-2 copy"}];
+                      @{@"title":@"线下",@"image":@"WeChat_1520128529"}];
     }
     return _titleArr;
 }

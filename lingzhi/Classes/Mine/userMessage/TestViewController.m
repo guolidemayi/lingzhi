@@ -34,9 +34,9 @@
 /** 个人简介 */
 @property (nonatomic, strong) BRTextField *personalIntroTF;//
 /** 所属单位 */
-@property (nonatomic, strong) BRTextField *companyTF;
+//@property (nonatomic, strong) BRTextField *companyTF;
 /** 职位名称 */
-@property (nonatomic, strong) BRTextField *positionTF;
+//@property (nonatomic, strong) BRTextField *positionTF;
 @property (nonatomic, weak)UITableViewCell *industryCell;
 
 @property (nonatomic, strong) NSArray *titleArr;
@@ -133,18 +133,18 @@
         [CAToast showWithText:@"请填写个人简介"];
         return;
     }
-    if (!IsExist_String(self.industryCell.detailTextLabel.text)&& ![AppDelegate shareDelegate].userModel.industry) {
-        [CAToast showWithText:@"请选择从事行业"];
-        return;
-    }
-    if (!IsExist_String(self.companyTF.text)&& ![AppDelegate shareDelegate].userModel.company) {
-        [CAToast showWithText:@"请填写所属单位"];
-        return;
-    }
-    if (!IsExist_String(self.positionTF.text)&& ![AppDelegate shareDelegate].userModel.duty) {
-        [CAToast showWithText:@"请填写职位"];
-        return;
-    }
+//    if (!IsExist_String(self.industryCell.detailTextLabel.text)&& ![AppDelegate shareDelegate].userModel.industry) {
+//        [CAToast showWithText:@"请选择从事行业"];
+//        return;
+//    }
+//    if (!IsExist_String(self.companyTF.text)&& ![AppDelegate shareDelegate].userModel.company) {
+//        [CAToast showWithText:@"请填写所属单位"];
+//        return;
+//    }
+//    if (!IsExist_String(self.positionTF.text)&& ![AppDelegate shareDelegate].userModel.duty) {
+//        [CAToast showWithText:@"请填写职位"];
+//        return;
+//    }
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     if(self.type == 1){
@@ -153,7 +153,7 @@
         config.urlPath = @"api/user/updateUser";
     }
     config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone),
-                                 @"company" : IsExist_String(self.companyTF.text) ? self.companyTF.text : [AppDelegate shareDelegate].userModel.company,
+//                                 @"company" : IsExist_String(self.companyTF.text) ? self.companyTF.text : [AppDelegate shareDelegate].userModel.company,
                                  @"industry" : IsExist_String(self.industryCell.detailTextLabel.text)? self.industryCell.detailTextLabel.text : [AppDelegate shareDelegate].userModel.industry,
                                  @"intro" : IsExist_String(self.personalIntroTF.text) ? self.personalIntroTF.text : [AppDelegate shareDelegate].userModel.intro,
                                  @"address" : IsExist_String(self.locationTF.text) ? self.locationTF.text : [AppDelegate shareDelegate].userModel.address,
@@ -163,7 +163,7 @@
                                  @"name" : IsExist_String(self.nicknameTF.text) ? self.nicknameTF.text : [AppDelegate shareDelegate].userModel.name,
                                  @"birthDay" : IsExist_String(self.birthdayTF.text) ? self.birthdayTF.text : [AppDelegate shareDelegate].userModel.birthDay,
                                  @"iconImage" : GetString(self.updateImg),
-                                 @"duty" : IsExist_String(self.positionTF.text) ? self.positionTF.text : [AppDelegate shareDelegate].userModel.duty
+//                                 @"duty" : IsExist_String(self.positionTF.text) ? self.positionTF.text : [AppDelegate shareDelegate].userModel.duty
                                  };
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
@@ -364,7 +364,7 @@
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -456,11 +456,11 @@
             }break;
             case 1:{
             cell.accessoryType = UITableViewCellAccessoryNone;
-                [self setupCompanyTF:cell];
+//                [self setupCompanyTF:cell];
             }break;
             case 2:{
                 cell.accessoryType = UITableViewCellAccessoryNone;
-                [self setupPositionTF:cell];
+//                [self setupPositionTF:cell];
             }break;
         }
     }
@@ -563,18 +563,18 @@
 
 
 #pragma mark - 所属单位 textField
-- (void)setupCompanyTF:(UITableViewCell *)cell {
-    if (!_companyTF) {
-        _companyTF = [self getTextField:cell];
-        _companyTF.placeholder = @"请输入你的所属单位";
-        if (IsExist_String([AppDelegate shareDelegate].userModel.company)) {
-            _companyTF.text = [AppDelegate shareDelegate].userModel.company;
-        }
-        _companyTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-        _companyTF.returnKeyType = UIReturnKeyDone;
-        _companyTF.tag = 4;
-    }
-}
+//- (void)setupCompanyTF:(UITableViewCell *)cell {
+//    if (!_companyTF) {
+//        _companyTF = [self getTextField:cell];
+//        _companyTF.placeholder = @"请输入你的所属单位";
+//        if (IsExist_String([AppDelegate shareDelegate].userModel.company)) {
+//            _companyTF.text = [AppDelegate shareDelegate].userModel.company;
+//        }
+//        _companyTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+//        _companyTF.returnKeyType = UIReturnKeyDone;
+//        _companyTF.tag = 4;
+//    }
+//}
 
 #pragma mark - 地址 textField
 - (void)setupLocationTF:(UITableViewCell *)cell {
@@ -651,18 +651,18 @@
 }
 
 #pragma mark - 职位名称 textField
-- (void)setupPositionTF:(UITableViewCell *)cell {
-    if (!_positionTF) {
-        _positionTF = [self getTextField:cell];
-        _positionTF.placeholder = @"请输入您的职位名称";
-        _positionTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-        _positionTF.returnKeyType = UIReturnKeyDone;
-        if (IsExist_String([AppDelegate shareDelegate].userModel.duty)) {
-            _positionTF.text = [AppDelegate shareDelegate].userModel.duty;
-        }
-        _positionTF.tag = 5;
-    }
-}
+//- (void)setupPositionTF:(UITableViewCell *)cell {
+//    if (!_positionTF) {
+//        _positionTF = [self getTextField:cell];
+//        _positionTF.placeholder = @"请输入您的职位名称";
+//        _positionTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+//        _positionTF.returnKeyType = UIReturnKeyDone;
+//        if (IsExist_String([AppDelegate shareDelegate].userModel.duty)) {
+//            _positionTF.text = [AppDelegate shareDelegate].userModel.duty;
+//        }
+//        _positionTF.tag = 5;
+//    }
+//}
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self.view endEditing:YES];
 }

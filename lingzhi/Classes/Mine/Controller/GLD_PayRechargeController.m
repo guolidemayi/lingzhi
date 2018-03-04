@@ -36,7 +36,8 @@ typedef enum
     [self.view addSubview:self.table_apply];
     self.NetManager = [GLD_NetworkAPIManager new];
     self.payType = AliPay;
-    self.automaticallyAdjustsScrollViewInsets = NO; 
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [WXApiManager sharedManager].delegate = self;
 }
 
 - (void)payToWeChatWithDic:(NSDictionary *)dic
@@ -75,21 +76,14 @@ typedef enum
         PayResp *response = (PayResp *)resp;
         // 返回结果 0:成功 -1:错误 -2:用户取消
         if (response.errCode == -2) {
+            [CAToast showWithText:@"用户取消"];
             return;
         }
-        [self queryPayStatus];
-        //        switch (response.errCode) {
-        //            caseWXSuccess:
-        //                //服务器端查询支付通知或查询API返回的结果再提示成功
-        //                NSLog(@"支付成功");
-        //                break;
-        //            default:
-        //                NSLog(@"支付失败，retcode=%d",resp.errCode);
-        //                if (response.errCode != -2) {
-        //                    [[ConfirmPaymentToast sharedInstance] showFail];
-        //                }
-        //                break;
-        //        }
+        if (response.errCode == 0) {
+            [self.navigationController popViewControllerAnimated:YES];
+            return;
+        }
+        
     }
 }
 - (void)queryPayStatus{
