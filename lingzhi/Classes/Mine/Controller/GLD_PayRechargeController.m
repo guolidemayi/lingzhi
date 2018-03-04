@@ -257,7 +257,7 @@ typedef enum
         [dict addEntriesFromDictionary:@{@"toUserId":self.payForUserId}];
     }
     
-    [dict addEntriesFromDictionary:@{@"amount" : [NSString stringWithFormat:@"%zd",self.cashCell.moneyStr.integerValue],
+    [dict addEntriesFromDictionary:@{@"amount" : [NSString stringWithFormat:@"%.2lf",self.cashCell.moneyStr.floatValue],
                                      @"payType" : self.payType == AliPay ? @"zfbPay" : @"wxPay",
                                      @"fromUserId" : GetString([AppDelegate shareDelegate].userModel.userId)
                                      }];
