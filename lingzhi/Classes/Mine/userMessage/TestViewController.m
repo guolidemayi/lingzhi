@@ -154,7 +154,7 @@
     }
     config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone),
 //                                 @"company" : IsExist_String(self.companyTF.text) ? self.companyTF.text : [AppDelegate shareDelegate].userModel.company,
-                                 @"industry" : IsExist_String(self.industryCell.detailTextLabel.text)? self.industryCell.detailTextLabel.text : [AppDelegate shareDelegate].userModel.industry,
+//                                 @"industry" : IsExist_String(self.industryCell.detailTextLabel.text)? self.industryCell.detailTextLabel.text : [AppDelegate shareDelegate].userModel.industry,
                                  @"intro" : IsExist_String(self.personalIntroTF.text) ? self.personalIntroTF.text : [AppDelegate shareDelegate].userModel.intro,
                                  @"address" : IsExist_String(self.locationTF.text) ? self.locationTF.text : [AppDelegate shareDelegate].userModel.address,
                                  @"inviteCode" : GetString([AppDelegate shareDelegate].userModel.inviteCode),
