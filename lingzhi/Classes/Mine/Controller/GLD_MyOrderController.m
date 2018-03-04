@@ -140,7 +140,7 @@
 - (UIView *)topView{
     if (!_topView) {
         _topView = [UIView new];
-        NSArray *titleArr = @[@"全部",@"已确认",@"未确认"];
+        NSArray *titleArr = @[@"全部",@"未确认",@"已确认"];
         
         for (int i = 0; i < titleArr.count; i++) {
             UIButton * button = [UIButton new];

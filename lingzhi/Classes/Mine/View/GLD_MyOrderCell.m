@@ -41,10 +41,10 @@ NSString *const GLD_MyOrderCellIdentifier = @"GLD_MyOrderCellIdentifier";
     _orderModel = orderModel;
     self.orderCodeLabel.text = orderModel.orderNumber;
     self.nameLabel.text = orderModel.shopName;
-    self.cashLabel.text = orderModel.prize;
-    [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:orderModel.shopPic] placeholder:nil];
-    self.couponLabel.text = orderModel.discount;
-    self.payTypeLabel.text = orderModel.wxPay;
+    self.cashLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.prize];
+//    [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:orderModel.shopPic] placeholder:nil];
+    self.couponLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.discount];
+    self.payTypeLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.wxPay];
     self.dateLabel.text = orderModel.createTime;
 }
 - (IBAction)commentClick:(UIButton *)sender {
