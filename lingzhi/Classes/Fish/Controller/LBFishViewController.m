@@ -43,7 +43,7 @@
     self.netManager = [GLD_NetworkAPIManager new];
     //导航到深圳火车站
     [self setNavUi];
-    [self getbusnessList:2];
+   
     [self getBannerData];
 }
 
@@ -63,7 +63,9 @@
                                  @"type" : @(type),
                                  @"city":[AppDelegate shareDelegate].placemark.area_name ? [AppDelegate shareDelegate].placemark.area_name:@"衡水",
                                  @"lat:":[NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lat],
-                                 @"lng:" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lon]
+                                 @"lng:" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lon],
+                                 @"limit":[NSString stringWithFormat:@"10"],
+                                 @"offset" : [NSString stringWithFormat:@"%zd",self.dataArrM.count]
                                  };
     
     
@@ -151,6 +153,8 @@
     }else{
         [self.locationBut title:@"定位失败"];
     }
+    if(self.dataArrM.count > 0)
+    [self getbusnessList:2];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];

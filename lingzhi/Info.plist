@@ -11,11 +11,11 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>惠会联盟</string>
+	<string>惠汇联盟</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
+	<string>1.4</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -38,7 +38,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>9</string>
+	<string>14</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>baidumap</string>
@@ -53,7 +53,7 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>惠会联盟 需要您的同意才能使用相机拍照</string>
+	<string>惠汇联盟 需要您的同意才能使用相机拍照</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>使用定位以发现附近门店</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -63,7 +63,7 @@
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>需要访问您的相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>惠会联盟 需要您的同意才能使用相册选取照片</string>
+	<string>惠汇联盟 需要您的同意才能使用相册选取照片</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
