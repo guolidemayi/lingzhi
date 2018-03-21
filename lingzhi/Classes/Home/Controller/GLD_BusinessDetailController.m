@@ -128,6 +128,10 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[NSString stringWithFormat:@"tel://%@",self.busnessModel.cellphone] stringByReplacingOccurrencesOfString:@"-" withString:@""]]];
         }break;
         case 203:{
+            if(!hasLogin){
+                [CAToast showWithText:@"请登录"];
+                return;
+            }
             GLD_PayForBusinessController *jumpVC = [[GLD_PayForBusinessController alloc] init];
             //        jumpVC.jump_URL = result;
                 jumpVC.payForUserId = self.busnessModel.userId;

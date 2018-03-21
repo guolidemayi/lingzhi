@@ -153,7 +153,7 @@
     }else{
         [self.locationBut title:@"定位失败"];
     }
-    if(self.dataArrM.count > 0)
+    if(!IsExist_Array(self.dataArrM))
     [self getbusnessList:2];
 }
 - (void)viewWillDisappear:(BOOL)animated{

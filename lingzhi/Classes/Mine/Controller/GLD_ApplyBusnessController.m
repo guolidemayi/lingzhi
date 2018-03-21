@@ -203,6 +203,10 @@
         [CAToast showWithText:@"请输入折扣"];
         return;
     }
+    if(self.discountTF.text.integerValue > 10){
+        [CAToast showWithText:@"请输入正确的折扣"];
+        return;
+    }
     if(!IsExist_String(self.industryTF.text)){
         [CAToast showWithText:@"请选择行业"];
         return;

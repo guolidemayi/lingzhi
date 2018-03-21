@@ -129,6 +129,10 @@
         [CAToast showWithText:@"请设置折扣"];
         return;
     }
+    if(self.discountTF.text.integerValue > 10){
+        [CAToast showWithText:@"请输入正确的折扣"];
+        return;
+    }
     WS(weakSelf);
     
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
