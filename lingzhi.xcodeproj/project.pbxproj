@@ -211,6 +211,8 @@
 		0FE8159820493A5300DE8756 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159720493A5300DE8756 /* QuartzCore.framework */; };
 		0FE8159A20493A7600DE8756 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159920493A7600DE8756 /* CoreText.framework */; };
 		0FE8159C20493AA400DE8756 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159B20493AA400DE8756 /* CoreMotion.framework */; };
+		0FEA82C620902E0A002FBC88 /* GLD_UserProtocolController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA82C520902E0A002FBC88 /* GLD_UserProtocolController.m */; };
+		0FEA82C820902F18002FBC88 /* protocol.html in Resources */ = {isa = PBXBuildFile; fileRef = 0FEA82C720902F17002FBC88 /* protocol.html */; };
 		330AAB3E1FF4053200523FF0 /* GLD_wanShanUserMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */; };
 		330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */; };
 		332D9B101FFA011D00A86304 /* GLD_ForumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 332D9B0E1FFA011D00A86304 /* GLD_ForumCell.m */; };
@@ -634,6 +636,9 @@
 		0FE8159720493A5300DE8756 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0FE8159920493A7600DE8756 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		0FE8159B20493AA400DE8756 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		0FEA82C420902E0A002FBC88 /* GLD_UserProtocolController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_UserProtocolController.h; sourceTree = "<group>"; };
+		0FEA82C520902E0A002FBC88 /* GLD_UserProtocolController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_UserProtocolController.m; sourceTree = "<group>"; };
+		0FEA82C720902F17002FBC88 /* protocol.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = protocol.html; sourceTree = "<group>"; };
 		2AFF7DFDC2A100A721211A54 /* Pods-lingzhiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiUITests/Pods-lingzhiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		330AAB3C1FF4053200523FF0 /* GLD_wanShanUserMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_wanShanUserMController.h; sourceTree = "<group>"; };
 		330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_wanShanUserMController.m; sourceTree = "<group>"; };
@@ -1129,6 +1134,7 @@
 		0F60E9BA1FC2754300C5E113 /* lingzhi */ = {
 			isa = PBXGroup;
 			children = (
+				0FEA82C720902F17002FBC88 /* protocol.html */,
 				0FE81591204939BB00DE8756 /* AlipaySDK.bundle */,
 				0FE81592204939BB00DE8756 /* AlipaySDK.framework */,
 				0FE8158C2045562700DE8756 /* address.plist */,
@@ -1527,6 +1533,8 @@
 				330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */,
 				0FB537191FC6A25200B0EDA6 /* UserADsModel.h */,
 				0FB5371A1FC6A25200B0EDA6 /* UserADsModel.m */,
+				0FEA82C420902E0A002FBC88 /* GLD_UserProtocolController.h */,
+				0FEA82C520902E0A002FBC88 /* GLD_UserProtocolController.m */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -1749,6 +1757,7 @@
 				0F326F2D1FF4AED500A90106 /* GLD_MyOrderCell.xib in Resources */,
 				0F2C2F791FFC839E0083BCCB /* Images.xcassets in Resources */,
 				332D9B111FFA011D00A86304 /* GLD_ForumCell.xib in Resources */,
+				0FEA82C820902F18002FBC88 /* protocol.html in Resources */,
 				0F298EA61FC2D18600EDBA9A /* read_me.txt in Resources */,
 				0F298E841FC2CFC200EDBA9A /* MTShareView.xib in Resources */,
 				0F80FB2920243D8000F7EE22 /* GLD_ZFBCashCell.xib in Resources */,
@@ -2081,6 +2090,7 @@
 				0F71A59E1FDFAF7800C66EED /* GLD_ChangePassWordController.m in Sources */,
 				3C604D801FE64D0500D4ECA7 /* GLD_ManagerStoreController.m in Sources */,
 				0F9920151FCEEA5900305DF3 /* GLD_BannerCell.m in Sources */,
+				0FEA82C620902E0A002FBC88 /* GLD_UserProtocolController.m in Sources */,
 				0F5EC5E3202D701700298A7D /* GLD_CountModel.m in Sources */,
 				0F298E851FC2CFC200EDBA9A /* UIDevice+DeviceMode.m in Sources */,
 				0F6411861FD4EAB50069FDB1 /* GLD_Request.m in Sources */,

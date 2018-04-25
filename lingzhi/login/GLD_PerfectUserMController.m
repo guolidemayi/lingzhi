@@ -12,6 +12,7 @@
 #import "NSDate+BRAdd.h"
 #import "GLD_CustomBut.h"
 #import "GLD_BindingPhoneController.h"
+#import "GLD_UserProtocolController.h"
 
 @interface GLD_PerfectUserMController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
@@ -89,6 +90,9 @@
 }
 - (void)agreeMentButClick{
     NSLog(@"用户协议");
+    
+    GLD_UserProtocolController *protoclVc = [GLD_UserProtocolController new];
+    [self.navigationController pushViewController:protoclVc animated:YES];
 }
 - (void)agreeButClick:(UIButton *)senser{
     
