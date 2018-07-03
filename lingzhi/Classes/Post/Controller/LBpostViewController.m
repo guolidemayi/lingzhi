@@ -55,12 +55,12 @@
     [super viewWillDisappear:animated];
     [self.scanningView removeTimer];
     [self removeFlashlightBtn];
-    [_manager cancelSampleBufferDelegate];
+    
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.scanningView addTimer];
-    [_manager resetSampleBufferDelegate];
+    
 }
 - (void)dealloc {
     NSLog(@"SGQRCodeScanningVC - dealloc");
@@ -71,7 +71,7 @@
 
 - (void)setupNavigationBar {
     self.navigationItem.title = @"扫一扫";
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"相册" style:(UIBarButtonItemStyleDone) target:self action:@selector(rightBarButtonItenAction)];
+
 }
 
 - (SGQRCodeScanningView *)scanningView {
@@ -89,15 +89,7 @@
     self.scanningView = nil;
 }
 
-- (void)rightBarButtonItenAction {
-    SGQRCodeAlbumManager *manager = [SGQRCodeAlbumManager sharedManager];
-    [manager readQRCodeFromAlbumWithCurrentController:self];
-    manager.delegate = self;
-    
-    if (manager.isPHAuthorization == YES) {
-        [self.scanningView removeTimer];
-    }
-}
+
 
 - (void)setupQRCodeScanning {
     self.manager = [SGQRCodeScanManager sharedManager];

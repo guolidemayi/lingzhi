@@ -137,7 +137,11 @@
             GLD_VerificationController *applyVc = [GLD_VerificationController new];
             [self.tableView.navigationController pushViewController:applyVc animated:YES];
         }break;
+            
         case 5:{
+            
+        }break;
+        case 6:{
             //设置
             GLD_SettingController *applyVc = [GLD_SettingController new];
             [self.tableView.navigationController pushViewController:applyVc animated:YES];
@@ -337,6 +341,9 @@
                        @"detailTitle":@"联盟门店、渠道商申请",
                        },
                      @{@"title":@"实名认证",
+                       @"detailTitle":@"",
+                       },
+                     @{@"title":@"商家明细",
                        @"detailTitle":@"",
                        },
                      @{@"title":@"系统设置",

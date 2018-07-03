@@ -33,7 +33,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
 
-    [self initMainPageBody];
+    [self initFlashAdViewController];
     //注册微信
     [WXApi registerApp:WeiXinAppKey withDescription:@"医生汇"];
     //配置高德地图

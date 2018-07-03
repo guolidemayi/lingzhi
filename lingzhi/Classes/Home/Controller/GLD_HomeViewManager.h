@@ -11,4 +11,5 @@
 @interface GLD_HomeViewManager : GLD_BaseTableManager
 
 - (void)fetchMainUserData;
+@property (nonatomic, copy)void(^versonUpdate)(void);
 @end

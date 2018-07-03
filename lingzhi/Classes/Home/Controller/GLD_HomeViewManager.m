@@ -42,6 +42,11 @@
     [self getbusnessList:self.listType];
     
 }
+- (void)verson{
+    if (self.versonUpdate) {
+        self.versonUpdate();
+    }
+}
 - (void)fetchMainUserData{
     
     WS(weakSelf);

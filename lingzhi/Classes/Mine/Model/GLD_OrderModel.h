@@ -22,7 +22,8 @@
 @property (nonatomic, copy)NSString *shopPic;//商店图标
 @property (nonatomic, copy)NSString *createTime;//创建时间
 @property (nonatomic, copy)NSString *orderNumber;//订单号
-
+@property (nonatomic, copy)NSString *payUser;//支付人
+@property (nonatomic, copy)NSString *payUserPhone;//支付人电话
 @end
 
 

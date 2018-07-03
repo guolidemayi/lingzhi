@@ -40,11 +40,24 @@
     self.homeManager = [[GLD_HomeViewManager alloc]initWithTableView:self.home_table];
     //获取用户信息
     [self.homeManager fetchMainUserData];
+    WS(weakSelf);
+    self.homeManager.versonUpdate = ^{
+        [weakSelf versonUpdate];
+    };
     [self startLocation];
     //导航到深圳火车站
     [self setNavUi];
 }
-
+- (void)versonUpdate{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"医生汇" message:@"您有课程尚未下载完,是否继续下载？" preferredStyle:  UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //点击按钮的响应事件；
+        
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 - (void)setNavUi{
     GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
     self.locationBut = locationBut;

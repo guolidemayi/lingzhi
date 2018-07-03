@@ -271,7 +271,7 @@ typedef enum
         if(!error){
             if ([result[@"code"] integerValue] == 200) {
                 if(weakSelf.payType == AliPay){
-                    
+                     [weakSelf payToALiPayWithString:result[@"data"][@"body"]];
                 }else if(weakSelf.payType == WeChatPay){
                     
                     [weakSelf payToWeChatWithDic:result[@"data"]];

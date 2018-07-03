@@ -203,6 +203,9 @@
 		0FB5373B1FC6D22A00B0EDA6 /* SGQRCodeGenerateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5372F1FC6D22900B0EDA6 /* SGQRCodeGenerateManager.m */; };
 		0FB5373C1FC6D22A00B0EDA6 /* SGQRCodeAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB537341FC6D22900B0EDA6 /* SGQRCodeAlbumManager.m */; };
 		0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */; };
+		0FC3FCD320EB0E7E00A98F7E /* GLD_BusnessPayInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3FCD220EB0E7E00A98F7E /* GLD_BusnessPayInfoController.m */; };
+		0FC3FCD720EB110F00A98F7E /* GLD_BusnessOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC3FCD520EB110F00A98F7E /* GLD_BusnessOrderCell.m */; };
+		0FC3FCD820EB110F00A98F7E /* GLD_BusnessOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FC3FCD620EB110F00A98F7E /* GLD_BusnessOrderCell.xib */; };
 		0FE8158D2045562700DE8756 /* address.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FE8158C2045562700DE8756 /* address.plist */; };
 		0FE8159020467DED00DE8756 /* GLD_BusnessLogoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FE8158F20467DED00DE8756 /* GLD_BusnessLogoController.m */; };
 		0FE81593204939BB00DE8756 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0FE81591204939BB00DE8756 /* AlipaySDK.bundle */; };
@@ -627,6 +630,11 @@
 		0FB537351FC6D22900B0EDA6 /* SGQRCodeGenerateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGQRCodeGenerateManager.h; sourceTree = "<group>"; };
 		0FB5373E1FC7C99B00B0EDA6 /* GLD_CustomBut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CustomBut.h; sourceTree = "<group>"; };
 		0FB5373F1FC7C99B00B0EDA6 /* GLD_CustomBut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CustomBut.m; sourceTree = "<group>"; };
+		0FC3FCD120EB0E7E00A98F7E /* GLD_BusnessPayInfoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BusnessPayInfoController.h; sourceTree = "<group>"; };
+		0FC3FCD220EB0E7E00A98F7E /* GLD_BusnessPayInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BusnessPayInfoController.m; sourceTree = "<group>"; };
+		0FC3FCD420EB110F00A98F7E /* GLD_BusnessOrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BusnessOrderCell.h; sourceTree = "<group>"; };
+		0FC3FCD520EB110F00A98F7E /* GLD_BusnessOrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BusnessOrderCell.m; sourceTree = "<group>"; };
+		0FC3FCD620EB110F00A98F7E /* GLD_BusnessOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_BusnessOrderCell.xib; sourceTree = "<group>"; };
 		0FE8158C2045562700DE8756 /* address.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = address.plist; sourceTree = "<group>"; };
 		0FE8158E20467DED00DE8756 /* GLD_BusnessLogoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BusnessLogoController.h; sourceTree = "<group>"; };
 		0FE8158F20467DED00DE8756 /* GLD_BusnessLogoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BusnessLogoController.m; sourceTree = "<group>"; };
@@ -781,6 +789,9 @@
 				0F5EC5DC202D6F4200298A7D /* GLD_CountCell.h */,
 				0F5EC5DD202D6F4200298A7D /* GLD_CountCell.m */,
 				0F5EC5DE202D6F4200298A7D /* GLD_CountCell.xib */,
+				0FC3FCD420EB110F00A98F7E /* GLD_BusnessOrderCell.h */,
+				0FC3FCD520EB110F00A98F7E /* GLD_BusnessOrderCell.m */,
+				0FC3FCD620EB110F00A98F7E /* GLD_BusnessOrderCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1454,6 +1465,8 @@
 				0F5EC5DA202D51F200298A7D /* GLD_DetailedAccountController.m */,
 				0FE8158E20467DED00DE8756 /* GLD_BusnessLogoController.h */,
 				0FE8158F20467DED00DE8756 /* GLD_BusnessLogoController.m */,
+				0FC3FCD120EB0E7E00A98F7E /* GLD_BusnessPayInfoController.h */,
+				0FC3FCD220EB0E7E00A98F7E /* GLD_BusnessPayInfoController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1758,6 +1771,7 @@
 				0F2C2F791FFC839E0083BCCB /* Images.xcassets in Resources */,
 				332D9B111FFA011D00A86304 /* GLD_ForumCell.xib in Resources */,
 				0FEA82C820902F18002FBC88 /* protocol.html in Resources */,
+				0FC3FCD820EB110F00A98F7E /* GLD_BusnessOrderCell.xib in Resources */,
 				0F298EA61FC2D18600EDBA9A /* read_me.txt in Resources */,
 				0F298E841FC2CFC200EDBA9A /* MTShareView.xib in Resources */,
 				0F80FB2920243D8000F7EE22 /* GLD_ZFBCashCell.xib in Resources */,
@@ -2031,6 +2045,7 @@
 				0F6411841FD4EAB50069FDB1 /* GLD_CacheManager.m in Sources */,
 				330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */,
 				0F71A59B1FDFA97D00C66EED /* GLD_NewPhoneController.m in Sources */,
+				0FC3FCD320EB0E7E00A98F7E /* GLD_BusnessPayInfoController.m in Sources */,
 				0F71A5A21FDFBD4A00C66EED /* GLD_MyOrderController.m in Sources */,
 				0F28D2881FD66CED00138A8B /* GLD_MineManager.m in Sources */,
 				0F298E7F1FC2CFC200EDBA9A /* OCPublicEngine.m in Sources */,
@@ -2063,6 +2078,7 @@
 				0F28D29D1FD67D9500138A8B /* GLD_MineWalletCell.m in Sources */,
 				0F28D2BE1FD7F04000138A8B /* GLD_ApplyBusnessController.m in Sources */,
 				33FD33B22025780F00725317 /* GLD_PayForBusiModel.m in Sources */,
+				0FC3FCD720EB110F00A98F7E /* GLD_BusnessOrderCell.m in Sources */,
 				0F2C2F571FF62E330083BCCB /* GLD_BMessageCell.m in Sources */,
 				0F298E881FC2CFC200EDBA9A /* YXUniversal.m in Sources */,
 				0FB537091FC5887C00B0EDA6 /* LBFishViewController.m in Sources */,
