@@ -48,11 +48,13 @@
     //导航到深圳火车站
     [self setNavUi];
 }
+
+
 - (void)versonUpdate{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"医生汇" message:@"您有课程尚未下载完,是否继续下载？" preferredStyle:  UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"惠汇联盟" message:@"有新的版本更新" preferredStyle:  UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         //点击按钮的响应事件；
-        
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/%E6%83%A0%E6%B1%87%E8%81%94%E7%9B%9F/id1332960714?mt=8"]];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }]];

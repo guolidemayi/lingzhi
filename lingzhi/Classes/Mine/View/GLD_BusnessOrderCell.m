@@ -45,8 +45,8 @@
     self.couponLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.discount];
     self.payTypeLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.wxPay];
     self.dateLabel.text = orderModel.createTime;
-    self.payUserLabel.text = orderModel.payUser;
-    self.payPhoneLabel.text = orderModel.payUserPhone;
+    self.payUserLabel.text = orderModel.code;
+    self.payPhoneLabel.text = orderModel.phone;
 }
 
 @end

@@ -32,16 +32,16 @@
     self.dataArr = [NSMutableArray array];
     self.title = @"商家明细";
       self.NetManager = [GLD_NetworkAPIManager new];
+    [self getOrderList];
 }
-- (void)getOrderList:(NSString *)status{
+- (void)getOrderList{
     WS(weakSelf);
     NSInteger offset = self.dataArr.count;
     
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/order/orderList";
+    config.urlPath = @"api/order/getShopOrderList";
     config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
-                                 @"status" : status,
                                  @"limit" : @"10",
                                  @"offset" : [NSString stringWithFormat:@"%zd",offset]
                                  };
@@ -104,10 +104,10 @@
         WS(weakSelf);
         tableView.mj_header = [GLD_RefreshHeader headerWithRefreshingBlock:^{
             [weakSelf.dataArr removeAllObjects];
-            [weakSelf getOrderList:nil];
+            [weakSelf getOrderList];
         }];
         tableView.mj_footer = [YXFooterRefresh footerWithRefreshingBlock:^{
-            [weakSelf getOrderList:nil];
+            [weakSelf getOrderList];
         }];
         tableView.sectionFooterHeight = 0.001;
     }

@@ -70,8 +70,8 @@
     //遍历数组确定显示广告
     for (UserADsModel *model in adArr) {
         
-        NSString *startTime =[YXUniversal intervalToDate:[model.startUsingTime longLongValue] withFormat:@"MMddHHmm"];
-        NSString *endTime =[YXUniversal intervalToDate:[model.endUsingTime longLongValue] withFormat:@"MMddHHmm"];
+        NSString *startTime =[YXUniversal intervalToDate:[model.start longLongValue] withFormat:@"MMddHHmm"];
+        NSString *endTime =[YXUniversal intervalToDate:[model.end longLongValue] withFormat:@"MMddHHmm"];
       
         
         if (currentT > [startTime floatValue] && currentT < [endTime floatValue]) {
@@ -220,9 +220,9 @@
     _iCount++;
     if(_iCount == 2){
         
-        self.endBut.hidden = NO;
+//        self.endBut.hidden = NO;
     }
-    if (_iCount == _adModel.waitingTime) {
+    if (_iCount == 3) {
        
         
     
@@ -238,15 +238,15 @@
 
 - (void)flash_ImageClick{
     
-    NSString *type = _adModel.redirectType;
-    NSInteger adNum = 0;
-    
-    if(self.timer && IsExist_String(type)){
-        [self.timer invalidate];
-        self.timer = nil;
-         [[UIApplication sharedApplication] setStatusBarHidden:NO];
-        _isPopFormAd = YES;
-    }
+//    NSString *type = _adModel.redirectType;
+//    NSInteger adNum = 0;
+//
+//    if(self.timer && IsExist_String(type)){
+//        [self.timer invalidate];
+//        self.timer = nil;
+//         [[UIApplication sharedApplication] setStatusBarHidden:NO];
+//        _isPopFormAd = YES;
+//    }
    
     
 }

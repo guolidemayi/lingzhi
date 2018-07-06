@@ -14,6 +14,9 @@
 #import "GLD_IndustryModel.h"
 #import "GLD_BusnessModel.h"
 #import "GLD_BusinessDetailController.h"
+#import "YXFlashAdViewController.h"
+#import "UserADsModel.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface GLD_HomeViewManager ()
 
@@ -40,12 +43,71 @@
     [self getBannerData];
     [self getListData];
     [self getbusnessList:self.listType];
+    [self downloadAdsContent];
+    [self fetchAppUpdateSingle];
+}
+
+- (void)downloadAdsContent{
+    WS(weakSelf);
     
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/other/getgg";
+    
+    [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        if (!error) {
+            NSArray *arr = result[@"data"];
+            NSDictionary *dict = arr.firstObject;
+            if (!IsExist_Array(arr)) return ;
+            UserADsModel *model = [[UserADsModel alloc] initWithDictionary:dict error:&error];
+            if (model) {
+                [YXFlashAdViewController removeAllObj];
+            }
+            
+                __block UserADsModel *aModel = model;
+            [[SDWebImageManager sharedManager] loadImageWithURL:[NSURL URLWithString:model.pic] options:SDWebImageContinueInBackground progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
+                
+                
+                //拿到图片
+                NSString *path_document = NSHomeDirectory();
+                //设置一个图片的存储路径
+                NSString *imagePath = [path_document stringByAppendingString:[NSString stringWithFormat:@"/Documents/%@.png",aModel.adId]];
+                //把图片直接保存到指定的路径（同时应该把图片的路径imagePath存起来，下次就可以直接用来取）
+                [UIImagePNGRepresentation(image) writeToFile:imagePath atomically:YES];
+                
+                [YXFlashAdViewController writeDiskCache:aModel];
+                
+            }];
+        }
+        
+    }];
 }
 - (void)verson{
     if (self.versonUpdate) {
         self.versonUpdate();
     }
+}
+- (void)fetchAppUpdateSingle{
+    
+    WS(weakSelf);
+    NSString * Version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    NSInteger ver = [[Version stringByReplacingOccurrencesOfString:@"." withString:@""] integerValue];
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/other/getversion";
+    config.requestParameters = @{@"os":GetString(@"ios"),
+                                 @"version":@(ver)
+                                 };
+    [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        if (!error) {
+            if ([result[@"code"] integerValue] == 200) {
+                [weakSelf verson];
+            }
+        }
+        
+    }];
 }
 - (void)fetchMainUserData{
     

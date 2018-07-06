@@ -21,6 +21,7 @@
 #import "GLD_MyStoreCell.h"
 #import "GLD_ManagerStoreController.h"
 #import "GLD_UserMessageModel.h"
+#import "GLD_BusnessPayInfoController.h"
 
 @interface GLD_MineManager ()
 
@@ -139,7 +140,8 @@
         }break;
             
         case 5:{
-            
+            GLD_BusnessPayInfoController *busPay = [[GLD_BusnessPayInfoController alloc]init];
+            [self.tableView.navigationController pushViewController:busPay animated:YES];
         }break;
         case 6:{
             //设置
@@ -186,6 +188,7 @@
         case 3:
         case 4:
         case 5:
+        case 6:
             return W(50);
             break;
     }
@@ -193,7 +196,7 @@
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 //    return 3 + self.dataArr.count;
-    return 6;
+    return 7;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -212,6 +215,7 @@
         case 3:
         case 4:
         case 5:
+        case 6:
             return [self getMineSettingCell:indexPath];
             break;
     }

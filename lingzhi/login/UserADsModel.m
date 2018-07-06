@@ -9,5 +9,14 @@
 #import "UserADsModel.h"
 
 @implementation UserADsModel
-
++(JSONKeyMapper*)keyMapper
+{
+    return [[JSONKeyMapper alloc] initWithDictionary:@{
+                                                       @"id" : @"adId",
+                                                       }];
+}
++(BOOL)propertyIsOptional:(NSString*)propertyName;
+{
+    return YES;
+}
 @end

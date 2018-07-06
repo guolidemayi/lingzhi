@@ -116,7 +116,7 @@
                                                                 userInfo:nil
                                                                  repeats:YES];
         NSString *str = result[@"data"];
-        [CAToast showWithText:str duration:3];
+//        [CAToast showWithText:str duration:3];
         weakSelf.phoneCode = str;
     }];
    
