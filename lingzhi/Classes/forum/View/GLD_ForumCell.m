@@ -9,6 +9,7 @@
 #import "GLD_ForumCell.h"
 #import "GLD_ForumModel.h"
 #import "GLD_PictureCell.h"
+#import "GLD_PictureView.h"
 
 @interface GLD_ForumCell ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -55,8 +56,13 @@
     }
     return _pictures;
 }
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    GLD_PictureView * broser = [[GLD_PictureView alloc]initWithImageArray:self.pictures currentIndex:indexPath.row];
     
+    [broser show];
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+
         return self.pictures.count ;
     
 }
@@ -68,6 +74,7 @@
        
         return cell;
 }
+
 - (void)setup{
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     

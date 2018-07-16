@@ -369,7 +369,7 @@
         //更新高度
         if (index == 2)
             [self.picCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.height.equalTo(HEIGHT(225));
+                make.height.equalTo(HEIGHT(180));
             }];
         if (responseObject[@"data"])
         [pictureArrM addObject:responseObject[@"data"]];

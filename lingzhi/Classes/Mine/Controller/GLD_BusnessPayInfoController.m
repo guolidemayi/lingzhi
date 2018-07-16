@@ -97,7 +97,7 @@
         tableView.estimatedSectionHeaderHeight = 0;
         tableView.estimatedSectionFooterHeight = 0;
         [tableView setSeparatorInset:UIEdgeInsetsMake(0, W(15), 0, W(15))];
-        tableView.rowHeight = W(180);
+        tableView.rowHeight = 200;
         
         [tableView registerNib:[UINib nibWithNibName:@"GLD_BusnessOrderCell" bundle:nil] forCellReuseIdentifier:@"GLD_BusnessOrderCell"];
         //        tableView.rowHeight = 0;
