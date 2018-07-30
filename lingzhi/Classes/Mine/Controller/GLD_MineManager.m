@@ -22,6 +22,7 @@
 #import "GLD_ManagerStoreController.h"
 #import "GLD_UserMessageModel.h"
 #import "GLD_BusnessPayInfoController.h"
+#import "GLD_InvitMemberController.h"
 
 @interface GLD_MineManager ()
 
@@ -148,6 +149,11 @@
             GLD_SettingController *applyVc = [GLD_SettingController new];
             [self.tableView.navigationController pushViewController:applyVc animated:YES];
         }break;
+        case 7:{
+            //设置
+            GLD_InvitMemberController *applyVc = [GLD_InvitMemberController new];
+            [self.tableView.navigationController pushViewController:applyVc animated:YES];
+        }break;
     }
 }
 
@@ -189,6 +195,7 @@
         case 4:
         case 5:
         case 6:
+        case 7:
             return W(50);
             break;
     }
@@ -196,7 +203,7 @@
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 //    return 3 + self.dataArr.count;
-    return 7;
+    return 8;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -216,6 +223,7 @@
         case 4:
         case 5:
         case 6:
+        case 7:
             return [self getMineSettingCell:indexPath];
             break;
     }
@@ -351,6 +359,9 @@
                        @"detailTitle":@"",
                        },
                      @{@"title":@"系统设置",
+                       @"detailTitle":@"",
+                       },
+                     @{@"title":@"推荐会员收入",
                        @"detailTitle":@"",
                        }
                      ];

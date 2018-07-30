@@ -16,6 +16,7 @@
 #import "GLD_SearchController.h"
 #import "GLD_MessageController.h"
 #import "GLD_PayForBusinessController.h"
+#import "LBTabBarController.h"
 
 @interface LBHomeViewController ()
 {
@@ -86,12 +87,21 @@
     
     rightBut.frame = CGRectMake(0, 0, 50, 44);
     [rightBut image:@"站内信"];
+    [rightBut showRedPoint];
     [rightBut addTarget:self action:@selector(rightClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
-    self.navigationItem.rightBarButtonItem = item1;
+    GLD_CustomBut *rightBut2 = [[GLD_CustomBut alloc]init];;
     
+    rightBut2.frame = CGRectMake(0, 0, 50, 44);
+    [rightBut2 image:@"二维码"];
+    [rightBut2 addTarget:self action:@selector(rightClick2) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *item2 = [[UIBarButtonItem alloc]initWithCustomView:rightBut2];
+//    self.navigationItem.rightBarButtonItem = item1;
+    [self.navigationItem setRightBarButtonItems:@[item2,item1]];
 }
-
+- (void)rightClick2{
+    [(LBTabBarController *)self.tabBarController tabBarPlusBtnClick:nil];
+}
 - (void)rightClick{
     GLD_MessageController *message = [GLD_MessageController new];
     [self.navigationController pushViewController:message animated:YES];

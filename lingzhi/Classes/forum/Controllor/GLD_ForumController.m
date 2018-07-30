@@ -34,7 +34,7 @@
 @property (nonatomic, assign)CGFloat lastContentOffset;
 @property (nonatomic, weak)UIButton *addBut;
 @property (nonatomic, strong)NSMutableArray *forumListArrM;
-@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
+//@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 
 
 @property (nonatomic, strong)SDCycleScrollView *cycleView;
@@ -174,10 +174,10 @@
 - (void)sendBBSContent{
     //App-论坛-发表帖子
     GLD_PostController *postVc = [GLD_PostController instancePost:^{
-        self.LTanTableView.contentOffset = CGPointMake(0, 0);
-        [self.forumListArrM removeAllObjects];
-        [self forumDetailRequest];
-    }];            
+//        self.LTanTableView.contentOffset = CGPointMake(0, 0);
+//        [self.forumListArrM removeAllObjects];
+//        [self forumDetailRequest];
+    } andType:1];
     [self.navigationController pushViewController:postVc animated:YES];
 }
 //搜索

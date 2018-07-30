@@ -9,5 +9,5 @@
 #import "GLD_BaseViewController.h"
 
 @interface GLD_PostController : GLD_BaseViewController
-+(instancetype)instancePost:(void (^)())postReloadBlock;
++(instancetype)instancePost:(void (^)(void))postReloadBlock andType:(NSInteger)type;
 @end

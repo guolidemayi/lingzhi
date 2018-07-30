@@ -49,12 +49,17 @@
 @property (nonatomic, weak)GLD_PictureCell *selectCell;
 @property (nonatomic, strong)NSMutableArray *topicArrM;
 @property (nonatomic, copy)void(^postReloadBlock)(void);
-@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
+//@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
+@property (nonatomic, assign)NSInteger type;//1发布帖子 2 发布商品
+
+@property (nonatomic, strong)UILabel *priceLabel;
+@property (nonatomic, strong)UITextField *priceTextField;
 @end
 
 @implementation GLD_PostController
-+(instancetype)instancePost:(void (^)(void))postReloadBlock{
++(instancetype)instancePost:(void (^)(void))postReloadBlock andType:(NSInteger)type{
     GLD_PostController *postVc = [[GLD_PostController alloc]initWith:postReloadBlock];
+    postVc.type = type;
     return postVc;
 }
 - (instancetype)initWith:(void (^)(void))postReloadBlock{
@@ -74,7 +79,7 @@
     self.NetManager = [GLD_NetworkAPIManager new];
     _photoView =  [GLD_PhotoView showPhotoViewInView:[AppDelegate shareDelegate].window];
     _photoView.delegate = self;
- 
+    self.title = self.type == 1 ? @"发布帖子" :@"发布商品";
     
 }
 
@@ -121,6 +126,7 @@
         return;
     }
     
+   
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:0];
     for (GLD_TopicModel *model in _topicArrM) {
         [arr addObject:model.categoryId];
@@ -131,16 +137,29 @@
     NSString *jsonString = [self arrayToJson:pictureArrM];
     
     
-    [dictM addEntriesFromDictionary:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
-                                      @"title":self.textField.text ,
-                                      @"summary":self.textView.text,
-                                      @"pic":jsonString}];
-
+    
+    if (self.type == 2) {
+        NSString *temp = [self.priceTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if(temp.length ==0)
+        {
+            [CAToast showWithText:@"请输入价格"];
+            return;
+        }
+        [dictM addEntriesFromDictionary:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                                          @"title":self.textField.text ,
+                                          @"summary":self.textView.text,
+                                          @"pic":jsonString}];
+    }else{
+        [dictM addEntriesFromDictionary:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                                          @"title":self.textField.text ,
+                                          @"summary":self.textView.text,
+                                          @"pic":jsonString}];
+    }
     WS(weakSelf);
     
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/comment/addbbs";
+    config.urlPath = self.type == 1 ? @"api/comment/addbbs" : @"";
     config.requestParameters = dictM;
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
@@ -490,7 +509,8 @@
         
     }];
     
-    UILabel *textViewPlaceholderLabel = [UILabel creatLableWithText:@"写下想要与同行分享或探讨的问题吧" andFont:WTFont(15) textAlignment:NSTextAlignmentLeft textColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTlineGray]];
+    NSString *str = self.type == 1?@"写下想要与同行分享或探讨的问题吧":@"请输入商品描述";
+    UILabel *textViewPlaceholderLabel = [UILabel creatLableWithText:str andFont:WTFont(15) textAlignment:NSTextAlignmentLeft textColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTlineGray]];
     [self.scrollView addSubview:textViewPlaceholderLabel];
     [textViewPlaceholderLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(textView).offset(W(5));
@@ -529,9 +549,21 @@
     }];
     
    
+    if (self.type == 2) {
+        
+        UITextField *textField1 = [[UITextField alloc]init];
+        textField1.placeholder = @"请输入商品价格（单位：元）";
+        textField1.delegate = self;
+        textField1.borderStyle = UITextBorderStyleRoundedRect;
+        self.priceTextField  = textField1;
+        [self.scrollView addSubview:textField1];
+        [textField1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(titleLabel);
+            make.top.equalTo(self.picCollectionView.mas_bottom).offset(H(20));
+            make.width.equalTo(WIDTH(345));
+        }];
+    }
     
-    
-   
     
     
     YXRecordButton *commitBut = [YXRecordButton creatButWithTitle:@"发布" andImageStr:nil andFont:15 andTextColorStr:COLOR_YX_DRAKwirte];;

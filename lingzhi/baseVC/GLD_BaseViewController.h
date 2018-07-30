@@ -12,5 +12,5 @@
 
 @property (nonatomic, strong)UILabel *noDataLabel;
 - (void)outLayoutSelfSubviews;
-
+@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
 @end

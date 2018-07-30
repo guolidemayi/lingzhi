@@ -122,6 +122,16 @@
 		0F382F001FDE76AF006689FA /* GLD_CooperatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F382EFF1FDE76AF006689FA /* GLD_CooperatCell.m */; };
 		0F42A13A1FD554560072A167 /* GLD_CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F42A1391FD554560072A167 /* GLD_CityModel.m */; };
 		0F42A13D1FD5585A0072A167 /* GLD_CityListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F42A13C1FD5585A0072A167 /* GLD_CityListController.m */; };
+		0F5445E7210877BB009FAE8E /* GLD_InvitMemberController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5445E6210877BB009FAE8E /* GLD_InvitMemberController.m */; };
+		0F5445EC210EA733009FAE8E /* GLD_StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5445EA210EA733009FAE8E /* GLD_StoreCell.m */; };
+		0F5445ED210EA733009FAE8E /* GLD_StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5445EB210EA733009FAE8E /* GLD_StoreCell.xib */; };
+		0F5445F0210EAA90009FAE8E /* GLD_StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5445EF210EAA90009FAE8E /* GLD_StoreViewController.m */; };
+		0F5445F4210EABCA009FAE8E /* GLD_StoreDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5445F2210EABCA009FAE8E /* GLD_StoreDetailCell.m */; };
+		0F5445F5210EABCA009FAE8E /* GLD_StoreDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5445F3210EABCA009FAE8E /* GLD_StoreDetailCell.xib */; };
+		0F5445FA210EB183009FAE8E /* GLD_StoreDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5445F9210EB183009FAE8E /* GLD_StoreDetailModel.m */; };
+		0F5445FD210EE552009FAE8E /* GLD_GoodsDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5445FC210EE552009FAE8E /* GLD_GoodsDetailController.m */; };
+		0F544604210EE7F5009FAE8E /* GLD_GoodsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F544602210EE7F4009FAE8E /* GLD_GoodsDetailCell.m */; };
+		0F544607210EEA92009FAE8E /* GLD_GoodsDetailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F544606210EEA92009FAE8E /* GLD_GoodsDetailManager.m */; };
 		0F5EC5DB202D51F200298A7D /* GLD_DetailedAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EC5DA202D51F200298A7D /* GLD_DetailedAccountController.m */; };
 		0F5EC5DF202D6F4200298A7D /* GLD_CountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EC5DD202D6F4200298A7D /* GLD_CountCell.m */; };
 		0F5EC5E0202D6F4200298A7D /* GLD_CountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5EC5DE202D6F4200298A7D /* GLD_CountCell.xib */; };
@@ -468,6 +478,26 @@
 		0F42A1391FD554560072A167 /* GLD_CityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CityModel.m; sourceTree = "<group>"; };
 		0F42A13B1FD5585A0072A167 /* GLD_CityListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CityListController.h; sourceTree = "<group>"; };
 		0F42A13C1FD5585A0072A167 /* GLD_CityListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CityListController.m; sourceTree = "<group>"; };
+		0F5445E5210877BB009FAE8E /* GLD_InvitMemberController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_InvitMemberController.h; sourceTree = "<group>"; };
+		0F5445E6210877BB009FAE8E /* GLD_InvitMemberController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_InvitMemberController.m; sourceTree = "<group>"; };
+		0F5445E9210EA733009FAE8E /* GLD_StoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_StoreCell.h; sourceTree = "<group>"; };
+		0F5445EA210EA733009FAE8E /* GLD_StoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_StoreCell.m; sourceTree = "<group>"; };
+		0F5445EB210EA733009FAE8E /* GLD_StoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_StoreCell.xib; sourceTree = "<group>"; };
+		0F5445EE210EAA90009FAE8E /* GLD_StoreViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_StoreViewController.h; sourceTree = "<group>"; };
+		0F5445EF210EAA90009FAE8E /* GLD_StoreViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_StoreViewController.m; sourceTree = "<group>"; };
+		0F5445F1210EABCA009FAE8E /* GLD_StoreDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_StoreDetailCell.h; sourceTree = "<group>"; };
+		0F5445F2210EABCA009FAE8E /* GLD_StoreDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_StoreDetailCell.m; sourceTree = "<group>"; };
+		0F5445F3210EABCA009FAE8E /* GLD_StoreDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_StoreDetailCell.xib; sourceTree = "<group>"; };
+		0F5445F6210EB064009FAE8E /* GLD_ConfigureFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ConfigureFile.h; sourceTree = "<group>"; };
+		0F5445F8210EB183009FAE8E /* GLD_StoreDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_StoreDetailModel.h; sourceTree = "<group>"; };
+		0F5445F9210EB183009FAE8E /* GLD_StoreDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_StoreDetailModel.m; sourceTree = "<group>"; };
+		0F5445FB210EE552009FAE8E /* GLD_GoodsDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_GoodsDetailController.h; sourceTree = "<group>"; };
+		0F5445FC210EE552009FAE8E /* GLD_GoodsDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_GoodsDetailController.m; sourceTree = "<group>"; };
+		0F544601210EE7F4009FAE8E /* GLD_GoodsDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GLD_GoodsDetailCell.xib; path = /Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Fish/view/GLD_GoodsDetailCell.xib; sourceTree = "<absolute>"; };
+		0F544602210EE7F4009FAE8E /* GLD_GoodsDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GLD_GoodsDetailCell.m; path = ../../../../GLD_GoodsDetailCell.m; sourceTree = "<group>"; };
+		0F544603210EE7F5009FAE8E /* GLD_GoodsDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLD_GoodsDetailCell.h; path = ../../../../GLD_GoodsDetailCell.h; sourceTree = "<group>"; };
+		0F544605210EEA92009FAE8E /* GLD_GoodsDetailManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_GoodsDetailManager.h; sourceTree = "<group>"; };
+		0F544606210EEA92009FAE8E /* GLD_GoodsDetailManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_GoodsDetailManager.m; sourceTree = "<group>"; };
 		0F5EC5D9202D51F200298A7D /* GLD_DetailedAccountController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_DetailedAccountController.h; sourceTree = "<group>"; };
 		0F5EC5DA202D51F200298A7D /* GLD_DetailedAccountController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_DetailedAccountController.m; sourceTree = "<group>"; };
 		0F5EC5DC202D6F4200298A7D /* GLD_CountCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CountCell.h; sourceTree = "<group>"; };
@@ -1120,6 +1150,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0F5445E8210EA6C0009FAE8E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				0F544603210EE7F5009FAE8E /* GLD_GoodsDetailCell.h */,
+				0F544602210EE7F4009FAE8E /* GLD_GoodsDetailCell.m */,
+				0F544601210EE7F4009FAE8E /* GLD_GoodsDetailCell.xib */,
+				0F5445E9210EA733009FAE8E /* GLD_StoreCell.h */,
+				0F5445EA210EA733009FAE8E /* GLD_StoreCell.m */,
+				0F5445EB210EA733009FAE8E /* GLD_StoreCell.xib */,
+				0F5445F1210EABCA009FAE8E /* GLD_StoreDetailCell.h */,
+				0F5445F2210EABCA009FAE8E /* GLD_StoreDetailCell.m */,
+				0F5445F3210EABCA009FAE8E /* GLD_StoreDetailCell.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		0F5445F7210EB143009FAE8E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				0F5445F8210EB183009FAE8E /* GLD_StoreDetailModel.h */,
+				0F5445F9210EB183009FAE8E /* GLD_StoreDetailModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		0F60E9AF1FC2754300C5E113 = {
 			isa = PBXGroup;
 			children = (
@@ -1169,6 +1224,7 @@
 				0F60E9C11FC2754300C5E113 /* Main.storyboard */,
 				0F60E9C91FC2754300C5E113 /* Info.plist */,
 				0F298EAB1FC2D30400EDBA9A /* PrefixHeader.pch */,
+				0F5445F6210EB064009FAE8E /* GLD_ConfigureFile.h */,
 				0F2C2F781FFC839E0083BCCB /* Images.xcassets */,
 			);
 			path = lingzhi;
@@ -1467,6 +1523,8 @@
 				0FE8158F20467DED00DE8756 /* GLD_BusnessLogoController.m */,
 				0FC3FCD120EB0E7E00A98F7E /* GLD_BusnessPayInfoController.h */,
 				0FC3FCD220EB0E7E00A98F7E /* GLD_BusnessPayInfoController.m */,
+				0F5445E5210877BB009FAE8E /* GLD_InvitMemberController.h */,
+				0F5445E6210877BB009FAE8E /* GLD_InvitMemberController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1513,6 +1571,8 @@
 		0FB536FA1FC5887C00B0EDA6 /* Fish */ = {
 			isa = PBXGroup;
 			children = (
+				0F5445F7210EB143009FAE8E /* model */,
+				0F5445E8210EA6C0009FAE8E /* view */,
 				0FB536FB1FC5887C00B0EDA6 /* Controller */,
 			);
 			path = Fish;
@@ -1523,6 +1583,12 @@
 			children = (
 				0FB536FC1FC5887C00B0EDA6 /* LBFishViewController.h */,
 				0FB536FD1FC5887C00B0EDA6 /* LBFishViewController.m */,
+				0F5445EE210EAA90009FAE8E /* GLD_StoreViewController.h */,
+				0F5445EF210EAA90009FAE8E /* GLD_StoreViewController.m */,
+				0F5445FB210EE552009FAE8E /* GLD_GoodsDetailController.h */,
+				0F5445FC210EE552009FAE8E /* GLD_GoodsDetailController.m */,
+				0F544605210EEA92009FAE8E /* GLD_GoodsDetailManager.h */,
+				0F544606210EEA92009FAE8E /* GLD_GoodsDetailManager.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1763,6 +1829,8 @@
 				0FE81593204939BB00DE8756 /* AlipaySDK.bundle in Resources */,
 				0F60E9C51FC2754300C5E113 /* Assets.xcassets in Resources */,
 				0FE8158D2045562700DE8756 /* address.plist in Resources */,
+				0F5445F5210EABCA009FAE8E /* GLD_StoreDetailCell.xib in Resources */,
+				0F5445ED210EA733009FAE8E /* GLD_StoreCell.xib in Resources */,
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
 				0F298EA41FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				0F326F251FF49D9A00A90106 /* user_industry.json in Resources */,
@@ -1990,6 +2058,7 @@
 				0F32E80E1FE8BB3E0042E8BE /* GLD_PayForMeController.m in Sources */,
 				0F2C2F651FF62F000083BCCB /* YXLiveingHotModel.m in Sources */,
 				3CA74E4A1FD27E2800A7F137 /* GLD_IndustryCollecCell.m in Sources */,
+				0F5445FD210EE552009FAE8E /* GLD_GoodsDetailController.m in Sources */,
 				0FB537211FC6B9C100B0EDA6 /* GLD_LocationHelp.m in Sources */,
 				0F298E831FC2CFC200EDBA9A /* MTShareView.m in Sources */,
 				0F28D28F1FD6751A00138A8B /* GLD_MinePersonalCell.m in Sources */,
@@ -1997,6 +2066,7 @@
 				0F6411A51FD526E50069FDB1 /* GLD_DetaileBusiCell.m in Sources */,
 				0F80FB20202439D700F7EE22 /* GLD_ZFBPayCell.m in Sources */,
 				0F2C2F471FF62E330083BCCB /* GLD_NewsCell.m in Sources */,
+				0F5445F0210EAA90009FAE8E /* GLD_StoreViewController.m in Sources */,
 				0F995DC11FFF5C0C009EB2FE /* GLD_AboutUsController.m in Sources */,
 				0F2C2F681FF6334B0083BCCB /* YXButton.m in Sources */,
 				0F80FB2820243D8000F7EE22 /* GLD_ZFBCashCell.m in Sources */,
@@ -2023,6 +2093,7 @@
 				0F382EFA1FDE6FCF006689FA /* GLD_MycollectionManager.m in Sources */,
 				0F28D2B61FD77F7D00138A8B /* UIView+gldController.m in Sources */,
 				0F28D2AF1FD6ADDE00138A8B /* BRDatePickerView.m in Sources */,
+				0F5445E7210877BB009FAE8E /* GLD_InvitMemberController.m in Sources */,
 				0F71A5861FDE81AC00C66EED /* GLD_ApplyCompanyController.m in Sources */,
 				0F32E8021FE26CE40042E8BE /* GLD_BannerDetailController.m in Sources */,
 				0F28D2991FD6799100138A8B /* UIView+SDAutoLayout.m in Sources */,
@@ -2033,6 +2104,7 @@
 				33FD33AE2025607700725317 /* GLD_PayForBusiCell.m in Sources */,
 				0F326F281FF49F7600A90106 /* GLD_ChooseIndustryControllr.m in Sources */,
 				0FB5373A1FC6D22A00B0EDA6 /* SGQRCodeScanManager.m in Sources */,
+				0F544607210EEA92009FAE8E /* GLD_GoodsDetailManager.m in Sources */,
 				0FB537051FC5887C00B0EDA6 /* UIImage+Image.m in Sources */,
 				0F9920181FCEEFED00305DF3 /* GLD_HomeListCell.m in Sources */,
 				0F42A13A1FD554560072A167 /* GLD_CityModel.m in Sources */,
@@ -2047,6 +2119,7 @@
 				0F71A59B1FDFA97D00C66EED /* GLD_NewPhoneController.m in Sources */,
 				0FC3FCD320EB0E7E00A98F7E /* GLD_BusnessPayInfoController.m in Sources */,
 				0F71A5A21FDFBD4A00C66EED /* GLD_MyOrderController.m in Sources */,
+				0F5445FA210EB183009FAE8E /* GLD_StoreDetailModel.m in Sources */,
 				0F28D2881FD66CED00138A8B /* GLD_MineManager.m in Sources */,
 				0F298E7F1FC2CFC200EDBA9A /* OCPublicEngine.m in Sources */,
 				0F6411821FD4EAB50069FDB1 /* GLD_Service.m in Sources */,
@@ -2073,6 +2146,7 @@
 				0F298E7A1FC2CFC200EDBA9A /* CAToast.m in Sources */,
 				0F2C2F541FF62E330083BCCB /* GLD_TopicModel.m in Sources */,
 				0F6411B11FD53B950069FDB1 /* GLD_BusnessModel.m in Sources */,
+				0F5445F4210EABCA009FAE8E /* GLD_StoreDetailCell.m in Sources */,
 				0F99201E1FCEF81E00305DF3 /* GLD_BusinessCell.m in Sources */,
 				0F326F331FF4C22300A90106 /* PCStarRatingView.m in Sources */,
 				0F28D29D1FD67D9500138A8B /* GLD_MineWalletCell.m in Sources */,
@@ -2093,6 +2167,7 @@
 				0F6411961FD513120069FDB1 /* GLD_BusinessListController.m in Sources */,
 				0F42A13D1FD5585A0072A167 /* GLD_CityListController.m in Sources */,
 				0F99201B1FCEF04500305DF3 /* GLD_BaseCell.m in Sources */,
+				0F544604210EE7F5009FAE8E /* GLD_GoodsDetailCell.m in Sources */,
 				0F32E7F91FE0FB6C0042E8BE /* GLD_CashCountCell.m in Sources */,
 				0F71A5981FDF8DDF00C66EED /* GLD_GetVerificationController.m in Sources */,
 				0FB537041FC5887C00B0EDA6 /* UIView+LBExtension.m in Sources */,
@@ -2106,6 +2181,7 @@
 				0F71A59E1FDFAF7800C66EED /* GLD_ChangePassWordController.m in Sources */,
 				3C604D801FE64D0500D4ECA7 /* GLD_ManagerStoreController.m in Sources */,
 				0F9920151FCEEA5900305DF3 /* GLD_BannerCell.m in Sources */,
+				0F5445EC210EA733009FAE8E /* GLD_StoreCell.m in Sources */,
 				0FEA82C620902E0A002FBC88 /* GLD_UserProtocolController.m in Sources */,
 				0F5EC5E3202D701700298A7D /* GLD_CountModel.m in Sources */,
 				0F298E851FC2CFC200EDBA9A /* UIDevice+DeviceMode.m in Sources */,

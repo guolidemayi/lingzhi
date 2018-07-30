@@ -12,4 +12,6 @@
 
 - (void)title:(NSString *)title;
 - (void)image:(NSString *)image;
+- (void)showRedPoint;
+- (void)hiddenRedPoint;
 @end

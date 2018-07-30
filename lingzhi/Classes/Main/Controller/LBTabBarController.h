@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class LBTabBar;
 @interface LBTabBarController : UITabBarController
-
+//扫描支付页
+- (void)tabBarPlusBtnClick:(LBTabBar *)tabBar;
 @end

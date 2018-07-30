@@ -12,6 +12,7 @@
 @interface GLD_BaseTableManager ()
 
 
+
 @end
 
 @implementation GLD_BaseTableManager

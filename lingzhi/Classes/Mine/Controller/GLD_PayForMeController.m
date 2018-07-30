@@ -10,6 +10,7 @@
 #import "SGQRCodeGenerateManager.h"
 #import "GLD_BusnessModel.h"
 
+#define appDownLoadUrl @"https://itunes.apple.com/cn/app/%E6%83%A0%E6%B1%87%E8%81%94%E7%9B%9F/id1332960714?mt=8"
 @interface GLD_PayForMeController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -29,7 +30,8 @@
     CGFloat scale = 0.2;
     if (!self.model) {
          [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:[AppDelegate shareDelegate].userModel.iconImage] placeholder:WTImage(@"默认头像")];
-         self.QRCImageV.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:[NSString stringWithFormat:@"http://www.hhlmcn.com:8080/pay/%@",GetString([AppDelegate shareDelegate].userModel.userId)] logoImageName:@"WechatIMG43" logoScaleToSuperView:scale];
+        
+        self.QRCImageV.image = [SGQRCodeGenerateManager generateWithLogoQRCodeData:[NSString stringWithFormat:@"%@/%@",appDownLoadUrl,GetString([AppDelegate shareDelegate].userModel.userId)] logoImageName:@"WechatIMG43" logoScaleToSuperView:scale];
         self.nameLabel.text = [AppDelegate shareDelegate].userModel.name;
         self.decLabel.text = [AppDelegate shareDelegate].userModel.intro;
         self.tipLabel.hidden = YES;

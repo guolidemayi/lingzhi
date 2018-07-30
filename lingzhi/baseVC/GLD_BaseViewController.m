@@ -22,7 +22,7 @@
     [self.noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
     }];
-    
+    self.NetManager = [GLD_NetworkAPIManager new];
     // Do any additional setup after loading the view.
 }
 

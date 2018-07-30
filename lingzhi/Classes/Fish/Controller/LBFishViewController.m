@@ -19,6 +19,7 @@
 #import "SDCycleScrollView.h"
 #import "GLD_BannerDetailController.h"
 #import "GLD_BannerModel.h"
+#import "GLD_StoreCell.h"
 
 @interface LBFishViewController ()<UITableViewDelegate, UITableViewDataSource,SDCycleScrollViewDelegate>
 @property (nonatomic, weak)GLD_CustomBut *locationBut;
@@ -46,12 +47,16 @@
    
     [self getBannerData];
 }
-
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0) return 1;
     return self.dataArrM.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) return [self getStoreCell:indexPath];
     return [self getBusinessCell:indexPath];
 }
 -  (void)getbusnessList :(NSInteger)type{//0(推荐门店)、1(最新开通)、2(附近门店)
@@ -78,6 +83,11 @@
         [weakSelf.home_table reloadData];
     }];
 }
+- (GLD_StoreCell *)getStoreCell:(NSIndexPath *)indexPath{
+    GLD_StoreCell *cell = [self.home_table dequeueReusableCellWithIdentifier:@"GLD_StoreCell"];
+    
+    return cell;
+}
 - (GLD_BusinessCell *)getBusinessCell:(NSIndexPath *)indexPath{
     GLD_BusinessCell *cell = [self.home_table dequeueReusableCellWithIdentifier:GLD_BusinessCellIdentifier];
     cell.model = self.dataArrM[indexPath.row];
@@ -92,13 +102,19 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section > 0) return 0.01;
     return W(150);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
+    if (section > 0) return headView;
     [headView addSubview:self.cycleView];
     return headView;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) return H(150);
+    return H(100);
 }
 - (void)getBannerData{
     WS(weakSelf);
@@ -227,8 +243,9 @@
             [weakSelf getBannerData];
             [weakSelf getbusnessList:2];
         }];
-        table.rowHeight = W(100);
+//        table.rowHeight = W(100);
         [table registerClass:[GLD_BusinessCell class] forCellReuseIdentifier:GLD_BusinessCellIdentifier];
+        [table registerNib:[UINib nibWithNibName:@"GLD_StoreCell" bundle:nil] forCellReuseIdentifier:@"GLD_StoreCell"];
         _home_table = table;
     }
     return _home_table;
