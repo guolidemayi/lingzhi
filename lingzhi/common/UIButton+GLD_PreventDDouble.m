@@ -32,15 +32,17 @@ static const char *UIControl_GLD_accept = "UIControl_GLD_accept";
 //    }
 }
 - (void)sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event{
+    if (![self isMemberOfClass:UIButton.class]) {
+        [super sendAction:action to:target forEvent:event];
+        return;
+    }
     if (self.gld_acceptEventInterval == 1) return;
-    NSLog(@"%@------------%f\n",self,self.gld_acceptEventInterval);
     self.gld_acceptEventInterval = 1;
-    NSLog(@"%@------------%f\n",self,self.gld_acceptEventInterval);
+    
     [super sendAction:action to:target forEvent:event];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSLog(@"%@------------%f\n",self,self.gld_acceptEventInterval);
+        
         self.gld_acceptEventInterval = 0;
-        NSLog(@"%@------------%f\n",self,self.gld_acceptEventInterval);
     });
 }
 - (void)gld_sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event{

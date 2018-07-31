@@ -11,4 +11,5 @@
 @interface GLD_PayForBusinessController : GLD_BaseViewController
 
 @property (nonatomic ,copy)NSString *payForUserId;//被付款人id
+@property (nonatomic, assign)CGFloat payPrice;
 @end

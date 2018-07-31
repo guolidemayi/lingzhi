@@ -12,7 +12,7 @@
 
 @protocol LBTabBarDelegate <NSObject>
 @optional
-- (void)tabBarPlusBtnClick:(LBTabBar *)tabBar;
+- (void)tabBarPlusBtnExpressList:(LBTabBar *)tabBar;
 @end
 
 

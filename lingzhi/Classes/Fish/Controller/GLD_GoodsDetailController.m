@@ -8,6 +8,7 @@
 
 #import "GLD_GoodsDetailController.h"
 #import "GLD_GoodsDetailManager.h"
+#import "GLD_PayForBusinessController.h"
 
 @interface GLD_GoodsDetailController ()
 @property (nonatomic, strong)GLD_GoodsDetailManager *goodsDetailManager;
@@ -29,6 +30,7 @@
     self.goodsDetailManager = [[GLD_GoodsDetailManager alloc]initWithTableView:self.home_table];
     self.goodsDetailManager.storeModel = self.storeModel;
     [self.goodsDetailManager fetchMainData];
+    self.title = @"商品详情";
 }
 
 - (void)setApplyBut{
@@ -44,14 +46,13 @@
 - (UIButton *)applyBut{
     if (!_applyBut) {
         _applyBut = [[UIButton alloc]init];
-        [_applyBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKyellow] forState:UIControlStateNormal];
+        [_applyBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKwirte] forState:UIControlStateNormal];
         [_applyBut setTitle:@"立即购买" forState:UIControlStateNormal];
         _applyBut.titleLabel.font = WTFont(15);
         _applyBut.layer.cornerRadius = 3;
         _applyBut.layer.masksToBounds = YES;
-        _applyBut.layer.borderColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKyellow].CGColor;
-        _applyBut.layer.borderWidth = 1;
-        _applyBut.hidden = YES;
+        _applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE];
+//        _applyBut.hidden = YES;
         [_applyBut addTarget:self action:@selector(applybutClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _applyBut;

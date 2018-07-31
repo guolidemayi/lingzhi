@@ -11,6 +11,8 @@
 
 //网络请求
 //商品相关
-#define storeListRequest @""
-#define storeGoodsDetailRequest @""
+#define storeListRequest @""//商品列表
+#define storeGoodsDetailRequest @""//商品详情
+#define expressRequest @"api/main/banner"//抢单列表
+#define sendExpressRequest @"api/main/banner"//发布快递
 #endif /* GLD_ConfigureFile_h */

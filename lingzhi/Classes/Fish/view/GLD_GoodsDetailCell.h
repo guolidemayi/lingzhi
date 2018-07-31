@@ -8,6 +8,8 @@
 
 #import "GLD_BaseCell.h"
 
+@class GLD_StoreDetailModel;
 @interface GLD_GoodsDetailCell : GLD_BaseCell
 
+@property (nonatomic, strong)GLD_StoreDetailModel *storeModel;
 @end

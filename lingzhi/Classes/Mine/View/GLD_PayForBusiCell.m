@@ -38,6 +38,14 @@
     
     self.nameLabel.text = busnessModel.name;
 }
+- (void)setPayPrice:(CGFloat)payPrice{
+    _payPrice = payPrice;
+    self.cashField.text = [NSString stringWithFormat:@"%.2f",payPrice];
+    self.cashField.enabled = NO;
+    if ([self.payDelegate respondsToSelector:@selector(updatePayCash:)]) {
+        [self.payDelegate updatePayCash:[NSString stringWithFormat:@"%.2f",payPrice]];
+    }
+}
 - (IBAction)visitBusiBut:(id)sender {
     
     

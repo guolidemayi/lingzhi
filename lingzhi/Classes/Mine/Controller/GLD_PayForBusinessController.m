@@ -176,7 +176,8 @@ typedef enum
     GLD_PayForBusiCell *cell = [GLD_PayForBusiCell cellWithReuseIdentifier:@"GLD_PayForBusiCell"];
     cell.payDelegate = self;
     cell.busnessModel = self.payMainModel.shop;
-    
+    if (self.payPrice > 0)
+    cell.payPrice = self.payPrice;
     return cell;
 }
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{

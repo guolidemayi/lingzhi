@@ -14,6 +14,7 @@ extern NSString *const GLD_MapDetailCellIdentifier;
 
 @protocol GLD_MapDetailCellDelegate <NSObject>
 
+@optional
 - (void)reloadApplyListHeight:(CGFloat) height;
 
 - (void)selectLocation:(AMapPOI *)location;

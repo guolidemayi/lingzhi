@@ -37,6 +37,7 @@
 }
 - (GLD_GoodsDetailCell *)getGoodsDetailCell:(NSIndexPath *)indexPath{
     GLD_GoodsDetailCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GLD_GoodsDetailCell"];
+    cell.storeModel = self.storeModel;
     return cell;
 }
 - (void)setComponentCorner{
@@ -67,7 +68,7 @@
         }
         _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
         _cycleView.autoScroll = YES;
-        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(150));
+        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, H(250));
         //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
     }
     return _cycleView;

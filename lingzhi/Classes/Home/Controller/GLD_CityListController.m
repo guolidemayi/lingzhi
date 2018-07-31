@@ -20,7 +20,7 @@
 @property (copy, nonatomic) NSDictionary *dataDict;
 /** 定位城市ID */
 @property (assign, nonatomic) NSInteger Id;
-@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
+
 @end
 
 @implementation GLD_CityListController
@@ -57,7 +57,7 @@
 }
 
 -  (void)getbusnessList {
-    self.NetManager = [GLD_NetworkAPIManager new];
+    
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;

@@ -39,8 +39,8 @@
         [self setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
 
         UIButton *plusBtn = [[UIButton alloc] init];
-        [plusBtn setBackgroundImage:[UIImage imageNamed:@"扫一扫2"] forState:UIControlStateNormal];
-        [plusBtn setBackgroundImage:[UIImage imageNamed:@"扫一扫2"] forState:UIControlStateHighlighted];
+        [plusBtn setBackgroundImage:[UIImage imageNamed:@"post_normal"] forState:UIControlStateNormal];
+        [plusBtn setBackgroundImage:[UIImage imageNamed:@"post_normal"] forState:UIControlStateHighlighted];
 
         self.plusBtn = plusBtn;
 //        self.plusBtn.backgroundColor = [UIColor whiteColor];
@@ -98,8 +98,8 @@
 - (void)plusBtnDidClick
 {
     //如果tabbar的代理实现了对应的代理方法，那么就调用代理的该方法
-    if ([self.delegate respondsToSelector:@selector(tabBarPlusBtnClick:)]) {
-        [self.myDelegate tabBarPlusBtnClick:self];
+    if ([self.delegate respondsToSelector:@selector(tabBarPlusBtnExpressList:)]) {
+        [self.myDelegate tabBarPlusBtnExpressList:self];
     }
 
 }

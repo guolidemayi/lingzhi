@@ -7,7 +7,13 @@
 //
 
 #import "GLD_GoodsDetailCell.h"
+#import "GLD_StoreDetailModel.h"
 
+@interface GLD_GoodsDetailCell ()
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *priceLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *storeTitleLabel;
+@property (unsafe_unretained, nonatomic) IBOutlet UILabel *StoreDetailLabel;
+@end
 @implementation GLD_GoodsDetailCell
 
 - (void)awakeFromNib {
@@ -15,10 +21,13 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setStoreModel:(GLD_StoreDetailModel *)storeModel{
+    _storeModel = storeModel;
+    self.priceLabel.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"￥%zd",MAX(storeModel.storePrice/100, 0)] find:@"￥"  flMaxFont:25 flMinFont:10 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
+    
+    self.storeTitleLabel.text = storeModel.storeName;
+    self.StoreDetailLabel.text = storeModel.storeDetail;
+    
 }
 
 @end

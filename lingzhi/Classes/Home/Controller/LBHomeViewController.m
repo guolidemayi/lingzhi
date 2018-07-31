@@ -28,6 +28,7 @@
 @property (nonatomic, copy)UITableView *home_table;
 @property (nonatomic, strong)GLD_HomeViewManager *homeManager;
 @property (nonatomic, copy)NSString *locationStr;
+@property (nonatomic, strong)GLD_CustomBut *redPointBut;
 @end
 
 
@@ -48,6 +49,7 @@
     [self startLocation];
     //导航到深圳火车站
     [self setNavUi];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showRedPointNoti) name:@"haveCommentRedPoint" object:nil];
 }
 
 
@@ -87,11 +89,12 @@
     
     rightBut.frame = CGRectMake(0, 0, 50, 44);
     [rightBut image:@"站内信"];
-    [rightBut showRedPoint];
+    BOOL isComment = [[NSUserDefaults standardUserDefaults]boolForKey:@"haveCommentRedPoint"];
+    if (isComment) [rightBut showRedPoint];
+    self.redPointBut = rightBut;
     [rightBut addTarget:self action:@selector(rightClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     GLD_CustomBut *rightBut2 = [[GLD_CustomBut alloc]init];;
-    
     rightBut2.frame = CGRectMake(0, 0, 50, 44);
     [rightBut2 image:@"二维码"];
     [rightBut2 addTarget:self action:@selector(rightClick2) forControlEvents:UIControlEventTouchUpInside];
@@ -99,10 +102,18 @@
 //    self.navigationItem.rightBarButtonItem = item1;
     [self.navigationItem setRightBarButtonItems:@[item2,item1]];
 }
+
+- (void)showRedPointNoti{
+     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"haveCommentRedPoint"];
+    [self.redPointBut showRedPoint];
+}
 - (void)rightClick2{
+    
     [(LBTabBarController *)self.tabBarController tabBarPlusBtnClick:nil];
 }
 - (void)rightClick{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"haveCommentRedPoint"];
+    [self.redPointBut hiddenRedPoint];
     GLD_MessageController *message = [GLD_MessageController new];
     [self.navigationController pushViewController:message animated:YES];
 }
@@ -194,5 +205,7 @@
     }];
 }
 
-
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 @end

@@ -18,4 +18,5 @@
 @property (nonatomic, strong)GLD_BusnessModel *busnessModel;
 @property (nonatomic, weak)id<GLD_PayForBusiCellDelegate> payDelegate;
 + (GLD_PayForBusiCell *)cellWithReuseIdentifier:(NSString *)reuseIdentifier;
+@property (nonatomic, assign)CGFloat payPrice;
 @end
