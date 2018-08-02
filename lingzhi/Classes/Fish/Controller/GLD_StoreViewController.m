@@ -49,14 +49,14 @@
     config.requestParameters = @{@"type":@(self.type)};
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
 //        
-//        weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];
-//        NSMutableArray *arrM = [NSMutableArray array];
-//        for (GLD_BannerModel *model in weakSelf.bannerListModel.data) {
-//            [arrM addObject:GetString(model.Pic)];
-//        }
-//        if (arrM.count > 0) {
-//            weakSelf.cycleView.imageURLStringsGroup = arrM.copy;
-//        }
+        GLD_StoreDetaiListlModel *StoreModel = [[GLD_StoreDetaiListlModel alloc] initWithDictionary:result error:nil];
+        if (StoreModel.list.count > 0) {
+            [weakSelf.dataArrM addObjectsFromArray:StoreModel.list];
+            [weakSelf.home_table.mj_footer endRefreshing];
+        }else{
+            [weakSelf.home_table.mj_footer endRefreshingWithNoMoreData];
+        }
+        [weakSelf.home_table.mj_header endRefreshing];
         GLD_StoreDetailModel *model = [GLD_StoreDetailModel new];
         model.storeImg = @"http://www.hhlmcn.com:8080/img/hhlm_bailongma.png,http://www.hhlmcn.com:8080/img/hhlm_bailongma.png";
         model.storeName = @"name";
@@ -91,6 +91,7 @@
         table.estimatedRowHeight = 0;
         table.estimatedSectionHeaderHeight = 0;
         table.estimatedSectionFooterHeight = 0;
+        table.separatorStyle = UITableViewCellSeparatorStyleNone;
         [table setSeparatorInset:UIEdgeInsetsMake(0, W(15), 0, W(15))];
         //        [table mas_makeConstraints:^(MASConstraintMaker *make) {
         //            make.edges.equalTo(self.view);
@@ -105,7 +106,7 @@
             [weakSelf getStoreListData];
             
         }];
-        table.rowHeight = W(120);
+        table.rowHeight = 130;
         [table registerNib:[UINib nibWithNibName:@"GLD_StoreDetailCell" bundle:nil] forCellReuseIdentifier:@"GLD_StoreDetailCell"];
         _home_table = table;
     }

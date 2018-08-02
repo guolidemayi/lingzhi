@@ -76,10 +76,13 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = sendExpressRequest;
-    config.requestParameters = @{@"":self.toLabel.text,
-                                 @"":self.fromLabel.text,
-                                 @"":self.priceTextFeild.text,
-                                 @"":self.expressTipTextView.text,
+    config.requestParameters = @{@"toAddress":self.toLoca.address,
+                                 @"fromAddress":self.fromLoca.address,
+                                 @"price":self.priceTextFeild.text,
+                                 @"tip":self.expressTipTextView.text,
+                                 @"latitude":@(self.toLoca.location.latitude),
+                                 @"longitude":@(self.toLoca.location.longitude),
+                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId)
                                  };
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {

@@ -13,25 +13,55 @@
 #import "GLD_DetailIntroCell.h"
 #import "SDCycleScrollView.h"
 #import "GLD_BusnessModel.h"
+#import "GLD_StoreDetailCell.h"
 
 @interface GLD_BusinessDetailManager ()<SDCycleScrollViewDelegate>
 @property (nonatomic, strong)SDCycleScrollView *cycleView;
+
 @end
 @implementation GLD_BusinessDetailManager
 
-- (void)fetchMainData{
-    [self.tableView.mj_header endRefreshing];
-}
 - (void)reloadOrLoadMoreData{
-    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+    [self fetchMainData];
 }
 - (void)setComponentCorner{
     [self.tableView registerClass:[GLD_DetailRankCell class] forCellReuseIdentifier:GLD_DetailRankCellIdentifier];
     [self.tableView registerClass:[GLD_DetaileCell class] forCellReuseIdentifier:GLD_DetaileCellIdentifier];
     [self.tableView registerClass:[GLD_DetaileBusiCell class] forCellReuseIdentifier:GLD_DetaileBusiCellIdentifier];
     [self.tableView registerClass:[GLD_DetailIntroCell class] forCellReuseIdentifier:GLD_DetailIntroCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"GLD_StoreDetailCell" bundle:nil] forCellReuseIdentifier:@"GLD_StoreDetailCell"];
 }
-
+- (void)fetchMainData{
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = getShopGoodsListRequest;
+    config.requestParameters = @{
+                                 @"dataId":GetString(self.busnessModel.industryId),
+                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                                 };
+    
+    
+    [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if(error){
+            [CAToast showWithText:@"网络出错"];
+            
+        }else{
+           
+            GLD_StoreDetaiListlModel *model = [[GLD_StoreDetaiListlModel alloc]initWithDictionary:result error:nil];
+            if (model.list.count > 0) {
+                [weakSelf.mainDataArrM addObjectsFromArray:model.list];
+                [weakSelf.tableView.mj_footer endRefreshing];
+            }else{
+                [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+            }
+            [weakSelf.tableView.mj_header endRefreshing];
+            [weakSelf.tableView reloadData];
+            
+        }
+        
+    }];
+}
 - (void)setBusnessModel:(GLD_BusnessModel *)busnessModel{
     _busnessModel = busnessModel;
     [self.tableView reloadData];
@@ -40,6 +70,9 @@
     return 4;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 3) {
+        return self.mainDataArrM.count;
+    }
     return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -80,9 +113,9 @@
     cell.instroStr = self.busnessModel.desc;
     return cell;
 }
-- (GLD_DetailRankCell *)getDetailRankCell:(NSIndexPath *)indexPath{
-    GLD_DetailRankCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_DetailRankCellIdentifier];
-    cell.starCont = [self.busnessModel.evaluateScore integerValue];
+- (GLD_StoreDetailCell *)getDetailRankCell:(NSIndexPath *)indexPath{
+    GLD_StoreDetailCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GLD_StoreDetailCell"];
+    cell.storeModel = self.mainDataArrM[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -99,7 +132,7 @@
             return W(50)+height;
         } break;
         case 3:{
-            return W(50);
+            return W(120);
         } break;
     }
     return 0.001;

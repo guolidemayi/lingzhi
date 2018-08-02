@@ -12,6 +12,9 @@
 #import "GLD_BusinessDetailManager.h"
 #import "MapNavigationManager.h"
 #import "GLD_PayForBusinessController.h"
+#import "GLD_PostController.h"
+
+#import "GLD_BusnessCommentController.h"
 
 @interface GLD_BusinessDetailController ()
 
@@ -107,7 +110,7 @@
 }
 - (void)setupBottomView{
     [self.view addSubview:self.bottomView];
-    self.bottomView.frame = CGRectMake(0, DEVICE_HEIGHT-W(44)-64, DEVICE_WIDTH, W(44));
+    self.bottomView.frame = CGRectMake(0, DEVICE_HEIGHT-W(44)-64-iPhoneXBottomHeight, DEVICE_WIDTH, W(44));
     [self.detail_table mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.left.equalTo(self.view);
         make.bottom.equalTo(self.bottomView.mas_top);
@@ -116,6 +119,12 @@
 - (void)bottomButClick:(UIButton *)but{
     switch (but.tag) {
         case 201:{
+            //评论
+            GLD_BusnessCommentController *commentVc = [GLD_BusnessCommentController new];
+            commentVc.busnessModel = self.busnessModel;
+            [self.navigationController pushViewController:commentVc animated:YES];
+        }break;
+        case 202:{
             //导航
 //                [MapNavigationManager showSheetWithCity:self.title start:nil end:@"上海"];
                 CLLocationCoordinate2D coordinate;
@@ -123,11 +132,11 @@
                 coordinate.longitude = [self.busnessModel.ypoint floatValue];
                 [MapNavigationManager showSheetWithCoordinate2D:coordinate];
         }break;
-        case 202:{
+        case 203:{
 //            拨号
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[NSString stringWithFormat:@"tel://%@",self.busnessModel.cellphone] stringByReplacingOccurrencesOfString:@"-" withString:@""]]];
         }break;
-        case 203:{
+        case 204:{
             if(!hasLogin){
                 [CAToast showWithText:@"请登录"];
                 return;
@@ -138,12 +147,25 @@
 
             [self.navigationController pushViewController:jumpVC animated:YES];
         }break;
+        case 205:{
+            //发布商品
+            GLD_PostController *postVC = [GLD_PostController instancePost:^{
+                
+            } andType:2];
+            [self.navigationController pushViewController:postVC animated:YES];
+            
+        }break;
     }
 }
 - (UIView *)bottomView{
     if (!_bottomView) {
         _bottomView = [UIView new];
-        NSArray *arr = @[@"导航",@"拨号",@"向商家付款"];
+        NSArray *arr;
+//        if(![[AppDelegate shareDelegate].userModel.userId isEqualToString:self.busnessModel.userId]){
+//        arr = @[@"评论",@"导航",@"拨号",@"向商家付款"];
+//        }else{
+            arr = @[@"评论",@"导航",@"拨号",@"向商家付款",@"发布商品"];
+//        }
         for (int i = 0; i < arr.count; i++) {
             UIButton *but = [UIButton new];
             UIImageView *imgV = [UIImageView new];
@@ -159,7 +181,7 @@
                 make.centerX.equalTo(but);
                 make.top.equalTo(but).offset(3);
             }];
-            if (i == 2) {
+            if (i == 3) {
                 [label mas_makeConstraints:^(MASConstraintMaker *make) {
                     make.centerX.equalTo(but);
                     make.bottom.equalTo(but);
@@ -173,7 +195,7 @@
             }];
             }
             [_bottomView addSubview:but];
-            but.frame = CGRectMake(DEVICE_WIDTH/3 * i, 0, DEVICE_WIDTH/3, W(44));
+            but.frame = CGRectMake(DEVICE_WIDTH/arr.count * i, 0, DEVICE_WIDTH/arr.count, W(44));
             [but addTarget:self action:@selector(bottomButClick:) forControlEvents:UIControlEventTouchUpInside];
             but.tag = 201 + i;
         }

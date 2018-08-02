@@ -18,6 +18,10 @@
 @property (nonatomic, copy)NSString *toAdress;
 @property (nonatomic, copy)NSString *tip;
 @property (nonatomic, assign)NSInteger price;
+//纬度（竖直方向）
+@property (nonatomic, assign) CGFloat latitude;
+///经度（水平方向）
+@property (nonatomic, assign) CGFloat longitude;
 @end
 
 @interface GLD_ExpressListModel : GLD_BaseModel

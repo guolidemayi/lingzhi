@@ -139,6 +139,8 @@
 		0F54462021100736009FAE8E /* GLD_ExpressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F54461F21100736009FAE8E /* GLD_ExpressModel.m */; };
 		0F54462421103F6E009FAE8E /* GLD_PostExpressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F54462321103F6E009FAE8E /* GLD_PostExpressController.m */; };
 		0F54462721104DFB009FAE8E /* GLD_ExpressAdressController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F54462621104DFB009FAE8E /* GLD_ExpressAdressController.m */; };
+		0F54462A211151FC009FAE8E /* GLD_BusnessCommentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F544629211151FC009FAE8E /* GLD_BusnessCommentController.m */; };
+		0F54462D21118B30009FAE8E /* GLD_InvitMemberModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F54462C21118B30009FAE8E /* GLD_InvitMemberModel.m */; };
 		0F5EC5DB202D51F200298A7D /* GLD_DetailedAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EC5DA202D51F200298A7D /* GLD_DetailedAccountController.m */; };
 		0F5EC5DF202D6F4200298A7D /* GLD_CountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5EC5DD202D6F4200298A7D /* GLD_CountCell.m */; };
 		0F5EC5E0202D6F4200298A7D /* GLD_CountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F5EC5DE202D6F4200298A7D /* GLD_CountCell.xib */; };
@@ -516,6 +518,10 @@
 		0F54462321103F6E009FAE8E /* GLD_PostExpressController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PostExpressController.m; sourceTree = "<group>"; };
 		0F54462521104DFB009FAE8E /* GLD_ExpressAdressController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ExpressAdressController.h; sourceTree = "<group>"; };
 		0F54462621104DFB009FAE8E /* GLD_ExpressAdressController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ExpressAdressController.m; sourceTree = "<group>"; };
+		0F544628211151FC009FAE8E /* GLD_BusnessCommentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BusnessCommentController.h; sourceTree = "<group>"; };
+		0F544629211151FC009FAE8E /* GLD_BusnessCommentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BusnessCommentController.m; sourceTree = "<group>"; };
+		0F54462B21118B30009FAE8E /* GLD_InvitMemberModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_InvitMemberModel.h; sourceTree = "<group>"; };
+		0F54462C21118B30009FAE8E /* GLD_InvitMemberModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_InvitMemberModel.m; sourceTree = "<group>"; };
 		0F5EC5D9202D51F200298A7D /* GLD_DetailedAccountController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_DetailedAccountController.h; sourceTree = "<group>"; };
 		0F5EC5DA202D51F200298A7D /* GLD_DetailedAccountController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_DetailedAccountController.m; sourceTree = "<group>"; };
 		0F5EC5DC202D6F4200298A7D /* GLD_CountCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CountCell.h; sourceTree = "<group>"; };
@@ -913,6 +919,8 @@
 				33FD33B12025780F00725317 /* GLD_PayForBusiModel.m */,
 				0F5EC5E1202D701700298A7D /* GLD_CountModel.h */,
 				0F5EC5E2202D701700298A7D /* GLD_CountModel.m */,
+				0F54462B21118B30009FAE8E /* GLD_InvitMemberModel.h */,
+				0F54462C21118B30009FAE8E /* GLD_InvitMemberModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1437,6 +1445,8 @@
 				0F32E7FE1FE267D20042E8BE /* GLD_AllCateController.m */,
 				0F32E8001FE26CE40042E8BE /* GLD_BannerDetailController.h */,
 				0F32E8011FE26CE40042E8BE /* GLD_BannerDetailController.m */,
+				0F544628211151FC009FAE8E /* GLD_BusnessCommentController.h */,
+				0F544629211151FC009FAE8E /* GLD_BusnessCommentController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2160,6 +2170,7 @@
 				0F42A13A1FD554560072A167 /* GLD_CityModel.m in Sources */,
 				0F32E80B1FE3B14C0042E8BE /* GLD_BackForPasswordController.m in Sources */,
 				0F6411AB1FD5271C0069FDB1 /* GLD_DetailRankCell.m in Sources */,
+				0F54462D21118B30009FAE8E /* GLD_InvitMemberModel.m in Sources */,
 				0F382EF71FDE6F51006689FA /* GLD_MyCollectionController.m in Sources */,
 				0F2C2F6E1FF6362A0083BCCB /* GLD_PhotoView.m in Sources */,
 				0F28D2AE1FD6ADDE00138A8B /* BRTextField.m in Sources */,
@@ -2237,6 +2248,7 @@
 				0F6411861FD4EAB50069FDB1 /* GLD_Request.m in Sources */,
 				0F544613210EFF5E009FAE8E /* GLD_GoodsDetailCell.m in Sources */,
 				0FB537001FC5887C00B0EDA6 /* main.m in Sources */,
+				0F54462A211151FC009FAE8E /* GLD_BusnessCommentController.m in Sources */,
 				330AAB3E1FF4053200523FF0 /* GLD_wanShanUserMController.m in Sources */,
 				0F64119C1FD523BE0069FDB1 /* GLD_BusinessDetailController.m in Sources */,
 				0F32E7FC1FE12CED0042E8BE /* GLD_SearchController.m in Sources */,

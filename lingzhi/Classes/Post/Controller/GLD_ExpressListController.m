@@ -118,7 +118,6 @@
 
 - (void)getDataRequest:(NSDictionary *)parame andComplentBlock:(void(^)(id result))complentBlock{
     WS(weakSelf);
-    
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = expressRequest;
@@ -135,17 +134,32 @@
 - (void)robExpress:(GLD_ExpressModel *)model andType:(robType)type{
     switch (type) {
         case robTypeMyExpress:{
-//            CLLocationCoordinate2D coordinate;
-//            coordinate.latitude = [self.busnessModel.xpoint floatValue];
-//            coordinate.longitude = [self.busnessModel.ypoint floatValue];
-//            [MapNavigationManager showSheetWithCoordinate2D:coordinate];
+            CLLocationCoordinate2D coordinate;
+            coordinate.latitude = model.latitude;
+            coordinate.longitude = model.longitude;
+            [MapNavigationManager showSheetWithCoordinate2D:coordinate];
         }break;
         case robTypeGetExpress:{
-            
+            [self toRobExpressRequest:model];
         }break;
     }
 }
 
+- (void)toRobExpressRequest:(GLD_ExpressModel *)model{
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = robExpressRequest;
+    config.requestParameters = @{@"expressId":GetString(model.expressId),
+                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId)
+                                 };
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            [CAToast showWithText:@"发布成功"];
+        }else{
+            [CAToast showWithText:@"网络错误"];
+        }
+    }];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if ([tableView isEqual:self.remindTable]) {
         return _remindArrM.count;

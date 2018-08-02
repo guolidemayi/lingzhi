@@ -148,6 +148,7 @@
         [dictM addEntriesFromDictionary:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
                                           @"title":self.textField.text ,
                                           @"summary":self.textView.text,
+                                          @"price":self.priceTextField.text,
                                           @"pic":jsonString}];
     }else{
         [dictM addEntriesFromDictionary:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
@@ -159,7 +160,7 @@
     
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = self.type == 1 ? @"api/comment/addbbs" : @"";
+    config.urlPath = self.type == 1 ? @"api/comment/addbbs" : sendGoodsRequest;
     config.requestParameters = dictM;
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {

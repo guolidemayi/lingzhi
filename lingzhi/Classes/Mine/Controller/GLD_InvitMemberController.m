@@ -7,12 +7,13 @@
 //
 
 #import "GLD_InvitMemberController.h"
-
+#import "GLD_InvitMemberModel.h"
 #define GLD_CollectionCellIndent @"GLD_CollectionCellIndent"
+
 
 @interface GLD_CollectionCell : UICollectionViewCell
 
-
+@property (nonatomic, strong)GLD_InvitMemberModel *model;
 @property (nonatomic, strong)UIImageView *imgV;
 @property (nonatomic, strong)UILabel *name;
 @end
@@ -27,6 +28,11 @@
         [self layout];
     }
     return self;
+}
+- (void)setModel:(GLD_InvitMemberModel *)model{
+    _model = model;
+    [self.imgV yy_setImageWithURL:[NSURL URLWithString:model.imgStr] placeholder:nil];
+    self.name.text = [NSString stringWithFormat:@"%@分",model.score];
 }
 - (void)setupUI{
     self.name = [UILabel creatLableWithText:@"xxx" andFont:WTFont(15) textAlignment:NSTextAlignmentCenter textColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE]];
@@ -75,15 +81,14 @@
     // Dispose of any resources that can be recreated.
 }
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
-    
-    return 5;
+    return self.dataArr.count;
 }
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     return [self getIndustryCollecCell:indexPath];
 }
 - (GLD_CollectionCell *)getIndustryCollecCell:(NSIndexPath *)indexPath{
     GLD_CollectionCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:GLD_CollectionCellIndent forIndexPath:indexPath];
+    cell.model = self.dataArr[indexPath.row];
     return cell;
 }
 - (void)getOrderList{
@@ -92,7 +97,7 @@
     
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/order/getShopOrderList";
+    config.urlPath = inviteSomeBodyRequest;
     config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
                                  @"limit" : @"10",
                                  @"offset" : [NSString stringWithFormat:@"%zd",offset]
@@ -100,16 +105,17 @@
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
-//            GLD_OrderModelListModel *orderListModel = [[GLD_OrderModelListModel alloc] initWithDictionary:result error:nil];
-//            if (orderListModel.data.count == 0 && !IsExist_Array(weakSelf.dataArr)) {
-//                weakSelf.noDataLabel.text = @"暂无订单消息";
-//                weakSelf.noDataLabel.hidden = NO;
-//                [weakSelf.view bringSubviewToFront:weakSelf.noDataLabel];
-//            }else{
-//                weakSelf.noDataLabel.hidden = YES;
-//            }
-//            [weakSelf.dataArr addObjectsFromArray:orderListModel.data];
+            GLD_InvitMemberListModel *orderListModel = [[GLD_InvitMemberListModel alloc] initWithDictionary:result error:nil];
+            if (orderListModel.data.count == 0 && !IsExist_Array(weakSelf.dataArr)) {
+                weakSelf.noDataLabel.text = @"暂无收入，快去推荐好友吧";
+                weakSelf.noDataLabel.hidden = NO;
+                [weakSelf.view bringSubviewToFront:weakSelf.noDataLabel];
+            }else{
+                weakSelf.noDataLabel.hidden = YES;
+            }
+            [weakSelf.dataArr addObjectsFromArray:orderListModel.data];
 //
+            [weakSelf.collectionView reloadData];
             
         }else{
             [CAToast showWithText:@"请求失败，请重试"];

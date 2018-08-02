@@ -48,7 +48,7 @@
         [plusBtn addTarget:self action:@selector(plusBtnDidClick) forControlEvents:UIControlEventTouchUpInside];
 
         [self addSubview:plusBtn];
-        [self addSubview:self.plusLabel];
+//        [self addSubview:self.plusLabel];
 
 
     }
@@ -63,14 +63,14 @@
 
     self.plusBtn.x = self.centerX - W(25);
     //调整发布按钮的中线点Y值
-    self.plusBtn.y = -W(20) ;
+    self.plusBtn.y = -W(25) ;
 
-    self.plusBtn.size = CGSizeMake(W(50), W(70));
+    self.plusBtn.size = CGSizeMake(W(60), W(60));
 
 
     
-    self.plusLabel.centerX = self.plusBtn.centerX;
-    self.plusLabel.centerY = CGRectGetMaxY(self.plusBtn.frame)-W(15) ;
+//    self.plusLabel.centerX = self.plusBtn.centerX;
+//    self.plusLabel.centerY = CGRectGetMaxY(self.plusBtn.frame)-W(15) ;
 
 
 
@@ -130,16 +130,16 @@
     }
 }
 
-- (UILabel *)plusLabel{
-    if (!_plusLabel) {
-        
-        UILabel *label = [[UILabel alloc] init];
-        label.text = @"扫码.支付";
-        label.font = WTFont(12);
-        [label sizeToFit];
-        label.textColor = [UIColor grayColor];
-        _plusLabel = label;
-    }
-    return _plusLabel;
-}
+//- (UILabel *)plusLabel{
+//    if (!_plusLabel) {
+//
+//        UILabel *label = [[UILabel alloc] init];
+//        label.text = @"扫码.支付";
+//        label.font = WTFont(12);
+//        [label sizeToFit];
+//        label.textColor = [UIColor grayColor];
+//        _plusLabel = label;
+//    }
+//    return _plusLabel;
+//}
 @end
