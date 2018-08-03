@@ -74,8 +74,8 @@
         NSString *endTime =[YXUniversal intervalToDate:[model.end longLongValue] withFormat:@"MMddHHmm"];
       
         
-        if (currentT > [startTime floatValue] && currentT < [endTime floatValue]) {
-            
+//        if (currentT > [startTime floatValue] && currentT < [endTime floatValue]) {
+        
             _adModel = model;
             //拿到图片
             NSString *path_document = NSHomeDirectory();
@@ -84,15 +84,15 @@
             UIImage *img = [UIImage imageWithContentsOfFile:imagePath];
             self.imageV_flash.image = img;
             [self startTimer];
-            break;
-        }
+
+//        }
         
-        if (currentT > [endTime floatValue]) {
-            //移除
-            [YXFlashAdViewController removeAdsList:model];
-            
-            [YXFlashAdViewController deleteBenDiFile:model];
-        }
+//        if (currentT > [endTime floatValue]) {
+//            //移除
+//            [YXFlashAdViewController removeAdsList:model];
+//
+//            [YXFlashAdViewController deleteBenDiFile:model];
+//        }
     }
     
     [self endAds];
