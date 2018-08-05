@@ -41,7 +41,14 @@
     }];
 }
 - (void)applybutClick{
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = scorePayGoodsRequest;
     
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+    }];
 }
 - (UIButton *)applyBut{
     if (!_applyBut) {

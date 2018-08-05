@@ -13,10 +13,10 @@
 @end
 @interface GLD_ExpressModel : JSONModel
 
-@property (nonatomic, copy)NSString *fromAdress;
+@property (nonatomic, copy)NSString *start;
 @property (nonatomic, copy)NSString *expressId;
-@property (nonatomic, copy)NSString *toAdress;
-@property (nonatomic, copy)NSString *tip;
+@property (nonatomic, copy)NSString *end;
+@property (nonatomic, copy)NSString *title;
 @property (nonatomic, assign)NSInteger price;
 //纬度（竖直方向）
 @property (nonatomic, assign) CGFloat latitude;

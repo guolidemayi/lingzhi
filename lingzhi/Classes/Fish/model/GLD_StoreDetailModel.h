@@ -17,6 +17,7 @@
 @property (nonatomic, copy)NSString *storeDetail;
 @property (nonatomic, copy)NSString *storeName;
 @property (nonatomic, copy)NSString *storeImg;
+@property (nonatomic, copy)NSString *payUserId;//被付款人id
 @end
 
 

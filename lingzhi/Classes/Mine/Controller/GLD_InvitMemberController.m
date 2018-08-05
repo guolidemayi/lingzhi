@@ -74,6 +74,7 @@
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    [self getOrderList];
 }
 
 - (void)didReceiveMemoryWarning {

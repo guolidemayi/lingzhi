@@ -47,9 +47,9 @@
     _expressModel = expressModel;
     self.priceLabel.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"￥%zd",MAX(expressModel.price/100, 0)] find:@"￥"  flMaxFont:25 flMinFont:10 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
     
-    self.fromLabel.text = GetString(expressModel.fromAdress);
-    self.toLabel.text = GetString(expressModel.toAdress);
-    self.tipLabel.text = GetString(expressModel.tip);
+    self.fromLabel.text = GetString(expressModel.start);
+    self.toLabel.text = GetString(expressModel.end);
+    self.tipLabel.text = GetString(expressModel.title);
 }
 
 @end

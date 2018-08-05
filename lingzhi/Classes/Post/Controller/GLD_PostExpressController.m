@@ -76,17 +76,19 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = sendExpressRequest;
-    config.requestParameters = @{@"toAddress":self.toLoca.address,
-                                 @"fromAddress":self.fromLoca.address,
+    config.requestParameters = @{@"end":self.toLoca.address,
+                                 @"start":self.fromLoca.address,
                                  @"price":self.priceTextFeild.text,
-                                 @"tip":self.expressTipTextView.text,
+                                 @"title":self.expressTipTextView.text,
                                  @"latitude":@(self.toLoca.location.latitude),
                                  @"longitude":@(self.toLoca.location.longitude),
                                  @"userId":GetString([AppDelegate shareDelegate].userModel.userId)
                                  };
+    WS(weakSelf);
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
             [CAToast showWithText:@"发布成功"];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
         }else{
             [CAToast showWithText:@"网络错误"];
         }

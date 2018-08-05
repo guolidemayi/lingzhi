@@ -9,6 +9,7 @@
 #import "GLD_StoreViewController.h"
 #import "GLD_StoreDetailCell.h"
 #import "GLD_GoodsDetailController.h"
+#import "GLD_PayForBusinessController.h"
 
 @interface GLD_StoreViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -78,9 +79,25 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    GLD_GoodsDetailController *detailVc = [[GLD_GoodsDetailController alloc]init];
-    detailVc.storeModel = self.dataArrM[indexPath.row];
-    [self.navigationController pushViewController:detailVc animated:YES];
+    GLD_StoreDetailModel *storeModel = self.dataArrM[indexPath.row];
+    switch (self.type) {
+        case 1:{
+//            self.title = @"积分商城";
+            GLD_GoodsDetailController *detailVc = [[GLD_GoodsDetailController alloc]init];
+            detailVc.storeModel = storeModel;
+            [self.navigationController pushViewController:detailVc animated:YES];
+        } break;
+        case 2:
+//            self.title = @"代金券商城";
+            break;
+        case 3:{
+//            self.title = @"特价商城";
+            GLD_PayForBusinessController *payVc = [GLD_PayForBusinessController new];
+            payVc.payForUserId = storeModel.payUserId;
+            payVc.payPrice = 100;
+            [self.navigationController pushViewController:payVc animated:YES];
+        }break;
+    }
 }
 - (UITableView *)home_table{
     if (!_home_table) {

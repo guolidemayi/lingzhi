@@ -11,6 +11,7 @@
 
 @interface GLD_ExpressAdressController ()<GLD_MapDetailCellDelegate>
 @property (nonatomic, copy)void(^block)(AMapPOI *location);
+@property (nonatomic, strong) GLD_MapDetailCell *cell;
 @end
 
 @implementation GLD_ExpressAdressController
@@ -22,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     GLD_MapDetailCell *cell = [[GLD_MapDetailCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"GLD_MapDetailCell"];
-    
+    self.cell = cell;
+    cell.mapDelegate = self;
     [self.view addSubview:cell.contentView];
     [cell.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -32,9 +34,11 @@
 
 
 - (void)selectLocation:(AMapPOI *)location{
-    if (self.block) {
-        self.block(location);
-        [self.navigationController popViewControllerAnimated:YES];
+    if ([self.navigationController.topViewController isEqual:self]) {
+        if (self.block) {
+            self.block(location);
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 

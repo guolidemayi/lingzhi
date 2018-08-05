@@ -81,12 +81,6 @@
         }else{
             [weakSelf.remindTable.mj_footer endRefreshingWithNoMoreData];
         }
-        GLD_ExpressModel *model = [GLD_ExpressModel new];
-        model.fromAdress =  @"beijing ";
-        model.toAdress = @"bejing";
-        model.price = 1000;
-        model.tip = @"sdafads;hfa;hfdskajhfkahfdljhsalfhdskjalfhakjlhsdfjklhsda";
-        [weakSelf.remindArrM addObject:model];
         [weakSelf.remindTable.mj_header endRefreshing];
         [weakSelf.remindTable reloadData];
     }];
@@ -103,12 +97,6 @@
         }else{
             [weakSelf.commentTable.mj_footer endRefreshingWithNoMoreData];
         }
-        GLD_ExpressModel *model = [GLD_ExpressModel new];
-        model.fromAdress =  @"beijing ";
-        model.toAdress = @"bejing";
-        model.price = 1000;
-        model.tip = @"sdafads;hfa;hfdskajhfkahfdljhsalfhdskjalfhakjlhsdfjklhsda";
-        [weakSelf.commentArrM addObject:model];
         [weakSelf.commentTable.mj_header endRefreshing];
         [weakSelf.commentTable reloadData];
     }];

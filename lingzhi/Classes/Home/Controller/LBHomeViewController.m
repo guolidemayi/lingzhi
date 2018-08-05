@@ -50,6 +50,7 @@
     //导航到深圳火车站
     [self setNavUi];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showRedPointNoti) name:@"haveCommentRedPoint" object:nil];
+    [self fetchRedPointRequest];
 }
 
 
@@ -121,6 +122,24 @@
 - (void)SearchCLick{
     GLD_SearchController *searchVc = [GLD_SearchController new];
     [self.navigationController pushViewController:searchVc animated:YES];
+}
+
+- (void)fetchRedPointRequest{
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = getRedPointRequest;
+    config.requestParameters = @{
+                                 };
+    self.NetManager = [GLD_NetworkAPIManager new];
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+           
+            [CAToast showWithText:@"请求成功"];
+        }else{
+            [CAToast showWithText:@"请求失败，请重试"];
+        }
+        
+    }];
 }
 //城市列表
 - (void)mapNav{
