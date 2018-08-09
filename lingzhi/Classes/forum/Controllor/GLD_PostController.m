@@ -145,7 +145,7 @@
             [CAToast showWithText:@"请输入价格"];
             return;
         }
-        [dictM addEntriesFromDictionary:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+        [dictM addEntriesFromDictionary:@{@"id":GetString([AppDelegate shareDelegate].userModel.userId),
                                           @"title":self.textField.text ,
                                           @"summary":self.textView.text,
                                           @"price":self.priceTextField.text,

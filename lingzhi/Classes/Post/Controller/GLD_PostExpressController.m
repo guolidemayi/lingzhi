@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *priceTextFeild;
 @property (weak, nonatomic) IBOutlet UITextView *expressTipTextView;
 @property (weak, nonatomic) IBOutlet UIButton *sendBut;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextFeild;
 
 @property (nonatomic, strong)AMapPOI *fromLoca;
 @property (nonatomic, strong)AMapPOI *toLoca;
@@ -68,6 +69,10 @@
         [CAToast showWithText:@"请输入价格"];
         return;
     }
+    if(!IsExist_String(self.phoneTextFeild.text)){
+        [CAToast showWithText:@"请输入手机号"];
+        return;
+    }
     if(!IsExist_String(self.expressTipTextView.text)){
         [CAToast showWithText:@"请输入商品描述及备注"];
         return;
@@ -80,8 +85,8 @@
                                  @"start":self.fromLoca.address,
                                  @"price":self.priceTextFeild.text,
                                  @"title":self.expressTipTextView.text,
-                                 @"latitude":@(self.toLoca.location.latitude),
-                                 @"longitude":@(self.toLoca.location.longitude),
+                               @"phone":self.phoneTextFeild.text,  @"latitude":@(self.fromLoca.location.latitude),
+                                 @"longitude":@(self.fromLoca.location.longitude),
                                  @"userId":GetString([AppDelegate shareDelegate].userModel.userId)
                                  };
     WS(weakSelf);

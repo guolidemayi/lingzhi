@@ -11,5 +11,5 @@
 @interface GLD_StoreViewController : GLD_BaseViewController
 
 
-@property (nonatomic, assign)NSInteger type;//1积分商城 2代金券商城  3特价商城
+@property (nonatomic, assign)NSInteger type;//1积分商城 3代金券商城  2特价商城
 @end

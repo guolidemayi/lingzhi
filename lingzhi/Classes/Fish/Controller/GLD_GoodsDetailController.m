@@ -41,13 +41,15 @@
     }];
 }
 - (void)applybutClick{
-    WS(weakSelf);
+    
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = scorePayGoodsRequest;
-    
+    config.requestParameters = @{@"goodId":GetString(self.storeModel.storeId),@"userId":GetString([AppDelegate shareDelegate].userModel.userId)};
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-        
+        if (!error) {
+            [CAToast showWithText:error.localizedDescription];
+        }
     }];
 }
 - (UIButton *)applyBut{

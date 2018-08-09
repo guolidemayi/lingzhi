@@ -34,10 +34,10 @@
         case 1:
             self.title = @"积分商城";
             break;
-        case 2:
+        case 3:
             self.title = @"代金券商城";
             break;
-        case 3:
+        case 2:
             self.title = @"特价商城";
             break;
     }
@@ -58,11 +58,11 @@
             [weakSelf.home_table.mj_footer endRefreshingWithNoMoreData];
         }
         [weakSelf.home_table.mj_header endRefreshing];
-        GLD_StoreDetailModel *model = [GLD_StoreDetailModel new];
-        model.storeImg = @"http://www.hhlmcn.com:8080/img/hhlm_bailongma.png,http://www.hhlmcn.com:8080/img/hhlm_bailongma.png";
-        model.storeName = @"name";
-        model.storeDetail = @"http://www.hhlmcn.com:8080/img/hhlm_bailongma.pnghttp://www.hhlmcn.com:8080/img/hhlm_bailongma.png";
-        [weakSelf.dataArrM addObject:model];
+//        GLD_StoreDetailModel *model = [GLD_StoreDetailModel new];
+//        model.storeImg = @"http://www.hhlmcn.com:8080/img/hhlm_bailongma.png,http://www.hhlmcn.com:8080/img/hhlm_bailongma.png";
+//        model.storeName = @"name";
+//        model.storeDetail = @"http://www.hhlmcn.com:8080/img/hhlm_bailongma.pnghttp://www.hhlmcn.com:8080/img/hhlm_bailongma.png";
+//        [weakSelf.dataArrM addObject:model];
         [weakSelf.home_table reloadData];
     }];
 }

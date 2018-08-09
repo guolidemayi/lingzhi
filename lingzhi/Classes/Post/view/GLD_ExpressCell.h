@@ -11,7 +11,8 @@
 
 typedef NS_ENUM(NSInteger, robType){
     robTypeMyExpress,
-    robTypeGetExpress
+    robTypeGetExpress,
+    robTypeHasRob,
 };
 
 @protocol GLD_ExpressCellDelegate <NSObject>
@@ -22,6 +23,6 @@ typedef NS_ENUM(NSInteger, robType){
 @interface GLD_ExpressCell : GLD_BaseCell
 
 @property (nonatomic, strong)GLD_ExpressModel *expressModel;
-@property (nonatomic, assign)robType type;//1，抢单 2，我的单
+@property (nonatomic, assign)robType type;//1，抢单 2，已抢单 3 完成
 @property (nonatomic, weak)id<GLD_ExpressCellDelegate> expressDelegate;
 @end

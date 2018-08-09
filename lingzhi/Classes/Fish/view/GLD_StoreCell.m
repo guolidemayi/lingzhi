@@ -22,10 +22,10 @@
     [self pushToStore:1];
 }
 - (IBAction)couponStoreClick:(id)sender {
-    [self pushToStore:2];
+    [self pushToStore:3];
 }
 - (IBAction)onSalesStoreClick:(id)sender {
-    [self pushToStore:3];
+    [self pushToStore:2];
 }
 
 - (void)pushToStore:(NSInteger)type{

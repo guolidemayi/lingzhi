@@ -72,7 +72,10 @@
 }
 - (void)getRemindMessageContent{
     WS(weakSelf);
-    [self getDataRequest:@{@"type":@"1"} andComplentBlock:^(id result) {
+    [self getDataRequest:@{@"city":GetString([AppDelegate shareDelegate].placemark.area_name),
+                           @"lat":@([AppDelegate shareDelegate].placemark.lat),
+                           @"lng":@([AppDelegate shareDelegate].placemark.lon),
+                           } andComplentBlock:^(id result) {
         GLD_ExpressListModel *listModel = [[GLD_ExpressListModel alloc]initWithDictionary:result error:nil];
         
         if (listModel.data.count > 0) {
@@ -88,7 +91,7 @@
 }
 - (void)getCommentMessageContent{
     WS(weakSelf);
-    [self getDataRequest:@{@"":@""} andComplentBlock:^(id result) {
+    [self getDataRequest:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId)} andComplentBlock:^(id result) {
         GLD_ExpressListModel *listModel = [[GLD_ExpressListModel alloc]initWithDictionary:result error:nil];
         
         if (listModel.data.count > 0) {
@@ -122,13 +125,18 @@
 - (void)robExpress:(GLD_ExpressModel *)model andType:(robType)type{
     switch (type) {
         case robTypeMyExpress:{
-            CLLocationCoordinate2D coordinate;
-            coordinate.latitude = model.latitude;
-            coordinate.longitude = model.longitude;
-            [MapNavigationManager showSheetWithCoordinate2D:coordinate];
+//            CLLocationCoordinate2D coordinate;
+//            coordinate.latitude = model.latitude;
+//            coordinate.longitude = model.longitude;
+//            [MapNavigationManager showSheetWithCoordinate2D:coordinate];
         }break;
         case robTypeGetExpress:{
+            model.status = 1;
             [self toRobExpressRequest:model];
+        }break;
+        case robTypeHasRob:{
+            //完成
+            model.status = 2;
         }break;
     }
 }
@@ -138,7 +146,8 @@
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = robExpressRequest;
     config.requestParameters = @{@"expressId":GetString(model.expressId),
-                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId)
+                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                                 @"status":@(model.status)
                                  };
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
@@ -176,7 +185,7 @@
 
     GLD_ExpressCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GLD_ExpressCell" forIndexPath:indexPath];
     
-    cell.type = robTypeGetExpress;
+//    cell.type = robTypeGetExpress;
     cell.expressDelegate = self;
     if (IsExist_Array(_remindArrM))
         cell.expressModel = _remindArrM[indexPath.row];;
@@ -187,7 +196,7 @@
 
     GLD_ExpressCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GLD_ExpressCell" forIndexPath:indexPath];
    cell.expressDelegate = self;
-    cell.type = robTypeMyExpress;
+//    cell.type = robTypeMyExpress;
     if(IsExist_Array(_commentArrM))
         cell.expressModel = _commentArrM[indexPath.row];
     return cell;
