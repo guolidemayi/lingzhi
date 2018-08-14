@@ -17,6 +17,7 @@
 @property (nonatomic, copy)NSString *expressId;
 @property (nonatomic, copy)NSString *end;
 @property (nonatomic, copy)NSString *title;
+@property (nonatomic, copy)NSString *phone;
 @property (nonatomic, assign)NSInteger price;
 @property (nonatomic, assign)NSInteger status;//0 可抢单 1 派件中 2 完成
 //纬度（竖直方向）

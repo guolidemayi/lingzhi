@@ -9,6 +9,7 @@
 #import "GLD_ExpressCell.h"
 
 @interface GLD_ExpressCell ()
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @property (weak, nonatomic) IBOutlet UIButton *robBut;
 @property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fromLabel;
@@ -31,6 +32,17 @@
     if ([self.expressDelegate respondsToSelector:@selector(robExpress:andType:)]) {
         [self.expressDelegate robExpress:self.expressModel andType:self.type];
     }
+    switch (self.type) {
+        case robTypeGetExpress:{
+            self.type = robTypeHasRob;
+        }break;
+        case robTypeMyExpress:{
+           
+        }break;
+        case robTypeHasRob:{
+           
+        }break;
+    }
 }
 - (void)setType:(robType)type{
     _type = type;
@@ -48,7 +60,8 @@
 }
 - (void)setExpressModel:(GLD_ExpressModel *)expressModel{
     _expressModel = expressModel;
-    self.priceLabel.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"￥%zd",MAX(expressModel.price/100, 0)] find:@"￥"  flMaxFont:25 flMinFont:10 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
+    self.priceLabel.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"￥%zd",MAX(expressModel.price, 0)] find:@"￥"  flMaxFont:25 flMinFont:10 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
+    self.phoneLabel.text = [NSString stringWithFormat:@"手机号：%@",expressModel.phone];
     switch (expressModel.status) {
         case 0:{
             self.type = robTypeGetExpress;

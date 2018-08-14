@@ -76,6 +76,7 @@
 }
 - (void)getRemindMessageContent{
     WS(weakSelf);
+    [self.remindArrM removeAllObjects];
     [self getDataRequest:@{@"city":IsExist_String([AppDelegate shareDelegate].placemark.area_name)? [AppDelegate shareDelegate].placemark.area_name :@"北京",
                            @"lat":@([AppDelegate shareDelegate].placemark.lat),
                            @"lng":@([AppDelegate shareDelegate].placemark.lon),
@@ -95,6 +96,7 @@
 }
 - (void)getCommentMessageContent{
     WS(weakSelf);
+    [self.commentArrM removeAllObjects];
     [self getDataRequest:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId)} andComplentBlock:^(id result) {
         GLD_ExpressListModel *listModel = [[GLD_ExpressListModel alloc]initWithDictionary:result error:nil];
         
@@ -156,7 +158,7 @@
                                  };
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
-            [CAToast showWithText:@"发布成功"];
+            [CAToast showWithText:@"抢单成功"];
         }else{
             [CAToast showWithText:@"网络错误"];
         }
@@ -208,7 +210,7 @@
 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return H(100);
+    return H(130);
 }
 
 - (void)MyButClick: (UIButton *)senser{
