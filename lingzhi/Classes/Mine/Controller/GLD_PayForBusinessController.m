@@ -11,6 +11,7 @@
 #import "GLD_PayForBusiModel.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "GLD_ExpressAddressView.h"
+#import "GLD_ExpressAddressView.h"
 
 typedef enum
 {
@@ -37,7 +38,7 @@ typedef enum
 
 @property (nonatomic, weak)UILabel *cashLabel;//
 
-@property (nonatomic, strong) GLD_NetworkAPIManager *NetManager;//
+
 @property (nonatomic, strong) GLD_PayForBusiModel *payMainModel;//
 @property (nonatomic, assign) CGFloat payMoney;//要支付的钱
 @property (nonatomic, assign) CGFloat payCoupon;//预付的代金券
@@ -361,6 +362,14 @@ typedef enum
             [CAToast showWithText:@"支付错误"];
         }
     }];
+}
+- (void)showWriteAddressView{
+    WS(weakSelf);
+    GLD_ExpressAddressView *view = [GLD_ExpressAddressView expressAddressView:^{
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    }];
+    [self.view addSubview:view];
+    view.frame = self.view.bounds;
 }
 - (void)payToWeChatWithDic:(NSDictionary *)dic
 {
