@@ -10,6 +10,7 @@
 #import "GLD_PayForBusiCell.h"
 #import "GLD_PayForBusiModel.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "GLD_ExpressAddressView.h"
 
 typedef enum
 {

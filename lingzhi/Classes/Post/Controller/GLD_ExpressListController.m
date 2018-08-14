@@ -44,13 +44,17 @@
     offset = 0;
     pagNo = 0;
    
-    
+    self.NetManager = [GLD_NetworkAPIManager new];
     [self setupTopView];
     [self layoutTopView];
     [self setContentView];
 //    [self getCommentMessageContent];
-    [self getRemindMessageContent];
+   
     [self setUpNav];
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+     [self getRemindMessageContent];
 }
 - (void)setUpNav
 {
@@ -72,7 +76,7 @@
 }
 - (void)getRemindMessageContent{
     WS(weakSelf);
-    [self getDataRequest:@{@"city":GetString([AppDelegate shareDelegate].placemark.area_name),
+    [self getDataRequest:@{@"city":IsExist_String([AppDelegate shareDelegate].placemark.area_name)? [AppDelegate shareDelegate].placemark.area_name :@"北京",
                            @"lat":@([AppDelegate shareDelegate].placemark.lat),
                            @"lng":@([AppDelegate shareDelegate].placemark.lon),
                            } andComplentBlock:^(id result) {
@@ -108,17 +112,18 @@
 }
 
 - (void)getDataRequest:(NSDictionary *)parame andComplentBlock:(void(^)(id result))complentBlock{
-    WS(weakSelf);
+    
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = expressRequest;
     config.requestParameters = parame;
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
-          complentBlock(result);
         }else{
             [CAToast showWithText:@"网络错误"];
         }
+        complentBlock(result);
+        
     }];
 }
 #pragma GLD_ExpressCellDelegate

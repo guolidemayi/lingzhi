@@ -46,7 +46,9 @@
     }];
     [self.navigationController pushViewController:expressVc animated:YES];
 }
-
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
 - (void)toLabelClick{
     WS(weakSelf);
     GLD_ExpressAdressController *expressVc = [GLD_ExpressAdressController initWithBlock:^(AMapPOI *location) {
@@ -85,9 +87,10 @@
                                  @"start":self.fromLoca.address,
                                  @"price":self.priceTextFeild.text,
                                  @"title":self.expressTipTextView.text,
-                               @"phone":self.phoneTextFeild.text,  @"latitude":@(self.fromLoca.location.latitude),
-                                 @"longitude":@(self.fromLoca.location.longitude),
-                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId)
+                               @"phone":self.phoneTextFeild.text,  @"lat":@(self.fromLoca.location.latitude),
+                                 @"lng":@(self.fromLoca.location.longitude),
+                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                                 @"city":self.fromLoca.city
                                  };
     WS(weakSelf);
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {

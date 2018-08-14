@@ -832,9 +832,7 @@
     
     [self uploadImage:data];
     self.iconImgV.image = photoImage;
-    //    [[self.contentArray objectAtIndex:0] setValue:photoImage forKey:@"content"];
-    //
-    //    [self.tableV_peronalInfo reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0],nil] withRowAnimation:UITableViewRowAnimationNone];
+   
 }
 -(void)uploadImage:(NSData *)data
 {

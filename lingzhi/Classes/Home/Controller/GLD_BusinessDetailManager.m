@@ -37,8 +37,7 @@
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = getShopGoodsListRequest;
     config.requestParameters = @{
-                                 @"dataId":GetString(self.busnessModel.industryId),
-                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                                 @"id":GetString(self.busnessModel.industryId)
                                  };
     
     

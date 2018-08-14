@@ -130,13 +130,13 @@
     config.urlPath = getRedPointRequest;
     config.requestParameters = @{
                                  };
-    self.NetManager = [GLD_NetworkAPIManager new];
+    
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
            
             [CAToast showWithText:@"请求成功"];
         }else{
-            [CAToast showWithText:@"请求失败，请重试"];
+//            [CAToast showWithText:@"请求失败，请重试"];
         }
         
     }];

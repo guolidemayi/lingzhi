@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Home/Controller/GLD_BusinessDetailManager.m"
-            timestampString = "554798807.073231"
+            timestampString = "555819252.421219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "7">
          </BreakpointContent>
@@ -132,12 +132,12 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/setting/GLD_ChangePassWordController.m"
-                  timestampString = "555506606.582535"
+                  timestampString = "555856041.228176"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "84"
                   endingLineNumber = "84"
-                  offsetFromSymbolStart = "968">
+                  offsetFromSymbolStart = "876">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -147,12 +147,12 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/setting/GLD_ChangePassWordController.m"
-                  timestampString = "555506606.585097"
+                  timestampString = "555856041.230422"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
                   endingLineNumber = "69"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -212,12 +212,12 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/setting/GLD_ChangePassWordController.m"
-                  timestampString = "555506606.599069"
+                  timestampString = "555856041.256304"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
                   endingLineNumber = "69"
-                  offsetFromSymbolStart = "4244">
+                  offsetFromSymbolStart = "3784">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -227,7 +227,7 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/setting/GLD_ChangePassWordController.m"
-                  timestampString = "555506606.601009"
+                  timestampString = "555856041.258275"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "70"
@@ -242,12 +242,12 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/setting/GLD_ChangePassWordController.m"
-                  timestampString = "555506606.60304"
+                  timestampString = "555856041.2601449"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "69"
                   endingLineNumber = "69"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -307,12 +307,12 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/setting/GLD_NewPhoneController.m"
-                  timestampString = "555506606.6171989"
+                  timestampString = "555856041.2755719"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "63"
                   endingLineNumber = "63"
-                  offsetFromSymbolStart = "3511">
+                  offsetFromSymbolStart = "2872">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -322,12 +322,12 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/setting/GLD_NewPhoneController.m"
-                  timestampString = "555506606.619265"
+                  timestampString = "555856041.2775249"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "64"
                   endingLineNumber = "64"
-                  offsetFromSymbolStart = "116">
+                  offsetFromSymbolStart = "108">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -337,12 +337,12 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/setting/GLD_NewPhoneController.m"
-                  timestampString = "555506606.6213"
+                  timestampString = "555856041.279375"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "63"
                   endingLineNumber = "63"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -354,11 +354,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Mine/Controller/GLD_PayForBusinessController.m"
-            timestampString = "554798807.073631"
+            timestampString = "555856041.028632"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "381"
-            endingLineNumber = "381"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
             landmarkName = "-payToWeChatWithDic:"
             landmarkType = "7">
          </BreakpointContent>
@@ -370,11 +370,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Mine/Controller/GLD_PayForBusinessController.m"
-            timestampString = "554798807.073729"
+            timestampString = "555856041.028736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "370"
-            endingLineNumber = "370"
+            startingLineNumber = "371"
+            endingLineNumber = "371"
             landmarkName = "-payToWeChatWithDic:"
             landmarkType = "7">
          </BreakpointContent>
@@ -386,7 +386,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Mine/Controller/GLD_ApplyBusnessController.m"
-            timestampString = "552795644.023279"
+            timestampString = "555856041.0288039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
@@ -466,7 +466,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Mine/Controller/GLD_ApplyBusnessController.m"
-            timestampString = "552795644.023556"
+            timestampString = "555856041.029025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "742"
@@ -529,38 +529,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "lingzhi/Classes/Mine/View/GLD_MapDetailCell.m"
-            timestampString = "541582407.54067"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "-onPOISearchDone:response:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "lingzhi/Classes/Mine/View/GLD_MapDetailCell.m"
-            timestampString = "541582407.5407259"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-onPOISearchDone:response:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Mine/Controller/GLD_ApplyCompanyController.m"
             timestampString = "541672262.560387"
             startingColumnNumber = "9223372036854775807"
@@ -578,12 +546,12 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/GLD_ApplyCompanyController.m"
-                  timestampString = "555506606.660889"
+                  timestampString = "555856041.309284"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "208"
                   endingLineNumber = "208"
-                  offsetFromSymbolStart = "26">
+                  offsetFromSymbolStart = "36">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -593,12 +561,12 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/GLD_ApplyCompanyController.m"
-                  timestampString = "555506606.662829"
+                  timestampString = "555856041.311492"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "210"
                   endingLineNumber = "210"
-                  offsetFromSymbolStart = "47">
+                  offsetFromSymbolStart = "52">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -608,12 +576,12 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yiyangkeji/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/GLD_ApplyCompanyController.m"
-                  timestampString = "555506606.665018"
+                  timestampString = "555856041.3133889"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "208"
                   endingLineNumber = "208"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -631,6 +599,38 @@
             startingLineNumber = "60"
             endingLineNumber = "60"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "lingzhi/Classes/Home/Controller/LBHomeViewController.m"
+            timestampString = "555856041.029199"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-fetchRedPointRequest"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "lingzhi/Classes/Post/Controller/GLD_ExpressListController.m"
+            timestampString = "555856563.415965"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "-getCommentMessageContent"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

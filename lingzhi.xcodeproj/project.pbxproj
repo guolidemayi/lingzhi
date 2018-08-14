@@ -235,6 +235,8 @@
 		0FE8159C20493AA400DE8756 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159B20493AA400DE8756 /* CoreMotion.framework */; };
 		0FEA82C620902E0A002FBC88 /* GLD_UserProtocolController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEA82C520902E0A002FBC88 /* GLD_UserProtocolController.m */; };
 		0FEA82C820902F18002FBC88 /* protocol.html in Resources */ = {isa = PBXBuildFile; fileRef = 0FEA82C720902F17002FBC88 /* protocol.html */; };
+		0FF3B06C21219E3600B5C512 /* GLD_ExpressAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FF3B06B21219E3600B5C512 /* GLD_ExpressAddressView.m */; };
+		0FF3B07021219E6000B5C512 /* GLD_ExpressAddressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF3B06F21219E5F00B5C512 /* GLD_ExpressAddressView.xib */; };
 		330AAB3E1FF4053200523FF0 /* GLD_wanShanUserMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */; };
 		330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */; };
 		332D9B101FFA011D00A86304 /* GLD_ForumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 332D9B0E1FFA011D00A86304 /* GLD_ForumCell.m */; };
@@ -701,6 +703,9 @@
 		0FEA82C420902E0A002FBC88 /* GLD_UserProtocolController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_UserProtocolController.h; sourceTree = "<group>"; };
 		0FEA82C520902E0A002FBC88 /* GLD_UserProtocolController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_UserProtocolController.m; sourceTree = "<group>"; };
 		0FEA82C720902F17002FBC88 /* protocol.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = protocol.html; sourceTree = "<group>"; };
+		0FF3B06A21219E3600B5C512 /* GLD_ExpressAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ExpressAddressView.h; sourceTree = "<group>"; };
+		0FF3B06B21219E3600B5C512 /* GLD_ExpressAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ExpressAddressView.m; sourceTree = "<group>"; };
+		0FF3B06F21219E5F00B5C512 /* GLD_ExpressAddressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_ExpressAddressView.xib; sourceTree = "<group>"; };
 		2AFF7DFDC2A100A721211A54 /* Pods-lingzhiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiUITests/Pods-lingzhiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		330AAB3C1FF4053200523FF0 /* GLD_wanShanUserMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_wanShanUserMController.h; sourceTree = "<group>"; };
 		330AAB3D1FF4053200523FF0 /* GLD_wanShanUserMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_wanShanUserMController.m; sourceTree = "<group>"; };
@@ -1188,6 +1193,9 @@
 				0F5445F1210EABCA009FAE8E /* GLD_StoreDetailCell.h */,
 				0F5445F2210EABCA009FAE8E /* GLD_StoreDetailCell.m */,
 				0F5445F3210EABCA009FAE8E /* GLD_StoreDetailCell.xib */,
+				0FF3B06A21219E3600B5C512 /* GLD_ExpressAddressView.h */,
+				0FF3B06B21219E3600B5C512 /* GLD_ExpressAddressView.m */,
+				0FF3B06F21219E5F00B5C512 /* GLD_ExpressAddressView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1887,6 +1895,7 @@
 				0FE8158D2045562700DE8756 /* address.plist in Resources */,
 				0F5445F5210EABCA009FAE8E /* GLD_StoreDetailCell.xib in Resources */,
 				0F5445ED210EA733009FAE8E /* GLD_StoreCell.xib in Resources */,
+				0FF3B07021219E6000B5C512 /* GLD_ExpressAddressView.xib in Resources */,
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
 				0F298EA41FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				0F54461D211001F6009FAE8E /* GLD_ExpressCell.xib in Resources */,
@@ -2150,6 +2159,7 @@
 				339EF9631FF9295500C6170E /* GLD_RemindModel.m in Sources */,
 				0F28D2CC1FDA2C9600138A8B /* GLD_MapModel.m in Sources */,
 				0F6411AE1FD528B80069FDB1 /* GLD_ButtonLikeView.m in Sources */,
+				0FF3B06C21219E3600B5C512 /* GLD_ExpressAddressView.m in Sources */,
 				0F382EFA1FDE6FCF006689FA /* GLD_MycollectionManager.m in Sources */,
 				0F28D2B61FD77F7D00138A8B /* UIView+gldController.m in Sources */,
 				0F28D2AF1FD6ADDE00138A8B /* BRDatePickerView.m in Sources */,

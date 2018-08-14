@@ -19,8 +19,8 @@
 #define robExpressRequest @"api/version/deliveryState"//抢单
 #define sendGoodsRequest @"api/version/addProduct"//发布商品
 #define sendCommentRequest @"api/comment/addComment"//发布评论
-#define getCommentListRequest @""//获取评论列表
-#define getShopGoodsListRequest @""//获取商家商品列表
+#define getCommentListRequest @"api/comment/getComments"//获取评论列表
+#define getShopGoodsListRequest @"api/version/getShopGoods"//获取商家商品列表
 #define getRedPointRequest @"api/version/isHaveNewMessagePoint"//红点接口
 #define scorePayGoodsRequest @"api/version/payGoods"//积分商城商品支付
 #define mailAdressRequest @""//邮寄地址
