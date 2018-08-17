@@ -58,11 +58,6 @@
             [weakSelf.home_table.mj_footer endRefreshingWithNoMoreData];
         }
         [weakSelf.home_table.mj_header endRefreshing];
-//        GLD_StoreDetailModel *model = [GLD_StoreDetailModel new];
-//        model.storeImg = @"http://www.hhlmcn.com:8080/img/hhlm_bailongma.png,http://www.hhlmcn.com:8080/img/hhlm_bailongma.png";
-//        model.storeName = @"name";
-//        model.storeDetail = @"http://www.hhlmcn.com:8080/img/hhlm_bailongma.pnghttp://www.hhlmcn.com:8080/img/hhlm_bailongma.png";
-//        [weakSelf.dataArrM addObject:model];
         [weakSelf.home_table reloadData];
     }];
 }
