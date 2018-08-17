@@ -22,7 +22,8 @@
 @implementation GLD_BusinessDetailManager
 
 - (void)reloadOrLoadMoreData{
-    [self fetchMainData];
+//    [self fetchMainData];
+    [self.tableView.mj_footer endRefreshingWithNoMoreData];
 }
 - (void)setComponentCorner{
     [self.tableView registerClass:[GLD_DetailRankCell class] forCellReuseIdentifier:GLD_DetailRankCellIdentifier];
@@ -37,7 +38,7 @@
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = getShopGoodsListRequest;
     config.requestParameters = @{
-                                 @"id":GetString(self.busnessModel.industryId)
+                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId)
                                  };
     
     
@@ -48,8 +49,8 @@
         }else{
            
             GLD_StoreDetaiListlModel *model = [[GLD_StoreDetaiListlModel alloc]initWithDictionary:result error:nil];
-            if (model.list.count > 0) {
-                [weakSelf.mainDataArrM addObjectsFromArray:model.list];
+            if (model.data.count > 0) {
+                [weakSelf.mainDataArrM addObjectsFromArray:model.data];
                 [weakSelf.tableView.mj_footer endRefreshing];
             }else{
                 [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
@@ -170,7 +171,7 @@
                 _cycleView.imageURLStringsGroup = arr.copy;
             }
         }else{
-            _cycleView.imageURLStringsGroup = @[self.busnessModel.logo];
+            _cycleView.imageURLStringsGroup = @[GetString(self.busnessModel.logo)];
         }
 //        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
         _cycleView.autoScroll = NO;

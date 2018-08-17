@@ -30,9 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.commentArrM = [NSMutableArray array];
-    self.keyView = [[InputKeyboardView alloc] initWithFrame:CGRectMake(0, 64, DEVICE_WIDTH, DEVICE_HEIGHT)];
+    self.keyView = [[InputKeyboardView alloc] initWithFrame:CGRectMake(0, 44, DEVICE_WIDTH, DEVICE_HEIGHT)];
     self.keyView.delegate = self;
     [self commentView];
+    [self getCommentList];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

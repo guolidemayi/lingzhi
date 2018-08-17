@@ -145,7 +145,7 @@
             [CAToast showWithText:@"请输入价格"];
             return;
         }
-        [dictM addEntriesFromDictionary:@{@"id":GetString([AppDelegate shareDelegate].userModel.userId),
+        [dictM addEntriesFromDictionary:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
                                           @"title":self.textField.text ,
                                           @"summary":self.textView.text,
                                           @"price":self.priceTextField.text,
@@ -391,7 +391,7 @@
             [self.picCollectionView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.equalTo(HEIGHT(180));
             }];
-        if (responseObject[@"data"])
+        if (responseObject[@"data"] && ![responseObject[@"data"] isKindOfClass:[NSNull class]])
         [pictureArrM addObject:responseObject[@"data"]];
         //请求成功
         [imgArrM addObject:_certificationImage];

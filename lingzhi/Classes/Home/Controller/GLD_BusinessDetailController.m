@@ -51,7 +51,10 @@
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     self.navigationItem.rightBarButtonItem = item1;
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.busnessManager fetchMainData];
+}
 - (void)isCollectionRequest{
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
@@ -161,11 +164,11 @@
     if (!_bottomView) {
         _bottomView = [UIView new];
         NSArray *arr;
-//        if(![[AppDelegate shareDelegate].userModel.userId isEqualToString:self.busnessModel.userId]){
-//        arr = @[@"评论",@"导航",@"拨号",@"向商家付款"];
-//        }else{
+        if(![[AppDelegate shareDelegate].userModel.userId isEqualToString:self.busnessModel.userId]){
+        arr = @[@"评论",@"导航",@"拨号",@"向商家付款"];
+        }else{
             arr = @[@"评论",@"导航",@"拨号",@"向商家付款",@"发布商品"];
-//        }
+        }
         for (int i = 0; i < arr.count; i++) {
             UIButton *but = [UIButton new];
             UIImageView *imgV = [UIImageView new];

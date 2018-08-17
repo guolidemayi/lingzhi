@@ -47,8 +47,8 @@
 /** 点击图片回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
     NSLog(@"%zd", index);
-    if([self.storeModel.storeImg containsString:@","]){
-        NSArray *arr = [self.storeModel.storeImg componentsSeparatedByString:@","];
+    if([self.storeModel.pic containsString:@","]){
+        NSArray *arr = [self.storeModel.pic componentsSeparatedByString:@","];
       
         GLD_PictureView * broser = [[GLD_PictureView alloc]initWithImageArray:arr currentIndex:index];
         
@@ -61,8 +61,8 @@
                                                         delegate:self
                                                 placeholderImage:[UIImage imageNamed:@"tabbar_icon0_normal"]];
         
-        if([self.storeModel.storeImg containsString:@","]){
-            NSArray *arr = [self.storeModel.storeImg componentsSeparatedByString:@","];
+        if([self.storeModel.pic containsString:@","]){
+            NSArray *arr = [self.storeModel.pic componentsSeparatedByString:@","];
             
             _cycleView.imageURLStringsGroup = arr;
         }

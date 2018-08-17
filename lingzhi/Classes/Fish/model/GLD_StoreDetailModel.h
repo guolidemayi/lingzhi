@@ -13,16 +13,16 @@
 @interface GLD_StoreDetailModel : JSONModel
 
 @property (nonatomic, copy)NSString *storeId;
-@property (nonatomic, assign)NSInteger storePrice;
-@property (nonatomic, copy)NSString *storeDetail;
-@property (nonatomic, copy)NSString *storeName;
-@property (nonatomic, copy)NSString *storeImg;
-@property (nonatomic, copy)NSString *payUserId;//被付款人id
+@property (nonatomic, assign)NSInteger price;
+@property (nonatomic, copy)NSString *summary;
+@property (nonatomic, copy)NSString *title;
+@property (nonatomic, copy)NSString *pic;
+@property (nonatomic, copy)NSString *userId;//被付款人id
 @end
 
 
 @interface GLD_StoreDetaiListlModel : GLD_BaseModel
 
-@property (nonatomic, copy)NSMutableArray<GLD_StoreDetailModel> *list;
+@property (nonatomic, copy)NSMutableArray<GLD_StoreDetailModel> *data;
 @property (nonatomic, assign)BOOL hasMore;
 @end

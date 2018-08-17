@@ -28,17 +28,17 @@
 - (void)setStoreModel:(GLD_StoreDetailModel *)storeModel{
     _storeModel = storeModel;
     
-    self.storePriceLabel.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"￥%zd",MAX(storeModel.storePrice/100, 0)] find:@"￥"  flMaxFont:25 flMinFont:10 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
+    self.storePriceLabel.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"￥%zd",MAX(storeModel.price, 0)] find:@"￥"  flMaxFont:25 flMinFont:10 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
     
-    if([storeModel.storeImg containsString:@","]){
-        NSArray *arr = [storeModel.storeImg componentsSeparatedByString:@","];
+    if([storeModel.pic containsString:@","]){
+        NSArray *arr = [storeModel.pic componentsSeparatedByString:@","];
         [self.storeImgV yy_setImageWithURL:[NSURL URLWithString:arr.firstObject] placeholder:nil];
     }else{
         
-        [self.storeImgV yy_setImageWithURL:[NSURL URLWithString:storeModel.storeImg] placeholder:nil];
+        [self.storeImgV yy_setImageWithURL:[NSURL URLWithString:storeModel.pic] placeholder:nil];
     }
-    self.storeNameLabel.text = GetString(storeModel.storeName);
-    self.storeDetailLabel.text = GetString(storeModel.storeDetail);
+    self.storeNameLabel.text = GetString(storeModel.title);
+    self.storeDetailLabel.text = GetString(storeModel.summary);
     
 }
 

@@ -150,9 +150,7 @@
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
         weakSelf.industryListModel = [[GLD_IndustryListModel alloc] initWithDictionary:result error:nil];
-        if(weakSelf.industryListModel){
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"haveCommentRedPoint" object:nil];
-        }
+        
         [weakSelf.tableView reloadData];
     }];
 }

@@ -13,7 +13,9 @@
 @interface GLD_InvitMemberModel : GLD_BaseModel
 
 @property (nonatomic, copy)NSString *imgStr;//图片
-@property (nonatomic, copy)NSString *score;//分数
+@property (nonatomic, copy)NSString *point;//分数
+@property (nonatomic, copy)NSString *pic;//图片
+@property (nonatomic, copy)NSString *title;//图片
 @end
 
 @interface GLD_InvitMemberListModel : GLD_BaseModel

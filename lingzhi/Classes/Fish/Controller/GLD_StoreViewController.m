@@ -51,8 +51,8 @@
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
 //        
         GLD_StoreDetaiListlModel *StoreModel = [[GLD_StoreDetaiListlModel alloc] initWithDictionary:result error:nil];
-        if (StoreModel.list.count > 0) {
-            [weakSelf.dataArrM addObjectsFromArray:StoreModel.list];
+        if (StoreModel.data.count > 0) {
+            [weakSelf.dataArrM addObjectsFromArray:StoreModel.data];
             [weakSelf.home_table.mj_footer endRefreshing];
         }else{
             [weakSelf.home_table.mj_footer endRefreshingWithNoMoreData];
@@ -93,8 +93,8 @@
         case 3:{
 //            self.title = @"特价商城";
             GLD_PayForBusinessController *payVc = [GLD_PayForBusinessController new];
-            payVc.payForUserId = storeModel.payUserId;
-            payVc.payPrice = 100;
+            payVc.payForUserId = storeModel.userId;
+            payVc.payPrice = storeModel.price;
             [self.navigationController pushViewController:payVc animated:YES];
         }break;
     }

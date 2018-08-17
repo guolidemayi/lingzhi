@@ -23,10 +23,10 @@
 
 - (void)setStoreModel:(GLD_StoreDetailModel *)storeModel{
     _storeModel = storeModel;
-    self.priceLabel.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"￥%zd",MAX(storeModel.storePrice/100, 0)] find:@"￥"  flMaxFont:25 flMinFont:10 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
+    self.priceLabel.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"￥%zd",MAX(storeModel.price, 0)] find:@"￥"  flMaxFont:25 flMinFont:10 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
     
-    self.storeTitleLabel.text = storeModel.storeName;
-    self.StoreDetailLabel.text = storeModel.storeDetail;
+    self.storeTitleLabel.text = storeModel.title;
+    self.StoreDetailLabel.text = storeModel.summary;
     
 }
 

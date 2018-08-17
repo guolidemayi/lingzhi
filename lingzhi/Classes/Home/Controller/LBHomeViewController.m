@@ -38,6 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+     [self fetchRedPointRequest];
     
     self.homeManager = [[GLD_HomeViewManager alloc]initWithTableView:self.home_table];
     //获取用户信息
@@ -49,8 +50,8 @@
     [self startLocation];
     //导航到深圳火车站
     [self setNavUi];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(showRedPointNoti) name:@"haveCommentRedPoint" object:nil];
-    [self fetchRedPointRequest];
+   
+    
 }
 
 
@@ -109,7 +110,7 @@
     [self.redPointBut showRedPoint];
 }
 - (void)rightClick2{
-    
+   
     [(LBTabBarController *)self.tabBarController tabBarPlusBtnClick:nil];
 }
 - (void)rightClick{
@@ -125,16 +126,22 @@
 }
 
 - (void)fetchRedPointRequest{
+    self.NetManager = [GLD_NetworkAPIManager new];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
-    config.requestType = gld_networkRequestTypePOST;
     config.urlPath = getRedPointRequest;
     config.requestParameters = @{
                                  };
-    
+    WS(weakSelf);
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
            
-            [CAToast showWithText:@"请求成功"];
+            if ([result[@"code"] integerValue] == 200) {
+                BOOL isShow = [result[@"data"] boolValue];
+                if (isShow) {
+                    [weakSelf showRedPointNoti];
+                    
+                }
+            }
         }else{
 //            [CAToast showWithText:@"请求失败，请重试"];
         }

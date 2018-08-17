@@ -31,8 +31,8 @@
 }
 - (void)setModel:(GLD_InvitMemberModel *)model{
     _model = model;
-    [self.imgV yy_setImageWithURL:[NSURL URLWithString:model.imgStr] placeholder:nil];
-    self.name.text = [NSString stringWithFormat:@"%@分",model.score];
+    [self.imgV yy_setImageWithURL:[NSURL URLWithString:model.pic] placeholder:nil];
+    self.name.text = [NSString stringWithFormat:@"%@分",model.point];
 }
 - (void)setupUI{
     self.name = [UILabel creatLableWithText:@"xxx" andFont:WTFont(15) textAlignment:NSTextAlignmentCenter textColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE]];
@@ -71,6 +71,7 @@
     // Do any additional setup after loading the view.
     self.title = @"推荐会员收入";
     [self.view addSubview:self.collectionView];
+    self.dataArr = [NSMutableArray array];
     [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
