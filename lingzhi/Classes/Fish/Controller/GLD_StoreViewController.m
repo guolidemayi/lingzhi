@@ -75,24 +75,13 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     GLD_StoreDetailModel *storeModel = self.dataArrM[indexPath.row];
-    switch (self.type) {
-        case 1:{
+    
 //            self.title = @"积分商城";
-            GLD_GoodsDetailController *detailVc = [[GLD_GoodsDetailController alloc]init];
-            detailVc.storeModel = storeModel;
-            [self.navigationController pushViewController:detailVc animated:YES];
-        } break;
-        case 2:
-//            self.title = @"代金券商城";
-            break;
-        case 3:{
-//            self.title = @"特价商城";
-            GLD_PayForBusinessController *payVc = [GLD_PayForBusinessController new];
-            payVc.payForUserId = storeModel.userId;
-            payVc.payPrice = storeModel.price;
-            [self.navigationController pushViewController:payVc animated:YES];
-        }break;
-    }
+    GLD_GoodsDetailController *detailVc = [[GLD_GoodsDetailController alloc]init];
+    detailVc.storeModel = storeModel;
+    detailVc.type = self.type;
+    [self.navigationController pushViewController:detailVc animated:YES];
+  
 }
 - (UITableView *)home_table{
     if (!_home_table) {

@@ -318,7 +318,8 @@ typedef enum
 //                    [weakSelf.navigationController popViewControllerAnimated:YES];
                 }else if(weakSelf.payType == offLine){
                     [CAToast showWithText:@"支付成功"];
-                    [weakSelf.navigationController popViewControllerAnimated:YES];
+//                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                    [weakSelf showWriteAddressView];
                 }
             }
             
@@ -347,7 +348,10 @@ typedef enum
         NSString *resultStatus = resultDic[@"resultStatus"];
         if ([resultStatus isEqualToString:@"9000"]) {
             NSLog(@"支付成功");
-            [weakSelf.navigationController popViewControllerAnimated:YES];
+            
+            [weakSelf showWriteAddressView];
+            
+//            [weakSelf.navigationController popViewControllerAnimated:YES];
 //            [weakSelf queryPayStatus];
         } else if ([resultStatus isEqualToString:@"4000"]) {
             [CAToast showWithText:@"支付失败"];
@@ -365,11 +369,15 @@ typedef enum
 }
 - (void)showWriteAddressView{
     WS(weakSelf);
-    GLD_ExpressAddressView *view = [GLD_ExpressAddressView expressAddressView:^{
+    if (self.prize > 0) {
+        
+        [GLD_ExpressAddressView expressAddressView:^{
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }];
+    }else{
         [weakSelf.navigationController popViewControllerAnimated:YES];
-    }];
-    [self.view addSubview:view];
-    view.frame = self.view.bounds;
+    }
+   
 }
 - (void)payToWeChatWithDic:(NSDictionary *)dic
 {

@@ -14,6 +14,7 @@
 #import "SDCycleScrollView.h"
 #import "GLD_BusnessModel.h"
 #import "GLD_StoreDetailCell.h"
+#import "GLD_GoodsDetailController.h"
 
 @interface GLD_BusinessDetailManager ()<SDCycleScrollViewDelegate>
 @property (nonatomic, strong)SDCycleScrollView *cycleView;
@@ -38,9 +39,8 @@
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = getShopGoodsListRequest;
     config.requestParameters = @{
-                                 @"userId":GetString([AppDelegate shareDelegate].userModel.userId)
+                                 @"userId":GetString(self.busnessModel.userId)
                                  };
-    
     
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if(error){
@@ -65,6 +65,15 @@
 - (void)setBusnessModel:(GLD_BusnessModel *)busnessModel{
     _busnessModel = busnessModel;
     [self.tableView reloadData];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 3) {
+        GLD_GoodsDetailController *goodsVc = [GLD_GoodsDetailController new];
+        goodsVc.storeModel = self.mainDataArrM[indexPath.row];
+        goodsVc.type = 3;
+        [self.tableView.navigationController pushViewController:goodsVc animated:YES];
+    }
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 4;

@@ -57,7 +57,7 @@
 
 #define IsExist_Array(_array) (_array!= nil && _array.count>0)
 #define IsExist_String(_str) (_str!=nil && _str.length!=0 && ![_str isEqualToString:@""])
-#define GetString(_str) (IsExist_String(_str) ? _str: @"1")
+#define GetString(_str) (IsExist_String(_str) ? _str: @"")
 
 //神策统计
 #define SensorsAnalyticsTimeBegin(_name) [[SensorsAnalyticsSDK sharedInstance] trackTimerBegin:_name]

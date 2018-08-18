@@ -39,7 +39,7 @@
     // Do any additional setup after loading the view.
     
      [self fetchRedPointRequest];
-    
+    [self getUserData];
     self.homeManager = [[GLD_HomeViewManager alloc]initWithTableView:self.home_table];
     //获取用户信息
     [self.homeManager fetchMainUserData];
@@ -231,6 +231,27 @@
     }];
 }
 
+- (void)getUserData{
+    
+    NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"loginToken"];
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/getUserInfo";
+    config.requestParameters = @{@"loginToken":GetString(str)};
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        if (!error) {
+            
+            GLD_UserModel *model = [[GLD_UserModel alloc] initWithDictionary:result error:nil];
+            
+            [AppDelegate shareDelegate].userModel = model.data;
+            
+        }else{
+            [CAToast showWithText:@"网络错误"];
+        }
+
+    }];
+}
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
