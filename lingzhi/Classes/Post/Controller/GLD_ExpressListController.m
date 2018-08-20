@@ -80,6 +80,7 @@
     [self getDataRequest:@{@"city":IsExist_String([AppDelegate shareDelegate].placemark.area_name)? [AppDelegate shareDelegate].placemark.area_name :@"北京",
                            @"lat":@([AppDelegate shareDelegate].placemark.lat),
                            @"lng":@([AppDelegate shareDelegate].placemark.lon),
+                           @"type":@(0)
                            } andComplentBlock:^(id result) {
         GLD_ExpressListModel *listModel = [[GLD_ExpressListModel alloc]initWithDictionary:result error:nil];
         
@@ -97,7 +98,9 @@
 - (void)getCommentMessageContent{
     WS(weakSelf);
     [self.commentArrM removeAllObjects];
-    [self getDataRequest:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId)} andComplentBlock:^(id result) {
+    [self getDataRequest:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                           @"type":@(1)
+                           } andComplentBlock:^(id result) {
         GLD_ExpressListModel *listModel = [[GLD_ExpressListModel alloc]initWithDictionary:result error:nil];
         
         if (listModel.data.count > 0) {

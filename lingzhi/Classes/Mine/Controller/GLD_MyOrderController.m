@@ -181,7 +181,7 @@
         tableView.estimatedSectionHeaderHeight = 0;
         tableView.estimatedSectionFooterHeight = 0;
         [tableView setSeparatorInset:UIEdgeInsetsMake(0, W(15), 0, W(15))];
-        tableView.rowHeight = W(160);
+        tableView.rowHeight = W(180);
         [tableView registerClass:[GLD_MyOrderCell class] forCellReuseIdentifier:GLD_MyOrderCellIdentifier];
         //        tableView.rowHeight = 0;
         WS(weakSelf);

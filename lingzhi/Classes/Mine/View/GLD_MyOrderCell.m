@@ -24,6 +24,7 @@ NSString *const GLD_MyOrderCellIdentifier = @"GLD_MyOrderCellIdentifier";
 @property (weak, nonatomic) IBOutlet UILabel *couponLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *payTypeLabel;//微信支付
 @property (weak, nonatomic) IBOutlet UILabel *payTypeLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @property (nonatomic, assign)callBackType type;
 @end
@@ -46,6 +47,7 @@ NSString *const GLD_MyOrderCellIdentifier = @"GLD_MyOrderCellIdentifier";
     self.couponLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.discount];
     self.payTypeLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.wxPay];
     self.dateLabel.text = orderModel.createTime;
+    self.addressLabel.text = orderModel.address;
 }
 - (IBAction)commentClick:(UIButton *)sender {
     if ([self.orderDelegate respondsToSelector:@selector(commentCallBack: andBusnessId:)]) {
