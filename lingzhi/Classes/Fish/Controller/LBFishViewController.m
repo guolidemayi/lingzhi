@@ -45,7 +45,7 @@
     //导航到深圳火车站
     [self setNavUi];
    
-    [self getBannerData];
+   
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 2;
@@ -171,6 +171,8 @@
     }
     if(!IsExist_Array(self.dataArrM))
     [self getbusnessList:2];
+    if (!self.bannerListModel)
+     [self getBannerData];
 }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];

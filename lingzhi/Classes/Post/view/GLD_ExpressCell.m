@@ -62,15 +62,15 @@
     _expressModel = expressModel;
     self.priceLabel.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"￥%zd",MAX(expressModel.price, 0)] find:@"￥"  flMaxFont:25 flMinFont:10 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
     self.phoneLabel.text = [NSString stringWithFormat:@"手机号：%@",expressModel.phone];
-    switch (expressModel.status) {
+    switch (expressModel.state) {
         case 0:{
             self.type = robTypeGetExpress;
         }break;
         case 1:{
-            self.type = robTypeMyExpress;
+            self.type = robTypeHasRob;
         }break;
         case 2:{
-            self.type = robTypeHasRob;
+            self.type = robTypeMyExpress;
         }break;
     }
     self.fromLabel.text = GetString(expressModel.start);

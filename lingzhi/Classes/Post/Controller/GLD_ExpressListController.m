@@ -10,8 +10,11 @@
 #import "GLD_ExpressCell.h"
 #import "MapNavigationManager.h"
 #import "GLD_PostExpressController.h"
+#import "SDCycleScrollView.h"
+#import "GLD_BannerModel.h"
+#import "GLD_BannerDetailController.h"
 
-@interface GLD_ExpressListController ()<UITableViewDelegate,UITableViewDataSource,GLD_ExpressCellDelegate>{
+@interface GLD_ExpressListController ()<UITableViewDelegate,UITableViewDataSource,GLD_ExpressCellDelegate,SDCycleScrollViewDelegate>{
     NSInteger offset;
     NSInteger pagNo;
     UIView  *_remindView;
@@ -29,7 +32,8 @@
 @property (nonatomic, strong)NSMutableArray *remindArrM;
 @property (nonatomic, strong)NSMutableArray *commentArrM;
 @property (nonatomic, assign) NSInteger type;
-
+@property (nonatomic, strong)SDCycleScrollView *cycleView;
+@property (nonatomic, strong)GLD_BannerLisModel *bannerListModel;
 @end
 
 @implementation GLD_ExpressListController
@@ -50,6 +54,7 @@
     [self setContentView];
 //    [self getCommentMessageContent];
    
+    [self getBannerData];
     [self setUpNav];
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -131,6 +136,27 @@
         
     }];
 }
+
+
+- (void)getBannerData{
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/main/banner";
+    config.requestParameters = @{@"type":@"4"};
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        
+        weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];
+        NSMutableArray *arrM = [NSMutableArray array];
+        for (GLD_BannerModel *model in weakSelf.bannerListModel.data) {
+            [arrM addObject:GetString(model.Pic)];
+        }
+        if (arrM.count > 0) {
+            weakSelf.cycleView.imageURLStringsGroup = arrM.copy;
+        }
+        [weakSelf.remindTable reloadData];
+    }];
+}
 #pragma GLD_ExpressCellDelegate
 - (void)robExpress:(GLD_ExpressModel *)model andType:(robType)type{
     switch (type) {
@@ -141,12 +167,12 @@
 //            [MapNavigationManager showSheetWithCoordinate2D:coordinate];
         }break;
         case robTypeGetExpress:{
-            model.status = 1;
+            model.state = 1;
             [self toRobExpressRequest:model];
         }break;
         case robTypeHasRob:{
             //完成
-            model.status = 2;
+            model.state = 2;
         }break;
     }
 }
@@ -155,17 +181,29 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = robExpressRequest;
-    config.requestParameters = @{@"expressId":GetString(model.expressId),
+    config.requestParameters = @{@"id":GetString(model.expressId),
                                  @"userId":GetString([AppDelegate shareDelegate].userModel.userId),
-                                 @"status":@(model.status)
+                                 @"status":@(model.state)
                                  };
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
-            [CAToast showWithText:@"抢单成功"];
+            [CAToast showWithText:@"请求成功"];
         }else{
             [CAToast showWithText:@"网络错误"];
         }
     }];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if (section > 0 || [tableView isEqual:self.commentTable]) return 0.01;
+    return W(150);
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if ([tableView isEqual:self.commentTable]) return nil;
+    UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
+    if (section > 0) return headView;
+    [headView addSubview:self.cycleView];
+    return headView;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if ([tableView isEqual:self.remindTable]) {
@@ -321,7 +359,7 @@
     self.bottomScrollView = scroll;
     scroll.scrollEnabled = NO;
     scroll.pagingEnabled = YES;
-    UITableView *remindT = [[UITableView alloc]init];
+    UITableView *remindT = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     remindT.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [remindT registerNib:[UINib nibWithNibName:@"GLD_ExpressCell" bundle:nil] forCellReuseIdentifier:@"GLD_ExpressCell"];
@@ -418,6 +456,25 @@
     
     
 }
-
-
+- (SDCycleScrollView *)cycleView{
+    if (!_cycleView) {
+        _cycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero
+                                                        delegate:self
+                                                placeholderImage:[UIImage imageNamed:@"tabbar_icon0_normal"]];
+        
+        
+        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
+        _cycleView.autoScroll = YES;
+        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(150));
+        //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
+    }
+    return _cycleView;
+}
+/** 点击图片回调 */
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    NSLog(@"%zd", index);
+    GLD_BannerDetailController *bannerVc =[GLD_BannerDetailController new];
+    bannerVc.bannerModel = self.bannerListModel.data[index];
+    [self.navigationController pushViewController:bannerVc animated:YES];
+}
 @end
