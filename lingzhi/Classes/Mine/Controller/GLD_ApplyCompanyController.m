@@ -54,7 +54,7 @@
     [super viewDidLoad];
     self.areaIdex = 2;//默认为省
     // Do any additional setup after loading the view.
-    self.netManager = [GLD_NetworkAPIManager new];
+    self.netManager = [GLD_NetworkAPIManager shareNetManager];
     self.provenceArr = [NSMutableArray array];
     self.cityArr = [NSMutableArray array];
     self.areaArr = [NSMutableArray array];

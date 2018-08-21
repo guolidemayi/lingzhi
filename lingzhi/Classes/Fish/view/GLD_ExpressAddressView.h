@@ -10,5 +10,5 @@
 
 @interface GLD_ExpressAddressView : UIView
 
-+ (instancetype)expressAddressView:(void(^)(void))sureBlock;
++ (instancetype)expressAddressView:(void(^)(NSString *address))sureBlock;
 @end

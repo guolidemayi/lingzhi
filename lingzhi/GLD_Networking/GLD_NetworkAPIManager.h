@@ -37,4 +37,6 @@ typedef void(^completionHandleBlock)(NSError *error, id result);
 + (void)cancelTaskWith:(NSNumber *)taskIdentifier;
 
 - (NSNumber *)dispatchDataTaskWith:(GLD_APIConfiguration *)config andCompletionHandler:(completionHandleBlock)completionHandle;
+
++ (instancetype)shareNetManager;
 @end

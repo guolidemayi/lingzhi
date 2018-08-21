@@ -48,7 +48,7 @@
     self.dataArr = [NSMutableArray array];
     self.fd_interactivePopDisabled = YES;
     [self.view addSubview:self.bgView];
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     self.status = @"0";
     self.title = @"我的订单";
     [self getOrderList:self.status];

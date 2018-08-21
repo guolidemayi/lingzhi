@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     
     self.business_table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     self.businessManager = [[GLD_BusinessViewManager alloc]initWithTableView:self.business_table];

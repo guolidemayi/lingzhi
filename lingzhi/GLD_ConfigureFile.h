@@ -23,6 +23,7 @@
 #define getRedPointRequest @"api/version/isHaveNewMessagePoint"//红点接口 1
 #define scorePayGoodsRequest @"api/version/payGoods"//积分商城商品支付 1
 #define wxPayGoodsRequest @"api/wx/weixinPay"//代金券商城商品支付
+#define deleteGoodsRequest @"api/version/deleteProduct"//删除商品
 #define mailAdressRequest @""//邮寄地址
 
 #endif /* GLD_ConfigureFile_h */

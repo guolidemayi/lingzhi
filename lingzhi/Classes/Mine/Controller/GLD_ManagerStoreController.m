@@ -12,6 +12,7 @@
 #import "GLD_ModifyDiscountController.h"
 #import "GLD_MyOrderController.h"
 #import "GLD_ApplyBusnessController.h"
+#import "GLD_GoodsManagerController.h"
 
 @interface GLD_ManagerStoreController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgV;//商店图标
@@ -30,10 +31,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"我的门店";
     [self outLayoutSelfSubviews];
     self.view.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_BLUE_TABLE];
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     [self getMyShopData];
+}
+- (IBAction)managerGoods:(id)sender {
+    
+    GLD_GoodsManagerController *goodsVc = [GLD_GoodsManagerController new];
+    goodsVc.busnessModel = self.model;
+    [self.navigationController pushViewController:goodsVc animated:YES];
 }
 
 - (void)getMyShopData{

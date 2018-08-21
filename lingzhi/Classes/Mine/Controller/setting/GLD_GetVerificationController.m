@@ -41,7 +41,7 @@
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     self.navigationItem.rightBarButtonItem = item1;
     [self.view addSubview:self.table_apply];
-    self.netManager = [GLD_NetworkAPIManager new];
+    self.netManager = [GLD_NetworkAPIManager shareNetManager];
     self.loginCode = @"-1";
 }
 - (void)viewWillAppear:(BOOL)animated{

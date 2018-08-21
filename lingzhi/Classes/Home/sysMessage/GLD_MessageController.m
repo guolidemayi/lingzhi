@@ -42,7 +42,7 @@
     offset = 0;
     pagNo = 0;
 
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     [self setContentView];
     
     [self getRemindMessageContent];

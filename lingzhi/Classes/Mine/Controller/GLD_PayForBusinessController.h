@@ -12,4 +12,5 @@
 
 @property (nonatomic ,copy)NSString *payForUserId;//被付款人id
 @property (nonatomic, assign)CGFloat payPrice;
+@property (nonatomic, strong)NSString *address;//邮寄地址
 @end

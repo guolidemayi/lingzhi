@@ -38,7 +38,7 @@
     self.busnessManager = [[GLD_BusinessDetailManager alloc]initWithTableView:self.detail_table];
     self.busnessManager.busnessModel = self.busnessModel;
     [self setupBottomView];
-    self.netManager = [GLD_NetworkAPIManager new];
+    self.netManager = [GLD_NetworkAPIManager shareNetManager];
     [self setRightBut];
     [self isCollectionRequest];
 }

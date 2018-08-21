@@ -33,7 +33,14 @@
 @end
 @implementation GLD_NetworkAPIManager
 
-
+static GLD_NetworkAPIManager *netManager;
++ (instancetype)shareNetManager{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        netManager = [GLD_NetworkAPIManager new];
+    });
+    return netManager;
+}
 - (void)dealloc{
     [GLD_NetworkAPIManager cancelAlltask];
 }
@@ -88,8 +95,9 @@
     NSNumber *taskIdentifier = [[GLD_NetworkClient shareInstance] dispatchTaskWithPath:config.urlPath useHttps:config.useHttps requestType:config.requestType params:config.requestParameters headers:config.requestHeader completionHandle:^(NSURLResponse * response, id data, NSError *error) {
         [weakSelf.requestCaches removeObjectForKey:requestCache];
         [weakSelf hideHUD];
+        
         if (error.code == NSURLErrorCancelled) {
-            NSLog(@"请求被取消了~");
+            NSLog(@"请求被取消了~%@",config.urlPath);
             return ;
         }
 //        if([data[@"code"] integerValue] != 200){

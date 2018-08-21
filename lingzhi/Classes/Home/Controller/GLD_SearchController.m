@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-       self.NetManager = [GLD_NetworkAPIManager new];
+       self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     [self setupSearchView];
     self.navigationItem.titleView = self.searchBar;;
     [self setUpNav];

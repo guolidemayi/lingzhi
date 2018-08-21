@@ -51,7 +51,7 @@
     _forumListArrM = [NSMutableArray arrayWithCapacity:0];
     
     // Do any additional setup after loading the view.
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     [self addTableUP];
     
    

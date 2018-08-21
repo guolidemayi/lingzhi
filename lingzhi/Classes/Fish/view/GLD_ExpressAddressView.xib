@@ -38,7 +38,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m1W-is-lyo">
-                                    <rect key="frame" x="100" y="15" width="200" height="30"/>
+                                    <rect key="frame" x="90" y="15" width="200" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="200" id="Y2z-hp-ofO"/>
                                     </constraints>
@@ -54,7 +54,7 @@
                                 <constraint firstAttribute="bottom" secondItem="jby-gr-dMu" secondAttribute="bottom" id="7yu-gh-OXl"/>
                                 <constraint firstItem="ONg-39-wWu" firstAttribute="centerY" secondItem="A2t-Jd-pU7" secondAttribute="centerY" id="BkS-ly-jiF"/>
                                 <constraint firstAttribute="height" constant="60" id="Plz-2i-0lc"/>
-                                <constraint firstAttribute="trailing" secondItem="m1W-is-lyo" secondAttribute="trailing" id="UEp-hL-sbz"/>
+                                <constraint firstAttribute="trailing" secondItem="m1W-is-lyo" secondAttribute="trailing" constant="10" id="UEp-hL-sbz"/>
                                 <constraint firstItem="ONg-39-wWu" firstAttribute="leading" secondItem="A2t-Jd-pU7" secondAttribute="leading" constant="15" id="VIC-Bx-xJ6"/>
                                 <constraint firstAttribute="trailing" secondItem="jby-gr-dMu" secondAttribute="trailing" id="aoo-c9-INT"/>
                             </constraints>
@@ -62,7 +62,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7S5-ZS-eON">
                             <rect key="frame" x="0.0" y="44" width="300" height="60"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xlg-ZP-3MW" customClass="GLD_ExpressAddressView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xlg-ZP-3MW">
                                     <rect key="frame" x="0.0" y="59" width="300" height="1"/>
                                     <color key="backgroundColor" red="0.90080553760000004" green="0.90080553760000004" blue="0.90080553760000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -91,7 +91,7 @@
                                 <constraint firstItem="22e-zD-yNT" firstAttribute="leading" secondItem="7S5-ZS-eON" secondAttribute="leading" constant="15" id="Q72-xK-RWa"/>
                                 <constraint firstItem="22e-zD-yNT" firstAttribute="centerY" secondItem="7S5-ZS-eON" secondAttribute="centerY" id="S2y-6W-mPH"/>
                                 <constraint firstAttribute="bottom" secondItem="Xlg-ZP-3MW" secondAttribute="bottom" id="SGI-9R-jhS"/>
-                                <constraint firstAttribute="trailing" secondItem="8tb-F8-4H8" secondAttribute="trailing" id="Sqi-78-Qmv"/>
+                                <constraint firstAttribute="trailing" secondItem="8tb-F8-4H8" secondAttribute="trailing" constant="10" id="Sqi-78-Qmv"/>
                                 <constraint firstAttribute="trailing" secondItem="Xlg-ZP-3MW" secondAttribute="trailing" id="UJ3-Pu-PTp"/>
                                 <constraint firstAttribute="height" constant="60" id="gRs-5H-AG4"/>
                                 <constraint firstItem="8tb-F8-4H8" firstAttribute="centerY" secondItem="22e-zD-yNT" secondAttribute="centerY" id="j0b-ph-QAi"/>

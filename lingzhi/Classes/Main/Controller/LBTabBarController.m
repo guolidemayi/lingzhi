@@ -68,7 +68,7 @@
     [self setUpOneChildVcWithVc:HomeVC Image:@"home_normal" selectedImage:@"home_highlight" title:@"首页"];
 
     LBFishViewController *FishVC = [[LBFishViewController alloc] init];
-    [self setUpOneChildVcWithVc:FishVC Image:@"fish_normal" selectedImage:@"fish_highlight" title:@"附近"];
+    [self setUpOneChildVcWithVc:FishVC Image:@"fish_normal" selectedImage:@"fish_highlight" title:@"商城"];
 
     GLD_ForumController *MessageVC = [[GLD_ForumController alloc] init];
     [self setUpOneChildVcWithVc:MessageVC Image:@"message_normal" selectedImage:@"message_highlight" title:@"圈圈"];

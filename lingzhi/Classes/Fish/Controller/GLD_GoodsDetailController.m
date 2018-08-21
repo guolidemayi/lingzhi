@@ -17,12 +17,14 @@
 @property (nonatomic, strong)UITableView *home_table;
 @property (nonatomic, strong)UIButton *applyBut;
 @property (nonatomic, assign) NSString *payType;
+@property (nonatomic, strong)NSString *address;
 @end
 
 @implementation GLD_GoodsDetailController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.address = @"";
     [self setApplyBut];
     self.home_table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.view addSubview:self.home_table];
@@ -46,6 +48,10 @@
 }
 - (void)applybutClick{
     
+    [self showAddressView];
+}
+
+- (void)hasWriteAddress{
     switch (self.type) {
         case 1:
             [self payToScoreGoods];
@@ -62,6 +68,7 @@
     GLD_PayForBusinessController *payVc = [GLD_PayForBusinessController new];
     payVc.payForUserId = self.storeModel.userId;
     payVc.payPrice = self.storeModel.price;
+    payVc.address = self.address;
     [self.navigationController pushViewController:payVc animated:YES];
 }
 - (void)showChoosePayTypeAlert{
@@ -141,8 +148,7 @@
             return;
         }
         if (response.errCode == 0) {
-            [self showAddressView];
-//            [self.navigationController popViewControllerAnimated:YES];
+            [self.navigationController popViewControllerAnimated:YES];
             return;
         }
         
@@ -165,8 +171,7 @@
         NSString *resultStatus = resultDic[@"resultStatus"];
         if ([resultStatus isEqualToString:@"9000"]) {
             NSLog(@"支付成功");
-            [weakSelf showAddressView];
-//            [weakSelf.navigationController popViewControllerAnimated:YES];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
             //            [weakSelf queryPayStatus];
         } else if ([resultStatus isEqualToString:@"4000"]) {
             [CAToast showWithText:@"支付失败"];
@@ -191,8 +196,8 @@
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
             [CAToast showWithText:result[@"msg"]];
-//            if([result[@"code"] integerValue] == 200)
-            [weakSelf showAddressView];
+            if([result[@"code"] integerValue] == 200)
+             [weakSelf.navigationController popViewControllerAnimated:YES];
         }else{
             [CAToast showWithText:@"支付失败"];
         }
@@ -202,8 +207,9 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         
         WS(weakSelf);
-        [GLD_ExpressAddressView expressAddressView:^{
-            [weakSelf.navigationController popViewControllerAnimated:YES];
+        [GLD_ExpressAddressView expressAddressView:^(NSString *address) {
+            weakSelf.address = address;
+            [weakSelf hasWriteAddress];
         }];
     });
 }

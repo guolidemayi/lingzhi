@@ -46,7 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self outLayoutSelfSubviews];
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     GLD_CustomBut *locationBut = [[GLD_CustomBut alloc]init];;
     locationBut.frame = CGRectMake(0, 0, 50, 44);
     [locationBut image:@"导航栏返回箭头"];

@@ -43,6 +43,7 @@ typedef enum
 @property (nonatomic, assign) CGFloat payMoney;//要支付的钱
 @property (nonatomic, assign) CGFloat payCoupon;//预付的代金券
 @property (nonatomic, assign) CGFloat prize;//总钱数
+
 @end
 
 @implementation GLD_PayForBusinessController
@@ -50,14 +51,17 @@ typedef enum
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.table_apply];
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     self.payType = WeChatPay;
     [self setuBottomView];
     [self getData];
     self.title = @"支付";
     [WXApiManager sharedManager].delegate = self;
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self showWriteAddressView];
+}
 - (void)getData{
     
     if (!IsExist_String([AppDelegate shareDelegate].userModel.userId)) {
@@ -296,8 +300,12 @@ typedef enum
                                      @"payType" :self.payType == offLine ? @"offLine": (self.payType == AliPay ? @"zfbPay" : @"wxPay"),
                                      @"fromUserId" : GetString([AppDelegate shareDelegate].userModel.userId),
                                      @"coupon" :[NSString stringWithFormat:@"%.2f",self.payCoupon],
+                                     
                                      @"prize" : [NSString stringWithFormat:@"%.2f",self.prize]
                                      }];
+    if (IsExist_String(self.address)) {
+        [dict addEntriesFromDictionary:@{@"address":GetString(self.address)}];
+    }
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/wx/weixinPay";
@@ -318,8 +326,8 @@ typedef enum
 //                    [weakSelf.navigationController popViewControllerAnimated:YES];
                 }else if(weakSelf.payType == offLine){
                     [CAToast showWithText:@"支付成功"];
-//                    [weakSelf.navigationController popViewControllerAnimated:YES];
-                    [weakSelf showWriteAddressView];
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                
                 }
             }
             
@@ -348,10 +356,8 @@ typedef enum
         NSString *resultStatus = resultDic[@"resultStatus"];
         if ([resultStatus isEqualToString:@"9000"]) {
             NSLog(@"支付成功");
-            
-            [weakSelf showWriteAddressView];
-            
-//            [weakSelf.navigationController popViewControllerAnimated:YES];
+
+            [weakSelf.navigationController popViewControllerAnimated:YES];
 //            [weakSelf queryPayStatus];
         } else if ([resultStatus isEqualToString:@"4000"]) {
             [CAToast showWithText:@"支付失败"];
@@ -369,15 +375,12 @@ typedef enum
 }
 - (void)showWriteAddressView{
     WS(weakSelf);
-    if (self.prize > 0) {
+    if (self.prize > 0 && !self.address) {
         
-        [GLD_ExpressAddressView expressAddressView:^{
-            [weakSelf.navigationController popViewControllerAnimated:YES];
+        [GLD_ExpressAddressView expressAddressView:^(NSString *address) {
+            weakSelf.address = address;
         }];
-    }else{
-        [weakSelf.navigationController popViewControllerAnimated:YES];
     }
-   
 }
 - (void)payToWeChatWithDic:(NSDictionary *)dic
 {

@@ -31,7 +31,7 @@
     }];
     self.dataArr = [NSMutableArray array];
     self.title = @"商家明细";
-      self.NetManager = [GLD_NetworkAPIManager new];
+      self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     [self getOrderList];
 }
 - (void)getOrderList{

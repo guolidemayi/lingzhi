@@ -56,7 +56,7 @@
     [super viewDidLoad];
     
 //    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     self.commentArrM = [NSMutableArray array];
     self.keyView = [[InputKeyboardView alloc] initWithFrame:CGRectMake(0, 64, DEVICE_WIDTH, DEVICE_HEIGHT)];
     self.keyView.delegate = self;

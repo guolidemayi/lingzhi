@@ -66,7 +66,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.phoneCode = @"-1";
-    self.netManager = [GLD_NetworkAPIManager new];
+    self.netManager = [GLD_NetworkAPIManager shareNetManager];
     [self.view addSubview:self.table_apply];
     self.provenceArr = [NSMutableArray array];
     self.cityArr = [NSMutableArray array];

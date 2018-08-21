@@ -38,11 +38,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-     [self fetchRedPointRequest];
-    [self getUserData];
+    
     self.homeManager = [[GLD_HomeViewManager alloc]initWithTableView:self.home_table];
     //获取用户信息
     [self.homeManager fetchMainUserData];
+    
     WS(weakSelf);
     self.homeManager.versonUpdate = ^{
         [weakSelf versonUpdate];
@@ -51,9 +51,12 @@
     //导航到深圳火车站
     [self setNavUi];
    
-    
+   
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self fetchRedPointRequest];
+}
 
 - (void)versonUpdate{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"惠汇联盟" message:@"有新的版本更新" preferredStyle:  UIAlertControllerStyleAlert];
@@ -126,7 +129,7 @@
 }
 
 - (void)fetchRedPointRequest{
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.urlPath = getRedPointRequest;
     config.requestParameters = @{
@@ -231,27 +234,6 @@
     }];
 }
 
-- (void)getUserData{
-    
-    NSString *str = [[NSUserDefaults standardUserDefaults]objectForKey:@"loginToken"];
-    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
-    config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/user/getUserInfo";
-    config.requestParameters = @{@"loginToken":GetString(str)};
-    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
-        
-        if (!error) {
-            
-            GLD_UserModel *model = [[GLD_UserModel alloc] initWithDictionary:result error:nil];
-            
-            [AppDelegate shareDelegate].userModel = model.data;
-            
-        }else{
-            [CAToast showWithText:@"网络错误"];
-        }
-
-    }];
-}
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

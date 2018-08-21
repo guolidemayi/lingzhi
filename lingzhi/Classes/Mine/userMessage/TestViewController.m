@@ -67,7 +67,7 @@
 //    self.updateImg = @"";
     self.tableView.hidden = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(clickSaveBtn)];
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     self.provenceArr = [NSMutableArray array];
     self.cityArr = [NSMutableArray array];
     self.areaArr = [NSMutableArray array];

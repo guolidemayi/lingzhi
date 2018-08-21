@@ -41,7 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.home_table];
-    self.netManager = [GLD_NetworkAPIManager new];
+    self.netManager = [GLD_NetworkAPIManager shareNetManager];
     //导航到深圳火车站
     [self setNavUi];
    

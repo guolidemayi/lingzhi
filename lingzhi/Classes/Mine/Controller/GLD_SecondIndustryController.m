@@ -22,7 +22,7 @@
     [super viewDidLoad];
     [self.view addSubview:self.table_apply];
     self.title = @"选择二级标题";
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     [self getSubCategory];
 }
 - (void)getSubCategory{

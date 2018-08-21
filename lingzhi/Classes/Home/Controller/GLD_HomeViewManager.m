@@ -51,7 +51,6 @@
     WS(weakSelf);
     
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
-    config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/other/getgg";
     
     [super dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {

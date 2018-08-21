@@ -39,7 +39,7 @@
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     self.navigationItem.rightBarButtonItem = item1;
     self.loginCode = @"-1";
-    self.netManager = [GLD_NetworkAPIManager new];
+    self.netManager = [GLD_NetworkAPIManager shareNetManager];
     [self.view addSubview:self.table_apply];
 }
 - (void)rightButClick{

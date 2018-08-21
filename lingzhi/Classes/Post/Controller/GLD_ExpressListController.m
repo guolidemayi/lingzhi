@@ -48,7 +48,7 @@
     offset = 0;
     pagNo = 0;
    
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     [self setupTopView];
     [self layoutTopView];
     [self setContentView];
@@ -132,7 +132,10 @@
         }else{
             [CAToast showWithText:@"网络错误"];
         }
-        complentBlock(result);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            complentBlock(result);
+        });
         
     }];
 }

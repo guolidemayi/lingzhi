@@ -91,7 +91,7 @@
     self.introHeight = W(80);
     self.mapHeight = W(260);
     [self.view addSubview:self.table_apply];
-    self.netManager = [GLD_NetworkAPIManager new];
+    self.netManager = [GLD_NetworkAPIManager shareNetManager];
     [self getParentCategory];
     self.loginCode = @"-1";
 

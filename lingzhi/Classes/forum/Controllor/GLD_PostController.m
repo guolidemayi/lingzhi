@@ -76,7 +76,7 @@
     [self setUP];
     [self initData];
 //    [self setBackbut];
-    self.NetManager = [GLD_NetworkAPIManager new];
+    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     _photoView =  [GLD_PhotoView showPhotoViewInView:[AppDelegate shareDelegate].window];
     _photoView.delegate = self;
     self.title = self.type == 1 ? @"发布帖子" :@"发布商品";
