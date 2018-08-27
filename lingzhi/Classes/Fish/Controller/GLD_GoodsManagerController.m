@@ -122,10 +122,10 @@
         //            make.edges.equalTo(self.view);
         //        }];
         WS(weakSelf);
-        table.mj_footer = [YXFooterRefresh footerWithRefreshingBlock:^{
-            [weakSelf getStoreListData];
-            
-        }];
+//        table.mj_footer = [YXFooterRefresh footerWithRefreshingBlock:^{
+//            [weakSelf getStoreListData];
+//            
+//        }];
         table.mj_header = [GLD_RefreshHeader headerWithRefreshingBlock:^{
             [weakSelf.dataArrM removeAllObjects];
             [weakSelf getStoreListData];

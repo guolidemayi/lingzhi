@@ -47,8 +47,11 @@
     }];
 }
 - (void)applybutClick{
-    
+    if (hasLogin) {
     [self showAddressView];
+    }else{
+        [CAToast showWithText:@"请登录"];
+    }
 }
 
 - (void)hasWriteAddress{
@@ -94,7 +97,8 @@
     config.urlPath = wxPayGoodsRequest;
     config.requestParameters = @{@"goodId":GetString(self.storeModel.storeId),
                                  @"fromUserId":GetString([AppDelegate shareDelegate].userModel.userId),
-                                 @"payType":GetString(self.payType)
+                                 @"payType":GetString(self.payType),
+                                 @"address":GetString(self.address)
                                  };
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
@@ -192,7 +196,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = scorePayGoodsRequest;
-    config.requestParameters = @{@"goodId":GetString(self.storeModel.storeId),@"userId":GetString([AppDelegate shareDelegate].userModel.userId)};
+    config.requestParameters = @{@"goodId":GetString(self.storeModel.storeId),@"userId":GetString([AppDelegate shareDelegate].userModel.userId),@"address":GetString(self.address)};
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
             [CAToast showWithText:result[@"msg"]];
