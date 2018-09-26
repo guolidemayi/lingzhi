@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *payTypeLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *payUserLabel;
 @property (weak, nonatomic) IBOutlet UILabel *payPhoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @end
 
@@ -47,6 +48,7 @@
     self.dateLabel.text = orderModel.createTime;
     self.payUserLabel.text = orderModel.code;
     self.payPhoneLabel.text = orderModel.phone;
+    self.addressLabel.text = orderModel.address;
 }
 
 @end

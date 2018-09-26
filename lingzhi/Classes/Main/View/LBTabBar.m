@@ -134,7 +134,7 @@
     if (!_plusLabel) {
 
         UILabel *label = [[UILabel alloc] init];
-        label.text = @"同城快递";
+        label.text = @"同城跑腿";
         label.font = WTFont(12);
         [label sizeToFit];
         label.textColor = [UIColor grayColor];

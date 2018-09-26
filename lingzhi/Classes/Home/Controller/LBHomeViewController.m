@@ -101,7 +101,7 @@
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
     GLD_CustomBut *rightBut2 = [[GLD_CustomBut alloc]init];;
     rightBut2.frame = CGRectMake(0, 0, 50, 44);
-    [rightBut2 image:@"二维码"];
+    [rightBut2 image:@"扫一扫"];
     [rightBut2 addTarget:self action:@selector(rightClick2) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item2 = [[UIBarButtonItem alloc]initWithCustomView:rightBut2];
 //    self.navigationItem.rightBarButtonItem = item1;

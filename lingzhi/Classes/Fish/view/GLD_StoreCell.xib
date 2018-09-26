@@ -1,43 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="132" id="KGk-i7-Jjw" customClass="GLD_StoreCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="GLD_StoreCell">
             <rect key="frame" x="0.0" y="0.0" width="389" height="132"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="389" height="131.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm5-ye-6Md">
-                        <rect key="frame" x="202" y="11" width="152" height="55"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm5-ye-6Md">
+                        <rect key="frame" x="194.5" y="0.0" width="194.5" height="66"/>
                         <state key="normal" backgroundImage="ic_convert_score"/>
                         <connections>
                             <action selector="integralStoreClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="w4r-q5-GCI"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lr2-vp-ht3">
-                        <rect key="frame" x="202" y="66" width="152" height="55"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lr2-vp-ht3">
+                        <rect key="frame" x="194.5" y="66" width="194.5" height="65.5"/>
                         <state key="normal" image="ic_convert_ticket"/>
                         <connections>
                             <action selector="couponStoreClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="P2M-GC-ZGc"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OHx-5S-VOm">
-                        <rect key="frame" x="27" y="11" width="152" height="110"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="152" id="lS8-Ue-Vby"/>
-                        </constraints>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OHx-5S-VOm">
+                        <rect key="frame" x="0.0" y="0.0" width="194.5" height="131.5"/>
                         <state key="normal" image="ic_convert_sell"/>
                         <connections>
                             <action selector="onSalesStoreClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Tcf-6M-yqP"/>
@@ -45,22 +42,21 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="mm5-ye-6Md" firstAttribute="leading" secondItem="OHx-5S-VOm" secondAttribute="trailing" id="0zO-BI-Wwu"/>
-                    <constraint firstItem="lr2-vp-ht3" firstAttribute="top" secondItem="mm5-ye-6Md" secondAttribute="bottom" id="2hX-Yc-8E2"/>
-                    <constraint firstItem="lr2-vp-ht3" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="4mh-26-x9x"/>
-                    <constraint firstItem="OHx-5S-VOm" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="BLc-Pk-jCS"/>
-                    <constraint firstItem="lr2-vp-ht3" firstAttribute="height" secondItem="mm5-ye-6Md" secondAttribute="height" id="C8Y-4n-Tp4"/>
-                    <constraint firstItem="lr2-vp-ht3" firstAttribute="width" secondItem="mm5-ye-6Md" secondAttribute="width" id="aVX-08-4z2"/>
-                    <constraint firstItem="lr2-vp-ht3" firstAttribute="leading" secondItem="OHx-5S-VOm" secondAttribute="trailing" id="iik-LV-gX1"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="mm5-ye-6Md" secondAttribute="trailing" id="lCV-FY-KFa"/>
-                    <constraint firstItem="OHx-5S-VOm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="lIY-j8-788"/>
-                    <constraint firstItem="lr2-vp-ht3" firstAttribute="top" secondItem="mm5-ye-6Md" secondAttribute="bottom" id="qgF-HX-JOW"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="lr2-vp-ht3" secondAttribute="trailing" id="s4Z-XJ-xZx"/>
-                    <constraint firstItem="OHx-5S-VOm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="tgG-ak-TDY"/>
-                    <constraint firstItem="mm5-ye-6Md" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="v7s-vO-wgx"/>
+                    <constraint firstItem="lr2-vp-ht3" firstAttribute="top" secondItem="mm5-ye-6Md" secondAttribute="bottom" id="0z9-wu-qXE"/>
+                    <constraint firstItem="lr2-vp-ht3" firstAttribute="height" secondItem="OHx-5S-VOm" secondAttribute="height" multiplier="1/2" id="3I7-Ng-MYM"/>
+                    <constraint firstItem="lr2-vp-ht3" firstAttribute="leading" secondItem="OHx-5S-VOm" secondAttribute="trailing" id="6ws-hb-e9i"/>
+                    <constraint firstAttribute="trailing" secondItem="mm5-ye-6Md" secondAttribute="trailing" id="Bf0-tZ-cSC"/>
+                    <constraint firstAttribute="trailing" secondItem="lr2-vp-ht3" secondAttribute="trailing" id="NfR-xM-de2"/>
+                    <constraint firstItem="mm5-ye-6Md" firstAttribute="leading" secondItem="OHx-5S-VOm" secondAttribute="trailing" id="ODg-AQ-iMi"/>
+                    <constraint firstItem="OHx-5S-VOm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="PH7-0a-PR8"/>
+                    <constraint firstItem="OHx-5S-VOm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yc4-E6-yew"/>
+                    <constraint firstAttribute="bottom" secondItem="OHx-5S-VOm" secondAttribute="bottom" id="px3-ik-Wip"/>
+                    <constraint firstItem="OHx-5S-VOm" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/2" id="vw2-Kh-34S"/>
+                    <constraint firstItem="mm5-ye-6Md" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xoU-fQ-BMN"/>
+                    <constraint firstItem="mm5-ye-6Md" firstAttribute="height" secondItem="OHx-5S-VOm" secondAttribute="height" multiplier="1/2" id="yIv-Kc-HAH"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="163" y="23"/>
+            <point key="canvasLocation" x="162.5" y="23"/>
         </tableViewCell>
     </objects>
     <resources>

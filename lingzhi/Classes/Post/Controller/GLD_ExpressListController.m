@@ -196,18 +196,18 @@
         }
     }];
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section > 0 || [tableView isEqual:self.commentTable]) return 0.01;
-    return W(150);
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if ([tableView isEqual:self.commentTable]) return nil;
-    UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
-    if (section > 0) return headView;
-    [headView addSubview:self.cycleView];
-    return headView;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    if (section > 0 || [tableView isEqual:self.commentTable]) return 0.01;
+//    return W(150);
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    if ([tableView isEqual:self.commentTable]) return nil;
+//    UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
+//    if (section > 0) return headView;
+//    [headView addSubview:self.cycleView];
+//    return headView;
+//}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if ([tableView isEqual:self.remindTable]) {
         return _remindArrM.count;
@@ -291,6 +291,8 @@
 
 
 - (void)setupTopView{
+    
+    [self.view addSubview:self.cycleView];
     
     UIView *topView = [[UIView alloc] init];
     self.topView = topView;
@@ -420,10 +422,14 @@
 
 
 - (void)layoutTopView{
-    
-    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.cycleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.left.equalTo(self.view);
         make.top.equalTo(self.view);
+        make.height.equalTo(HEIGHT(150));
+    }];
+    [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.left.equalTo(self.view);
+        make.top.equalTo(self.cycleView.mas_bottom);
         make.height.equalTo(WIDTH(54));
     }];
     [self.bgImageV mas_makeConstraints:^(MASConstraintMaker *make) {

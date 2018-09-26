@@ -58,7 +58,7 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Jin/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/setting/GLD_NewPhoneController.m"
-                  timestampString = "556261740.326936"
+                  timestampString = "558543110.593781"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "63"
@@ -73,7 +73,7 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Jin/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/setting/GLD_NewPhoneController.m"
-                  timestampString = "556261740.331239"
+                  timestampString = "558543110.598016"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "64"
@@ -234,7 +234,7 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Jin/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/GLD_InvitMemberController.m"
-                  timestampString = "556261740.3754309"
+                  timestampString = "558543110.642841"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "108"
@@ -249,7 +249,7 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Jin/Desktop/lingzhi/lingzhi/Classes/Mine/Controller/GLD_InvitMemberController.m"
-                  timestampString = "556261740.379509"
+                  timestampString = "558543110.64975"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "109"
@@ -310,49 +310,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "lingzhi/Classes/Fish/Controller/GLD_GoodsDetailController.m"
-            timestampString = "556261740.028741"
+            filePath = "lingzhi/Classes/Fish/Controller/GLD_GoodsDetailManager.m"
+            timestampString = "558543110.377424"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "-payToDaiJinQuanGoods"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-cycleScrollView:didSelectItemAtIndex:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[GLD_GoodsDetailController payToDaiJinQuanGoods]"
-                  moduleName = "lingzhi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jin/Desktop/lingzhi/lingzhi/Classes/Fish/Controller/GLD_GoodsDetailController.m"
-                  timestampString = "556261740.38799"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "3276">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__49-[GLD_GoodsDetailController payToDaiJinQuanGoods]_block_invoke"
-                  moduleName = "lingzhi"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Jin/Desktop/lingzhi/lingzhi/Classes/Fish/Controller/GLD_GoodsDetailController.m"
-                  timestampString = "556261740.39203"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "93"
-                  endingLineNumber = "93"
-                  offsetFromSymbolStart = "72">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

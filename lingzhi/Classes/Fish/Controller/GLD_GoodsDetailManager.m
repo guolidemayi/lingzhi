@@ -65,6 +65,8 @@
             NSArray *arr = [self.storeModel.pic componentsSeparatedByString:@","];
             
             _cycleView.imageURLStringsGroup = arr;
+        }else{
+           _cycleView.imageURLStringsGroup = @[self.storeModel.pic];
         }
         _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
         _cycleView.autoScroll = YES;
