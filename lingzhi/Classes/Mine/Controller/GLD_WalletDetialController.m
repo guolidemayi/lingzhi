@@ -105,7 +105,7 @@
         case 3:{
             self.cashLabel.text = [NSString stringWithFormat:@"%.2f",[AppDelegate shareDelegate].userModel.cash2];
             self.applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKgray2];
-            self.applyBut.hidden = YES;
+//            self.applyBut.hidden = YES;
             [self.applyBut setTitle:butStr forState:UIControlStateNormal];
         }break;
         case 4:{

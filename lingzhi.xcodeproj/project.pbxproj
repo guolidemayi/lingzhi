@@ -57,8 +57,6 @@
 		0F298EBB1FC2DB0D00EDBA9A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EBA1FC2DB0D00EDBA9A /* CoreTelephony.framework */; };
 		0F298EBD1FC2DB1A00EDBA9A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EBC1FC2DB1900EDBA9A /* CoreFoundation.framework */; };
 		0F298EBF1FC2DB2900EDBA9A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EBE1FC2DB2800EDBA9A /* CFNetwork.framework */; };
-		0F298EC11FC2DB3D00EDBA9A /* libstdc++.6.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EC01FC2DB3D00EDBA9A /* libstdc++.6.tbd */; };
-		0F298EC31FC2DB4C00EDBA9A /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EC21FC2DB4C00EDBA9A /* libstdc++.tbd */; };
 		0F298EC51FC2DB7B00EDBA9A /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EC41FC2DB7B00EDBA9A /* libsqlite3.0.tbd */; };
 		0F298EC71FC2DB8800EDBA9A /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EC61FC2DB8800EDBA9A /* libz.1.tbd */; };
 		0F298EC91FC2DB9700EDBA9A /* libresolv.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EC81FC2DB9700EDBA9A /* libresolv.9.tbd */; };
@@ -778,8 +776,6 @@
 				0F298EC91FC2DB9700EDBA9A /* libresolv.9.tbd in Frameworks */,
 				0F298EC71FC2DB8800EDBA9A /* libz.1.tbd in Frameworks */,
 				0F298EC51FC2DB7B00EDBA9A /* libsqlite3.0.tbd in Frameworks */,
-				0F298EC31FC2DB4C00EDBA9A /* libstdc++.tbd in Frameworks */,
-				0F298EC11FC2DB3D00EDBA9A /* libstdc++.6.tbd in Frameworks */,
 				0F298EBD1FC2DB1A00EDBA9A /* CoreFoundation.framework in Frameworks */,
 				0F298EBB1FC2DB0D00EDBA9A /* CoreTelephony.framework in Frameworks */,
 				0F298EB91FC2DAFA00EDBA9A /* SystemConfiguration.framework in Frameworks */,
@@ -2009,7 +2005,6 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

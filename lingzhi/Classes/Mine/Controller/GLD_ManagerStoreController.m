@@ -13,6 +13,7 @@
 #import "GLD_MyOrderController.h"
 #import "GLD_ApplyBusnessController.h"
 #import "GLD_GoodsManagerController.h"
+#import "GLD_PostController.h"
 
 @interface GLD_ManagerStoreController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgV;//商店图标
@@ -42,6 +43,14 @@
     GLD_GoodsManagerController *goodsVc = [GLD_GoodsManagerController new];
     goodsVc.busnessModel = self.model;
     [self.navigationController pushViewController:goodsVc animated:YES];
+}
+- (IBAction)updateGood:(id)sender {
+    
+    //发布商品
+    GLD_PostController *postVC = [GLD_PostController instancePost:^{
+        
+    } andType:2];
+    [self.navigationController pushViewController:postVC animated:YES];
 }
 
 - (void)getMyShopData{

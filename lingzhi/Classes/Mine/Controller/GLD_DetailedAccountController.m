@@ -82,7 +82,7 @@
     cell.detailTextLabel.text = model.money;
     cell.textLabel.text = model.type;
     UILabel *accLabel = [UILabel creatLableWithText:model.createTime andFont:WTFont(12) textAlignment:NSTextAlignmentRight textColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray]];
-    accLabel.frame = CGRectMake(0, 0, 100, 25);
+    accLabel.frame = CGRectMake(0, 0, 150, 25);
     cell.accessoryView = accLabel;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
