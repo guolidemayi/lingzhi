@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *fromLabel;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *toLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
@@ -76,6 +78,8 @@
     self.fromLabel.text = GetString(expressModel.start);
     self.toLabel.text = GetString(expressModel.end);
     self.tipLabel.text = GetString(expressModel.title);
+    self.timeLabel.text = GetString(expressModel.time);
+    self.nameLabel.text = GetString(expressModel.name);
 }
 
 @end

@@ -12,7 +12,8 @@
 
 @end
 @interface GLD_ExpressModel : JSONModel
-
+@property (nonatomic, copy)NSString *time;
+@property (nonatomic, copy)NSString *name;
 @property (nonatomic, copy)NSString *start;
 @property (nonatomic, copy)NSString *expressId;
 @property (nonatomic, copy)NSString *end;

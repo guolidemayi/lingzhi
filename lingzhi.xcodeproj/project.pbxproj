@@ -259,6 +259,13 @@
 		3CA74E511FD2829200A7F137 /* GLD_BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */; };
 		5B3789A9B5E4EF8A0BE2141F /* libPods-lingzhiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */; };
 		64BFBA665871E50399A6E013 /* libPods-lingzhi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C3E6708F716104D709C04A /* libPods-lingzhi.a */; };
+		C9ED06EB22815E6500D487BD /* CollectionCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E122815E6500D487BD /* CollectionCategoryModel.m */; };
+		C9ED06EC22815E6500D487BD /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E622815E6500D487BD /* CollectionViewCell.m */; };
+		C9ED06ED22815E6500D487BD /* LJCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E822815E6500D487BD /* LJCollectionViewFlowLayout.m */; };
+		C9ED06EE22815E6500D487BD /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E922815E6500D487BD /* CollectionViewController.m */; };
+		C9ED06EF22815E6500D487BD /* CollectionViewHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06EA22815E6500D487BD /* CollectionViewHeaderView.m */; };
+		C9ED06F2228164F600D487BD /* GLD_TwoStoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06F1228164F600D487BD /* GLD_TwoStoreCell.m */; };
+		C9ED06F522816CCA00D487BD /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06F422816CCA00D487BD /* LeftTableViewCell.m */; };
 		F0A7198DA2A1E213B7CC7C9C /* libPods-lingzhiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E906A1C335114CAF15749D10 /* libPods-lingzhiUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -749,6 +756,20 @@
 		3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BannerModel.m; sourceTree = "<group>"; };
 		98830999E513C9AF0ABA2FD1 /* Pods-lingzhiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiTests/Pods-lingzhiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B71A964312F2EC99F300DABB /* Pods-lingzhi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhi/Pods-lingzhi.debug.xcconfig"; sourceTree = "<group>"; };
+		C9ED06E122815E6500D487BD /* CollectionCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCategoryModel.m; sourceTree = "<group>"; };
+		C9ED06E222815E6500D487BD /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		C9ED06E322815E6500D487BD /* LJCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		C9ED06E422815E6500D487BD /* CollectionViewHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewHeaderView.h; sourceTree = "<group>"; };
+		C9ED06E522815E6500D487BD /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
+		C9ED06E622815E6500D487BD /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		C9ED06E722815E6500D487BD /* CollectionCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCategoryModel.h; sourceTree = "<group>"; };
+		C9ED06E822815E6500D487BD /* LJCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		C9ED06E922815E6500D487BD /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		C9ED06EA22815E6500D487BD /* CollectionViewHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewHeaderView.m; sourceTree = "<group>"; };
+		C9ED06F0228164F600D487BD /* GLD_TwoStoreCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_TwoStoreCell.h; sourceTree = "<group>"; };
+		C9ED06F1228164F600D487BD /* GLD_TwoStoreCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_TwoStoreCell.m; sourceTree = "<group>"; };
+		C9ED06F322816CC900D487BD /* LeftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTableViewCell.h; sourceTree = "<group>"; };
+		C9ED06F422816CCA00D487BD /* LeftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTableViewCell.m; sourceTree = "<group>"; };
 		D0DF7C5179224BE30523DC09 /* Pods-lingzhiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiTests/Pods-lingzhiTests.release.xcconfig"; sourceTree = "<group>"; };
 		DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lingzhiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E906A1C335114CAF15749D10 /* libPods-lingzhiUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lingzhiUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1195,6 +1216,8 @@
 				0FF3B06A21219E3600B5C512 /* GLD_ExpressAddressView.h */,
 				0FF3B06B21219E3600B5C512 /* GLD_ExpressAddressView.m */,
 				0FF3B06F21219E5F00B5C512 /* GLD_ExpressAddressView.xib */,
+				C9ED06F0228164F600D487BD /* GLD_TwoStoreCell.h */,
+				C9ED06F1228164F600D487BD /* GLD_TwoStoreCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1405,6 +1428,7 @@
 		0FB536D71FC5887C00B0EDA6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C9ED06DF22815E0300D487BD /* 商城 */,
 				0FB536D81FC5887C00B0EDA6 /* Home */,
 				0FB536DC1FC5887C00B0EDA6 /* Post */,
 				0FB536E01FC5887C00B0EDA6 /* Other */,
@@ -1763,6 +1787,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C9ED06DF22815E0300D487BD /* 商城 */ = {
+			isa = PBXGroup;
+			children = (
+				C9ED06E022815E6500D487BD /* CollectionView */,
+			);
+			path = "商城";
+			sourceTree = "<group>";
+		};
+		C9ED06E022815E6500D487BD /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				C9ED06F322816CC900D487BD /* LeftTableViewCell.h */,
+				C9ED06F422816CCA00D487BD /* LeftTableViewCell.m */,
+				C9ED06E322815E6500D487BD /* LJCollectionViewFlowLayout.h */,
+				C9ED06E822815E6500D487BD /* LJCollectionViewFlowLayout.m */,
+				C9ED06E422815E6500D487BD /* CollectionViewHeaderView.h */,
+				C9ED06EA22815E6500D487BD /* CollectionViewHeaderView.m */,
+				C9ED06E222815E6500D487BD /* CollectionViewCell.h */,
+				C9ED06E622815E6500D487BD /* CollectionViewCell.m */,
+				C9ED06E722815E6500D487BD /* CollectionCategoryModel.h */,
+				C9ED06E122815E6500D487BD /* CollectionCategoryModel.m */,
+				C9ED06E522815E6500D487BD /* CollectionViewController.h */,
+				C9ED06E922815E6500D487BD /* CollectionViewController.m */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2099,6 +2150,7 @@
 				0F2C2F5C1FF62E330083BCCB /* GLD_PickerView.m in Sources */,
 				0F5EC5DB202D51F200298A7D /* GLD_DetailedAccountController.m in Sources */,
 				0F71A5951FDF8A1800C66EED /* GLD_ChangePhoneController.m in Sources */,
+				C9ED06F2228164F600D487BD /* GLD_TwoStoreCell.m in Sources */,
 				0FB537381FC6D22A00B0EDA6 /* SGQRCodeHelperTool.m in Sources */,
 				0F28D2C11FD91DED00138A8B /* GLD_MapDetailCell.m in Sources */,
 				0FB5371E1FC6AA7A00B0EDA6 /* WTBootPageStartViewController.m in Sources */,
@@ -2168,6 +2220,7 @@
 				0F32E8021FE26CE40042E8BE /* GLD_BannerDetailController.m in Sources */,
 				0F28D2991FD6799100138A8B /* UIView+SDAutoLayout.m in Sources */,
 				0F298E871FC2CFC200EDBA9A /* WTFont.m in Sources */,
+				C9ED06ED22815E6500D487BD /* LJCollectionViewFlowLayout.m in Sources */,
 				0FB537391FC6D22A00B0EDA6 /* SGQRCodeScanningView.m in Sources */,
 				0F28D2B31FD6AEC500138A8B /* NSDate+BRAdd.m in Sources */,
 				0F382EFD1FDE7620006689FA /* GLD_ApplyCooperatController.m in Sources */,
@@ -2241,6 +2294,7 @@
 				0F99201B1FCEF04500305DF3 /* GLD_BaseCell.m in Sources */,
 				0F32E7F91FE0FB6C0042E8BE /* GLD_CashCountCell.m in Sources */,
 				0F71A5981FDF8DDF00C66EED /* GLD_GetVerificationController.m in Sources */,
+				C9ED06EF22815E6500D487BD /* CollectionViewHeaderView.m in Sources */,
 				0FB537041FC5887C00B0EDA6 /* UIView+LBExtension.m in Sources */,
 				0F32E7F01FDFD56F0042E8BE /* GLD_WalletDetialController.m in Sources */,
 				0F71A58C1FDE93AC00C66EED /* GLD_VerificationController.m in Sources */,
@@ -2254,6 +2308,7 @@
 				0F9920151FCEEA5900305DF3 /* GLD_BannerCell.m in Sources */,
 				0F5445EC210EA733009FAE8E /* GLD_StoreCell.m in Sources */,
 				0FEA82C620902E0A002FBC88 /* GLD_UserProtocolController.m in Sources */,
+				C9ED06EE22815E6500D487BD /* CollectionViewController.m in Sources */,
 				0F5EC5E3202D701700298A7D /* GLD_CountModel.m in Sources */,
 				0F298E851FC2CFC200EDBA9A /* UIDevice+DeviceMode.m in Sources */,
 				0F6411861FD4EAB50069FDB1 /* GLD_Request.m in Sources */,
@@ -2261,8 +2316,10 @@
 				0FB537001FC5887C00B0EDA6 /* main.m in Sources */,
 				0F54462A211151FC009FAE8E /* GLD_BusnessCommentController.m in Sources */,
 				330AAB3E1FF4053200523FF0 /* GLD_wanShanUserMController.m in Sources */,
+				C9ED06EC22815E6500D487BD /* CollectionViewCell.m in Sources */,
 				0F64119C1FD523BE0069FDB1 /* GLD_BusinessDetailController.m in Sources */,
 				0F32E7FC1FE12CED0042E8BE /* GLD_SearchController.m in Sources */,
+				C9ED06EB22815E6500D487BD /* CollectionCategoryModel.m in Sources */,
 				0F2C2F4E1FF62E330083BCCB /* GLD_AllDetailController.m in Sources */,
 				0F2C2F5E1FF62E330083BCCB /* GLD_PictureImg.m in Sources */,
 				0F2C2F521FF62E330083BCCB /* GLD_ForumNewsDetailModel.m in Sources */,
@@ -2270,6 +2327,7 @@
 				0FB5373C1FC6D22A00B0EDA6 /* SGQRCodeAlbumManager.m in Sources */,
 				0F6411831FD4EAB50069FDB1 /* GLD_NetworkReachability.m in Sources */,
 				0F54462021100736009FAE8E /* GLD_ExpressModel.m in Sources */,
+				C9ED06F522816CCA00D487BD /* LeftTableViewCell.m in Sources */,
 				0FB537021FC5887C00B0EDA6 /* LBMessageViewController.m in Sources */,
 				0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */,
 				0F32E8111FE8BD450042E8BE /* GLD_UpdateViewController.m in Sources */,

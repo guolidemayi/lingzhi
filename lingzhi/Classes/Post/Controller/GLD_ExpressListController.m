@@ -104,7 +104,8 @@
     WS(weakSelf);
     [self.commentArrM removeAllObjects];
     [self getDataRequest:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
-                           @"type":@(1)
+                           @"type":@(1),
+                           @"city":IsExist_String([AppDelegate shareDelegate].placemark.area_name)? [AppDelegate shareDelegate].placemark.area_name :@"北京",
                            } andComplentBlock:^(id result) {
         GLD_ExpressListModel *listModel = [[GLD_ExpressListModel alloc]initWithDictionary:result error:nil];
         
@@ -254,9 +255,14 @@
 
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return H(130);
+    return H(160);
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.01;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return [UIView new];
+}
 - (void)MyButClick: (UIButton *)senser{
     
     _commentView.hidden = YES;

@@ -13,7 +13,7 @@
 #import <MapKit/MapKit.h>
 #import "MapNavigationManager.h"
 #import "GLD_LocationHelp.h"
-#import "GLD_BusnessModel.h"
+#import "GLD_TwoStoreCell.h"
 #import "GLD_BusinessCell.h"
 #import "GLD_BusinessDetailController.h"
 #import "SDCycleScrollView.h"
@@ -24,7 +24,7 @@
 @interface LBFishViewController ()<UITableViewDelegate, UITableViewDataSource,SDCycleScrollViewDelegate>
 @property (nonatomic, weak)GLD_CustomBut *locationBut;
 @property (nonatomic, copy)NSString *locationStr;
-@property (nonatomic, strong)GLD_BusnessLisModel *busnessListModel;
+@property (nonatomic, strong)GLD_StoreDetaiListlModel *busnessListModel;
 @property (nonatomic, copy)UITableView *home_table;
 @property (nonatomic, strong)GLD_NetworkAPIManager *netManager;
 
@@ -34,6 +34,7 @@
 
 @property (nonatomic, strong)SDCycleScrollView *cycleView;
 @property (nonatomic, strong)GLD_BannerLisModel *bannerListModel;
+@property (nonatomic, strong) UILabel *secondLabel;
 @end
 
 @implementation LBFishViewController
@@ -53,7 +54,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) return 1;
-    return self.dataArrM.count;
+    if (self.dataArrM.count % 2 == 1) {
+        return self.dataArrM.count / 2 + 1;
+    }else{
+        return self.dataArrM.count;
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) return [self getStoreCell:indexPath];
@@ -63,20 +68,17 @@
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/main/shopList";
+    config.urlPath = storeListRequest;
     config.requestParameters = @{
                                  @"type" : @(type),
-                                 @"city":[AppDelegate shareDelegate].placemark.area_name ? [AppDelegate shareDelegate].placemark.area_name:@"衡水",
-                                 @"lat:":[NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lat],
-                                 @"lng:" : [NSString stringWithFormat:@"%lf",[AppDelegate shareDelegate].placemark.lon],
-                                 @"limit":[NSString stringWithFormat:@"10"],
-                                 @"offset" : [NSString stringWithFormat:@"%zd",self.dataArrM.count]
+//                                 @"limit":[NSString stringWithFormat:@"10"],
+//                                 @"offset" : [NSString stringWithFormat:@"%zd",self.dataArrM.count]
                                  };
     
     
     [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
-        weakSelf.busnessListModel = [[GLD_BusnessLisModel alloc] initWithDictionary:result error:nil];
+        weakSelf.busnessListModel = [[GLD_StoreDetaiListlModel alloc] initWithDictionary:result error:nil];
         [weakSelf.home_table.mj_header endRefreshing];
         [weakSelf.home_table.mj_footer endRefreshing];
         [weakSelf.dataArrM addObjectsFromArray:weakSelf.busnessListModel.data];
@@ -88,9 +90,20 @@
     
     return cell;
 }
-- (GLD_BusinessCell *)getBusinessCell:(NSIndexPath *)indexPath{
-    GLD_BusinessCell *cell = [self.home_table dequeueReusableCellWithIdentifier:GLD_BusinessCellIdentifier];
-    cell.model = self.dataArrM[indexPath.row];
+- (GLD_TwoStoreCell *)getBusinessCell:(NSIndexPath *)indexPath{
+    GLD_TwoStoreCell *cell = [self.home_table dequeueReusableCellWithIdentifier:@"GLD_TwoStoreCell"];
+    
+    if (self.dataArrM.count % 2 == 1) {
+        if (indexPath.row * 2 + 1 > self.dataArrM.count - 1) {
+            [cell setModel1:self.dataArrM[indexPath.row * 2] andModel2:nil];
+
+        }else{
+            [cell setModel1:self.dataArrM[indexPath.row * 2] andModel2:self.dataArrM[indexPath.row * 2 + 1]];
+        }
+    }else{
+       [cell setModel1:self.dataArrM[indexPath.row * 2] andModel2:self.dataArrM[indexPath.row * 2 + 1]];
+    }
+    
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -102,19 +115,22 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section > 0) return 0.01;
+    if (section > 0) return 30;
     return W(150);
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
-    if (section > 0) return headView;
+    if (section > 0) {
+        [headView.contentView addSubview:self.secondLabel];
+        return headView;
+    }
     [headView addSubview:self.cycleView];
     return headView;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) return H(150);
-    return H(100);
+    return (150);
 }
 - (void)getBannerData{
     WS(weakSelf);
@@ -246,7 +262,7 @@
             [weakSelf getbusnessList:2];
         }];
 //        table.rowHeight = W(100);
-        [table registerClass:[GLD_BusinessCell class] forCellReuseIdentifier:GLD_BusinessCellIdentifier];
+        [table registerClass:[GLD_TwoStoreCell class] forCellReuseIdentifier:@"GLD_TwoStoreCell"];
         [table registerNib:[UINib nibWithNibName:@"GLD_StoreCell" bundle:nil] forCellReuseIdentifier:@"GLD_StoreCell"];
         _home_table = table;
     }
@@ -260,5 +276,13 @@
     }
     return _dataArrM;
 }
-
+- (UILabel *)secondLabel{
+    if (!_secondLabel) {
+        _secondLabel = [UILabel creatLableWithText:@"——甄选 • 推荐——" andFont:[UIFont fontWithName:@"PingFangSC-Medium" size: 16] textAlignment:NSTextAlignmentCenter textColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKblack]];
+        _secondLabel.backgroundColor = [UIColor whiteColor];
+        _secondLabel.frame = CGRectMake(0, 0, DEVICE_WIDTH, 30);
+        
+    }
+    return _secondLabel;
+}
 @end

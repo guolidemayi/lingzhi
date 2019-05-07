@@ -8,7 +8,7 @@
 
 #import "GLD_StoreCell.h"
 
-#import "GLD_StoreViewController.h"
+#import "CollectionViewController.h"
 @interface GLD_StoreCell ()
 
 @end
@@ -29,7 +29,7 @@
 }
 
 - (void)pushToStore:(NSInteger)type{
-    GLD_StoreViewController *storeVC = [GLD_StoreViewController new];
+    CollectionViewController *storeVC = [CollectionViewController new];
     storeVC.type = type;
     [self.navigationController pushViewController:storeVC animated:YES];
 }
