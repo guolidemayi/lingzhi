@@ -46,6 +46,7 @@
 - (void)store2Click:(UITapGestureRecognizer *)tap{
     CollectionViewCell *cell = (CollectionViewCell *)tap.view;
     GLD_GoodsDetailController *goodsVc = [GLD_GoodsDetailController new];
+    goodsVc.type = 1;
     goodsVc.storeModel = cell.model;
     [self.contentView.navigationController pushViewController:goodsVc animated:YES];
 }

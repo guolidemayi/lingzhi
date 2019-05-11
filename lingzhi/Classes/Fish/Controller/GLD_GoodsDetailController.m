@@ -11,13 +11,16 @@
 #import "GLD_PayForBusinessController.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "GLD_ExpressAddressView.h"
+#import "GLD_ChooseGoodsView.h"
 
-@interface GLD_GoodsDetailController ()<WXApiManagerDelegate>
+@interface GLD_GoodsDetailController ()<WXApiManagerDelegate,GLD_ChooseGoodsViewDelegate>
 @property (nonatomic, strong)GLD_GoodsDetailManager *goodsDetailManager;
 @property (nonatomic, strong)UITableView *home_table;
 @property (nonatomic, strong)UIButton *applyBut;
+@property (nonatomic, strong) UIButton *addToCar;//添加购物车
 @property (nonatomic, assign) NSString *payType;
 @property (nonatomic, strong)NSString *address;
+@property (nonatomic, weak) GLD_ChooseGoodsView *chooseGoodsView;
 @end
 
 @implementation GLD_GoodsDetailController
@@ -41,11 +44,27 @@
 
 - (void)setApplyBut{
     [self.view addSubview:self.applyBut];
+    [self.view addSubview:self.addToCar];
     [self.applyBut mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.left.bottom.equalTo(self.view);
-        make.height.equalTo(@(64));
+        make.right.bottom.equalTo(self.view);
+        make.width.equalTo(@(DEVICE_WIDTH / 2));
+        make.height.equalTo(@(44));
     }];
+    [self.addToCar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.equalTo(self.view);
+        make.width.equalTo(self.applyBut);
+        make.height.equalTo(@(44));
+    }];
+    
+    
 }
+//GLD_ChooseGoodsViewDelegate
+- (void)didSelectedTimeItem:(NSInteger)index{
+    if (index == -1) {
+        [self.navigationController.view sendSubviewToBack:self.chooseGoodsView];
+    }
+}
+//click
 - (void)applybutClick{
     if (hasLogin) {
     [self showAddressView];
@@ -53,7 +72,13 @@
         [CAToast showWithText:@"请登录"];
     }
 }
-
+- (void)addToCarClick{
+//    if (hasLogin) {
+        [self.navigationController.view bringSubviewToFront:self.chooseGoodsView];
+//    }else{
+//        [CAToast showWithText:@"请登录"];
+//    }
+}
 - (void)hasWriteAddress{
     switch (self.type) {
         case 1:
@@ -223,12 +248,41 @@
         [_applyBut setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKwirte] forState:UIControlStateNormal];
         [_applyBut setTitle:@"立即购买" forState:UIControlStateNormal];
         _applyBut.titleLabel.font = WTFont(15);
-        _applyBut.layer.cornerRadius = 3;
-        _applyBut.layer.masksToBounds = YES;
+//        _applyBut.layer.cornerRadius = 3;
+//        _applyBut.layer.masksToBounds = YES;
         _applyBut.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE];
 //        _applyBut.hidden = YES;
         [_applyBut addTarget:self action:@selector(applybutClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _applyBut;
+}
+- (UIButton *)addToCar{
+    if (!_addToCar) {
+        _addToCar = [[UIButton alloc]init];
+        [_addToCar setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKwirte] forState:UIControlStateNormal];
+        [_addToCar setTitle:@"加入购物车" forState:UIControlStateNormal];
+        _addToCar.titleLabel.font = WTFont(15);
+//        _addToCar.layer.cornerRadius = 3;
+//        _addToCar.layer.masksToBounds = YES;
+        _addToCar.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTorange];
+        //        _applyBut.hidden = YES;
+        [_addToCar addTarget:self action:@selector(addToCarClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _addToCar;
+}
+- (GLD_ChooseGoodsView *)chooseGoodsView{
+    if (!_chooseGoodsView) {
+        GLD_ChooseGoodsView *chooseV = [GLD_ChooseGoodsView instanceChooseGoodsView];
+        _chooseGoodsView = chooseV;
+        _chooseGoodsView.timeDelegate = self;
+        _chooseGoodsView.storeModel = self.storeModel;
+        _chooseGoodsView.frame = [UIScreen mainScreen].bounds;
+        [self.navigationController.view insertSubview:_chooseGoodsView atIndex:0];
+        [self.navigationController.view sendSubviewToBack:_chooseGoodsView];
+    }
+    return _chooseGoodsView;
+}
+- (void)dealloc{
+    [self.chooseGoodsView removeFromSuperview];
 }
 @end

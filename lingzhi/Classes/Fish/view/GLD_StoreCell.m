@@ -7,7 +7,7 @@
 //
 
 #import "GLD_StoreCell.h"
-
+#import "GLD_StoreViewController.h"
 #import "CollectionViewController.h"
 @interface GLD_StoreCell ()
 
@@ -19,7 +19,9 @@
     // Initialization code
 }
 - (IBAction)integralStoreClick:(UIButton *)sender {
-    [self pushToStore:1];
+    CollectionViewController *storeVC = [CollectionViewController new];
+    storeVC.type = 1;
+    [self.navigationController pushViewController:storeVC animated:YES];
 }
 - (IBAction)couponStoreClick:(id)sender {
     [self pushToStore:3];
@@ -29,7 +31,7 @@
 }
 
 - (void)pushToStore:(NSInteger)type{
-    CollectionViewController *storeVC = [CollectionViewController new];
+    GLD_StoreViewController *storeVC = [GLD_StoreViewController new];
     storeVC.type = type;
     [self.navigationController pushViewController:storeVC animated:YES];
 }

@@ -137,7 +137,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/banner";
-    config.requestParameters = @{@"type":@"2"};
+    config.requestParameters = @{@"type":@"1"};
     [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
         weakSelf.bannerListModel = [[GLD_BannerLisModel alloc] initWithDictionary:result error:nil];

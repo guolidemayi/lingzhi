@@ -18,6 +18,7 @@
 @property (nonatomic, copy)NSString *title;
 @property (nonatomic, copy)NSString *pic;
 @property (nonatomic, copy)NSString *userId;//被付款人id
+@property (nonatomic, assign) NSInteger type;//商品类型 1 兑换商品 2 特价商品 3 代金券商品
 @end
 
 
