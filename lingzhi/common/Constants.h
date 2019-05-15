@@ -158,7 +158,7 @@
 //微信
 #define WeiXinAppKey @"wx007f5aef7d8bbc0a"
 //微信登陆
-#define WeiXinAppSecret @"02d671e1a891e42d721dae8dd42999a5"
+#define WeiXinAppSecret @"4863e8fdb606807ae0a9c4bbe4c2851a"
 #define WeiXinAuthScope @"snsapi_message,snsapi_userinfo,snsapi_friend,snsapi_contact"
 #define WeiXinAuthState @"MingTieWeiXinAuth"
 

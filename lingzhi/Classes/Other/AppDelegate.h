@@ -26,6 +26,7 @@
 @property (nonatomic, strong)GLD_CityModel *placemark;
 @property (nonatomic, strong)GLD_UserMessageModel *userModel;
 - (void)initMainPageBody;
+- (void)finishUserData;
 + (AppDelegate *)shareDelegate;
 @end
 

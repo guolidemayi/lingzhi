@@ -4,7 +4,7 @@
 //
 
 #import "OCPublicEngine.h"
-
+#import "GLD_PerfectUserMController.h"
 @interface OCPublicEngine () <MTShareViewDelegate>
 
 @end
@@ -118,92 +118,63 @@ static OCPublicEngine *sInstance = nil;
 #pragma mark - 第三方登录
 
 - (void)openLoginHandleWithOpenId:(NSString *)openId token:(NSString *)token isAutoLogin:(BOOL)isAutoLogin successBlock:(void (^)(NSString *thirdUserId))successBlock {
-    //type 0注册登录 第三方登录：qq，wechat，facebook...
-    //accessToken
-    //openId
-    //deviceId 推送Id 有的话就传
-    //os
-//    if (!IsExist_String([AppDelegate shareDelegate].adId)) {
-//        [AppDelegate shareDelegate].adId = @"";
-//    }
-//    if (!IsExist_String([AppDelegate shareDelegate].deviceId)) {
-//        [AppDelegate shareDelegate].deviceId = @"";
-//    }
-//    NSString *deviceId = [AppDelegate shareDelegate].deviceId;
-//    NSString *adId = [AppDelegate shareDelegate].adId;
-//    NSDictionary *dic;
-//    if (IsExist_String(deviceId) && IsExist_String(adId)) {
-//        dic = [NSDictionary dictionaryWithObjectsAndKeys:openId, @"openId", token, @"token", @"ios", @"os", adId, @"idfa", deviceId, @"deviceId", nil];
-//        // adId,@"idFa",deviceId,@"deviceId",
-//    } else {
-//        dic = [NSDictionary dictionaryWithObjectsAndKeys:openId, @"openId", token, @"token", @"ios", @"os", nil];
-//    }
-//    //dic = [NSDictionary dictionaryWithObjectsAndKeys: openId, @"openId", token, @"token",nil];
-//    //第三方登录
-//    [[YXWeChatLoginRequest shareManager] httpPostWithNoneHUD:@"" parameters:dic block:^(WTBaseRequest *request, NSError *error) {
-//        if (error == nil) {
-//            NSString *token_IdStr = [NSString stringWithFormat:@"%@ %@", token, openId];
-//            [[AppDelegate shareDelegate] saveUserNameAndPasswordToKeychain:ThirdAuthKey passWord:token_IdStr];
-//
-//            //第三方平台登录，存储账号信息，做为自动登录数据源
-//            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:LastLoginTypeKey];
-//            //[[NSUserDefaults standardUserDefaults] setObject: forKey:LastLoginExpiredTime];
-//            [[NSUserDefaults standardUserDefaults] synchronize];
-//
-//            UserInfomationModel *infomationModel = (UserInfomationModel *) [request.resultArray firstObject];
-//            UserDataModel *userDataModel = infomationModel.user;
-//            [AppDelegate shareDelegate].token = infomationModel.token;
-//            [AppDelegate shareDelegate].userDataModel = userDataModel;
-//
-//            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:userDataModel];
-//
-//            [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"userDataModelGLD"];
-//            [[NSUserDefaults standardUserDefaults] setObject:infomationModel.token forKey:@"userToken"];
-//
-//            [[SensorsAnalyticsSDK sharedInstance] identify:[AppDelegate shareDelegate].userDataModel.id];
-//
-//            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@", userDataModel.inviteCode] forKey:@"inviteCode"];
-//
-//            [[NSUserDefaults standardUserDefaults] setObject:[AppDelegate shareDelegate].userDataModel.phone forKey:@"LastLoginPhone"];
-//
-//
-//            if (userDataModel.ident.length == 0) {
-//                //需要完善信息
-//                [[AppDelegate shareDelegate] initPerfectCardVC];
-//            } else {
-//                //进入主页
-//                [[AppDelegate shareDelegate] gotoSuccessView];
-//            }
-//        } else {
-//            //未绑定手机 error.code = 202
-//            if (error.code == 202) {
-//                [[AppDelegate shareDelegate] initRegisterViewControllerWithOpenId:openId withToken:token];
-//            } else {
-//                //非服务器接口返回的错误，而是如请求超时、无网络等其他类似错误
-//                if (isAutoLogin == YES) {
-//                    //自动登录情况下，若请求错误是由于无网络或请求超时引起的则进入首页
-//                    //否则清除上次登录的数据后进入手动登录页
-//
-//                    [CAToast showWithText:@"自动登录失败，请重新登录"];
-//                    //清除上次登录的数据
-//                    [[OCPublicEngine getInstance] clearAutoLoginAccountData];
-//                    [[AppDelegate shareDelegate] initLoginViewController];
-//
-//
-//                } else {
-//                    [CAToast showWithText:error.localizedDescription];
-////                    if (error.code == NETWORK_NONE_CODE || error.code == NETWORK_TIMEOUT_CODE) {
-////                        //手动登录下，提示网络异常
-////                        [CAToast showWithText:@"请检查网络"];
-////                    } else {
-////                        //手动登录下，提示登录失败
-////                        [CAToast showWithText:@"登录失败"];
-////                    }
-//
-//                }
-//            }
-//        }
-//    }];
+//    type 0注册登录 第三方登录：qq，wechat，facebook...
+//    accessToken
+//    openId
+//    deviceId 推送Id 有的话就传
+//    os
+   
+    if (!IsExist_String([AppDelegate shareDelegate].deviceId)) {
+        [AppDelegate shareDelegate].deviceId = @"";
+    }
+    NSString *deviceId = [AppDelegate shareDelegate].deviceId;
+    NSDictionary *dic;
+    if (IsExist_String(deviceId)) {
+        dic = [NSDictionary dictionaryWithObjectsAndKeys:openId, @"openId", token, @"token", @"ios", @"os", deviceId, @"deviceId", nil];
+        // adId,@"idFa",deviceId,@"deviceId",
+    } else {
+        dic = [NSDictionary dictionaryWithObjectsAndKeys:openId, @"openId", token, @"token", @"ios", @"os", nil];
+    }
+    //dic = [NSDictionary dictionaryWithObjectsAndKeys: openId, @"openId", token, @"token",nil];
+    //第三方登录
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/wx/wxLogin";
+    config.requestParameters = dic;
+    
+    [[GLD_NetworkAPIManager shareNetManager] dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (error == nil) {
+            NSString *token_IdStr = [NSString stringWithFormat:@"%@ %@", token, openId];
+            
+            //第三方平台登录，存储账号信息，做为自动登录数据源
+            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:LastLoginTypeKey];
+            //[[NSUserDefaults standardUserDefaults] setObject: forKey:LastLoginExpiredTime];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            GLD_UserMessageModel *infomationModel = [[GLD_UserMessageModel alloc]initWithDictionary:result[@"data"] error:nil];
+            NSString *token = result[@"token"];
+            [AppDelegate shareDelegate].token = @"";
+            [AppDelegate shareDelegate].userModel = infomationModel;
+            
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:infomationModel];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"userDataModelGLD"];
+            [[NSUserDefaults standardUserDefaults] setObject:GetString(token) forKey:@"userToken"];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:[AppDelegate shareDelegate].userModel.phone forKey:@"LastLoginPhone"];
+            
+            
+            if (infomationModel.phone.length == 0) {
+                //需要绑定手机
+              [[AppDelegate shareDelegate] finishUserData];
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"weixinLogin"];
+            } else {
+                //进入主页
+                [[AppDelegate shareDelegate] initMainPageBody];
+            }
+        } 
+    }];
+   
 }
 
 /**

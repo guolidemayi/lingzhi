@@ -15,6 +15,7 @@
 #import <MAMapKit/MAMapKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
 #import <AlipaySDK/AlipaySDK.h>
+#import "GLD_PerfectUserMController.h"
 
 #define LBKeyWindow [UIApplication sharedApplication].keyWindow
 
@@ -84,17 +85,17 @@ GLD_BaseNavController *rootViewController = [[GLD_BaseNavController alloc] initW
 - (void)initMainPageBody{
     LBTabBarController *tabBarVc = [[LBTabBarController alloc] init];
     
-    
-    //    CATransition *anim = [[CATransition alloc] init];
-    //    anim.type = @"rippleEffect";
-    //    anim.duration = 1.0;
-    //
-    //
-    //    [self.window.layer addAnimation:anim forKey:nil];
-    
     self.window.rootViewController = tabBarVc;
     
     [self.window makeKeyAndVisible];
+}
+//完善信息
+- (void)finishUserData{
+    
+    GLD_PerfectUserMController *flashAdVCtrl = [GLD_PerfectUserMController new];
+    GLD_BaseNavController *rootViewController = [[GLD_BaseNavController alloc] initWithRootViewController:flashAdVCtrl background:[YXUniversal createImageWithColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE]] font:[UIFont systemFontOfSize:18.0] textColor:[YXUniversal colorWithHexString:@"fafdff"] shadowColor:[UIColor clearColor]];
+    
+    self.window.rootViewController = rootViewController;
 }
 // 检测网络状态
 - (void)detectionReachabilityStatus {

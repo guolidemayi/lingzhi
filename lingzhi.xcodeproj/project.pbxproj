@@ -267,6 +267,10 @@
 		C961C6C2228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C961C6C0228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib */; };
 		C961C6C5228AD78A0000CC8E /* GLD_SendView.m in Sources */ = {isa = PBXBuildFile; fileRef = C961C6C4228AD78A0000CC8E /* GLD_SendView.m */; };
 		C961C6C7228AD7950000CC8E /* GLD_SendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C961C6C6228AD7950000CC8E /* GLD_SendView.xib */; };
+		C961C6CB228BE6920000CC8E /* GLD_BangBanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C961C6C9228BE6920000CC8E /* GLD_BangBanCell.m */; };
+		C961C6CC228BE6920000CC8E /* GLD_BangBanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C961C6CA228BE6920000CC8E /* GLD_BangBanCell.xib */; };
+		C961C6D5228BEB3C0000CC8E /* GLD_PaoTuiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C961C6D3228BEB3C0000CC8E /* GLD_PaoTuiCell.m */; };
+		C961C6D6228BEB3C0000CC8E /* GLD_PaoTuiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C961C6D4228BEB3C0000CC8E /* GLD_PaoTuiCell.xib */; };
 		C9ED06EB22815E6500D487BD /* CollectionCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E122815E6500D487BD /* CollectionCategoryModel.m */; };
 		C9ED06EC22815E6500D487BD /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E622815E6500D487BD /* CollectionViewCell.m */; };
 		C9ED06ED22815E6500D487BD /* LJCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E822815E6500D487BD /* LJCollectionViewFlowLayout.m */; };
@@ -779,6 +783,12 @@
 		C961C6C3228AD78A0000CC8E /* GLD_SendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_SendView.h; sourceTree = "<group>"; };
 		C961C6C4228AD78A0000CC8E /* GLD_SendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_SendView.m; sourceTree = "<group>"; };
 		C961C6C6228AD7950000CC8E /* GLD_SendView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_SendView.xib; sourceTree = "<group>"; };
+		C961C6C8228BE6920000CC8E /* GLD_BangBanCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BangBanCell.h; sourceTree = "<group>"; };
+		C961C6C9228BE6920000CC8E /* GLD_BangBanCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BangBanCell.m; sourceTree = "<group>"; };
+		C961C6CA228BE6920000CC8E /* GLD_BangBanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_BangBanCell.xib; sourceTree = "<group>"; };
+		C961C6D2228BEB3C0000CC8E /* GLD_PaoTuiCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_PaoTuiCell.h; sourceTree = "<group>"; };
+		C961C6D3228BEB3C0000CC8E /* GLD_PaoTuiCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PaoTuiCell.m; sourceTree = "<group>"; };
+		C961C6D4228BEB3C0000CC8E /* GLD_PaoTuiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_PaoTuiCell.xib; sourceTree = "<group>"; };
 		C9ED06E122815E6500D487BD /* CollectionCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCategoryModel.m; sourceTree = "<group>"; };
 		C9ED06E222815E6500D487BD /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		C9ED06E322815E6500D487BD /* LJCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCollectionViewFlowLayout.h; sourceTree = "<group>"; };
@@ -1271,6 +1281,12 @@
 				C961C6C3228AD78A0000CC8E /* GLD_SendView.h */,
 				C961C6C4228AD78A0000CC8E /* GLD_SendView.m */,
 				C961C6C6228AD7950000CC8E /* GLD_SendView.xib */,
+				C961C6C8228BE6920000CC8E /* GLD_BangBanCell.h */,
+				C961C6C9228BE6920000CC8E /* GLD_BangBanCell.m */,
+				C961C6CA228BE6920000CC8E /* GLD_BangBanCell.xib */,
+				C961C6D2228BEB3C0000CC8E /* GLD_PaoTuiCell.h */,
+				C961C6D3228BEB3C0000CC8E /* GLD_PaoTuiCell.m */,
+				C961C6D4228BEB3C0000CC8E /* GLD_PaoTuiCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1995,6 +2011,7 @@
 				0F5445ED210EA733009FAE8E /* GLD_StoreCell.xib in Resources */,
 				0FF3B07021219E6000B5C512 /* GLD_ExpressAddressView.xib in Resources */,
 				C961C6C7228AD7950000CC8E /* GLD_SendView.xib in Resources */,
+				C961C6D6228BEB3C0000CC8E /* GLD_PaoTuiCell.xib in Resources */,
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
 				0F298EA41FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				0F54461D211001F6009FAE8E /* GLD_ExpressCell.xib in Resources */,
@@ -2011,6 +2028,7 @@
 				0FB537361FC6D22A00B0EDA6 /* SGQRCode.bundle in Resources */,
 				C961C6C2228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib in Resources */,
 				0F5EC5E0202D6F4200298A7D /* GLD_CountCell.xib in Resources */,
+				C961C6CC228BE6920000CC8E /* GLD_BangBanCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2146,6 +2164,7 @@
 				0F2C2F4C1FF62E330083BCCB /* GLD_PopView.m in Sources */,
 				0F382F001FDE76AF006689FA /* GLD_CooperatCell.m in Sources */,
 				0F2C2F511FF62E330083BCCB /* GLD_ForumController.m in Sources */,
+				C961C6CB228BE6920000CC8E /* GLD_BangBanCell.m in Sources */,
 				0F54462721104DFB009FAE8E /* GLD_ExpressAdressController.m in Sources */,
 				0F298E521FC2CA7200EDBA9A /* GLD_BaseNavController.m in Sources */,
 				0F9920061FCEDDE800305DF3 /* GLD_HomeViewManager.m in Sources */,
@@ -2312,6 +2331,7 @@
 				0F54462021100736009FAE8E /* GLD_ExpressModel.m in Sources */,
 				C9ED06F522816CCA00D487BD /* LeftTableViewCell.m in Sources */,
 				0FB537021FC5887C00B0EDA6 /* LBMessageViewController.m in Sources */,
+				C961C6D5228BEB3C0000CC8E /* GLD_PaoTuiCell.m in Sources */,
 				0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */,
 				0F32E8111FE8BD450042E8BE /* GLD_UpdateViewController.m in Sources */,
 				0F2C2F551FF62E330083BCCB /* GLD_ForumModel.m in Sources */,

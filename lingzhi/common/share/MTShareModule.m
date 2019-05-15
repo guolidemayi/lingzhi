@@ -8,6 +8,8 @@
 
 #import "MTShareModule.h"
 #import "WXApiObject.h"
+#import "AppDelegate.h"
+
 //#import "UIImageView+YYWebImage.h"
 @interface MTShareModule ()
 @property (assign, nonatomic) int wechatShareScene;
@@ -202,6 +204,34 @@
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 [weakSelf.authRespDelegate wechatAuthLoginResponse:dic];
                 //登录成功后的处理
+                
+                //根据accesstoken和openid获取用户信息
+                NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",dic[@"access_token"], dic[@"openid"]];
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    NSURL *zoneUrl = [NSURL URLWithString:url];
+                    NSString *zoneStr = [NSString stringWithContentsOfURL:zoneUrl encoding:NSUTF8StringEncoding error:nil];
+                    NSData *data = [zoneStr dataUsingEncoding:NSUTF8StringEncoding];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        if (data){
+                            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                            
+//                            [0]    (null)    @"openid" : @"oo1Uo1JpdStkz99-oHfr1P85f6Xg"
+//                            [1]    (null)    @"city" : @"Zhengzhou"
+//                            [2]    (null)    @"country" : @"CN"
+//                            [3]    (null)    @"nickname" : @"锅里的"
+//                            [4]    (null)    @"privilege" : @"0 elements"
+//                            [5]    (null)    @"language" : @"zh_CN"
+//                            [6]    (null)    @"headimgurl" : @"http://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJANJpsEAYns8cs3d6FNwVbafegYqJaS6vK1KRibn6R8dMSfiawHQq52oVsrco1uBwwzRZIZAoTAQhg/132"
+//                            [7]    (null)    @"unionid" : @"ogWMJ01v8pkxCZMKLMX9fvYl0aK4"
+//                            [8]    (null)    @"sex" : (long)1
+//                            [9]    (null)    @"province" : @"Henan"
+                            NSLog(@"%@",dic);
+                            [AppDelegate shareDelegate].userModel.name = dic[@"nickname"];
+                            [AppDelegate shareDelegate].userModel.iconImage = dic[@"headimgurl"];
+                        }
+                    });
+                });
                 
             }
         });
