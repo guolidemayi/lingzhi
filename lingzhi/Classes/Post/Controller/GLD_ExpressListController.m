@@ -14,7 +14,10 @@
 #import "GLD_BannerModel.h"
 #import "GLD_BannerDetailController.h"
 #import "GLD_SendView.h"
-
+#import "GLD_ExpressViewModel.h"
+#import "GLD_NewPostExressController.h"
+#import "GLD_PaoTuiCell.h"
+#import "GLD_BangBanCell.h"
 @interface GLD_ExpressListController ()<UITableViewDelegate,UITableViewDataSource,GLD_ExpressCellDelegate,SDCycleScrollViewDelegate,UIScrollViewDelegate>{
     NSInteger offset;
     NSInteger pagNo;
@@ -91,9 +94,7 @@
     
 }
 - (void)sendExpress{
-    UIStoryboard *store = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    
-    GLD_PostExpressController *postVc = [store instantiateViewControllerWithIdentifier:@"GLD_PostExpressController"];
+    GLD_NewPostExressController *postVc = [GLD_NewPostExressController new];
     [self.navigationController pushViewController:postVc animated:YES];
 }
 - (void)getRemindMessageContent{
@@ -106,8 +107,12 @@
                            } andComplentBlock:^(id result) {
         GLD_ExpressListModel *listModel = [[GLD_ExpressListModel alloc]initWithDictionary:result error:nil];
         
+                              
+                               
         if (listModel.data.count > 0) {
-            [weakSelf.remindArrM addObjectsFromArray:listModel.data];
+            [weakSelf.remindArrM addObjectsFromArray: [listModel.data.rac_sequence map:^id _Nullable(GLD_ExpressModel  *_Nullable value) {
+                return [[GLD_ExpressViewModel alloc]initWithModel:value];
+            }].array];
             [weakSelf.remindTable.mj_footer endRefreshing];
         }else{
             [weakSelf.remindTable.mj_footer endRefreshingWithNoMoreData];
@@ -239,40 +244,56 @@
     
     
     if ([tableView isEqual:self.remindTable]) {
-        return [self getRemindCell:indexPath andTableView:tableView];
+        
+        GLD_ExpressViewModel *viewModel = self.remindArrM[indexPath.row];
+        if (viewModel.expressModel.type.integerValue != 2) {
+            return [self getBangBanCell:indexPath andTableView:tableView];
+        }else{
+            return [self getPaoTuiCell:indexPath andTableView:tableView];
+        }
     }else{
         
-        return [self getCommentCell:indexPath andTableView:tableView];
+        GLD_ExpressViewModel *viewModel = self.commentArrM[indexPath.row];
+        if (viewModel.expressModel.type.integerValue == 2) {
+            return [self getBangBanCell:indexPath andTableView:tableView];
+        }else{
+            return [self getPaoTuiCell:indexPath andTableView:tableView];
+        }
     }
     
     return [UITableViewCell new];
 }
 
-//
-//
-- (GLD_ExpressCell *)getRemindCell:(NSIndexPath *)indexPath andTableView : (UITableView *)tableView{
-
-    GLD_ExpressCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GLD_ExpressCell" forIndexPath:indexPath];
-    
-//    cell.type = robTypeGetExpress;
-    cell.expressDelegate = self;
-    if (IsExist_Array(_remindArrM))
-        cell.expressModel = _remindArrM[indexPath.row];;
+- (GLD_BangBanCell *)getBangBanCell:(NSIndexPath *)indexPath andTableView:(UITableView *)tableView{
+    GLD_BangBanCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GLD_BangBanCell"];
+    if (tableView == self.remindTable) {
+        
+        cell.viewModel = self.remindArrM[indexPath.row];
+    }else{
+        cell.viewModel = self.commentArrM[indexPath.row];
+    }
     return cell;
-
 }
-- (GLD_ExpressCell *)getCommentCell:(NSIndexPath *)indexPath andTableView : (UITableView *)tableView{
-
-    GLD_ExpressCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GLD_ExpressCell" forIndexPath:indexPath];
-   cell.expressDelegate = self;
-//    cell.type = robTypeMyExpress;
-    if(IsExist_Array(_commentArrM))
-        cell.expressModel = _commentArrM[indexPath.row];
+- (GLD_PaoTuiCell *)getPaoTuiCell:(NSIndexPath *)indexPath andTableView:(UITableView *)tableView{
+    GLD_PaoTuiCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GLD_PaoTuiCell"];
+    if (tableView == self.remindTable) {
+        
+        cell.viewModel = self.remindArrM[indexPath.row];
+    }else{
+        cell.viewModel = self.commentArrM[indexPath.row];
+    }
     return cell;
-
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return H(160);
+    if (tableView == self.remindTable) {
+        GLD_ExpressViewModel *viewModel = self.remindArrM[indexPath.row];
+        return viewModel.cellHeight;
+    }else{
+        
+        GLD_ExpressViewModel *viewModel = self.commentArrM[indexPath.row];
+        return viewModel.cellHeight;
+    }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 0.01;
@@ -363,6 +384,10 @@
     remindT.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [remindT registerNib:[UINib nibWithNibName:@"GLD_ExpressCell" bundle:nil] forCellReuseIdentifier:@"GLD_ExpressCell"];
+    
+    [remindT registerNib:[UINib nibWithNibName:@"GLD_BangBanCell" bundle:nil] forCellReuseIdentifier:@"GLD_BangBanCell"];
+    
+    [remindT registerNib:[UINib nibWithNibName:@"GLD_PaoTuiCell" bundle:nil] forCellReuseIdentifier:@"GLD_PaoTuiCell"];
     remindT.delegate = self;
     remindT.dataSource = self;
     remindT.gestureChoiceHandler = ^BOOL(id _, id __) { return YES; };
@@ -390,6 +415,10 @@
         [weakSelf getCommentMessageContent];
     }];
      [commentT registerNib:[UINib nibWithNibName:@"GLD_ExpressCell" bundle:nil] forCellReuseIdentifier:@"GLD_ExpressCell"];
+    
+    [commentT registerNib:[UINib nibWithNibName:@"GLD_BangBanCell" bundle:nil] forCellReuseIdentifier:@"GLD_BangBanCell"];
+    
+    [commentT registerNib:[UINib nibWithNibName:@"GLD_PaoTuiCell" bundle:nil] forCellReuseIdentifier:@"GLD_PaoTuiCell"];
     self.commentTable = commentT;
     
     [self.bottomScrollView addSubview:commentT];

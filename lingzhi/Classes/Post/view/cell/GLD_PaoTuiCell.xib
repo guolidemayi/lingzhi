@@ -44,7 +44,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJn-8n-WEL">
-                        <rect key="frame" x="274" y="86.5" width="60" height="30"/>
+                        <rect key="frame" x="274" y="77.5" width="60" height="30"/>
                         <color key="backgroundColor" red="0.43912289510000002" green="0.57830779990000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="B3K-Ka-5xb"/>
@@ -55,11 +55,11 @@
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥ 12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCp-bO-XzS">
-                        <rect key="frame" x="274" y="121.5" width="60" height="21"/>
+                        <rect key="frame" x="274" y="112.5" width="60" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Mqi-bd-KyQ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                         <color key="textColor" red="1" green="0.32995759860000001" blue="0.32604452779999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -159,6 +159,20 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="rAM-wz-8d5"/>
+            <connections>
+                <outlet property="contentLabel" destination="X5f-lK-3bw" id="yOJ-3c-CiY"/>
+                <outlet property="detailView" destination="tEc-rk-fhj" id="bd1-6j-ZS5"/>
+                <outlet property="detailViewHeight" destination="plh-05-Zdk" id="s4P-Od-YOR"/>
+                <outlet property="endAddressLabel" destination="5kV-zM-xu0" id="fdy-gJ-84Y"/>
+                <outlet property="imgV" destination="kqt-Mg-Ilc" id="yvQ-il-SP8"/>
+                <outlet property="priceLabel" destination="sCp-bO-XzS" id="a47-Fy-D3t"/>
+                <outlet property="receivedPersonLabel" destination="u3X-XO-cav" id="uEj-EK-jYG"/>
+                <outlet property="receivedPhoneLabel" destination="RVc-e7-PRb" id="Tjg-nX-30Z"/>
+                <outlet property="sendPersonLabel" destination="5lP-nm-wK1" id="vWQ-Ip-JcO"/>
+                <outlet property="sendPhoneLabel" destination="LyI-Gv-JoO" id="D4Q-0I-Uy1"/>
+                <outlet property="starAddressLabel" destination="ElM-dQ-nit" id="zGO-jV-gHa"/>
+                <outlet property="tipBut" destination="XJn-8n-WEL" id="OvK-Mj-1c1"/>
+            </connections>
             <point key="canvasLocation" x="158.69565217391306" y="125.89285714285714"/>
         </tableViewCell>
     </objects>

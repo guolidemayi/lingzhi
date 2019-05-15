@@ -280,6 +280,11 @@
 		C9ED06F522816CCA00D487BD /* LeftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06F422816CCA00D487BD /* LeftTableViewCell.m */; };
 		C9ED06FB2282FB3000D487BD /* GLD_ChooseGoodsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06FA2282FB3000D487BD /* GLD_ChooseGoodsView.m */; };
 		C9ED06FD2282FB3E00D487BD /* GLD_ChooseGoodsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9ED06FC2282FB3E00D487BD /* GLD_ChooseGoodsView.xib */; };
+		C9F23FE0228BF67800855E49 /* GLD_ExpressViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F23FDF228BF67800855E49 /* GLD_ExpressViewModel.m */; };
+		C9F23FE5228BFCD100855E49 /* GLD_NewPostExressController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F23FE4228BFCD100855E49 /* GLD_NewPostExressController.m */; };
+		C9F23FE8228C011C00855E49 /* GLD_PostExressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F23FE7228C011C00855E49 /* GLD_PostExressManager.m */; };
+		C9F23FEB228C02CE00855E49 /* GLD_PostTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F23FEA228C02CE00855E49 /* GLD_PostTypeManager.m */; };
+		C9F24000228C160300855E49 /* GLD_PersonalTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F23FFE228C160200855E49 /* GLD_PersonalTagFlowLayout.m */; };
 		F0A7198DA2A1E213B7CC7C9C /* libPods-lingzhiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E906A1C335114CAF15749D10 /* libPods-lingzhiUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -806,6 +811,17 @@
 		C9ED06F92282FB3000D487BD /* GLD_ChooseGoodsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ChooseGoodsView.h; sourceTree = "<group>"; };
 		C9ED06FA2282FB3000D487BD /* GLD_ChooseGoodsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ChooseGoodsView.m; sourceTree = "<group>"; };
 		C9ED06FC2282FB3E00D487BD /* GLD_ChooseGoodsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_ChooseGoodsView.xib; sourceTree = "<group>"; };
+		C9F23FDE228BF67800855E49 /* GLD_ExpressViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ExpressViewModel.h; sourceTree = "<group>"; };
+		C9F23FDF228BF67800855E49 /* GLD_ExpressViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ExpressViewModel.m; sourceTree = "<group>"; };
+		C9F23FE1228BF6B000855E49 /* GLD_ExpressViewModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ExpressViewModelProtocol.h; sourceTree = "<group>"; };
+		C9F23FE3228BFCD100855E49 /* GLD_NewPostExressController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_NewPostExressController.h; sourceTree = "<group>"; };
+		C9F23FE4228BFCD100855E49 /* GLD_NewPostExressController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_NewPostExressController.m; sourceTree = "<group>"; };
+		C9F23FE6228C011C00855E49 /* GLD_PostExressManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_PostExressManager.h; sourceTree = "<group>"; };
+		C9F23FE7228C011C00855E49 /* GLD_PostExressManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PostExressManager.m; sourceTree = "<group>"; };
+		C9F23FE9228C02CE00855E49 /* GLD_PostTypeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_PostTypeManager.h; sourceTree = "<group>"; };
+		C9F23FEA228C02CE00855E49 /* GLD_PostTypeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PostTypeManager.m; sourceTree = "<group>"; };
+		C9F23FFE228C160200855E49 /* GLD_PersonalTagFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLD_PersonalTagFlowLayout.m; sourceTree = "<group>"; };
+		C9F23FFF228C160300855E49 /* GLD_PersonalTagFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLD_PersonalTagFlowLayout.h; sourceTree = "<group>"; };
 		D0DF7C5179224BE30523DC09 /* Pods-lingzhiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiTests/Pods-lingzhiTests.release.xcconfig"; sourceTree = "<group>"; };
 		DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lingzhiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E906A1C335114CAF15749D10 /* libPods-lingzhiUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lingzhiUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1275,18 +1291,10 @@
 		0F54461821100163009FAE8E /* view */ = {
 			isa = PBXGroup;
 			children = (
-				0F544619211001F6009FAE8E /* GLD_ExpressCell.h */,
-				0F54461A211001F6009FAE8E /* GLD_ExpressCell.m */,
-				0F54461B211001F6009FAE8E /* GLD_ExpressCell.xib */,
-				C961C6C3228AD78A0000CC8E /* GLD_SendView.h */,
-				C961C6C4228AD78A0000CC8E /* GLD_SendView.m */,
-				C961C6C6228AD7950000CC8E /* GLD_SendView.xib */,
-				C961C6C8228BE6920000CC8E /* GLD_BangBanCell.h */,
-				C961C6C9228BE6920000CC8E /* GLD_BangBanCell.m */,
-				C961C6CA228BE6920000CC8E /* GLD_BangBanCell.xib */,
-				C961C6D2228BEB3C0000CC8E /* GLD_PaoTuiCell.h */,
-				C961C6D3228BEB3C0000CC8E /* GLD_PaoTuiCell.m */,
-				C961C6D4228BEB3C0000CC8E /* GLD_PaoTuiCell.xib */,
+				C9F23FE2228BFBE100855E49 /* cell */,
+				C9F23FDE228BF67800855E49 /* GLD_ExpressViewModel.h */,
+				C9F23FDF228BF67800855E49 /* GLD_ExpressViewModel.m */,
+				C9F23FE1228BF6B000855E49 /* GLD_ExpressViewModelProtocol.h */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1554,6 +1562,14 @@
 				0F54462321103F6E009FAE8E /* GLD_PostExpressController.m */,
 				0F54462521104DFB009FAE8E /* GLD_ExpressAdressController.h */,
 				0F54462621104DFB009FAE8E /* GLD_ExpressAdressController.m */,
+				C9F23FE3228BFCD100855E49 /* GLD_NewPostExressController.h */,
+				C9F23FE4228BFCD100855E49 /* GLD_NewPostExressController.m */,
+				C9F23FE6228C011C00855E49 /* GLD_PostExressManager.h */,
+				C9F23FE7228C011C00855E49 /* GLD_PostExressManager.m */,
+				C9F23FE9228C02CE00855E49 /* GLD_PostTypeManager.h */,
+				C9F23FEA228C02CE00855E49 /* GLD_PostTypeManager.m */,
+				C9F23FFF228C160300855E49 /* GLD_PersonalTagFlowLayout.h */,
+				C9F23FFE228C160200855E49 /* GLD_PersonalTagFlowLayout.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1878,6 +1894,25 @@
 				C9ED06E922815E6500D487BD /* CollectionViewController.m */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		C9F23FE2228BFBE100855E49 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				0F544619211001F6009FAE8E /* GLD_ExpressCell.h */,
+				0F54461A211001F6009FAE8E /* GLD_ExpressCell.m */,
+				0F54461B211001F6009FAE8E /* GLD_ExpressCell.xib */,
+				C961C6C3228AD78A0000CC8E /* GLD_SendView.h */,
+				C961C6C4228AD78A0000CC8E /* GLD_SendView.m */,
+				C961C6C6228AD7950000CC8E /* GLD_SendView.xib */,
+				C961C6C8228BE6920000CC8E /* GLD_BangBanCell.h */,
+				C961C6C9228BE6920000CC8E /* GLD_BangBanCell.m */,
+				C961C6CA228BE6920000CC8E /* GLD_BangBanCell.xib */,
+				C961C6D2228BEB3C0000CC8E /* GLD_PaoTuiCell.h */,
+				C961C6D3228BEB3C0000CC8E /* GLD_PaoTuiCell.m */,
+				C961C6D4228BEB3C0000CC8E /* GLD_PaoTuiCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2250,8 +2285,11 @@
 				0FB5373B1FC6D22A00B0EDA6 /* SGQRCodeGenerateManager.m in Sources */,
 				0F298E861FC2CFC200EDBA9A /* UILabel+StringFrame.m in Sources */,
 				0F6411A21FD526BF0069FDB1 /* GLD_DetailIntroCell.m in Sources */,
+				C9F23FE5228BFCD100855E49 /* GLD_NewPostExressController.m in Sources */,
 				0F298E8B1FC2CFD000EDBA9A /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				0F71A5A51FDFC16000C66EED /* GLD_MyWalletController.m in Sources */,
+				C9F23FEB228C02CE00855E49 /* GLD_PostTypeManager.m in Sources */,
+				C9F23FE8228C011C00855E49 /* GLD_PostExressManager.m in Sources */,
 				0F32E8081FE39EEF0042E8BE /* GLD_BindingPhoneController.m in Sources */,
 				0F298E7E1FC2CFC200EDBA9A /* LQXSwitch.m in Sources */,
 				0FF3B08B212BBFBD00B5C512 /* GLD_GoodsManagerController.m in Sources */,
@@ -2263,11 +2301,13 @@
 				0F326F301FF4C05900A90106 /* GLD_OrderModel.m in Sources */,
 				0F5FDDD1203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.m in Sources */,
 				0F2C2F591FF62E330083BCCB /* GLD_topicCell.m in Sources */,
+				C9F23FE0228BF67800855E49 /* GLD_ExpressViewModel.m in Sources */,
 				0FB537371FC6D22A00B0EDA6 /* UIImage+ImageSize.m in Sources */,
 				0F28D2B01FD6ADDE00138A8B /* BRBaseView.m in Sources */,
 				0F28D2B91FD7BC0600138A8B /* GLD_WirteIntroController.m in Sources */,
 				0F298E7A1FC2CFC200EDBA9A /* CAToast.m in Sources */,
 				0F2C2F541FF62E330083BCCB /* GLD_TopicModel.m in Sources */,
+				C9F24000228C160300855E49 /* GLD_PersonalTagFlowLayout.m in Sources */,
 				C961C6C1228ABBDD0000CC8E /* GLD_NewPayGoodsCell.m in Sources */,
 				0F6411B11FD53B950069FDB1 /* GLD_BusnessModel.m in Sources */,
 				0F5445F4210EABCA009FAE8E /* GLD_StoreDetailCell.m in Sources */,

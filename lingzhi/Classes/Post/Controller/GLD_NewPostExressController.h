@@ -1,5 +1,5 @@
 //
-//  GLD_PaoTuiCell.h
+//  GLD_NewPostExressController.h
 //  lingzhi
 //
 //  Created by 锅里的 on 2019/5/15.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GLD_PaoTuiCell : UITableViewCell
+@interface GLD_NewPostExressController : UIViewController
 
 @end
 

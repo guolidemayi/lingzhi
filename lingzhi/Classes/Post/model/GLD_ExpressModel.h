@@ -25,6 +25,15 @@
 @property (nonatomic, assign) CGFloat latitude;
 ///经度（水平方向）
 @property (nonatomic, assign) CGFloat longitude;
+
+//纬度（竖直方向）
+@property (nonatomic, assign) CGFloat toLatitude;
+///经度（水平方向）
+@property (nonatomic, assign) CGFloat toLongitude;
+@property (nonatomic, copy) NSNumber *type;//1跑腿 2 帮办  3代买
+@property (nonatomic, copy)NSString *receivedPhone;//收件人
+@property (nonatomic, copy)NSString *receivedPerson;//收件人电话
+@property (nonatomic, copy) NSString *goodsPic;
 @end
 
 @interface GLD_ExpressListModel : GLD_BaseModel

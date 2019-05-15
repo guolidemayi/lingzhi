@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "GLD_ExpressViewModelProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GLD_BangBanCell : UITableViewCell
 
+@interface GLD_BangBanCell : UITableViewCell
+@property (nonatomic, strong) id<GLD_ExpressViewModelProtocol> viewModel;
 @end
 
 NS_ASSUME_NONNULL_END

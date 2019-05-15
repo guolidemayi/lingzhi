@@ -33,6 +33,7 @@
 #import "GLD_ConfigureFile.h"
 #import "CoreDataManager.h"
 #import "UIScrollView+Extension.h"
+#import "ReactiveObjC.h"
 
 #define userHasLogin       @"userHasLogin"
 

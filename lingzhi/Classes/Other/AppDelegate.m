@@ -16,6 +16,7 @@
 #import <AMapSearchKit/AMapSearchKit.h>
 #import <AlipaySDK/AlipaySDK.h>
 #import "GLD_PerfectUserMController.h"
+#import "IQKeyboardManager.h"
 
 #define LBKeyWindow [UIApplication sharedApplication].keyWindow
 
@@ -33,7 +34,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
-
+    //IQKeyboard集成
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES; // 控制整个功能是否启用。
+    manager.shouldResignOnTouchOutside =YES;
+    manager.enableAutoToolbar = NO;
     [self initFlashAdViewController];
     //注册微信
     [WXApi registerApp:WeiXinAppKey withDescription:@"医生汇"];
