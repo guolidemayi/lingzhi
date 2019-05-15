@@ -122,11 +122,10 @@
 #pragma mark - LBTabBarDelegate
 
 - (void)tabBarPlusBtnExpressList:(LBTabBar *)tabBar{
-    GLD_ExpressListController *plusVC = [[GLD_ExpressListController alloc] init];
-    plusVC.view.backgroundColor = [self randomColor];
+    GLD_ExpressListController *plusVC = [[GLD_ExpressListController alloc] initWithType:4];
+//    plusVC.view.backgroundColor = [self randomColor];
     
     GLD_BaseNavController *navVc = [[GLD_BaseNavController alloc] initWithRootViewController:plusVC];
-    
     [self presentViewController:navVc animated:YES completion:nil];
 }
 //点击中间按钮的代理方法

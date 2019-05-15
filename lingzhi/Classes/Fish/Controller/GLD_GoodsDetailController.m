@@ -12,15 +12,19 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "GLD_ExpressAddressView.h"
 #import "GLD_ChooseGoodsView.h"
-
+#import "GLD_MessageUserInfoTool.h"
+#import "GLD_GoodsCarListController.h"
+#import "YXButton.h"
 @interface GLD_GoodsDetailController ()<WXApiManagerDelegate,GLD_ChooseGoodsViewDelegate>
 @property (nonatomic, strong)GLD_GoodsDetailManager *goodsDetailManager;
 @property (nonatomic, strong)UITableView *home_table;
 @property (nonatomic, strong)UIButton *applyBut;
 @property (nonatomic, strong) UIButton *addToCar;//添加购物车
+@property (nonatomic, strong) YXButton *carBut;//购物车
 @property (nonatomic, assign) NSString *payType;
 @property (nonatomic, strong)NSString *address;
-@property (nonatomic, weak) GLD_ChooseGoodsView *chooseGoodsView;
+@property (nonatomic, strong) GLD_ChooseGoodsView *chooseGoodsView;
+
 @end
 
 @implementation GLD_GoodsDetailController
@@ -45,39 +49,58 @@
 - (void)setApplyBut{
     [self.view addSubview:self.applyBut];
     [self.view addSubview:self.addToCar];
+    [self.view addSubview:self.carBut];
     [self.applyBut mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.bottom.equalTo(self.view);
         make.width.equalTo(@(DEVICE_WIDTH / 2));
         make.height.equalTo(@(44));
     }];
     [self.addToCar mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.bottom.equalTo(self.view);
-        make.width.equalTo(self.applyBut);
+        make.bottom.equalTo(self.carBut);
+        make.left.equalTo(self.carBut.mas_right);
+//        make.right.equalTo(self.applyBut.mas_left);
+        make.width.equalTo(@(DEVICE_WIDTH/2 -44));
         make.height.equalTo(@(44));
     }];
     
+    [self.carBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.left.equalTo(self.view);
+        make.height.equalTo(@(44));
+        make.width.equalTo(@(44));
+    }];
     
 }
 //GLD_ChooseGoodsViewDelegate
-- (void)didSelectedTimeItem:(NSInteger)index{
-    if (index == -1) {
-        [self.navigationController.view sendSubviewToBack:self.chooseGoodsView];
+- (void)didSelectedTimeItem:(NSInteger)index andChooseCount:(NSInteger)count{
+    [self.navigationController.view sendSubviewToBack:self.chooseGoodsView];
+    if (index != -1) {
+#warning __规格
+        self.storeModel.chooseNorms = self.storeModel.normsArr[index];
+        self.storeModel.seleteCount = count;
+        [self hasWriteAddress];
     }
 }
 //click
 - (void)applybutClick{
     if (hasLogin) {
-    [self showAddressView];
+    
+        [self.navigationController.view bringSubviewToFront:self.chooseGoodsView];
     }else{
         [CAToast showWithText:@"请登录"];
     }
 }
 - (void)addToCarClick{
 //    if (hasLogin) {
-        [self.navigationController.view bringSubviewToFront:self.chooseGoodsView];
+    
+    [GLD_MessageUserInfoTool writeDiskCache:self.storeModel];
 //    }else{
 //        [CAToast showWithText:@"请登录"];
 //    }
+}
+- (void)carButClick{
+    GLD_GoodsCarListController *goodVc = [GLD_GoodsCarListController new];
+    [self.navigationController pushViewController:goodVc animated:YES];
+    
 }
 - (void)hasWriteAddress{
     switch (self.type) {
@@ -95,8 +118,8 @@
 - (void)payToLowPriceGoods{
     GLD_PayForBusinessController *payVc = [GLD_PayForBusinessController new];
     payVc.payForUserId = self.storeModel.userId;
-    payVc.payPrice = self.storeModel.price;
-    payVc.address = self.address;
+    payVc.payPrice = self.storeModel.price.floatValue * self.storeModel.seleteCount;
+    payVc.stroeModel = self.storeModel;
     [self.navigationController pushViewController:payVc animated:YES];
 }
 - (void)showChoosePayTypeAlert{
@@ -185,14 +208,7 @@
 }
 - (void)payToALiPayWithString:(NSString *)string
 {
-    // App-培训详情-支付宝支付
-    //    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObject:self.detailModel.title forKey:@"title"];
-    //    if ([self.detailModel.courseTypeId isEqualToString:@"1"]) {
-    //        [param setObject:@"精品课" forKey:@"type"];
-    //    } else {
-    //        [param setObject:@"培训班" forKey:@"type"];
-    //    }
-    //    SensorsAnalyticsTrack(@"app_peixunxiangqing_zhifubaozhifu", param);
+  
     
     WS(weakSelf);
     [[AlipaySDK defaultService] payOrder:string fromScheme:@"com.hhlmcn.huihuilinmeng" callback:^(NSDictionary *resultDic) {
@@ -259,16 +275,28 @@
 - (UIButton *)addToCar{
     if (!_addToCar) {
         _addToCar = [[UIButton alloc]init];
-        [_addToCar setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKwirte] forState:UIControlStateNormal];
+        [_addToCar setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTorange] forState:UIControlStateNormal];
         [_addToCar setTitle:@"加入购物车" forState:UIControlStateNormal];
         _addToCar.titleLabel.font = WTFont(15);
 //        _addToCar.layer.cornerRadius = 3;
 //        _addToCar.layer.masksToBounds = YES;
-        _addToCar.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTorange];
+//        _addToCar.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTorange];
         //        _applyBut.hidden = YES;
         [_addToCar addTarget:self action:@selector(addToCarClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _addToCar;
+}
+- (YXButton *)carBut{
+    if (!_carBut) {
+        _carBut = [[YXButton alloc]init];
+        _carBut.imgV.image = WTImage(@"Home_Versionf_ShoppingCart");
+        _carBut.label.text = @"购物车";
+        _carBut.label.font = WTFont(10);
+//        _carBut.titleLabel.textColor = [UIColor blackColor];
+//        [_carBut setImage:WTImage(@"Home_Versionf_ShoppingCart") forState:UIControlStateNormal];
+        [_carBut addTarget:self action:@selector(carButClick) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _carBut;
 }
 - (GLD_ChooseGoodsView *)chooseGoodsView{
     if (!_chooseGoodsView) {
@@ -283,6 +311,7 @@
     return _chooseGoodsView;
 }
 - (void)dealloc{
-    [self.chooseGoodsView removeFromSuperview];
+    [_chooseGoodsView removeFromSuperview];
+    _chooseGoodsView.timeDelegate = nil;
 }
 @end

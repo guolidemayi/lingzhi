@@ -7,7 +7,7 @@
 //
 
 #import "GLD_PayForBusinessController.h"
-#import "GLD_PayForBusiCell.h"
+#import "GLD_NewPayGoodsCell.h"
 #import "GLD_PayForBusiModel.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "GLD_ExpressAddressView.h"
@@ -20,7 +20,7 @@ typedef enum
     offLine
 }PayType;
 
-@interface GLD_PayForBusinessController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate,GLD_PayForBusiCellDelegate,UIScrollViewDelegate,WXApiManagerDelegate>
+@interface GLD_PayForBusinessController ()<UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate,UIScrollViewDelegate,WXApiManagerDelegate>
 
 @property (nonatomic, strong)UITableView *table_apply;
 @property (nonatomic, strong) NSArray *titleArr;//
@@ -44,6 +44,10 @@ typedef enum
 @property (nonatomic, assign) CGFloat payCoupon;//预付的代金券
 @property (nonatomic, assign) CGFloat prize;//总钱数
 
+@property (nonatomic, strong) UIView *addressHeadView;
+@property (nonatomic, strong) UILabel *addressLabel;
+@property (nonatomic, strong) NSString *address;//
+
 @end
 
 @implementation GLD_PayForBusinessController
@@ -60,7 +64,6 @@ typedef enum
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    [self showWriteAddressView];
 }
 - (void)getData{
     
@@ -89,6 +92,9 @@ typedef enum
             weakSelf.payMainModel = [[GLD_PayForBusiModel alloc]initWithDictionary:result[@"data"] error:nil];
             weakSelf.counpCell.textLabel.text = [NSString stringWithFormat:@"代金券(%@)",weakSelf.payMainModel.coupon];
             [weakSelf.table_apply reloadData];
+            if (weakSelf.stroeModel.price.floatValue > 0) {
+                [weakSelf updatePayCash:(weakSelf.stroeModel.price.floatValue * weakSelf.stroeModel.seleteCount)];
+            }
         }
         //        weakSelf.phoneCode = @"1111";
     }];
@@ -178,36 +184,39 @@ typedef enum
 }
 
 
-- (GLD_PayForBusiCell *)getPayForBusiCell:(NSIndexPath *)indexPath{
-    GLD_PayForBusiCell *cell = [GLD_PayForBusiCell cellWithReuseIdentifier:@"GLD_PayForBusiCell"];
-    cell.payDelegate = self;
-    cell.busnessModel = self.payMainModel.shop;
-    if (self.payPrice > 0)
-    cell.payPrice = self.payPrice;
+- (GLD_NewPayGoodsCell *)getPayForBusiCell:(NSIndexPath *)indexPath{
+    GLD_NewPayGoodsCell *cell = [self.table_apply dequeueReusableCellWithIdentifier:@"GLD_NewPayGoodsCell"];
+    
+    cell.storeModel = self.stroeModel;
+   
     return cell;
 }
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self.view endEditing:YES];
 }
-- (void)updatePayCash:(NSString *)money{
-    NSLog(@"%lf", money.floatValue);
-    self.prize = money.floatValue;
+- (void)updatePayCash:(CGFloat)money{
+    
+    self.prize = money;
     CGFloat discount = (10 - self.payMainModel.shop.discount.floatValue)/10.0;
-    CGFloat ff = money.floatValue * discount;
+    CGFloat ff = money * discount;
     self.payCoupon = ff*self.payMainModel.discount.floatValue;
     
     self.counpCell.detailTextLabel.text = [NSString stringWithFormat:@"%.2lf",-MIN(ff*self.payMainModel.discount.floatValue, self.payMainModel.coupon.floatValue)];
-    self.payMoney = money.floatValue - ff*self.payMainModel.discount.floatValue;
-    self.cashLabel.text = [NSString stringWithFormat:@"￥ %.2f", money.floatValue - ff*self.payMainModel.discount.floatValue];
+    self.payMoney = money - ff*self.payMainModel.discount.floatValue;
+    self.cashLabel.text = [NSString stringWithFormat:@"￥ %.2f", money - ff*self.payMainModel.discount.floatValue];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
-        return W(100);
+        return (140);
     }
     return W(44);
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if(section == 0){
+        return self.addressHeadView;
+    }
     UITableViewHeaderFooterView *headView = [UITableViewHeaderFooterView new];
+    
     UILabel *titleLabel = [UILabel new];
     titleLabel.font = WTFont(12);
     titleLabel.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray];
@@ -215,6 +224,8 @@ typedef enum
         titleLabel.text = @"优惠抵扣";
     }else if(section == 2){
         titleLabel.text = @"请选择支付方式";
+    }else if(section == 0){
+        
     }
     [headView.contentView addSubview:titleLabel];
     [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -225,7 +236,7 @@ typedef enum
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if(section == 0)
-        return 0.001;
+        return 60;
     return W(30);
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -282,12 +293,17 @@ typedef enum
         [CAToast showWithText:@"请输入金额"];
         return;
     }
+    if (!IsExist_String(self.address)) {
+        [CAToast showWithText:@"请输入地址"];
+        return;
+    }
     if (self.payType == offLine) {
         if (self.payMoney * 0.1 > self.payMainModel.cash.floatValue) {
             [CAToast showWithText:@"该商家服务费不足，无法支付"];
             return;
         }
     }
+   
     WS(weakSelf);
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -303,9 +319,7 @@ typedef enum
                                      
                                      @"prize" : [NSString stringWithFormat:@"%.2f",self.prize]
                                      }];
-    if (IsExist_String(self.address)) {
-        [dict addEntriesFromDictionary:@{@"address":GetString(self.address)}];
-    }
+     [dict addEntriesFromDictionary:@{@"address":GetString(self.address)}];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/wx/weixinPay";
@@ -373,11 +387,12 @@ typedef enum
         }
     }];
 }
-- (void)showWriteAddressView{
+- (void)addAddressClick{
     WS(weakSelf);
-    if (self.prize > 0 && !self.address) {
+    if (self.prize > 0) {
         
         [GLD_ExpressAddressView expressAddressView:^(NSString *address) {
+            weakSelf.addressLabel.text = address;
             weakSelf.address = address;
         }];
     }
@@ -436,7 +451,7 @@ typedef enum
         [tableView setSeparatorInset:UIEdgeInsetsMake(0, W(15), 0, W(15))];
         tableView.mj_insetB = W(50);
         tableView.bounces = NO;
-        //        [tableView registerClass:[GLD_MapDetailCell class] forCellReuseIdentifier:GLD_MapDetailCellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:@"GLD_NewPayGoodsCell" bundle:nil] forCellReuseIdentifier:@"GLD_NewPayGoodsCell"];
         //        tableView.rowHeight = 0;
         tableView.sectionFooterHeight = 0.001;
     }
@@ -526,5 +541,22 @@ typedef enum
         [_applyBut addTarget:self action:@selector(applybutClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _applyBut;
+}
+- (UIView *)addressHeadView{
+    if (!_addressHeadView) {
+        _addressHeadView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, DEVICE_WIDTH, 60)];
+        _addressHeadView.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKwirte];
+        [_addressHeadView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(addAddressClick)]];
+        self.addressLabel = [UILabel creatLableWithText:@"请填写送货地址" andFont:WTFont(15) textAlignment:NSTextAlignmentCenter textColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKblack]];
+        [_addressHeadView addSubview:self.addressLabel];
+        self.addressLabel.frame = CGRectMake(0, 0, DEVICE_WIDTH, 60);
+        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 59, DEVICE_WIDTH, 1)];
+        lineView.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_LINEVIEW];
+        [_addressHeadView addSubview:lineView];
+        UIImageView *imgV = [[UIImageView alloc]initWithImage:WTImage(@"更多")];
+        [_addressHeadView addSubview:imgV];
+        imgV.frame = CGRectMake(DEVICE_WIDTH-30, (60 -18)/2, 18, 18);
+    }
+    return _addressHeadView;
 }
 @end

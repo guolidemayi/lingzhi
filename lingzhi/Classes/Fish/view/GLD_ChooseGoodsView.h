@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol GLD_ChooseGoodsViewDelegate <NSObject>
 
-- (void)didSelectedTimeItem:(NSInteger)index;
+- (void)didSelectedTimeItem:(NSInteger)index andChooseCount:(NSInteger)count;
 
 @end
 @class GLD_StoreDetailModel;

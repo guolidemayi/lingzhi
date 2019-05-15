@@ -32,6 +32,7 @@
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "GLD_ConfigureFile.h"
 #import "CoreDataManager.h"
+#import "UIScrollView+Extension.h"
 
 #define userHasLogin       @"userHasLogin"
 

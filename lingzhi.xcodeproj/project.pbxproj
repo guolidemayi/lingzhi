@@ -259,6 +259,14 @@
 		3CA74E511FD2829200A7F137 /* GLD_BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */; };
 		5B3789A9B5E4EF8A0BE2141F /* libPods-lingzhiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */; };
 		64BFBA665871E50399A6E013 /* libPods-lingzhi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C3E6708F716104D709C04A /* libPods-lingzhi.a */; };
+		C93245B822869835000A2A29 /* SampleProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C93245B622869835000A2A29 /* SampleProject.xcdatamodeld */; };
+		C93245BB22869C0E000A2A29 /* GLD_MessageUserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C93245B922869C0D000A2A29 /* GLD_MessageUserInfoTool.m */; };
+		C93245BE22882E8A000A2A29 /* GLD_GoodsCarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93245BD22882E8A000A2A29 /* GLD_GoodsCarListController.m */; };
+		C961C6BC22899A380000CC8E /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C961C6BB22899A370000CC8E /* UIScrollView+Extension.m */; };
+		C961C6C1228ABBDD0000CC8E /* GLD_NewPayGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C961C6BF228ABBDD0000CC8E /* GLD_NewPayGoodsCell.m */; };
+		C961C6C2228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C961C6C0228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib */; };
+		C961C6C5228AD78A0000CC8E /* GLD_SendView.m in Sources */ = {isa = PBXBuildFile; fileRef = C961C6C4228AD78A0000CC8E /* GLD_SendView.m */; };
+		C961C6C7228AD7950000CC8E /* GLD_SendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C961C6C6228AD7950000CC8E /* GLD_SendView.xib */; };
 		C9ED06EB22815E6500D487BD /* CollectionCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E122815E6500D487BD /* CollectionCategoryModel.m */; };
 		C9ED06EC22815E6500D487BD /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E622815E6500D487BD /* CollectionViewCell.m */; };
 		C9ED06ED22815E6500D487BD /* LJCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E822815E6500D487BD /* LJCollectionViewFlowLayout.m */; };
@@ -758,6 +766,19 @@
 		3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BannerModel.m; sourceTree = "<group>"; };
 		98830999E513C9AF0ABA2FD1 /* Pods-lingzhiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiTests/Pods-lingzhiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B71A964312F2EC99F300DABB /* Pods-lingzhi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhi/Pods-lingzhi.debug.xcconfig"; sourceTree = "<group>"; };
+		C93245B722869835000A2A29 /* SampleProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleProject.xcdatamodel; sourceTree = "<group>"; };
+		C93245B922869C0D000A2A29 /* GLD_MessageUserInfoTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLD_MessageUserInfoTool.m; sourceTree = "<group>"; };
+		C93245BA22869C0D000A2A29 /* GLD_MessageUserInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLD_MessageUserInfoTool.h; sourceTree = "<group>"; };
+		C93245BC22882E8A000A2A29 /* GLD_GoodsCarListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_GoodsCarListController.h; sourceTree = "<group>"; };
+		C93245BD22882E8A000A2A29 /* GLD_GoodsCarListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_GoodsCarListController.m; sourceTree = "<group>"; };
+		C961C6BA22899A370000CC8E /* UIScrollView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extension.h"; sourceTree = "<group>"; };
+		C961C6BB22899A370000CC8E /* UIScrollView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extension.m"; sourceTree = "<group>"; };
+		C961C6BE228ABBDD0000CC8E /* GLD_NewPayGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_NewPayGoodsCell.h; sourceTree = "<group>"; };
+		C961C6BF228ABBDD0000CC8E /* GLD_NewPayGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_NewPayGoodsCell.m; sourceTree = "<group>"; };
+		C961C6C0228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_NewPayGoodsCell.xib; sourceTree = "<group>"; };
+		C961C6C3228AD78A0000CC8E /* GLD_SendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_SendView.h; sourceTree = "<group>"; };
+		C961C6C4228AD78A0000CC8E /* GLD_SendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_SendView.m; sourceTree = "<group>"; };
+		C961C6C6228AD7950000CC8E /* GLD_SendView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_SendView.xib; sourceTree = "<group>"; };
 		C9ED06E122815E6500D487BD /* CollectionCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCategoryModel.m; sourceTree = "<group>"; };
 		C9ED06E222815E6500D487BD /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		C9ED06E322815E6500D487BD /* LJCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCollectionViewFlowLayout.h; sourceTree = "<group>"; };
@@ -1046,6 +1067,8 @@
 				0F2C2F701FF6368E0083BCCB /* YXRecordButton.m */,
 				0F5FDDD0203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.h */,
 				0F5FDDCF203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.m */,
+				C961C6BA22899A370000CC8E /* UIScrollView+Extension.h */,
+				C961C6BB22899A370000CC8E /* UIScrollView+Extension.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -1245,6 +1268,9 @@
 				0F544619211001F6009FAE8E /* GLD_ExpressCell.h */,
 				0F54461A211001F6009FAE8E /* GLD_ExpressCell.m */,
 				0F54461B211001F6009FAE8E /* GLD_ExpressCell.xib */,
+				C961C6C3228AD78A0000CC8E /* GLD_SendView.h */,
+				C961C6C4228AD78A0000CC8E /* GLD_SendView.m */,
+				C961C6C6228AD7950000CC8E /* GLD_SendView.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1307,6 +1333,7 @@
 				0F60E9C11FC2754300C5E113 /* Main.storyboard */,
 				0F60E9C91FC2754300C5E113 /* Info.plist */,
 				0F298EAB1FC2D30400EDBA9A /* PrefixHeader.pch */,
+				C93245B622869835000A2A29 /* SampleProject.xcdatamodeld */,
 				0F5445F6210EB064009FAE8E /* GLD_ConfigureFile.h */,
 				0F2C2F781FFC839E0083BCCB /* Images.xcassets */,
 			);
@@ -1524,6 +1551,8 @@
 				3C431932204B9632007FCA1E /* GLD_WeChatManger.m */,
 				330AAB3F1FF40ABF00523FF0 /* GLD_UserMessageModel.h */,
 				330AAB401FF40ABF00523FF0 /* GLD_UserMessageModel.m */,
+				C93245BA22869C0D000A2A29 /* GLD_MessageUserInfoTool.h */,
+				C93245B922869C0D000A2A29 /* GLD_MessageUserInfoTool.m */,
 				0FB536E21FC5887C00B0EDA6 /* main.m */,
 			);
 			path = Other;
@@ -1549,6 +1578,7 @@
 		0FB536E81FC5887C00B0EDA6 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				C961C6BD228ABBB70000CC8E /* newPayView */,
 				0F28D29E1FD6ADDE00138A8B /* userMessage */,
 				0F28D2891FD671B100138A8B /* View */,
 				0FB536E91FC5887C00B0EDA6 /* Controller */,
@@ -1685,6 +1715,8 @@
 				0F544606210EEA92009FAE8E /* GLD_GoodsDetailManager.m */,
 				0FF3B089212BBFBD00B5C512 /* GLD_GoodsManagerController.h */,
 				0FF3B08A212BBFBD00B5C512 /* GLD_GoodsManagerController.m */,
+				C93245BC22882E8A000A2A29 /* GLD_GoodsCarListController.h */,
+				C93245BD22882E8A000A2A29 /* GLD_GoodsCarListController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1793,6 +1825,16 @@
 				2AFF7DFDC2A100A721211A54 /* Pods-lingzhiUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		C961C6BD228ABBB70000CC8E /* newPayView */ = {
+			isa = PBXGroup;
+			children = (
+				C961C6BE228ABBDD0000CC8E /* GLD_NewPayGoodsCell.h */,
+				C961C6BF228ABBDD0000CC8E /* GLD_NewPayGoodsCell.m */,
+				C961C6C0228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib */,
+			);
+			path = newPayView;
 			sourceTree = "<group>";
 		};
 		C9ED06DF22815E0300D487BD /* 商城 */ = {
@@ -1952,6 +1994,7 @@
 				0F5445F5210EABCA009FAE8E /* GLD_StoreDetailCell.xib in Resources */,
 				0F5445ED210EA733009FAE8E /* GLD_StoreCell.xib in Resources */,
 				0FF3B07021219E6000B5C512 /* GLD_ExpressAddressView.xib in Resources */,
+				C961C6C7228AD7950000CC8E /* GLD_SendView.xib in Resources */,
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
 				0F298EA41FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				0F54461D211001F6009FAE8E /* GLD_ExpressCell.xib in Resources */,
@@ -1966,6 +2009,7 @@
 				0F298E841FC2CFC200EDBA9A /* MTShareView.xib in Resources */,
 				0F80FB2920243D8000F7EE22 /* GLD_ZFBCashCell.xib in Resources */,
 				0FB537361FC6D22A00B0EDA6 /* SGQRCode.bundle in Resources */,
+				C961C6C2228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib in Resources */,
 				0F5EC5E0202D6F4200298A7D /* GLD_CountCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2070,6 +2114,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C93245BB22869C0E000A2A29 /* GLD_MessageUserInfoTool.m in Sources */,
 				339EF9621FF9295500C6170E /* GLD_RemindCell.m in Sources */,
 				0F28D29A1FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				0F2C2F491FF62E330083BCCB /* GLD_Button.m in Sources */,
@@ -2136,6 +2181,7 @@
 				0F9920101FCEE1AA00305DF3 /* GLD_BaseTableManager.m in Sources */,
 				0F2C2F5D1FF62E330083BCCB /* GLD_DrawBut.m in Sources */,
 				0F71A58F1FDF742F00C66EED /* GLD_PhoneVerificatController.m in Sources */,
+				C961C6BC22899A380000CC8E /* UIScrollView+Extension.m in Sources */,
 				C9ED06FB2282FB3000D487BD /* GLD_ChooseGoodsView.m in Sources */,
 				0F2C2F5A1FF62E330083BCCB /* GLD_BBSStandardView.m in Sources */,
 				3CA74E4E1FD2808300A7F137 /* GLD_IndustryModel.m in Sources */,
@@ -2203,6 +2249,7 @@
 				0F28D2B91FD7BC0600138A8B /* GLD_WirteIntroController.m in Sources */,
 				0F298E7A1FC2CFC200EDBA9A /* CAToast.m in Sources */,
 				0F2C2F541FF62E330083BCCB /* GLD_TopicModel.m in Sources */,
+				C961C6C1228ABBDD0000CC8E /* GLD_NewPayGoodsCell.m in Sources */,
 				0F6411B11FD53B950069FDB1 /* GLD_BusnessModel.m in Sources */,
 				0F5445F4210EABCA009FAE8E /* GLD_StoreDetailCell.m in Sources */,
 				0F99201E1FCEF81E00305DF3 /* GLD_BusinessCell.m in Sources */,
@@ -2211,6 +2258,7 @@
 				0F28D2BE1FD7F04000138A8B /* GLD_ApplyBusnessController.m in Sources */,
 				33FD33B22025780F00725317 /* GLD_PayForBusiModel.m in Sources */,
 				0FC3FCD720EB110F00A98F7E /* GLD_BusnessOrderCell.m in Sources */,
+				C93245BE22882E8A000A2A29 /* GLD_GoodsCarListController.m in Sources */,
 				0F2C2F571FF62E330083BCCB /* GLD_BMessageCell.m in Sources */,
 				0F298E881FC2CFC200EDBA9A /* YXUniversal.m in Sources */,
 				0FB537091FC5887C00B0EDA6 /* LBFishViewController.m in Sources */,
@@ -2238,6 +2286,7 @@
 				0F28D2AD1FD6ADDE00138A8B /* BRStringPickerView.m in Sources */,
 				0F71A59E1FDFAF7800C66EED /* GLD_ChangePassWordController.m in Sources */,
 				3C604D801FE64D0500D4ECA7 /* GLD_ManagerStoreController.m in Sources */,
+				C961C6C5228AD78A0000CC8E /* GLD_SendView.m in Sources */,
 				0F9920151FCEEA5900305DF3 /* GLD_BannerCell.m in Sources */,
 				0F5445EC210EA733009FAE8E /* GLD_StoreCell.m in Sources */,
 				0FEA82C620902E0A002FBC88 /* GLD_UserProtocolController.m in Sources */,
@@ -2253,6 +2302,7 @@
 				0F64119C1FD523BE0069FDB1 /* GLD_BusinessDetailController.m in Sources */,
 				0F32E7FC1FE12CED0042E8BE /* GLD_SearchController.m in Sources */,
 				C9ED06EB22815E6500D487BD /* CollectionCategoryModel.m in Sources */,
+				C93245B822869835000A2A29 /* SampleProject.xcdatamodeld in Sources */,
 				0F2C2F4E1FF62E330083BCCB /* GLD_AllDetailController.m in Sources */,
 				0F2C2F5E1FF62E330083BCCB /* GLD_PictureImg.m in Sources */,
 				0F2C2F521FF62E330083BCCB /* GLD_ForumNewsDetailModel.m in Sources */,
@@ -2590,6 +2640,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C93245B622869835000A2A29 /* SampleProject.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C93245B722869835000A2A29 /* SampleProject.xcdatamodel */,
+			);
+			currentVersion = C93245B722869835000A2A29 /* SampleProject.xcdatamodel */;
+			path = SampleProject.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0F60E9B01FC2754300C5E113 /* Project object */;
 }

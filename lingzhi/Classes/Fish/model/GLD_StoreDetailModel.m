@@ -20,6 +20,31 @@
                                                        @"id" : @"storeId",
                                                        }];
 }
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:_storeId forKey:@"storeId"];
+    [aCoder encodeObject:_title forKey:@"title"];
+    [aCoder encodeObject:_summary forKey:@"summary"];
+    [aCoder encodeObject:_pic forKey:@"pic"];
+    [aCoder encodeObject:_userId forKey:@"userId"];
+    [aCoder encodeInt64:_type forKey:@"type"];
+    [aCoder encodeObject:_price forKey:@"price"];
+    
+    
+}
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    if (self) {
+        _storeId = [aDecoder decodeObjectForKey:@"storeId"];
+        _title = [aDecoder decodeObjectForKey:@"title"];
+        _summary = [aDecoder decodeObjectForKey:@"summary"];
+        _pic = [aDecoder decodeObjectForKey:@"pic"];
+        _userId = [aDecoder decodeObjectForKey:@"userId"];
+        _price = [aDecoder decodeObjectForKey:@"price"];
+        _type = [aDecoder decodeIntForKey:@"type"];
+    }
+    return self;
+}
 @end
 
 @implementation GLD_StoreDetaiListlModel

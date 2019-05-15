@@ -9,5 +9,6 @@
 #import "GLD_BaseViewController.h"
 
 @interface GLD_ExpressListController : GLD_BaseViewController
+- (instancetype)initWithType:(NSInteger)type;
 
 @end

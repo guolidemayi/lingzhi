@@ -28,7 +28,7 @@
 - (void)setStoreModel:(GLD_StoreDetailModel *)storeModel{
     _storeModel = storeModel;
     
-    self.storePriceLabel.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"￥%zd",MAX(storeModel.price, 0)] find:@"￥"  flMaxFont:25 flMinFont:10 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
+    self.storePriceLabel.attributedText = [YXUniversal changeColorLabel:[NSString stringWithFormat:@"￥%.2f",MAX(storeModel.price.floatValue, 0)] find:@"￥"  flMaxFont:25 flMinFont:10 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTred]];
     
     if([storeModel.pic containsString:@","]){
         NSArray *arr = [storeModel.pic componentsSeparatedByString:@","];

@@ -129,24 +129,27 @@
     [self dismissClick];
 }
 - (void)dismissClick{
-    if ([self.timeDelegate respondsToSelector:@selector(didSelectedTimeItem:)]) {
-        [self.timeDelegate didSelectedTimeItem:-1];
+    if ([self.timeDelegate respondsToSelector:@selector(didSelectedTimeItem:andChooseCount:)]) {
+        [self.timeDelegate didSelectedTimeItem:-1 andChooseCount:-1];
     }
 }
 - (IBAction)addCountButClick:(id)sender {
     self.countLabel.text = [NSString stringWithFormat:@"%ld",++self.selecterCount];
     
-    self.priceLabel.text = [NSString stringWithFormat:@"¥%ld",self.storeModel.price * self.selecterCount];
+    self.priceLabel.text = [NSString stringWithFormat:@"¥%.2f",self.storeModel.price.floatValue * self.selecterCount];
 }
 - (IBAction)deleteCountButClick:(id)sender {
     if (self.selecterCount == 1) {
         return;
     }
     self.countLabel.text = [NSString stringWithFormat:@"%ld",--self.selecterCount];
-    self.priceLabel.text = [NSString stringWithFormat:@"¥%ld",self.storeModel.price * self.selecterCount];
+    self.priceLabel.text = [NSString stringWithFormat:@"¥%.2f",self.storeModel.price.floatValue * self.selecterCount];
 }
 - (IBAction)commitButClick:(id)sender {
-    [self dismissClick];
+//    [self dismissClick];
+    if ([self.timeDelegate respondsToSelector:@selector(didSelectedTimeItem:andChooseCount:)]) {
+        [self.timeDelegate didSelectedTimeItem:self.selectedIndex andChooseCount:self.selecterCount];
+    }
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.dataArr.count;
@@ -172,9 +175,6 @@
     if (self.selectedIndex == indexPath.item) return;
     self.selectedIndex = indexPath.item;
     
-    if ([self.timeDelegate respondsToSelector:@selector(didSelectedTimeItem:)]) {
-        [self.timeDelegate didSelectedTimeItem:indexPath.row];
-    }
     [self.collectionView reloadData];
 }
 

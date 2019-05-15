@@ -17,7 +17,7 @@
 #import "GLD_MessageController.h"
 #import "GLD_PayForBusinessController.h"
 #import "LBTabBarController.h"
-
+#import "GLD_GoodsCarListController.h"
 @interface LBHomeViewController ()
 {
     
@@ -29,6 +29,7 @@
 @property (nonatomic, strong)GLD_HomeViewManager *homeManager;
 @property (nonatomic, copy)NSString *locationStr;
 @property (nonatomic, strong)GLD_CustomBut *redPointBut;
+@property (nonatomic, strong) UIButton *goodsCarBut;
 @end
 
 
@@ -50,8 +51,9 @@
     [self startLocation];
     //导航到深圳火车站
     [self setNavUi];
-   
-   
+    
+    [self.view addSubview:self.goodsCarBut];
+    [self.view bringSubviewToFront:self.goodsCarBut];
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -127,7 +129,11 @@
     GLD_SearchController *searchVc = [GLD_SearchController new];
     [self.navigationController pushViewController:searchVc animated:YES];
 }
-
+//购物车
+- (void)goodsCarButClick{
+    GLD_GoodsCarListController *goodVc = [GLD_GoodsCarListController new];
+    [self.navigationController pushViewController:goodVc animated:YES];
+}
 - (void)fetchRedPointRequest{
     self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
@@ -233,7 +239,17 @@
         
     }];
 }
+- (UIButton *)goodsCarBut{
+    if (!_goodsCarBut) {
+        _goodsCarBut = [[UIButton alloc]init];
+        [_goodsCarBut setImage:WTImage(@"Home_Versionf_ShoppingCart") forState:UIControlStateNormal];
+        [_goodsCarBut addTarget:self action:@selector(goodsCarButClick) forControlEvents:UIControlEventTouchUpInside];
+        _goodsCarBut.frame = CGRectMake(DEVICE_WIDTH - 100, DEVICE_HEIGHT - 200 - iPhoneXBottomHeight, 60, 60);
+        
+    }
 
+    return _goodsCarBut;
+}
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

@@ -31,8 +31,6 @@
 
 @property (nonatomic, strong)UIButton *applyBut;//提交
 
-@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
-
 @property (nonatomic, copy)NSString *phoneCode;//手机验证码
 @end
 
@@ -42,7 +40,6 @@
     [super viewDidLoad];
 
     self.phoneCode = @"-1";
-    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     [self.view addSubview:self.table_apply];
 }
 - (void)viewWillAppear:(BOOL)animated{

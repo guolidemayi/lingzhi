@@ -66,9 +66,12 @@
 - (void)setModel:(GLD_StoreDetailModel *)model
 {
     _model = model;
-    [self.imageV yy_setImageWithURL:[NSURL URLWithString:model.pic] placeholder:WTImage(@"")];
+    NSArray *arr = [model.pic componentsSeparatedByString:@","];
+    if (IsExist_Array(arr)) {
+        [self.imageV yy_setImageWithURL:[NSURL URLWithString:arr.firstObject] placeholder:WTImage(@"")];
+    }
     self.name.text = model.title;
-    self.price.text = [NSString stringWithFormat:@"¥ %zd",model.price];
+    self.price.text = [NSString stringWithFormat:@"¥ %zd",model.price.integerValue];
 }
 
 @end
