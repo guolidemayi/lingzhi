@@ -167,15 +167,6 @@
 }
 - (void)payToWeChatWithDic:(NSDictionary *)dic
 {
-    // App-培训详情-微信支付
-    //    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObject:self.detailModel.title forKey:@"title"];
-    //    if ([self.detailModel.courseTypeId isEqualToString:@"1"]) {
-    //        [param setObject:@"精品课" forKey:@"type"];
-    //    } else {
-    //        [param setObject:@"培训班" forKey:@"type"];
-    //    }
-    //    SensorsAnalyticsTrack(@"app_peixunxiangqing_weixinzhifu", param);
-    //
     
     PayReq *request = [[PayReq alloc] init];
     request.partnerId = dic[@"partnerid"];  // 商户号

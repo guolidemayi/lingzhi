@@ -42,12 +42,18 @@
     switch (viewModel.expressModel.state) {//0 可抢单 1 派件中 2 完成
         case 0:
             statusStr = @"抢单";
+            self.sendPhoneLabel.hidden = YES;
+            self.receivedPhoneLabel.hidden = YES;
             break;
         case 1:
             statusStr = @"完成中";
+            self.sendPhoneLabel.hidden = NO;
+            self.receivedPhoneLabel.hidden = NO;
             break;
         case 2:
             statusStr = @"完成";
+            self.sendPhoneLabel.hidden = YES;
+            self.receivedPhoneLabel.hidden = YES;
             break;
     }
     [self.tipBut setTitle:statusStr forState:UIControlStateNormal];

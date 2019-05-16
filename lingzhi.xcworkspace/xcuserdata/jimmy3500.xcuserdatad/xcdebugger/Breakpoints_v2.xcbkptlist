@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Fish/Controller/GLD_GoodsDetailController.m"
-            timestampString = "579594860.9889441"
+            timestampString = "579682489.488028"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -74,13 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Fish/Controller/GLD_GoodsDetailController.m"
-            timestampString = "579594860.995298"
+            timestampString = "579682489.488126"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
-            landmarkName = "-dealloc"
-            landmarkType = "7">
+            startingLineNumber = "306"
+            endingLineNumber = "306">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -164,11 +162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Post/Controller/GLD_PostExressManager.m"
-            timestampString = "579622829.724658"
+            timestampString = "579682489.488235"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "-uploadImage:index:"
             landmarkType = "7">
          </BreakpointContent>
@@ -203,6 +201,70 @@
             endingLineNumber = "249"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "lingzhi/Classes/Post/&#x53d1;&#x5e03;&#x5546;&#x54c1;/GLD_PostGoodsViewController.m"
+            timestampString = "579682489.4883161"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-fetchCategroyData"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "lingzhi/Classes/Post/&#x53d1;&#x5e03;&#x5546;&#x54c1;/GLD_PostGoodsViewController.m"
+            timestampString = "579682489.488627"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-fetchCategroyData"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[GLD_PostGoodsViewController fetchCategroyData]_block_invoke"
+                  moduleName = "lingzhi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jimmy3500/Desktop/lingzhi/lingzhi/Classes/Post/%E5%8F%91%E5%B8%83%E5%95%86%E5%93%81/GLD_PostGoodsViewController.m"
+                  timestampString = "579682489.681821"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "83">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[GLD_PostGoodsViewController fetchCategroyData]_block_invoke_2"
+                  moduleName = "lingzhi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jimmy3500/Desktop/lingzhi/lingzhi/Classes/Post/%E5%8F%91%E5%B8%83%E5%95%86%E5%93%81/GLD_PostGoodsViewController.m"
+                  timestampString = "579682489.68398"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -34,6 +34,7 @@
 @property (nonatomic, copy)NSString *receivedPhone;//收件人
 @property (nonatomic, copy)NSString *receivedPerson;//收件人电话
 @property (nonatomic, copy) NSString *goodsPic;
+@property (nonatomic, strong) NSString *city;//发布城市
 @end
 
 @interface GLD_ExpressListModel : GLD_BaseModel

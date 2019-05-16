@@ -271,6 +271,9 @@
 		C961C6CC228BE6920000CC8E /* GLD_BangBanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C961C6CA228BE6920000CC8E /* GLD_BangBanCell.xib */; };
 		C961C6D5228BEB3C0000CC8E /* GLD_PaoTuiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C961C6D3228BEB3C0000CC8E /* GLD_PaoTuiCell.m */; };
 		C961C6D6228BEB3C0000CC8E /* GLD_PaoTuiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C961C6D4228BEB3C0000CC8E /* GLD_PaoTuiCell.xib */; };
+		C993F23E228D0D5B005C0948 /* GLD_PostGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C993F23D228D0D5B005C0948 /* GLD_PostGoodsViewController.m */; };
+		C993F241228D3455005C0948 /* GLD_NormsVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = C993F240228D3455005C0948 /* GLD_NormsVIew.m */; };
+		C993F243228D3466005C0948 /* GLD_NormsVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = C993F242228D3466005C0948 /* GLD_NormsVIew.xib */; };
 		C9ED06EB22815E6500D487BD /* CollectionCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E122815E6500D487BD /* CollectionCategoryModel.m */; };
 		C9ED06EC22815E6500D487BD /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E622815E6500D487BD /* CollectionViewCell.m */; };
 		C9ED06ED22815E6500D487BD /* LJCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ED06E822815E6500D487BD /* LJCollectionViewFlowLayout.m */; };
@@ -794,6 +797,11 @@
 		C961C6D2228BEB3C0000CC8E /* GLD_PaoTuiCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_PaoTuiCell.h; sourceTree = "<group>"; };
 		C961C6D3228BEB3C0000CC8E /* GLD_PaoTuiCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PaoTuiCell.m; sourceTree = "<group>"; };
 		C961C6D4228BEB3C0000CC8E /* GLD_PaoTuiCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_PaoTuiCell.xib; sourceTree = "<group>"; };
+		C993F23C228D0D5B005C0948 /* GLD_PostGoodsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_PostGoodsViewController.h; sourceTree = "<group>"; };
+		C993F23D228D0D5B005C0948 /* GLD_PostGoodsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PostGoodsViewController.m; sourceTree = "<group>"; };
+		C993F23F228D3455005C0948 /* GLD_NormsVIew.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_NormsVIew.h; sourceTree = "<group>"; };
+		C993F240228D3455005C0948 /* GLD_NormsVIew.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_NormsVIew.m; sourceTree = "<group>"; };
+		C993F242228D3466005C0948 /* GLD_NormsVIew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_NormsVIew.xib; sourceTree = "<group>"; };
 		C9ED06E122815E6500D487BD /* CollectionCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCategoryModel.m; sourceTree = "<group>"; };
 		C9ED06E222815E6500D487BD /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
 		C9ED06E322815E6500D487BD /* LJCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCollectionViewFlowLayout.h; sourceTree = "<group>"; };
@@ -1544,6 +1552,7 @@
 		0FB536DC1FC5887C00B0EDA6 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				C993F23B228D0D0A005C0948 /* 发布商品 */,
 				0F5446212110073E009FAE8E /* model */,
 				0F54461821100163009FAE8E /* view */,
 				0FB536DD1FC5887C00B0EDA6 /* Controller */,
@@ -1869,6 +1878,18 @@
 			path = newPayView;
 			sourceTree = "<group>";
 		};
+		C993F23B228D0D0A005C0948 /* 发布商品 */ = {
+			isa = PBXGroup;
+			children = (
+				C993F23C228D0D5B005C0948 /* GLD_PostGoodsViewController.h */,
+				C993F23D228D0D5B005C0948 /* GLD_PostGoodsViewController.m */,
+				C993F23F228D3455005C0948 /* GLD_NormsVIew.h */,
+				C993F240228D3455005C0948 /* GLD_NormsVIew.m */,
+				C993F242228D3466005C0948 /* GLD_NormsVIew.xib */,
+			);
+			path = "发布商品";
+			sourceTree = "<group>";
+		};
 		C9ED06DF22815E0300D487BD /* 商城 */ = {
 			isa = PBXGroup;
 			children = (
@@ -2035,6 +2056,7 @@
 			files = (
 				0F28D2CE1FDA42EA00138A8B /* AMap.bundle in Resources */,
 				33FD33AF2025607700725317 /* GLD_PayForBusiCell.xib in Resources */,
+				C993F243228D3466005C0948 /* GLD_NormsVIew.xib in Resources */,
 				0F80FB21202439D700F7EE22 /* GLD_ZFBPayCell.xib in Resources */,
 				0F60E9C81FC2754300C5E113 /* LaunchScreen.storyboard in Resources */,
 				C9ED06FD2282FB3E00D487BD /* GLD_ChooseGoodsView.xib in Resources */,
@@ -2372,8 +2394,10 @@
 				C9ED06F522816CCA00D487BD /* LeftTableViewCell.m in Sources */,
 				0FB537021FC5887C00B0EDA6 /* LBMessageViewController.m in Sources */,
 				C961C6D5228BEB3C0000CC8E /* GLD_PaoTuiCell.m in Sources */,
+				C993F23E228D0D5B005C0948 /* GLD_PostGoodsViewController.m in Sources */,
 				0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */,
 				0F32E8111FE8BD450042E8BE /* GLD_UpdateViewController.m in Sources */,
+				C993F241228D3455005C0948 /* GLD_NormsVIew.m in Sources */,
 				0F2C2F551FF62E330083BCCB /* GLD_ForumModel.m in Sources */,
 				0F2C2F6B1FF6338F0083BCCB /* InputKeyboardView.m in Sources */,
 				3C431933204B9632007FCA1E /* GLD_WeChatManger.m in Sources */,

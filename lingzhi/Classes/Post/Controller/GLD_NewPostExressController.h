@@ -6,11 +6,11 @@
 //  Copyright © 2019 com.lingzhi. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "GLD_BaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GLD_NewPostExressController : UIViewController
+@interface GLD_NewPostExressController : GLD_BaseViewController
 
 @end
 
