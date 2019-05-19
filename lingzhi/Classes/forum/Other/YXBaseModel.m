@@ -9,5 +9,8 @@
 #import "YXBaseModel.h"
 
 @implementation YXBaseModel
-
++(BOOL)propertyIsOptional:(NSString*)propertyName;
+{
+    return YES;
+}
 @end

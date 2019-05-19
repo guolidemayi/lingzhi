@@ -88,6 +88,7 @@
             GLD_ExpressAdressController *expressVc = [GLD_ExpressAdressController initWithBlock:^(AMapPOI *location) {
                 weakSelf.expressModel.latitude = location.location.latitude;
                 weakSelf.expressModel.longitude = location.location.longitude;
+                weakSelf.expressModel.start = location.address;
                 weakSelf.expressModel.city = location.city;
                 weakSelf.starLabel.text = location.address;
             }];
@@ -101,6 +102,7 @@
             GLD_ExpressAdressController *expressVc = [GLD_ExpressAdressController initWithBlock:^(AMapPOI *location) {
                 weakSelf.expressModel.toLatitude = location.location.latitude;
                 weakSelf.expressModel.toLongitude = location.location.longitude;
+                weakSelf.expressModel.end = location.address;
                 weakSelf.ednLabel.text = location.address;
             }];
             [self.tableView.navigationController pushViewController:expressVc animated:YES];

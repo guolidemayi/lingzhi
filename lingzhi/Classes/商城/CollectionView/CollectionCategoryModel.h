@@ -7,11 +7,11 @@
 //  代码下载地址https://github.com/leejayID/Linkage
 
 #import "JSONModel.h"
-
+#import "GLD_StoreDetailModel.h"
 @interface CollectionCategoryModel : JSONModel
 
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSArray *subcategories;
+@property (nonatomic, copy) NSMutableArray<GLD_StoreDetailModel> *goods;
 
 @end
 

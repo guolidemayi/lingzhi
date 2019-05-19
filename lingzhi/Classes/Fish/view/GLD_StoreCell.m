@@ -19,15 +19,16 @@
     // Initialization code
 }
 - (IBAction)integralStoreClick:(UIButton *)sender {
-    CollectionViewController *storeVC = [CollectionViewController new];
-    storeVC.type = 1;
-    [self.navigationController pushViewController:storeVC animated:YES];
+    [self pushToStore:1];
 }
 - (IBAction)couponStoreClick:(id)sender {
     [self pushToStore:3];
 }
 - (IBAction)onSalesStoreClick:(id)sender {
-    [self pushToStore:2];
+    
+    CollectionViewController *storeVC = [CollectionViewController new];
+    storeVC.type = 1;
+    [self.navigationController pushViewController:storeVC animated:YES];
 }
 
 - (void)pushToStore:(NSInteger)type{

@@ -12,6 +12,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "GLD_ExpressAddressView.h"
 #import "GLD_ExpressAddressView.h"
+#import "GLD_OrderRemarkCell.h"
 
 typedef enum
 {
@@ -138,8 +139,9 @@ typedef enum
     return 3;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if(section != 2)
-        return 1;
+    if (section == 0) return 1;
+    if(section == 1)
+        return 2;
     return self.titleArr.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -150,6 +152,9 @@ typedef enum
             return [self getPayForBusiCell:indexPath];
         }break;
         case 1:{
+            if (indexPath.row) {
+                return [self getRemarkCell:indexPath];
+            }
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"counpCell"];
             if (!cell) {
                 cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"counpCell"];
@@ -183,7 +188,10 @@ typedef enum
     return [UITableViewCell new];
 }
 
-
+- (GLD_OrderRemarkCell *)getRemarkCell:(NSIndexPath *)indexPath{
+    GLD_OrderRemarkCell *cell = [self.table_apply dequeueReusableCellWithIdentifier:@"GLD_OrderRemarkCell"];
+    return cell;
+}
 - (GLD_NewPayGoodsCell *)getPayForBusiCell:(NSIndexPath *)indexPath{
     GLD_NewPayGoodsCell *cell = [self.table_apply dequeueReusableCellWithIdentifier:@"GLD_NewPayGoodsCell"];
     
@@ -208,6 +216,11 @@ typedef enum
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         return (140);
+    }
+    if (indexPath.section == 1) {
+        if (indexPath.row == 1) {
+            return 90;
+        }
     }
     return W(44);
 }
@@ -310,14 +323,18 @@ typedef enum
     if (IsExist_String(self.payForUserId)) {
         [dict addEntriesFromDictionary:@{@"toUserId":self.payForUserId}];
     }
+    GLD_OrderRemarkCell *cell = [self.table_apply cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:1]];
     
-    
+    [dict addEntriesFromDictionary:@{@"remarks":GetString(cell.orderRemark.text)}];
     [dict addEntriesFromDictionary:@{@"amount" : [NSString stringWithFormat:@"%.2f",self.payMoney],
                                      @"payType" :self.payType == offLine ? @"offLine": (self.payType == AliPay ? @"zfbPay" : @"wxPay"),
                                      @"fromUserId" : GetString([AppDelegate shareDelegate].userModel.userId),
+                                     @"goodsId" : GetString(self.stroeModel.storeId),
                                      @"coupon" :[NSString stringWithFormat:@"%.2f",self.payCoupon],
                                      
-                                     @"prize" : [NSString stringWithFormat:@"%.2f",self.prize]
+                                     @"prize" : [NSString stringWithFormat:@"%.2f",self.prize],
+                                     @"goodscount":@(self.stroeModel.seleteCount),
+                                     @"goodstag":self.stroeModel.chooseNorms
                                      }];
      [dict addEntriesFromDictionary:@{@"address":GetString(self.address)}];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
@@ -452,6 +469,8 @@ typedef enum
         tableView.mj_insetB = W(50);
         tableView.bounces = NO;
         [tableView registerNib:[UINib nibWithNibName:@"GLD_NewPayGoodsCell" bundle:nil] forCellReuseIdentifier:@"GLD_NewPayGoodsCell"];
+        
+        [tableView registerNib:[UINib nibWithNibName:@"GLD_OrderRemarkCell" bundle:nil] forCellReuseIdentifier:@"GLD_OrderRemarkCell"];
         //        tableView.rowHeight = 0;
         tableView.sectionFooterHeight = 0.001;
     }

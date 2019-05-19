@@ -33,7 +33,7 @@
     [super viewDidLoad];
     self.address = @"";
     [self setApplyBut];
-    self.home_table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
+    self.home_table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.home_table];
     [self.home_table mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.equalTo(self.view);
@@ -71,11 +71,11 @@
     
 }
 //GLD_ChooseGoodsViewDelegate
-- (void)didSelectedTimeItem:(NSInteger)index andChooseCount:(NSInteger)count{
+- (void)didSelectedTimeItem:(NSString *)index andChooseCount:(NSInteger)count{
     [self.navigationController.view sendSubviewToBack:self.chooseGoodsView];
-    if (index != -1) {
+    if (index.length != 0) {
 #warning __规格
-        self.storeModel.chooseNorms = self.storeModel.normsArr[index];
+        self.storeModel.chooseNorms = index;
         self.storeModel.seleteCount = count;
         [self hasWriteAddress];
     }
@@ -90,12 +90,11 @@
     }
 }
 - (void)addToCarClick{
-//    if (hasLogin) {
-    
-    [GLD_MessageUserInfoTool writeDiskCache:self.storeModel];
-//    }else{
-//        [CAToast showWithText:@"请登录"];
-//    }
+    if (hasLogin) {
+        [GLD_MessageUserInfoTool writeDiskCache:self.storeModel];
+    }else{
+        [CAToast showWithText:@"请登录"];
+    }
 }
 - (void)carButClick{
     GLD_GoodsCarListController *goodVc = [GLD_GoodsCarListController new];
@@ -273,6 +272,9 @@
 //        _addToCar.layer.masksToBounds = YES;
 //        _addToCar.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTorange];
         //        _applyBut.hidden = YES;
+        UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(10, 5, 1, 35)];
+        lineView.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTline2Gray];
+        [_addToCar addSubview:lineView];
         [_addToCar addTarget:self action:@selector(addToCarClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _addToCar;

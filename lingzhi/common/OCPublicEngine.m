@@ -118,11 +118,7 @@ static OCPublicEngine *sInstance = nil;
 #pragma mark - 第三方登录
 
 - (void)openLoginHandleWithOpenId:(NSString *)openId token:(NSString *)token isAutoLogin:(BOOL)isAutoLogin successBlock:(void (^)(NSString *thirdUserId))successBlock {
-//    type 0注册登录 第三方登录：qq，wechat，facebook...
-//    accessToken
-//    openId
-//    deviceId 推送Id 有的话就传
-//    os
+
    
     if (!IsExist_String([AppDelegate shareDelegate].deviceId)) {
         [AppDelegate shareDelegate].deviceId = @"";
@@ -144,8 +140,8 @@ static OCPublicEngine *sInstance = nil;
     
     [[GLD_NetworkAPIManager shareNetManager] dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (error == nil) {
-            NSString *token_IdStr = [NSString stringWithFormat:@"%@ %@", token, openId];
             
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
             //第三方平台登录，存储账号信息，做为自动登录数据源
             [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:LastLoginTypeKey];
             //[[NSUserDefaults standardUserDefaults] setObject: forKey:LastLoginExpiredTime];
@@ -156,6 +152,10 @@ static OCPublicEngine *sInstance = nil;
             [AppDelegate shareDelegate].token = @"";
             [AppDelegate shareDelegate].userModel = infomationModel;
             
+            
+            if (IsExist_String(infomationModel.loginToken)) {
+                [[NSUserDefaults standardUserDefaults] setObject:infomationModel.loginToken forKey:@"loginToken"];
+            }
             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:infomationModel];
             
             [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"userDataModelGLD"];

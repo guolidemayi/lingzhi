@@ -76,7 +76,7 @@
     _photoView =  [GLD_PhotoView showPhotoViewInView:[AppDelegate shareDelegate].window];
     _photoView.delegate = self;
     self.title = @"发布商品";
-    
+    [self fetchCategroyData];
 }
 //分类商品
 - (void)fetchCategroyData{
@@ -84,12 +84,17 @@
     
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = sendGoodsRequest;
+    config.urlPath = getGoodsCategory;
     config.requestParameters = @{};
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
+            NSArray *arr = result[@"data"];
+           NSArray *dataArr = [arr.rac_sequence map:^id _Nullable(NSDictionary  *_Nullable value) {
+                return value[@"name"];
+            }].array;
+            if (dataArr.count > 0)
             weakSelf.locationTF.tapAcitonBlock = ^{
-                [BRStringPickerView showStringPickerWithTitle:@"地区" dataSource:@[] defaultSelValue:@"北京" isAutoSelect:YES resultBlock:^(id selectValue) {
+                [BRStringPickerView showStringPickerWithTitle:@"分类" dataSource:dataArr defaultSelValue:dataArr.firstObject isAutoSelect:YES resultBlock:^(id selectValue) {
                     
                     weakSelf.locationTF.text = selectValue;
                 }];
@@ -129,20 +134,25 @@
     NSString *temp2 = [self.textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if(temp2.length ==0)
     {
-        //        [self toastInfo:@"请输入问题标题"];
+        [CAToast showWithText:@"请输入标题"];
         return;
     }
     NSString *temp = [self.textView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     if(temp.length ==0)
     {
-        //        [self toastInfo:@"请输入问题内容"];
+        [CAToast showWithText:@"请输入描述"];
+        return;
+    }
+    NSString *category = [self.locationTF.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    if(category.length ==0)
+    {
+        [CAToast showWithText:@"请选择分类"];
         return;
     }
     
-    
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:0];
     for (GLD_TopicModel *model in _topicArrM) {
-        [arr addObject:model.categoryId];
+        [arr addObject:model.categoryName];
     }
     NSMutableDictionary *dictM = [NSMutableDictionary dictionaryWithCapacity:0];
     
@@ -157,10 +167,18 @@
         [CAToast showWithText:@"请输入价格"];
         return;
     }
-    NSMutableArray *topArrM = [NSMutableArray array];
-    for (GLD_TopicModel *model in self.topicArrM) {
-        [topArrM addObject:model.categoryName];
+    NSMutableString *topArrM = [NSMutableString string];
+    for (int i = 0; i < self.topicArrM.count; i++) {
+        GLD_TopicModel *model = self.topicArrM[i];
+        if (i == self.topicArrM.count - 1) {
+            
+            [topArrM appendString:model.categoryName];
+        }else{
+            
+            [topArrM appendFormat:@"%@,", model.categoryName];
+        }
     }
+    
     [dictM addEntriesFromDictionary:@{@"userId":GetString([AppDelegate shareDelegate].userModel.userId),
                                       @"title":self.textField.text ,
                                       @"summary":self.textView.text,
@@ -193,9 +211,12 @@
         return @"";
     }
     NSMutableString *jsonString = [NSMutableString string];
-    for (NSString *img in arr) {
+    for (int i = 0; i < arr.count; i++) {
+        NSString *img = arr[i];
         [jsonString appendString:img];
-        [jsonString appendString:@","];
+        if (i< arr.count-1) {
+            [jsonString appendString:@","];
+        }
     }
     
     return jsonString;

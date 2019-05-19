@@ -13,7 +13,7 @@
 //商品相关
 #define inviteSomeBodyRequest @"api/version/getIntegralHistory"//推荐会员收入 1
 #define storeListRequest @"api/version/getshangcheng"//商城商品列表 1
-#define expressRequest @"api/version/delivery"//抢单列表 1
+#define expressRequest @"api/version/delivery"//抢单列表 1（0，总的）
 #define sendExpressRequest @"api/version/addDelivery"//发布快递 1
 #define robExpressRequest @"api/version/deliveryState"//抢单 1
 #define sendGoodsRequest @"api/version/addProduct"//发布商品 1
@@ -25,5 +25,10 @@
 #define wxPayGoodsRequest @"api/wx/weixinPay"//代金券商城商品支付
 #define deleteGoodsRequest @"api/version/deleteProduct"//删除商品
 #define mailAdressRequest @""//邮寄地址
+#define getGoodsCategory @"api/version/goodCategory"//商品分类
+#define getGoodsListWithCategory @"api/version/categoryWithGoods"//分类商品
+#define getShareListRequest @"api/version/categoryWithApps"//共享应用
+#define deliveryCategoryRequest @"api/version/deliveryCategory"//a跑腿四张图
+
 #define KEYWINDOW       [[UIApplication sharedApplication] keyWindow]
 #endif /* GLD_ConfigureFile_h */

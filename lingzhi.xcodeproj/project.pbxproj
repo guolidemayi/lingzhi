@@ -262,6 +262,8 @@
 		C93245B822869835000A2A29 /* SampleProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C93245B622869835000A2A29 /* SampleProject.xcdatamodeld */; };
 		C93245BB22869C0E000A2A29 /* GLD_MessageUserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C93245B922869C0D000A2A29 /* GLD_MessageUserInfoTool.m */; };
 		C93245BE22882E8A000A2A29 /* GLD_GoodsCarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93245BD22882E8A000A2A29 /* GLD_GoodsCarListController.m */; };
+		C954739C2290548A0097D778 /* GLD_OrderRemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C954739A2290548A0097D778 /* GLD_OrderRemarkCell.m */; };
+		C954739D2290548A0097D778 /* GLD_OrderRemarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954739B2290548A0097D778 /* GLD_OrderRemarkCell.xib */; };
 		C961C6BC22899A380000CC8E /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C961C6BB22899A370000CC8E /* UIScrollView+Extension.m */; };
 		C961C6C1228ABBDD0000CC8E /* GLD_NewPayGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C961C6BF228ABBDD0000CC8E /* GLD_NewPayGoodsCell.m */; };
 		C961C6C2228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C961C6C0228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib */; };
@@ -288,6 +290,15 @@
 		C9F23FE8228C011C00855E49 /* GLD_PostExressManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F23FE7228C011C00855E49 /* GLD_PostExressManager.m */; };
 		C9F23FEB228C02CE00855E49 /* GLD_PostTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F23FEA228C02CE00855E49 /* GLD_PostTypeManager.m */; };
 		C9F24000228C160300855E49 /* GLD_PersonalTagFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F23FFE228C160200855E49 /* GLD_PersonalTagFlowLayout.m */; };
+		C9FA897C228FC3C60066AFB8 /* GLD_ShareAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FA897B228FC3C60066AFB8 /* GLD_ShareAppViewController.m */; };
+		C9FA897F228FC8260066AFB8 /* GLD_ShareAppModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FA897E228FC8260066AFB8 /* GLD_ShareAppModel.m */; };
+		C9FA8983228FCD640066AFB8 /* GLD_ShareAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FA8981228FCD640066AFB8 /* GLD_ShareAppCell.m */; };
+		C9FA8984228FCD640066AFB8 /* GLD_ShareAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FA8982228FCD640066AFB8 /* GLD_ShareAppCell.xib */; };
+		C9FA8987228FD0220066AFB8 /* TGNormalWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FA8986228FD0220066AFB8 /* TGNormalWebView.m */; };
+		C9FA898A228FD0500066AFB8 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FA8988228FD0500066AFB8 /* UIBarButtonItem+Extension.m */; };
+		C9FA898D228FD0F10066AFB8 /* TGHotsPotBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FA898C228FD0F10066AFB8 /* TGHotsPotBtn.m */; };
+		C9FA8991228FE5DA0066AFB8 /* GLD_GoodsPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9FA898F228FE5DA0066AFB8 /* GLD_GoodsPicCell.m */; };
+		C9FA8992228FE5DA0066AFB8 /* GLD_GoodsPicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9FA8990228FE5DA0066AFB8 /* GLD_GoodsPicCell.xib */; };
 		F0A7198DA2A1E213B7CC7C9C /* libPods-lingzhiUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E906A1C335114CAF15749D10 /* libPods-lingzhiUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -783,6 +794,9 @@
 		C93245BA22869C0D000A2A29 /* GLD_MessageUserInfoTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLD_MessageUserInfoTool.h; sourceTree = "<group>"; };
 		C93245BC22882E8A000A2A29 /* GLD_GoodsCarListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_GoodsCarListController.h; sourceTree = "<group>"; };
 		C93245BD22882E8A000A2A29 /* GLD_GoodsCarListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_GoodsCarListController.m; sourceTree = "<group>"; };
+		C95473992290548A0097D778 /* GLD_OrderRemarkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_OrderRemarkCell.h; sourceTree = "<group>"; };
+		C954739A2290548A0097D778 /* GLD_OrderRemarkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_OrderRemarkCell.m; sourceTree = "<group>"; };
+		C954739B2290548A0097D778 /* GLD_OrderRemarkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_OrderRemarkCell.xib; sourceTree = "<group>"; };
 		C961C6BA22899A370000CC8E /* UIScrollView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extension.h"; sourceTree = "<group>"; };
 		C961C6BB22899A370000CC8E /* UIScrollView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extension.m"; sourceTree = "<group>"; };
 		C961C6BE228ABBDD0000CC8E /* GLD_NewPayGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_NewPayGoodsCell.h; sourceTree = "<group>"; };
@@ -830,6 +844,22 @@
 		C9F23FEA228C02CE00855E49 /* GLD_PostTypeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_PostTypeManager.m; sourceTree = "<group>"; };
 		C9F23FFE228C160200855E49 /* GLD_PersonalTagFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLD_PersonalTagFlowLayout.m; sourceTree = "<group>"; };
 		C9F23FFF228C160300855E49 /* GLD_PersonalTagFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLD_PersonalTagFlowLayout.h; sourceTree = "<group>"; };
+		C9FA897A228FC3C50066AFB8 /* GLD_ShareAppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ShareAppViewController.h; sourceTree = "<group>"; };
+		C9FA897B228FC3C60066AFB8 /* GLD_ShareAppViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ShareAppViewController.m; sourceTree = "<group>"; };
+		C9FA897D228FC8260066AFB8 /* GLD_ShareAppModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ShareAppModel.h; sourceTree = "<group>"; };
+		C9FA897E228FC8260066AFB8 /* GLD_ShareAppModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ShareAppModel.m; sourceTree = "<group>"; };
+		C9FA8980228FCD640066AFB8 /* GLD_ShareAppCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_ShareAppCell.h; sourceTree = "<group>"; };
+		C9FA8981228FCD640066AFB8 /* GLD_ShareAppCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_ShareAppCell.m; sourceTree = "<group>"; };
+		C9FA8982228FCD640066AFB8 /* GLD_ShareAppCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_ShareAppCell.xib; sourceTree = "<group>"; };
+		C9FA8985228FD0210066AFB8 /* TGNormalWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGNormalWebView.h; sourceTree = "<group>"; };
+		C9FA8986228FD0220066AFB8 /* TGNormalWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGNormalWebView.m; sourceTree = "<group>"; };
+		C9FA8988228FD0500066AFB8 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		C9FA8989228FD0500066AFB8 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		C9FA898B228FD0F00066AFB8 /* TGHotsPotBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TGHotsPotBtn.h; sourceTree = "<group>"; };
+		C9FA898C228FD0F10066AFB8 /* TGHotsPotBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TGHotsPotBtn.m; sourceTree = "<group>"; };
+		C9FA898E228FE5DA0066AFB8 /* GLD_GoodsPicCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_GoodsPicCell.h; sourceTree = "<group>"; };
+		C9FA898F228FE5DA0066AFB8 /* GLD_GoodsPicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_GoodsPicCell.m; sourceTree = "<group>"; };
+		C9FA8990228FE5DA0066AFB8 /* GLD_GoodsPicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_GoodsPicCell.xib; sourceTree = "<group>"; };
 		D0DF7C5179224BE30523DC09 /* Pods-lingzhiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiTests/Pods-lingzhiTests.release.xcconfig"; sourceTree = "<group>"; };
 		DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lingzhiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E906A1C335114CAF15749D10 /* libPods-lingzhiUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lingzhiUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1068,6 +1098,10 @@
 		0F298E571FC2CFC200EDBA9A /* common */ = {
 			isa = PBXGroup;
 			children = (
+				C9FA898B228FD0F00066AFB8 /* TGHotsPotBtn.h */,
+				C9FA898C228FD0F10066AFB8 /* TGHotsPotBtn.m */,
+				C9FA8989228FD0500066AFB8 /* UIBarButtonItem+Extension.h */,
+				C9FA8988228FD0500066AFB8 /* UIBarButtonItem+Extension.m */,
 				0F9920071FCEDEE800305DF3 /* refresh */,
 				0F298E581FC2CFC200EDBA9A /* CAToast.h */,
 				0F298E591FC2CFC200EDBA9A /* CAToast.m */,
@@ -1283,6 +1317,9 @@
 				C9ED06F92282FB3000D487BD /* GLD_ChooseGoodsView.h */,
 				C9ED06FA2282FB3000D487BD /* GLD_ChooseGoodsView.m */,
 				C9ED06FC2282FB3E00D487BD /* GLD_ChooseGoodsView.xib */,
+				C9FA898E228FE5DA0066AFB8 /* GLD_GoodsPicCell.h */,
+				C9FA898F228FE5DA0066AFB8 /* GLD_GoodsPicCell.m */,
+				C9FA8990228FE5DA0066AFB8 /* GLD_GoodsPicCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1874,6 +1911,9 @@
 				C961C6BE228ABBDD0000CC8E /* GLD_NewPayGoodsCell.h */,
 				C961C6BF228ABBDD0000CC8E /* GLD_NewPayGoodsCell.m */,
 				C961C6C0228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib */,
+				C95473992290548A0097D778 /* GLD_OrderRemarkCell.h */,
+				C954739A2290548A0097D778 /* GLD_OrderRemarkCell.m */,
+				C954739B2290548A0097D778 /* GLD_OrderRemarkCell.xib */,
 			);
 			path = newPayView;
 			sourceTree = "<group>";
@@ -1913,6 +1953,15 @@
 				C9ED06E122815E6500D487BD /* CollectionCategoryModel.m */,
 				C9ED06E522815E6500D487BD /* CollectionViewController.h */,
 				C9ED06E922815E6500D487BD /* CollectionViewController.m */,
+				C9FA897A228FC3C50066AFB8 /* GLD_ShareAppViewController.h */,
+				C9FA897B228FC3C60066AFB8 /* GLD_ShareAppViewController.m */,
+				C9FA8980228FCD640066AFB8 /* GLD_ShareAppCell.h */,
+				C9FA8981228FCD640066AFB8 /* GLD_ShareAppCell.m */,
+				C9FA8982228FCD640066AFB8 /* GLD_ShareAppCell.xib */,
+				C9FA897D228FC8260066AFB8 /* GLD_ShareAppModel.h */,
+				C9FA897E228FC8260066AFB8 /* GLD_ShareAppModel.m */,
+				C9FA8985228FD0210066AFB8 /* TGNormalWebView.h */,
+				C9FA8986228FD0220066AFB8 /* TGNormalWebView.m */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -2065,9 +2114,12 @@
 				0F60E9C51FC2754300C5E113 /* Assets.xcassets in Resources */,
 				0FE8158D2045562700DE8756 /* address.plist in Resources */,
 				0F5445F5210EABCA009FAE8E /* GLD_StoreDetailCell.xib in Resources */,
+				C954739D2290548A0097D778 /* GLD_OrderRemarkCell.xib in Resources */,
 				0F5445ED210EA733009FAE8E /* GLD_StoreCell.xib in Resources */,
 				0FF3B07021219E6000B5C512 /* GLD_ExpressAddressView.xib in Resources */,
 				C961C6C7228AD7950000CC8E /* GLD_SendView.xib in Resources */,
+				C9FA8984228FCD640066AFB8 /* GLD_ShareAppCell.xib in Resources */,
+				C9FA8992228FE5DA0066AFB8 /* GLD_GoodsPicCell.xib in Resources */,
 				C961C6D6228BEB3C0000CC8E /* GLD_PaoTuiCell.xib in Resources */,
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
 				0F298EA41FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
@@ -2198,10 +2250,12 @@
 				0FB537011FC5887C00B0EDA6 /* AppDelegate.m in Sources */,
 				0FB537071FC5887C00B0EDA6 /* LBTabBarController.m in Sources */,
 				339EF9541FF74DDB00C6170E /* GLD_BaseModel.m in Sources */,
+				C9FA8983228FCD640066AFB8 /* GLD_ShareAppCell.m in Sources */,
 				0F32E7FF1FE267D20042E8BE /* GLD_AllCateController.m in Sources */,
 				0F2C2F5C1FF62E330083BCCB /* GLD_PickerView.m in Sources */,
 				0F5EC5DB202D51F200298A7D /* GLD_DetailedAccountController.m in Sources */,
 				0F71A5951FDF8A1800C66EED /* GLD_ChangePhoneController.m in Sources */,
+				C9FA897F228FC8260066AFB8 /* GLD_ShareAppModel.m in Sources */,
 				C9ED06F2228164F600D487BD /* GLD_TwoStoreCell.m in Sources */,
 				0FB537381FC6D22A00B0EDA6 /* SGQRCodeHelperTool.m in Sources */,
 				0F28D2C11FD91DED00138A8B /* GLD_MapDetailCell.m in Sources */,
@@ -2224,6 +2278,7 @@
 				C961C6CB228BE6920000CC8E /* GLD_BangBanCell.m in Sources */,
 				0F54462721104DFB009FAE8E /* GLD_ExpressAdressController.m in Sources */,
 				0F298E521FC2CA7200EDBA9A /* GLD_BaseNavController.m in Sources */,
+				C9FA8987228FD0220066AFB8 /* TGNormalWebView.m in Sources */,
 				0F9920061FCEDDE800305DF3 /* GLD_HomeViewManager.m in Sources */,
 				0F32E8051FE36BF60042E8BE /* GLD_PerfectUserMController.m in Sources */,
 				0FB537241FC6C47000B0EDA6 /* MapNavigationManager.m in Sources */,
@@ -2278,6 +2333,7 @@
 				C9ED06ED22815E6500D487BD /* LJCollectionViewFlowLayout.m in Sources */,
 				0FB537391FC6D22A00B0EDA6 /* SGQRCodeScanningView.m in Sources */,
 				0F28D2B31FD6AEC500138A8B /* NSDate+BRAdd.m in Sources */,
+				C9FA898A228FD0500066AFB8 /* UIBarButtonItem+Extension.m in Sources */,
 				0F382EFD1FDE7620006689FA /* GLD_ApplyCooperatController.m in Sources */,
 				33FD33AE2025607700725317 /* GLD_PayForBusiCell.m in Sources */,
 				0F326F281FF49F7600A90106 /* GLD_ChooseIndustryControllr.m in Sources */,
@@ -2326,6 +2382,7 @@
 				C9F23FE0228BF67800855E49 /* GLD_ExpressViewModel.m in Sources */,
 				0FB537371FC6D22A00B0EDA6 /* UIImage+ImageSize.m in Sources */,
 				0F28D2B01FD6ADDE00138A8B /* BRBaseView.m in Sources */,
+				C9FA8991228FE5DA0066AFB8 /* GLD_GoodsPicCell.m in Sources */,
 				0F28D2B91FD7BC0600138A8B /* GLD_WirteIntroController.m in Sources */,
 				0F298E7A1FC2CFC200EDBA9A /* CAToast.m in Sources */,
 				0F2C2F541FF62E330083BCCB /* GLD_TopicModel.m in Sources */,
@@ -2338,6 +2395,7 @@
 				0F28D29D1FD67D9500138A8B /* GLD_MineWalletCell.m in Sources */,
 				0F28D2BE1FD7F04000138A8B /* GLD_ApplyBusnessController.m in Sources */,
 				33FD33B22025780F00725317 /* GLD_PayForBusiModel.m in Sources */,
+				C954739C2290548A0097D778 /* GLD_OrderRemarkCell.m in Sources */,
 				0FC3FCD720EB110F00A98F7E /* GLD_BusnessOrderCell.m in Sources */,
 				C93245BE22882E8A000A2A29 /* GLD_GoodsCarListController.m in Sources */,
 				0F2C2F571FF62E330083BCCB /* GLD_BMessageCell.m in Sources */,
@@ -2349,6 +2407,7 @@
 				0FB536FF1FC5887C00B0EDA6 /* LBpostViewController.m in Sources */,
 				0F6411921FD512B00069FDB1 /* PTLDownMenuList.m in Sources */,
 				0FB537081FC5887C00B0EDA6 /* LBTabBar.m in Sources */,
+				C9FA897C228FC3C60066AFB8 /* GLD_ShareAppViewController.m in Sources */,
 				0F326F2C1FF4AED500A90106 /* GLD_MyOrderCell.m in Sources */,
 				0F6411931FD512B00069FDB1 /* PTLMaskingView.m in Sources */,
 				0F6411961FD513120069FDB1 /* GLD_BusinessListController.m in Sources */,
@@ -2358,6 +2417,7 @@
 				0F71A5981FDF8DDF00C66EED /* GLD_GetVerificationController.m in Sources */,
 				C9ED06EF22815E6500D487BD /* CollectionViewHeaderView.m in Sources */,
 				0FB537041FC5887C00B0EDA6 /* UIView+LBExtension.m in Sources */,
+				C9FA898D228FD0F10066AFB8 /* TGHotsPotBtn.m in Sources */,
 				0F32E7F01FDFD56F0042E8BE /* GLD_WalletDetialController.m in Sources */,
 				0F71A58C1FDE93AC00C66EED /* GLD_VerificationController.m in Sources */,
 				3CA74E511FD2829200A7F137 /* GLD_BannerModel.m in Sources */,

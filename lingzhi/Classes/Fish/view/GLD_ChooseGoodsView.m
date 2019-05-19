@@ -106,6 +106,8 @@
 - (void)setConfigure{
     self.selectedIndex = 0;
     self.selecterCount = 1;
+    self.iconImageV.layer.cornerRadius  = 8;
+    self.iconImageV.layer.masksToBounds = YES;
     self.userInteractionEnabled = YES;
     self.collectionView.userInteractionEnabled = YES;
     [self.collectionView registerClass:[GLD_TimeCell class] forCellWithReuseIdentifier:@"GLD_TimeCell"];
@@ -120,9 +122,16 @@
 //}
 - (void)setStoreModel:(GLD_StoreDetailModel *)storeModel{
     _storeModel = storeModel;
-    [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:storeModel.pic] placeholder:WTImage(@"")];
+    NSArray *arr = [storeModel.pic componentsSeparatedByString:@","];
+    if (arr.count > 0) {
+        [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:arr.firstObject] placeholder:WTImage(@"")];
+    }
     self.goodsNameLabrel.text = storeModel.title;
-    self.priceLabel.text = [NSString stringWithFormat:@"¥%ld",storeModel.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"¥%@",storeModel.price];
+    
+//    storeModel.norms = @"红,白";
+    self.dataArr = [storeModel.norms componentsSeparatedByString:@","];
+    [self.collectionView reloadData];
     
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -130,7 +139,7 @@
 }
 - (void)dismissClick{
     if ([self.timeDelegate respondsToSelector:@selector(didSelectedTimeItem:andChooseCount:)]) {
-        [self.timeDelegate didSelectedTimeItem:-1 andChooseCount:-1];
+        [self.timeDelegate didSelectedTimeItem:@"" andChooseCount:-1];
     }
 }
 - (IBAction)addCountButClick:(id)sender {
@@ -148,7 +157,7 @@
 - (IBAction)commitButClick:(id)sender {
 //    [self dismissClick];
     if ([self.timeDelegate respondsToSelector:@selector(didSelectedTimeItem:andChooseCount:)]) {
-        [self.timeDelegate didSelectedTimeItem:self.selectedIndex andChooseCount:self.selecterCount];
+        [self.timeDelegate didSelectedTimeItem:self.dataArr[self.selectedIndex] andChooseCount:self.selecterCount];
     }
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
@@ -180,7 +189,7 @@
 
 - (NSArray *)dataArr{
     if (!_dataArr) {
-        _dataArr = @[@"jldjljjlkjl",@"hkjhglksajh",@"jldjljjlkjl",@"hkjhglksajh",@"jldjljjlkjl",@"hkjhglksajh",@"jldjljjlkjl",@"hkjhglksajh",@"jldjljjlkjl",@"hkjhglksajh",@"jldjljjlkjl",@"hkjhglksajh",@"jldjljjlkjl",@"hkjhglksajh",@"jldjljjlkjl",@"hkjhglksajh",@"jldjljjlkjl",@"hkjhglksajh",@"jldjljjlkjl",@"hkjhglksajh"];
+        _dataArr = @[];
         
     }
     return _dataArr;

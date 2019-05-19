@@ -12,10 +12,12 @@
 #import "GLD_PictureCell.h"
 #import "GLD_PictureView.h"
 #import "GLD_GoodsDetailCell.h"
+#import "GLD_GoodsPicCell.h"
 
 @interface GLD_GoodsDetailManager ()<SDCycleScrollViewDelegate>
 
 @property (nonatomic, strong)SDCycleScrollView *cycleView;
+@property (nonatomic, strong) NSArray *dataArr;
 @end
 @implementation GLD_GoodsDetailManager
 
@@ -26,13 +28,35 @@
     [headView addSubview:self.cycleView];
     return headView;
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 0.001;
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return H(250);
+    if(section)return 0.001;
+    return 250;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section) {
+        return self.dataArr.count;
+    }
+    return 1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    if(indexPath.section == 0){
+        CGFloat titleH = [YXUniversal calculateCellHeight:0 width:300 text:self.storeModel.title font:15];
+        CGFloat contentH = [YXUniversal calculateCellHeight:0 width:300 text:self.storeModel.summary font:15];
+        return titleH + contentH + 100;
+    }
+    return H(200);
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section) {
+        return [self getGoodsPicCell:indexPath];
+    }
     return [self getGoodsDetailCell:indexPath];
 }
 - (GLD_GoodsDetailCell *)getGoodsDetailCell:(NSIndexPath *)indexPath{
@@ -40,9 +64,24 @@
     cell.storeModel = self.storeModel;
     return cell;
 }
+- (GLD_GoodsPicCell *)getGoodsPicCell:(NSIndexPath *)indexPath{
+    GLD_GoodsPicCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GLD_GoodsPicCell"];
+    NSString *str = self.dataArr[indexPath.row];
+    if (str.length > 0) {
+        
+        [cell.pic yy_setImageWithURL:[NSURL URLWithString:str] placeholder:WTImage(@"")];
+    }
+    return cell;
+}
+- (void)setStoreModel:(GLD_StoreDetailModel *)storeModel{
+    _storeModel = storeModel;
+    self.dataArr = [storeModel.pic componentsSeparatedByString:@","];
+}
 - (void)setComponentCorner{
     [self.tableView registerNib:[UINib nibWithNibName:@"GLD_GoodsDetailCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"GLD_GoodsDetailCell"];
-    self.tableView.rowHeight = H(200);
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"GLD_GoodsPicCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"GLD_GoodsPicCell"];
+//    self.tableView.rowHeight = H(200);
 }
 /** 点击图片回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
@@ -70,7 +109,7 @@
         }
         _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
         _cycleView.autoScroll = YES;
-        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, H(250));
+        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, (250));
         //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
     }
     return _cycleView;

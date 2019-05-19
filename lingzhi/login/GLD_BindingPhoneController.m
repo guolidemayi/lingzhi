@@ -186,13 +186,8 @@
 - (void)setupPhoneTF:(UITableViewCell *)cell{
     if (!_phoneTF) {
         _phoneTF = [self getTextField:cell];
-        if (self.type == 1) {
-            
-                    _phoneTF.placeholder = @"请填写手机号";
-        }else{
-            
-            _phoneTF.text = [AppDelegate shareDelegate].userModel.phone;
-        }
+        _phoneTF.placeholder = @"请填写手机号";
+        _phoneTF.text = [AppDelegate shareDelegate].userModel.phone;
 //        _phoneTF.textAlignment = NSTextAlignmentLeft;
         _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
         _phoneTF.returnKeyType = UIReturnKeyDone;
@@ -232,19 +227,28 @@
 }
 
 - (void)applybutClick{
-    if(self.type == 1){
-    GLD_ForgetPassControllor *changeVc = [GLD_ForgetPassControllor new];
-    changeVc.phone = self.phoneTF.text;
-    [self.navigationController pushViewController:changeVc animated:YES];
-        return;
-    }
-    if([self.phoneCode isEqualToString:self.verificationTF.text]){
-    //下一步
-    TestViewController *backVc = [TestViewController new];
-        backVc.type = 1;
-    [self.navigationController pushViewController:backVc animated:YES];
+    
+    
+    BOOL isFromd = [[NSUserDefaults standardUserDefaults]boolForKey:@"weixinLogin"];
+    if (isFromd) {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"weixinLogin"];
+        [[AppDelegate shareDelegate] initMainPageBody];
     }else{
-        [CAToast showWithText:@"验证码不正确"];
+        
+        if(self.type == 1){
+            GLD_ForgetPassControllor *changeVc = [GLD_ForgetPassControllor new];
+            changeVc.phone = self.phoneTF.text;
+            [self.navigationController pushViewController:changeVc animated:YES];
+            return;
+        }
+        if([self.phoneCode isEqualToString:self.verificationTF.text]){
+            //下一步
+            TestViewController *backVc = [TestViewController new];
+            backVc.type = 1;
+            [self.navigationController pushViewController:backVc animated:YES];
+        }else{
+            [CAToast showWithText:@"验证码不正确"];
+        }
     }
 }
 - (NSArray *)titleArr {

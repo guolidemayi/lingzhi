@@ -8,7 +8,7 @@
 
 #import "GLD_SendView.h"
 #import "GLD_ExpressListController.h"
-#import "CollectionViewController.h"
+#import "GLD_ShareAppViewController.h"
 
 
 @interface GLD_SendView ()
@@ -22,8 +22,45 @@
 
 + (instancetype)instanceSendView{
     GLD_SendView *sendView = [[NSBundle mainBundle]loadNibNamed:@"GLD_SendView" owner:nil options:nil].firstObject;
-    
+    [sendView initdata];
     return sendView;
+}
+
+- (void)initdata{
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.urlPath = deliveryCategoryRequest;
+    config.requestParameters = @{
+                                 };
+    WS(weakSelf);
+    [[GLD_NetworkAPIManager shareNetManager] dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            NSArray *arr = result[@"data"];
+            for (int i = 0; i < arr.count; i++) {
+                NSDictionary *dcit = arr[i];
+                NSString *str = dcit[@"photo"];
+                if (![str isKindOfClass:[NSString class]]) {
+                    return ;
+                }
+                switch (i) {
+                    case 0:
+                        [weakSelf.paoTuiImageV yy_setImageWithURL:[NSURL URLWithString:str] placeholder:WTImage(@"")];
+                        break;
+                    case 1:
+                        [weakSelf.daiMaiImageV yy_setImageWithURL:[NSURL URLWithString:str] placeholder:WTImage(@"")];
+                        break;
+                    case 2:
+                        [weakSelf.bangBanImageV yy_setImageWithURL:[NSURL URLWithString:str] placeholder:WTImage(@"")];
+                        break;
+                    case 3:
+                        [weakSelf.shareImageV yy_setImageWithURL:[NSURL URLWithString:str] placeholder:WTImage(@"")];
+                        break;
+                }
+            }
+        }else{
+            [CAToast showWithText:@"请求失败，请重试"];
+        }
+        
+    }];
 }
 - (void)awakeFromNib{
     [super awakeFromNib];
@@ -36,13 +73,13 @@
     UIView *view = tap.view;
     NSInteger type = 0;//0跑腿 1 帮办 2 代买 4 快递
     if (view == self.paoTuiImageV) {
-        
-    }else if(view == self.daiMaiImageV){
         type = 2;
+    }else if(view == self.daiMaiImageV){
+        type = 3;
     }else if(view == self.bangBanImageV){
-        type = 1;
+        type = 4;
     }else if(view == self.shareImageV){
-        CollectionViewController *viewC = [CollectionViewController new];
+        GLD_ShareAppViewController *viewC = [GLD_ShareAppViewController new];
         [self.navigationController pushViewController:viewC animated:YES];
         return;
     }

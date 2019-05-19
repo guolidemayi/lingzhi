@@ -122,7 +122,7 @@
 #pragma mark - LBTabBarDelegate
 
 - (void)tabBarPlusBtnExpressList:(LBTabBar *)tabBar{
-    GLD_ExpressListController *plusVC = [[GLD_ExpressListController alloc] initWithType:4];
+    GLD_ExpressListController *plusVC = [[GLD_ExpressListController alloc] initWithType:0];
 //    plusVC.view.backgroundColor = [self randomColor];
     
     GLD_BaseNavController *navVc = [[GLD_BaseNavController alloc] initWithRootViewController:plusVC];

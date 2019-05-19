@@ -35,7 +35,7 @@
 @property (nonatomic, weak)UITableView *commentTable;
 @property (nonatomic, strong)NSMutableArray *remindArrM;
 @property (nonatomic, strong)NSMutableArray *commentArrM;
-@property (nonatomic, assign) NSInteger type;//0跑腿 1 帮办 2 代买 4 快递
+@property (nonatomic, assign) NSInteger type;//0快递 1 我的抢单 2 跑腿 3代买 4帮办
 @property (nonatomic, strong)SDCycleScrollView *cycleView;
 @property (nonatomic, strong)GLD_BannerLisModel *bannerListModel;
 @property (nonatomic, strong) GLD_SendView *sendView;
@@ -76,7 +76,7 @@
 - (void)setUpNav
 {
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"header_back_icon"] style:UIBarButtonItemStyleDone target:self action:@selector(pop)];
-    if (self.type == 4) {
+    if (self.type == 0) {
         
         self.navigationItem.leftBarButtonItem = backItem;
         UIBarButtonItem *sendItem = [[UIBarButtonItem alloc]initWithTitle:@"发表" style:UIBarButtonItemStyleDone target:self action:@selector(sendExpress)];
@@ -85,7 +85,7 @@
 }
 - (void)pop
 {
-    if(self.type == 4){
+    if(self.type == 0){
         
         [self dismissViewControllerAnimated:YES completion:nil];
     }else{
@@ -103,7 +103,7 @@
     [self getDataRequest:@{@"city":IsExist_String([AppDelegate shareDelegate].placemark.area_name)? [AppDelegate shareDelegate].placemark.area_name :@"北京",
                            @"lat":@([AppDelegate shareDelegate].placemark.lat),
                            @"lng":@([AppDelegate shareDelegate].placemark.lon),
-                           @"type":@(0)
+                           @"type":@(self.type)
                            } andComplentBlock:^(id result) {
         GLD_ExpressListModel *listModel = [[GLD_ExpressListModel alloc]initWithDictionary:result error:nil];
         
@@ -246,7 +246,7 @@
     if ([tableView isEqual:self.remindTable]) {
         
         GLD_ExpressViewModel *viewModel = self.remindArrM[indexPath.row];
-        if (viewModel.expressModel.type.integerValue != 2) {
+        if (viewModel.expressModel.type.integerValue != 4) {
             return [self getBangBanCell:indexPath andTableView:tableView];
         }else{
             return [self getPaoTuiCell:indexPath andTableView:tableView];
@@ -254,7 +254,7 @@
     }else{
         
         GLD_ExpressViewModel *viewModel = self.commentArrM[indexPath.row];
-        if (viewModel.expressModel.type.integerValue == 2) {
+        if (viewModel.expressModel.type.integerValue == 4) {
             return [self getBangBanCell:indexPath andTableView:tableView];
         }else{
             return [self getPaoTuiCell:indexPath andTableView:tableView];
@@ -481,7 +481,7 @@
         make.width.height.equalTo(@10);
     }];
     CGFloat height = 0;
-    if(self.type == 4){
+    if(self.type == 0){
         height = 200;
         self.sendView.hidden = NO;
     }else{
@@ -539,27 +539,27 @@
     bannerVc.bannerModel = self.bannerListModel.data[index];
     [self.navigationController pushViewController:bannerVc animated:YES];
 }
-- (void)setType:(NSInteger)type{//0跑腿 1 帮办 2 代买 4 快递
+- (void)setType:(NSInteger)type{//0快递 1 我的抢单 2 跑腿 3代买 4帮办
     _type = type;
     switch (type) {
         case 0:
         {
-            self.showTitle = @"跑腿";
-        }
-            break;
-        case 1:
-        {
-            self.showTitle = @"帮办";
+            self.showTitle = @"服务";
         }
             break;
         case 2:
+        {
+            self.showTitle = @"跑腿";
+        }
+            break;
+        case 3:
         {
             self.showTitle = @"代买";
         }
             break;
         case 4:
         {
-            self.showTitle = @"同城快递";
+            self.showTitle = @"帮办";
         }
             break;
     }
