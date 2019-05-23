@@ -19,20 +19,20 @@
                 <rect key="frame" x="0.0" y="0.0" width="228" height="140"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pA4-rj-0l0">
+                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pA4-rj-0l0">
                         <rect key="frame" x="59" y="119" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-fs-1e7">
-                        <rect key="frame" x="6" y="0.0" width="140" height="80"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FeV-fs-1e7">
+                        <rect key="frame" x="0.0" y="0.0" width="228" height="140"/>
                     </imageView>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="FeV-fs-1e7" secondAttribute="bottom" id="5ec-h4-B9Q"/>
                 <constraint firstItem="FeV-fs-1e7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="66q-ow-I5c"/>
-                <constraint firstItem="pA4-rj-0l0" firstAttribute="top" secondItem="FeV-fs-1e7" secondAttribute="bottom" id="J2m-ax-HTx"/>
                 <constraint firstItem="pA4-rj-0l0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Jjs-i3-Ldn"/>
                 <constraint firstAttribute="trailing" secondItem="pA4-rj-0l0" secondAttribute="trailing" id="MSX-a2-tuZ"/>
                 <constraint firstItem="pA4-rj-0l0" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Zi7-VZ-6rQ"/>

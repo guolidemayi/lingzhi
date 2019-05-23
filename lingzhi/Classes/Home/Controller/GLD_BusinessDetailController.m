@@ -15,6 +15,7 @@
 #import "GLD_PostController.h"
 
 #import "GLD_BusnessCommentController.h"
+#import "GLD_OldPayForBusnController.h"
 
 @interface GLD_BusinessDetailController ()
 
@@ -144,7 +145,7 @@
                 [CAToast showWithText:@"请登录"];
                 return;
             }
-            GLD_PayForBusinessController *jumpVC = [[GLD_PayForBusinessController alloc] init];
+            GLD_OldPayForBusnController *jumpVC = [[GLD_OldPayForBusnController alloc] init];
             //        jumpVC.jump_URL = result;
                 jumpVC.payForUserId = self.busnessModel.userId;
 

@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/Fish/view/GLD_ChooseGoodsView.m"
-            timestampString = "579884710.8496259"
+            timestampString = "580299948.142678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -148,7 +148,7 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jimmy3500/Desktop/lingzhi/lingzhi/Classes/Post/%E5%8F%91%E5%B8%83%E5%95%86%E5%93%81/GLD_PostGoodsViewController.m"
-                  timestampString = "579884711.010023"
+                  timestampString = "580299948.444981"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "198"
@@ -163,7 +163,7 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jimmy3500/Desktop/lingzhi/lingzhi/Classes/Post/%E5%8F%91%E5%B8%83%E5%95%86%E5%93%81/GLD_PostGoodsViewController.m"
-                  timestampString = "579884711.012068"
+                  timestampString = "580299948.447775"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "199"
@@ -180,7 +180,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/&#x5546;&#x57ce;/CollectionView/CollectionViewController.m"
-            timestampString = "579880576.7252001"
+            timestampString = "580041941.47094"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -250,6 +250,22 @@
             startingLineNumber = "416"
             endingLineNumber = "416"
             landmarkName = "-addAddressClick"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "lingzhi/Classes/Home/Controller/GLD_BusinessDetailController.m"
+            timestampString = "580299948.143196"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "-bottomButClick:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -25,14 +25,11 @@
     [self pushToStore:3];
 }
 - (IBAction)onSalesStoreClick:(id)sender {
-    
-    CollectionViewController *storeVC = [CollectionViewController new];
-    storeVC.type = 1;
-    [self.navigationController pushViewController:storeVC animated:YES];
+     [self pushToStore:2];
 }
 
 - (void)pushToStore:(NSInteger)type{
-    GLD_StoreViewController *storeVC = [GLD_StoreViewController new];
+    CollectionViewController *storeVC = [CollectionViewController new];
     storeVC.type = type;
     [self.navigationController pushViewController:storeVC animated:YES];
 }

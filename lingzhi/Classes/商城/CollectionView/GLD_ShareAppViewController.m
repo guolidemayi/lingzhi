@@ -235,8 +235,8 @@ UICollectionViewDataSource>
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((DEVICE_WIDTH - kLeftTableViewWidth - 4 * kCollectionViewMargin) / 2,
-                      (DEVICE_WIDTH - kLeftTableViewWidth - 4 * kCollectionViewMargin) / 3 + 30);
+    return CGSizeMake((DEVICE_WIDTH - kLeftTableViewWidth - 4 * kCollectionViewMargin) / 3,
+                      (DEVICE_WIDTH - kLeftTableViewWidth - 4 * kCollectionViewMargin) / 3);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView

@@ -60,7 +60,7 @@ static float kCollectionViewMargin = 3.f;
     self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.urlPath = getGoodsListWithCategory;
-    config.requestParameters = @{
+    config.requestParameters = @{ @"type":@(self.type)
                                  };
     WS(weakSelf);
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {

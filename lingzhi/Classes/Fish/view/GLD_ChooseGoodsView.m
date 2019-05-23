@@ -157,7 +157,11 @@
 - (IBAction)commitButClick:(id)sender {
 //    [self dismissClick];
     if ([self.timeDelegate respondsToSelector:@selector(didSelectedTimeItem:andChooseCount:)]) {
-        [self.timeDelegate didSelectedTimeItem:self.dataArr[self.selectedIndex] andChooseCount:self.selecterCount];
+        NSString *str = @"";
+        if (IsExist_Array(self.dataArr)) {
+            str = self.dataArr[self.selectedIndex];
+        }
+        [self.timeDelegate didSelectedTimeItem:str andChooseCount:self.selecterCount];
     }
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

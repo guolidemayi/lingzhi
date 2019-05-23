@@ -264,6 +264,7 @@
 		C93245BE22882E8A000A2A29 /* GLD_GoodsCarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93245BD22882E8A000A2A29 /* GLD_GoodsCarListController.m */; };
 		C954739C2290548A0097D778 /* GLD_OrderRemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C954739A2290548A0097D778 /* GLD_OrderRemarkCell.m */; };
 		C954739D2290548A0097D778 /* GLD_OrderRemarkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954739B2290548A0097D778 /* GLD_OrderRemarkCell.xib */; };
+		C95473AA2296AB7A0097D778 /* GLD_OldPayForBusnController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95473A92296AB7A0097D778 /* GLD_OldPayForBusnController.m */; };
 		C961C6BC22899A380000CC8E /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C961C6BB22899A370000CC8E /* UIScrollView+Extension.m */; };
 		C961C6C1228ABBDD0000CC8E /* GLD_NewPayGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C961C6BF228ABBDD0000CC8E /* GLD_NewPayGoodsCell.m */; };
 		C961C6C2228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C961C6C0228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib */; };
@@ -797,6 +798,8 @@
 		C95473992290548A0097D778 /* GLD_OrderRemarkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_OrderRemarkCell.h; sourceTree = "<group>"; };
 		C954739A2290548A0097D778 /* GLD_OrderRemarkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_OrderRemarkCell.m; sourceTree = "<group>"; };
 		C954739B2290548A0097D778 /* GLD_OrderRemarkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_OrderRemarkCell.xib; sourceTree = "<group>"; };
+		C95473A82296AB7A0097D778 /* GLD_OldPayForBusnController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_OldPayForBusnController.h; sourceTree = "<group>"; };
+		C95473A92296AB7A0097D778 /* GLD_OldPayForBusnController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_OldPayForBusnController.m; sourceTree = "<group>"; };
 		C961C6BA22899A370000CC8E /* UIScrollView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extension.h"; sourceTree = "<group>"; };
 		C961C6BB22899A370000CC8E /* UIScrollView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extension.m"; sourceTree = "<group>"; };
 		C961C6BE228ABBDD0000CC8E /* GLD_NewPayGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_NewPayGoodsCell.h; sourceTree = "<group>"; };
@@ -1553,6 +1556,8 @@
 				3CA74E4B1FD2805100A7F137 /* Model */,
 				0F9920121FCEEA0C00305DF3 /* View */,
 				0FB536D91FC5887C00B0EDA6 /* Controller */,
+				C95473A82296AB7A0097D778 /* GLD_OldPayForBusnController.h */,
+				C95473A92296AB7A0097D778 /* GLD_OldPayForBusnController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2291,6 +2296,7 @@
 				0F298E831FC2CFC200EDBA9A /* MTShareView.m in Sources */,
 				0F28D28F1FD6751A00138A8B /* GLD_MinePersonalCell.m in Sources */,
 				0F2C2F621FF62EB30083BCCB /* YXBaseModel.m in Sources */,
+				C95473AA2296AB7A0097D778 /* GLD_OldPayForBusnController.m in Sources */,
 				0F6411A51FD526E50069FDB1 /* GLD_DetaileBusiCell.m in Sources */,
 				0F80FB20202439D700F7EE22 /* GLD_ZFBPayCell.m in Sources */,
 				0F2C2F471FF62E330083BCCB /* GLD_NewsCell.m in Sources */,
