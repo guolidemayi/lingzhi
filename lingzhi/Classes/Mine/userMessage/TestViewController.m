@@ -84,7 +84,29 @@
             [self.provenceArr addObjectsFromArray:dict.allKeys];
             
         }
+        WS(weakSelf);
+        if (IsExist_String([AppDelegate shareDelegate].userModel.address)) {
+            for (int i = 0; i < weakSelf.addressArr.count; i++) {
+                NSDictionary *dict = weakSelf.addressArr[i];
+                if ([dict.allKeys.firstObject isEqualToString:[AppDelegate shareDelegate].userModel.address]) {
+                    weakSelf.secondAddressArr = [[NSArray alloc]initWithArray:dict[[AppDelegate shareDelegate].userModel.address]];
+                    for (int j = 0; j < weakSelf.secondAddressArr.count; j++) {
+                        NSDictionary *dict1 = weakSelf.secondAddressArr[j];
+                        [weakSelf.cityArr addObjectsFromArray:dict1.allKeys];
+                    }
+                }
+            }
+        }
         
+        if (IsExist_String([AppDelegate shareDelegate].userModel.city)) {
+    
+            for (int i = 0; i < weakSelf.secondAddressArr.count; i++) {
+                NSDictionary *dict = weakSelf.secondAddressArr[i];
+                if ([dict.allKeys.firstObject isEqualToString:[AppDelegate shareDelegate].userModel.city]) {
+                    weakSelf.areaArr = dict[[AppDelegate shareDelegate].userModel.city];
+                }
+            }
+        }
     });
 }
 - (void)viewWillAppear:(BOOL)animated{
@@ -99,52 +121,7 @@
 }
 - (void)getSave{
     WS(weakSelf);
-    
-//    if (!IsExist_String(self.updateImg) && ![AppDelegate shareDelegate].userModel.iconImage) {
-//        [CAToast showWithText:@"请上传头像"];
-//        return;
-//
-//    }
-//    if (!IsExist_String(self.nicknameTF.text)&& ![AppDelegate shareDelegate].userModel.name) {
-//        [CAToast showWithText:@"请输入昵称"];
-//        return;
-//    }
-//    if (!IsExist_String(self.genderTF.text)&& ![AppDelegate shareDelegate].userModel.sex) {
-//        [CAToast showWithText:@"请选择性别"];
-//        return;
-//    }
-//    if (!IsExist_String(self.birthdayTF.text)&& ![AppDelegate shareDelegate].userModel.birthDay) {
-//        [CAToast showWithText:@"请选择出生日期"];
-//        return;
-//    }
-//    if (!IsExist_String(self.locationTF.text)&& ![AppDelegate shareDelegate].userModel.address) {
-//        [CAToast showWithText:@"请选择所在地区"];
-//        return;
-//    }
-//    if(!IsExist_String(self.cityTF.text)&& ![AppDelegate shareDelegate].userModel.address){
-//        [CAToast showWithText:@"请输入意向合作城市"];
-//        return;
-//    }
-//    if(!IsExist_String(self.areaTF.text)&& ![AppDelegate shareDelegate].userModel.address){
-//        [CAToast showWithText:@"请输入意向合作区域"];
-//        return;
-//    }
-//    if (!IsExist_String(self.personalIntroTF.text)&& ![AppDelegate shareDelegate].userModel.intro) {
-//        [CAToast showWithText:@"请填写个人简介"];
-//        return;
-//    }
-//    if (!IsExist_String(self.industryCell.detailTextLabel.text)&& ![AppDelegate shareDelegate].userModel.industry) {
-//        [CAToast showWithText:@"请选择从事行业"];
-//        return;
-//    }
-//    if (!IsExist_String(self.companyTF.text)&& ![AppDelegate shareDelegate].userModel.company) {
-//        [CAToast showWithText:@"请填写所属单位"];
-//        return;
-//    }
-//    if (!IsExist_String(self.positionTF.text)&& ![AppDelegate shareDelegate].userModel.duty) {
-//        [CAToast showWithText:@"请填写职位"];
-//        return;
-//    }
+
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     if(self.type == 1){
@@ -153,8 +130,7 @@
         config.urlPath = @"api/user/updateUser";
     }
     config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone),
-//                                 @"company" : IsExist_String(self.companyTF.text) ? self.companyTF.text : [AppDelegate shareDelegate].userModel.company,
-//                                 @"industry" : IsExist_String(self.industryCell.detailTextLabel.text)? self.industryCell.detailTextLabel.text : [AppDelegate shareDelegate].userModel.industry,
+
                                  @"intro" : IsExist_String(self.personalIntroTF.text) ? self.personalIntroTF.text : GetString([AppDelegate shareDelegate].userModel.intro),
                                  @"address" : IsExist_String(self.locationTF.text) ? self.locationTF.text : GetString([AppDelegate shareDelegate].userModel.address),
                                  @"inviteCode" : GetString([AppDelegate shareDelegate].userModel.inviteCode),
@@ -163,7 +139,9 @@
                                  @"name" : IsExist_String(self.nicknameTF.text) ? self.nicknameTF.text : GetString([AppDelegate shareDelegate].userModel.name),
                                  @"birthDay" : IsExist_String(self.birthdayTF.text) ? self.birthdayTF.text : GetString([AppDelegate shareDelegate].userModel.birthDay),
                                  @"iconImage" : GetString(self.updateImg),
-//                                 @"duty" : IsExist_String(self.positionTF.text) ? self.positionTF.text : [AppDelegate shareDelegate].userModel.duty
+//                                 @"duty" : IsExist_String(self.positionTF.text) ? self.positionTF.text : [AppDelegate shareDelegate].userModel.duty,
+                                 @"city":IsExist_String(self.cityTF.text) ? self.cityTF.text : GetString([AppDelegate shareDelegate].userModel.city),
+                                 @"area":IsExist_String(self.areaTF.text) ? self.areaTF.text : GetString([AppDelegate shareDelegate].userModel.area),
                                  };
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
@@ -280,9 +258,7 @@
     
     [self uploadImage:data];
     self.iconImgV.image = photoImage;
-    //    [[self.contentArray objectAtIndex:0] setValue:photoImage forKey:@"content"];
-    //
-    //    [self.tableV_peronalInfo reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:0 inSection:0],nil] withRowAnimation:UITableViewRowAnimationNone];
+    
 }
 -(void)uploadImage:(NSData *)data
 {
@@ -567,21 +543,6 @@
 }
 
 
-
-#pragma mark - 所属单位 textField
-//- (void)setupCompanyTF:(UITableViewCell *)cell {
-//    if (!_companyTF) {
-//        _companyTF = [self getTextField:cell];
-//        _companyTF.placeholder = @"请输入你的所属单位";
-//        if (IsExist_String([AppDelegate shareDelegate].userModel.company)) {
-//            _companyTF.text = [AppDelegate shareDelegate].userModel.company;
-//        }
-//        _companyTF.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-//        _companyTF.returnKeyType = UIReturnKeyDone;
-//        _companyTF.tag = 4;
-//    }
-//}
-
 #pragma mark - 地址 textField
 - (void)setupLocationTF:(UITableViewCell *)cell {
     if (!_locationTF) {
@@ -617,6 +578,9 @@
     if (!_cityTF) {
         _cityTF = [self getTextField:cell];
         _cityTF.placeholder = @"请选择合作城市";
+        if (IsExist_String([AppDelegate shareDelegate].userModel.city)) {
+            _cityTF.text = [AppDelegate shareDelegate].userModel.city;
+        }
         __weak typeof(self) weakSelf = self;
         _cityTF.tapAcitonBlock = ^{
             //跳转地区
@@ -642,6 +606,9 @@
     if (!_areaTF) {
         _areaTF = [self getTextField:cell];
         _areaTF.placeholder = @"请选择合作区域";
+        if (IsExist_String([AppDelegate shareDelegate].userModel.area)) {
+            _areaTF.text = [AppDelegate shareDelegate].userModel.area;
+        }
         __weak typeof(self) weakSelf = self;
         _areaTF.tapAcitonBlock = ^{
             //跳转地区

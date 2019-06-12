@@ -7,7 +7,8 @@
 //  代码下载地址https://github.com/leejayID/Linkage
 
 #import "CollectionCategoryModel.h"
-#import "CollectionViewCell.h"
+#import "GLD_ShareAppCell.h"
+
 #import "CollectionViewController.h"
 #import "CollectionViewHeaderView.h"
 #import "LJCollectionViewFlowLayout.h"
@@ -15,8 +16,8 @@
 #import "GLD_StoreDetailModel.h"
 #import "GLD_GoodsDetailController.h"
 
-static float kLeftTableViewWidth = 80.f;
-static float kCollectionViewMargin = 3.f;
+static float kLeftTableViewWidth = 90.f;
+static float kCollectionViewMargin = 10.f;
 
 @interface CollectionViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout,
                                         UICollectionViewDataSource>
@@ -131,8 +132,8 @@ static float kCollectionViewMargin = 3.f;
     {
         _flowLayout = [[LJCollectionViewFlowLayout alloc] init];
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _flowLayout.minimumInteritemSpacing = 2;
-        _flowLayout.minimumLineSpacing = 2;
+        _flowLayout.minimumInteritemSpacing = 10;
+        _flowLayout.minimumLineSpacing = 10;
     }
     return _flowLayout;
 }
@@ -147,9 +148,9 @@ static float kCollectionViewMargin = 3.f;
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;
-        [_collectionView setBackgroundColor:[UIColor clearColor]];
+        [_collectionView setBackgroundColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTGrayTable]];
         //注册cell
-        [_collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier_CollectionView];
+        [_collectionView registerNib:[UINib nibWithNibName:@"GLD_ShareAppCell" bundle:nil] forCellWithReuseIdentifier:@"GLD_ShareAppCell"];
         //注册分区头标题
         [_collectionView registerClass:[CollectionViewHeaderView class]
             forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
@@ -217,9 +218,14 @@ static float kCollectionViewMargin = 3.f;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier_CollectionView forIndexPath:indexPath];
+    GLD_ShareAppCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GLD_ShareAppCell" forIndexPath:indexPath];
     GLD_StoreDetailModel *model = self.collectionDatas[indexPath.section][indexPath.row];
-    cell.model = model;
+    cell.titleLabel.text = model.title;
+    NSArray *arr = [model.pic componentsSeparatedByString:@","];
+    if (IsExist_Array(arr)) {
+        cell.imgV.yy_imageURL = [NSURL URLWithString:arr.firstObject];
+    }
+    cell.titleLabel.hidden = NO;
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -235,8 +241,8 @@ static float kCollectionViewMargin = 3.f;
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake((DEVICE_WIDTH - kLeftTableViewWidth - 4 * kCollectionViewMargin) / 2,
-                      (DEVICE_WIDTH - kLeftTableViewWidth - 4 * kCollectionViewMargin) / 3 + 30);
+    return CGSizeMake((DEVICE_WIDTH - kLeftTableViewWidth - 4 * kCollectionViewMargin) / 3,
+                      (DEVICE_WIDTH - kLeftTableViewWidth - 4 * kCollectionViewMargin) / 3);
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView

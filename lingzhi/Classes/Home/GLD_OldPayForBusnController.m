@@ -1,5 +1,4 @@
 //
-//  GLD_PayForBusinessController.m
 //  lingzhi
 //
 //  Created by rabbit on 2018/2/3.

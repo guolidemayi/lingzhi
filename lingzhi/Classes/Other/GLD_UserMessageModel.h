@@ -29,6 +29,8 @@
 @property (nonatomic, copy)NSString *industry;//行业
 @property (nonatomic, assign)NSInteger Order1;//未处理订单数
 @property (nonatomic, copy)NSString *birthDay;//生日
+@property (nonatomic, copy)NSString *city;//城市
+@property (nonatomic, copy)NSString *area;//区
 @property (nonatomic, assign)BOOL isHasBusness; //是否有门店
 @property (nonatomic, copy)NSString *intro;//简介
 @property (nonatomic, copy)NSString *name;//昵称

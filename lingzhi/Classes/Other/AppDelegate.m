@@ -44,6 +44,7 @@
     [WXApi registerApp:WeiXinAppKey withDescription:@"医生汇"];
     //配置高德地图
     [AMapServices sharedServices].apiKey = AMAP_KEY;
+    [NSThread sleepForTimeInterval:3.0];
     return YES;
 }
 

@@ -40,7 +40,7 @@
         [CAToast showWithText:@"请选择出发地点"];
         return;
     }
-    if(!IsExist_String(self.postManager.expressModel.end)){
+    if(self.postManager.expressModel.type.integerValue != 2 && !IsExist_String(self.postManager.expressModel.end)){
         [CAToast showWithText:@"请选择配送地点"];
         return;
     }
@@ -91,11 +91,11 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = sendExpressRequest;
-    config.requestParameters = @{@"end":self.postManager.expressModel.end,
+    config.requestParameters = @{@"end":GetString(self.postManager.expressModel.end),
                                  @"start":GetString(self.postManager.expressModel.start),
                                  @"price":@(self.postManager.expressModel.price),
-                                 @"title":self.postManager.expressModel.title,
-                                 @"phone":self.postManager.expressModel.phone,  @"lat":@(self.postManager.expressModel.latitude),
+                                 @"title":GetString(self.postManager.expressModel.title),
+                                 @"phone":GetString(self.postManager.expressModel.phone),  @"lat":@(self.postManager.expressModel.latitude),
                                  @"lng":@(self.postManager.expressModel.longitude),
                                  @"toLat":@(self.postManager.expressModel.toLatitude),
                                  @"toLng":@(self.postManager.expressModel.toLongitude),

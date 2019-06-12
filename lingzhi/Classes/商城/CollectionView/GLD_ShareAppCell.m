@@ -10,15 +10,16 @@
 #import "GLD_ShareAppModel.h"
 
 @interface GLD_ShareAppCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *imgV;
-
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end
 @implementation GLD_ShareAppCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.titleLabel.hidden = YES;
+    self.imgV.layer.cornerRadius = 5;
+    self.imgV.layer.masksToBounds = YES;
+    self.titleLabel.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKblack alpha:.8];
+//    self.titleLabel.
 }
 - (void)setModel:(GLD_ShareAppModel *)model{
     _model = model;

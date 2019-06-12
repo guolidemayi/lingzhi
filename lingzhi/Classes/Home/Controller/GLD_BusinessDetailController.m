@@ -11,7 +11,6 @@
 
 #import "GLD_BusinessDetailManager.h"
 #import "MapNavigationManager.h"
-#import "GLD_PayForBusinessController.h"
 #import "GLD_PostController.h"
 
 #import "GLD_BusnessCommentController.h"

@@ -13,6 +13,7 @@
 #import "YXLiveingHotModel.h"
 #import "GLD_BusinessCell.h"
 #import "GLD_BusnessModel.h"
+#import "GLD_Button.h"
 
 @interface GLD_BusnessCommentController ()<UITableViewDelegate,UITableViewDataSource,keyboardDelegate,GLD_CommentBottomViewDelegate>{
     YXCommentListModel *commentListModel;
@@ -72,6 +73,7 @@
     cell.commentIndexPath = indexPath;
     if(IsExist_Array(_commentArrM))
         cell.commentModel = _commentArrM[indexPath.row];
+    cell.likeBut.hidden = YES;
    
     return cell;
 }
@@ -220,7 +222,7 @@
     config.requestParameters = dict;
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
-            //            [CAToast showWithText:@"认证成功"];
+            [weakSelf.commentArrM removeAllObjects];
             [weakSelf getCommentList];
             [CAToast showWithText:@"发送成功"];
         }else{

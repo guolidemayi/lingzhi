@@ -85,6 +85,8 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     NSString *strCount = [NSString stringWithFormat:@"count: %ld",response.count];
     if (response.count == 0) {
         [CAToast showWithText: @"没有搜索出结果，请换个关键词搜索"];
+        self.keyWordField.text = @"";
+//        [self.keyWordField becomeFirstResponder];
         return;
     }else{
     [CAToast showWithText: [NSString stringWithFormat:@"搜索出%zd个结果",response.count]];
@@ -225,6 +227,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     [self.keyWordField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.titleLabel);
         make.right.equalTo(self.searchBut.mas_left);
+        make.left.equalTo(self.titleLabel.mas_right);
     }];
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.titleLabel).offset(W(15));

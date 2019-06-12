@@ -7,7 +7,7 @@
 //
 
 #import "GLD_BaseViewController.h"
-#import "GLD_PayForBusinessController.h"
+#import "GLD_OldPayForBusnController.h"
 
 @interface GLD_BaseViewController ()
 
@@ -36,13 +36,13 @@
 }
 - (void)reciveQRCodePayAction:(NSNotification *)noti{
     for (UIViewController *vc in self.navigationController.viewControllers) {
-        if ([vc isKindOfClass:NSClassFromString(@"GLD_PayForBusinessController")]) {
+        if ([vc isKindOfClass:NSClassFromString(@"GLD_OldPayForBusnController")]) {
             return;
         }
     }
     NSString *str =noti.object;
     NSArray *arr = [str componentsSeparatedByString:@"/"];
-    GLD_PayForBusinessController *jumpVC = [[GLD_PayForBusinessController alloc] init];
+    GLD_OldPayForBusnController *jumpVC = [[GLD_OldPayForBusnController alloc] init];
     //        jumpVC.jump_URL = result;
     if (IsExist_Array(arr))
         jumpVC.payForUserId = arr.lastObject;

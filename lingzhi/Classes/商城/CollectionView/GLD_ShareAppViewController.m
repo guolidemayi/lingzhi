@@ -16,7 +16,7 @@
 #import "TGNormalWebView.h"
 
 static float kLeftTableViewWidth = 80.f;
-static float kCollectionViewMargin = 3.f;
+static float kCollectionViewMargin = 10.f;
 
 @interface GLD_ShareAppViewController () <UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout,
 UICollectionViewDataSource>
@@ -131,8 +131,8 @@ UICollectionViewDataSource>
     {
         _flowLayout = [[LJCollectionViewFlowLayout alloc] init];
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _flowLayout.minimumInteritemSpacing = 2;
-        _flowLayout.minimumLineSpacing = 2;
+        _flowLayout.minimumInteritemSpacing = 10;
+        _flowLayout.minimumLineSpacing = 10;
     }
     return _flowLayout;
 }

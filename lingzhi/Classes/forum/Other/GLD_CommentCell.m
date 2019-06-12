@@ -16,7 +16,6 @@
     UILabel *_nameLabel;
     UILabel *_timeLabel;
     UILabel *_nickNameLable;
-    GLD_Button *_likeBut;
     UIButton *_recordBut;
     UIView *_recoverView;
     UILabel *_beNameLabel;
@@ -42,6 +41,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self setUI];
         [self layout];
+        _likeBut.hidden = YES;
         
     }
     return self;

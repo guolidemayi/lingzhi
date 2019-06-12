@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 @class GLD_ShareAppModel;
 @interface GLD_ShareAppCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgV;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) GLD_ShareAppModel *model;
 @end
 

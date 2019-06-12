@@ -68,10 +68,16 @@
     GLD_GoodsPicCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GLD_GoodsPicCell"];
     NSString *str = self.dataArr[indexPath.row];
     if (str.length > 0) {
-        
         [cell.pic yy_setImageWithURL:[NSURL URLWithString:str] placeholder:WTImage(@"")];
     }
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (self.dataArr.count > 0) {
+        GLD_PictureView * broser = [[GLD_PictureView alloc]initWithImageArray:self.dataArr currentIndex:indexPath.row];
+        [broser show];
+    }
 }
 - (void)setStoreModel:(GLD_StoreDetailModel *)storeModel{
     _storeModel = storeModel;

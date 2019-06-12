@@ -43,6 +43,10 @@
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
 }
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBar.translucent = NO;
+}
 - (void)setUpUI {
     self.userContentController =[[WKUserContentController alloc]init];
     

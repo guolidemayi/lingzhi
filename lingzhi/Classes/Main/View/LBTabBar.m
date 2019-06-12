@@ -70,7 +70,7 @@
 
     
     self.plusLabel.centerX = self.plusBtn.centerX;
-    self.plusLabel.centerY = CGRectGetMaxY(self.plusBtn.frame)-W(10);
+    self.plusLabel.centerY = CGRectGetMaxY(self.plusBtn.frame)-W(7);
 
 
 
@@ -135,7 +135,7 @@
 
         UILabel *label = [[UILabel alloc] init];
         label.text = @"同城跑腿";
-        label.font = WTFont(12);
+        label.font = WTFont(10);
         [label sizeToFit];
         label.textColor = [UIColor grayColor];
         _plusLabel = label;

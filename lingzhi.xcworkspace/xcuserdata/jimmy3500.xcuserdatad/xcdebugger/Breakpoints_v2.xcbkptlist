@@ -148,7 +148,7 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jimmy3500/Desktop/lingzhi/lingzhi/Classes/Post/%E5%8F%91%E5%B8%83%E5%95%86%E5%93%81/GLD_PostGoodsViewController.m"
-                  timestampString = "580299948.444981"
+                  timestampString = "580734640.50393"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "198"
@@ -163,7 +163,7 @@
                   moduleName = "lingzhi"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jimmy3500/Desktop/lingzhi/lingzhi/Classes/Post/%E5%8F%91%E5%B8%83%E5%95%86%E5%93%81/GLD_PostGoodsViewController.m"
-                  timestampString = "580299948.447775"
+                  timestampString = "580734640.50712"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "199"
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "lingzhi/Classes/&#x5546;&#x57ce;/CollectionView/CollectionViewController.m"
-            timestampString = "580041941.47094"
+            timestampString = "580734640.282308"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "-initData"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,6 +266,22 @@
             startingLineNumber = "148"
             endingLineNumber = "148"
             landmarkName = "-bottomButClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "lingzhi/Classes/Post/Controller/GLD_NewPostExressController.m"
+            timestampString = "580734640.282527"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-postClick"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

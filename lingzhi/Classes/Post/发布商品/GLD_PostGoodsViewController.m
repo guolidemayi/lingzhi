@@ -360,9 +360,9 @@
 
 -(void)setIma:(UIImage *)ima {
     
-    UIImage * image = [self thumbnailWithImageWithoutScale:ima size:CGSizeMake(640, 960)];
+    UIImage * image = [self thumbnailWithImageWithoutScale:ima size:CGSizeMake(375, 667)];
     //二进制文件图片
-    _certificationImage  = UIImageJPEGRepresentation(image, 0.5);
+    _certificationImage  = UIImageJPEGRepresentation(image, 0.8);
     
     [self uploadImage:_certificationImage index:self.imageIndex];
 }

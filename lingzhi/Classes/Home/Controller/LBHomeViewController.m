@@ -15,7 +15,6 @@
 #import "GLD_CityListController.h"
 #import "GLD_SearchController.h"
 #import "GLD_MessageController.h"
-#import "GLD_PayForBusinessController.h"
 #import "LBTabBarController.h"
 #import "GLD_GoodsCarListController.h"
 @interface LBHomeViewController ()

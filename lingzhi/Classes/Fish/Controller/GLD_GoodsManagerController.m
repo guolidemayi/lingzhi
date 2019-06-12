@@ -9,7 +9,6 @@
 #import "GLD_GoodsManagerController.h"
 #import "GLD_StoreDetailCell.h"
 #import "GLD_GoodsDetailController.h"
-#import "GLD_PayForBusinessController.h"
 #import "GLD_BusnessModel.h"
 
 @interface GLD_GoodsManagerController ()<UITableViewDataSource, UITableViewDelegate>

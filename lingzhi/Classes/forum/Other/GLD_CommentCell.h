@@ -25,11 +25,12 @@ typedef NS_ENUM(NSInteger, GLD_CommentType) {
 @end
 
 typedef void(^commentBlock)(NSIndexPath *index,GLD_CommentType type);
-@interface GLD_CommentCell : UITableViewCell
+@class GLD_Button;
+@interface GLD_CommentCell : UITableViewCell 
 
 @property (nonatomic,strong) NSIndexPath * commentIndexPath;
 @property (nonatomic, strong)YXCommentContent2Model *commentModel;
 @property (nonatomic, copy)commentBlock commentBlock;
-
+@property (nonatomic, strong) GLD_Button *likeBut;
 @property (nonatomic, weak)id<GLD_CommentCellDelegate> delegate;
 @end
