@@ -109,7 +109,7 @@
     WS(weakSelf);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/main/getParentCategory";
+    config.urlPath = @"api/main/category";
     
     [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         weakSelf.industryListModel = [[GLD_IndustryListModel alloc] initWithDictionary:result error:nil];
