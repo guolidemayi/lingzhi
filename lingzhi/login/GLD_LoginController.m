@@ -182,6 +182,7 @@
                 [[NSUserDefaults standardUserDefaults] setObject:model.data.loginToken forKey:@"loginToken"];
             }
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             
             [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{
             }];

@@ -123,6 +123,9 @@
             GLD_UserModel *model = [[GLD_UserModel alloc] initWithDictionary:result error:nil];
             
             [AppDelegate shareDelegate].userModel = model.data;
+            if (model.data.userId.length > 0) {
+                [[NSUserDefaults standardUserDefaults] setObject:model.data.userId forKey:@"userId"];
+            }
             [weakSelf.tableView reloadData];
         }
         [weakSelf.tableView.mj_header endRefreshing];

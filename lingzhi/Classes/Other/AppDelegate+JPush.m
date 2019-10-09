@@ -67,8 +67,14 @@ static BOOL isProduction = FALSE;
                  apsForProduction:isProduction
             advertisingIdentifier:advertisingId];
     [JPUSHService registrationIDCompletionHandler:^(int resCode, NSString *registrationID) {
-        USER_Manager.deviceId = registrationID;
+//        USER_Manager.deviceId = registrationID;
     }];
+    NSString *userId = [[NSUserDefaults standardUserDefaults] objectForKey:@"userId"];
+    if (userId.length > 0) {
+        [JPUSHService setAlias:userId completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+            NSLog(@"------------alias = %@-----------\n",iAlias);
+        } seq:1];
+    }
     [JPUSHService setBadge:0];
     
     //右上角数字图标 清0
@@ -108,10 +114,10 @@ static BOOL isProduction = FALSE;
         // Fallback on earlier versions
     }
     completionHandler();  // 系统要求执行这个方法
-    [[GLD_PushAndBannerManager sharePushManager] pushHandle:userInfo];
+//    [[GLD_PushAndBannerManager sharePushManager] pushHandle:userInfo];
     
 }
 - (void)pushHandleInReception:(NSDictionary *)dic{
-    [[GLD_PushAndBannerManager sharePushManager]receiveRemoteNotiFormReception:dic];
+//    [[GLD_PushAndBannerManager sharePushManager]receiveRemoteNotiFormReception:dic];
 }
 @end
