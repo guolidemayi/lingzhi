@@ -409,6 +409,7 @@
                 case 2:{
                     GLD_MapDetailCell *cell1 = [tableView dequeueReusableCellWithIdentifier:GLD_MapDetailCellIdentifier];
                     cell1.mapDelegate = self;
+                    cell1.busnessModel = self.busnessModel;
                     return cell1;
                 }break;
             }
@@ -463,6 +464,7 @@
         _nameTF.placeholder = @"请输入";
         _nameTF.returnKeyType = UIReturnKeyDone;
         _nameTF.tag = 0;
+        _nameTF.text = self.busnessModel.name;
     }
 }
 #pragma mark - 负责人
@@ -472,6 +474,7 @@
         _PersonTF.placeholder = @"请输入";
         _PersonTF.returnKeyType = UIReturnKeyDone;
         _PersonTF.tag = 1;
+        _PersonTF.text = self.busnessModel.userName;
     }
 }
 #pragma mark - 联系电话
@@ -483,6 +486,7 @@
         _discountTF.placeholder = @"请输入";
         _discountTF.returnKeyType = UIReturnKeyDone;
         _discountTF.tag = 2;
+        _discountTF.text = self.busnessModel.discount;
         UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - W(95), 0, W(80), W(50))];
         but.titleLabel.font = WTFont(12);
         _discountTF.frame = CGRectMake(SCREEN_WIDTH - W(200), 0, W(100), W(50));
@@ -578,7 +582,7 @@
     if (!_industryTF) {
         _industryTF = [self getTextField:cell];
         _industryTF.placeholder = @"请选择所属行业";
-       
+        _industryTF.text = self.busnessModel.category;
     }
 }
 #pragma mark - 所在地区
@@ -587,6 +591,7 @@
         _addressTF = [self getTextField:cell];
         _addressTF.placeholder = @"请填写所在地区";
 
+        _addressTF.text = self.busnessModel.city;
     }
 }
 
@@ -597,6 +602,7 @@
         _phoneTF.placeholder = @"请输入";
         _phoneTF.returnKeyType = UIReturnKeyDone;
         _phoneTF.tag = 4;
+        _phoneTF.text = self.busnessModel.cellphone;
     }
 }
 
@@ -628,6 +634,7 @@
 //        _describeTF.
         _describeTF.layer.borderColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTnewGray].CGColor;
         _describeTF.tag = 5;
+        _describeTF.text = self.busnessModel.desc;
         [cell.contentView addSubview:_describeTF];
     }
 }
@@ -964,6 +971,13 @@
         _iconImgV1.layer.masksToBounds = YES;
         _iconImgV1.frame = CGRectMake(DEVICE_WIDTH - W(50), W(15), W(30), H(30));
         _iconImgV1.image = WTImage(@"默认头像");
+        if (IsExist_String(self.busnessModel.logo)) {
+            NSArray *arr = [self.busnessModel.logo componentsSeparatedByString:@","];
+            if (arr.count > 0) {
+                _iconImgV1.yy_imageURL = [NSURL URLWithString:arr[1]];
+                self.stordUpdateImg = arr[1];
+            }
+        }
     }
     return _iconImgV1;
 }
@@ -976,6 +990,13 @@
         _iconImgV.layer.masksToBounds = YES;
         _iconImgV.frame = CGRectMake(DEVICE_WIDTH - W(50), W(15), W(30), H(30));
         _iconImgV.image = WTImage(@"默认头像");
+        if (IsExist_String(self.busnessModel.logo)) {
+            NSArray *arr = [self.busnessModel.logo componentsSeparatedByString:@","];
+            if (arr.count > 0) {
+                _iconImgV.yy_imageURL = [NSURL URLWithString:arr.firstObject];
+                self.updateImg = arr.firstObject;
+            }
+        }
     }
     return _iconImgV;
 }

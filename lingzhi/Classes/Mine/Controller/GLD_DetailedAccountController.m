@@ -50,6 +50,8 @@
             }else{
                 self.noDataLabel.hidden = YES;
             }
+            [weakSelf.table_apply.mj_header endRefreshing];
+            [weakSelf.table_apply.mj_footer endRefreshing];
             [weakSelf.table_apply reloadData];
         }else{
             [CAToast showWithText:@"请求错误"];

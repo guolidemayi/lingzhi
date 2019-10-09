@@ -28,6 +28,11 @@
 - (void)setModel1:(GLD_StoreDetailModel *)model1 andModel2:(GLD_StoreDetailModel *__nullable)model2{
     self.store1Cell.model = model1;
     self.store2Cell.model = model2;
+    if(!model2){
+        self.store2Cell.hidden = YES;
+    }else{
+        self.store2Cell.hidden = NO;
+    }
 }
 - (void)setupUI{
     self.store1Cell = [[CollectionViewCell alloc]initWithFrame:CGRectMake(15, 0, 160, 120)];

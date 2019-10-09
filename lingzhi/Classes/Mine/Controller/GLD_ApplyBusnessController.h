@@ -12,4 +12,5 @@
 
 
 @property (nonatomic, assign)BOOL isSuccss;//是否验证成功
+@property (nonatomic, strong)GLD_BusnessModel *busnessModel;
 @end

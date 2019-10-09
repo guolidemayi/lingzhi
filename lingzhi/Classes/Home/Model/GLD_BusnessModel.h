@@ -27,7 +27,9 @@
 @property (nonatomic, copy) NSString *isOpenRebate;//
 @property (nonatomic, copy) NSString *category;//所属行业
 @property (nonatomic, copy)NSString *busnessType; //1高级  2普通
-@property (nonatomic, copy)NSString *userId; 
+@property (nonatomic, copy)NSString *userId;
+@property (nonatomic, copy)NSString *userName;
+@property (nonatomic, copy)NSString *city; 
 
 @end
 @interface GLD_BusnessLisModel : GLD_BaseModel

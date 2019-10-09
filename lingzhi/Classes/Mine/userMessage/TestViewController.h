@@ -13,4 +13,6 @@
 @property (nonatomic, copy)NSString *dec;//个人简介
 
 @property (nonatomic, assign)NSInteger type;//1注册完善信息  2编辑信息
+
+@property (nonatomic, assign) BOOL isWechat;//是否为微信登陆
 @end

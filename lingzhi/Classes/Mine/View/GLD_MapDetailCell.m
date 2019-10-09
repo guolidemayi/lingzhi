@@ -24,6 +24,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
 @property (nonatomic, strong)UITextField *keyWordField;
 @property (nonatomic, strong)UIButton *searchBut;
 @property (nonatomic, strong)UIView *lineView;
+@property (nonatomic, copy)NSArray *dataArr;
 //高德地图
 @property (nonatomic, strong) MAMapView *mapView;
 @property (nonatomic, strong)UITableView *tableView;
@@ -53,6 +54,18 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
     }
 }
 
+- (void)setBusnessModel:(GLD_BusnessModel *)busnessModel{
+    _busnessModel = busnessModel;
+    if (busnessModel) {
+        self.keyWordField.text = busnessModel.address;
+        AMapPOI *p = [AMapPOI new];
+        p.location.latitude = busnessModel.xpoint.floatValue;
+        p.location.longitude = busnessModel.ypoint.floatValue;
+        p.address = busnessModel.address;
+        p.name = busnessModel.address;
+        [self didSelectedMapPOI:p];
+    }
+}
 -(void)setAddrssKeyWord:(NSString *)addrssKeyWord
 {
     
@@ -131,6 +144,9 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     AMapPOI *p = self.dataArr[indexPath.row];
+    [self didSelectedMapPOI:p];
+}
+- (void)didSelectedMapPOI:(AMapPOI *)p{
     MAPointAnnotation *pointAnnotation = [[MAPointAnnotation alloc] init];
     CLLocationCoordinate2D coordinate ;
     coordinate.latitude = p.location.latitude;

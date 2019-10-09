@@ -534,7 +534,7 @@
     NSURL *picUrl = [NSURL URLWithString:self.str_shareImage];
     NSURL* url = [NSURL URLWithString:self.str_shareUrl];
     
-    QQApiNewsObject *newObject = [QQApiNewsObject objectWithURL:url title:ShareTitleStr description:self.str_shareText previewImageURL:picUrl];
+    QQApiNewsObject *newObject = [QQApiNewsObject objectWithURL:url title:@"" description:self.str_shareText previewImageURL:picUrl];
     // 设置分享到QZone的标志位
     if (self.platformType == QQFriends) {
         [newObject setCflag: kQQAPICtrlFlagQQShare];

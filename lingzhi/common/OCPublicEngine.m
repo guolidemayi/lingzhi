@@ -141,7 +141,7 @@ static OCPublicEngine *sInstance = nil;
     [[GLD_NetworkAPIManager shareNetManager] dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (error == nil) {
             
-            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
+           
             //第三方平台登录，存储账号信息，做为自动登录数据源
             [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:LastLoginTypeKey];
             //[[NSUserDefaults standardUserDefaults] setObject: forKey:LastLoginExpiredTime];
@@ -164,11 +164,13 @@ static OCPublicEngine *sInstance = nil;
             [[NSUserDefaults standardUserDefaults] setObject:[AppDelegate shareDelegate].userModel.phone forKey:@"LastLoginPhone"];
             
             
-            if (infomationModel.phone.length == 0) {
+            if (infomationModel.userId.length == 0) {
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"weixinLogin"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 //需要绑定手机
               [[AppDelegate shareDelegate] finishUserData];
-                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"weixinLogin"];
             } else {
+                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
                 //进入主页
                 [[AppDelegate shareDelegate] initMainPageBody];
             }

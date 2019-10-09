@@ -20,19 +20,22 @@ PODS:
   - AMapSearch (5.5.0):
     - AMapFoundation (~> 1.4)
   - IQKeyboardManager (3.3.7)
+  - JCore (2.1.2)
+  - JPush (3.2.4):
+    - JCore (< 3.0.0, >= 2.0.0)
   - JSONModel (1.2.0)
   - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
-  - MJRefresh (3.1.16)
+  - MJRefresh (3.2.0)
   - ObjectiveRecord (1.5.0):
     - ObjectiveSugar
   - ObjectiveSugar (1.1.0)
-  - ReactiveObjC (3.1.0)
-  - SDCycleScrollView (1.75):
-    - SDWebImage (>= 4.0.0)
-  - SDWebImage (5.0.0):
-    - SDWebImage/Core (= 5.0.0)
-  - SDWebImage/Core (5.0.0)
+  - ReactiveObjC (3.1.1)
+  - SDCycleScrollView (1.80):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.2.0):
+    - SDWebImage/Core (= 5.2.0)
+  - SDWebImage/Core (5.2.0)
   - YYCache (1.0.4)
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
@@ -47,6 +50,7 @@ DEPENDENCIES:
   - AMapFoundation (~> 1.4.2)
   - AMapSearch (~> 5.5.0)
   - IQKeyboardManager (~> 3.3.1)
+  - JPush
   - JSONModel (~> 1.2.0)
   - Masonry
   - MBProgressHUD (~> 1.0.0)
@@ -64,6 +68,8 @@ SPEC REPOS:
     - AMapFoundation
     - AMapSearch
     - IQKeyboardManager
+    - JCore
+    - JPush
     - JSONModel
     - Masonry
     - MBProgressHUD
@@ -83,19 +89,21 @@ SPEC CHECKSUMS:
   AMapFoundation: 973682cfe60b92efd73a8ef8f1144fa0fa8e1296
   AMapSearch: dc9958acfb61b58dcbce79736bf14a39dde7506f
   IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
+  JCore: 1a426120b510cdebfd67b82bfb9483238ee09413
+  JPush: 29466e5f30dbd703f640d70540e411e829cac1fa
   JSONModel: 12523685c4b623553ccf844bbbf7007624317b2c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   ObjectiveRecord: f290d17272e476b3c881300910e98284200c54b6
   ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
-  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
-  SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
-  SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
+  SDWebImage: 609192dcf3898c910a2848032372ead951e66364
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 86a45adf892c7ffbe34e300089e0aec5e3c80007
+PODFILE CHECKSUM: c1f5bd51241ff798ed070a8dd7ccfa65b07f1b8c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.5

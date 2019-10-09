@@ -30,4 +30,5 @@ pod 'AMapSearch', '~> 5.5.0'
 pod 'AMapFoundation', '~> 1.4.2'
 pod 'ObjectiveSugar'
 pod 'ObjectiveRecord'
+pod 'JPush'
 end

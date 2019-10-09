@@ -76,6 +76,7 @@
     return YES;
 }
 - (void)picButClick{
+    [self.viewC.view endEditing:YES];
     [self.photoView showPhotoView:nil];
 }
 
@@ -238,7 +239,7 @@
 - (UITextField *)priceTextField{
     if (!_priceTextField) {
         _priceTextField = [self getTextFieldAndPlaceHoder:@"请输入价格"];
-        _priceTextField.keyboardType = UIKeyboardTypeNumberPad;
+//        _priceTextField.keyboardType = UIKeyboardTypeNumberPad;
     }
     return _priceTextField;
     

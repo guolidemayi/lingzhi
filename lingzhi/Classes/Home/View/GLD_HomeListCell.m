@@ -79,11 +79,11 @@ NSString *const GLD_HomeListCellIdentifier = @"GLD_HomeListCellIdentifier";
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
         //不知道为什么 cell 比collectionView大  就不会调用
         //        flowLayout.itemSize = self.listCollection.bounds.size;
-        flowLayout.itemSize = CGSizeMake(W(75), W(50));
-        flowLayout.minimumInteritemSpacing = 0;
-        flowLayout.minimumLineSpacing = 0;
+        flowLayout.itemSize = CGSizeMake(W(70), W(50));
+        flowLayout.minimumInteritemSpacing = 3;
+        flowLayout.minimumLineSpacing = 3;
         flowLayout.sectionInset = UIEdgeInsetsMake(W(10), 0.1, 0.1, 0.1);
-        flowLayout.scrollDirection =UICollectionViewScrollDirectionHorizontal;
+//        flowLayout.scrollDirection =UICollectionViewScrollDirectionHorizontal;
         _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(-10, -10, 10, 10) collectionViewLayout:flowLayout];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.showsVerticalScrollIndicator = NO;

@@ -39,9 +39,10 @@
         [self setShadowImage:[UIImage imageWithColor:[UIColor clearColor]]];
 
         UIButton *plusBtn = [[UIButton alloc] init];
-        [plusBtn setImage:[UIImage imageNamed:@"post_normal"] forState:UIControlStateNormal];
-        [plusBtn setImage:[UIImage imageNamed:@"post_normal"] forState:UIControlStateHighlighted];
+        [plusBtn setImage:[self imageWithImageName:@"post_normal" imageColor:[UIColor grayColor]] forState:UIControlStateNormal];
+        
 
+//        plusBtn.enabled = NO;
         self.plusBtn = plusBtn;
 //        self.plusBtn.backgroundColor = [UIColor whiteColor];
 
@@ -63,7 +64,7 @@
 
     self.plusBtn.x = self.centerX - W(25);
     //调整发布按钮的中线点Y值
-    self.plusBtn.y = -W(15) ;
+    self.plusBtn.y = -W(10) ;
 
     self.plusBtn.size = CGSizeMake(W(60), W(60));
 
@@ -134,12 +135,33 @@
     if (!_plusLabel) {
 
         UILabel *label = [[UILabel alloc] init];
-        label.text = @"同城跑腿";
-        label.font = WTFont(10);
+        label.text = @"同城帮";
+        label.font = WTFont(11);
         [label sizeToFit];
         label.textColor = [UIColor grayColor];
         _plusLabel = label;
     }
     return _plusLabel;
+}
+- (UIImage *)imageWithImageName:(NSString *)name imageColor:(UIColor *)imageColor{
+    
+    UIImage *image = [UIImage imageNamed:name];;
+    
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, 0.0f);
+    
+    [imageColor setFill];
+    
+    CGRect bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+    
+    UIRectFill(bounds);
+    
+    [image drawInRect:bounds blendMode:kCGBlendModeDestinationIn alpha:1.0f];
+    
+    UIImage *tintedImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return tintedImage;
+    
 }
 @end

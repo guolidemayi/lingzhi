@@ -231,8 +231,12 @@
     
     BOOL isFromd = [[NSUserDefaults standardUserDefaults]boolForKey:@"weixinLogin"];
     if (isFromd) {
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"weixinLogin"];
-        [[AppDelegate shareDelegate] initMainPageBody];
+//        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"weixinLogin"];
+//        [[AppDelegate shareDelegate] initMainPageBody];
+        TestViewController *backVc = [TestViewController new];
+        backVc.type = 1;
+        backVc.isWechat = YES;
+        [self.navigationController pushViewController:backVc animated:YES];
     }else{
         
         if(self.type == 1){

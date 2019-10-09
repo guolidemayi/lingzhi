@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong)UITableView *table_apply;
 @property (nonatomic, strong)NSMutableArray *dataArr;
-@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
+
 @end
 
 @implementation GLD_BusnessPayInfoController
@@ -31,7 +31,6 @@
     }];
     self.dataArr = [NSMutableArray array];
     self.title = @"商家明细";
-      self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     [self getOrderList];
 }
 - (void)getOrderList{

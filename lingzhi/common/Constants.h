@@ -171,8 +171,8 @@
 
 //第三方分享使用
 #define ShareIconPath [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"share_logo"]
-#define ShareTitleStr @"我在医生汇等你加入！精华都在这里哟~"
-#define ShareDetailStr @"医生汇-专家临床讲座直播，医生社区有问必答"
+
+
 
 //分享帖子
 #define SHARE_QA(SERVER, QAID) [NSString stringWithFormat:@"%@/bbs/qa?qaId=%@&toShare=1",SERVER, QAID];

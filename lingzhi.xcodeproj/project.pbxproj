@@ -259,6 +259,7 @@
 		3CA74E511FD2829200A7F137 /* GLD_BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */; };
 		5B3789A9B5E4EF8A0BE2141F /* libPods-lingzhiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */; };
 		64BFBA665871E50399A6E013 /* libPods-lingzhi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C3E6708F716104D709C04A /* libPods-lingzhi.a */; };
+		72AF308F234DC5C000E0FD62 /* AppDelegate+JPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF308E234DC5C000E0FD62 /* AppDelegate+JPush.m */; };
 		C93245B822869835000A2A29 /* SampleProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C93245B622869835000A2A29 /* SampleProject.xcdatamodeld */; };
 		C93245BB22869C0E000A2A29 /* GLD_MessageUserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C93245B922869C0D000A2A29 /* GLD_MessageUserInfoTool.m */; };
 		C93245BE22882E8A000A2A29 /* GLD_GoodsCarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93245BD22882E8A000A2A29 /* GLD_GoodsCarListController.m */; };
@@ -788,6 +789,8 @@
 		3CA74E4D1FD2808300A7F137 /* GLD_IndustryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_IndustryModel.m; sourceTree = "<group>"; };
 		3CA74E4F1FD2829200A7F137 /* GLD_BannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BannerModel.h; sourceTree = "<group>"; };
 		3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BannerModel.m; sourceTree = "<group>"; };
+		72AF308D234DC5BF00E0FD62 /* AppDelegate+JPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+JPush.h"; sourceTree = "<group>"; };
+		72AF308E234DC5C000E0FD62 /* AppDelegate+JPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+JPush.m"; sourceTree = "<group>"; };
 		98830999E513C9AF0ABA2FD1 /* Pods-lingzhiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiTests/Pods-lingzhiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B71A964312F2EC99F300DABB /* Pods-lingzhi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhi/Pods-lingzhi.debug.xcconfig"; sourceTree = "<group>"; };
 		C93245B722869835000A2A29 /* SampleProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleProject.xcdatamodel; sourceTree = "<group>"; };
@@ -1630,6 +1633,8 @@
 			children = (
 				0FB536E11FC5887C00B0EDA6 /* AppDelegate.h */,
 				0FB536E31FC5887C00B0EDA6 /* AppDelegate.m */,
+				72AF308D234DC5BF00E0FD62 /* AppDelegate+JPush.h */,
+				72AF308E234DC5C000E0FD62 /* AppDelegate+JPush.m */,
 				3C431931204B9632007FCA1E /* GLD_WeChatManger.h */,
 				3C431932204B9632007FCA1E /* GLD_WeChatManger.m */,
 				330AAB3F1FF40ABF00523FF0 /* GLD_UserMessageModel.h */,
@@ -2067,7 +2072,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -2169,7 +2174,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-lingzhi/Pods-lingzhi-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-lingzhi/Pods-lingzhi-resources.sh",
 				"${PODS_ROOT}/AMap3DMap/MAMapKit.framework/AMap.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
@@ -2182,7 +2187,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lingzhi/Pods-lingzhi-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lingzhi/Pods-lingzhi-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8F1B4D45B7E319E9703DF1BB /* [CP] Check Pods Manifest.lock */ = {
@@ -2314,6 +2319,7 @@
 				0F2C2F531FF62E330083BCCB /* GLD_TopicTypeListModel.m in Sources */,
 				0F6411871FD4EAB50069FDB1 /* GLD_NetworkAPIManager.m in Sources */,
 				0F60E9C01FC2754300C5E113 /* ViewController.m in Sources */,
+				72AF308F234DC5C000E0FD62 /* AppDelegate+JPush.m in Sources */,
 				0F6411A81FD527080069FDB1 /* GLD_DetaileCell.m in Sources */,
 				0F9920101FCEE1AA00305DF3 /* GLD_BaseTableManager.m in Sources */,
 				0F2C2F5D1FF62E330083BCCB /* GLD_DrawBut.m in Sources */,
@@ -2638,6 +2644,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = lingzhi/lingzhi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
@@ -2668,6 +2675,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = lingzhi/lingzhi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;

@@ -71,8 +71,8 @@
     config.urlPath = storeListRequest;
     config.requestParameters = @{
                                  @"type" : @(type),
-//                                 @"limit":[NSString stringWithFormat:@"10"],
-//                                 @"offset" : [NSString stringWithFormat:@"%zd",self.dataArrM.count]
+                                 @"limit":[NSString stringWithFormat:@"10"],
+                                 @"offset" : [NSString stringWithFormat:@"%zd",self.dataArrM.count]
                                  };
     
     
@@ -101,6 +101,7 @@
             [cell setModel1:self.dataArrM[indexPath.row * 2] andModel2:self.dataArrM[indexPath.row * 2 + 1]];
         }
     }else{
+        if(self.dataArrM.count >= indexPath.row * 2 + 1)
        [cell setModel1:self.dataArrM[indexPath.row * 2] andModel2:self.dataArrM[indexPath.row * 2 + 1]];
     }
     
@@ -251,10 +252,10 @@
 //            make.edges.equalTo(self.view);
 //        }];
         WS(weakSelf);
-        table.mj_footer = [YXFooterRefresh footerWithRefreshingBlock:^{
-            [weakSelf getbusnessList:2];
-            
-        }];
+//        table.mj_footer = [YXFooterRefresh footerWithRefreshingBlock:^{
+//            [weakSelf getbusnessList:2];
+//
+//        }];
         table.mj_header = [GLD_RefreshHeader headerWithRefreshingBlock:^{
             [weakSelf.dataArrM removeAllObjects];
             weakSelf.bannerListModel = nil;

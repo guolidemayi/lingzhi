@@ -44,7 +44,7 @@
     self.cashLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.prize];
     //    [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:orderModel.shopPic] placeholder:nil];
     self.couponLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.discount];
-    self.payTypeLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.wxPay];
+    self.payTypeLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.income];
     self.dateLabel.text = orderModel.createTime;
     self.payUserLabel.text = orderModel.code;
     self.payPhoneLabel.text = orderModel.phone;

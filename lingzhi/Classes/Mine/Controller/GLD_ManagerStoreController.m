@@ -101,6 +101,7 @@
 - (IBAction)editClick:(UIButton *)sender {
     GLD_ApplyBusnessController *applyVc = [GLD_ApplyBusnessController new];
     applyVc.isSuccss = YES;
+    applyVc.busnessModel = self.model;
     [self.navigationController pushViewController:applyVc animated:YES];
 }
 - (IBAction)payForMe:(id)sender {

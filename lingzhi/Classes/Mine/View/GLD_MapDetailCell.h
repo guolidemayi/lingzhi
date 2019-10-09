@@ -21,8 +21,9 @@ extern NSString *const GLD_MapDetailCellIdentifier;
 @end
 @interface GLD_MapDetailCell : GLD_BaseCell
 
-@property (nonatomic, copy)NSArray *dataArr;
+
 
 @property (nonatomic, weak)id<GLD_MapDetailCellDelegate> mapDelegate;
 
+@property (nonatomic, strong)GLD_BusnessModel *busnessModel;
 @end

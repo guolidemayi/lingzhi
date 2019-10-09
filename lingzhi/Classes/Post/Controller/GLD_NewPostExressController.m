@@ -65,7 +65,7 @@
         return;
     }
     if(self.postManager.expressModel.type.integerValue != 2 &&  !IsExist_String(self.postManager.expressModel.goodsPic)){
-        [CAToast showWithText:@"请选择收件人"];
+        [CAToast showWithText:@"请上传图片"];
         return;
     }
     [self showChoosePayTypeAlert];
@@ -82,8 +82,10 @@
         weakSelf.payType = @"wxPay";
         [weakSelf payToDaiJinQuanGoods];
     }];
+    UIAlertAction *quxiao = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     [alertController addAction:cancelAction];
     [alertController addAction:okAction];
+    [alertController addAction:quxiao];
     [self presentViewController:alertController animated:YES completion:nil];
 }
 - (void)payToDaiJinQuanGoods{

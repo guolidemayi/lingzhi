@@ -52,6 +52,8 @@
 @property (nonatomic, assign)NSInteger channelUserStatus;
 @property (nonatomic, assign)NSInteger proxyUserStatus;// * 0:未注册代理商* 1：未审核* 2：已审核
 
+@property (nonatomic, copy)NSString *aliPayAccount;//ali账号
+@property (nonatomic, copy)NSString *AliPayName;//ali姓名
 
 @end
 

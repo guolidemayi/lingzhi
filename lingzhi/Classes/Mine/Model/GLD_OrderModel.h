@@ -17,6 +17,7 @@
 @property (nonatomic, copy)NSString *shopName;
 @property (nonatomic, assign)CGFloat prize;//报价格
 @property (nonatomic, assign)CGFloat wxPay;//实际支付
+@property (nonatomic, assign)CGFloat income;//收益
 @property (nonatomic, assign)CGFloat discount;//折扣金额
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 @property (nonatomic, copy)NSString *shopPic;//商店图标

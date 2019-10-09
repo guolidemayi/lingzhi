@@ -64,7 +64,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"信息";
-//    self.updateImg = @"";
+
+    if (self.isWechat) {
+       self.updateImg = [AppDelegate shareDelegate].userModel.iconImage;
+    }
+    
     self.tableView.hidden = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(clickSaveBtn)];
     self.NetManager = [GLD_NetworkAPIManager shareNetManager];
@@ -129,21 +133,26 @@
     }else{
         config.urlPath = @"api/user/updateUser";
     }
-    config.requestParameters = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone),
-
-                                 @"intro" : IsExist_String(self.personalIntroTF.text) ? self.personalIntroTF.text : GetString([AppDelegate shareDelegate].userModel.intro),
-                                 @"address" : IsExist_String(self.locationTF.text) ? self.locationTF.text : GetString([AppDelegate shareDelegate].userModel.address),
-                                 @"inviteCode" : GetString([AppDelegate shareDelegate].userModel.inviteCode),
-                                 @"password" : GetString([AppDelegate shareDelegate].userModel.password),
-                                 @"sex" : IsExist_String(self.genderTF.text) ? self.genderTF.text : GetString([AppDelegate shareDelegate].userModel.sex),
-                                 @"name" : IsExist_String(self.nicknameTF.text) ? self.nicknameTF.text : GetString([AppDelegate shareDelegate].userModel.name),
-                                 @"birthDay" : IsExist_String(self.birthdayTF.text) ? self.birthdayTF.text : GetString([AppDelegate shareDelegate].userModel.birthDay),
-                                 @"iconImage" : GetString(self.updateImg),
-//                                 @"duty" : IsExist_String(self.positionTF.text) ? self.positionTF.text : [AppDelegate shareDelegate].userModel.duty,
-                                 @"city":IsExist_String(self.cityTF.text) ? self.cityTF.text : GetString([AppDelegate shareDelegate].userModel.city),
-                                 @"area":IsExist_String(self.areaTF.text) ? self.areaTF.text : GetString([AppDelegate shareDelegate].userModel.area),
-                                 };
+    NSMutableDictionary *dict = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                  
+                                  @"intro" : IsExist_String(self.personalIntroTF.text) ? self.personalIntroTF.text : GetString([AppDelegate shareDelegate].userModel.intro),
+                                  @"address" : IsExist_String(self.locationTF.text) ? self.locationTF.text : GetString([AppDelegate shareDelegate].userModel.address),
+                                  @"inviteCode" : GetString([AppDelegate shareDelegate].userModel.inviteCode),
+                                  @"password" : GetString([AppDelegate shareDelegate].userModel.password),
+                                  @"sex" : IsExist_String(self.genderTF.text) ? self.genderTF.text : GetString([AppDelegate shareDelegate].userModel.sex),
+                                  @"name" : IsExist_String(self.nicknameTF.text) ? self.nicknameTF.text : GetString([AppDelegate shareDelegate].userModel.name),
+                                  @"birthDay" : IsExist_String(self.birthdayTF.text) ? self.birthdayTF.text : GetString([AppDelegate shareDelegate].userModel.birthDay),
+                                  @"iconImage" : GetString(self.updateImg),
+                                  //                                 @"duty" : IsExist_String(self.positionTF.text) ? self.positionTF.text : [AppDelegate shareDelegate].userModel.duty,
+                                  @"city":IsExist_String(self.cityTF.text) ? self.cityTF.text : GetString([AppDelegate shareDelegate].userModel.city),
+                                  @"area":IsExist_String(self.areaTF.text) ? self.areaTF.text : GetString([AppDelegate shareDelegate].userModel.area),
+                                  }.mutableCopy;
     
+    if (self.isWechat) {
+        NSString *openId = [[NSUserDefaults standardUserDefaults] objectForKey:Last_YXVZB_WeiXinAuthOpenId];
+        [dict addEntriesFromDictionary:@{@"openId":GetString(openId)}];
+    }
+    config.requestParameters = dict;
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {
             if ([result[@"code"] integerValue] != 200) {

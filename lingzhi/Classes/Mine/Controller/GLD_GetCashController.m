@@ -27,7 +27,7 @@ typedef NS_ENUM(NSInteger, payType) {
 @property (nonatomic, weak)GLD_ZFBCashCell *ZFBCashCell;
 @property (nonatomic, assign)payType type;
 
-@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
+@property (nonatomic, strong)GLD_UserMessageModel *userModel;
 @end
 
 @implementation GLD_GetCashController
@@ -39,6 +39,7 @@ typedef NS_ENUM(NSInteger, payType) {
     self.NetManager = [GLD_NetworkAPIManager shareNetManager];
     self.type = CARD;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self getData];
 }
 - (void)getData{
     
@@ -51,13 +52,14 @@ typedef NS_ENUM(NSInteger, payType) {
     
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
-    config.urlPath = @"api/user/getMoney";
+    config.urlPath = @"api/user/getAliPayInfo";
     config.requestParameters = dict;
     
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         
         if(!error){
-            
+            weakSelf.userModel = [[GLD_UserMessageModel alloc]initWithDictionary:result[@"data"] error:nil];
+            [weakSelf.table_apply reloadData];
            
         }
         //        weakSelf.phoneCode = @"1111";
@@ -149,6 +151,10 @@ typedef NS_ENUM(NSInteger, payType) {
 - (GLD_ZFBPayCell *)getZFBPayCell:(NSIndexPath *)indexPath{
     GLD_ZFBPayCell *cell = [GLD_ZFBPayCell cellWithReuseIdentifier:@"GLD_ZFBPayCell"];
     self.ZFBPayCell = cell;
+    if (IsExist_String(self.userModel.aliPayAccount)) {
+        cell.accountField.text = self.userModel.aliPayAccount;
+        cell.nameField.text = self.userModel.AliPayName;
+    }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
