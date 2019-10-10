@@ -185,6 +185,7 @@
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [weakSelf.navigationController dismissViewControllerAnimated:YES completion:^{
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"hasLogin" object:nil];
             }];
         }else{
             [CAToast showWithText:@"登陆失败"];

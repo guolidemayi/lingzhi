@@ -45,8 +45,17 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:rBut];
     self.navigationItem.rightBarButtonItem = item;
     [self setupUI];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hasLoginAcktion) name:@"hasLogin" object:nil];
 }
 
+- (void)hasLoginAcktion{
+    [self.mineManager fetchMainData];
+    if (hasLogin) {
+        self.mineCodeBut.hidden = NO;
+    }else{
+        self.mineCodeBut.hidden = YES;
+    }
+}
 - (void)mineCodeButClick{
     GLD_PayForMeController *payforVc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"GLD_PayForMeController"];
     [self.navigationController pushViewController:payforVc animated:YES];

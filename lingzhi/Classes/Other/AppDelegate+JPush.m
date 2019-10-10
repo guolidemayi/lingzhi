@@ -16,7 +16,7 @@
 
 #endif
 #import <AdSupport/AdSupport.h>
-
+#import <AVFoundation/AVFoundation.h>
 
 static NSString *appKey = @"aca375f109bc1ef82024dc22";
 static NSString *channel = @"Publish channel";
@@ -119,5 +119,32 @@ static BOOL isProduction = FALSE;
 }
 - (void)pushHandleInReception:(NSDictionary *)dic{
 //    [[GLD_PushAndBannerManager sharePushManager]receiveRemoteNotiFormReception:dic];
+     [[AVAudioSession sharedInstance] setActive:YES error:nil];
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+        
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"shop_gathering.caf" withExtension:nil];
+        CFURLRef urlRef = (__bridge CFURLRef)(url);
+        SystemSoundID soundID;
+    //    NSString *path = [[NSBundle mainBundle] pathForResource:@"shop_gathering" ofType:nil];
+        AudioServicesCreateSystemSoundID(urlRef, &soundID);
+        AudioServicesPlaySystemSound(soundID);
+        /*AudioServicesPlaySystemSoundWithCompletion*/
+        AudioServicesPlayAlertSoundWithCompletion(soundID, ^{
+//            self.contentHandler(self.bestAttemptContent);
+        });
+        
+//
+//                AVSpeechUtterance *utterance  = [AVSpeechUtterance speechUtteranceWithString:@"测试语音"];
+//
+//                utterance.pitchMultiplier=0.8;
+//
+//                //中式发音
+//
+//                AVSpeechSynthesisVoice *voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
+//                utterance.voice = voice;
+//
+//                AVSpeechSynthesizer *synth = [[AVSpeechSynthesizer alloc]init];
+//
+//                [synth speakUtterance:utterance];
 }
 @end
