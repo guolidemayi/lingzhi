@@ -66,8 +66,7 @@
 	<string>惠汇联盟 需要您的同意才能使用相册选取照片</string>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>audio</string>
-		<string>fetch</string>
+		<string>processing</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UIMainStoryboardFile</key>

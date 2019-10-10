@@ -116,35 +116,32 @@ static BOOL isProduction = FALSE;
     completionHandler();  // 系统要求执行这个方法
 //    [[GLD_PushAndBannerManager sharePushManager] pushHandle:userInfo];
     
+    if ([userInfo[@"event"] isEqualToString:@"ORDER"]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if ([self.window.rootViewController isMemberOfClass:NSClassFromString(@"UITabBarController")]) {
+                UITabBarController *tabV = (UITabBarController *)self.window.rootViewController;
+                tabV.selectedIndex = 4;
+            }
+        });
+    }
 }
 - (void)pushHandleInReception:(NSDictionary *)dic{
-//    [[GLD_PushAndBannerManager sharePushManager]receiveRemoteNotiFormReception:dic];
-     [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    if ([dic[@"event"] isEqualToString:@"ORDER"]) {
+        
+        [[AVAudioSession sharedInstance] setActive:YES error:nil];
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
         
         NSURL *url = [[NSBundle mainBundle] URLForResource:@"shop_gathering.caf" withExtension:nil];
         CFURLRef urlRef = (__bridge CFURLRef)(url);
         SystemSoundID soundID;
-    //    NSString *path = [[NSBundle mainBundle] pathForResource:@"shop_gathering" ofType:nil];
+        //    NSString *path = [[NSBundle mainBundle] pathForResource:@"shop_gathering" ofType:nil];
         AudioServicesCreateSystemSoundID(urlRef, &soundID);
         AudioServicesPlaySystemSound(soundID);
         /*AudioServicesPlaySystemSoundWithCompletion*/
         AudioServicesPlayAlertSoundWithCompletion(soundID, ^{
-//            self.contentHandler(self.bestAttemptContent);
+            //            self.contentHandler(self.bestAttemptContent);
         });
+    }
         
-//
-//                AVSpeechUtterance *utterance  = [AVSpeechUtterance speechUtteranceWithString:@"测试语音"];
-//
-//                utterance.pitchMultiplier=0.8;
-//
-//                //中式发音
-//
-//                AVSpeechSynthesisVoice *voice = [AVSpeechSynthesisVoice voiceWithLanguage:@"zh-CN"];
-//                utterance.voice = voice;
-//
-//                AVSpeechSynthesizer *synth = [[AVSpeechSynthesizer alloc]init];
-//
-//                [synth speakUtterance:utterance];
 }
 @end

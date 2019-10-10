@@ -211,6 +211,16 @@ GLD_BaseNavController *rootViewController = [[GLD_BaseNavController alloc] initW
         [application registerForRemoteNotifications];
     }
 }
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler {
+    NSDictionary *dic = userInfo;
+    
+    if (application.applicationState == UIApplicationStateActive) {
+        return; //此方法 的实现 在上一步中 就是展示提示框出来
+    }
+    
+    [self pushHandleInReception:dic];
+    
+}
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     // 打印自定义参数
     NSLog(@"Notification content is：%@", userInfo);
@@ -236,7 +246,6 @@ GLD_BaseNavController *rootViewController = [[GLD_BaseNavController alloc] initW
 }
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     //检测是否是从推送过来的
-    
     application.applicationIconBadgeNumber = 0;
 }
 - (GLD_UserMessageModel *)userModel{

@@ -260,6 +260,10 @@
 		5B3789A9B5E4EF8A0BE2141F /* libPods-lingzhiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */; };
 		64BFBA665871E50399A6E013 /* libPods-lingzhi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C3E6708F716104D709C04A /* libPods-lingzhi.a */; };
 		72AF308F234DC5C000E0FD62 /* AppDelegate+JPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF308E234DC5C000E0FD62 /* AppDelegate+JPush.m */; };
+		72F0C62F234F0E5B00D76B24 /* shop_gathering.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */; };
+		72F0C638234F181700D76B24 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F0C637234F181700D76B24 /* NotificationService.m */; };
+		72F0C63C234F181700D76B24 /* notificationExten.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 72F0C634234F181700D76B24 /* notificationExten.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		72F0C642234F1EC600D76B24 /* shop_gathering.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */; };
 		C93245B822869835000A2A29 /* SampleProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C93245B622869835000A2A29 /* SampleProject.xcdatamodeld */; };
 		C93245BB22869C0E000A2A29 /* GLD_MessageUserInfoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C93245B922869C0D000A2A29 /* GLD_MessageUserInfoTool.m */; };
 		C93245BE22882E8A000A2A29 /* GLD_GoodsCarListController.m in Sources */ = {isa = PBXBuildFile; fileRef = C93245BD22882E8A000A2A29 /* GLD_GoodsCarListController.m */; };
@@ -319,7 +323,28 @@
 			remoteGlobalIDString = 0F60E9B71FC2754300C5E113;
 			remoteInfo = lingzhi;
 		};
+		72F0C63A234F181700D76B24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F60E9B01FC2754300C5E113 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72F0C633234F181700D76B24;
+			remoteInfo = notificationExten;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		72F0C640234F181700D76B24 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				72F0C63C234F181700D76B24 /* notificationExten.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		075C245191CB367AE2029273 /* Pods-lingzhi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhi.release.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhi/Pods-lingzhi.release.xcconfig"; sourceTree = "<group>"; };
@@ -791,6 +816,12 @@
 		3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BannerModel.m; sourceTree = "<group>"; };
 		72AF308D234DC5BF00E0FD62 /* AppDelegate+JPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+JPush.h"; sourceTree = "<group>"; };
 		72AF308E234DC5C000E0FD62 /* AppDelegate+JPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+JPush.m"; sourceTree = "<group>"; };
+		72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shop_gathering.caf; sourceTree = "<group>"; };
+		72F0C634234F181700D76B24 /* notificationExten.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = notificationExten.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		72F0C636234F181700D76B24 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
+		72F0C637234F181700D76B24 /* NotificationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationService.m; sourceTree = "<group>"; };
+		72F0C639234F181700D76B24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72F0C641234F197300D76B24 /* notificationExten.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = notificationExten.entitlements; sourceTree = "<group>"; };
 		98830999E513C9AF0ABA2FD1 /* Pods-lingzhiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhiTests/Pods-lingzhiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B71A964312F2EC99F300DABB /* Pods-lingzhi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lingzhi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lingzhi/Pods-lingzhi.debug.xcconfig"; sourceTree = "<group>"; };
 		C93245B722869835000A2A29 /* SampleProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleProject.xcdatamodel; sourceTree = "<group>"; };
@@ -921,6 +952,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0A7198DA2A1E213B7CC7C9C /* libPods-lingzhiUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72F0C631234F181700D76B24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1365,6 +1403,7 @@
 				0F60E9BA1FC2754300C5E113 /* lingzhi */,
 				0F60E9D31FC2754300C5E113 /* lingzhiTests */,
 				0F60E9DE1FC2754300C5E113 /* lingzhiUITests */,
+				72F0C635234F181700D76B24 /* notificationExten */,
 				0F60E9B91FC2754300C5E113 /* Products */,
 				0F298E4D1FC28AF500EDBA9A /* Frameworks */,
 				C6AFF2D3FACD3485E5BAD071 /* Pods */,
@@ -1377,6 +1416,7 @@
 				0F60E9B81FC2754300C5E113 /* lingzhi.app */,
 				0F60E9D01FC2754300C5E113 /* lingzhiTests.xctest */,
 				0F60E9DB1FC2754300C5E113 /* lingzhiUITests.xctest */,
+				72F0C634234F181700D76B24 /* notificationExten.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1384,6 +1424,7 @@
 		0F60E9BA1FC2754300C5E113 /* lingzhi */ = {
 			isa = PBXGroup;
 			children = (
+				72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */,
 				0FEA82C720902F17002FBC88 /* protocol.html */,
 				0FE81591204939BB00DE8756 /* AlipaySDK.bundle */,
 				0FE81592204939BB00DE8756 /* AlipaySDK.framework */,
@@ -1902,6 +1943,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		72F0C635234F181700D76B24 /* notificationExten */ = {
+			isa = PBXGroup;
+			children = (
+				72F0C641234F197300D76B24 /* notificationExten.entitlements */,
+				72F0C636234F181700D76B24 /* NotificationService.h */,
+				72F0C637234F181700D76B24 /* NotificationService.m */,
+				72F0C639234F181700D76B24 /* Info.plist */,
+			);
+			path = notificationExten;
+			sourceTree = "<group>";
+		};
 		C6AFF2D3FACD3485E5BAD071 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2007,10 +2059,12 @@
 				0F60E9B51FC2754300C5E113 /* Frameworks */,
 				0F60E9B61FC2754300C5E113 /* Resources */,
 				8F0223DE778EF6B4FF153E9B /* [CP] Copy Pods Resources */,
+				72F0C640234F181700D76B24 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				72F0C63B234F181700D76B24 /* PBXTargetDependency */,
 			);
 			name = lingzhi;
 			productName = lingzhi;
@@ -2055,6 +2109,23 @@
 			productReference = 0F60E9DB1FC2754300C5E113 /* lingzhiUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		72F0C633234F181700D76B24 /* notificationExten */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72F0C63D234F181700D76B24 /* Build configuration list for PBXNativeTarget "notificationExten" */;
+			buildPhases = (
+				72F0C630234F181700D76B24 /* Sources */,
+				72F0C631234F181700D76B24 /* Frameworks */,
+				72F0C632234F181700D76B24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = notificationExten;
+			productName = notificationExten;
+			productReference = 72F0C634234F181700D76B24 /* notificationExten.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -2086,6 +2157,10 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 0F60E9B71FC2754300C5E113;
 					};
+					72F0C633234F181700D76B24 = {
+						CreatedOnToolsVersion = 11.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 0F60E9B31FC2754300C5E113 /* Build configuration list for PBXProject "lingzhi" */;
@@ -2104,6 +2179,7 @@
 				0F60E9B71FC2754300C5E113 /* lingzhi */,
 				0F60E9CF1FC2754300C5E113 /* lingzhiTests */,
 				0F60E9DA1FC2754300C5E113 /* lingzhiUITests */,
+				72F0C633234F181700D76B24 /* notificationExten */,
 			);
 		};
 /* End PBXProject section */
@@ -2145,6 +2221,7 @@
 				0F298E841FC2CFC200EDBA9A /* MTShareView.xib in Resources */,
 				0F80FB2920243D8000F7EE22 /* GLD_ZFBCashCell.xib in Resources */,
 				0FB537361FC6D22A00B0EDA6 /* SGQRCode.bundle in Resources */,
+				72F0C62F234F0E5B00D76B24 /* shop_gathering.caf in Resources */,
 				C961C6C2228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib in Resources */,
 				0F5EC5E0202D6F4200298A7D /* GLD_CountCell.xib in Resources */,
 				C961C6CC228BE6920000CC8E /* GLD_BangBanCell.xib in Resources */,
@@ -2162,6 +2239,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72F0C632234F181700D76B24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72F0C642234F1EC600D76B24 /* shop_gathering.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2499,6 +2584,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		72F0C630234F181700D76B24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72F0C638234F181700D76B24 /* NotificationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2511,6 +2604,11 @@
 			isa = PBXTargetDependency;
 			target = 0F60E9B71FC2754300C5E113 /* lingzhi */;
 			targetProxy = 0F60E9DC1FC2754300C5E113 /* PBXContainerItemProxy */;
+		};
+		72F0C63B234F181700D76B24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72F0C633234F181700D76B24 /* notificationExten */;
+			targetProxy = 72F0C63A234F181700D76B24 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2758,6 +2856,51 @@
 			};
 			name = Release;
 		};
+		72F0C63E234F181700D76B24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = notificationExten/notificationExten.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CW3B6PTZCK;
+				INFOPLIST_FILE = notificationExten/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng.notificationExten;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		72F0C63F234F181700D76B24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_ENTITLEMENTS = notificationExten/notificationExten.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CW3B6PTZCK;
+				INFOPLIST_FILE = notificationExten/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng.notificationExten;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2793,6 +2936,15 @@
 			buildConfigurations = (
 				0F60E9EB1FC2754300C5E113 /* Debug */,
 				0F60E9EC1FC2754300C5E113 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72F0C63D234F181700D76B24 /* Build configuration list for PBXNativeTarget "notificationExten" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72F0C63E234F181700D76B24 /* Debug */,
+				72F0C63F234F181700D76B24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
