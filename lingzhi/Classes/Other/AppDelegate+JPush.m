@@ -98,8 +98,8 @@ static BOOL isProduction = FALSE;
     if ([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         [JPUSHService handleRemoteNotification:userInfo];
     } ;
-    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
-     [self pushHandleInReception:userInfo];
+    completionHandler(UNNotificationPresentationOptionAlert|UNNotificationPresentationOptionSound|UNAuthorizationOptionBadge); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
+//     [self pushHandleInReception:userInfo];
 }
 
 // iOS 10 Support
@@ -126,22 +126,22 @@ static BOOL isProduction = FALSE;
     }
 }
 - (void)pushHandleInReception:(NSDictionary *)dic{
-    if ([dic[@"event"] isEqualToString:@"ORDER"]) {
-        
-        [[AVAudioSession sharedInstance] setActive:YES error:nil];
-        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-        
-        NSURL *url = [[NSBundle mainBundle] URLForResource:@"shop_gathering.caf" withExtension:nil];
-        CFURLRef urlRef = (__bridge CFURLRef)(url);
-        SystemSoundID soundID;
-        //    NSString *path = [[NSBundle mainBundle] pathForResource:@"shop_gathering" ofType:nil];
-        AudioServicesCreateSystemSoundID(urlRef, &soundID);
-        AudioServicesPlaySystemSound(soundID);
-        /*AudioServicesPlaySystemSoundWithCompletion*/
-        AudioServicesPlayAlertSoundWithCompletion(soundID, ^{
-            //            self.contentHandler(self.bestAttemptContent);
-        });
-    }
+//    if ([dic[@"event"] isEqualToString:@"ORDER"]) {
+//
+//        [[AVAudioSession sharedInstance] setActive:YES error:nil];
+//        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+//
+//        NSURL *url = [[NSBundle mainBundle] URLForResource:@"shop_gathering.caf" withExtension:nil];
+//        CFURLRef urlRef = (__bridge CFURLRef)(url);
+//        SystemSoundID soundID;
+//        //    NSString *path = [[NSBundle mainBundle] pathForResource:@"shop_gathering" ofType:nil];
+//        AudioServicesCreateSystemSoundID(urlRef, &soundID);
+//        AudioServicesPlaySystemSound(soundID);
+//        /*AudioServicesPlaySystemSoundWithCompletion*/
+//        AudioServicesPlayAlertSoundWithCompletion(soundID, ^{
+//            //            self.contentHandler(self.bestAttemptContent);
+//        });
+//    }
         
 }
 @end

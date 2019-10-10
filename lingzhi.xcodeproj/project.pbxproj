@@ -2745,6 +2745,7 @@
 				CODE_SIGN_ENTITLEMENTS = lingzhi/lingzhi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2776,6 +2777,7 @@
 				CODE_SIGN_ENTITLEMENTS = lingzhi/lingzhi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2865,10 +2867,12 @@
 				CODE_SIGN_ENTITLEMENTS = notificationExten/notificationExten.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				INFOPLIST_FILE = notificationExten/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 3.7;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng.notificationExten;
@@ -2888,10 +2892,12 @@
 				CODE_SIGN_ENTITLEMENTS = notificationExten/notificationExten.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				INFOPLIST_FILE = notificationExten/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MARKETING_VERSION = 3.7;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng.notificationExten;
 				PRODUCT_NAME = "$(TARGET_NAME)";
