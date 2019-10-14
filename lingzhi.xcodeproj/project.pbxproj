@@ -2761,6 +2761,7 @@
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/WeChat",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/Weibo",
 				);
+				MARKETING_VERSION = 3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2793,6 +2794,7 @@
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/WeChat",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/Weibo",
 				);
+				MARKETING_VERSION = 3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2872,7 +2874,7 @@
 				INFOPLIST_FILE = notificationExten/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 3.7;
+				MARKETING_VERSION = 3.8;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng.notificationExten;
@@ -2897,7 +2899,7 @@
 				INFOPLIST_FILE = notificationExten/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 3.7;
+				MARKETING_VERSION = 3.8;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng.notificationExten;
 				PRODUCT_NAME = "$(TARGET_NAME)";

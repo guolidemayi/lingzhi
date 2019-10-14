@@ -137,7 +137,6 @@
                                   
                                   @"intro" : IsExist_String(self.personalIntroTF.text) ? self.personalIntroTF.text : GetString([AppDelegate shareDelegate].userModel.intro),
                                   @"address" : IsExist_String(self.locationTF.text) ? self.locationTF.text : GetString([AppDelegate shareDelegate].userModel.address),
-                                  @"inviteCode" : GetString([AppDelegate shareDelegate].userModel.inviteCode),
                                   @"password" : GetString([AppDelegate shareDelegate].userModel.password),
                                   @"sex" : IsExist_String(self.genderTF.text) ? self.genderTF.text : GetString([AppDelegate shareDelegate].userModel.sex),
                                   @"name" : IsExist_String(self.nicknameTF.text) ? self.nicknameTF.text : GetString([AppDelegate shareDelegate].userModel.name),
@@ -151,6 +150,11 @@
     if (self.isWechat) {
         NSString *openId = [[NSUserDefaults standardUserDefaults] objectForKey:Last_YXVZB_WeiXinAuthOpenId];
         [dict addEntriesFromDictionary:@{@"openId":GetString(openId)}];
+    }
+    NSString *inviteCode = [[NSUserDefaults standardUserDefaults] objectForKey:@"inverCode"];
+    if (IsExist_String(inviteCode)) {
+        [dict addEntriesFromDictionary:@{@"inviteCode":inviteCode}];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"inverCode"];
     }
     config.requestParameters = dict;
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {

@@ -62,6 +62,7 @@
 }
 - (void)setupUI{
     self.table_mine = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.table_mine.backgroundColor = [UIColor whiteColor];
     self.table_mine.mj_insetB = W(80);
     [self.view addSubview:self.table_mine];
     self.mineManager = [[GLD_MineManager alloc]initWithTableView:self.table_mine];

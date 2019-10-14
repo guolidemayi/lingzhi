@@ -15,6 +15,7 @@
 #import "GLD_BusnessModel.h"
 #import "GLD_StoreDetailCell.h"
 #import "GLD_GoodsDetailController.h"
+#import "GLD_PictureView.h"
 
 @interface GLD_BusinessDetailManager ()<SDCycleScrollViewDelegate>
 @property (nonatomic, strong)SDCycleScrollView *cycleView;
@@ -160,6 +161,26 @@
     return 5;
 }
 
+
+
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    
+    if ([self.busnessModel.logo containsString:@","]) {
+               
+        NSArray *arrM = [self.busnessModel.logo componentsSeparatedByString:@","];
+        NSMutableArray *arr = [NSMutableArray array];
+        for (int i = 0; i < arrM.count-1; i++) {
+            
+            NSString *str = arrM[i];
+            if ([str hasPrefix:@"http"]) {
+                [arr addObject:str];
+            }
+        }
+            
+        GLD_PictureView * broser = [[GLD_PictureView alloc]initWithImageArray:arr currentIndex:index];
+        [broser show];
+    }
+}
 - (SDCycleScrollView *)cycleView{
     if (!_cycleView) {
         _cycleView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectZero

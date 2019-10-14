@@ -75,10 +75,10 @@
     [self.navigationController.view sendSubviewToBack:self.chooseGoodsView];
     if (index.length != 0) {
 #warning __规格
-        self.storeModel.chooseNorms = index;
-        self.storeModel.seleteCount = count;
-        [self hasWriteAddress];
     }
+    self.storeModel.chooseNorms = index;
+    self.storeModel.seleteCount = count;
+    [self hasWriteAddress];
 }
 //click
 - (void)applybutClick{

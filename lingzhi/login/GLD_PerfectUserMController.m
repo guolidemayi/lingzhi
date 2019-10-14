@@ -86,6 +86,8 @@
     [AppDelegate shareDelegate].userModel.password = self.PersonTF.text;
 //    [AppDelegate shareDelegate].userModel.inverCode = self.invitationTF.text;
     GLD_BindingPhoneController *bindingVc = [GLD_BindingPhoneController new];
+    if (IsExist_String(self.invitationTF.text)) 
+    [[NSUserDefaults standardUserDefaults] setObject:self.invitationTF.text forKey:@"inverCode"];
     [self.navigationController pushViewController:bindingVc animated:YES];
 }
 - (void)agreeMentButClick{
