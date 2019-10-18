@@ -259,6 +259,7 @@
 		3CA74E511FD2829200A7F137 /* GLD_BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */; };
 		5B3789A9B5E4EF8A0BE2141F /* libPods-lingzhiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */; };
 		64BFBA665871E50399A6E013 /* libPods-lingzhi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C3E6708F716104D709C04A /* libPods-lingzhi.a */; };
+		7260782A2359FD42005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 726078292359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m */; };
 		72AF308F234DC5C000E0FD62 /* AppDelegate+JPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF308E234DC5C000E0FD62 /* AppDelegate+JPush.m */; };
 		72F0C62F234F0E5B00D76B24 /* shop_gathering.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */; };
 		72F0C638234F181700D76B24 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F0C637234F181700D76B24 /* NotificationService.m */; };
@@ -814,6 +815,8 @@
 		3CA74E4D1FD2808300A7F137 /* GLD_IndustryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_IndustryModel.m; sourceTree = "<group>"; };
 		3CA74E4F1FD2829200A7F137 /* GLD_BannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BannerModel.h; sourceTree = "<group>"; };
 		3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BannerModel.m; sourceTree = "<group>"; };
+		726078282359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+GLD_AdaptLayout.h"; sourceTree = "<group>"; };
+		726078292359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+GLD_AdaptLayout.m"; sourceTree = "<group>"; };
 		72AF308D234DC5BF00E0FD62 /* AppDelegate+JPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+JPush.h"; sourceTree = "<group>"; };
 		72AF308E234DC5C000E0FD62 /* AppDelegate+JPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+JPush.m"; sourceTree = "<group>"; };
 		72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shop_gathering.caf; sourceTree = "<group>"; };
@@ -1160,6 +1163,8 @@
 				0F298E721FC2CFC200EDBA9A /* UIDevice+DeviceMode.m */,
 				0F298E731FC2CFC200EDBA9A /* UILabel+StringFrame.h */,
 				0F298E741FC2CFC200EDBA9A /* UILabel+StringFrame.m */,
+				726078282359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.h */,
+				726078292359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m */,
 				0F298E751FC2CFC200EDBA9A /* WTFont */,
 				0F298E781FC2CFC200EDBA9A /* YXUniversal.h */,
 				0F298E791FC2CFC200EDBA9A /* YXUniversal.m */,
@@ -2414,6 +2419,7 @@
 				0F2C2F5A1FF62E330083BCCB /* GLD_BBSStandardView.m in Sources */,
 				3CA74E4E1FD2808300A7F137 /* GLD_IndustryModel.m in Sources */,
 				0F28D28C1FD671F000138A8B /* GLD_MineSettingCell.m in Sources */,
+				7260782A2359FD42005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m in Sources */,
 				0F54462421103F6E009FAE8E /* GLD_PostExpressController.m in Sources */,
 				339EF9631FF9295500C6170E /* GLD_RemindModel.m in Sources */,
 				0F28D2CC1FDA2C9600138A8B /* GLD_MapModel.m in Sources */,

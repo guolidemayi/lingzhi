@@ -131,8 +131,11 @@
                            } andComplentBlock:^(id result) {
         GLD_ExpressListModel *listModel = [[GLD_ExpressListModel alloc]initWithDictionary:result error:nil];
         
+        
         if (listModel.data.count > 0) {
-            [weakSelf.commentArrM addObjectsFromArray:listModel.data];
+            [weakSelf.commentArrM addObjectsFromArray: [listModel.data.rac_sequence map:^id _Nullable(GLD_ExpressModel  *_Nullable value) {
+                return [[GLD_ExpressViewModel alloc]initWithModel:value];
+            }].array];
             [weakSelf.commentTable.mj_footer endRefreshing];
         }else{
             [weakSelf.commentTable.mj_footer endRefreshingWithNoMoreData];

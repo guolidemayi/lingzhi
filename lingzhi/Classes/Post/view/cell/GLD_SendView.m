@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *daiMaiImageV;
 @property (weak, nonatomic) IBOutlet UIImageView *bangBanImageV;
 @property (weak, nonatomic) IBOutlet UIImageView *shareImageV;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftCanterC;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightCenterC;
 
 @end
 @implementation GLD_SendView
@@ -27,6 +29,9 @@
 }
 
 - (void)initdata{
+    
+    self.rightCenterC.constant = W(89);
+    self.leftCanterC.constant = W(-89);
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.urlPath = deliveryCategoryRequest;
     config.requestParameters = @{

@@ -65,31 +65,57 @@
                 <constraint firstItem="yQU-Mv-kou" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="90" id="Fvi-An-jXx"/>
                 <constraint firstItem="bDH-aX-JMg" firstAttribute="height" secondItem="XPQ-TO-MUm" secondAttribute="height" id="GVo-8m-bGU"/>
                 <constraint firstItem="yQU-Mv-kou" firstAttribute="top" secondItem="3wN-XU-TpD" secondAttribute="top" id="Jki-7P-wKY"/>
-                <constraint firstItem="XPQ-TO-MUm" firstAttribute="width" secondItem="3wN-XU-TpD" secondAttribute="width" id="Kk5-oA-XJV"/>
+                <constraint firstItem="XPQ-TO-MUm" firstAttribute="width" secondItem="3wN-XU-TpD" secondAttribute="width" id="Kk5-oA-XJV">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="GrN-BU-CUp" firstAttribute="top" secondItem="bDH-aX-JMg" secondAttribute="top" id="LZT-Cs-0YO"/>
                 <constraint firstItem="bDH-aX-JMg" firstAttribute="width" secondItem="XPQ-TO-MUm" secondAttribute="width" id="P6z-Hu-3D7"/>
                 <constraint firstItem="xnY-BQ-ydt" firstAttribute="top" secondItem="3wN-XU-TpD" secondAttribute="top" id="PXk-7l-MNq"/>
                 <constraint firstItem="yQU-Mv-kou" firstAttribute="height" secondItem="3wN-XU-TpD" secondAttribute="height" id="WvO-mi-d9b"/>
                 <constraint firstItem="GrN-BU-CUp" firstAttribute="leading" secondItem="bDH-aX-JMg" secondAttribute="leading" id="X4O-48-CZP"/>
-                <constraint firstItem="bDH-aX-JMg" firstAttribute="centerX" secondItem="yQU-Mv-kou" secondAttribute="centerX" id="YcX-16-Rz8"/>
+                <constraint firstItem="bDH-aX-JMg" firstAttribute="centerX" secondItem="yQU-Mv-kou" secondAttribute="centerX" id="YcX-16-Rz8">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="0ca-BY-CeZ" firstAttribute="top" secondItem="yQU-Mv-kou" secondAttribute="top" id="Z0O-UX-x5F"/>
                 <constraint firstItem="bDH-aX-JMg" firstAttribute="centerY" secondItem="XPQ-TO-MUm" secondAttribute="centerY" id="bNG-pb-ZVM"/>
-                <constraint firstItem="XPQ-TO-MUm" firstAttribute="top" secondItem="3wN-XU-TpD" secondAttribute="bottom" id="dqC-92-27n"/>
-                <constraint firstItem="iMe-KP-T94" firstAttribute="top" secondItem="XPQ-TO-MUm" secondAttribute="top" id="dxW-Qy-oCN"/>
+                <constraint firstItem="XPQ-TO-MUm" firstAttribute="top" secondItem="3wN-XU-TpD" secondAttribute="bottom" id="dqC-92-27n">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
+                <constraint firstItem="iMe-KP-T94" firstAttribute="top" secondItem="XPQ-TO-MUm" secondAttribute="top" id="dxW-Qy-oCN">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="3wN-XU-TpD" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-90" id="fzZ-kr-AIc"/>
                 <constraint firstItem="0ca-BY-CeZ" firstAttribute="leading" secondItem="yQU-Mv-kou" secondAttribute="leading" id="iYe-cG-sln"/>
                 <constraint firstItem="xnY-BQ-ydt" firstAttribute="leading" secondItem="3wN-XU-TpD" secondAttribute="leading" id="mr0-4a-fdE"/>
                 <constraint firstItem="3wN-XU-TpD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="oUs-ec-YPE"/>
-                <constraint firstItem="yQU-Mv-kou" firstAttribute="width" secondItem="3wN-XU-TpD" secondAttribute="width" id="sZp-lY-hD0"/>
+                <constraint firstItem="yQU-Mv-kou" firstAttribute="width" secondItem="3wN-XU-TpD" secondAttribute="width" id="sZp-lY-hD0">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
                 <constraint firstItem="XPQ-TO-MUm" firstAttribute="height" secondItem="3wN-XU-TpD" secondAttribute="height" id="whH-vR-ZtJ"/>
-                <constraint firstItem="XPQ-TO-MUm" firstAttribute="centerX" secondItem="3wN-XU-TpD" secondAttribute="centerX" id="z0Q-rP-Pj0"/>
+                <constraint firstItem="XPQ-TO-MUm" firstAttribute="centerX" secondItem="3wN-XU-TpD" secondAttribute="centerX" id="z0Q-rP-Pj0">
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adapterScreen" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </constraint>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="bangBanImageV" destination="XPQ-TO-MUm" id="Mx1-Fk-gU4"/>
                 <outlet property="daiMaiImageV" destination="yQU-Mv-kou" id="56K-gz-8hc"/>
+                <outlet property="leftCanterC" destination="fzZ-kr-AIc" id="pBa-Sf-zeK"/>
                 <outlet property="paoTuiImageV" destination="3wN-XU-TpD" id="xPF-JX-Qzp"/>
+                <outlet property="rightCenterC" destination="Fvi-An-jXx" id="Kcd-al-HYO"/>
                 <outlet property="shareImageV" destination="bDH-aX-JMg" id="oOG-Ul-D6h"/>
             </connections>
             <point key="canvasLocation" x="105.07246376811595" y="115.17857142857142"/>

@@ -132,7 +132,7 @@ UICollectionViewDataSource>
         _flowLayout = [[LJCollectionViewFlowLayout alloc] init];
         _flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
         _flowLayout.minimumInteritemSpacing = 10;
-        _flowLayout.minimumLineSpacing = 10;
+        _flowLayout.minimumLineSpacing = 0;
     }
     return _flowLayout;
 }
@@ -144,6 +144,7 @@ UICollectionViewDataSource>
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(kCollectionViewMargin + kLeftTableViewWidth, kCollectionViewMargin, DEVICE_WIDTH - kLeftTableViewWidth - 2 * kCollectionViewMargin, DEVICE_HEIGHT - 2 * kCollectionViewMargin) collectionViewLayout:self.flowLayout];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+        
         _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
         _collectionView.showsVerticalScrollIndicator = NO;
         _collectionView.showsHorizontalScrollIndicator = NO;

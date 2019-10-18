@@ -64,7 +64,7 @@
 
     self.plusBtn.x = self.centerX - W(25);
     //调整发布按钮的中线点Y值
-    self.plusBtn.y = -W(10) ;
+    self.plusBtn.y = -W(12) ;
 
     self.plusBtn.size = CGSizeMake(W(60), W(60));
 

@@ -8,7 +8,7 @@
 
 #import "GLD_ShareAppCell.h"
 #import "GLD_ShareAppModel.h"
-#import "UIImageView+WebCache.h"
+//#import "UIImageView+WebCache.h"
 
 @interface GLD_ShareAppCell ()
 @end
@@ -24,9 +24,12 @@
 }
 - (void)setModel:(GLD_ShareAppModel *)model{
     _model = model;
-    [self.imgV sd_setImageWithURL:[NSURL URLWithString:model.logo] placeholderImage:nil options:SDWebImageAllowInvalidSSLCertificates];
-//    self.imgV.yy_imageURL = [NSURL URLWithString:@"http://ww4.sinaimg.cn/large/62b4e495gw1evvzalu8y8j20p018ggnw.jpg"];
-//    [self.imgV yy_setImageWithURL:[NSURL URLWithString:model.logo] placeholder:WTImage(@"")];
+//    [self.imgV sd_setImageWithURL:[NSURL URLWithString:model.logo] placeholderImage:nil options:SDWebImageAllowInvalidSSLCertificates];
+    
+    NSString *logStr = [model.logo stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    self.imgV.yy_imageURL = [NSURL URLWithString:logStr];
+//    NSURL *url = [NSURL URLWithString:model.logo];
+//    [self.imgV yy_setImageWithURL:url placeholder:WTImage(@"")];
     self.titleLabel.text = model.name;
 }
 @end

@@ -28,7 +28,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setViewModel:(id<GLD_ExpressViewModelProtocol>)viewModel{
