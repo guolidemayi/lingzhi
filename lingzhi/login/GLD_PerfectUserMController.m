@@ -13,6 +13,7 @@
 #import "GLD_CustomBut.h"
 #import "GLD_BindingPhoneController.h"
 #import "GLD_UserProtocolController.h"
+#import "TestViewController.h"
 
 @interface GLD_PerfectUserMController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
@@ -27,11 +28,19 @@
 @property (nonatomic, strong) BRTextField *phoneTF;
 /** 邀请码 */
 @property (nonatomic, strong) BRTextField *invitationTF;
+//验证码
+@property (nonatomic, strong)BRTextField *verificationTF;
 
 @property (nonatomic, strong) NSArray *titleArr;//
 @property (nonatomic, strong)UIButton *applyBut;//提交
 @property (nonatomic, strong)UIButton *agreeBut;//同意
 @property (nonatomic, strong)UIButton *agreeMentBut;//用户协议
+//验证码but
+@property (nonatomic, weak)UIButton *verificationBut;
+
+@property (nonatomic, strong)NSTimer *verificationTimer;
+@property (nonatomic, strong)NSString *phoneCode;
+
 @end
 
 @implementation GLD_PerfectUserMController
@@ -48,6 +57,8 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:locationBut];
     self.navigationItem.leftBarButtonItem = item;
     self.title = @"注册";
+    
+    self.phoneCode = @"-1";
 
 }
 - (void)backAction{
@@ -85,10 +96,82 @@
     [AppDelegate shareDelegate].userModel.phone = self.phoneTF.text;
     [AppDelegate shareDelegate].userModel.password = self.PersonTF.text;
 //    [AppDelegate shareDelegate].userModel.inverCode = self.invitationTF.text;
-    GLD_BindingPhoneController *bindingVc = [GLD_BindingPhoneController new];
+    
     if (IsExist_String(self.invitationTF.text)) 
     [[NSUserDefaults standardUserDefaults] setObject:self.invitationTF.text forKey:@"inverCode"];
-    [self.navigationController pushViewController:bindingVc animated:YES];
+    
+    BOOL isFromd = [[NSUserDefaults standardUserDefaults]boolForKey:@"weixinLogin"];
+        if (isFromd) {
+    //        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"weixinLogin"];
+    //        [[AppDelegate shareDelegate] initMainPageBody];
+            [self getSave];
+        }else{
+            
+            if([self.phoneCode isEqualToString:self.verificationTF.text]){
+                //下一步
+                TestViewController *backVc = [TestViewController new];
+                backVc.type = 1;
+                [self.navigationController pushViewController:backVc animated:YES];
+            }else{
+                [CAToast showWithText:@"验证码不正确"];
+            }
+        }
+    
+}
+
+- (void)getSave{
+    WS(weakSelf);
+
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/regUser";
+   
+    NSMutableDictionary *dict = @{@"phone" : GetString([AppDelegate shareDelegate].userModel.phone),
+                                  
+                                  @"password" : GetString([AppDelegate shareDelegate].userModel.password),
+                                  
+                                  @"name" : GetString([AppDelegate shareDelegate].userModel.name),
+                                  
+                                  @"iconImage" : GetString([AppDelegate shareDelegate].userModel.iconImage),
+                                  @"inviteCode":GetString(self.invitationTF.text)
+                                  }.mutableCopy;
+    
+    NSString *openId = [[NSUserDefaults standardUserDefaults] objectForKey:Last_YXVZB_WeiXinAuthOpenId];
+    [dict addEntriesFromDictionary:@{@"openId":GetString(openId)}];
+    NSString *inviteCode = [[NSUserDefaults standardUserDefaults] objectForKey:@"inverCode"];
+    if (IsExist_String(inviteCode)) {
+        [dict addEntriesFromDictionary:@{@"inviteCode":inviteCode}];
+        [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"inverCode"];
+    }
+    config.requestParameters = dict;
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            if ([result[@"code"] integerValue] != 200) {
+                [CAToast showWithText:result[@"msg"]];
+                return ;
+            }
+            GLD_UserModel *model = [[GLD_UserModel alloc] initWithDictionary:result error:&error];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [AppDelegate shareDelegate].userModel = model.data;
+                if (IsExist_String(model.data.loginToken)) {
+                    [[NSUserDefaults standardUserDefaults] setObject:model.data.loginToken forKey:@"loginToken"];
+                }
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];
+                BOOL isFromd = [[NSUserDefaults standardUserDefaults]boolForKey:@"weixinLogin"];
+                if (isFromd) {
+                    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"weixinLogin"];
+                    [[AppDelegate shareDelegate] initMainPageBody];
+                }else{
+                    
+                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                }
+            });
+            
+        }else{
+            [CAToast showWithText:@"请求错误"];
+        }
+    }];
 }
 - (void)agreeMentButClick{
     NSLog(@"用户协议");
@@ -133,6 +216,10 @@
         case 3:{
             
             [self setupInvitationTF:cell];
+        }break;
+            case 4:
+        {
+            [self setupVerificationTF:cell];
         }break;
             
     }
@@ -185,7 +272,73 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self.view endEditing:YES];
 }
+- (void)sendVerificationClick:(UIButton *)senser{
+    
+    if (!IsExist_String(self.phoneTF.text) || ![YXUniversal isValidateMobile:self.phoneTF.text]) {
+           [CAToast showWithText:@"请输入正确手机号"];
+           return;
+       }
+    //验证码
+    WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/user/sms";
+    config.requestParameters = @{@"phone" : GetString(self.phoneTF.text)};
+    
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        senser.enabled = NO;
+        [weakSelf.view endEditing:YES];
+        [senser setTitle:@"59" forState:UIControlStateNormal];
+        weakSelf.verificationTimer = [NSTimer scheduledTimerWithTimeInterval:1
+                                                                  target:self
+                                                                selector:@selector(timerAction:)
+                                                                userInfo:nil
+                                                                 repeats:YES];
+        NSString *str = result[@"data"];
+//        [CAToast showWithText:str duration:3];
+        weakSelf.phoneCode = str;
+    }];
+   
+    
+    
+}
 
+- (void)timerAction:(NSTimer *)timer{
+    
+    
+    NSInteger time = [self.verificationBut.titleLabel.text integerValue];
+    [self.verificationBut setTitle:[NSString stringWithFormat:@"%zd",--time] forState:UIControlStateNormal];
+    if(time == 0){
+        self.verificationBut.enabled = YES;
+        [self.verificationBut setTitle:@"重新获取" forState:UIControlStateNormal];
+        [self.verificationTimer invalidate];
+        self.verificationTimer = nil;
+    }
+}
+#pragma mark - 验证码
+- (void)setupVerificationTF:(UITableViewCell *)cell{
+    if (!_verificationTF) {
+        _verificationTF = [self getTextField:cell];
+        _verificationTF.placeholder = @"请输入验证码";
+        _verificationTF.returnKeyType = UIReturnKeyDone;
+        _verificationTF.keyboardType = UIKeyboardTypeNumberPad;
+        _verificationTF.tag = 3;
+        UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - W(130), W(5), W(100), W(30))];
+        but.titleLabel.font = WTFont(15);
+        _verificationTF.frame = CGRectMake(SCREEN_WIDTH - W(260), 0, W(100), W(50));
+        [cell.contentView addSubview:but];
+        [but setTitleColor:[YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE] forState:UIControlStateNormal];
+        but.layer.cornerRadius = 3;
+        but.layer.masksToBounds = YES;
+        but.layer.borderColor = [YXUniversal colorWithHexString:COLOR_YX_DRAKBLUE].CGColor;
+        but.layer.borderWidth = 1;
+        self.verificationBut = but;
+        [but setTitle:@"获取验证码" forState:UIControlStateNormal];
+        [but addTarget:self action:@selector(sendVerificationClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
+}
 #pragma mark - 申请人姓名
 - (void)setupNameTF:(UITableViewCell *)cell{
     if (!_nameTF) {
@@ -248,7 +401,7 @@
 }
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"手机号",@"密码",@"确认密码",@"邀请码"];
+        _titleArr = @[@"手机号",@"密码",@"确认密码",@"邀请码",@"验证码"];
     }
     return _titleArr;
 }

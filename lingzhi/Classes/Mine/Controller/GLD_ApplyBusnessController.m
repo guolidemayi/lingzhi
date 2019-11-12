@@ -203,8 +203,8 @@
         [CAToast showWithText:@"请输入折扣"];
         return;
     }
-    if(self.discountTF.text.integerValue > 10){
-        [CAToast showWithText:@"请输入正确的折扣"];
+    if(self.discountTF.text.integerValue > 10 || self.discountTF.text.integerValue < 1){
+        [CAToast showWithText:@"折扣范围再 1-9.5 之间"];
         return;
     }
     if(!IsExist_String(self.industryTF.text)){

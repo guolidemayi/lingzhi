@@ -173,12 +173,12 @@
     }
     return _cycleView;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    GLD_BusinessDetailController *detaileVc = [GLD_BusinessDetailController new];
-    detaileVc.busnessModel = self.dataArrM[indexPath.row];
-    [self.navigationController pushViewController:detaileVc animated:YES];
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    GLD_BusinessDetailController *detaileVc = [GLD_BusinessDetailController new];
+//    detaileVc.busnessModel = self.dataArrM[indexPath.row];
+//    [self.navigationController pushViewController:detaileVc animated:YES];
+//}
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     if([AppDelegate shareDelegate].placemark){
