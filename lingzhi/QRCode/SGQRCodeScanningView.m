@@ -21,8 +21,8 @@
 #define scanBorderY 0.5 * (self.frame.size.height - scanBorderW)
 
 @interface SGQRCodeScanningView ()
-@property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIImageView *scanningline;
 @end
 

@@ -974,8 +974,8 @@
         if (IsExist_String(self.busnessModel.logo)) {
             NSArray *arr = [self.busnessModel.logo componentsSeparatedByString:@","];
             if (arr.count > 0) {
-                _iconImgV1.yy_imageURL = [NSURL URLWithString:arr[1]];
-                self.stordUpdateImg = arr[1];
+                _iconImgV1.yy_imageURL = [NSURL URLWithString:arr[0]];
+                self.stordUpdateImg = arr[0];
             }
         }
     }
