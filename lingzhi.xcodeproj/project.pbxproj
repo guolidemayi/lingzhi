@@ -259,8 +259,48 @@
 		3CA74E511FD2829200A7F137 /* GLD_BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */; };
 		5B3789A9B5E4EF8A0BE2141F /* libPods-lingzhiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */; };
 		64BFBA665871E50399A6E013 /* libPods-lingzhi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C3E6708F716104D709C04A /* libPods-lingzhi.a */; };
+		725C265123C98E5500B6658B /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCB23C8A62B00E3009D /* iflyMSC.framework */; };
+		725C265623C99CA900B6658B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFD123C8A6A200E3009D /* AudioToolbox.framework */; };
+		725C265723C99CB500B6658B /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCF23C8A68100E3009D /* Contacts.framework */; };
+		725C265823C99CB800B6658B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCD23C8A66600E3009D /* AddressBook.framework */; };
+		725C265923C99CBC00B6658B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159B20493AA400DE8756 /* CoreMotion.framework */; };
+		725C265A23C99CC100B6658B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159720493A5300DE8756 /* QuartzCore.framework */; };
+		725C265B23C99CC400B6658B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159520493A1700DE8756 /* libc++.tbd */; };
+		725C265C23C99CD700B6658B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339EF9761FF93C7900C6170E /* UIKit.framework */; };
+		725C265D23C99D0A00B6658B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298E4E1FC28AF600EDBA9A /* CoreLocation.framework */; };
+		725C265F23C99D1700B6658B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EB41FC2DAC600EDBA9A /* Foundation.framework */; };
+		725C266023C99D1B00B6658B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EB61FC2DAE100EDBA9A /* CoreGraphics.framework */; };
+		725C266123C99D2300B6658B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EBE1FC2DB2800EDBA9A /* CFNetwork.framework */; };
+		725C266223C99D2700B6658B /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EBC1FC2DB1900EDBA9A /* CoreFoundation.framework */; };
+		725C266323C99D2B00B6658B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EBA1FC2DB0D00EDBA9A /* CoreTelephony.framework */; };
+		725C266523C99D8A00B6658B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C266423C99D8A00B6658B /* AVFoundation.framework */; };
+		725C266623C99D9400B6658B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EB81FC2DAFA00EDBA9A /* SystemConfiguration.framework */; };
+		725C266723C99DAA00B6658B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EB01FC2DAAF00EDBA9A /* libz.tbd */; };
+		725C266823C99E0D00B6658B /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EAC1FC2DA9600EDBA9A /* UserNotifications.framework */; };
+		725C26C823C9D0DA00B6658B /* tts_七.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B623C9D0D900B6658B /* tts_七.caf */; };
+		725C26C923C9D0DA00B6658B /* tts_六.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B723C9D0D900B6658B /* tts_六.caf */; };
+		725C26CA23C9D0DA00B6658B /* tts_二.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B823C9D0D900B6658B /* tts_二.caf */; };
+		725C26CB23C9D0DA00B6658B /* tts_五.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B923C9D0D900B6658B /* tts_五.caf */; };
+		725C26CC23C9D0DA00B6658B /* tts_九.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BA23C9D0D900B6658B /* tts_九.caf */; };
+		725C26CD23C9D0DA00B6658B /* tts_三.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BB23C9D0DA00B6658B /* tts_三.caf */; };
+		725C26CE23C9D0DA00B6658B /* tts_一.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BC23C9D0DA00B6658B /* tts_一.caf */; };
+		725C26CF23C9D0DA00B6658B /* tts_元.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BD23C9D0DA00B6658B /* tts_元.caf */; };
+		725C26D023C9D0DA00B6658B /* tts_default.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BE23C9D0DA00B6658B /* tts_default.mp3 */; };
+		725C26D223C9D0DA00B6658B /* tts_千.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C023C9D0DA00B6658B /* tts_千.caf */; };
+		725C26D323C9D0DA00B6658B /* tts_十.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C123C9D0DA00B6658B /* tts_十.caf */; };
+		725C26D423C9D0DA00B6658B /* tts_百.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C223C9D0DA00B6658B /* tts_百.caf */; };
+		725C26D523C9D0DA00B6658B /* tts_零.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C323C9D0DA00B6658B /* tts_零.caf */; };
+		725C26D623C9D0DA00B6658B /* tts_点.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C423C9D0DA00B6658B /* tts_点.caf */; };
+		725C26D723C9D0DA00B6658B /* tts_四.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C523C9D0DA00B6658B /* tts_四.caf */; };
+		725C26D823C9D0DA00B6658B /* tts_万.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C623C9D0DA00B6658B /* tts_万.caf */; };
+		725C26D923C9D0DA00B6658B /* tts_pre.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C723C9D0DA00B6658B /* tts_pre.mp3 */; };
+		725C26DB23C9D37500B6658B /* tts_ba.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26DA23C9D37400B6658B /* tts_ba.caf */; };
 		7260782A2359FD42005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 726078292359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m */; };
 		72AF308F234DC5C000E0FD62 /* AppDelegate+JPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF308E234DC5C000E0FD62 /* AppDelegate+JPush.m */; };
+		72CCBFCE23C8A66600E3009D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCD23C8A66600E3009D /* AddressBook.framework */; };
+		72CCBFD023C8A68100E3009D /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCF23C8A68100E3009D /* Contacts.framework */; };
+		72CCBFD223C8A6A200E3009D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFD123C8A6A200E3009D /* AudioToolbox.framework */; };
+		72CCBFD323C8A6B800E3009D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EBA1FC2DB0D00EDBA9A /* CoreTelephony.framework */; };
 		72F0C62F234F0E5B00D76B24 /* shop_gathering.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */; };
 		72F0C638234F181700D76B24 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F0C637234F181700D76B24 /* NotificationService.m */; };
 		72F0C63C234F181700D76B24 /* notificationExten.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 72F0C634234F181700D76B24 /* notificationExten.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -815,10 +855,33 @@
 		3CA74E4D1FD2808300A7F137 /* GLD_IndustryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_IndustryModel.m; sourceTree = "<group>"; };
 		3CA74E4F1FD2829200A7F137 /* GLD_BannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BannerModel.h; sourceTree = "<group>"; };
 		3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BannerModel.m; sourceTree = "<group>"; };
+		725C266423C99D8A00B6658B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		725C26B623C9D0D900B6658B /* tts_七.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_七.caf"; sourceTree = "<group>"; };
+		725C26B723C9D0D900B6658B /* tts_六.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_六.caf"; sourceTree = "<group>"; };
+		725C26B823C9D0D900B6658B /* tts_二.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_二.caf"; sourceTree = "<group>"; };
+		725C26B923C9D0D900B6658B /* tts_五.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_五.caf"; sourceTree = "<group>"; };
+		725C26BA23C9D0D900B6658B /* tts_九.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_九.caf"; sourceTree = "<group>"; };
+		725C26BB23C9D0DA00B6658B /* tts_三.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_三.caf"; sourceTree = "<group>"; };
+		725C26BC23C9D0DA00B6658B /* tts_一.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_一.caf"; sourceTree = "<group>"; };
+		725C26BD23C9D0DA00B6658B /* tts_元.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_元.caf"; sourceTree = "<group>"; };
+		725C26BE23C9D0DA00B6658B /* tts_default.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tts_default.mp3; sourceTree = "<group>"; };
+		725C26C023C9D0DA00B6658B /* tts_千.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_千.caf"; sourceTree = "<group>"; };
+		725C26C123C9D0DA00B6658B /* tts_十.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_十.caf"; sourceTree = "<group>"; };
+		725C26C223C9D0DA00B6658B /* tts_百.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_百.caf"; sourceTree = "<group>"; };
+		725C26C323C9D0DA00B6658B /* tts_零.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_零.caf"; sourceTree = "<group>"; };
+		725C26C423C9D0DA00B6658B /* tts_点.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_点.caf"; sourceTree = "<group>"; };
+		725C26C523C9D0DA00B6658B /* tts_四.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_四.caf"; sourceTree = "<group>"; };
+		725C26C623C9D0DA00B6658B /* tts_万.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_万.caf"; sourceTree = "<group>"; };
+		725C26C723C9D0DA00B6658B /* tts_pre.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tts_pre.mp3; sourceTree = "<group>"; };
+		725C26DA23C9D37400B6658B /* tts_ba.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tts_ba.caf; sourceTree = "<group>"; };
 		726078282359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+GLD_AdaptLayout.h"; sourceTree = "<group>"; };
 		726078292359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+GLD_AdaptLayout.m"; sourceTree = "<group>"; };
 		72AF308D234DC5BF00E0FD62 /* AppDelegate+JPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+JPush.h"; sourceTree = "<group>"; };
 		72AF308E234DC5C000E0FD62 /* AppDelegate+JPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+JPush.m"; sourceTree = "<group>"; };
+		72CCBFCB23C8A62B00E3009D /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		72CCBFCD23C8A66600E3009D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		72CCBFCF23C8A68100E3009D /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
+		72CCBFD123C8A6A200E3009D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shop_gathering.caf; sourceTree = "<group>"; };
 		72F0C634234F181700D76B24 /* notificationExten.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = notificationExten.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F0C636234F181700D76B24 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
@@ -923,12 +986,16 @@
 				0F28D2BB1FD7DDE400138A8B /* MapKit.framework in Frameworks */,
 				0F298ECD1FC2DC3000EDBA9A /* libxml2.2.tbd in Frameworks */,
 				0FE81594204939BB00DE8756 /* AlipaySDK.framework in Frameworks */,
+				72CCBFD023C8A68100E3009D /* Contacts.framework in Frameworks */,
 				0F298ECB1FC2DBD800EDBA9A /* libiconv.tbd in Frameworks */,
+				72CCBFCE23C8A66600E3009D /* AddressBook.framework in Frameworks */,
 				0F298EC91FC2DB9700EDBA9A /* libresolv.9.tbd in Frameworks */,
 				0F298EC71FC2DB8800EDBA9A /* libz.1.tbd in Frameworks */,
 				0F298EC51FC2DB7B00EDBA9A /* libsqlite3.0.tbd in Frameworks */,
 				0F298EBD1FC2DB1A00EDBA9A /* CoreFoundation.framework in Frameworks */,
 				0F298EBB1FC2DB0D00EDBA9A /* CoreTelephony.framework in Frameworks */,
+				72CCBFD223C8A6A200E3009D /* AudioToolbox.framework in Frameworks */,
+				72CCBFD323C8A6B800E3009D /* CoreTelephony.framework in Frameworks */,
 				0F298EB91FC2DAFA00EDBA9A /* SystemConfiguration.framework in Frameworks */,
 				0F298EB71FC2DAE100EDBA9A /* CoreGraphics.framework in Frameworks */,
 				0F298EB51FC2DAC600EDBA9A /* Foundation.framework in Frameworks */,
@@ -962,6 +1029,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				725C266223C99D2700B6658B /* CoreFoundation.framework in Frameworks */,
+				725C265123C98E5500B6658B /* iflyMSC.framework in Frameworks */,
+				725C266523C99D8A00B6658B /* AVFoundation.framework in Frameworks */,
+				725C266323C99D2B00B6658B /* CoreTelephony.framework in Frameworks */,
+				725C265C23C99CD700B6658B /* UIKit.framework in Frameworks */,
+				725C265B23C99CC400B6658B /* libc++.tbd in Frameworks */,
+				725C266623C99D9400B6658B /* SystemConfiguration.framework in Frameworks */,
+				725C266723C99DAA00B6658B /* libz.tbd in Frameworks */,
+				725C265D23C99D0A00B6658B /* CoreLocation.framework in Frameworks */,
+				725C265623C99CA900B6658B /* AudioToolbox.framework in Frameworks */,
+				725C265F23C99D1700B6658B /* Foundation.framework in Frameworks */,
+				725C266123C99D2300B6658B /* CFNetwork.framework in Frameworks */,
+				725C265A23C99CC100B6658B /* QuartzCore.framework in Frameworks */,
+				725C265823C99CB800B6658B /* AddressBook.framework in Frameworks */,
+				725C266823C99E0D00B6658B /* UserNotifications.framework in Frameworks */,
+				725C265923C99CBC00B6658B /* CoreMotion.framework in Frameworks */,
+				725C266023C99D1B00B6658B /* CoreGraphics.framework in Frameworks */,
+				725C265723C99CB500B6658B /* Contacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1090,6 +1175,10 @@
 		0F298E4D1FC28AF500EDBA9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				725C266423C99D8A00B6658B /* AVFoundation.framework */,
+				72CCBFD123C8A6A200E3009D /* AudioToolbox.framework */,
+				72CCBFCF23C8A68100E3009D /* Contacts.framework */,
+				72CCBFCD23C8A66600E3009D /* AddressBook.framework */,
 				0FE8159B20493AA400DE8756 /* CoreMotion.framework */,
 				0FE8159920493A7600DE8756 /* CoreText.framework */,
 				0FE8159720493A5300DE8756 /* QuartzCore.framework */,
@@ -1430,6 +1519,7 @@
 			isa = PBXGroup;
 			children = (
 				72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */,
+				72CCBFCB23C8A62B00E3009D /* iflyMSC.framework */,
 				0FEA82C720902F17002FBC88 /* protocol.html */,
 				0FE81591204939BB00DE8756 /* AlipaySDK.bundle */,
 				0FE81592204939BB00DE8756 /* AlipaySDK.framework */,
@@ -1948,9 +2038,35 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		725C268E23C9C36E00B6658B /* voice */ = {
+			isa = PBXGroup;
+			children = (
+				725C26DA23C9D37400B6658B /* tts_ba.caf */,
+				725C26C223C9D0DA00B6658B /* tts_百.caf */,
+				725C26C423C9D0DA00B6658B /* tts_点.caf */,
+				725C26B823C9D0D900B6658B /* tts_二.caf */,
+				725C26BA23C9D0D900B6658B /* tts_九.caf */,
+				725C26C323C9D0DA00B6658B /* tts_零.caf */,
+				725C26B723C9D0D900B6658B /* tts_六.caf */,
+				725C26B623C9D0D900B6658B /* tts_七.caf */,
+				725C26C023C9D0DA00B6658B /* tts_千.caf */,
+				725C26BB23C9D0DA00B6658B /* tts_三.caf */,
+				725C26C123C9D0DA00B6658B /* tts_十.caf */,
+				725C26C523C9D0DA00B6658B /* tts_四.caf */,
+				725C26C623C9D0DA00B6658B /* tts_万.caf */,
+				725C26B923C9D0D900B6658B /* tts_五.caf */,
+				725C26BC23C9D0DA00B6658B /* tts_一.caf */,
+				725C26BD23C9D0DA00B6658B /* tts_元.caf */,
+				725C26BE23C9D0DA00B6658B /* tts_default.mp3 */,
+				725C26C723C9D0DA00B6658B /* tts_pre.mp3 */,
+			);
+			path = voice;
+			sourceTree = "<group>";
+		};
 		72F0C635234F181700D76B24 /* notificationExten */ = {
 			isa = PBXGroup;
 			children = (
+				725C268E23C9C36E00B6658B /* voice */,
 				72F0C641234F197300D76B24 /* notificationExten.entitlements */,
 				72F0C636234F181700D76B24 /* NotificationService.h */,
 				72F0C637234F181700D76B24 /* NotificationService.m */,
@@ -2251,7 +2367,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				725C26C823C9D0DA00B6658B /* tts_七.caf in Resources */,
 				72F0C642234F1EC600D76B24 /* shop_gathering.caf in Resources */,
+				725C26D223C9D0DA00B6658B /* tts_千.caf in Resources */,
+				725C26D023C9D0DA00B6658B /* tts_default.mp3 in Resources */,
+				725C26D623C9D0DA00B6658B /* tts_点.caf in Resources */,
+				725C26D323C9D0DA00B6658B /* tts_十.caf in Resources */,
+				725C26D523C9D0DA00B6658B /* tts_零.caf in Resources */,
+				725C26CD23C9D0DA00B6658B /* tts_三.caf in Resources */,
+				725C26D823C9D0DA00B6658B /* tts_万.caf in Resources */,
+				725C26CE23C9D0DA00B6658B /* tts_一.caf in Resources */,
+				725C26CC23C9D0DA00B6658B /* tts_九.caf in Resources */,
+				725C26D423C9D0DA00B6658B /* tts_百.caf in Resources */,
+				725C26D923C9D0DA00B6658B /* tts_pre.mp3 in Resources */,
+				725C26DB23C9D37500B6658B /* tts_ba.caf in Resources */,
+				725C26C923C9D0DA00B6658B /* tts_六.caf in Resources */,
+				725C26CB23C9D0DA00B6658B /* tts_五.caf in Resources */,
+				725C26CA23C9D0DA00B6658B /* tts_二.caf in Resources */,
+				725C26CF23C9D0DA00B6658B /* tts_元.caf in Resources */,
+				725C26D723C9D0DA00B6658B /* tts_四.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2753,6 +2887,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/QQ",
@@ -2786,6 +2921,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/QQ",
@@ -2877,6 +3013,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lingzhi",
+				);
 				INFOPLIST_FILE = notificationExten/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -2902,6 +3043,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lingzhi",
+				);
 				INFOPLIST_FILE = notificationExten/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";

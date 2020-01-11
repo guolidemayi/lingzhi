@@ -18,6 +18,7 @@
 #import "GLD_PerfectUserMController.h"
 #import "IQKeyboardManager.h"
 #import "AppDelegate+JPush.h"
+//#import "IFlyMSC/IFlyMSC.h"
 
 #define LBKeyWindow [UIApplication sharedApplication].keyWindow
 
@@ -51,6 +52,19 @@
     return YES;
 }
 
+
+- (void)setXunFei{
+    //Set the local storage path of SDK
+//       NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+//       NSString *cachePath = [paths objectAtIndex:0];
+//       [IFlySetting setLogFilePath:cachePath];
+       
+//       //Set APPID
+//       NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",@"5e148089"];
+//
+//       //Configure and initialize iflytek services.(This interface must been invoked in application:didFinishLaunchingWithOptions:)
+//       [IFlySpeechUtility createUtility:initString];
+}
 #pragma mark -- initView
 /**
  * 欢迎页面

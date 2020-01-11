@@ -180,7 +180,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "258"
-            endingLineNumber = "258">
+            endingLineNumber = "258"
+            landmarkName = "-application:didReceiveRemoteNotification:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -196,8 +198,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "257"
             endingLineNumber = "257"
-            landmarkName = "AppDelegate"
-            landmarkType = "3">
+            landmarkName = "-application:didReceiveRemoteNotification:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -227,7 +229,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "258"
-            endingLineNumber = "258">
+            endingLineNumber = "258"
+            landmarkName = "-application:didReceiveRemoteNotification:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -260,69 +264,6 @@
             endingLineNumber = "28"
             landmarkName = "-didReceiveNotificationRequest:withContentHandler:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "86F2B1B0-FD09-4FD4-B07C-4B4A59A42F2C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "notificationExten/NotificationService.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "-didReceiveNotificationRequest:withContentHandler:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "86F2B1B0-FD09-4FD4-B07C-4B4A59A42F2C - 70942a3adcc32fd"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[NotificationService didReceiveNotificationRequest:withContentHandler:]"
-                  moduleName = "notificationExten"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/boxuemingbian/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/lingzhi/notificationExten/NotificationService.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "408">
-               </Location>
-               <Location
-                  uuid = "86F2B1B0-FD09-4FD4-B07C-4B4A59A42F2C - 77b014654b15d970"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__72-[NotificationService didReceiveNotificationRequest:withContentHandler:]_block_invoke"
-                  moduleName = "notificationExten"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/boxuemingbian/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/lingzhi/notificationExten/NotificationService.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "86F2B1B0-FD09-4FD4-B07C-4B4A59A42F2C - 1e377ee714f57c0a"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_e8_32w"
-                  moduleName = "notificationExten"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/boxuemingbian/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/lingzhi/notificationExten/NotificationService.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -531,6 +472,54 @@
             endingLineNumber = "182"
             landmarkName = "-sendTieZiContentRequest"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "22A12EF1-A359-4753-A7F3-CD5570908A4F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "notificationExten/NotificationService.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "-sendSoundNoti:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "22A12EF1-A359-4753-A7F3-CD5570908A4F - 9ab60fdbe397eb98"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__37-[NotificationService sendSoundNoti:]_block_invoke"
+                  moduleName = "notificationExten"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boxuemingbian/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/lingzhi/notificationExten/NotificationService.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "91"
+                  endingLineNumber = "91"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "22A12EF1-A359-4753-A7F3-CD5570908A4F - 4d5f63a4e7429e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__37-[NotificationService sendSoundNoti:]_block_invoke_2"
+                  moduleName = "notificationExten"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/boxuemingbian/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/lingzhi/notificationExten/NotificationService.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "92"
+                  endingLineNumber = "92"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
