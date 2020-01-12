@@ -12,16 +12,18 @@
 #import "GLD_ZFBCashCell.h"
 
 typedef NS_ENUM(NSInteger, payType) {
-    CARD,
     ZFB,
+    WEChat,
+    CARD,
 };
 
-@interface GLD_GetCashController ()<UITableViewDelegate, UITableViewDataSource>
+@interface GLD_GetCashController ()<UITableViewDelegate, UITableViewDataSource,ShareModuleDelegate>
 @property (nonatomic, strong)UITableView *table_apply;
 @property (nonatomic, strong)NSArray *dataArr;
 @property (nonatomic, strong)UIButton *applyBut;//现金
 @property (nonatomic, strong)UIImageView *generalRankImgV;//普通商家
 @property (nonatomic, strong)UIImageView *superRankImgV;//高级商家商家
+@property (nonatomic, strong) UIImageView *weiChatImageV;
 @property (nonatomic, weak)GLD_GetMoneyCell *cardCashCell;
 @property (nonatomic, weak)GLD_ZFBPayCell *ZFBPayCell;
 @property (nonatomic, weak)GLD_ZFBCashCell *ZFBCashCell;
@@ -111,8 +113,10 @@ typedef NS_ENUM(NSInteger, payType) {
             case 1:{
                 [cell.contentView addSubview:self.superRankImgV];
             }break;
+                case 2:{
+                    [cell.contentView addSubview:self.weiChatImageV];
+                }break;
         }
-        return cell;
         return cell;
     }else{
         if(indexPath.section == 1){
@@ -130,6 +134,7 @@ typedef NS_ENUM(NSInteger, payType) {
                     return [self getGetMoneyCell:indexPath];
                     break;
                 case ZFB:
+                    case WEChat:
                     return [self getZFBCashCell:indexPath];
                     break;
             }
@@ -174,8 +179,14 @@ typedef NS_ENUM(NSInteger, payType) {
     if (indexPath.section == 0) {
         return  W(44);
     }else if(indexPath.section == 1){
+        if (self.type == WEChat) {
+            return 0;
+        }
         return self.type == CARD ? 60 : 160;
     }else if(indexPath.section == 2){
+        if (self.type == WEChat) {
+            return 140;
+        }
         return self.type == CARD ? 200 : 140;
     }
     return 0;
@@ -190,12 +201,17 @@ typedef NS_ENUM(NSInteger, payType) {
                 self.superRankImgV.hidden = YES;
                 self.type = CARD;
                 self.generalRankImgV.hidden = NO;
+                self.weiChatImageV.hidden = YES;
             }else if (indexPath.row == 1){
                 self.superRankImgV.hidden = NO;
                 self.generalRankImgV.hidden = YES;
+                self.weiChatImageV.hidden = YES;
                 self.type = ZFB;
             }else{
-                
+                self.superRankImgV.hidden = YES;
+                self.generalRankImgV.hidden = YES;
+                self.weiChatImageV.hidden = NO;
+                self.type = WEChat;
             }
             [self.table_apply reloadData];
         }break;
@@ -217,14 +233,24 @@ typedef NS_ENUM(NSInteger, payType) {
     }
     return _superRankImgV;
 }
+- (UIImageView *)weiChatImageV{
+    if (!_weiChatImageV) {
+        _weiChatImageV = [[UIImageView alloc]initWithImage:WTImage(@"粗勾")];
+        _weiChatImageV.frame = CGRectMake( W(340), W(10), W(20), H(20));
+        _weiChatImageV.hidden = YES;
+    }
+    return _weiChatImageV;
+}
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self.view endEditing:YES];
 }
 - (NSArray *)dataArr{
     if (!_dataArr) {
         _dataArr = @[
-                     @{@"title":@"提现到银行卡"},
-                     @{@"title":@"提现到支付宝"}];
+            @{@"title":@"提现到银行卡"},
+            @{@"title":@"提现到支付宝"},
+            @{@"title":@"提现到微信"}];
+        
     }
     return _dataArr;
 }
@@ -254,7 +280,7 @@ typedef NS_ENUM(NSInteger, payType) {
     if (self.type == CARD) {
         [CAToast showWithText:@"银行卡支付暂未开通"];
         return;
-    }else{
+    }else if(self.type == ZFB){
         
         
         if (!IsExist_String(self.ZFBPayCell.accountField.text)) {
@@ -277,9 +303,21 @@ typedef NS_ENUM(NSInteger, payType) {
                   @"name":self.ZFBPayCell.nameField.text,
                   @"money":self.ZFBCashCell.cashField.text,
                   @"remark":GetString(self.ZFBPayCell.remarksField.text),
-                  @"userId":GetString([AppDelegate shareDelegate].userModel.userId)
+                  @"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                  @"type":@(self.type)
                   };
         
+    }else{
+      
+        if (!IsExist_String(self.ZFBCashCell.cashField.text)) {
+            [CAToast showWithText:@"请输入金额"];
+            return;
+        }
+        dictM = @{@"money":self.ZFBCashCell.cashField.text,
+                  @"remark":GetString(self.ZFBPayCell.remarksField.text),
+                  @"userId":GetString([AppDelegate shareDelegate].userModel.userId),
+                  @"type":@(self.type)
+        };
     }
     
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
@@ -295,6 +333,16 @@ typedef NS_ENUM(NSInteger, payType) {
                 [CAToast showWithText:@"操作成功"];
                 [weakSelf.navigationController popViewControllerAnimated:YES];
             }else{
+                if (weakSelf.type == WEChat) {
+                    
+                    if ([result[@"code"] integerValue] == 500) {
+                        //绑定微信
+                        [MTShareModule getInstance].authRespDelegate = self;
+                        [[MTShareModule getInstance] loginByWechatWithViewCtrlDelegate:self];
+                    }
+                }else{
+                    
+                }
                 [CAToast showWithText:result[@"msg"]];
             }
             
@@ -303,6 +351,36 @@ typedef NS_ENUM(NSInteger, payType) {
         
     }];
 
+}
+
+- (void)wechatAuthLoginResponse:(NSDictionary *)responseDic
+{
+    NSString *openId = [responseDic objectForKey:@"openid"];
+    NSString *refreshToken = [responseDic objectForKey:@"refresh_token"];
+    NSLog(@"微信授权成功");
+    if (IsExist_String(openId) && IsExist_String(refreshToken)) {
+        //绑定微信
+        GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+        config.requestType = gld_networkRequestTypePOST;
+        config.urlPath = @"/api/user/bindWechat";
+        config.requestParameters = @{@"openId":openId,
+                                     @"loginToken":GetString([AppDelegate shareDelegate].userModel.loginToken)
+        };
+        WS(weakSelf)
+        [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+            if (!error) {
+                if ([result[@"code"] integerValue] == 200) {
+                    [weakSelf applybutClick];
+                }else{
+                    [CAToast showWithText:result[@"msg"]];
+                }
+            }else{
+               [CAToast showWithText:result[@"msg"]];
+            }
+            
+        }];
+    }
+    
 }
 - (UIButton *)applyBut{
     if (!_applyBut) {

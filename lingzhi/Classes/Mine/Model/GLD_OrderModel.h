@@ -26,6 +26,8 @@
 @property (nonatomic, copy)NSString *phone;//支付人
 @property (nonatomic, copy)NSString *code;//支付人电话
 @property (nonatomic, copy)NSString *address;//配送地址
+@property (nonatomic, copy)NSString *shopPhone;//商家电话
+
 @end
 
 

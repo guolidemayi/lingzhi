@@ -22,7 +22,6 @@
 @property (nonatomic, strong)GLD_BusinessDetailManager *busnessManager;
 @property (nonatomic, strong)UIView *bottomView;
 
-@property (nonatomic, strong)GLD_NetworkAPIManager *netManager;
 @property (nonatomic, weak)UIButton *collectBut;
 @property (nonatomic, assign)NSInteger isCollection;
 //0 收藏  1 取消
@@ -36,11 +35,36 @@
     self.detail_table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.detail_table];
     self.busnessManager = [[GLD_BusinessDetailManager alloc]initWithTableView:self.detail_table];
-    self.busnessManager.busnessModel = self.busnessModel;
-    [self setupBottomView];
-    self.netManager = [GLD_NetworkAPIManager shareNetManager];
+    
     [self setRightBut];
-    [self isCollectionRequest];
+    
+    if (self.busnessModel) {
+        self.busnessManager.busnessModel = self.busnessModel;
+        [self setupBottomView];
+        [self isCollectionRequest];
+    }else{
+        [self getShopDetailModel];
+    }
+}
+
+- (void)initData{
+    
+}
+- (void)getShopDetailModel{
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+        config.requestType = gld_networkRequestTypePOST;
+        config.urlPath = @"api/user/getMyShop";
+        config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId)};
+        
+        [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+            NSError *ee;
+            weakSelf.busnessModel = [[GLD_BusnessModel alloc] initWithDictionary:result[@"data"] error:&ee];
+            weakSelf.busnessManager.busnessModel = self.busnessModel;
+                   [weakSelf setupBottomView];
+                   [weakSelf isCollectionRequest];
+
+        }];
 }
 - (void)setRightBut{
     UIButton *rightBut = [[UIButton alloc]init];;
@@ -66,7 +90,7 @@
                                  };
     
     
-    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if(error){
             
             
@@ -93,7 +117,7 @@
                                  };
     
     
-    [self.netManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if(error){
             [CAToast showWithText:@"收藏失败，请稍后再试"];
             

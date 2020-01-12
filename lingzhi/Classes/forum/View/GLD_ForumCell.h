@@ -12,4 +12,5 @@
 @interface GLD_ForumCell : GLD_BaseCell
 + (GLD_ForumCell *)cellWithReuseIdentifier:(NSString *)reuseIdentifier;
 @property (nonatomic, strong)GLD_ForumDetailModel *detailModel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @end

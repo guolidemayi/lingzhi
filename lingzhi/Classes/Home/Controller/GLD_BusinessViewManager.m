@@ -12,6 +12,7 @@
 #import "GLD_BusinessDetailController.h"
 #import "GLD_BusinessListController.h"
 
+
 @interface GLD_BusinessViewManager ()
 
 @property (nonatomic, strong)GLD_BusnessLisModel *busnessListModel;

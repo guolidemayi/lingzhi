@@ -11,8 +11,9 @@
 #import "GLD_BannerModel.h"
 #import "GLD_ApplyBusnessController.h"
 #import "GLD_ApplyUnionController.h"
+#import "GLDPhotoGroupBrowser.h"
 
-@interface GLD_BannerDetailController ()<SDCycleScrollViewDelegate>
+@interface GLD_BannerDetailController ()<GLDPhotoGroupBrowserDelegate>
 
 
 @property (nonatomic, copy)NSMutableArray *bannerData;
@@ -25,19 +26,24 @@
 @property (nonatomic, strong)UIButton *shareBut;
 
 @property (nonatomic, strong)UIButton *applyBut;//申请
+
+@property (nonatomic, strong) GLDPhotoGroupBrowser *browser;
 @end
 
 @implementation GLD_BannerDetailController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupUI];
-    [self layout];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self setupUI];
+        [self layout];
+        
+    });
     self.title = @"详情";
 }
 
 - (void)setupUI{
-    [self.view addSubview:self.cycleView];
+    [self browser];
     
     [self.view addSubview:self.titleLabel];
     [self.view addSubview:self.applyBut];
@@ -48,7 +54,9 @@
     NSLog(@"%zd", index);
 }
 
-
+-(void)scrollToIndex:(NSInteger)index{
+    
+}
 - (void)setBannerData:(NSMutableArray *)bannerData{
     _bannerData = bannerData;
     NSMutableArray *arrM = [NSMutableArray array];
@@ -73,9 +81,9 @@
 }
 
 - (void)layout{
-    [self.cycleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
+//    [self.cycleView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//    }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.view);
@@ -128,6 +136,29 @@
     }
     
 }
+
+- (GLDPhotoGroupBrowser *)browser{
+    if (!_browser) {
+        __block NSMutableArray *newArrM = [NSMutableArray array];
+           NSArray *arr = [self.bannerModel.Pictures componentsSeparatedByString:@";"];
+           [arr enumerateObjectsUsingBlock:^(NSString  * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+               GLDPhotoItem *item = [GLDPhotoItem new];
+               item.thumbView = nil;
+               item.largeImage = obj;
+               [newArrM addObject:item];
+           }];
+           
+           GLDPhotoGroupBrowser *bre = [[GLDPhotoGroupBrowser alloc]initWithGroupItems:newArrM];
+           
+           [bre presentFromImageView:self.cycleView toContainer:self.view animated:NO currentPage:0 completion:^{
+               
+           }];
+        bre.delegate = self;
+        _browser = bre;
+    }
+    return _browser;
+}
+
 - (UIButton *)applyBut{
     if (!_applyBut) {
         _applyBut = [[UIButton alloc]init];

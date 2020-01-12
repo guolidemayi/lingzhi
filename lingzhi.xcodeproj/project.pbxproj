@@ -260,23 +260,6 @@
 		5B3789A9B5E4EF8A0BE2141F /* libPods-lingzhiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */; };
 		64BFBA665871E50399A6E013 /* libPods-lingzhi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C3E6708F716104D709C04A /* libPods-lingzhi.a */; };
 		725C265123C98E5500B6658B /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCB23C8A62B00E3009D /* iflyMSC.framework */; };
-		725C265623C99CA900B6658B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFD123C8A6A200E3009D /* AudioToolbox.framework */; };
-		725C265723C99CB500B6658B /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCF23C8A68100E3009D /* Contacts.framework */; };
-		725C265823C99CB800B6658B /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCD23C8A66600E3009D /* AddressBook.framework */; };
-		725C265923C99CBC00B6658B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159B20493AA400DE8756 /* CoreMotion.framework */; };
-		725C265A23C99CC100B6658B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159720493A5300DE8756 /* QuartzCore.framework */; };
-		725C265B23C99CC400B6658B /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159520493A1700DE8756 /* libc++.tbd */; };
-		725C265C23C99CD700B6658B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 339EF9761FF93C7900C6170E /* UIKit.framework */; };
-		725C265D23C99D0A00B6658B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298E4E1FC28AF600EDBA9A /* CoreLocation.framework */; };
-		725C265F23C99D1700B6658B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EB41FC2DAC600EDBA9A /* Foundation.framework */; };
-		725C266023C99D1B00B6658B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EB61FC2DAE100EDBA9A /* CoreGraphics.framework */; };
-		725C266123C99D2300B6658B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EBE1FC2DB2800EDBA9A /* CFNetwork.framework */; };
-		725C266223C99D2700B6658B /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EBC1FC2DB1900EDBA9A /* CoreFoundation.framework */; };
-		725C266323C99D2B00B6658B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EBA1FC2DB0D00EDBA9A /* CoreTelephony.framework */; };
-		725C266523C99D8A00B6658B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 725C266423C99D8A00B6658B /* AVFoundation.framework */; };
-		725C266623C99D9400B6658B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EB81FC2DAFA00EDBA9A /* SystemConfiguration.framework */; };
-		725C266723C99DAA00B6658B /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EB01FC2DAAF00EDBA9A /* libz.tbd */; };
-		725C266823C99E0D00B6658B /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EAC1FC2DA9600EDBA9A /* UserNotifications.framework */; };
 		725C26C823C9D0DA00B6658B /* tts_七.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B623C9D0D900B6658B /* tts_七.caf */; };
 		725C26C923C9D0DA00B6658B /* tts_六.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B723C9D0D900B6658B /* tts_六.caf */; };
 		725C26CA23C9D0DA00B6658B /* tts_二.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B823C9D0D900B6658B /* tts_二.caf */; };
@@ -318,6 +301,14 @@
 		72CF1DB123CABAB200C0814C /* tts_零.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C323C9D0DA00B6658B /* tts_零.caf */; };
 		72CF1DB223CABAB500C0814C /* tts_九.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BA23C9D0D900B6658B /* tts_九.caf */; };
 		72CF1DB323CABABD00C0814C /* tts_八.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72CF1DA423CABA7000C0814C /* tts_八.caf */; };
+		72CF1DBB23CADABD00C0814C /* GLDPhotoGroupBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF1DB723CADABD00C0814C /* GLDPhotoGroupBrowser.m */; };
+		72CF1DBC23CADABD00C0814C /* GLDPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF1DB923CADABD00C0814C /* GLDPhotoCell.m */; };
+		72CF1DBD23CADABD00C0814C /* GLDPhotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF1DBA23CADABD00C0814C /* GLDPhotoItem.m */; };
+		72CF1DC023CADC7300C0814C /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF1DBF23CADC7300C0814C /* UIImage+Extension.m */; };
+		72CF1DC323CADD6C00C0814C /* UIView+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF1DC123CADD6C00C0814C /* UIView+Extend.m */; };
+		72CF1DC623CADDE100C0814C /* CALayer+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF1DC523CADDE000C0814C /* CALayer+Extension.m */; };
+		72CF1DCA23CAE6E400C0814C /* GLDPictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72CF1DC823CAE6E400C0814C /* GLDPictureCell.m */; };
+		72CF1DCB23CAE6E400C0814C /* GLDPictureCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72CF1DC923CAE6E400C0814C /* GLDPictureCell.xib */; };
 		72E7446123C9ED0100D75257 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCB23C8A62B00E3009D /* iflyMSC.framework */; };
 		72E7446623CAB8E600D75257 /* tts_er.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26DC23C9DE1E00B6658B /* tts_er.caf */; };
 		72F0C62F234F0E5B00D76B24 /* shop_gathering.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */; };
@@ -901,6 +892,21 @@
 		72CCBFCF23C8A68100E3009D /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		72CCBFD123C8A6A200E3009D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		72CF1DA423CABA7000C0814C /* tts_八.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_八.caf"; sourceTree = "<group>"; };
+		72CF1DB523CADABD00C0814C /* GLDPhotoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDPhotoItem.h; sourceTree = "<group>"; };
+		72CF1DB623CADABD00C0814C /* GLDPhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDPhotoCell.h; sourceTree = "<group>"; };
+		72CF1DB723CADABD00C0814C /* GLDPhotoGroupBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDPhotoGroupBrowser.m; sourceTree = "<group>"; };
+		72CF1DB823CADABD00C0814C /* GLDPhotoGroupBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDPhotoGroupBrowser.h; sourceTree = "<group>"; };
+		72CF1DB923CADABD00C0814C /* GLDPhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDPhotoCell.m; sourceTree = "<group>"; };
+		72CF1DBA23CADABD00C0814C /* GLDPhotoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDPhotoItem.m; sourceTree = "<group>"; };
+		72CF1DBE23CADC7300C0814C /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
+		72CF1DBF23CADC7300C0814C /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		72CF1DC123CADD6C00C0814C /* UIView+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extend.m"; sourceTree = "<group>"; };
+		72CF1DC223CADD6C00C0814C /* UIView+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extend.h"; sourceTree = "<group>"; };
+		72CF1DC423CADDE000C0814C /* CALayer+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Extension.h"; sourceTree = "<group>"; };
+		72CF1DC523CADDE000C0814C /* CALayer+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Extension.m"; sourceTree = "<group>"; };
+		72CF1DC723CAE6E400C0814C /* GLDPictureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLDPictureCell.h; sourceTree = "<group>"; };
+		72CF1DC823CAE6E400C0814C /* GLDPictureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLDPictureCell.m; sourceTree = "<group>"; };
+		72CF1DC923CAE6E400C0814C /* GLDPictureCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLDPictureCell.xib; sourceTree = "<group>"; };
 		72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shop_gathering.caf; sourceTree = "<group>"; };
 		72F0C634234F181700D76B24 /* notificationExten.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = notificationExten.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F0C636234F181700D76B24 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
@@ -1049,24 +1055,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				725C266223C99D2700B6658B /* CoreFoundation.framework in Frameworks */,
 				725C265123C98E5500B6658B /* iflyMSC.framework in Frameworks */,
-				725C266523C99D8A00B6658B /* AVFoundation.framework in Frameworks */,
-				725C266323C99D2B00B6658B /* CoreTelephony.framework in Frameworks */,
-				725C265C23C99CD700B6658B /* UIKit.framework in Frameworks */,
-				725C265B23C99CC400B6658B /* libc++.tbd in Frameworks */,
-				725C266623C99D9400B6658B /* SystemConfiguration.framework in Frameworks */,
-				725C266723C99DAA00B6658B /* libz.tbd in Frameworks */,
-				725C265D23C99D0A00B6658B /* CoreLocation.framework in Frameworks */,
-				725C265623C99CA900B6658B /* AudioToolbox.framework in Frameworks */,
-				725C265F23C99D1700B6658B /* Foundation.framework in Frameworks */,
-				725C266123C99D2300B6658B /* CFNetwork.framework in Frameworks */,
-				725C265A23C99CC100B6658B /* QuartzCore.framework in Frameworks */,
-				725C265823C99CB800B6658B /* AddressBook.framework in Frameworks */,
-				725C266823C99E0D00B6658B /* UserNotifications.framework in Frameworks */,
-				725C265923C99CBC00B6658B /* CoreMotion.framework in Frameworks */,
-				725C266023C99D1B00B6658B /* CoreGraphics.framework in Frameworks */,
-				725C265723C99CB500B6658B /* Contacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1688,6 +1677,9 @@
 				0F6411A71FD527080069FDB1 /* GLD_DetaileCell.m */,
 				0F6411A91FD5271C0069FDB1 /* GLD_DetailRankCell.h */,
 				0F6411AA1FD5271C0069FDB1 /* GLD_DetailRankCell.m */,
+				72CF1DC723CAE6E400C0814C /* GLDPictureCell.h */,
+				72CF1DC823CAE6E400C0814C /* GLDPictureCell.m */,
+				72CF1DC923CAE6E400C0814C /* GLDPictureCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1711,6 +1703,7 @@
 		0FB536D81FC5887C00B0EDA6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				72CF1DB423CADABD00C0814C /* picBrowser */,
 				339EF9661FF9296F00C6170E /* sysMessage */,
 				0F64118A1FD512AF0069FDB1 /* PTLMenuButton */,
 				3CA74E4B1FD2805100A7F137 /* Model */,
@@ -2083,6 +2076,25 @@
 			path = voice;
 			sourceTree = "<group>";
 		};
+		72CF1DB423CADABD00C0814C /* picBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				72CF1DB523CADABD00C0814C /* GLDPhotoItem.h */,
+				72CF1DB623CADABD00C0814C /* GLDPhotoCell.h */,
+				72CF1DB723CADABD00C0814C /* GLDPhotoGroupBrowser.m */,
+				72CF1DB823CADABD00C0814C /* GLDPhotoGroupBrowser.h */,
+				72CF1DB923CADABD00C0814C /* GLDPhotoCell.m */,
+				72CF1DBA23CADABD00C0814C /* GLDPhotoItem.m */,
+				72CF1DBE23CADC7300C0814C /* UIImage+Extension.h */,
+				72CF1DBF23CADC7300C0814C /* UIImage+Extension.m */,
+				72CF1DC223CADD6C00C0814C /* UIView+Extend.h */,
+				72CF1DC123CADD6C00C0814C /* UIView+Extend.m */,
+				72CF1DC423CADDE000C0814C /* CALayer+Extension.h */,
+				72CF1DC523CADDE000C0814C /* CALayer+Extension.m */,
+			);
+			path = picBrowser;
+			sourceTree = "<group>";
+		};
 		72F0C635234F181700D76B24 /* notificationExten */ = {
 			isa = PBXGroup;
 			children = (
@@ -2358,6 +2370,7 @@
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
 				0F298EA41FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				0F54461D211001F6009FAE8E /* GLD_ExpressCell.xib in Resources */,
+				72CF1DCB23CAE6E400C0814C /* GLDPictureCell.xib in Resources */,
 				0F326F251FF49D9A00A90106 /* user_industry.json in Resources */,
 				0F2C2EFD1FF4EF1D0083BCCB /* GLD_GetMoneyCell.xib in Resources */,
 				72CF1DB123CABAB200C0814C /* tts_零.caf in Resources */,
@@ -2514,6 +2527,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C93245BB22869C0E000A2A29 /* GLD_MessageUserInfoTool.m in Sources */,
+				72CF1DCA23CAE6E400C0814C /* GLDPictureCell.m in Sources */,
 				339EF9621FF9295500C6170E /* GLD_RemindCell.m in Sources */,
 				0F28D29A1FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				0F2C2F491FF62E330083BCCB /* GLD_Button.m in Sources */,
@@ -2608,6 +2622,7 @@
 				C9ED06ED22815E6500D487BD /* LJCollectionViewFlowLayout.m in Sources */,
 				0FB537391FC6D22A00B0EDA6 /* SGQRCodeScanningView.m in Sources */,
 				0F28D2B31FD6AEC500138A8B /* NSDate+BRAdd.m in Sources */,
+				72CF1DBD23CADABD00C0814C /* GLDPhotoItem.m in Sources */,
 				C9FA898A228FD0500066AFB8 /* UIBarButtonItem+Extension.m in Sources */,
 				0F382EFD1FDE7620006689FA /* GLD_ApplyCooperatController.m in Sources */,
 				33FD33AE2025607700725317 /* GLD_PayForBusiCell.m in Sources */,
@@ -2615,6 +2630,7 @@
 				0FB5373A1FC6D22A00B0EDA6 /* SGQRCodeScanManager.m in Sources */,
 				0F544607210EEA92009FAE8E /* GLD_GoodsDetailManager.m in Sources */,
 				0FB537051FC5887C00B0EDA6 /* UIImage+Image.m in Sources */,
+				72CF1DC323CADD6C00C0814C /* UIView+Extend.m in Sources */,
 				0F9920181FCEEFED00305DF3 /* GLD_HomeListCell.m in Sources */,
 				0F42A13A1FD554560072A167 /* GLD_CityModel.m in Sources */,
 				0F32E80B1FE3B14C0042E8BE /* GLD_BackForPasswordController.m in Sources */,
@@ -2650,6 +2666,7 @@
 				339EF9571FF8958100C6170E /* GLD_ForgetPassControllor.m in Sources */,
 				0FE8159020467DED00DE8756 /* GLD_BusnessLogoController.m in Sources */,
 				0FB5371B1FC6A25200B0EDA6 /* UserADsModel.m in Sources */,
+				72CF1DBB23CADABD00C0814C /* GLDPhotoGroupBrowser.m in Sources */,
 				0FB537151FC6A16500B0EDA6 /* YXFlashAdViewController.m in Sources */,
 				0F326F301FF4C05900A90106 /* GLD_OrderModel.m in Sources */,
 				0F5FDDD1203FFF57008FB6F1 /* UIButton+GLD_PreventDDouble.m in Sources */,
@@ -2688,6 +2705,7 @@
 				0F6411961FD513120069FDB1 /* GLD_BusinessListController.m in Sources */,
 				0F42A13D1FD5585A0072A167 /* GLD_CityListController.m in Sources */,
 				0F99201B1FCEF04500305DF3 /* GLD_BaseCell.m in Sources */,
+				72CF1DC023CADC7300C0814C /* UIImage+Extension.m in Sources */,
 				0F32E7F91FE0FB6C0042E8BE /* GLD_CashCountCell.m in Sources */,
 				0F71A5981FDF8DDF00C66EED /* GLD_GetVerificationController.m in Sources */,
 				C9ED06EF22815E6500D487BD /* CollectionViewHeaderView.m in Sources */,
@@ -2730,6 +2748,7 @@
 				0FB537021FC5887C00B0EDA6 /* LBMessageViewController.m in Sources */,
 				C961C6D5228BEB3C0000CC8E /* GLD_PaoTuiCell.m in Sources */,
 				C993F23E228D0D5B005C0948 /* GLD_PostGoodsViewController.m in Sources */,
+				72CF1DBC23CADABD00C0814C /* GLDPhotoCell.m in Sources */,
 				0FB537401FC7C99B00B0EDA6 /* GLD_CustomBut.m in Sources */,
 				0F32E8111FE8BD450042E8BE /* GLD_UpdateViewController.m in Sources */,
 				C993F241228D3455005C0948 /* GLD_NormsVIew.m in Sources */,
@@ -2743,6 +2762,7 @@
 				0F71A5891FDE8B5300C66EED /* GLD_ApplyUnionController.m in Sources */,
 				0F99200C1FCEDEE800305DF3 /* YXFooterRefresh.m in Sources */,
 				0F2C2F5F1FF62E330083BCCB /* GLD_KeyWordCell.m in Sources */,
+				72CF1DC623CADDE100C0814C /* CALayer+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

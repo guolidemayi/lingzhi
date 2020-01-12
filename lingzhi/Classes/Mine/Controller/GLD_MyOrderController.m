@@ -106,6 +106,18 @@
     cell.orderModel = self.dataArr[indexPath.section];
     return cell;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    GLD_OrderModel *model = self.dataArr[indexPath.section];
+    
+    CGFloat height = W(180);
+    if (IsExist_String(model.shopPhone)) {
+        height += W(30);
+    }
+    if (IsExist_String(model.shopName)) {
+        height += W(15);
+    }
+    return height;
+}
 - (void)businessListClick:(UIButton *)senser{
     [UIView animateWithDuration:.3 animations:^{
         self.blueLineView.mj_x = senser.mj_x;

@@ -27,6 +27,10 @@ NSString *const GLD_MyOrderCellIdentifier = @"GLD_MyOrderCellIdentifier";
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @property (nonatomic, assign)callBackType type;
+@property (weak, nonatomic) IBOutlet UILabel *xiaofeiName;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameHeght;
+
+
 @end
 @implementation GLD_MyOrderCell
 
@@ -48,6 +52,13 @@ NSString *const GLD_MyOrderCellIdentifier = @"GLD_MyOrderCellIdentifier";
     self.payTypeLabel.text = [NSString stringWithFormat:@"%.2lf",orderModel.wxPay];
     self.dateLabel.text = orderModel.createTime;
     self.addressLabel.text = orderModel.address;
+    if (!IsExist_String(orderModel.shopPhone)) {
+        self.nameHeght.constant = 0;
+        self.xiaofeiName.text = nil;
+    }else{
+        self.xiaofeiName.text = [NSString stringWithFormat:@"商家电话：%@",orderModel.shopPhone];
+        self.nameHeght.constant = W(15);
+    }
 }
 - (IBAction)commentClick:(UIButton *)sender {
     if ([self.orderDelegate respondsToSelector:@selector(commentCallBack: andBusnessId:)]) {

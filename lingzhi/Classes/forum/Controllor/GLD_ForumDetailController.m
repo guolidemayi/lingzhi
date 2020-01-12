@@ -47,7 +47,7 @@
 @property (nonatomic, strong) NSString *contentCopy;//回复人
 @property (nonatomic, strong) NSIndexPath *indexP;//回复人
 @property (nonatomic, strong) NSString *ext2Title;//回复标题
-@property (nonatomic, strong)GLD_NetworkAPIManager *NetManager;
+@property (nonatomic, strong) UIButton *deleteBut;
 @end
 
 @implementation GLD_ForumDetailController
@@ -207,6 +207,10 @@
 
     GLD_ForumCell *cell = [GLD_ForumCell cellWithReuseIdentifier:@"GLD_ForumCell"];
     cell.detailModel = self.forumModel;
+    if ([[AppDelegate shareDelegate].userModel.userId isEqualToString:self.forumModel.userId]) {
+        [cell.contentView addSubview:self.deleteBut];
+        self.deleteBut.mj_y = CGRectGetMaxY(cell.titleLabel.frame);
+    }
     return cell;
 }
 
@@ -616,16 +620,37 @@
     }
 }
 -(void)accusation{
-    __weak typeof(self) weakSelf = self;
-//    YXBBSAddAnswerRequest *request = [YXBBSAddAnswerRequest shareManager];
-//    [request httpPost:@"" parameters:@{@"id":GetString(self.answerID)} block:^(WTBaseRequest *request, NSError *error) {
-//        if (error) {
-//            [weakSelf handleError:error];
-//        } else {
-//            [CAToast showWithText:@"举报已收到，我们尽快核实"];
-//
-//        }
-//    }];
+    WS(weakSelf);
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = @"api/comment/delbbs";
+    
+    config.requestParameters = @{@"id":GetString(self.forumModel.newsId),
+                                 @"loginToken":GetString([AppDelegate shareDelegate].userModel.loginToken)
+    };
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            [CAToast showWithText:@"删除成功"];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }else{
+            [CAToast showWithText:@"网络错误"];
+        }
+        [weakSelf.detailTable.mj_footer endRefreshing];
+        [weakSelf.detailTable.mj_header endRefreshing];
+        
+    }];
 }
-
+- (UIButton *)deleteBut{
+    if (!_deleteBut) {
+        _deleteBut = [UIButton new];
+        _deleteBut.layer.cornerRadius = 5;
+        _deleteBut.layer.borderColor = [UIColor redColor].CGColor;
+        _deleteBut.layer.borderWidth = 1;
+        [_deleteBut setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [_deleteBut addTarget:self action:@selector(accusation) forControlEvents:UIControlEventTouchUpInside];
+        [_deleteBut setTitle:@"删除" forState:UIControlStateNormal];
+        _deleteBut.frame = CGRectMake(DEVICE_WIDTH - W(100), W(15), W(80), 40);
+    }
+    return _deleteBut;
+}
 @end

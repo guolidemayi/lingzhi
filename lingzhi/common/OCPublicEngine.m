@@ -124,10 +124,10 @@ static OCPublicEngine *sInstance = nil;
         [AppDelegate shareDelegate].deviceId = @"";
     }
     NSString *deviceId = [AppDelegate shareDelegate].deviceId;
+    
     NSDictionary *dic;
     if (IsExist_String(deviceId)) {
         dic = [NSDictionary dictionaryWithObjectsAndKeys:openId, @"openId", token, @"token", @"ios", @"os", deviceId, @"deviceId", nil];
-        // adId,@"idFa",deviceId,@"deviceId",
     } else {
         dic = [NSDictionary dictionaryWithObjectsAndKeys:openId, @"openId", token, @"token", @"ios", @"os", nil];
     }

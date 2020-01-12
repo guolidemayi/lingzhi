@@ -91,8 +91,8 @@ static GLD_Request *shareRequest;
     [request setValue:[YXUniversal getDeviceInfo] forHTTPHeaderField:@"phoneModel"];
     [request setValue:[YXUniversal currentLanguage] forHTTPHeaderField:@"osLang"];
     
-    if(IsExist_String([AppDelegate shareDelegate].token)){
-        [request setValue:[AppDelegate shareDelegate].token forHTTPHeaderField:@"token"];
+    if(IsExist_String([AppDelegate shareDelegate].userModel.loginToken)){
+        [request setValue:[AppDelegate shareDelegate].userModel.loginToken forHTTPHeaderField:@"token"];
     }
     
     NSString* sNowVersion= [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];

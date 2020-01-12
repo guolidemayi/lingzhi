@@ -12,7 +12,7 @@
 #import "GLD_PictureView.h"
 
 @interface GLD_ForumCell ()
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *colleHeight;

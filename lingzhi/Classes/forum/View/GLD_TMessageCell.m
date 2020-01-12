@@ -8,6 +8,8 @@
 
 #import "GLD_TMessageCell.h"
 #import "GLD_ForumModel.h"
+#import "UIView+gldController.h"
+#import "GLD_BusinessDetailController.h"
 
 NSString  *const GLD_TMessageCellIdentifi = @"GLD_TMessageCellIdentifi";
 @interface GLD_TMessageCell ()
@@ -33,14 +35,23 @@ NSString  *const GLD_TMessageCellIdentifi = @"GLD_TMessageCellIdentifi";
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self setUpUI];
         [self layout];
+        
+        [_iconImageV addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(iconImageClick)]];
     }
     return self;
 }
 
+- (void)iconImageClick{
+    if (self.BLdetailModel.isShop.boolValue) {
+         GLD_BusinessDetailController *detaileVc = [GLD_BusinessDetailController new];
+        [self.navigationController pushViewController:detaileVc animated:YES];
+
+    }
+}
 - (void)setBLdetailModel:(GLD_ForumDetailModel *)BLdetailModel{
     _BLdetailModel = BLdetailModel;
     
-    [_iconImageV yy_setImageWithURL:[NSURL URLWithString:BLdetailModel.userPhone] placeholder:[UIImage imageNamed:@"默认头像"]];
+    [_iconImageV yy_setImageWithURL:[NSURL URLWithString:BLdetailModel.userPhoto] placeholder:[UIImage imageNamed:@"默认头像"]];
     _dutyLabel.text = BLdetailModel.dutie;
     _timeLabel.text = BLdetailModel.companyName;
     

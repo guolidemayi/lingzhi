@@ -28,6 +28,8 @@ NSString *const GLD_BannerCellIdentifier = @"GLD_BannerCellIdentifier";
     GLD_BannerDetailController *bannerVc =[GLD_BannerDetailController new];
     bannerVc.bannerModel = self.bannerData[index];
     [self.navigationController pushViewController:bannerVc animated:YES];
+    
+    
 }
 
 

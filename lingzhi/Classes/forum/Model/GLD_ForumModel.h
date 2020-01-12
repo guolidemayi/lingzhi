@@ -17,9 +17,10 @@
 @property (nonatomic, copy)NSString *dutie;//职称
 @property (nonatomic, copy)NSString *companyName;
 @property (nonatomic, copy)NSString *userPhone;//
+@property (nonatomic, copy)NSString *userPhoto;//头像
 @property (nonatomic, copy)NSString *pic;
-
 @property (nonatomic, copy)NSString *newsId;
+@property (nonatomic, copy)NSString *userId;
 @property (nonatomic, copy)NSString *nickName;
 @property (nonatomic, copy)NSString *userName;
 @property (nonatomic, copy)NSString *summary;//内容简介
@@ -32,6 +33,7 @@
 @property (nonatomic, assign)NSInteger readCount;
 @property (nonatomic, copy)NSString *collectionId;//收藏id
 @property (nonatomic, assign)BOOL isDel; //0 未删除。1 已删除
+@property (nonatomic, strong)NSNumber *isShop; //0 未删除。1 已删除
 
 @end
 @interface GLD_ForumModel : YXBaseModel

@@ -16,9 +16,12 @@
 #import "GLD_StoreDetailCell.h"
 #import "GLD_GoodsDetailController.h"
 #import "GLD_PictureView.h"
+#import "GLDPhotoGroupBrowser.h"
+#import "GLDPictureCell.h"
 
 @interface GLD_BusinessDetailManager ()<SDCycleScrollViewDelegate>
 @property (nonatomic, strong)SDCycleScrollView *cycleView;
+@property (nonatomic, strong) NSArray *pidtureArr;
 
 @end
 @implementation GLD_BusinessDetailManager
@@ -33,6 +36,8 @@
     [self.tableView registerClass:[GLD_DetaileBusiCell class] forCellReuseIdentifier:GLD_DetaileBusiCellIdentifier];
     [self.tableView registerClass:[GLD_DetailIntroCell class] forCellReuseIdentifier:GLD_DetailIntroCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:@"GLD_StoreDetailCell" bundle:nil] forCellReuseIdentifier:@"GLD_StoreDetailCell"];
+     [self.tableView registerNib:[UINib nibWithNibName:@"GLDPictureCell" bundle:nil] forCellReuseIdentifier:@"GLDPictureCell"];
+    
 }
 - (void)fetchMainData{
     WS(weakSelf);
@@ -83,6 +88,9 @@
     if (section == 3) {
         return self.mainDataArrM.count;
     }
+    if (section == 2) {
+        return self.pidtureArr.count + 1;
+    }
     return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -103,6 +111,9 @@
             return cell;
         }break;
         case 2:{
+            if (indexPath.row) {
+                return [self getPictureCell:indexPath];
+            }
             return  [self getDetailCell:indexPath];
             
         }break;
@@ -113,6 +124,13 @@
     return [UITableViewCell new];
 }
 
+- (GLDPictureCell *)getPictureCell:(NSIndexPath *)indexPath{
+    NSString *str = self.pidtureArr[indexPath.row-1];
+    GLDPictureCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"GLDPictureCell"];
+    [cell.bgImageV yy_setImageWithURL:[NSURL URLWithString:str] placeholder:nil];
+    return cell;
+    
+}
 - (GLD_DetailIntroCell *)getDetailIntroCell:(NSIndexPath *)indexPath{
     GLD_DetailIntroCell *cell = [self.tableView dequeueReusableCellWithIdentifier:GLD_DetailIntroCellIdentifier];
     cell.busnessModel = self.busnessModel;
@@ -137,8 +155,10 @@
             return W(50);
         } break;
         case 2:{
+            if (indexPath.row) {
+                return W(375);
+            }
             CGFloat height = [YXUniversal calculateCellHeight:0 width:300 text:self.busnessModel.desc font:14];
-            
             return W(50)+height;
         } break;
         case 3:{
@@ -157,7 +177,7 @@
     return headerView;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) return W(180);
+    if (section == 0) return W(375);
     return 5;
 }
 
@@ -176,9 +196,20 @@
                 [arr addObject:str];
             }
         }
-            
-        GLD_PictureView * broser = [[GLD_PictureView alloc]initWithImageArray:arr currentIndex:index];
-        [broser show];
+           
+        __block NSMutableArray *newArrM = [NSMutableArray array];
+           [arr enumerateObjectsUsingBlock:^(NSString  * obj, NSUInteger idx, BOOL * _Nonnull stop) {
+               GLDPhotoItem *item = [GLDPhotoItem new];
+               item.thumbView = nil;
+               item.largeImage = obj;
+               [newArrM addObject:item];
+           }];
+           
+           GLDPhotoGroupBrowser *bre = [[GLDPhotoGroupBrowser alloc]initWithGroupItems:arrM];
+           
+           [bre presentFromImageView:self.cycleView toContainer:KEYWINDOW animated:YES currentPage:index completion:^{
+               
+           }];
     }
 }
 - (SDCycleScrollView *)cycleView{
@@ -197,15 +228,18 @@
                     [arr addObject:str];
                 }
             }
+            
             if (arrM.count > 0) {
+                self.pidtureArr = arrM;
                 _cycleView.imageURLStringsGroup = arr.copy;
             }
         }else{
+            self.pidtureArr = @[self.busnessModel.logo];
             _cycleView.imageURLStringsGroup = @[GetString(self.busnessModel.logo)];
         }
 //        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
         _cycleView.autoScroll = NO;
-        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(180));
+        _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(375));
         //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
     }
     return _cycleView;

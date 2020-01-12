@@ -17,6 +17,7 @@
 @property (nonatomic, strong)UILabel *applyLabel;
 
 @property (nonatomic, strong)UIButton *applyBut;//现金
+@property (nonatomic, strong) UILabel *tipLabel;
 @end
 
 @implementation GLD_SettingController
@@ -60,10 +61,11 @@
         }break;
         case 2:{
             cell.textLabel.text = arr[indexPath.row];
-            
+            if(indexPath.row){
+                [cell.contentView addSubview:self.tipLabel];
+            }
         }break;
-            
-            
+               
     }
     
     return cell;
@@ -197,7 +199,7 @@
 }
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@[@"手机绑定",@"密码修改"],@[@"清除缓存"],@[@"关于"]];
+        _titleArr = @[@[@"手机绑定",@"密码修改"],@[@"清除缓存"],@[@"关于",@"客服电话"]];
     }
     return _titleArr;
 }
@@ -228,5 +230,16 @@
     [alertController addAction:cancelAction];
     [alertController addAction:okAction];
     [self presentViewController:alertController animated:YES completion:nil];
+}
+- (UILabel *)tipLabel{
+    if (!_tipLabel) {
+        _tipLabel = [UILabel new];
+        _tipLabel.frame = CGRectMake(DEVICE_WIDTH - W(135), 10, W(120), 25);
+        _tipLabel.textColor = [UIColor grayColor];
+        _tipLabel.font = WTFont(12);
+        _tipLabel.textAlignment = NSTextAlignmentRight;
+        _tipLabel.text = @"4000318358";
+    }
+    return _tipLabel;
 }
 @end
