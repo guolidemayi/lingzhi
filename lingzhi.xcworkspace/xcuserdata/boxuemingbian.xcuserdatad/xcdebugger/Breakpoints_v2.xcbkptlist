@@ -179,8 +179,8 @@
             timestampString = "592372227.2213939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "-application:didReceiveRemoteNotification:"
             landmarkType = "7">
          </BreakpointContent>
@@ -196,8 +196,8 @@
             timestampString = "592372227.222183"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
             landmarkName = "-application:didReceiveRemoteNotification:"
             landmarkType = "7">
          </BreakpointContent>
@@ -228,8 +228,8 @@
             filePath = "lingzhi/Classes/Other/AppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "-application:didReceiveRemoteNotification:"
             landmarkType = "7">
          </BreakpointContent>
@@ -477,49 +477,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "22A12EF1-A359-4753-A7F3-CD5570908A4F"
+            uuid = "2BC307DC-EF20-4CE8-AB93-6AAA483C0FAC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "notificationExten/NotificationService.m"
+            filePath = "lingzhi/Classes/Home/Controller/LBHomeViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "-sendSoundNoti:"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-onCompleted:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "22A12EF1-A359-4753-A7F3-CD5570908A4F - 9ab60fdbe397eb98"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__37-[NotificationService sendSoundNoti:]_block_invoke"
-                  moduleName = "notificationExten"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/boxuemingbian/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/lingzhi/notificationExten/NotificationService.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "91"
-                  endingLineNumber = "91"
-                  offsetFromSymbolStart = "136">
-               </Location>
-               <Location
-                  uuid = "22A12EF1-A359-4753-A7F3-CD5570908A4F - 4d5f63a4e7429e5"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__37-[NotificationService sendSoundNoti:]_block_invoke_2"
-                  moduleName = "notificationExten"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/boxuemingbian/Desktop/%E6%9C%AA%E5%91%BD%E5%90%8D%E6%96%87%E4%BB%B6%E5%A4%B9/lingzhi/notificationExten/NotificationService.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "92"
-                  endingLineNumber = "92"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

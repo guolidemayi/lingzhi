@@ -17,7 +17,9 @@
 #import "GLD_MessageController.h"
 #import "LBTabBarController.h"
 #import "GLD_GoodsCarListController.h"
-@interface LBHomeViewController ()
+#import "iflyMSC/IFlyMSC.h"
+
+@interface LBHomeViewController ()<IFlySpeechSynthesizerDelegate>
 {
     
     NSString * currentCity; //当前城市
@@ -29,6 +31,7 @@
 @property (nonatomic, copy)NSString *locationStr;
 @property (nonatomic, strong)GLD_CustomBut *redPointBut;
 @property (nonatomic, strong) UIButton *goodsCarBut;
+@property (nonatomic, strong) IFlySpeechSynthesizer *iFlySpeechSynthesizer;
 @end
 
 
@@ -53,12 +56,66 @@
     
     [self.view addSubview:self.goodsCarBut];
     [self.view bringSubviewToFront:self.goodsCarBut];
+//    [self toLocaAudio];
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self fetchRedPointRequest];
 }
 
+
+
+
+- (void)toLocaAudio{
+    
+    [IFlySetting setLogFile:LVL_ALL];
+    
+    //Set whether to output log messages in Xcode console
+    [IFlySetting showLogcat:YES];
+    //Set the local storage path of SDK
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [paths objectAtIndex:0];
+    [IFlySetting setLogFilePath:cachePath];
+    
+    //Set APPID
+    NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",@"5e148089"];
+    
+    //Configure and initialize iflytek services.(This interface must been invoked in application:didFinishLaunchingWithOptions:)
+    [IFlySpeechUtility createUtility:initString];
+//    //获取语音合成单例
+    _iFlySpeechSynthesizer = [IFlySpeechSynthesizer sharedInstance];
+    //设置协议委托对象
+    _iFlySpeechSynthesizer.delegate = self;
+    //设置合成参数
+    //设置在线工作方式
+    [_iFlySpeechSynthesizer setParameter:[IFlySpeechConstant TYPE_CLOUD]
+     forKey:[IFlySpeechConstant ENGINE_TYPE]];
+    //设置音量，取值范围 0~100
+    [_iFlySpeechSynthesizer setParameter:@"50"
+    forKey: [IFlySpeechConstant VOLUME]];
+    //发音人，默认为”xiaoyan”，可以设置的参数列表可参考“合成发音人列表”
+    [_iFlySpeechSynthesizer setParameter:@" xiaoyan "
+     forKey: [IFlySpeechConstant VOICE_NAME]];
+    //保存合成文件名，如不再需要，设置为nil或者为空表示取消，默认目录位于library/cache下
+    [_iFlySpeechSynthesizer setParameter:@"tts.pcm"
+     forKey: [IFlySpeechConstant TTS_AUDIO_PATH]];
+    
+    //启动合成会话
+    [_iFlySpeechSynthesizer startSpeaking: @"你好，我是科大讯飞的小燕"];
+}
+
+//合成结束
+- (void) onCompleted:(IFlySpeechError *) error {
+
+    __weak __typeof(self)weakSelf = self;
+    
+  
+   
+}
+- (void) onSpeakProgress:(int) progress beginPos:(int)beginPos endPos:(int)endPos {
+    
+    
+}
 - (void)versonUpdate{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"惠汇联盟" message:@"有新的版本更新" preferredStyle:  UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

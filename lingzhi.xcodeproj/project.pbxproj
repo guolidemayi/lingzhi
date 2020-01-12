@@ -285,7 +285,6 @@
 		725C26CD23C9D0DA00B6658B /* tts_三.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BB23C9D0DA00B6658B /* tts_三.caf */; };
 		725C26CE23C9D0DA00B6658B /* tts_一.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BC23C9D0DA00B6658B /* tts_一.caf */; };
 		725C26CF23C9D0DA00B6658B /* tts_元.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BD23C9D0DA00B6658B /* tts_元.caf */; };
-		725C26D023C9D0DA00B6658B /* tts_default.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BE23C9D0DA00B6658B /* tts_default.mp3 */; };
 		725C26D223C9D0DA00B6658B /* tts_千.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C023C9D0DA00B6658B /* tts_千.caf */; };
 		725C26D323C9D0DA00B6658B /* tts_十.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C123C9D0DA00B6658B /* tts_十.caf */; };
 		725C26D423C9D0DA00B6658B /* tts_百.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C223C9D0DA00B6658B /* tts_百.caf */; };
@@ -293,14 +292,34 @@
 		725C26D623C9D0DA00B6658B /* tts_点.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C423C9D0DA00B6658B /* tts_点.caf */; };
 		725C26D723C9D0DA00B6658B /* tts_四.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C523C9D0DA00B6658B /* tts_四.caf */; };
 		725C26D823C9D0DA00B6658B /* tts_万.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C623C9D0DA00B6658B /* tts_万.caf */; };
-		725C26D923C9D0DA00B6658B /* tts_pre.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C723C9D0DA00B6658B /* tts_pre.mp3 */; };
-		725C26DB23C9D37500B6658B /* tts_ba.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26DA23C9D37400B6658B /* tts_ba.caf */; };
+		725C26DD23C9DE1E00B6658B /* tts_er.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26DC23C9DE1E00B6658B /* tts_er.caf */; };
+		725C26DF23C9DEC500B6658B /* tts_default.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26DE23C9DEC500B6658B /* tts_default.caf */; };
+		725C26E123C9EA4D00B6658B /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCF23C8A68100E3009D /* Contacts.framework */; };
 		7260782A2359FD42005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 726078292359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m */; };
 		72AF308F234DC5C000E0FD62 /* AppDelegate+JPush.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AF308E234DC5C000E0FD62 /* AppDelegate+JPush.m */; };
 		72CCBFCE23C8A66600E3009D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCD23C8A66600E3009D /* AddressBook.framework */; };
-		72CCBFD023C8A68100E3009D /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCF23C8A68100E3009D /* Contacts.framework */; };
 		72CCBFD223C8A6A200E3009D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFD123C8A6A200E3009D /* AudioToolbox.framework */; };
 		72CCBFD323C8A6B800E3009D /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F298EBA1FC2DB0D00EDBA9A /* CoreTelephony.framework */; };
+		72CF1DA123CABA1500C0814C /* tts_百.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C223C9D0DA00B6658B /* tts_百.caf */; };
+		72CF1DA223CABA1900C0814C /* tts_点.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C423C9D0DA00B6658B /* tts_点.caf */; };
+		72CF1DA323CABA1D00C0814C /* tts_二.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B823C9D0D900B6658B /* tts_二.caf */; };
+		72CF1DA523CABA7000C0814C /* tts_八.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72CF1DA423CABA7000C0814C /* tts_八.caf */; };
+		72CF1DA623CABA9000C0814C /* tts_default.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26DE23C9DEC500B6658B /* tts_default.caf */; };
+		72CF1DA723CABA9300C0814C /* tts_元.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BD23C9D0DA00B6658B /* tts_元.caf */; };
+		72CF1DA823CABA9600C0814C /* tts_一.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BC23C9D0DA00B6658B /* tts_一.caf */; };
+		72CF1DA923CABA9900C0814C /* tts_五.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B923C9D0D900B6658B /* tts_五.caf */; };
+		72CF1DAA23CABA9C00C0814C /* tts_万.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C623C9D0DA00B6658B /* tts_万.caf */; };
+		72CF1DAB23CABA9F00C0814C /* tts_四.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C523C9D0DA00B6658B /* tts_四.caf */; };
+		72CF1DAC23CABAA200C0814C /* tts_十.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C123C9D0DA00B6658B /* tts_十.caf */; };
+		72CF1DAD23CABAA500C0814C /* tts_三.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BB23C9D0DA00B6658B /* tts_三.caf */; };
+		72CF1DAE23CABAA900C0814C /* tts_千.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C023C9D0DA00B6658B /* tts_千.caf */; };
+		72CF1DAF23CABAAC00C0814C /* tts_七.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B623C9D0D900B6658B /* tts_七.caf */; };
+		72CF1DB023CABAAE00C0814C /* tts_六.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B723C9D0D900B6658B /* tts_六.caf */; };
+		72CF1DB123CABAB200C0814C /* tts_零.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26C323C9D0DA00B6658B /* tts_零.caf */; };
+		72CF1DB223CABAB500C0814C /* tts_九.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26BA23C9D0D900B6658B /* tts_九.caf */; };
+		72CF1DB323CABABD00C0814C /* tts_八.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72CF1DA423CABA7000C0814C /* tts_八.caf */; };
+		72E7446123C9ED0100D75257 /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCB23C8A62B00E3009D /* iflyMSC.framework */; };
+		72E7446623CAB8E600D75257 /* tts_er.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26DC23C9DE1E00B6658B /* tts_er.caf */; };
 		72F0C62F234F0E5B00D76B24 /* shop_gathering.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */; };
 		72F0C638234F181700D76B24 /* NotificationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F0C637234F181700D76B24 /* NotificationService.m */; };
 		72F0C63C234F181700D76B24 /* notificationExten.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 72F0C634234F181700D76B24 /* notificationExten.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -864,7 +883,6 @@
 		725C26BB23C9D0DA00B6658B /* tts_三.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_三.caf"; sourceTree = "<group>"; };
 		725C26BC23C9D0DA00B6658B /* tts_一.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_一.caf"; sourceTree = "<group>"; };
 		725C26BD23C9D0DA00B6658B /* tts_元.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_元.caf"; sourceTree = "<group>"; };
-		725C26BE23C9D0DA00B6658B /* tts_default.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tts_default.mp3; sourceTree = "<group>"; };
 		725C26C023C9D0DA00B6658B /* tts_千.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_千.caf"; sourceTree = "<group>"; };
 		725C26C123C9D0DA00B6658B /* tts_十.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_十.caf"; sourceTree = "<group>"; };
 		725C26C223C9D0DA00B6658B /* tts_百.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_百.caf"; sourceTree = "<group>"; };
@@ -872,8 +890,8 @@
 		725C26C423C9D0DA00B6658B /* tts_点.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_点.caf"; sourceTree = "<group>"; };
 		725C26C523C9D0DA00B6658B /* tts_四.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_四.caf"; sourceTree = "<group>"; };
 		725C26C623C9D0DA00B6658B /* tts_万.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_万.caf"; sourceTree = "<group>"; };
-		725C26C723C9D0DA00B6658B /* tts_pre.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tts_pre.mp3; sourceTree = "<group>"; };
-		725C26DA23C9D37400B6658B /* tts_ba.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tts_ba.caf; sourceTree = "<group>"; };
+		725C26DC23C9DE1E00B6658B /* tts_er.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tts_er.caf; sourceTree = "<group>"; };
+		725C26DE23C9DEC500B6658B /* tts_default.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tts_default.caf; sourceTree = "<group>"; };
 		726078282359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+GLD_AdaptLayout.h"; sourceTree = "<group>"; };
 		726078292359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+GLD_AdaptLayout.m"; sourceTree = "<group>"; };
 		72AF308D234DC5BF00E0FD62 /* AppDelegate+JPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+JPush.h"; sourceTree = "<group>"; };
@@ -882,6 +900,7 @@
 		72CCBFCD23C8A66600E3009D /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		72CCBFCF23C8A68100E3009D /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		72CCBFD123C8A6A200E3009D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		72CF1DA423CABA7000C0814C /* tts_八.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_八.caf"; sourceTree = "<group>"; };
 		72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = shop_gathering.caf; sourceTree = "<group>"; };
 		72F0C634234F181700D76B24 /* notificationExten.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = notificationExten.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F0C636234F181700D76B24 /* NotificationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationService.h; sourceTree = "<group>"; };
@@ -979,6 +998,7 @@
 				0FE8159A20493A7600DE8756 /* CoreText.framework in Frameworks */,
 				0FE8159820493A5300DE8756 /* QuartzCore.framework in Frameworks */,
 				0FE8159620493A1700DE8756 /* libc++.tbd in Frameworks */,
+				72E7446123C9ED0100D75257 /* iflyMSC.framework in Frameworks */,
 				339EF9791FF93CC000C6170E /* libresolv.tbd in Frameworks */,
 				339EF9771FF93C7900C6170E /* UIKit.framework in Frameworks */,
 				0F298EBF1FC2DB2900EDBA9A /* CFNetwork.framework in Frameworks */,
@@ -986,7 +1006,6 @@
 				0F28D2BB1FD7DDE400138A8B /* MapKit.framework in Frameworks */,
 				0F298ECD1FC2DC3000EDBA9A /* libxml2.2.tbd in Frameworks */,
 				0FE81594204939BB00DE8756 /* AlipaySDK.framework in Frameworks */,
-				72CCBFD023C8A68100E3009D /* Contacts.framework in Frameworks */,
 				0F298ECB1FC2DBD800EDBA9A /* libiconv.tbd in Frameworks */,
 				72CCBFCE23C8A66600E3009D /* AddressBook.framework in Frameworks */,
 				0F298EC91FC2DB9700EDBA9A /* libresolv.9.tbd in Frameworks */,
@@ -1002,6 +1021,7 @@
 				0F298EB31FC2DABA00EDBA9A /* Security.framework in Frameworks */,
 				0F298EB11FC2DAAF00EDBA9A /* libz.tbd in Frameworks */,
 				0F298EAF1FC2DAA100EDBA9A /* AdSupport.framework in Frameworks */,
+				725C26E123C9EA4D00B6658B /* Contacts.framework in Frameworks */,
 				0F298E4F1FC28AF600EDBA9A /* CoreLocation.framework in Frameworks */,
 				0F298EA31FC2D18600EDBA9A /* TencentOpenAPI.framework in Frameworks */,
 				0F298EA51FC2D18600EDBA9A /* libWeChatSDK.a in Frameworks */,
@@ -1519,6 +1539,7 @@
 			isa = PBXGroup;
 			children = (
 				72F0C62E234F0E5A00D76B24 /* shop_gathering.caf */,
+				725C26DC23C9DE1E00B6658B /* tts_er.caf */,
 				72CCBFCB23C8A62B00E3009D /* iflyMSC.framework */,
 				0FEA82C720902F17002FBC88 /* protocol.html */,
 				0FE81591204939BB00DE8756 /* AlipaySDK.bundle */,
@@ -2041,7 +2062,7 @@
 		725C268E23C9C36E00B6658B /* voice */ = {
 			isa = PBXGroup;
 			children = (
-				725C26DA23C9D37400B6658B /* tts_ba.caf */,
+				72CF1DA423CABA7000C0814C /* tts_八.caf */,
 				725C26C223C9D0DA00B6658B /* tts_百.caf */,
 				725C26C423C9D0DA00B6658B /* tts_点.caf */,
 				725C26B823C9D0D900B6658B /* tts_二.caf */,
@@ -2057,8 +2078,7 @@
 				725C26B923C9D0D900B6658B /* tts_五.caf */,
 				725C26BC23C9D0DA00B6658B /* tts_一.caf */,
 				725C26BD23C9D0DA00B6658B /* tts_元.caf */,
-				725C26BE23C9D0DA00B6658B /* tts_default.mp3 */,
-				725C26C723C9D0DA00B6658B /* tts_pre.mp3 */,
+				725C26DE23C9DEC500B6658B /* tts_default.caf */,
 			);
 			path = voice;
 			sourceTree = "<group>";
@@ -2314,25 +2334,34 @@
 				33FD33AF2025607700725317 /* GLD_PayForBusiCell.xib in Resources */,
 				C993F243228D3466005C0948 /* GLD_NormsVIew.xib in Resources */,
 				0F80FB21202439D700F7EE22 /* GLD_ZFBPayCell.xib in Resources */,
+				72CF1DA323CABA1D00C0814C /* tts_二.caf in Resources */,
 				0F60E9C81FC2754300C5E113 /* LaunchScreen.storyboard in Resources */,
 				C9ED06FD2282FB3E00D487BD /* GLD_ChooseGoodsView.xib in Resources */,
 				0FE81593204939BB00DE8756 /* AlipaySDK.bundle in Resources */,
+				72CF1DB323CABABD00C0814C /* tts_八.caf in Resources */,
 				0F544614210EFF5E009FAE8E /* GLD_GoodsDetailCell.xib in Resources */,
 				0F60E9C51FC2754300C5E113 /* Assets.xcassets in Resources */,
 				0FE8158D2045562700DE8756 /* address.plist in Resources */,
 				0F5445F5210EABCA009FAE8E /* GLD_StoreDetailCell.xib in Resources */,
 				C954739D2290548A0097D778 /* GLD_OrderRemarkCell.xib in Resources */,
 				0F5445ED210EA733009FAE8E /* GLD_StoreCell.xib in Resources */,
+				72CF1DA123CABA1500C0814C /* tts_百.caf in Resources */,
 				0FF3B07021219E6000B5C512 /* GLD_ExpressAddressView.xib in Resources */,
 				C961C6C7228AD7950000CC8E /* GLD_SendView.xib in Resources */,
+				72CF1DB023CABAAE00C0814C /* tts_六.caf in Resources */,
+				72E7446623CAB8E600D75257 /* tts_er.caf in Resources */,
+				72CF1DAE23CABAA900C0814C /* tts_千.caf in Resources */,
 				C9FA8984228FCD640066AFB8 /* GLD_ShareAppCell.xib in Resources */,
 				C9FA8992228FE5DA0066AFB8 /* GLD_GoodsPicCell.xib in Resources */,
+				72CF1DAD23CABAA500C0814C /* tts_三.caf in Resources */,
 				C961C6D6228BEB3C0000CC8E /* GLD_PaoTuiCell.xib in Resources */,
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
 				0F298EA41FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				0F54461D211001F6009FAE8E /* GLD_ExpressCell.xib in Resources */,
 				0F326F251FF49D9A00A90106 /* user_industry.json in Resources */,
 				0F2C2EFD1FF4EF1D0083BCCB /* GLD_GetMoneyCell.xib in Resources */,
+				72CF1DB123CABAB200C0814C /* tts_零.caf in Resources */,
+				72CF1DAA23CABA9C00C0814C /* tts_万.caf in Resources */,
 				0F326F2D1FF4AED500A90106 /* GLD_MyOrderCell.xib in Resources */,
 				0F2C2F791FFC839E0083BCCB /* Images.xcassets in Resources */,
 				332D9B111FFA011D00A86304 /* GLD_ForumCell.xib in Resources */,
@@ -2340,10 +2369,19 @@
 				0FC3FCD820EB110F00A98F7E /* GLD_BusnessOrderCell.xib in Resources */,
 				0F298EA61FC2D18600EDBA9A /* read_me.txt in Resources */,
 				0F298E841FC2CFC200EDBA9A /* MTShareView.xib in Resources */,
+				72CF1DA623CABA9000C0814C /* tts_default.caf in Resources */,
 				0F80FB2920243D8000F7EE22 /* GLD_ZFBCashCell.xib in Resources */,
+				72CF1DA923CABA9900C0814C /* tts_五.caf in Resources */,
 				0FB537361FC6D22A00B0EDA6 /* SGQRCode.bundle in Resources */,
+				72CF1DAC23CABAA200C0814C /* tts_十.caf in Resources */,
 				72F0C62F234F0E5B00D76B24 /* shop_gathering.caf in Resources */,
+				72CF1DB223CABAB500C0814C /* tts_九.caf in Resources */,
+				72CF1DA223CABA1900C0814C /* tts_点.caf in Resources */,
+				72CF1DA723CABA9300C0814C /* tts_元.caf in Resources */,
+				72CF1DAF23CABAAC00C0814C /* tts_七.caf in Resources */,
 				C961C6C2228ABBDD0000CC8E /* GLD_NewPayGoodsCell.xib in Resources */,
+				72CF1DAB23CABA9F00C0814C /* tts_四.caf in Resources */,
+				72CF1DA823CABA9600C0814C /* tts_一.caf in Resources */,
 				0F5EC5E0202D6F4200298A7D /* GLD_CountCell.xib in Resources */,
 				C961C6CC228BE6920000CC8E /* GLD_BangBanCell.xib in Resources */,
 			);
@@ -2370,21 +2408,21 @@
 				725C26C823C9D0DA00B6658B /* tts_七.caf in Resources */,
 				72F0C642234F1EC600D76B24 /* shop_gathering.caf in Resources */,
 				725C26D223C9D0DA00B6658B /* tts_千.caf in Resources */,
-				725C26D023C9D0DA00B6658B /* tts_default.mp3 in Resources */,
+				725C26DD23C9DE1E00B6658B /* tts_er.caf in Resources */,
 				725C26D623C9D0DA00B6658B /* tts_点.caf in Resources */,
 				725C26D323C9D0DA00B6658B /* tts_十.caf in Resources */,
 				725C26D523C9D0DA00B6658B /* tts_零.caf in Resources */,
 				725C26CD23C9D0DA00B6658B /* tts_三.caf in Resources */,
 				725C26D823C9D0DA00B6658B /* tts_万.caf in Resources */,
+				725C26DF23C9DEC500B6658B /* tts_default.caf in Resources */,
 				725C26CE23C9D0DA00B6658B /* tts_一.caf in Resources */,
 				725C26CC23C9D0DA00B6658B /* tts_九.caf in Resources */,
 				725C26D423C9D0DA00B6658B /* tts_百.caf in Resources */,
-				725C26D923C9D0DA00B6658B /* tts_pre.mp3 in Resources */,
-				725C26DB23C9D37500B6658B /* tts_ba.caf in Resources */,
 				725C26C923C9D0DA00B6658B /* tts_六.caf in Resources */,
 				725C26CB23C9D0DA00B6658B /* tts_五.caf in Resources */,
 				725C26CA23C9D0DA00B6658B /* tts_二.caf in Resources */,
 				725C26CF23C9D0DA00B6658B /* tts_元.caf in Resources */,
+				72CF1DA523CABA7000C0814C /* tts_八.caf in Resources */,
 				725C26D723C9D0DA00B6658B /* tts_四.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

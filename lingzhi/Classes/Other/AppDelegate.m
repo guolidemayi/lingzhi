@@ -18,7 +18,7 @@
 #import "GLD_PerfectUserMController.h"
 #import "IQKeyboardManager.h"
 #import "AppDelegate+JPush.h"
-//#import "IFlyMSC/IFlyMSC.h"
+#import "IFlyMSC/IFlyMSC.h"
 
 #define LBKeyWindow [UIApplication sharedApplication].keyWindow
 
@@ -46,24 +46,52 @@
     [WXApi registerApp:WeiXinAppKey withDescription:@"医生汇"];
     //配置高德地图
     [AMapServices sharedServices].apiKey = AMAP_KEY;
-//    [NSThread sleepForTimeInterval:3.0];
+    [NSThread sleepForTimeInterval:3.0];
     
      [self registJpushWithApplication:application andOptions:launchOptions];
+
     return YES;
 }
 
+- (void)applicationWillTerminate:(UIApplication *)application {
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    UIApplication*   app = [UIApplication sharedApplication];
+    __block    UIBackgroundTaskIdentifier bgTask;
+    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (bgTask != UIBackgroundTaskInvalid)
+            {
+                bgTask = UIBackgroundTaskInvalid;
+            }
+        });
+    }];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (bgTask != UIBackgroundTaskInvalid)
+            {
+                bgTask = UIBackgroundTaskInvalid;
+            }
+        });
+    });
 
+}
 - (void)setXunFei{
+    //Set log level
+    [IFlySetting setLogFile:LVL_ALL];
+    
+    //Set whether to output log messages in Xcode console
+    [IFlySetting showLogcat:YES];
     //Set the local storage path of SDK
-//       NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-//       NSString *cachePath = [paths objectAtIndex:0];
-//       [IFlySetting setLogFilePath:cachePath];
+       NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+       NSString *cachePath = [paths objectAtIndex:0];
+       [IFlySetting setLogFilePath:cachePath];
        
-//       //Set APPID
-//       NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",@"5e148089"];
-//
-//       //Configure and initialize iflytek services.(This interface must been invoked in application:didFinishLaunchingWithOptions:)
-//       [IFlySpeechUtility createUtility:initString];
+       //Set APPID
+       NSString *initString = [[NSString alloc] initWithFormat:@"appid=%@",@"5e148089"];
+
+       //Configure and initialize iflytek services.(This interface must been invoked in application:didFinishLaunchingWithOptions:)
+       [IFlySpeechUtility createUtility:initString];
 }
 #pragma mark -- initView
 /**

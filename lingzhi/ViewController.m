@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "IFlyMSC/IFlyMSC.h"
 @interface ViewController ()<CLLocationManagerDelegate>
 {
     

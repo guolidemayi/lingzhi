@@ -99,7 +99,7 @@ static BOOL isProduction = FALSE;
         [JPUSHService handleRemoteNotification:userInfo];
     } ;
     completionHandler(UNNotificationPresentationOptionAlert|UNNotificationPresentationOptionSound|UNAuthorizationOptionBadge); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
-//     [self pushHandleInReception:userInfo];
+     [self pushHandleInReception:userInfo];
 }
 
 // iOS 10 Support
@@ -126,6 +126,20 @@ static BOOL isProduction = FALSE;
     }
 }
 - (void)pushHandleInReception:(NSDictionary *)dic{
+    
+//    NSError *setCategoryErr = nil;
+//    [[AVAudioSession sharedInstance]
+//     setCategory: AVAudioSessionCategoryPlayback
+//     error: &setCategoryErr];
+//    [[AVAudioSession sharedInstance]
+//     setActive: YES
+//     error: nil];
+//    
+//    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:[NSString stringWithFormat:@"阿狸钱包提醒您：已收款%@元",@"100"]];
+//       
+//       AVSpeechSynthesizer *synth = [[AVSpeechSynthesizer alloc] init];
+//       
+//       [synth speakUtterance:utterance];
 //    if ([dic[@"event"] isEqualToString:@"ORDER"]) {
 //
 //        [[AVAudioSession sharedInstance] setActive:YES error:nil];
