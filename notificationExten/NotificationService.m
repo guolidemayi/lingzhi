@@ -16,6 +16,16 @@
 
 @property (nonatomic, strong) NSMutableArray *numArrM;
 @property (nonatomic, assign) NSInteger index;
+@property (nonatomic, assign) NSInteger yi;
+@property (nonatomic, assign) NSInteger er;
+@property (nonatomic, assign) NSInteger san;
+@property (nonatomic, assign) NSInteger si;
+@property (nonatomic, assign) NSInteger wu;
+@property (nonatomic, assign) NSInteger liu;
+@property (nonatomic, assign) NSInteger qi;
+@property (nonatomic, assign) NSInteger ba;
+@property (nonatomic, assign) NSInteger jiu;
+@property (nonatomic, assign) NSInteger shi;
 
 @end
 
@@ -46,8 +56,34 @@
                NSString *subStr = [numStr substringWithRange:range];
                
                NSString *newStr = [NSString stringWithFormat:@"tts_%@.caf",subStr];
+               if ([self.numArrM containsObject:newStr]) {
+                   
+                   if ([subStr isEqualToString:@"一"]) {
+                       newStr = [NSString stringWithFormat:@"tts_%@%zd.caf",subStr,++self.yi];
+                   }else if([subStr isEqualToString:@"二"]){
+                       newStr = [NSString stringWithFormat:@"tts_%@%zd.caf",subStr,++self.er];
+                   }else if([subStr isEqualToString:@"三"]){
+                       newStr = [NSString stringWithFormat:@"tts_%@%zd.caf",subStr,++self.san];
+                   }else if([subStr isEqualToString:@"四"]){
+                       newStr = [NSString stringWithFormat:@"tts_%@%zd.caf",subStr,++self.si];
+                   }else if([subStr isEqualToString:@"五"]){
+                       newStr = [NSString stringWithFormat:@"tts_%@%zd.caf",subStr,++self.wu];
+                   }else if([subStr isEqualToString:@"六"]){
+                       newStr = [NSString stringWithFormat:@"tts_%@%zd.caf",subStr,++self.liu];
+                   }else if([subStr isEqualToString:@"七"]){
+                       newStr = [NSString stringWithFormat:@"tts_%@%zd.caf",subStr,++self.qi];
+                   }else if([subStr isEqualToString:@"八"]){
+                       newStr = [NSString stringWithFormat:@"tts_%@%zd.caf",subStr,++self.ba];
+                   }else if([subStr isEqualToString:@"九"]){
+                       newStr = [NSString stringWithFormat:@"tts_%@%zd.caf",subStr,++self.jiu];
+                   }else if([subStr isEqualToString:@"十"]){
+                       newStr = [NSString stringWithFormat:@"tts_%@%zd.caf",subStr,++self.shi];
+                   }
+                   
+               }
                [self.numArrM addObject:newStr];
            }
+//           [self.numArrM addObject:@"tts_元.caf"];
            [self sendSoundNoti:self.numArrM.firstObject];
        }else{
             self.contentHandler(self.bestAttemptContent);
@@ -62,8 +98,6 @@
 ////           weakSelf.contentHandler(weakSelf.bestAttemptContent);
 //       }];
    
-
-  
  
 }
 
