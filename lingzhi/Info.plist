@@ -61,7 +61,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>使用定位以发现附近门店</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string></string>
+	<string>汇会联盟需要您的同意使用麦克风发送语音</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>需要访问您的相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
