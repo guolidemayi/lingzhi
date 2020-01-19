@@ -243,7 +243,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/addShop";
-    config.requestParameters = @{@"logo" : [NSString stringWithFormat:@"%@%@",self.stordUpdateImg,self.updateImg],
+    config.requestParameters = @{@"logo" : [NSString stringWithFormat:@"%@,%@",self.stordUpdateImg,self.updateImg],
                                  @"name" : GetString(self.nameTF.text),
                                  @"desc" : GetString(self.describeTF.text),
                                  @"cellphone" : GetString(self.phoneTF.text),

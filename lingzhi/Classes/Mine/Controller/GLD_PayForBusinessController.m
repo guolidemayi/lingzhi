@@ -56,7 +56,7 @@ typedef enum
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.table_apply];
-    self.NetManager = [GLD_NetworkAPIManager shareNetManager];
+    
     self.payType = WeChatPay;
     [self setuBottomView];
     [self getData];

@@ -15,7 +15,7 @@
 
 - (void)setComponentCorner{
     [self.tableView registerClass:[GLD_BusinessCell class] forCellReuseIdentifier:GLD_BusinessCellIdentifier];
-    self.tableView.rowHeight = W(100);
+    self.tableView.rowHeight = W(120);
 }
 - (void)fetchMainData{
  //我的收藏接口

@@ -11,5 +11,6 @@
 @class GLD_BusnessModel;
 @interface GLD_BusinessDetailController : GLD_BaseViewController
 
+@property (nonatomic, strong) NSString *userId;
 @property (nonatomic, strong)GLD_BusnessModel *busnessModel;
 @end

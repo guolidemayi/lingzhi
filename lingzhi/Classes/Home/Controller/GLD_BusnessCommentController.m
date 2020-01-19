@@ -80,7 +80,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case 0: {
-            return W(100);
+            return W(120);
         }break;
         case 1:
         {

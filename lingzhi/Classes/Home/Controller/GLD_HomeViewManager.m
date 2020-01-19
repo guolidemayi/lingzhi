@@ -232,7 +232,7 @@
         }break;
             
         case 1:{
-            return W(100);
+            return W(120);
         }break;
     }
     return 0.001;

@@ -23,7 +23,7 @@
     
     for (NSInteger i = 0; i < self.imageCount; i++) {
         UIImageView *imageView = [[UIImageView alloc]init];
-        imageView.image = [UIImage imageNamed:@"starRating1"];
+        imageView.image = [UIImage imageNamed:@"WechatIMG78"];
         imageView.tag = 1000+i;
         imageView.frame = CGRectMake(self.imageWidth*i, 0, self.imageWidth, self.imageHeight);
         [self addSubview:imageView];

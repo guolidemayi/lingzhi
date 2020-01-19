@@ -34,6 +34,7 @@
     self.title = self.busnessModel.name;
     self.detail_table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:self.detail_table];
+    self.detail_table.mj_footer = nil;
     self.busnessManager = [[GLD_BusinessDetailManager alloc]initWithTableView:self.detail_table];
     
     [self setRightBut];
@@ -55,7 +56,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
         config.requestType = gld_networkRequestTypePOST;
         config.urlPath = @"api/user/getMyShop";
-        config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId)};
+        config.requestParameters = @{@"userId" : GetString(self.userId)};
         
         [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
             NSError *ee;
@@ -137,10 +138,10 @@
 }
 - (void)setupBottomView{
     [self.view addSubview:self.bottomView];
-    self.bottomView.frame = CGRectMake(0, DEVICE_HEIGHT-W(44)-64-iPhoneXBottomHeight, DEVICE_WIDTH, W(44));
+    self.bottomView.frame = CGRectMake(0, DEVICE_HEIGHT-W(44)-64-iPhoneXBottomHeight, DEVICE_WIDTH, W(44) + iPhoneXBottomHeight);
     [self.detail_table mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.right.left.equalTo(self.view);
-        make.bottom.equalTo(self.bottomView.mas_top);
+        make.bottom.equalTo(self.bottomView).offset(W(30));
     }];
 }
 - (void)bottomButClick:(UIButton *)but{
@@ -187,6 +188,7 @@
 - (UIView *)bottomView{
     if (!_bottomView) {
         _bottomView = [UIView new];
+        _bottomView.backgroundColor = [UIColor whiteColor];
         NSArray *arr;
         if(![[AppDelegate shareDelegate].userModel.userId isEqualToString:self.busnessModel.userId]){
         arr = @[@"评论",@"导航",@"拨号",@"向商家付款"];

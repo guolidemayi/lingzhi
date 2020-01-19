@@ -158,6 +158,12 @@
             [self clean];
         }break;
         case 2:{
+            if(indexPath.row){
+                NSMutableString *str=[[NSMutableString alloc] initWithFormat:@"telprompt://%@",@"4000318358"];
+
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+                return;
+            }
             //关于我们
             GLD_AboutUsController *aboutVc = [GLD_AboutUsController new];
             [self.navigationController pushViewController:aboutVc animated:YES];

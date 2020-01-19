@@ -24,7 +24,7 @@
 - (void)setComponentCorner{
     [self.tableView registerClass:[GLD_BusinessCell class] forCellReuseIdentifier:GLD_BusinessCellIdentifier];
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    self.tableView.rowHeight = W(100);
+    self.tableView.rowHeight = W(120);
 }
 - (void)fetchMainDataWithCondition:(NSDictionary *)condition complate:(completionHandleBlock)complate{
     WS(weakSelf);

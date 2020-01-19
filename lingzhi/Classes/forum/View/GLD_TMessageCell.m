@@ -44,6 +44,7 @@ NSString  *const GLD_TMessageCellIdentifi = @"GLD_TMessageCellIdentifi";
 - (void)iconImageClick{
     if (self.BLdetailModel.isShop.boolValue) {
          GLD_BusinessDetailController *detaileVc = [GLD_BusinessDetailController new];
+        detaileVc.userId = self.BLdetailModel.userId;
         [self.navigationController pushViewController:detaileVc animated:YES];
 
     }

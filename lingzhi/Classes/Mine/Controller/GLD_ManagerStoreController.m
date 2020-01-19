@@ -10,7 +10,7 @@
 #import "GLD_PayForMeController.h"
 #import "GLD_UpdateViewController.h"
 #import "GLD_ModifyDiscountController.h"
-#import "GLD_MyOrderController.h"
+#import "GLD_BusnessPayInfoController.h"
 #import "GLD_ApplyBusnessController.h"
 #import "GLD_GoodsManagerController.h"
 #import "GLD_PostGoodsViewController.h"
@@ -89,7 +89,9 @@
 }
 //订单管理
 - (IBAction)orderClick:(UIButton *)sender {
-    GLD_MyOrderController *myCollect = [[GLD_MyOrderController alloc]init];
+    
+    
+    GLD_BusnessPayInfoController *myCollect = [[GLD_BusnessPayInfoController alloc]init];
     [self.navigationController pushViewController:myCollect animated:YES];
 }
 - (IBAction)upgradeClick:(UIButton *)sender {

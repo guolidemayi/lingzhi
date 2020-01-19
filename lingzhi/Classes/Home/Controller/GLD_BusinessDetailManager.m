@@ -181,6 +181,9 @@
     return 5;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 5;
+}
 
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
@@ -199,10 +202,12 @@
            
         __block NSMutableArray *newArrM = [NSMutableArray array];
            [arr enumerateObjectsUsingBlock:^(NSString  * obj, NSUInteger idx, BOOL * _Nonnull stop) {
-               GLDPhotoItem *item = [GLDPhotoItem new];
-               item.thumbView = nil;
-               item.largeImage = obj;
-               [newArrM addObject:item];
+               if (IsExist_String(obj)) {
+                   GLDPhotoItem *item = [GLDPhotoItem new];
+                   item.thumbView = nil;
+                   item.largeImage = obj;
+                   [newArrM addObject:item];
+               }
            }];
            
            GLDPhotoGroupBrowser *bre = [[GLDPhotoGroupBrowser alloc]initWithGroupItems:arrM];
@@ -234,7 +239,7 @@
                 _cycleView.imageURLStringsGroup = arr.copy;
             }
         }else{
-            self.pidtureArr = @[self.busnessModel.logo];
+            self.pidtureArr = @[GetString(self.busnessModel.logo)];
             _cycleView.imageURLStringsGroup = @[GetString(self.busnessModel.logo)];
         }
 //        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
