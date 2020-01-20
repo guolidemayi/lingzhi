@@ -18,7 +18,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *colleHeight;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectView;
-@property (weak, nonatomic) IBOutlet UITextView *detailText;
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageV;
 @property (copy, nonatomic)  NSArray *pictures;//tu pian
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
@@ -30,7 +31,6 @@
     NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:reuseIdentifier owner:nil options:nil];
     GLD_ForumCell *cell = (GLD_ForumCell*)[topLevelObjects firstObject];
     [cell setup];
-    cell.detailText.scrollEnabled = NO;
     return cell;
 }
 
@@ -41,7 +41,7 @@
     self.nameLabel.text = detailModel.userName;
     self.timeLabel.text = detailModel.time;
     [self.iconImageV yy_setImageWithURL:[NSURL URLWithString:detailModel.userPhone] placeholder:WTImage(@"默认头像")];
-    self.detailText.text = detailModel.summary;
+    self.contentLabel.text = detailModel.summary;
 //    self.contentHeight.constant = [YXUniversal calculateCellHeight:0 width:300 text:detailModel.summary font:12] + 40;
     if (detailModel.pic.length > 10) 
     self.pictures = [detailModel.pic componentsSeparatedByString:@","];

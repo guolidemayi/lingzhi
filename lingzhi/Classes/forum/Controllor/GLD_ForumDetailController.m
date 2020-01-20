@@ -153,7 +153,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.section) {
         case 0: {
-            CGFloat height = [YXUniversal calculateCellHeight:0 width:300 text:self.forumModel.summary font:12] + W(150);
+            CGFloat height = [YXUniversal calculateCellHeight:0 width:W(340) text:self.forumModel.summary font:15] + W(150);
             if (self.forumModel.pic.length > 10) {
                 
                 NSArray *arr = [self.forumModel.pic componentsSeparatedByString:@","];
