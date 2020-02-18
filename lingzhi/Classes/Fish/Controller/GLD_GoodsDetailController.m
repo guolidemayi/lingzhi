@@ -78,7 +78,11 @@
     }
     self.storeModel.chooseNorms = index;
     self.storeModel.seleteCount = count;
-    [self hasWriteAddress];
+    if(self.type == 2){
+        [self hasWriteAddress];
+    }else{
+        [self showAddressView];
+    }
 }
 //click
 - (void)applybutClick{
@@ -142,10 +146,11 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = wxPayGoodsRequest;
-    config.requestParameters = @{@"goodId":GetString(self.storeModel.storeId),
+    config.requestParameters = @{@"goodsId":GetString(self.storeModel.storeId),
                                  @"fromUserId":GetString([AppDelegate shareDelegate].userModel.userId),
                                  @"payType":GetString(self.payType),
-                                 @"address":GetString(self.address)
+                                 @"address":GetString(self.address),
+                                 @"prize":self.storeModel.price
                                  };
     [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
         if (!error) {

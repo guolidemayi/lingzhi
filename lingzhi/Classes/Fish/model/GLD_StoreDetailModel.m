@@ -29,6 +29,7 @@
     [aCoder encodeObject:_userId forKey:@"userId"];
     [aCoder encodeInt64:_type forKey:@"type"];
     [aCoder encodeObject:_price forKey:@"price"];
+    [aCoder encodeObject:_count forKey:@"count"];
     
     
 }
@@ -42,6 +43,7 @@
         _userId = [aDecoder decodeObjectForKey:@"userId"];
         _price = [aDecoder decodeObjectForKey:@"price"];
         _type = [aDecoder decodeIntForKey:@"type"];
+        _count = [aDecoder decodeObjectForKey:@"count"];
     }
     return self;
 }

@@ -247,7 +247,8 @@
         table.estimatedRowHeight = 0;
         table.estimatedSectionHeaderHeight = 0;
         table.estimatedSectionFooterHeight = 0;
-        [table setSeparatorInset:UIEdgeInsetsMake(0, W(15), 0, W(15))];
+        table.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        [table setSeparatorInset:UIEdgeInsetsMake(0, W(15), 0, W(15))];
 //        [table mas_makeConstraints:^(MASConstraintMaker *make) {
 //            make.edges.equalTo(self.view);
 //        }];

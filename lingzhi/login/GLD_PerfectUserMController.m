@@ -62,6 +62,10 @@
 
 }
 - (void)backAction{
+    UIViewController *viewC = [AppDelegate shareDelegate].window.rootViewController;
+    if ([viewC isKindOfClass:[GLD_PerfectUserMController class]]) {
+        [[AppDelegate shareDelegate]initMainPageBody];return;
+    }
     if (self.navigationController.viewControllers.count > 1) {
         [self.navigationController popViewControllerAnimated:YES];
     }else{

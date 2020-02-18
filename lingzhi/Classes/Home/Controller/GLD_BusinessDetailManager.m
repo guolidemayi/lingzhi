@@ -245,6 +245,7 @@
 //        _cycleView.autoScrollTimeInterval = 3;// 自动滚动时间间隔
         _cycleView.autoScroll = NO;
         _cycleView.frame = CGRectMake(0, 0, DEVICE_WIDTH, W(375));
+        [self.tableView reloadData];
         //        _cycleView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;// 翻页 右下角
     }
     return _cycleView;

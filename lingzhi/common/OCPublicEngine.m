@@ -168,6 +168,7 @@ static OCPublicEngine *sInstance = nil;
                 [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"weixinLogin"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 //需要绑定手机
+                
               [[AppDelegate shareDelegate] finishUserData];
             } else {
                  [[NSUserDefaults standardUserDefaults] setBool:YES forKey:userHasLogin];

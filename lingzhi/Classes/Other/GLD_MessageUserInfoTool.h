@@ -11,6 +11,7 @@
 
 @interface GLD_MessageUserInfoTool : NSObject
 
++ (void)removeAllObj;
 + (NSArray *)readDiskAllCache;
 + (void)removeAdsList:(GLD_StoreDetailModel *)model;
 + (void)writeDiskCache:(GLD_StoreDetailModel *)model;

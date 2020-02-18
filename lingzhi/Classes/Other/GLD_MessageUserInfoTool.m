@@ -41,10 +41,20 @@
 + (void)writeDiskCache: (GLD_StoreDetailModel *)model {
     
     if (IsExist_String(model.storeId)) {
+        //取数据，不是一个商家的不让加入购物车
+        NSArray *arr = [self readDiskAllCache];
+        if (IsExist_Array(arr)) {
+            GLD_StoreDetailModel *oldModel = arr.firstObject;
+            if (![oldModel.userId isEqualToString:model.userId]) {
+                [CAToast showWithText:@"购物车里不能选择其它商家的产品, 请先结算"];
+                return;
+            }
+        }
         if([[self readDiskAllCache] containsObject:model]){
             [CAToast showWithText:@"已加过购物车"];
             return;
         }
+        model.count = @(1);
         [self createCacheDirectory:[self path]];
         [NSKeyedArchiver archiveRootObject:model
                                     toFile:[NSString stringWithFormat:@"%@%@",[self path],model.storeId]];

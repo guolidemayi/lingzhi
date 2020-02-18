@@ -58,7 +58,7 @@ NSString *const GLD_MapDetailCellIdentifier = @"GLD_MapDetailCellIdentifier";
 - (void)setBusnessModel:(GLD_BusnessModel *)busnessModel{
     _busnessModel = busnessModel;
     if (busnessModel) {
-//        self.keyWordField.text = busnessModel.address;
+        self.keyWordField.text = busnessModel.address;
         AMapPOI *p = [AMapPOI new];
         p.location.latitude = busnessModel.xpoint.floatValue;
         p.location.longitude = busnessModel.ypoint.floatValue;

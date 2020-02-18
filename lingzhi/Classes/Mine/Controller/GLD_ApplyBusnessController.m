@@ -243,7 +243,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = @"api/main/addShop";
-    config.requestParameters = @{@"logo" : [NSString stringWithFormat:@"%@,%@",self.stordUpdateImg,self.updateImg],
+    config.requestParameters = @{@"logo" : [NSString stringWithFormat:@"%@%@",self.stordUpdateImg,self.updateImg],
                                  @"name" : GetString(self.nameTF.text),
                                  @"desc" : GetString(self.describeTF.text),
                                  @"cellphone" : GetString(self.phoneTF.text),
@@ -487,6 +487,7 @@
         _discountTF.returnKeyType = UIReturnKeyDone;
         _discountTF.tag = 2;
         _discountTF.text = self.busnessModel.discount;
+        
         UIButton *but = [[UIButton alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - W(95), 0, W(80), W(50))];
         but.titleLabel.font = WTFont(12);
         _discountTF.frame = CGRectMake(SCREEN_WIDTH - W(200), 0, W(100), W(50));
@@ -1009,5 +1010,16 @@
         _cellsDictM = [NSMutableDictionary dictionary];
     }
     return _cellsDictM;
+}
+- (AMapPOI *)mapPoi{
+    if (!_mapPoi) {
+        AMapPOI *mapI = [[AMapPOI alloc]init];
+        mapI.address = self.busnessModel.address;
+        mapI.location.latitude = self.busnessModel.xpoint.floatValue;
+        mapI.location.longitude = self.busnessModel.ypoint.floatValue;
+        _mapPoi = mapI;
+        
+    }
+    return _mapPoi;
 }
 @end

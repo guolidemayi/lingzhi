@@ -258,6 +258,12 @@
 		5B3789A9B5E4EF8A0BE2141F /* libPods-lingzhiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DB0E180031E9F2FFDC4AE5CE /* libPods-lingzhiTests.a */; };
 		64BFBA665871E50399A6E013 /* libPods-lingzhi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C3E6708F716104D709C04A /* libPods-lingzhi.a */; };
 		72163D5B23D154EB005D1DEB /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE8159B20493AA400DE8756 /* CoreMotion.framework */; };
+		721EE4EB23FAC3FA00575666 /* GLD_CarListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721EE4E923FAC3FA00575666 /* GLD_CarListCell.m */; };
+		721EE4EC23FAC3FA00575666 /* GLD_CarListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 721EE4EA23FAC3FA00575666 /* GLD_CarListCell.xib */; };
+		721EE4EF23FADCB900575666 /* GLD_OrderDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721EE4EE23FADCB900575666 /* GLD_OrderDetailController.m */; };
+		721EE4F323FADDDC00575666 /* GLD_OrderDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 721EE4F123FADDDC00575666 /* GLD_OrderDetailCell.m */; };
+		721EE4F423FADDDC00575666 /* GLD_OrderDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 721EE4F223FADDDC00575666 /* GLD_OrderDetailCell.xib */; };
+		721EE4F723FADEA400575666 /* GLD_OrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 721EE4F623FADEA400575666 /* GLD_OrderDetailModel.m */; };
 		725C265123C98E5500B6658B /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72CCBFCB23C8A62B00E3009D /* iflyMSC.framework */; };
 		725C26C823C9D0DA00B6658B /* tts_七.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B623C9D0D900B6658B /* tts_七.caf */; };
 		725C26C923C9D0DA00B6658B /* tts_六.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26B723C9D0D900B6658B /* tts_六.caf */; };
@@ -1023,6 +1029,16 @@
 		3CA74E4D1FD2808300A7F137 /* GLD_IndustryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_IndustryModel.m; sourceTree = "<group>"; };
 		3CA74E4F1FD2829200A7F137 /* GLD_BannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_BannerModel.h; sourceTree = "<group>"; };
 		3CA74E501FD2829200A7F137 /* GLD_BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_BannerModel.m; sourceTree = "<group>"; };
+		721EE4E823FAC3FA00575666 /* GLD_CarListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_CarListCell.h; sourceTree = "<group>"; };
+		721EE4E923FAC3FA00575666 /* GLD_CarListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_CarListCell.m; sourceTree = "<group>"; };
+		721EE4EA23FAC3FA00575666 /* GLD_CarListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_CarListCell.xib; sourceTree = "<group>"; };
+		721EE4ED23FADCB900575666 /* GLD_OrderDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_OrderDetailController.h; sourceTree = "<group>"; };
+		721EE4EE23FADCB900575666 /* GLD_OrderDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_OrderDetailController.m; sourceTree = "<group>"; };
+		721EE4F023FADDDC00575666 /* GLD_OrderDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_OrderDetailCell.h; sourceTree = "<group>"; };
+		721EE4F123FADDDC00575666 /* GLD_OrderDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_OrderDetailCell.m; sourceTree = "<group>"; };
+		721EE4F223FADDDC00575666 /* GLD_OrderDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GLD_OrderDetailCell.xib; sourceTree = "<group>"; };
+		721EE4F523FADEA400575666 /* GLD_OrderDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_OrderDetailModel.h; sourceTree = "<group>"; };
+		721EE4F623FADEA400575666 /* GLD_OrderDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_OrderDetailModel.m; sourceTree = "<group>"; };
 		725C266423C99D8A00B6658B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		725C26B623C9D0D900B6658B /* tts_七.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_七.caf"; sourceTree = "<group>"; };
 		725C26B723C9D0D900B6658B /* tts_六.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_六.caf"; sourceTree = "<group>"; };
@@ -1337,6 +1353,9 @@
 				0FC3FCD420EB110F00A98F7E /* GLD_BusnessOrderCell.h */,
 				0FC3FCD520EB110F00A98F7E /* GLD_BusnessOrderCell.m */,
 				0FC3FCD620EB110F00A98F7E /* GLD_BusnessOrderCell.xib */,
+				721EE4F023FADDDC00575666 /* GLD_OrderDetailCell.h */,
+				721EE4F123FADDDC00575666 /* GLD_OrderDetailCell.m */,
+				721EE4F223FADDDC00575666 /* GLD_OrderDetailCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1412,6 +1431,8 @@
 				0F5EC5E2202D701700298A7D /* GLD_CountModel.m */,
 				0F54462B21118B30009FAE8E /* GLD_InvitMemberModel.h */,
 				0F54462C21118B30009FAE8E /* GLD_InvitMemberModel.m */,
+				721EE4F523FADEA400575666 /* GLD_OrderDetailModel.h */,
+				721EE4F623FADEA400575666 /* GLD_OrderDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1702,6 +1723,9 @@
 				C9FA898E228FE5DA0066AFB8 /* GLD_GoodsPicCell.h */,
 				C9FA898F228FE5DA0066AFB8 /* GLD_GoodsPicCell.m */,
 				C9FA8990228FE5DA0066AFB8 /* GLD_GoodsPicCell.xib */,
+				721EE4E823FAC3FA00575666 /* GLD_CarListCell.h */,
+				721EE4E923FAC3FA00575666 /* GLD_CarListCell.m */,
+				721EE4EA23FAC3FA00575666 /* GLD_CarListCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2122,6 +2146,8 @@
 				0FC3FCD220EB0E7E00A98F7E /* GLD_BusnessPayInfoController.m */,
 				0F5445E5210877BB009FAE8E /* GLD_InvitMemberController.h */,
 				0F5445E6210877BB009FAE8E /* GLD_InvitMemberController.m */,
+				721EE4ED23FADCB900575666 /* GLD_OrderDetailController.h */,
+				721EE4EE23FADCB900575666 /* GLD_OrderDetailController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2677,6 +2703,7 @@
 				72CF1DB323CABABD00C0814C /* tts_八.caf in Resources */,
 				72970D9623CC577400BAD088 /* tts_六7.caf in Resources */,
 				72970D0423CC56F100BAD088 /* tts_八2.caf in Resources */,
+				721EE4F423FADDDC00575666 /* GLD_OrderDetailCell.xib in Resources */,
 				72970DB823CC577400BAD088 /* tts_五2.caf in Resources */,
 				0F544614210EFF5E009FAE8E /* GLD_GoodsDetailCell.xib in Resources */,
 				0F60E9C51FC2754300C5E113 /* Assets.xcassets in Resources */,
@@ -2723,6 +2750,7 @@
 				72CF1DAD23CABAA500C0814C /* tts_三.caf in Resources */,
 				72970DC423CC577400BAD088 /* tts_六6.caf in Resources */,
 				C961C6D6228BEB3C0000CC8E /* GLD_PaoTuiCell.xib in Resources */,
+				721EE4EC23FAC3FA00575666 /* GLD_CarListCell.xib in Resources */,
 				0F60E9C31FC2754300C5E113 /* Main.storyboard in Resources */,
 				0F298EA41FC2D18600EDBA9A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				72970DAC23CC577400BAD088 /* tts_六4.caf in Resources */,
@@ -3006,6 +3034,7 @@
 			files = (
 				C93245BB22869C0E000A2A29 /* GLD_MessageUserInfoTool.m in Sources */,
 				72CF1DCA23CAE6E400C0814C /* GLDPictureCell.m in Sources */,
+				721EE4EB23FAC3FA00575666 /* GLD_CarListCell.m in Sources */,
 				339EF9621FF9295500C6170E /* GLD_RemindCell.m in Sources */,
 				0F28D29A1FD6799100138A8B /* UITableView+SDAutoTableViewCellHeight.m in Sources */,
 				0F2C2F491FF62E330083BCCB /* GLD_Button.m in Sources */,
@@ -3031,6 +3060,7 @@
 				0F64119F1FD524190069FDB1 /* GLD_BusinessDetailManager.m in Sources */,
 				0F28D2C41FD930D900138A8B /* GLD_SearchResultCell.m in Sources */,
 				0F2C2EF51FF4EB3A0083BCCB /* GLD_GetCashController.m in Sources */,
+				721EE4EF23FADCB900575666 /* GLD_OrderDetailController.m in Sources */,
 				0F54461C211001F6009FAE8E /* GLD_ExpressCell.m in Sources */,
 				0F2C2F481FF62E330083BCCB /* GLD_CommentCell.m in Sources */,
 				0F2C2F581FF62E330083BCCB /* GLD_PictureView.m in Sources */,
@@ -3163,6 +3193,7 @@
 				0F99201E1FCEF81E00305DF3 /* GLD_BusinessCell.m in Sources */,
 				0F326F331FF4C22300A90106 /* PCStarRatingView.m in Sources */,
 				0F28D29D1FD67D9500138A8B /* GLD_MineWalletCell.m in Sources */,
+				721EE4F723FADEA400575666 /* GLD_OrderDetailModel.m in Sources */,
 				0F28D2BE1FD7F04000138A8B /* GLD_ApplyBusnessController.m in Sources */,
 				33FD33B22025780F00725317 /* GLD_PayForBusiModel.m in Sources */,
 				C954739C2290548A0097D778 /* GLD_OrderRemarkCell.m in Sources */,
@@ -3215,6 +3246,7 @@
 				0F32E7FC1FE12CED0042E8BE /* GLD_SearchController.m in Sources */,
 				C9ED06EB22815E6500D487BD /* CollectionCategoryModel.m in Sources */,
 				C93245B822869835000A2A29 /* SampleProject.xcdatamodeld in Sources */,
+				721EE4F323FADDDC00575666 /* GLD_OrderDetailCell.m in Sources */,
 				0F2C2F4E1FF62E330083BCCB /* GLD_AllDetailController.m in Sources */,
 				0F2C2F5E1FF62E330083BCCB /* GLD_PictureImg.m in Sources */,
 				0F2C2F521FF62E330083BCCB /* GLD_ForumNewsDetailModel.m in Sources */,
@@ -3421,7 +3453,7 @@
 				CODE_SIGN_ENTITLEMENTS = lingzhi/lingzhi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3438,7 +3470,7 @@
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/WeChat",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/Weibo",
 				);
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 4.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3455,7 +3487,7 @@
 				CODE_SIGN_ENTITLEMENTS = lingzhi/lingzhi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3472,7 +3504,7 @@
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/WeChat",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/Weibo",
 				);
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 4.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3547,7 +3579,7 @@
 				CODE_SIGN_ENTITLEMENTS = notificationExten/notificationExten.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3557,7 +3589,7 @@
 				INFOPLIST_FILE = notificationExten/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 4.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng.notificationExten;
@@ -3577,7 +3609,7 @@
 				CODE_SIGN_ENTITLEMENTS = notificationExten/notificationExten.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3587,7 +3619,7 @@
 				INFOPLIST_FILE = notificationExten/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 4.3;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng.notificationExten;
 				PRODUCT_NAME = "$(TARGET_NAME)";

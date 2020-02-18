@@ -10,6 +10,7 @@
 #import "GLD_MyOrderCell.h"
 #import "PCStarRatingView.h"
 #import "GLD_OrderModel.h"
+#import "GLD_OrderDetailController.h"
 
 @interface GLD_MyOrderController ()<UITableViewDelegate, UITableViewDataSource,PCStarRatingDelegate,GLD_MyOrderCellDelegate>
 @property (nonatomic, strong)UITableView *table_apply;
@@ -99,6 +100,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [self getMyorderCell:indexPath];
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    GLD_OrderDetailController *vc = [GLD_OrderDetailController new];
+    GLD_OrderModel *model = self.dataArr[indexPath.section];
+    vc.orderId = model.orderNumber;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (GLD_MyOrderCell *)getMyorderCell:(NSIndexPath *)indexPath{
     GLD_MyOrderCell *cell = [GLD_MyOrderCell cellWithReuseIdentifier:@"GLD_MyOrderCell"];

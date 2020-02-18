@@ -246,9 +246,11 @@
     
 }
 - (void)openLoginWithOpenId:(NSString *)openId token:(NSString *)token
-{    
+{
+    WS(weakSelf);
     [[OCPublicEngine getInstance]  openLoginHandleWithOpenId:openId token:token isAutoLogin:NO successBlock:^(NSString *thirdUserId) {
         NSLog(@"%@",thirdUserId);
+        [weakSelf dismissViewControllerAnimated:NO completion:nil];
     }];
 }
 

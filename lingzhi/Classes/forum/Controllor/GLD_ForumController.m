@@ -64,6 +64,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.forumListArrM removeAllObjects];
     [self forumDetailRequest];
 }
 - (void)reLoadMainData{

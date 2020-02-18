@@ -30,5 +30,8 @@
 #define getShareListRequest @"api/version/categoryWithApps"//共享应用
 #define deliveryCategoryRequest @"api/version/deliveryCategory"//a跑腿四张图
 
+
+#define orderDetailRequest @"api/order/orderInfo"//订单详情
+
 #define KEYWINDOW       [[UIApplication sharedApplication] keyWindow]
 #endif /* GLD_ConfigureFile_h */

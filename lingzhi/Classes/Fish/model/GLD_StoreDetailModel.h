@@ -14,6 +14,7 @@
 
 @property (nonatomic, copy)NSString *storeId;
 @property (nonatomic, copy)NSNumber *price;
+@property (nonatomic, copy)NSNumber *count;
 @property (nonatomic, copy)NSString *summary;
 @property (nonatomic, copy)NSString *caregory;//所属分类
 @property (nonatomic, copy)NSString *title;
