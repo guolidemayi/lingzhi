@@ -21,7 +21,11 @@
 #import "GLD_NormsVIew.h"
 #import "BRTextField.h"
 #import "BRStringPickerView.h"
-@interface GLD_PostGoodsViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,UITextViewDelegate,GLD_topicCellDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,GLD_PhotoViewDelegate,GLD_PictureCellDelegate,UITextFieldDelegate>
+#import "GLDTagListView.h"
+#import "GLDTagViewModel.h"
+#import "GLDTagModel.h"
+
+@interface GLD_PostGoodsViewController ()<UICollectionViewDelegate, UICollectionViewDataSource,UITextViewDelegate,GLD_topicCellDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,GLD_PhotoViewDelegate,GLD_PictureCellDelegate,UITextFieldDelegate,GLDTagListViewDelegate>
 {
     //    NSMutableArray *topicArrM;
     NSMutableDictionary *topicDict;
@@ -54,6 +58,9 @@
 
 @property (nonatomic, strong)UILabel *priceLabel;
 @property (nonatomic, strong)UITextField *priceTextField;
+@property (nonatomic, strong) GLDTagListView *tagListView;
+@property (nonatomic, strong) BRTextField *cateTF;
+@property (nonatomic, strong) GLDTagViewModel *selectViewModel;
 @end
 
 @implementation GLD_PostGoodsViewController
@@ -77,6 +84,45 @@
     _photoView.delegate = self;
     self.title = @"发布商品";
     [self fetchCategroyData];
+    [self fetchTagList];
+}
+- (void)fetchTagList{
+   WS(weakSelf);
+    
+    GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
+    config.requestType = gld_networkRequestTypePOST;
+    config.urlPath = shopCateList;
+    config.requestParameters = @{@"userId" : GetString([AppDelegate shareDelegate].userModel.userId),
+                                 };
+    
+    [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
+        if (!error) {
+            NSArray *arr = result[@"data"];
+            
+            NSMutableArray *arrM = [NSMutableArray array];
+            for (NSDictionary *dic in arr) {
+                GLDTagModel *model = [[GLDTagModel alloc]initWithDictionary:dic error:&error];
+                
+                GLDTagViewModel *viewModel = [[GLDTagViewModel alloc]initWithObject:model];
+                [arrM addObject:viewModel];
+                
+            }
+            weakSelf.tagListView.dataArr = arrM;
+            weakSelf.cateTF.tapAcitonBlock = ^{
+                [weakSelf.tagListView show:nil];
+            };
+        }else{
+            [CAToast showWithText:@"请求失败，请重试"];
+        }
+       
+    }];
+}
+//GLDTagListViewDelegate
+- (void)didSelectTagItem:(nullable NSArray *)viewModelArr{
+    GLDTagViewModel *viewModel = viewModelArr.firstObject;
+    
+    self.selectViewModel = viewModel;
+    self.cateTF.text = viewModel.nameStr;
 }
 //分类商品
 - (void)fetchCategroyData{
@@ -185,7 +231,8 @@
                                       @"price":self.priceTextField.text,
                                       @"pic":jsonString,
                                       @"category":self.locationTF.text,
-                                      @"norms":topArrM
+                                      @"norms":topArrM,
+                                      @"classify":GetString(self.selectViewModel.tagId)
                                       }];
     
    
@@ -570,13 +617,19 @@
         make.height.equalTo(@(50));
         make.width.equalTo(@(300));
     }];
-    
+    [self.scrollView addSubview:self.cateTF];
+    [self.cateTF mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(lineView1);
+        make.top.equalTo(self.locationTF.mas_bottom).offset(15);
+        make.height.equalTo(@(50));
+        make.width.equalTo(@(300));
+    }];
     UILabel *addPicLabel = [UILabel creatLableWithText:@"" andFont:WTFont(17) textAlignment:NSTextAlignmentLeft textColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK]];
     addPicLabel.attributedText = [YXUniversal changeColorLabel:@"添加图片（最多添加6张）" find:@"（最多添加6张）"  flMaxFont:17 flMinFont:12 maxColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK] minColor:[YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK]];
     [self.scrollView addSubview:addPicLabel];
     [addPicLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(titleLabel);
-        make.top.equalTo(self.locationTF.mas_bottom).offset(H(15));
+        make.top.equalTo(self.cateTF.mas_bottom).offset(H(15));
         
     }];
     
@@ -710,5 +763,29 @@
 
     }
     return _locationTF;
+}
+- (GLDTagListView *)tagListView{
+    if (!_tagListView) {
+        _tagListView = [GLDTagListView instanceWithtagViewWithDelegate:self];
+        [self.view addSubview:self.tagListView];
+        self.tagListView.frame = self.view.bounds;
+        [self.view sendSubviewToBack:self.tagListView];
+    }
+    return _tagListView;
+}
+
+- (BRTextField *)cateTF{
+    if (!_cateTF) {
+        BRTextField *textField = [[BRTextField alloc]initWithFrame:CGRectZero];
+        textField.backgroundColor = [UIColor clearColor];
+        textField.font = [UIFont systemFontOfSize:16.0f];
+        textField.textAlignment = NSTextAlignmentLeft;
+        textField.delegate = self;
+        _cateTF = textField;
+        _cateTF.placeholder = @"请选择商品类别";
+        
+
+    }
+    return _cateTF;
 }
 @end

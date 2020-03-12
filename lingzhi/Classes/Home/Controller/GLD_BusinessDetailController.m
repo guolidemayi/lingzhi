@@ -15,15 +15,18 @@
 
 #import "GLD_BusnessCommentController.h"
 #import "GLD_OldPayForBusnController.h"
+#import "OCPublicEngine.h"
 
-@interface GLD_BusinessDetailController ()
+@import WebKit;
+@interface GLD_BusinessDetailController ()<WKNavigationDelegate>
 
-@property (nonatomic, strong)UITableView *detail_table;
-@property (nonatomic, strong)GLD_BusinessDetailManager *busnessManager;
-@property (nonatomic, strong)UIView *bottomView;
+//@property (nonatomic, strong)UITableView *detail_table;
+//@property (nonatomic, strong)GLD_BusinessDetailManager *busnessManager;
+//@property (nonatomic, strong)UIView *bottomView;
 
 @property (nonatomic, weak)UIButton *collectBut;
 @property (nonatomic, assign)NSInteger isCollection;
+@property (nonatomic, strong)WKWebView *webView;
 //0 收藏  1 取消
 @end
 
@@ -32,20 +35,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.busnessModel.name;
-    self.detail_table = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    [self.view addSubview:self.detail_table];
-    self.detail_table.mj_footer = nil;
-    self.busnessManager = [[GLD_BusinessDetailManager alloc]initWithTableView:self.detail_table];
     
+    
+    [self layout];
     [self setRightBut];
     
     if (self.busnessModel) {
-        self.busnessManager.busnessModel = self.busnessModel;
-        [self setupBottomView];
+        NSString *url = [NSString stringWithFormat:@"%@%@&userId=%@",shopDetailUrl,self.busnessModel.userId,GetString([AppDelegate shareDelegate].userModel.userId)];
+         [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
         [self isCollectionRequest];
     }else{
         [self getShopDetailModel];
     }
+    
+}
+- (void)layout{
+    [self.view addSubview:self.webView];
+    [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view).offset(-iPhoneXTopHeight);
+        make.left.right.top.equalTo(self.view);
+    }];
 }
 
 - (void)initData{
@@ -61,24 +70,55 @@
         [self.NetManager dispatchDataTaskWith:config andCompletionHandler:^(NSError *error, id result) {
             NSError *ee;
             weakSelf.busnessModel = [[GLD_BusnessModel alloc] initWithDictionary:result[@"data"] error:&ee];
-            weakSelf.busnessManager.busnessModel = self.busnessModel;
-                   [weakSelf setupBottomView];
-                   [weakSelf isCollectionRequest];
+        
+            [weakSelf.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@&userId=%@",shopDetailUrl,weakSelf.busnessModel.userId,GetString([AppDelegate shareDelegate].userModel.userId)]]]];
 
         }];
 }
 - (void)setRightBut{
     UIButton *rightBut = [[UIButton alloc]init];;
     self.collectBut = rightBut;
-    rightBut.frame = CGRectMake(0, 0, 50, 44);
+    rightBut.frame = CGRectMake(0, 0, 30, 44);
     [rightBut setImage:WTImage(@"btn_shoucang_null") forState:UIControlStateNormal];
     [rightBut addTarget:self action:@selector(collectionClick) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:rightBut];
-    self.navigationItem.rightBarButtonItem = item1;
+    
+    UIButton *shareBut = [[UIButton alloc]init];;
+    shareBut.frame = CGRectMake(0, 0, 30, 44);
+       [shareBut setImage:WTImage(@"分享icon") forState:UIControlStateNormal];
+       [shareBut addTarget:self action:@selector(shareButClick) forControlEvents:UIControlEventTouchUpInside];
+       UIBarButtonItem *item2 = [[UIBarButtonItem alloc]initWithCustomView:shareBut];
+    
+    self.navigationItem.rightBarButtonItems = @[item2,item1];
+    
+    UIButton *backBut = [[UIButton alloc]init];;
+       backBut.frame = CGRectMake(0, 0, 30, 44);
+          [backBut setImage:WTImage(@"header_back_icon") forState:UIControlStateNormal];
+          [backBut addTarget:self action:@selector(backButClick) forControlEvents:UIControlEventTouchUpInside];
+          UIBarButtonItem *item3 = [[UIBarButtonItem alloc]initWithCustomView:backBut];
+    self.navigationItem.leftBarButtonItem = item3;
+}
+- (void)backButClick{
+//    if ([self.webView canGoBack]) {
+//        [self.webView goBack];
+//    }else{
+//    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.busnessManager fetchMainData];
+    
+}
+- (void)shareButClick{
+    NSString *url = [NSString stringWithFormat:@"%@%@",shopDetailUrl,self.busnessModel.userId];
+    NSString *imageStr = @"";
+    if([self.busnessModel.logo containsString:@","]){
+           NSArray *arr = [self.busnessModel.logo componentsSeparatedByString:@","];
+        imageStr = arr.firstObject;
+       }else{
+           imageStr = self.busnessModel.logo;
+       }
+    [OCPublicEngine showShareViewWithType:KShareViewTypePerson withDelegate:self shareText:self.busnessModel.name shareUrl:url shareDetail:self.busnessModel.desc shareImage:imageStr shareTitle:self.busnessModel.name];
 }
 - (void)isCollectionRequest{
     WS(weakSelf);
@@ -136,100 +176,96 @@
         
     }];
 }
-- (void)setupBottomView{
-    [self.view addSubview:self.bottomView];
-    self.bottomView.frame = CGRectMake(0, DEVICE_HEIGHT-W(44)-64-iPhoneXBottomHeight, DEVICE_WIDTH, W(44) + iPhoneXBottomHeight);
-    [self.detail_table mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.right.left.equalTo(self.view);
-        make.bottom.equalTo(self.bottomView).offset(W(30));
-    }];
-}
-- (void)bottomButClick:(UIButton *)but{
-    switch (but.tag) {
-        case 201:{
-            //评论
-            GLD_BusnessCommentController *commentVc = [GLD_BusnessCommentController new];
-            commentVc.busnessModel = self.busnessModel;
-            [self.navigationController pushViewController:commentVc animated:YES];
-        }break;
-        case 202:{
-            //导航
-//                [MapNavigationManager showSheetWithCity:self.title start:nil end:@"上海"];
-                CLLocationCoordinate2D coordinate;
-                coordinate.latitude = [self.busnessModel.xpoint floatValue];
-                coordinate.longitude = [self.busnessModel.ypoint floatValue];
-                [MapNavigationManager showSheetWithCoordinate2D:coordinate];
-        }break;
-        case 203:{
-//            拨号
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[NSString stringWithFormat:@"tel://%@",self.busnessModel.cellphone] stringByReplacingOccurrencesOfString:@"-" withString:@""]]];
-        }break;
-        case 204:{
-            if(!hasLogin){
-                [CAToast showWithText:@"请登录"];
-                return;
-            }
-            GLD_OldPayForBusnController *jumpVC = [[GLD_OldPayForBusnController alloc] init];
-            //        jumpVC.jump_URL = result;
-                jumpVC.payForUserId = self.busnessModel.userId;
 
-            [self.navigationController pushViewController:jumpVC animated:YES];
-        }break;
-        case 205:{
-            //发布商品
-            GLD_PostController *postVC = [GLD_PostController instancePost:^{
-                
-            } andType:2];
-            [self.navigationController pushViewController:postVC animated:YES];
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
+
+    NSString *urlStr = [navigationAction.request.URL.absoluteString stringByRemovingPercentEncoding];
+//    WKNavigationActionPolicy policy = WKNavigationActionPolicyCancel;
+    if ([urlStr containsString:@"navigate"]) {//导航
+        //hhlm://wap/shop/navigate?latitude=125.3&longitude=106.7
+        CLLocationCoordinate2D coordinate;
+        coordinate.latitude = [self.busnessModel.xpoint floatValue];
+        coordinate.longitude = [self.busnessModel.ypoint floatValue];
+        [MapNavigationManager showSheetWithCoordinate2D:coordinate];
+        
+    }else if([urlStr containsString:@"comment"]){//评论
+        //hhlm://wap/shop/comment?shopid=xxx
+
+        GLD_BusnessCommentController *commentVc = [GLD_BusnessCommentController new];
+        commentVc.busnessModel = self.busnessModel;
+        [self.navigationController pushViewController:commentVc animated:YES];
+        
+    }else if([urlStr containsString:@"goods/add"]){//新增商品
+        //hhlm://wap/goods/add?shopid=xxx
+
+        GLD_PostController *postVC = [GLD_PostController instancePost:^{
             
-        }break;
-    }
-}
-- (UIView *)bottomView{
-    if (!_bottomView) {
-        _bottomView = [UIView new];
-        _bottomView.backgroundColor = [UIColor whiteColor];
-        NSArray *arr;
-        if(![[AppDelegate shareDelegate].userModel.userId isEqualToString:self.busnessModel.userId]){
-        arr = @[@"评论",@"导航",@"拨号",@"向商家付款"];
-        }else{
-            arr = @[@"评论",@"导航",@"拨号",@"向商家付款",@"发布商品"];
+        } andType:2];
+        [self.navigationController pushViewController:postVC animated:YES];
+        
+        
+    }else if([urlStr containsString:@"shop/pay"]){//支付
+        //hhlm://wap/shop/pay?shopid=xxx
+        if(!hasLogin){
+            [CAToast showWithText:@"请登录"];
+            return;
         }
-        for (int i = 0; i < arr.count; i++) {
-            UIButton *but = [UIButton new];
-            UIImageView *imgV = [UIImageView new];
-            imgV.image = WTImage(arr[i]);
-            
-            UILabel *label = [UILabel new];
-            label.text = arr[i];
-            label.textColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTBLACK];
-            label.font = WTFont(12);
-            [but addSubview:imgV];
-            [but addSubview:label];
-            [imgV mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.equalTo(but);
-                make.top.equalTo(but).offset(3);
-            }];
-            if (i == 3) {
-                [label mas_makeConstraints:^(MASConstraintMaker *make) {
-                    make.centerX.equalTo(but);
-                    make.bottom.equalTo(but);
-                }];
-                label.textColor = [UIColor whiteColor];
-                but.backgroundColor = [YXUniversal colorWithHexString:COLOR_YX_GRAY_TEXTyellow];
-            }else{
-            [label mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.centerX.equalTo(imgV);
-                make.top.equalTo(imgV.mas_bottom).offset(-3);
-            }];
-            }
-            [_bottomView addSubview:but];
-            but.frame = CGRectMake(DEVICE_WIDTH/arr.count * i, 0, DEVICE_WIDTH/arr.count, W(44));
-            [but addTarget:self action:@selector(bottomButClick:) forControlEvents:UIControlEventTouchUpInside];
-            but.tag = 201 + i;
-        }
+        GLD_OldPayForBusnController *jumpVC = [[GLD_OldPayForBusnController alloc] init];
+        //        jumpVC.jump_URL = result;
+            jumpVC.payForUserId = self.busnessModel.userId;
+
+        [self.navigationController pushViewController:jumpVC animated:YES];
+        
+        
+    }else if([urlStr containsString:@"action/callphone"]){//打电话
+        //hhlm://wap/action/callphone?phonenum=1212313
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[NSString stringWithFormat:@"tel://%@",self.busnessModel.cellphone] stringByReplacingOccurrencesOfString:@"-" withString:@""]]];
+        
+        
     }
-    return _bottomView;
+    
+    
+    
+    
+    decisionHandler(WKNavigationActionPolicyAllow);
 }
 
+- (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(null_unspecified WKNavigation *)navigation{
+    
+}
+
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error{
+    
+}
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation{
+
+//    [self.webView evaluateJavaScript:@"document.documentElement.style.webkitTouchCallout='none';" completionHandler:nil];
+//    [self.webView evaluateJavaScript:@"document.documentElement.style.webkitUserSelect='none';" completionHandler:nil];
+  
+}
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation;{
+    
+    
+   
+}
+- (WKWebView *)webView{
+    if (!_webView) {
+        
+        WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc]init];
+        configuration.allowsInlineMediaPlayback = true;//关闭视频默认全屏
+        WKWebView* webView = [[NSClassFromString(@"WKWebView") alloc] initWithFrame:CGRectZero configuration:configuration];
+        webView.navigationDelegate = self;
+        
+        _webView = webView;
+        _webView.scrollView.bounces = NO;
+    
+        if (@available(iOS 11.0, *)) {
+            _webView.scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
+        
+    }
+    return _webView;
+}
 @end

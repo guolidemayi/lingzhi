@@ -14,6 +14,7 @@
 #import "GLD_ApplyBusnessController.h"
 #import "GLD_GoodsManagerController.h"
 #import "GLD_PostGoodsViewController.h"
+#import "GLD_GoodsCateController.h"
 
 @interface GLD_ManagerStoreController ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImgV;//商店图标
@@ -80,6 +81,12 @@
 //        weakSelf.phoneCode = @"1111";
     }];
 }
+
+- (IBAction)goodsCateClick:(id)sender {
+    GLD_GoodsCateController *goodsVc = [GLD_GoodsCateController new];
+    [self.navigationController pushViewController:goodsVc animated:YES];
+}
+
 //折扣设置
 - (IBAction)discountClick:(id)sender {
     GLD_ModifyDiscountController *modifyVc = [GLD_ModifyDiscountController new];

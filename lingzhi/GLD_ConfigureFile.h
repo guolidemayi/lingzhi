@@ -33,5 +33,12 @@
 
 #define orderDetailRequest @"api/order/orderInfo"//订单详情
 
+#define shopCateList       @"api/shop/goodsClassify"//商品分类列表
+#define ShopAddCate        @"api/shop/addGoodsClassify"//新增商品分类
+#define ShopDeleteCate     @"api/shop/delGoodsClassify"//删除分类
+#define shopChangeCate     @"api/shop/editGoodsClassify" //修改分类
+
+
+#define shopDetailUrl     @"http://www.hhlmcn.com/shop/?shopId="
 #define KEYWINDOW       [[UIApplication sharedApplication] keyWindow]
 #endif /* GLD_ConfigureFile_h */

@@ -283,6 +283,12 @@
 		725C26DD23C9DE1E00B6658B /* tts_er.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26DC23C9DE1E00B6658B /* tts_er.caf */; };
 		725C26DF23C9DEC500B6658B /* tts_default.caf in Resources */ = {isa = PBXBuildFile; fileRef = 725C26DE23C9DEC500B6658B /* tts_default.caf */; };
 		7260782A2359FD42005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 726078292359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m */; };
+		72820D70241942EA0003C770 /* GLD_GoodsCateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72820D6F241942EA0003C770 /* GLD_GoodsCateController.m */; };
+		72820D7A2419CD0B0003C770 /* GLDTagItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72820D732419CD0B0003C770 /* GLDTagItemCell.m */; };
+		72820D7B2419CD0B0003C770 /* GLDTagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72820D742419CD0B0003C770 /* GLDTagViewModel.m */; };
+		72820D7C2419CD0B0003C770 /* GLDTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72820D782419CD0B0003C770 /* GLDTagModel.m */; };
+		72820D822419DECE0003C770 /* HLCreatThemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72820D7E2419DECD0003C770 /* HLCreatThemeView.m */; };
+		72820D832419DECE0003C770 /* GLDTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72820D802419DECE0003C770 /* GLDTagListView.m */; };
 		72970CDE23CC53F900BAD088 /* tts_一7.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72970CD523CC53F800BAD088 /* tts_一7.caf */; };
 		72970CDF23CC53F900BAD088 /* tts_一2.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72970CD623CC53F800BAD088 /* tts_一2.caf */; };
 		72970CE023CC53F900BAD088 /* tts_一9.caf in Resources */ = {isa = PBXBuildFile; fileRef = 72970CD723CC53F800BAD088 /* tts_一9.caf */; };
@@ -1059,6 +1065,18 @@
 		725C26DE23C9DEC500B6658B /* tts_default.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = tts_default.caf; sourceTree = "<group>"; };
 		726078282359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+GLD_AdaptLayout.h"; sourceTree = "<group>"; };
 		726078292359FD41005AAE29 /* NSLayoutConstraint+GLD_AdaptLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+GLD_AdaptLayout.m"; sourceTree = "<group>"; };
+		72820D6E241942EA0003C770 /* GLD_GoodsCateController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLD_GoodsCateController.h; sourceTree = "<group>"; };
+		72820D6F241942EA0003C770 /* GLD_GoodsCateController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLD_GoodsCateController.m; sourceTree = "<group>"; };
+		72820D722419CD0B0003C770 /* GLDTagModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDTagModel.h; sourceTree = "<group>"; };
+		72820D732419CD0B0003C770 /* GLDTagItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDTagItemCell.m; sourceTree = "<group>"; };
+		72820D742419CD0B0003C770 /* GLDTagViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDTagViewModel.m; sourceTree = "<group>"; };
+		72820D762419CD0B0003C770 /* GLDTagViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDTagViewModel.h; sourceTree = "<group>"; };
+		72820D772419CD0B0003C770 /* GLDTagItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDTagItemCell.h; sourceTree = "<group>"; };
+		72820D782419CD0B0003C770 /* GLDTagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDTagModel.m; sourceTree = "<group>"; };
+		72820D7E2419DECD0003C770 /* HLCreatThemeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLCreatThemeView.m; sourceTree = "<group>"; };
+		72820D7F2419DECE0003C770 /* HLCreatThemeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLCreatThemeView.h; sourceTree = "<group>"; };
+		72820D802419DECE0003C770 /* GLDTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLDTagListView.m; sourceTree = "<group>"; };
+		72820D812419DECE0003C770 /* GLDTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLDTagListView.h; sourceTree = "<group>"; };
 		72970CD523CC53F800BAD088 /* tts_一7.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_一7.caf"; sourceTree = "<group>"; };
 		72970CD623CC53F800BAD088 /* tts_一2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_一2.caf"; sourceTree = "<group>"; };
 		72970CD723CC53F800BAD088 /* tts_一9.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tts_一9.caf"; sourceTree = "<group>"; };
@@ -1316,6 +1334,7 @@
 		0F28D2891FD671B100138A8B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				72820D712419CD0B0003C770 /* tag */,
 				0F28D28A1FD671F000138A8B /* GLD_MineSettingCell.h */,
 				0F28D28B1FD671F000138A8B /* GLD_MineSettingCell.m */,
 				0F28D28D1FD6751A00138A8B /* GLD_MinePersonalCell.h */,
@@ -2148,6 +2167,8 @@
 				0F5445E6210877BB009FAE8E /* GLD_InvitMemberController.m */,
 				721EE4ED23FADCB900575666 /* GLD_OrderDetailController.h */,
 				721EE4EE23FADCB900575666 /* GLD_OrderDetailController.m */,
+				72820D6E241942EA0003C770 /* GLD_GoodsCateController.h */,
+				72820D6F241942EA0003C770 /* GLD_GoodsCateController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2416,6 +2437,23 @@
 				725C26DE23C9DEC500B6658B /* tts_default.caf */,
 			);
 			path = voice;
+			sourceTree = "<group>";
+		};
+		72820D712419CD0B0003C770 /* tag */ = {
+			isa = PBXGroup;
+			children = (
+				72820D812419DECE0003C770 /* GLDTagListView.h */,
+				72820D802419DECE0003C770 /* GLDTagListView.m */,
+				72820D7F2419DECE0003C770 /* HLCreatThemeView.h */,
+				72820D7E2419DECD0003C770 /* HLCreatThemeView.m */,
+				72820D722419CD0B0003C770 /* GLDTagModel.h */,
+				72820D782419CD0B0003C770 /* GLDTagModel.m */,
+				72820D772419CD0B0003C770 /* GLDTagItemCell.h */,
+				72820D732419CD0B0003C770 /* GLDTagItemCell.m */,
+				72820D762419CD0B0003C770 /* GLDTagViewModel.h */,
+				72820D742419CD0B0003C770 /* GLDTagViewModel.m */,
+			);
+			path = tag;
 			sourceTree = "<group>";
 		};
 		72CF1DB423CADABD00C0814C /* picBrowser */ = {
@@ -3124,6 +3162,7 @@
 				0F28D2AF1FD6ADDE00138A8B /* BRDatePickerView.m in Sources */,
 				0F5445E7210877BB009FAE8E /* GLD_InvitMemberController.m in Sources */,
 				0F71A5861FDE81AC00C66EED /* GLD_ApplyCompanyController.m in Sources */,
+				72820D822419DECE0003C770 /* HLCreatThemeView.m in Sources */,
 				0F32E8021FE26CE40042E8BE /* GLD_BannerDetailController.m in Sources */,
 				0F28D2991FD6799100138A8B /* UIView+SDAutoLayout.m in Sources */,
 				0F298E871FC2CFC200EDBA9A /* WTFont.m in Sources */,
@@ -3131,6 +3170,7 @@
 				0FB537391FC6D22A00B0EDA6 /* SGQRCodeScanningView.m in Sources */,
 				0F28D2B31FD6AEC500138A8B /* NSDate+BRAdd.m in Sources */,
 				72CF1DBD23CADABD00C0814C /* GLDPhotoItem.m in Sources */,
+				72820D7B2419CD0B0003C770 /* GLDTagViewModel.m in Sources */,
 				C9FA898A228FD0500066AFB8 /* UIBarButtonItem+Extension.m in Sources */,
 				0F382EFD1FDE7620006689FA /* GLD_ApplyCooperatController.m in Sources */,
 				33FD33AE2025607700725317 /* GLD_PayForBusiCell.m in Sources */,
@@ -3151,6 +3191,7 @@
 				0F6411841FD4EAB50069FDB1 /* GLD_CacheManager.m in Sources */,
 				330AAB411FF40ABF00523FF0 /* GLD_UserMessageModel.m in Sources */,
 				0F71A59B1FDFA97D00C66EED /* GLD_NewPhoneController.m in Sources */,
+				72820D7A2419CD0B0003C770 /* GLDTagItemCell.m in Sources */,
 				0FC3FCD320EB0E7E00A98F7E /* GLD_BusnessPayInfoController.m in Sources */,
 				0F71A5A21FDFBD4A00C66EED /* GLD_MyOrderController.m in Sources */,
 				0F5445FA210EB183009FAE8E /* GLD_StoreDetailModel.m in Sources */,
@@ -3202,6 +3243,7 @@
 				0F2C2F571FF62E330083BCCB /* GLD_BMessageCell.m in Sources */,
 				0F298E881FC2CFC200EDBA9A /* YXUniversal.m in Sources */,
 				0FB537091FC5887C00B0EDA6 /* LBFishViewController.m in Sources */,
+				72820D832419DECE0003C770 /* GLDTagListView.m in Sources */,
 				0F2C2F4D1FF62E330083BCCB /* GLD_CommentBottomView.m in Sources */,
 				0F2C2F561FF62E330083BCCB /* GLD_PictureCell.m in Sources */,
 				0F2C2F4F1FF62E330083BCCB /* GLD_ForumDetailController.m in Sources */,
@@ -3247,6 +3289,7 @@
 				C9ED06EB22815E6500D487BD /* CollectionCategoryModel.m in Sources */,
 				C93245B822869835000A2A29 /* SampleProject.xcdatamodeld in Sources */,
 				721EE4F323FADDDC00575666 /* GLD_OrderDetailCell.m in Sources */,
+				72820D7C2419CD0B0003C770 /* GLDTagModel.m in Sources */,
 				0F2C2F4E1FF62E330083BCCB /* GLD_AllDetailController.m in Sources */,
 				0F2C2F5E1FF62E330083BCCB /* GLD_PictureImg.m in Sources */,
 				0F2C2F521FF62E330083BCCB /* GLD_ForumNewsDetailModel.m in Sources */,
@@ -3271,6 +3314,7 @@
 				0F298E7B1FC2CFC200EDBA9A /* GLD_CarouselCell.m in Sources */,
 				0F71A5891FDE8B5300C66EED /* GLD_ApplyUnionController.m in Sources */,
 				0F99200C1FCEDEE800305DF3 /* YXFooterRefresh.m in Sources */,
+				72820D70241942EA0003C770 /* GLD_GoodsCateController.m in Sources */,
 				0F2C2F5F1FF62E330083BCCB /* GLD_KeyWordCell.m in Sources */,
 				72CF1DC623CADDE100C0814C /* CALayer+Extension.m in Sources */,
 			);
@@ -3453,7 +3497,7 @@
 				CODE_SIGN_ENTITLEMENTS = lingzhi/lingzhi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3470,7 +3514,7 @@
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/WeChat",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/Weibo",
 				);
-				MARKETING_VERSION = 4.3;
+				MARKETING_VERSION = 4.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3487,7 +3531,7 @@
 				CODE_SIGN_ENTITLEMENTS = lingzhi/lingzhi.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3504,7 +3548,7 @@
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/WeChat",
 					"$(PROJECT_DIR)/lingzhi/ShareSDK/Weibo",
 				);
-				MARKETING_VERSION = 4.3;
+				MARKETING_VERSION = 4.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3579,7 +3623,7 @@
 				CODE_SIGN_ENTITLEMENTS = notificationExten/notificationExten.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3589,7 +3633,7 @@
 				INFOPLIST_FILE = notificationExten/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 4.3;
+				MARKETING_VERSION = 4.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng.notificationExten;
@@ -3609,7 +3653,7 @@
 				CODE_SIGN_ENTITLEMENTS = notificationExten/notificationExten.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CW3B6PTZCK;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3619,7 +3663,7 @@
 				INFOPLIST_FILE = notificationExten/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				MARKETING_VERSION = 4.3;
+				MARKETING_VERSION = 4.5;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhlmcn.huihuilinmeng.notificationExten;
 				PRODUCT_NAME = "$(TARGET_NAME)";

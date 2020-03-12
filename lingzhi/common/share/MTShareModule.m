@@ -9,6 +9,7 @@
 #import "MTShareModule.h"
 #import "WXApiObject.h"
 #import "AppDelegate.h"
+#import "UIImageView+WebCache.h"
 
 //#import "UIImageView+YYWebImage.h"
 @interface MTShareModule ()
@@ -16,6 +17,7 @@
 @property (nonatomic, strong) TencentOAuth *tencentOAuth;
 @property (nonatomic, strong) NSMutableArray* permissions;
 @property (nonatomic, assign) QQShareToPlatformType platformType;
+@property (nonatomic, strong)UIImageView *shareImgV;
 @end
 
 @implementation MTShareModule
@@ -36,7 +38,12 @@
 {
     return [WXApi isWXAppInstalled];
 }
-
+- (UIImageView *)shareImgV{
+    if (_shareImgV == nil) {
+        _shareImgV = [UIImageView new];
+    }
+    return _shareImgV;
+}
 #pragma mark - 短信分享
 - (void)shareSMS
 {
@@ -305,21 +312,29 @@
     {
         message.description = self.str_shareDetailText;
     }
-    [self setMessage:message andImage:nil];
+    
+    [self.shareImgV sd_setImageWithURL:[NSURL URLWithString:self.str_shareImage] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+          if (image) {
+              [self setMessage:message andImage:image];
+          }else{
+              [self setMessage:message andImage:[UIImage imageNamed:@"WechatIMG43"]];
+          }
+      }];
 }
 
 - (void)setMessage:(WXMediaMessage *)message andImage:(UIImage *)image
 {
-    [message setThumbImage:[UIImage imageNamed:@"share_logo"]];
+    UIImage *img = [self imageWithImage:image scaledToSize:CGSizeMake(80, 80)];
+    [message setThumbImage:img];
     WXWebpageObject *ext = [WXWebpageObject object];
     ext.webpageUrl = self.str_shareUrl;
     message.mediaObject = ext;
-
+    
     SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
     req.bText = NO;
     req.message = message;
     req.scene = self.wechatShareScene;
-
+    
     [WXApi sendReq:req];
 }
 
@@ -698,4 +713,5 @@
 - (void)onReq:(BaseReq *)req {
     
 }
+
 @end

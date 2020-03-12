@@ -257,8 +257,7 @@ static OCPublicEngine *sInstance = nil;
     shareView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
     [shareView setShareViewWithType:type shareText:tagStr shareUrl:tagUrl withDelegate:delegate shareDetail:detailText shareImage:shareImgae];
     [shareView setLabelTitleSring:title];
-#warning
-//    [[AppDelegate shareDelegate].window addSubview:shareView];
+    [[AppDelegate shareDelegate].window addSubview:shareView];
 
     [UIView animateWithDuration:0.3 animations:^{
         shareView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];

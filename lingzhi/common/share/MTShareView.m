@@ -36,9 +36,9 @@
     
     
     self.label_title.frame = CGRectMake(0, 20, DEVICE_WIDTH, 20);
-    self.button_wechat.frame = CGRectMake(0, 50, W(60), H(60));
+    self.button_wechat.frame = CGRectMake(0, 50, (60), (60));
     self.button_wechat.center = CGPointMake(DEVICE_WIDTH/2 - 75, self.button_wechat.center.y);
-    self.button_wechat_friend.frame = CGRectMake(0, 50, W(60), H(60));
+    self.button_wechat_friend.frame = CGRectMake(0, 50, (60), (60));
     self.button_wechat_friend.center = CGPointMake(DEVICE_WIDTH/2 + 75, self.button_wechat_friend.center.y);
     
     self.weixin_title.frame = CGRectMake(0, 120, 60, 20);

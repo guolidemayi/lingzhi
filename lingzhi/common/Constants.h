@@ -121,6 +121,7 @@
 #define COLOR_YX_cutePinkColor          @"#FFE9E9"
 #define COLOR_YX_blackLabelColor        @"#888888"
 #define COLOR_YX_blueLabelColor         @"#017BF8"
+#define THEM_LightBgYellow      @"#FFF9F3"
 
 
 //string

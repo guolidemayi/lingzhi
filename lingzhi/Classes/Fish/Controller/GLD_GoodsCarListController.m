@@ -169,6 +169,7 @@
     NSString *toUserId ;
     NSMutableArray *arrM = [NSMutableArray array];
     CGFloat money = 0;
+    CGFloat amount = 0;
     for (GLD_StoreDetailModel *model in self.dataArrM) {
         toUserId = model.userId;
         if (model.count > 0) {
@@ -178,6 +179,7 @@
                                     @"prize":model.price
             };
             money += (model.price.floatValue * MAX(model.count.integerValue, 1));
+            amount += ((model.price.floatValue - model.coupon.floatValue) * MAX(model.count.integerValue, 1));
             [arrM addObject:dict];
         }
     }
@@ -185,7 +187,7 @@
     GLD_APIConfiguration *config = [[GLD_APIConfiguration alloc]init];
     config.requestType = gld_networkRequestTypePOST;
     config.urlPath = wxPayGoodsRequest;
-    config.requestParameters = @{@"amount":@(money),
+    config.requestParameters = @{@"amount":@(amount),
                                  @"fromUserId":GetString([AppDelegate shareDelegate].userModel.userId),
                                  @"payType":GetString(self.payType),
                                  @"address":GetString(self.address),
